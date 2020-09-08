@@ -6,14 +6,14 @@ Over time, employers need to refresh authentication information. This can happen
 
 ## Query `/introspect`
 
-**Example Request**
+**Example request**
 ```curl
 curl https://api.tryfinch.com/v1.0/introspect \
 -H "Authorization: Bearer {token}"
 -X "GET"
 ```
 
-**Example Response**
+**Example response**
 ```json
 [
   {

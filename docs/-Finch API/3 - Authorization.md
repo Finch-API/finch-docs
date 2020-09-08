@@ -110,7 +110,7 @@ Parameter | Description
 `access_token` | A string representing an access token used to make requests to the Finch API. The access token has does not expire, so please store it securely in your database.
 
 
-**Example Response**
+**Example response**
 
 ```json
 {

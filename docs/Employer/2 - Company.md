@@ -10,7 +10,7 @@
 
 ## Request
 
-**Example Request**
+**Example request**
 
 ```shell
 curl https://api.tryfinch.com/v1.0/employer/company \
@@ -22,7 +22,7 @@ curl https://api.tryfinch.com/v1.0/employer/company \
 
 ## Response
 
-**Example Response**
+**Example response**
 
 ```json
 {
@@ -53,7 +53,7 @@ curl https://api.tryfinch.com/v1.0/employer/company \
 }
 ```
 
-**Response Body**
+**Response body**
 
 Name | Type | Description
 -----|------|-------------
