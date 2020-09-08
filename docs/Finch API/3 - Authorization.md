@@ -57,6 +57,7 @@ There are two parts to this step. First, the user will be asked to select their 
 Connect sends the end user’s approval or denial back to your application’s server via the specified redirect URI.
 
 **Success**
+
 If the user grants your application access, the redirect to your application will contain the following query parameters.
 
 ```http
