@@ -6,6 +6,10 @@
 
 **Product**: `directory`
 
+***
+
+## Request
+
 **Example Request**
 
 ```shell
@@ -20,6 +24,10 @@ Parameter | Type | Required | Description
 ----------|------|----------|------------0
 `limit` | `integer` | false | Number of employees to return (default/max: 10).
 `offset` | `integer` | false | Index to start from. (default: 0)
+
+***
+
+## Response
 
 **Example Response**
 

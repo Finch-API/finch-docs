@@ -6,6 +6,10 @@
 
 **Product**: `individual`
 
+***
+
+## Request
+
 **Example Request**
 
 ```shell
@@ -21,6 +25,10 @@ curl https://api.tryfinch.com/v1.0/employer/individual \
 Parameter | Type | Required | Description
 ----------|------|----------|-------------
 `individual_ids[]` | `array` | true | Array of individual ids.
+
+***
+
+## Response
 
 **Example Response**
 

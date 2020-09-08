@@ -14,6 +14,8 @@ Protocol | Format | Examples
  HTTP | A localhost URI with protocol `http://` | `http://localhost:8000`
  HTTPS | A URI with protocol `https://` | `https://myapplication.com`
 
+***
+
 ## Finch Connect
 
 Finch Connect provides a secure and elegant authorization flow for your users. By going through Connect, your users can easily and securely grant your application permissions to interact with their payroll account.
@@ -69,6 +71,8 @@ code=90abecb6-e7ab-4b85-864a-e1c8bf67f2ad
 Parameter | Required | Description
 ---------|----------|---------
  `code` | true | An authorization code that will be used to obtain an access token in the following step. The authorization code expires after 10 minutes.
+
+***
 
 ## Auth code exchange
 

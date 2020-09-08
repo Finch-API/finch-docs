@@ -6,6 +6,7 @@ Finch makes it easy to read payroll data and push payroll changes across payroll
 
 All requests made to our API require an access token. Our API provides a granular permissioning system that authorizes individual products based on end-user consent. Applications can quickly authorize and interact with payroll providers through the Finch API
 
+***
 
 ## Registration
 
