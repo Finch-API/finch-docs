@@ -2,7 +2,7 @@
 
 **Info**: Read employee data, excluding income and employment data
 
-**URL**: `POST https://api.tryfinch.com/v1.0/employer/directory`
+**URL**: `POST https://api.tryfinch.com/v1.0/employer/individual`
 
 **Product**: `individual`
 
