@@ -20,7 +20,7 @@ Error | Status | Description
 ------|--------|--------------
 `invalid_grant_error` | 400 | The authorization code is invalid.
 `invalid_token_error` | 401 | The `access_token` is incorrect.
-`authentication_error` | 401 | The `access_token` requires re-authentication.
+`authentication_error` | 401 | The payroll and HR system indicated that the admin's password or MFA information has changed. They will need to [reauthenticate via Finch Connect](./4-Reauthentication.md).
 `invalid_client_error` | 401 | The provided application credentials were incorrect
 `unauthorized_request_error` | 401 | The application does not have access to this product.
 `insufficient_scope_error` | 403 | The application credentials have insufficient permissions to access the requested product.
