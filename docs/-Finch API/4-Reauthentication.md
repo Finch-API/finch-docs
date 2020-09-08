@@ -15,17 +15,15 @@ curl https://api.tryfinch.com/v1.0/introspect \
 
 **Example response**
 ```json
-[
-  {
-    "client_id": "25ea8bd8-f76b-41f9-96e3-1e6162021c50",
-    "products": [
-      "company",
-      "directory"
-    ],
-    "username": "SKETKAR@SMADDEN",
-    "payroll_provider_id": "gusto"
-  }
-]
+{
+  "client_id": "25ea8bd8-f76b-41f9-96e3-1e6162021c50",
+  "products": [
+    "company",
+    "directory"
+  ],
+  "username": "SKETKAR@SMADDEN",
+  "payroll_provider_id": "gusto"
+}
 ```
 
 ***
