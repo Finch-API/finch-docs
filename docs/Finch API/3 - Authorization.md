@@ -1,4 +1,4 @@
-## Authorization
+# Authorization
 
 Authorization allows applications to authorize and interact with payroll and HRIS providers using the Finch API.
 
@@ -14,7 +14,7 @@ Protocol | Format | Examples
  HTTP | A localhost URI with protocol `http://` | `http://localhost:8000`
  HTTPS | A URI with protocol `https://` | `https://myapplication.com`
 
-### Finch Connect
+## Finch Connect
 
 Finch Connect provides a secure and elegant authorization flow for your users. By going through Connect, your users can easily and securely grant your application permissions to interact with their payroll account.
 
