@@ -72,5 +72,45 @@ Parameter | Required | Description
 
 ## Auth code exchange
 
+To interact with the Finch API, you will need to exchange your authorization code for an access token. The authorization code represents a user’s consent, but cannot be used to make requests to a payroll provider. Instead, it must be exchanged for an access token.
 
+**Request**
+
+The following headers must be provided to the request.
+
+Header | Description
+-------|--------------
+`Authorization` | [HTTP Basic Auth header](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side) containing the `client_id` and `client_secret`. The header is formed by concatenating the word “Basic”, followed by a space, and a base64 encoded string of the `client_id`, a colon `:`, and the `client_secret`.
+`Content_Type` | Must be set to `application/x-www-form-urlencoded`, matching the format of the request body.
+
+The following parameters must be provided in the request body encoded in form-urlencoded format—
+
+Parameter | Required | Description
+----------|----------|-------------
+`code` | true | The authorization code received in the handle response step.
+
+**Example request**
+
+```curl
+curl https://api.tryfinch.com/auth/token \
+  -X POST \
+  -H 'Authorization: Basic base64({client_id}:{client_secret})' \
+  -d 'code=35a59c0b-745c-436c-a8a2-7758e718dcb8' \
+  -d 'redirect_uri=https://example.com/home'
+```
+
+**Response**
+
+Parameter | Description
+----------|-------------
+`access_token` | A string representing an access token used to make requests to the Finch API. The access token has does not expire, so please store it securely in your database.
+
+
+**Example Response**
+
+```json
+{
+  "access_token": "cf7ba7e9-8c5d-417d-a99f-c386cfc235cc",
+}
+```
 
