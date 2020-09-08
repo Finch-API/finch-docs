@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 
 Welcome to Finch! Below you'll find everything you need to get started with Finch. If you have any questions, please email us [jeremy@tryfinch.com](mailto:jeremy@tryfinch.com) or text us at [(407) 741-3626](tel:4077413626)!
 
