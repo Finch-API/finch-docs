@@ -2,14 +2,12 @@ openapi: 3.0.0
 info:
   title: test
   version: '1.0'
-  description: dfasdfsdfas
+  description: ''
   contact:
-    name: asdf
     url: sdfsadf
     email: sadfasf
-  termsOfService: asdfasf
 servers:
-  - url: 'http://localhost:3000'
+  - {}
 paths: {}
 components:
   schemas: {}
