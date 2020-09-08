@@ -5,10 +5,3 @@ Welcome to Finch! Below you'll find everything you need to get started with Finc
 Finch makes it easy to read payroll data and push payroll changes across payroll providers using HTTP requests. We use built-in HTTP features like HTTP verbs and HTTP authentication so you can use any HTTP client. All responses are returned in standard JSON and are documented here.
 
 All requests made to our API require an access token. Our API provides a granular permissioning system that authorizes individual products based on end-user consent. Applications can quickly authorize and interact with payroll providers through the Finch API
-
-# SDKs
-
-### Frontend SDKs
-- [React SDK](https://github.com/Finch-API/react-finch-connect)
-
-### Backend SDKs
