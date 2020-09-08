@@ -11,12 +11,13 @@ All Finch errors contain the following fields-
 
 Name | Type | Description
 -----|------|------------
-`error` | `string` | A string describing the error type
+`code` | `integer` | The status code of the request
+`name` | `string` | A string describing the error type
 `message` | `string` | A message explaining the error
 
 **Error types**
 
-Error | Status | Description
+Name | Code | Description
 ------|--------|--------------
 `invalid_grant_error` | 400 | The authorization code is invalid.
 `invalid_token_error` | 401 | The `access_token` is incorrect.
