@@ -8,7 +8,7 @@
 
 **Example Request**
 
-```curl
+```shell
 curl https://api.tryfinch.com/v1.0/employer/individual \
 -H "Authorization: Bearer {token}" \
 -X "POST" \

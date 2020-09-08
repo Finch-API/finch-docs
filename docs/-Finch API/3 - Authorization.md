@@ -91,7 +91,7 @@ Parameter | Required | Description
 
 **Example request**
 
-```curl
+```shell
 curl https://api.tryfinch.com/auth/token \
   -X POST \
   -H 'Authorization: Basic base64({client_id}:{client_secret})' \

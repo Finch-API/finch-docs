@@ -8,7 +8,7 @@
 
 **Example Request**
 
-```curl
+```shell
 curl https://api.tryfinch.com/v1.0/employer/directory \
 -H "Authorization: Bearer {token}" \
 -X "GET"
