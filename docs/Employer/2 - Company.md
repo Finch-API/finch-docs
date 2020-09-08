@@ -6,7 +6,7 @@
 
 **Product**: `company`
 
-**Response body**
+**Response Body**
 
 Name | Type | Description
 -----|------|-------------
@@ -31,7 +31,7 @@ Name | Type | Description
 `bank_accounts[].account_type` | `string` | The type of bank account. Options: `checking` and `savings`.
 `bank_accounts[].account_number` | `string` | 10-12 digit number to specify the bank account
 
-**Example request**
+**Example Request**
 
 ```curl
 curl https://api.tryfinch.com/v1.0/employer/company \
@@ -39,7 +39,7 @@ curl https://api.tryfinch.com/v1.0/employer/company \
 -X "GET"
 ```
 
-**Example response**
+**Example Response**
 
 ```json
 {
