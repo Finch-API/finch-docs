@@ -70,4 +70,7 @@ Parameter | Required | Description
 ---------|----------|---------
  `code` | true | An authorization code that will be used to obtain an access token in the following step. The authorization code expires after 10 minutes.
 
+## Auth code exchange
+
+
 
