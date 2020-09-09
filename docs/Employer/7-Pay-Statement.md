@@ -64,6 +64,7 @@ curl https://api.tryfinch.com/v1.0/employer/payment-statement \
               {
                 "type": "401k",
                 "name": "401k Salary",
+                "employer": false,
                 "amount": 0,
                 "currency": "usd"
               }
@@ -72,6 +73,7 @@ curl https://api.tryfinch.com/v1.0/employer/payment-statement \
               {
                 "type": "state",
                 "name": "State Withholding - OR",
+                "employer": true,
                 "amount": 0,
                 "currency": "usd"
               }
@@ -102,4 +104,8 @@ Name | Type | Description
 `pay_statements[].gross_pay` | `object` | The money object for the gross pay amount.
 `pay_statements[].net_pay` | `object` | The money object for the net pay amount.
 `pay_statements[].earnings` | `array` | The array of earnings objects associated with this pay statement.
-`pay_statements[].earnings[].type` | `string` | The type of earning. Options: `regular`, `overtime`, `double_overtime`, `pto`, `sick`, `bonus`, `commission`, `paycheck_tips`, `1099` and `other`. 
+`pay_statements[].earnings[].type` | `string` | The type of earning. Options: `regular`, `reimbursement`, `overtime`, `double_overtime`, `pto`, `sick`, `bonus`, `commission`, `tips`, `1099` and `other`. 
+`pay_statements[].earnings[].name` | `string` | The exact name of the line item from the pay statement.
+`pay_statements[].earnings[].amount` | `integer` | The earnings amount in cents.
+`pay_statements[].earnings[].currency` | `string ` | The earnings currency code.
+`deductions [].deductions[].type` | `string` | The type of deduction. Options: `medical`, `vision`, `dental`, `401k`, `403b`, `457`, `roth_401k`, `roth_403b`, `roth_457`, `fsa_medical`, `fsa_dependent_care`, `hsa`, `simple_ira`, `commuter_transit`, `commuter_parking`, `short_disability`, `long_disability`, `life`, `student_loan`, and `other`.
