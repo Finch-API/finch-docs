@@ -82,8 +82,3 @@ Name | Type | Description
 `individuals[].income.unit` | `string` | The income unit of payment. Options: `yearly`, `monthly`, `hourly`, and `fixed`.
 `individuals[].income.amount` | `string` | The income amount in cents.
 `individuals[].income.currency` | `string` | The currency code.
-
-
-
-
-The employment type of the individual. Options: `full_time`, `part_time`, `contractor`, and `intern`.
