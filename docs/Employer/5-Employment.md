@@ -66,4 +66,9 @@ Name | Type | Description
 
 `individuals` | `array` | An array of the responses.
 `individuals[].id` | `string` | A stable Finch `id` (UUID v4) for an individual in the company.
-`individuals[].title` | `string` 
+`individuals[].title` | `string` | The current title of the employee.
+`individuals[].manager` | `object` | The manager object representing the manager of the individual within the org.
+`individuals[].manager.id` | `string` |  A stable Finch `id` (UUID v4) for an individual in the company.
+`individuals[].department` | `object` | The department object.
+`individuals[].department.name` | `string` | The name of the department associated with the individual.
+`individuals[].type` | `string` | The employment type of the individual. Options: `full_time`, `part_time`, `contractor`, and `intern`.
