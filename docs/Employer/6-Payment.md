@@ -13,7 +13,7 @@
 **Example request**
 
 ```shell
-curl https://api.tryfinch.com/v1.0/employer/payments?start_date=2019-08-01&end_date=2019-08-15 \
+curl https://api.tryfinch.com/v1.0/employer/payment?start_date=2019-08-01&end_date=2019-08-15 \
 -H "Authorization: Bearer {token}" \
 -X "GET"
 ```
@@ -85,7 +85,7 @@ Name | Type | Description
 `[].pay_period` | `string` | The pay period object.
 `[].pay_period.start_date` | `string` | The start date for the pay period corresponding with this payment.
 `[].pay_period.end_date` | `string` | The end date for the pay period corresponding with this payment.
-`[].pay_date` | `string` | The date at which employees will be paid for this payment.
+`[].pay_date` | `string` | The date at which individual will be paid for this payment.
 `[].debit_date` | `string` | The date the company is debited for this payment.
 `[].company_debit` | `object` | The money object for the total company debit for the payment.
 `[].reimbursements` | `object` | The money object for the total reimbursements for the payment.
