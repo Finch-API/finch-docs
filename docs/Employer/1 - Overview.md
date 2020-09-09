@@ -1,4 +1,4 @@
-# Employer
+# Overview
 
 Employer products are specified by the `product` parameter, a space-separated list of products that your application is requesting access to during Finch Connect. Valid product names are—
 * `company`: Read basic company data
