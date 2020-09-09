@@ -44,11 +44,13 @@ Parameter | Type | Required | Description
       "department": {
         "name": "Product"
       },
-      "type": "full_time",
+      "employment": {
+        "type": "employee",
+        "subtype": "full_time",
+      },
       "start_date": "2019-03-01",
       "termination_date": null,
       "is_active": true,
-      "filingStatus": "single",
       "income": {
         "unit": "yearly",
         "amount": 10000000,
@@ -63,7 +65,6 @@ Parameter | Type | Required | Description
 
 Name | Type | Description
 -----|------|--------------
-
 `individuals` | `array` | An array of the responses.
 `individuals[].id` | `string` | A stable Finch `id` (UUID v4) for an individual in the company.
 `individuals[].title` | `string` | The current title of the employee.
@@ -71,4 +72,18 @@ Name | Type | Description
 `individuals[].manager.id` | `string` |  A stable Finch `id` (UUID v4) for an individual in the company.
 `individuals[].department` | `object` | The department object.
 `individuals[].department.name` | `string` | The name of the department associated with the individual.
-`individuals[].type` | `string` | The employment type of the individual. Options: `full_time`, `part_time`, `contractor`, and `intern`.
+`individuals[].employment` | `object` | The employment object.
+`individuals[].employment.type` | `string` | The main employment type of the individual. Options: `employee` and `contractor`.
+`individuals[].employment.sub_type` | `string` | The secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, and `contractor`.
+`individuals[].start_date` | `string` | The start date of an individual. ISO 8601 format.
+`individuals[].termination_date` | `string` | The termination date of an individual. ISO 8601 format.
+`individuals[].is_active` | `string` | `true` if the individual an an active employee or contractor at the company.
+`individuals[].income` | `object` | The income object.
+`individuals[].income.unit` | `string` | The income unit of payment. Options: `yearly`, `monthly`, `hourly`, and `fixed`.
+`individuals[].income.amount` | `string` | The income amount in cents.
+`individuals[].income.currency` | `string` | The currency code.
+
+
+
+
+The employment type of the individual. Options: `full_time`, `part_time`, `contractor`, and `intern`.
