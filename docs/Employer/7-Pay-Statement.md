@@ -104,7 +104,7 @@ Name | Type | Description
 `pay_statements[].gross_pay` | `object` | The money object for the gross pay amount.
 `pay_statements[].net_pay` | `object` | The money object for the net pay amount.
 `pay_statements[].earnings` | `array` | The array of earnings objects associated with this pay statement.
-`pay_statements[].earnings[].type` | `string` | The type of earning. Options: `regular`, `reimbursement`, `overtime`, `double_overtime`, `pto`, `sick`, `bonus`, `commission`, `tips`, `1099` and `other`. 
+`pay_statements[].earnings[].type` | `string` | The type of earning. Options: `salary`, `wage`, `reimbursement`, `overtime`, `double_overtime`, `pto`, `sick`, `bonus`, `commission`, `tips`, `1099` and `other`. 
 `pay_statements[].earnings[].name` | `string` | The exact name of the deduction from the pay statement.
 `pay_statements[].earnings[].amount` | `integer` | The earnings amount in cents.
 `pay_statements[].earnings[].currency` | `string ` | The earnings currency code.
