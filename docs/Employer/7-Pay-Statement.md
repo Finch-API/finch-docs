@@ -105,7 +105,18 @@ Name | Type | Description
 `pay_statements[].net_pay` | `object` | The money object for the net pay amount.
 `pay_statements[].earnings` | `array` | The array of earnings objects associated with this pay statement.
 `pay_statements[].earnings[].type` | `string` | The type of earning. Options: `regular`, `reimbursement`, `overtime`, `double_overtime`, `pto`, `sick`, `bonus`, `commission`, `tips`, `1099` and `other`. 
-`pay_statements[].earnings[].name` | `string` | The exact name of the line item from the pay statement.
+`pay_statements[].earnings[].name` | `string` | The exact name of the deduction from the pay statement.
 `pay_statements[].earnings[].amount` | `integer` | The earnings amount in cents.
 `pay_statements[].earnings[].currency` | `string ` | The earnings currency code.
-`deductions [].deductions[].type` | `string` | The type of deduction. Options: `medical`, `vision`, `dental`, `401k`, `403b`, `457`, `roth_401k`, `roth_403b`, `roth_457`, `fsa_medical`, `fsa_dependent_care`, `hsa`, `simple_ira`, `commuter_transit`, `commuter_parking`, `short_disability`, `long_disability`, `life`, `student_loan`, and `other`.
+`pay_statements[].deductions` | `array` | The array of deductions objects associated with this pay statement.
+`pay_statements[].deductions[].type` | `string` | The type of deduction. Options: `medical`, `vision`, `dental`, `401k`, `403b`, `457`, `roth_401k`, `roth_403b`, `roth_457`, `fsa_medical`, `fsa_dependent_care`, `hsa`, `simple_ira`, `commuter_transit`, `commuter_parking`, `short_disability`, `long_disability`, `life`, `student_loan`, and `other`.
+`pay_statements[].deductions[].name` | `string` | The exact name of deduction from the pay statement.
+`pay_statements[].deductions[].employer` | `boolean` | `true` if the amount is paid by the employers.
+`pay_statements[].deductions[].amount` | `integer` | The deductions amount in cents.
+`pay_statements[].deductions[].currency` | `string` | The deductions currency code.
+`pay_statements[].taxes` | `array` | The array of taxes objects associated with this pay statement.
+`pay_statements[].taxes[].type` | `string` | The type of taxes. Options: `state`, `federal`, `local`, `medicare`, and `fica`.
+`pay_statements[].taxes[].name` | `string` | The exact name of tax from the pay statement.
+`pay_statements[].taxes[].employer` | `boolean` | `true` if the amount is paid by the employers.
+`pay_statements[].taxes[].amount` | `integer` | The deductions amount in cents.
+`pay_statements[].taxes[].currency` | `string` | The deductions currency code.
