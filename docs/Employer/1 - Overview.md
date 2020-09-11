@@ -6,4 +6,4 @@ Employer products are specified by the `product` parameter, a space-separated li
 * `individual`: Read employee data, excluding income and employment data
 * `employment`: Read employee employment and income data
 * `payment`: Read payroll and contractor related payments by the company
-* `pay-statement`: Read detailed pay statements for each employee
+* `pay_statement`: Read detailed pay statements for each employee

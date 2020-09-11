@@ -4,7 +4,7 @@
 
 **URL**: `GET https://api.tryfinch.com/v1.0/employer/payment-statement`
 
-**Product**: `pay-statement`
+**Product**: `pay_statement`
 
 ***
 
