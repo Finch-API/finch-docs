@@ -39,5 +39,5 @@ Name | Type | Description
 -----|------|-------------
 `client_id` | `string` | The client id of the application associated with the `access_token`.
 `products` | `array` | An array of the authorized products associated with the `access_token`.
-`username` | `string` | The account username associated with the `access_token`
+`username` | `string` | The account username used for login associated with the `access_token`
 `payroll_provider_id` | `string` | The payroll provider associated with the `access_token`

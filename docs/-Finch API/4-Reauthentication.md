@@ -4,7 +4,7 @@ Over time, employers need to refresh authentication information. This can happen
 
 ***
 
-## Query `/introspect`
+## `/introspect`
 
 **Example request**
 ```curl
@@ -18,8 +18,8 @@ curl https://api.tryfinch.com/v1.0/introspect \
 {
   "client_id": "25ea8bd8-f76b-41f9-96e3-1e6162021c50",
   "products": [
-    "company",
-    "directory"
+    "employer:company",
+    "employer:directory"
   ],
   "username": "jeremyzhang",
   "payroll_provider_id": "gusto"
@@ -33,4 +33,4 @@ curl https://api.tryfinch.com/v1.0/introspect \
 After determining the `payroll_provider` associated with the `access_token`, you can follow the authorization process to reauthenticate an admin and to retrieve and store the new `access_token`.
 
 1. [Redirect to Connect](https://developer.tryfinch.com/docs/reference/docs/-Finch%20API/3%20-%20Authorization.md#auth-code-exchange) with the specified `payroll_provider`
-2. [Exchange the `auth_code`](https://developer.tryfinch.com/docs/reference/docs/-Finch%20API/3%20-%20Authorization.md#auth-code-exchange) and store the `access_token`
+2. [Exchange the `auth_code`](https://developer.tryfinch.com/docs/reference/docs/-Finch%20API/3%20-%20Authorization.md#auth-code-exchange) and store the new `access_token`
