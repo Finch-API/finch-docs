@@ -54,7 +54,7 @@ curl https://api.tryfinch.com/v1.0/employer/payment-statement \
             },
             "earnings": [
               {
-                "type": "xyz",
+                "type": "salary",
                 "name": "Salary",
                 "amount": 1000,
                 "currency": "usd"
@@ -104,7 +104,7 @@ Name | Type | Description
 `pay_statements[].gross_pay` | `object` | The money object for the gross pay amount.
 `pay_statements[].net_pay` | `object` | The money object for the net pay amount.
 `pay_statements[].earnings` | `array` | The array of earnings objects associated with this pay statement.
-`pay_statements[].earnings[].type` | `string` | The type of earning. Options: `salary`, `wage`, `reimbursement`, `overtime`, `double_overtime`, `pto`, `sick`, `bonus`, `commission`, `tips`, `1099` and `other`. 
+`pay_statements[].earnings[].type` | `string` | The type of earning. Options: `salary`, `wage`, `reimbursement`, `overtime`, `severance`, `double_overtime`, `pto`, `sick`, `bonus`, `commission`, `tips`, `1099` and `other`. 
 `pay_statements[].earnings[].name` | `string` | The exact name of the deduction from the pay statement.
 `pay_statements[].earnings[].amount` | `integer` | The earnings amount in cents.
 `pay_statements[].earnings[].currency` | `string ` | The earnings currency code.
@@ -115,7 +115,7 @@ Name | Type | Description
 `pay_statements[].deductions[].amount` | `integer` | The deductions amount in cents.
 `pay_statements[].deductions[].currency` | `string` | The deductions currency code.
 `pay_statements[].taxes` | `array` | The array of taxes objects associated with this pay statement.
-`pay_statements[].taxes[].type` | `string` | The type of taxes. Options: `state`, `federal`, `local`, `medicare`, and `fica`.
+`pay_statements[].taxes[].type` | `string` | The type of taxes. Options: `state`, `federal`, `local` and `fica`.
 `pay_statements[].taxes[].name` | `string` | The exact name of tax from the pay statement.
 `pay_statements[].taxes[].employer` | `boolean` | `true` if the amount is paid by the employers.
 `pay_statements[].taxes[].amount` | `integer` | The deductions amount in cents.
