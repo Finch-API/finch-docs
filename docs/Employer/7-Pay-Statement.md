@@ -15,7 +15,9 @@
 ```shell
 curl https://api.tryfinch.com/v1.0/employer/pay-statement \
 -H "Authorization: Bearer {token}" \
--X "GET"
+-X "POST" \
+-H "Content-Type: application/json" \
+-d '{"requests": [{ "payment_id": "fc8b024e-d373-4c9c-80fc-f1625383d142"]}'
 ```
 
 ## Response
