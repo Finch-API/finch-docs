@@ -2,7 +2,7 @@
 
 **Info**: Read detailed pay statements for each employee.
 
-**URL**: `GET https://api.tryfinch.com/v1.0/employer/payment-statement`
+**URL**: `GET https://api.tryfinch.com/v1.0/employer/pay-statement`
 
 **Product**: `pay_statement`
 
@@ -13,7 +13,7 @@
 **Example request**
 
 ```shell
-curl https://api.tryfinch.com/v1.0/employer/payment-statement \
+curl https://api.tryfinch.com/v1.0/employer/pay-statement \
 -H "Authorization: Bearer {token}" \
 -X "GET"
 ```
