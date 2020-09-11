@@ -21,7 +21,7 @@ curl https://api.tryfinch.com/v1.0/introspect \
     "company",
     "directory"
   ],
-  "username": "SKETKAR@SMADDEN",
+  "username": "jeremyzhang",
   "payroll_provider_id": "gusto"
 }
 ```
