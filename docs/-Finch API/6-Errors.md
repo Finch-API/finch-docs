@@ -21,9 +21,11 @@ Name | Code | Description
 ------|--------|--------------
 `invalid_grant_error` | 400 | The authorization code is invalid.
 `invalid_token_error` | 401 | The `access_token` is incorrect.
+`invalid_request_error` | 401 | The request does not match the docs. Example: the request missing a query parameter.
 `authentication_error` | 401 | The payroll and HR system indicated that the admin's password or MFA information has changed. They will need to [reauthenticate via Finch Connect](./4-Reauthentication.md).
 `invalid_client_error` | 401 | The provided application credentials were incorrect
-`unauthorized_request_error` | 401 | The application does not have access to this product.
+`unauthorized_request_error` | 401 | The `access_token` is missing from the header.
+`invalid_client_error` | 401 | The application does not have access to this product.
 `insufficient_scope_error` | 403 | The application credentials have insufficient permissions to access the requested product.
 `resource_not_found_error` | 404 | The requested resource does not exist.
 `server_error` | 500 | The server experienced an unexpected error.
