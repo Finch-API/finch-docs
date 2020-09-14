@@ -28,7 +28,7 @@ curl https://api.tryfinch.com/v1.0/employer/company \
 {
   "id": "514aa2b7-898f-4ce7-bc05-c2fe993713e8",
   "legal_name": "Stark Industries, Inc.",
-  "entity_type": "C-Corporation",
+  "entity_type": "c_corporation",
   "ein": "12-3456789",
   "logo": "https://www.example.com/logo400x400.png",
   "primary_email": "payroll@starkindustries.com",
