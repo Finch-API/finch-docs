@@ -28,7 +28,10 @@ curl https://api.tryfinch.com/v1.0/employer/company \
 {
   "id": "514aa2b7-898f-4ce7-bc05-c2fe993713e8",
   "legal_name": "Stark Industries, Inc.",
-  "entity_type": "c_corporation",
+  "entity": {
+    "type": "corporation",
+    "subtype": "s_corporation"
+  }
   "ein": "12-3456789",
   "logo": "https://www.example.com/logo400x400.png",
   "primary_email": "payroll@starkindustries.com",
@@ -59,7 +62,9 @@ Name | Type | Description
 -----|------|-------------
 `id` | `string` | A stable Finch `id` (UUID v4) for the company.
 `legal_name` | `string` | The legal name of the company.
-`entity_type` | `string` | The tax payer type of the company. Options: `llc`, `s_corporation`, `c_corporation`, `b_corporation`, `sole_proprietor`, `non_profit`, `partnership`, and `cooperative`.
+`entity` | `object` | The entity type object.
+`entity.type` | `string` | The tax payer type of the company. Options: `llc`, `corporation`, `sole_proprietor`, `non_profit`, `partnership`, and `cooperative`.
+`entity.subtype` | `string` | The tax payer subtype of the company. Options: `s_corporation`, `c_corporation`, and `b_corporation`.
 `primary_email` | `string` | The email of the main administrator on the account.
 `primary_phone_number` | `string` | The phone number of the main administrator on the account. Format: `XXXXXXXXXX`
 `ein` | `string` | The employer identification number.
