@@ -1,6 +1,6 @@
 # Employment
 
-**Info**: Read employee employment and income data
+**Info**: Read individual employment and income data
 
 **URL**: `POST https://api.tryfinch.com/v1.0/employer/employment`
 
@@ -79,7 +79,7 @@ Parameter | Type | Required | Description
 Name | Type | Description
 -----|------|--------------
 `id` | `string` | A stable Finch `id` (UUID v4) for an individual in the company.
-`title` | `string` | The current title of the employee.
+`title` | `string` | The current title of the individual.
 `manager` | `object` | The manager object representing the manager of the individual within the org.
 `manager.id` | `string` |  A stable Finch `id` (UUID v4) for an individual in the company.
 `department` | `object` | The department object.
