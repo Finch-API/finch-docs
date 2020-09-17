@@ -100,7 +100,7 @@ curl https://api.tryfinch.com/auth/token \
   -X POST \
   -H 'Authorization: Basic base64({client_id}:{client_secret})' \
   -d 'code=35a59c0b-745c-436c-a8a2-7758e718dcb8' \
-  -d 'redirect_uri=https://example.com/home'
+  -d 'redirect_uri=https://tryfinch.com'
 ```
 
 **Response**
