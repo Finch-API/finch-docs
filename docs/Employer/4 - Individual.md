@@ -46,7 +46,7 @@ Parameter | Type | Required | Description
         "last_name": "Zhang",
         "business": {
           "legal_name": "Smartcar Inc.",
-          "ein": "xx-xxxxxx"
+          "ein": "21-465732"
         },
         "photo": "https://s3-us-west-2.amazonaws.com/com.rippling.images/4728f747-53e8-4505-8373-a35abc9696ab",
         "emails": [
@@ -61,23 +61,14 @@ Parameter | Type | Required | Description
         ],
         "phone_number": [
           {
-            "data": "4077413626",
-            "type": "mobile"
+            "data": "4077313626",
+            "type": "personal"
           }
         ],
         "dob": "1995-08-15",
-        "is_active": true,
         "residence": {
           "line1": "628 Allentown Ave",
           "line2": "Apt C",
-          "city": "Palo Alto",
-          "state": "CA",
-          "postal_code": "94301",
-          "country": "US"
-        },
-        "work_location": {
-          "line1": "200 Forham Ave",
-          "line2": null,
           "city": "Palo Alto",
           "state": "CA",
           "postal_code": "94301",
@@ -108,7 +99,6 @@ Name | Type | Description
 `phone_numbers[].data` |  `string` | The phone number associated with the email type. Format: `XXXXXXXXXX`
 `phone_numbers[].type` | `string` | Indicates the type of phone number. Options: `work`, `personal`.
 `dob` | `string` | The birthday of the individual. ISO 8601 format.
-`is_active` | `boolean` | `true` if the individual is an active employee or contractor at the company.
 `residence` | `object` | The residence object.
 `residence.line1` | `string` | Street address or PO box.
 `residence.line2` | `string` | Apartment, suite, unit, or building.
@@ -116,9 +106,3 @@ Name | Type | Description
 `residence.state` | `string` | 2-digit state code
 `residence.postal_code` | `string` | 5-digit postal code or zip code
 `residence.country` | `string` | The name of the country
-`work_location` | `object` | The work location object.
-`work_location.line1` | `string` | Street address or PO box.
-`work_location.line2` | `string` | Apartment, suite, unit, or building.
-`work_location.city` | `string` | City, district, suburb, town, or village
-`work_location.state` | `string` | 2-digit state code
-`work_location.postal_code` | `string` | 5-digit postal code or zip code

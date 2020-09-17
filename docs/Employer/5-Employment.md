@@ -53,8 +53,16 @@ Parameter | Type | Required | Description
           "subtype": "full_time"
         },
         "start_date": "2019-03-01",
-        "termination_date": null,
+        "end_date": null,
         "is_active": true,
+        "location": {
+          "line1": "200 Forham Ave",
+          "line2": null,
+          "city": "Palo Alto",
+          "state": "CA",
+          "postal_code": "94301",
+          "country": "US"
+        },
         "income": {
           "unit": "yearly",
           "amount": 10000000,
@@ -78,10 +86,16 @@ Name | Type | Description
 `department.name` | `string` | The name of the department associated with the individual.
 `employment` | `object` | The employment object.
 `employment.type` | `string` | The main employment type of the individual. Options: `employee` and `contractor`.
-`employment.sub_type` | `string` | The secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, and `contractor`.
+`employment.sub_type` | `string` | The secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, and `individual_contractor`.
 `start_date` | `string` | The start date of an individual. ISO 8601 format.
-`termination_date` | `string` | The termination date of an individual. ISO 8601 format.
+`end_date` | `string` | The end date of an individual. ISO 8601 format.
 `is_active` | `string` | `true` if the individual an an active employee or contractor at the company.
+`location` | `object` | The work location object.
+`location.line1` | `string` | Street address or PO box.
+`location.line2` | `string` | Apartment, suite, unit, or building.
+`location.city` | `string` | City, district, suburb, town, or village
+`location.state` | `string` | 2-digit state code
+`location.postal_code` | `string` | 5-digit postal code or zip code
 `income` | `object` | The income object.
 `income.unit` | `string` | The income unit of payment. Options: `yearly`, `monthly`, `hourly`, and `fixed`.
 `income.amount` | `string` | The income amount in cents.
