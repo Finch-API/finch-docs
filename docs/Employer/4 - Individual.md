@@ -44,10 +44,6 @@ Parameter | Type | Required | Description
         "first_name": "Jeremy",
         "middle_name": null,
         "last_name": "Zhang",
-        "business": {
-          "legal_name": "Smartcar Inc.",
-          "ein": "21-465732"
-        },
         "emails": [
           {
             "data": "jeremy@tryfinch.com",
