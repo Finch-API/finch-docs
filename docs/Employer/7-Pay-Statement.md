@@ -1,6 +1,6 @@
 # Pay Statement
 
-**Info**: Read detailed pay statements for each employee.
+**Info**: Read detailed pay statements for each individual.
 
 **URL**: `GET https://api.tryfinch.com/v1.0/employer/pay-statement`
 
