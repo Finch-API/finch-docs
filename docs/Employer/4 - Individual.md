@@ -48,7 +48,6 @@ Parameter | Type | Required | Description
           "legal_name": "Smartcar Inc.",
           "ein": "21-465732"
         },
-        "photo": "https://s3-us-west-2.amazonaws.com/com.rippling.images/4728f747-53e8-4505-8373-a35abc9696ab",
         "emails": [
           {
             "data": "jeremy@tryfinch.com",
@@ -91,7 +90,6 @@ Name | Type | Description
 `business` | `object` | The legal entity associated with the individual.
 `business.legal_name` | `string` | The legal name of the company.
 `business.ein` | `string` | The employer identification number.
-`photo` | `string` | URL to the profile picture of the individual.
 `emails` | `array` | An array of email objects.
 `emails[].data` | `string` | The email address associated with the email type.
 `emails[].type` | `string` | Indicates the type of email. Options: `work`, `personal`.

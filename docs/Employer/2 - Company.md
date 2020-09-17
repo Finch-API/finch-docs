@@ -33,7 +33,6 @@ curl https://api.tryfinch.com/v1.0/employer/company \
     "subtype": "s_corporation"
   }
   "ein": "12-3456789",
-  "logo": "https://www.example.com/logo400x400.png",
   "primary_email": "payroll@starkindustries.com",
   "primary_phone_number": "4155555555",
   "locations": [
@@ -68,7 +67,6 @@ Name | Type | Description
 `primary_email` | `string` | The email of the main administrator on the account.
 `primary_phone_number` | `string` | The phone number of the main administrator on the account. Format: `XXXXXXXXXX`
 `ein` | `string` | The employer identification number.
-`logo` | `string` | The picture logo of the company.
 `locations` | `array` | The array of company locations.
 `locations[].line1` | `string` | Street address or PO box.
 `locations[].line2` | `string` | Apartment, suite, unit, or building.
