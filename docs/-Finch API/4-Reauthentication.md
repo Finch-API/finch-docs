@@ -28,7 +28,7 @@ curl https://api.tryfinch.com/v1.0/introspect \
 
 ***
 
-## Finch Connect reauthenticate
+## Finch Connect reauthentication
 
 After determining the `payroll_provider` associated with the `access_token`, you can follow the authorization process to reauthenticate an admin and to retrieve and store the new `access_token`.
 
