@@ -4,7 +4,7 @@ We periodically release new, dated versions of the API whenever we make breaking
 
 **We consider the following changes backwards compatible**
 - Adding new API endpoints
-- Adding new options parameters to existing endpoints
+- Adding new optional parameters to existing endpoints
 - Adding new data elements to existing responses
 - Adding new `error`
 
