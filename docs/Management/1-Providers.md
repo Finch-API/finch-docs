@@ -2,15 +2,14 @@
 
 **Info**: Return details on all payroll and HR systems.
 
-**URL**: `GET https://api.tryfinch.com/v1.0/providers`
+**URL**: `GET https://api.tryfinch.com/providers`
 
 ## Request
 
 **Example request**
 
 ```shell
-curl https://api.tryfinch.com/v1.0/providers \
--H "Finch-Version: 2020-09-17" \
+curl https://api.tryfinch.com/providers \
 -X "GET"
 ```
 

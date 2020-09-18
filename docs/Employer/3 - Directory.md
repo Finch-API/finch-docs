@@ -2,7 +2,7 @@
 
 **Info**: Read company directory and organization structure
 
-**URL**: `GET https://api.tryfinch.com/v1.0/employer/directory`
+**URL**: `GET https://api.tryfinch.com/employer/directory`
 
 **Product**: `directory`
 
@@ -13,7 +13,7 @@
 **Example request**
 
 ```shell
-curl https://api.tryfinch.com/v1.0/employer/directory \
+curl https://api.tryfinch.com/employer/directory \
 -H "Authorization: Bearer {token}" \
 -H "Finch-Version: 2020-09-17" \
 -X "GET"

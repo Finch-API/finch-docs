@@ -2,7 +2,7 @@
 
 **Info**: Read payroll and contractor related payments by the company.
 
-**URL**: `GET https://api.tryfinch.com/v1.0/employer/payment`
+**URL**: `GET https://api.tryfinch.com/employer/payment`
 
 **Product**: `payment`
 
@@ -13,7 +13,7 @@
 **Example request**
 
 ```shell
-curl https://api.tryfinch.com/v1.0/employer/payment?start_date=2019-08-01&end_date=2019-08-15 \
+curl https://api.tryfinch.com/employer/payment?start_date=2019-08-01&end_date=2019-08-15 \
 -H "Authorization: Bearer {token}" \
 -H "Finch-Version: 2020-09-17" \
 -X "GET"

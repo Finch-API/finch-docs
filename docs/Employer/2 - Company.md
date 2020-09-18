@@ -2,7 +2,7 @@
 
 **Info**: Read basic company data
 
-**URL**: `GET https://api.tryfinch.com/v1.0/employer/company`
+**URL**: `GET https://api.tryfinch.com/employer/company`
 
 **Product**: `company`
 
@@ -13,7 +13,7 @@
 **Example request**
 
 ```shell
-curl https://api.tryfinch.com/v1.0/employer/company \
+curl https://api.tryfinch.com/employer/company \
 -H "Authorization: Bearer {token}" \
 -H "Finch-Version: 2020-09-17" \
 -X "GET"

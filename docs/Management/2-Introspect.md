@@ -2,7 +2,7 @@
 
 **Info**: Read account information associated with an `access_token`.
 
-**URL**: `GET https://api.tryfinch.com/v1.0/instrospect`
+**URL**: `GET https://api.tryfinch.com/instrospect`
 
 ***
 
@@ -11,9 +11,8 @@
 **Example request**
 
 ```shell
-curl https://api.tryfinch.com/v1.0/introspect \
--H "Authorization: Bearer {token}" \
--H "Finch-Version: 2020-09-17" \
+curl https://api.tryfinch.com/introspect \
+-H "Authorization: Bearer {token}"
 -X "GET"
 ```
 

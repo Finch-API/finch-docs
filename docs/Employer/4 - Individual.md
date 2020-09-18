@@ -2,7 +2,7 @@
 
 **Info**: Read individual data, excluding income and employment data
 
-**URL**: `POST https://api.tryfinch.com/v1.0/employer/individual`
+**URL**: `POST https://api.tryfinch.com/employer/individual`
 
 **Product**: `individual`
 
@@ -13,7 +13,7 @@
 **Example request**
 
 ```shell
-curl https://api.tryfinch.com/v1.0/employer/individual \
+curl https://api.tryfinch.com/employer/individual \
 -H "Authorization: Bearer {token}" \
 -H "Finch-Version: 2020-09-17" \
 -X "POST" \
