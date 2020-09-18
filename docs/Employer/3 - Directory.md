@@ -15,6 +15,7 @@
 ```shell
 curl https://api.tryfinch.com/v1.0/employer/directory \
 -H "Authorization: Bearer {token}" \
+-H "Finch-Version: 2020-09-17" \
 -X "GET"
 ```
 

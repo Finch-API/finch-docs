@@ -15,6 +15,7 @@
 ```shell
 curl https://api.tryfinch.com/v1.0/employer/company \
 -H "Authorization: Bearer {token}" \
+-H "Finch-Version: 2020-09-17" \
 -X "GET"
 ```
 
@@ -46,11 +47,11 @@ curl https://api.tryfinch.com/v1.0/employer/company \
     }
   ],
   "bank_accounts": [{
-    "routing_number": "122101706",
-    "account_name": "Aamir",
+    "routing_number": "122104726",
+    "account_name": "CHECKING ACCOUNT",
     "institution_name": "BANK OF AMERICA, N.A.",
     "account_type": "checking",
-    "account_number": "19879919"
+    "account_number": "39472919"
   }]
 }
 ```

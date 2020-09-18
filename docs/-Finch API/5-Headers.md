@@ -11,6 +11,7 @@ Finch uses HTTP request headers for authorization and configuration of API respo
 Header | Description
 -------|-------------
 `Authorization` | Bearer authorization header, which is formed by concatenating the word “Bearer” with the access token, separated by a space.
+`Finch-Version` | Header used to specify the version for a given API request. Current version is **2020-09-17**.
 
 ***
 

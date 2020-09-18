@@ -15,6 +15,7 @@
 ```shell
 curl https://api.tryfinch.com/v1.0/employer/payment?start_date=2019-08-01&end_date=2019-08-15 \
 -H "Authorization: Bearer {token}" \
+-H "Finch-Version: 2020-09-17" \
 -X "GET"
 ```
 
