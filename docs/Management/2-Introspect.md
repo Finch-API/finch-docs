@@ -12,7 +12,8 @@
 
 ```shell
 curl https://api.tryfinch.com/v1.0/introspect \
--H "Authorization: Bearer {token}"
+-H "Authorization: Bearer {token}" \
+-H "Finch-Version: 2020-09-17" \
 -X "GET"
 ```
 
