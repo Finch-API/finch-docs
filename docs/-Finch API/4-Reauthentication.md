@@ -18,8 +18,8 @@ curl https://api.tryfinch.com/v1.0/introspect \
 {
   "client_id": "25ea8bd8-f76b-41f9-96e3-1e6162021c50",
   "products": [
-    "employer:company",
-    "employer:directory"
+    "company",
+    "directory"
   ],
   "username": "jeremyzhang",
   "payroll_provider_id": "gusto"
