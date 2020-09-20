@@ -8,7 +8,8 @@ Over time, employers need to refresh authentication information. This can happen
 
 **Example request**
 ```curl
-curl https://api.tryfinch.com/v1.0/introspect \
+curl https://api.tryfinch.com/introspect \
+-H "Finch-API-Version: 2020-09-17" \
 -H "Authorization: Bearer {token}"
 -X "GET"
 ```

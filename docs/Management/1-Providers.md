@@ -10,6 +10,7 @@
 
 ```shell
 curl https://api.tryfinch.com/providers \
+-H "Finch-API-Version: 2020-09-17" \
 -X "GET"
 ```
 

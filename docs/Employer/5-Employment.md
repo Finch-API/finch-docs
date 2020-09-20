@@ -15,7 +15,7 @@
 ```shell
 curl https://api.tryfinch.com/employer/employment \
 -H "Authorization: Bearer {token}" \
--H "Finch-Version: 2020-09-17" \
+-H "Finch-API-Version: 2020-09-17" \
 -X "POST" \
 -H "Content-Type: application/json" \
 -d '{"requests": [{ "individual_id": "f3ddb1f4-dfa4-4e1d-bfed-bdfd0645b613"]}'
