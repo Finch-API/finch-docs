@@ -10,4 +10,4 @@ We periodically release new, dated versions of the API whenever we make breaking
 
 Our current version is **2020-09-17**
 
-The [`Finch-Version` header](./5-Headers.md) must be set for every single request to our API.
+The [`Finch-API-Version` header](./5-Headers.md) must be set for every single request to our API.
