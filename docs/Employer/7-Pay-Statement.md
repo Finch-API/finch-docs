@@ -21,6 +21,13 @@ curl https://api.tryfinch.com/employer/pay-statement \
 -d '{"requests": [{ "payment_id": "fc8b024e-d373-4c9c-80fc-f1625383d142"]}'
 ```
 
+**Request body parameters**
+
+Parameter | Type | Required | Description
+----------|------|----------|-------------
+`requests` | `array` | true | The array of batch requests. Max 50 batch requests.
+`requests[].payment_id` | `array` | true | A stable Finch `id` (UUID v4) for a payment.
+
 ## Response
 
 **Example request**

@@ -23,7 +23,7 @@ curl https://api.tryfinch.com/employer/directory \
 
 Parameter | Type | Required | Description
 ----------|------|----------|------------
-`limit` | `integer` | false | Number of employees to return (default/max: 10).
+`limit` | `integer` | false | Number of employees to return (default/max: 50).
 `offset` | `integer` | false | Index to start from. (default: 0)
 
 ***
