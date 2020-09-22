@@ -2,7 +2,7 @@
 
 **Info**: Read detailed pay statements for each individual.
 
-**URL**: `GET https://api.tryfinch.com/employer/pay-statement`
+**URL**: `POST https://api.tryfinch.com/employer/pay-statement`
 
 **Product**: `pay_statement`
 
