@@ -1,7 +1,7 @@
 # Disconnect
 
 
-**Info**: Disconnect an employer from your application and invalidate all `access_token`s associated with the employer. We require pplications to implement the Disconnect endpoint for billing and security purposes.
+**Info**: Disconnect an employer from your application and invalidate all `access_token`s associated with the employer. We require applications to implement the Disconnect endpoint for billing and security purposes.
 
 **URL**: `POST https://api.tryfinch.com/disconnect`
 
