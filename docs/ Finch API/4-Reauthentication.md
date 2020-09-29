@@ -33,5 +33,5 @@ curl https://api.tryfinch.com/introspect \
 
 After determining the `payroll_provider` associated with the `access_token`, you can follow the authorization process to reauthenticate an admin and to retrieve and store the new `access_token`.
 
-1. [Redirect to Connect](https://developer.tryfinch.com/docs/reference/docs/-Finch%20API/3%20-%20Authorization.md#auth-code-exchange) with the specified `payroll_provider`
-2. [Exchange the `auth_code`](https://developer.tryfinch.com/docs/reference/docs/-Finch%20API/3%20-%20Authorization.md#auth-code-exchange) and store the new `access_token`
+1. [Redirect to Connect](https://developer.tryfinch.com/docs/reference/docs/%20Finch%20API/3%20-%20Authorization.md#auth-code-exchange) with the specified `payroll_provider`
+2. [Exchange the `auth_code`](https://developer.tryfinch.com/docs/reference/docs/%20Finch%20API/3%20-%20Authorization.md#auth-code-exchange) and store the new `access_token`
