@@ -39,7 +39,7 @@ Parameter | Required | Description
  `client_id` | true | The application’s unique identifier.
  `redirect_uri` | true | The URI a user will be redirected to after authorization. This value must match one of the redirect URIs set on the dashboard.
  `product` | true | A space-separated list of products that your application is requesting access to.
- `payroll_provider` | false | An optional parameter that allows users to bypass the provider selection screen. Compatible payrolls are: `rippling`, `gusto`, `justworks`, and `quickbooks`.
+ `payroll_provider` | false | An optional parameter that allows users to bypass the provider selection screen. Compatible payrolls are: `rippling`, `zenefits`, `gusto`, `justworks`, and `quickbooks`.
 
 **Example**
 
