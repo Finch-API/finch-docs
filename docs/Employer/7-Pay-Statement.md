@@ -46,11 +46,6 @@ Parameter | Type | Required | Description
         "pay_statements": [
           {
             "individual_id": "be7b048c-a6f3-4194-a017-2f537d4f3565",
-            "pay_period": {
-              "start_date": "2020-06-20",
-              "end_date": "2020-06-30"
-            },
-            "pay_date": "2020-06-30",
             "type": "regular_payroll",
             "payment_method": "check",
             "total_hours": 80
@@ -105,10 +100,6 @@ Name | Type | Description
 `paging.offset` | `integer` | The current start index of the returned list of elements.
 `pay_statements` | `array` | The array of pay statements for the current payment.
 `pay_statements[].individual_id` | `string` | A stable Finch `id` (UUID v4) for an individual in the company.
-`pay_statements[].pay_period` | `string` | The pay period object.
-`pay_statements[].pay_period.start_date` | `string` | The start date for the pay period corresponding with this payment.
-`pay_statements[].pay_period.end_date` | `string` | The end date for the pay period corresponding with this payment.
-`pay_statements[].pay_date` | `string` | The date at which individual will be paid for this payment.
 `pay_statements[].type` | `string` | The type of the payment associated with the pay statement. Options: `regular_payroll`, `off_cycle_payroll`, or `one_time_payment`.
 `pay_statements[].payment_method` | `string` | The payment method. Options: `check` and `direct_deposit`.
 `pay_statements[].gross_pay` | `object` | The money object for the gross pay amount.
