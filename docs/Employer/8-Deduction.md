@@ -35,7 +35,7 @@ Parameter | Type | Required | Description
 **Example response**
 ```json
 {
-    "id": "20aa7cf2-949d-4d4e-9c01-499b59501ded",
+    "deduction_id": "20aa7cf2-949d-4d4e-9c01-499b59501ded",
 }
 ```
 
@@ -43,7 +43,7 @@ Parameter | Type | Required | Description
 
 Parameter | Type | Description
 ----------|------|-------------
-`id` | `string` | A unique Finch `id` (UUID v4) for the deduction.
+`deduction_id` | `string` | A unique Finch `id` (UUID v4) for the deduction.
 
 ***
 
