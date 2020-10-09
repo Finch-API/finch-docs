@@ -18,9 +18,9 @@ curl https://api.tryfinch.com/employer/deduction/create \
 -H "Finch-API-Version: 2020-09-17" \
 -H "Content-Type: application/json" \
 -d '{
-    "type": "post_tax",
-    "frequency": "one_time",
-    "name": "One Time Post Tax Deduction"
+  "type": "post_tax",
+  "frequency": "one_time",
+  "name": "One Time Post Tax Deduction"
 }'
 ```
 
@@ -59,12 +59,12 @@ curl https://api.tryfinch.com/employer/deduction/run \
 -H "Finch-API-Version: 2020-09-17" \
 -H "Content-Type: application/json" \
 -d '{
-    "deduction_id": "<deduction_id",
-    "individual_id": "<individual_id>",
-    "amount": {
-       "type": "fixed",
-       "value": "1000",
-     },
+  "deduction_id": "<deduction_id",
+  "individual_id": "<individual_id>",
+  "amount": {
+    "type": "fixed",
+    "value": "1000",
+  },
 }'
 ```
 
