@@ -30,7 +30,7 @@ Parameter | Type | Required | Description
 
 ## Response
 
-**Example request**
+**Example response**
 
 ```json
 {
