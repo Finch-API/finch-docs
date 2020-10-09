@@ -12,12 +12,12 @@
 
 **Example request**
 ```shell
-curl 'https://api.tryfinch.com/employer/deduction/create' \
--X POST \
--H 'Authorization: Basic base64({client_id}:{client_secret})' \
--H 'Finch-API-Version: 2020-09-17' \
--H 'Content-Type: application/json' \
---data-raw '{
+curl https://api.tryfinch.com/employer/deduction/create \
+-X "POST" \
+-H "Authorization: Basic base64({client_id}:{client_secret})']" \
+-H "Finch-API-Version: 2020-09-17" \
+-H "Content-Type: application/json" \
+-d '{
     "type": "post_tax",
     "frequency": "one_time",
     "name": "One Time Post Tax Deduction"
@@ -53,12 +53,12 @@ Parameter | Type | Description
 
 **Example request**
 ```shell
-curl 'https://api.tryfinch.com/employer/deduction/run' \
--X POST \
--H 'Authorization: Bearer <token>' \
--H 'Finch-API-Version: 2020-09-17' \
--H 'Content-Type: application/json' \
---data-raw '{
+curl https://api.tryfinch.com/employer/deduction/run \
+-X "POST" \
+-H "Authorization: Bearer <token>" \
+-H "Finch-API-Version: 2020-09-17" \
+-H "Content-Type: application/json" \
+-d '{
     "deduction_id": "<deduction_id",
     "individual_id": "<individual_id>",
     "amount": {
