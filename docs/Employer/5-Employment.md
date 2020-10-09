@@ -18,7 +18,7 @@ curl https://api.tryfinch.com/employer/employment \
 -H "Finch-API-Version: 2020-09-17" \
 -X "POST" \
 -H "Content-Type: application/json" \
--d '{"requests": [{ "individual_id": "f3ddb1f4-dfa4-4e1d-bfed-bdfd0645b613"]}'
+-d '{"requests": [{ "individual_id": "f3ddb1f4-dfa4-4e1d-bfed-bdfd0645b613"}]}'
 ```
 
 **Request body parameters**
@@ -42,6 +42,9 @@ Parameter | Type | Required | Description
       "code": 200,
       "body": {
         "id": "5d0b10a1-a09a-430f-81f1-20be735dc5e9",
+        "first_name": "Jeremy",
+        "middle_name": null,
+        "last_name": "Zhang",
         "title": "Underwater Basket Weaver",
         "manager": {
           "id": "c205b3fa-b626-4346-bf0f-ca065ab88d31"
@@ -80,6 +83,9 @@ Parameter | Type | Required | Description
 Name | Type | Description
 -----|------|--------------
 `id` | `string` | A stable Finch `id` (UUID v4) for an individual in the company.
+`first_name` | `string` | The legal first name of the individual.
+`middle_name` | `string` | The legal middle name of the individual.
+`last_name` | `string` | The legal last name of the individual.
 `title` | `string` | The current title of the individual.
 `manager` | `object` | The manager object representing the manager of the individual within the org.
 `manager.id` | `string` |  A stable Finch `id` (UUID v4) for an individual in the company.

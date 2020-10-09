@@ -18,7 +18,7 @@ curl https://api.tryfinch.com/employer/pay-statement \
 -H "Finch-API-Version: 2020-09-17" \
 -X "POST" \
 -H "Content-Type: application/json" \
--d '{"requests": [{ "payment_id": "fc8b024e-d373-4c9c-80fc-f1625383d142"]}'
+-d '{"requests": [{ "payment_id": "fc8b024e-d373-4c9c-80fc-f1625383d142"}]}'
 ```
 
 **Request body parameters**
