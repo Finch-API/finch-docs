@@ -76,7 +76,7 @@ Parameter | Required | Description
 
 ## Auth code exchange
 
-To interact with the Finch API, you will need to exchange your authorization code for an access token. The authorization code represents a user’s consent, but cannot be used to make requests to a payroll provider. Instead, it must be exchanged for an access token.
+To interact with the Finch API, you will need to exchange your authorization code for an access token. The authorization code represents a user’s consent, but cannot be used to make requests to a payroll provider. Instead, it must be exchanged for an access token. This exchange must occur within 10 minutes of receiving the `code` since it expires in 10 minutes.
 
 **Request**
 
@@ -92,6 +92,7 @@ The following parameters must be provided in the request body encoded in form-ur
 Parameter | Required | Description
 ----------|----------|-------------
 `code` | true | The authorization code received in the handle response step.
+`redirect_uri` | false | Not required when using the React SDK, however, is required when using a custom `redirect_uri`.
 
 **Example request**
 
