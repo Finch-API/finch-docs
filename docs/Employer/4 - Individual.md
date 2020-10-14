@@ -63,7 +63,7 @@ Parameter | Type | Required | Description
         ],
         "dob": "1995-08-15",
         "residence": {
-          "line1": "628 Allentown Ave",
+          "line1": "628 Forest Ave",
           "line2": "Apt C",
           "city": "Palo Alto",
           "state": "CA",
