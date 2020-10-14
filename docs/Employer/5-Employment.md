@@ -60,7 +60,7 @@ Parameter | Type | Required | Description
         "end_date": null,
         "is_active": true,
         "location": {
-          "line1": "200 Forham Ave",
+          "line1": "628 Forest Ave",
           "line2": null,
           "city": "Palo Alto",
           "state": "CA",
