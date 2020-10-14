@@ -28,21 +28,21 @@ curl https://api.tryfinch.com/employer/company \
 ```json
 {
   "id": "514aa2b7-898f-4ce7-bc05-c2fe993713e8",
-  "legal_name": "Stark Industries, Inc.",
+  "legal_name": "Profound Platform, Inc.",
   "entity": {
     "type": "corporation",
     "subtype": "s_corporation"
   }
   "ein": "12-3456789",
-  "primary_email": "payroll@starkindustries.com",
-  "primary_phone_number": "4155555555",
+  "primary_email": "foundes@joinprofound.com",
+  "primary_phone_number": "1234567890",
   "locations": [
     {
-      "line1": "200 Park Ave",
-      "line2": null,
-      "city": "New York",
+      "line1": "628 Forest Ave",
+      "line2": "Apt A",
+      "city": "Palo Alto",
       "state": "NY",
-      "postal_code": "10166",
+      "postal_code": "94301",
       "country": "US"
     }
   ],
