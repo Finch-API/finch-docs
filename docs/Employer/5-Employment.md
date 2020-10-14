@@ -45,7 +45,7 @@ Parameter | Type | Required | Description
         "first_name": "Jeremy",
         "middle_name": null,
         "last_name": "Zhang",
-        "title": "Underwater Basket Weaver",
+        "title": "Customer Support",
         "manager": {
           "id": "c205b3fa-b626-4346-bf0f-ca065ab88d31"
         },
