@@ -55,12 +55,12 @@ Parameter | Type | Description
 ```shell
 curl https://api.tryfinch.com/employer/deduction/run \
 -X "POST" \
--H "Authorization: Bearer <token>" \
+-H "Authorization: Bearer {token}" \
 -H "Finch-API-Version: 2020-09-17" \
 -H "Content-Type: application/json" \
 -d '{
-  "deduction_id": "<deduction_id>",
-  "individual_id": "<individual_id>",
+  "deduction_id": "{deduction_id}",
+  "individual_id": "{individual_id}",
   "amount": {
     "type": "fixed",
     "value": "1000",
