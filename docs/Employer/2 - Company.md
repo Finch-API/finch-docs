@@ -36,6 +36,18 @@ curl https://api.tryfinch.com/employer/company \
   "ein": "12-3456789",
   "primary_email": "founders@joinprofound.com",
   "primary_phone_number": "1234567890",
+  "departments": [
+    {
+      "name": "Engineering",
+      "parent": null,
+    },
+    {
+      "name": "Platform",
+      "parent": {
+        "name": "Engineering",
+      },
+    },
+  ],
   "locations": [
     {
       "line1": "628 Forest Ave",
@@ -68,6 +80,10 @@ Name | Type | Description
 `primary_email` | `string` | The email of the main administrator on the account.
 `primary_phone_number` | `string` | The phone number of the main administrator on the account. Format: `XXXXXXXXXX`
 `ein` | `string` | The employer identification number.
+`departments` | `array` | The array of company departments.
+`departments[].name` | `string` | The department name.
+`departments[].parent` | `object` | The parent department, if present.
+`departments[].parent.name` | `string` | The parent department's name.
 `locations` | `array` | The array of company locations.
 `locations[].line1` | `string` | Street address or PO box.
 `locations[].line2` | `string` | Apartment, suite, unit, or building.
