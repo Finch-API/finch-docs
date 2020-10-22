@@ -35,7 +35,7 @@ Parameter | Type | Required | Description
 **Example response**
 ```json
 {
-    "deduction_id": "20aa7cf2-949d-4d4e-9c01-499b59501ded",
+  "deduction_id": "20aa7cf2-949d-4d4e-9c01-499b59501ded",
 }
 ```
 
