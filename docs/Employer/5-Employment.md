@@ -103,6 +103,7 @@ Name | Type | Description
 `location.city` | `string` | City, district, suburb, town, or village
 `location.state` | `string` | 2-digit state code
 `location.postal_code` | `string` | 5-digit postal code or zip code
+`location.country` | `string` | The name of the country
 `income` | `object` | The income object.
 `income.unit` | `string` | The income unit of payment. Options: `yearly`, `monthly`, `hourly`, and `fixed`.
 `income.amount` | `string` | The income amount in cents.
