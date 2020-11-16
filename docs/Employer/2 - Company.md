@@ -87,9 +87,9 @@ Name | Type | Description
 `locations` | `array` | The array of company locations.
 `locations[].line1` | `string` | Street address or PO box.
 `locations[].line2` | `string` | Apartment, suite, unit, or building.
-`locations[].city` | `string` | City, district, suburb, town, or village
-`locations[].state` | `string` | 2-digit state code
-`locations[].postal_code` | `string` | 5-digit postal code or zip code
+`locations[].city` | `string` | City, district, suburb, town, or village.
+`locations[].state` | `string` | The state  code.
+`locations[].postal_code` | `string` | The postal code or zip code.
 `locations[].country` | `string` | The 2-letter ISO 3166 country code.
 `bank_accounts[]` | `array` | An array of bank account objects associated with the payroll/HRIS system.
 `bank_accounts[].routing_number` | `string` | A nine-digit code that's based on the U.S. Bank location where your account was opened.
