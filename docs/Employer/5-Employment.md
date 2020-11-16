@@ -101,9 +101,9 @@ Name | Type | Description
 `location.line1` | `string` | Street address or PO box.
 `location.line2` | `string` | Apartment, suite, unit, or building.
 `location.city` | `string` | City, district, suburb, town, or village
-`location.state` | `string` | 2-digit state code
-`location.postal_code` | `string` | 5-digit postal code or zip code
-`location.country` | `string` | The name of the country
+`location.state` | `string` | The state code.
+`location.postal_code` | `string` | The postal or zip code.
+`location.country` | `string` | The 2-letter ISO 3166 country code.
 `income` | `object` | The income object.
 `income.unit` | `string` | The income unit of payment. Options: `yearly`, `monthly`, `hourly`, and `fixed`.
 `income.amount` | `string` | The income amount in cents.
