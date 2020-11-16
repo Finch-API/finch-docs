@@ -98,6 +98,6 @@ Name | Type | Description
 `residence.line1` | `string` | Street address or PO box.
 `residence.line2` | `string` | Apartment, suite, unit, or building.
 `residence.city` | `string` | City, district, suburb, town, or village
-`residence.state` | `string` | 2-digit state code
-`residence.postal_code` | `string` | 5-digit postal code or zip code
-`residence.country` | `string` | The name of the country
+`residence.state` | `string` | The state code
+`residence.postal_code` | `string` | The postal code or zip code
+`residence.country` | `string` | The 2-letter ISO 3166 country code.
