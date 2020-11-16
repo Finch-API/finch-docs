@@ -97,7 +97,7 @@ Name | Type | Description
 `residence` | `object` | The residence object.
 `residence.line1` | `string` | Street address or PO box.
 `residence.line2` | `string` | Apartment, suite, unit, or building.
-`residence.city` | `string` | City, district, suburb, town, or village
-`residence.state` | `string` | The state code
-`residence.postal_code` | `string` | The postal code or zip code
+`residence.city` | `string` | City, district, suburb, town, or village.
+`residence.state` | `string` | The state code.
+`residence.postal_code` | `string` | The postal code or zip code.
 `residence.country` | `string` | The 2-letter ISO 3166 country code.
