@@ -90,7 +90,7 @@ Name | Type | Description
 `locations[].city` | `string` | City, district, suburb, town, or village
 `locations[].state` | `string` | 2-digit state code
 `locations[].postal_code` | `string` | 5-digit postal code or zip code
-`locations[].country` | `string` | The name of the country
+`locations[].country` | `string` | The 2-letter ISO 3166 country code.
 `bank_accounts[]` | `array` | An array of bank account objects associated with the payroll/HRIS system.
 `bank_accounts[].routing_number` | `string` | A nine-digit code that's based on the U.S. Bank location where your account was opened.
 `bank_accounts[].account_name` | `string` | The name of the bank associated in the payroll/HRIS system.
