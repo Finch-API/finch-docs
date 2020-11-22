@@ -78,7 +78,7 @@ Parameter | Type | Required | Description
               {
                 "type": "state",
                 "name": "State Withholding - OR",
-                "employer": true,
+                "employer": false,
                 "amount": 0,
                 "currency": "usd"
               }
@@ -112,7 +112,7 @@ Name | Type | Description
 `pay_statements[].deductions` | `array` | The array of deductions objects associated with this pay statement.
 `pay_statements[].deductions[].type` | `string` | The type of deduction. Options: `medical`, `vision`, `dental`, `401k`, `403b`, `457`, `roth_401k`, `roth_403b`, `roth_457`, `fsa_medical`, `fsa_dependent_care`, `hsa`, `simple_ira`, `commuter_transit`, `commuter_parking`, `short_disability`, `long_disability`, `life`, `student_loan`, and `other`.
 `pay_statements[].deductions[].name` | `string` | The exact name of deduction from the pay statement.
-`pay_statements[].deductions[].employer` | `boolean` | `true` if the amount is paid by the employers.
+`pay_statements[].deductions[].employer` | `boolean` | `true` if the amount is contributed by the employers.
 `pay_statements[].deductions[].amount` | `integer` | The deductions amount in cents.
 `pay_statements[].deductions[].currency` | `string` | The deductions currency code.
 `pay_statements[].taxes` | `array` | The array of taxes objects associated with this pay statement.
