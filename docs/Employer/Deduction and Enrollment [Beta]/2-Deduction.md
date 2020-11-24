@@ -1,10 +1,10 @@
-## Deductions
+## Deduction
 
 **URL**: `https://api.tryfinch.com/employer/deduction`
 
 ***
 
-## Create Deductions
+## Create Deduction
 
 **Info**: Create company deductions
 
@@ -87,7 +87,7 @@ Parameter | Type | Description
 
 ***
 
-## Delete Deductions
+## Delete Deduction
 
 **Info**: Delete a company deductions
 
