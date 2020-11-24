@@ -1,4 +1,4 @@
-## Deduction
+# Deduction
 
 **URL**: `https://api.tryfinch.com/employer/deduction`
 
