@@ -55,7 +55,7 @@ Parameter | Type | Required | Description
             "type": "personal"
           }
         ],
-        "phone_number": [
+        "phone_numbers": [
           {
             "data": "4077313626",
             "type": "personal"
