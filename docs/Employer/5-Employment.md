@@ -25,7 +25,7 @@ curl https://api.tryfinch.com/employer/employment \
 
 Parameter | Type | Required | Description
 ----------|------|----------|-------------
-`requests` | `array` | true | The array of batch requests. Max 50 batch requests.
+`requests` | `array` | true | The array of batch requests.
 `requests[].individual_ids` | `array` | true | A stable Finch `id` (UUID v4) for an individual in the company.
 
 ***
