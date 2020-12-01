@@ -54,14 +54,14 @@ Parameter | Type | Required | Description
               "currency": "usd"
             },
             "net_pay": {
-              "amount": 150000,
+              "amount": 180000,
               "currency": "usd"
             },
             "earnings": [
               {
                 "type": "salary",
                 "name": "Salary",
-                "amount": 1000,
+                "amount": 230000,
                 "currency": "usd"
               }
             ],
@@ -70,7 +70,7 @@ Parameter | Type | Required | Description
                 "type": "401k",
                 "name": "401k Salary",
                 "employer": false,
-                "amount": 0,
+                "amount": 50000,
                 "currency": "usd"
               }
             ],
