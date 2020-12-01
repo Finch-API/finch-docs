@@ -25,8 +25,10 @@ curl https://api.tryfinch.com/employer/pay-statement \
 
 Parameter | Type | Required | Description
 ----------|------|----------|-------------
-`requests` | `array` | true | The array of batch requests. Max 50 batch requests.
+`requests` | `array` | true | The array of batch requests.
 `requests[].payment_id` | `array` | true | A stable Finch `id` (UUID v4) for a payment.
+`requests[].limit` | `integer` | false | Number of pay statements to return (defaults to all).
+`requests[].offset` | `integer` | false | Index to start from (defaults to 0).
 
 ## Response
 
