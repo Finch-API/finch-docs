@@ -1,18 +1,14 @@
 # Deduction
 
-**URL**: `https://api.tryfinch.com/employer/deduction`
-
-***
-
 ## Create Deduction
 
-**Info**: Create company deductions
+**Info**: Configure company-wide deductions
 
-#### Request
+### Request
 
 **Example request**
 ```shell
-curl https://api.tryfinch.com/employer/deduction \
+curl https://api.tryfinch.com/employer/company/deduction/create \
 -X "POST" \
 -H "Authorization: Bearer {token}" \
 -H "Finch-API-Version: 2020-09-17" \
@@ -29,10 +25,10 @@ curl https://api.tryfinch.com/employer/deduction \
 Parameter | Type | Required | Description
 ----------|------|----------|-------------
 `name` | `string` | true | The name or short description of the deduction.
-`type` | `string` | true | The type of deduction. Options: `post_tax`, `medical_pre_tax`, `vision_pre_tax`, `dental_pre_tax`, `hsa_pre_tax`, `fsa_pre_tax`, `fsa_dependent_pre_tax`, `roth_401k_pre_tax`, `401k_pre_tax`, `403b_pre_tax`, and `457_pre_tax`.
+`type` | `string` | true | The type of deduction. Options: `post_tax`, `401k_pre_tax`.
 `frequency` | `string` | true | The frequency to run this deduction with. Options: `one_time` (run on the next pay run) and `recurring` (run on every pay run).
 
-#### Response
+### Response
 
 **Example response**
 ```json
@@ -49,22 +45,22 @@ Parameter | Type | Description
 
 ***
 
-## Get Deductions
+## List Deductions
 
-**Info**: Get all company deductions
+**Info**: List configured company-wide deductions
 
-#### Request
+### Request
 
 **Example request**
 ```shell
-curl https://api.tryfinch.com/employer/deduction \
--X "GET" \
+curl https://api.tryfinch.com/employer/company/deduction/list \
+-X "POST" \
 -H "Authorization: Bearer {token}" \
 -H "Finch-API-Version: 2020-09-17" \
 -H "Content-Type: application/json"
 ```
 
-#### Response
+### Response
 
 **Example response**
 ```json
@@ -82,49 +78,9 @@ Parameter | Type | Description
 ----------|------|-------------
 `id` | `string` | A unique Finch `id` (UUID v4) for the deduction.
 `name` | `string` | The name or short description of the deduction.
-`type` | `string` | The type of deduction. Options: `post_tax`, `medical_pre_tax`, `vision_pre_tax`, `dental_pre_tax`, `hsa_pre_tax`, `fsa_pre_tax`, `fsa_dependent_pre_tax`, `roth_401k_pre_tax`, `401k_pre_tax`, `403b_pre_tax`, and `457_pre_tax`.
+`type` | `string` | The type of deduction. Options: `post_tax`, `401k_pre_tax`.
 `frequency` | `string` | The frequency to run this deduction with. Options: `one_time` (run on the next pay run) and `recurring` (run on every pay run).
 
-***
-
-## Delete Deduction
-
-**Info**: Delete a company deductions
-
-#### Request
-
-**Example request**
-```shell
-curl https://api.tryfinch.com/employer/deduction \
--X "DELETE" \
--H "Authorization: Bearer {token}" \
--H "Finch-API-Version: 2020-09-17" \
--H "Content-Type: application/json" \
--D '{
-  "id": "7adbeaf0-9f98-48c1-935b-26a521f1aa8d"
-}'
-```
-
-**Request body parameters**
-
-Parameter | Type | Required | Description
-----------|------|----------|-------------
-`id` | `string` |  true | A unique Finch `id` (UUID v4) for the deduction.
-
-#### Response
-
-**Example response**
-```json
-{
-  "status": "success"
-}
-```
-
-**Response body**
-
-Parameter | Type | Description
-----------|------|-------------
-`status` | `string` | If the request is successful, Finch will return “success” (HTTP 200 status).
 
 
 
