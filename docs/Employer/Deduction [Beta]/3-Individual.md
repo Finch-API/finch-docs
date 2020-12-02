@@ -2,7 +2,7 @@
 
 ## Create Deduction
 
-**Info**: Add an individual to a company-wide deduction
+**Info**: Add an individual to a company-wide [deduction](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/2-Company.md)
 
 ### Request
 
@@ -118,7 +118,7 @@ Parameter | Type | Description
 
 ## Delete Deduction
 
-**Info**: Remove an individual from a company-wide deduction
+**Info**: Remove an individual from a company-wide [deduction](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/2-Company.md)
 
 ### Request
 
