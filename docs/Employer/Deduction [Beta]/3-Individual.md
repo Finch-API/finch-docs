@@ -1,8 +1,8 @@
 # Individual
 
-## Create a deduction
+## Enroll
 
-**Info**: Add an individual to a [deduction](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/2-Company.md)
+**Info**: Enroll an individual to a [deduction](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/2-Company.md)
 
 ### Request
 
@@ -57,9 +57,9 @@ Parameter | Type | Description
 
 ***
 
-## Get a deduction
+## Get enrollments
 
-**Info**: Retrieve the configuration of a [deduction](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/2-Company.md) an individual is added to
+**Info**: Retrieve the configuration of a [deduction](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/2-Company.md) an individual is enrolled to
 
 ### Request
 
@@ -116,9 +116,9 @@ Parameter | Type | Description
 
 ***
 
-## Delete a deduction
+## Unenroll
 
-**Info**: Remove an individual from a [deduction](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/2-Company.md)
+**Info**: Unenroll an individual from a [deduction](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/2-Company.md)
 
 ### Request
 
