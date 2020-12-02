@@ -2,7 +2,7 @@
 
 ## Create Deduction
 
-**Info**: Add an individual to a configured deduction.
+**Info**: Add an individual to a company's deduction.
 
 ### Request
 
@@ -118,7 +118,7 @@ Parameter | Type | Description
 
 ## Delete Deduction
 
-**Info**: Remove an individual from a configured deduction.
+**Info**: Remove an individual from a deduction.
 
 ### Request
 
