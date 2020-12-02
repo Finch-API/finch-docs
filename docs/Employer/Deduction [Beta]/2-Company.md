@@ -47,7 +47,7 @@ Parameter | Type | Description
 
 ## List Company Deductions
 
-**Info**: List configured company-wide deductions
+**Info**: List the configured company-wide deductions
 
 ### Request
 
