@@ -1,9 +1,5 @@
 # Enrollment
 
-**URL**: `https://api.tryfinch.com/employer/deduction/individual`
-
-***
-
 ## Create Enrollment
 
 **Info**: Create an individual enrollment in a company deduction
