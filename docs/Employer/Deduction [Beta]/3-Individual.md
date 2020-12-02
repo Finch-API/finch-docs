@@ -1,6 +1,6 @@
 # Individual
 
-## Create Deduction
+## Create a deduction
 
 **Info**: Add an individual to a [deduction](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/2-Company.md)
 
@@ -57,7 +57,7 @@ Parameter | Type | Description
 
 ***
 
-## Get Deduction
+## Get a deduction
 
 **Info**: Retrieve the configuration of a [deduction](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/2-Company.md) an individual is added to
 
@@ -116,7 +116,7 @@ Parameter | Type | Description
 
 ***
 
-## Delete Deduction
+## Delete a deduction
 
 **Info**: Remove an individual from a [deduction](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/2-Company.md)
 
