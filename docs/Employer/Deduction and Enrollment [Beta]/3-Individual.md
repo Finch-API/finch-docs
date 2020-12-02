@@ -2,7 +2,7 @@
 
 ## Create Deduction
 
-**Info**: Add an individual to a company's deduction.
+**Info**: Add an individual to a company's deduction
 
 ### Request
 
@@ -59,7 +59,7 @@ Parameter | Type | Description
 
 ## Get Deduction
 
-**Info**: Retrieve the configuration of an individual's deduction.
+**Info**: Retrieve the configuration of an individual's deduction
 
 ### Request
 
@@ -118,7 +118,7 @@ Parameter | Type | Description
 
 ## Delete Deduction
 
-**Info**: Remove an individual from a deduction.
+**Info**: Remove an individual from a deduction
 
 ### Request
 
