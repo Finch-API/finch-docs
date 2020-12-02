@@ -2,7 +2,7 @@
 
 ## Create Company Deduction
 
-**Info**: Configure a company-wide deduction
+**Info**: Create a company-wide deduction
 
 ### Request
 
@@ -47,7 +47,7 @@ Parameter | Type | Description
 
 ## List Company Deductions
 
-**Info**: List the configured company-wide deductions
+**Info**: List the created company-wide deductions
 
 ### Request
 
