@@ -2,7 +2,7 @@
 
 ## Create Company Deduction
 
-**Info**: Configure company-wide deductions
+**Info**: Configure a company-wide deduction
 
 ### Request
 
