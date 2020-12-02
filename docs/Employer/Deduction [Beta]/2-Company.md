@@ -1,6 +1,6 @@
 # Company
 
-## Create Company Deduction
+## Create Deduction
 
 **Info**: Create a company-wide deduction
 
@@ -45,7 +45,7 @@ Parameter | Type | Description
 
 ***
 
-## List Company Deductions
+## List Deductions
 
 **Info**: List the created company-wide deductions
 
