@@ -57,7 +57,7 @@ Parameter | Type | Description
 
 ***
 
-## Get enrollments
+## Get enrollment
 
 **Info**: Retrieve the configuration of a [deduction](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/2-Company.md) an individual is enrolled to
 
