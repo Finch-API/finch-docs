@@ -46,10 +46,6 @@ Parameter | Type | Required | Description
       "amount": 360000,
       "currency": "usd"
     },
-    "reimbursements": {
-      "amount": 3500,
-      "currency": "usd"
-    },
     "gross_pay": {
       "amount": 4000000,
       "currency": "usd"
@@ -63,10 +59,6 @@ Parameter | Type | Required | Description
       "currency": "usd"
     },
     "employee_taxes": {
-      "amount": 350000,
-      "currency": "usd"
-    },
-    "benefits": {
       "amount": 350000,
       "currency": "usd"
     },
@@ -89,10 +81,8 @@ Name | Type | Description
 `[].pay_date` | `string` | The date at which individual will be paid for this payment.
 `[].debit_date` | `string` | The date the company is debited for this payment.
 `[].company_debit` | `object` | The money object for the total company debit for the payment.
-`[].reimbursements` | `object` | The money object for the total reimbursements for the payment.
 `[].gross_pay` | `object` | The money object for the gross pay amount for the payment.
 `[].net_pay` | `object` | The money object for the net pay amount for the payment.
 `[].employer_taxes` | `object` | The money object for the employer paid taxes for the payment.
 `[].employee_taxes` | `object` | The money object for the employee paid taxes for the payment.
-`[].benefits` | `object` | The money object for the amount company contributed benefits for the payroll.
 `[].individual_ids` | `array` | Array of every individual on this payment.
