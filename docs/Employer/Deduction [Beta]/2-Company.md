@@ -2,7 +2,7 @@
 
 ## Create a deduction
 
-**Info**: Create a deduction to [enroll](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/3-Individual.md) individuals in a company to
+**Info**: Create a company-wide deduction to [enroll](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/3-Individual.md) individuals in
 
 ### Request
 
