@@ -2,7 +2,7 @@
 
 ## Enroll
 
-**Info**: Enroll an individual to a [deduction](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/2-Company.md)
+**Info**: Enroll an individual in a [deduction](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/2-Company.md)
 
 ### Request
 
@@ -59,7 +59,7 @@ Parameter | Type | Description
 
 ## Get enrollment
 
-**Info**: Retrieve the details of an individual's enrollment to a  [deduction](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/2-Company.md)
+**Info**: Retrieve the details of an individual's enrollment in a  [deduction](https://developer.tryfinch.com/docs/reference/docs/Employer/Deduction%20%5BBeta%5D/2-Company.md)
 
 ### Request
 
