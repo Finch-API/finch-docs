@@ -8,7 +8,7 @@
 
 **Example request**
 ```shell
-curl https://api.tryfinch.com/employer/company/deduction/create \
+curl https://api.tryfinch.com/employer/deduction/company/create \
 -X "POST" \
 -H "Authorization: Bearer {token}" \
 -H "Finch-API-Version: 2020-09-17" \
@@ -53,7 +53,7 @@ Parameter | Type | Description
 
 **Example request**
 ```shell
-curl https://api.tryfinch.com/employer/company/deduction/list \
+curl https://api.tryfinch.com/employer/deduction/company/list \
 -X "POST" \
 -H "Authorization: Bearer {token}" \
 -H "Finch-API-Version: 2020-09-17" \
