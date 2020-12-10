@@ -76,17 +76,11 @@ Parameter | Type | Required | Description
                 "currency": "usd"
               }
             ],
-            "deductions": [
+            "employee_deductions": [
               {
                 "name": "Pre-Tax 401k",
-                "employee_deduction": {
-                  "amount": 50000,
-                  "currency": "usd"
-                },
-                "company_contribution": {
-                  "amount": 50000,
-                  "currency": "usd"
-                }    
+                "amount": 50000,
+                "currency": "usd"   
               }
             ],
           }
@@ -116,12 +110,10 @@ Name | Type | Description
 `pay_statements[].earnings[].name` | `string` | The exact name of the deduction from the pay statement.
 `pay_statements[].earnings[].amount` | `integer` | The earnings amount in cents.
 `pay_statements[].earnings[].currency` | `string ` | The earnings currency code.
-`pay_statements[].deductions` | `array` | The array of deductions objects associated with this pay statement.
-`pay_statements[].deductions[].name` | `string` | The exact name of deduction from the pay statement.
-`pay_statements[].deductions[].employee_deduction.amount` | `integer` | The deduction amount in cents.
-`pay_statements[].deductions[].employee_deduction.currency` | `string` | The deductions currency code.
-`pay_statements[].deductions[].company_contribution.amount` | `integer` | The company contribution amount in cents.
-`pay_statements[].deductions[].company_contribution.currency` | `string` | The contributions currency code.
+`pay_statements[].employee_deductions` | `array` | The array of deductions objects associated with this pay statement.
+`pay_statements[].employee_deductions[].name` | `string` | The deduction name from the pay statement.
+`pay_statements[].employee_deductions[].amount` | `integer` | The deduction amount in cents.
+`pay_statements[].employee_deductions[].currency` | `string` | The deductions currency code.
 `pay_statements[].taxes` | `array` | The array of taxes objects associated with this pay statement.
 `pay_statements[].taxes[].type` | `string` | The type of taxes. Options: `state`, `federal`, `local` and `fica`.
 `pay_statements[].taxes[].name` | `string` | The exact name of tax from the pay statement.
