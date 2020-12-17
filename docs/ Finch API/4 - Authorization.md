@@ -39,6 +39,7 @@ Parameter | Required | Description
  `client_id` | true | The application’s unique identifier.
  `redirect_uri` | true | The URI a user will be redirected to after authorization. This value must match one of the redirect URIs set on the dashboard.
  `product` | true | A space-separated list of products that your application is requesting access to.
+ `state` | false | An optional value included as a query parameter in the `redirect_uri` back to your application. This value is often used to identify a user and/or prevent cross-site request forgery.
  `payroll_provider` | false | An optional parameter that allows users to bypass the provider selection screen. Compatible payrolls are: `bamboo_hr`, `gusto`, `justworks`, `paylocity`, `quickbooks`, `rippling`, and `zenefits`.
 
 **Example**
@@ -66,12 +67,13 @@ If the user grants your application access, the redirect to your application wil
 HTTP/1.1 302 Found
 Location: https://example.com/home?
 code=90abecb6-e7ab-4b85-864a-e1c8bf67f2ad
+&state=0facda3319
 ```
 
 Parameter | Required | Description
 ---------|----------|---------
  `code` | true | An authorization code that will be used to obtain an access token in the following step. The authorization code expires after 10 minutes.
-
+ `state` | false | If the redirect to Finch Connect contains a state parameter, that parameter will be returned here.
 ***
 
 ## Auth code exchange
