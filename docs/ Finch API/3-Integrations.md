@@ -1,0 +1,18 @@
+# Integrations
+
+The supported payroll and HR systems that businesses use as the source of truth for employee records and organizational structure.
+
+### Supported providers
+Finch supports integrations with the following providers:
+
+- Gusto
+- Rippling
+- Zenefits
+- BambooHR
+- Justworks
+- Paylocity
+- Quickbooks Payroll
+- ADP Run _(Beta)_
+- ADP Workforce Now _(Beta)_
+- TriNet _(Beta)_
+- Paychex _(Beta)_
