@@ -15,4 +15,4 @@ Finch supports integrations with the following providers:
 - ADP Run _(Beta)_
 - ADP Workforce Now _(Beta)_
 - TriNet _(Beta)_
-- Paychex _(Beta)_
+- Paychex Flex _(Beta)_
