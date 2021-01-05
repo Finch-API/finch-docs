@@ -58,7 +58,7 @@ curl https://api.tryfinch.com/employer/company \
       "country": "US"
     }
   ],
-  "bank_accounts": [{
+  "accounts": [{
     "routing_number": "122104726",
     "account_name": "CHECKING ACCOUNT",
     "institution_name": "BANK OF AMERICA, N.A.",
@@ -91,9 +91,9 @@ Name | Type | Description
 `locations[].state` | `string` | The state  code.
 `locations[].postal_code` | `string` | The postal code or zip code.
 `locations[].country` | `string` | The 2-letter ISO 3166 country code.
-`bank_accounts[]` | `array` | An array of bank account objects associated with the payroll/HRIS system.
-`bank_accounts[].routing_number` | `string` | A nine-digit code that's based on the U.S. Bank location where your account was opened.
-`bank_accounts[].account_name` | `string` | The name of the bank associated in the payroll/HRIS system.
-`bank_accounts[].institution_name` | `string` | Name of the banking institution.
-`bank_accounts[].account_type` | `string` | The type of bank account. Options: `checking` and `savings`.
-`bank_accounts[].account_number` | `string` | 10-12 digit number to specify the bank account
+`account[]` | `array` | An array of bank account objects associated with the payroll/HRIS system.
+`accounts[].routing_number` | `string` | A nine-digit code that's based on the U.S. Bank location where your account was opened.
+`accounts[].account_name` | `string` | The name of the bank associated in the payroll/HRIS system.
+`accounts[].institution_name` | `string` | Name of the banking institution.
+`accounts[].account_type` | `string` | The type of bank account. Options: `checking` and `savings`.
+`accounts[].account_number` | `string` | 10-12 digit number to specify the bank account
