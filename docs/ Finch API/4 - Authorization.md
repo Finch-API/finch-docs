@@ -47,7 +47,7 @@ Parameter | Required | Description
 ```curl
 https://connect.tryfinch.com/authorize?
 &client_id=8229df9f-91a0-4ff0-a1ae-a1f38ee24d07
-&products=directory
+&products=company directory
 &redirect_uri=https://tryfinch.com
 ```
 
