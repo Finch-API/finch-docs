@@ -12,7 +12,11 @@ Finch supports integrations with the following providers:
 - Justworks
 - Paylocity
 - Quickbooks Payroll
-- ADP Run _(Beta)_
+- ADP Run
 - ADP Workforce Now _(Beta)_
 - TriNet _(Beta)_
 - Paychex Flex _(Beta)_
+- Sure Payroll _(Beta)_
+- Paycor _(Beta)_
+- Square _(Beta)_
+- Insperity _(Beta)_
