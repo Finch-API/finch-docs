@@ -20,3 +20,4 @@ Finch supports integrations with the following providers:
 - Paycor _(Beta)_
 - Square _(Beta)_
 - Insperity _(Beta)_
+- Wave Payroll _(Beta)_
