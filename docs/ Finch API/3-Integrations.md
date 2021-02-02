@@ -1,9 +1,9 @@
 # Integrations
 
-The supported payroll and HR systems that businesses use as the source of truth for employee records and organizational structure.
+The compatible payroll and HR systems that businesses use as the source of truth for employee records and organizational structure.
 
-### Supported providers
-Finch supports integrations with the following providers:
+### Compatible providers
+Finch is compatible with the following providers:
 
 - Gusto
 - Rippling
@@ -21,3 +21,4 @@ Finch supports integrations with the following providers:
 - Square _(Beta)_
 - Insperity _(Beta)_
 - Wave Payroll _(Beta)_
+
