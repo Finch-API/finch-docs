@@ -32,7 +32,7 @@ curl https://api.tryfinch.com/employer/company \
   "entity": {
     "type": "corporation",
     "subtype": "s_corporation"
-  }
+  },
   "ein": "12-3456789",
   "primary_email": "founders@joinprofound.com",
   "primary_phone_number": "1234567890",
