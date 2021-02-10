@@ -84,9 +84,6 @@ Name | Type | Description
 `first_name` | `string` | The legal first name of the individual.
 `middle_name` | `string` | The legal middle name of the individual.
 `last_name` | `string` | The legal last name of the individual.
-`business` | `object` | The legal entity associated with the individual.
-`business.legal_name` | `string` | The legal name of the company.
-`business.ein` | `string` | The employer identification number.
 `emails` | `array` | An array of email objects.
 `emails[].data` | `string` | The email address associated with the email type.
 `emails[].type` | `string` | Indicates the type of email. Options: `work`, `personal`.
