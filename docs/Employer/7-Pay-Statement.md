@@ -81,7 +81,14 @@ Parameter | Type | Required | Description
                 "name": "Pre-Tax 401k",
                 "amount": 50000,
                 "currency": "usd",
-                "pre_tax": true  
+                "pre_tax": true
+              }
+            ],
+            "employer_contributions": [
+              {
+                "name": "Employee Medical Insurance",
+                "amount": 23272,
+                "currency": "usd",
               }
             ],
           }
@@ -116,6 +123,9 @@ Name | Type | Description
 `pay_statements[].employee_deductions[].amount` | `integer` | The deduction amount in cents.
 `pay_statements[].employee_deductions[].currency` | `string` | The deductions currency code.
 `pay_statements[].employee_deductions[].pre_tax` | `boolean` | Boolean indicating if the deduction is pre tax.
+`pay_statements[].employer_contributions[].name` | `string` | The contribution name from the pay statement.
+`pay_statements[].employer_contributions[].amount` | `integer` | The contribution amount in cents.
+`pay_statements[].employer_contributions[].currency` | `string` | The contribution currency code.
 `pay_statements[].taxes` | `array` | The array of taxes objects associated with this pay statement.
 `pay_statements[].taxes[].type` | `string` | The type of taxes. Options: `state`, `federal`, `local` and `fica`.
 `pay_statements[].taxes[].name` | `string` | The exact name of tax from the pay statement.
