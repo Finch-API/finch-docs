@@ -87,7 +87,7 @@ The following headers must be provided to the request.
 Header | Description
 -------|--------------
 `Authorization` | [HTTP Basic Auth header](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side) containing the `client_id` and `client_secret`. The header is formed by concatenating the word “Basic”, followed by a space, and a base64 encoded string of the `client_id`, a colon `:`, and the `client_secret`.
-`Content_Type` | Must be set to `application/x-www-form-urlencoded`, matching the format of the request body.
+`Content-Type` | Must be set to `application/x-www-form-urlencoded`, matching the format of the request body.
 
 The following parameters must be provided in the request body encoded in form-urlencoded format—
 
