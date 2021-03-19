@@ -121,6 +121,7 @@ Name | Type | Description
 `pay_statements[].employee_deductions` | `array` | The array of deductions objects associated with this pay statement.
 `pay_statements[].employee_deductions[].name` | `string` | The deduction name from the pay statement.
 `pay_statements[].employee_deductions[].amount` | `integer` | The deduction amount in cents.
+`pay_statements[].employee_deductions[].type` | `string` | The type of deduction. Options: `125_medical`, `125_vision`, `125_dental`, `401k`, `403b`, `457`, `roth_401k`, `roth_403b`, `roth_457`, `fsa_medical`, `fsa_dependent_care`, `hsa`, and `simple_ira`.
 `pay_statements[].employee_deductions[].currency` | `string` | The deductions currency code.
 `pay_statements[].employee_deductions[].pre_tax` | `boolean` | Boolean indicating if the deduction is pre tax.
 `pay_statements[].employer_contributions[].name` | `string` | The contribution name from the pay statement.
