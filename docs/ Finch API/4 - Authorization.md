@@ -94,7 +94,7 @@ The following parameters must be provided in the request body encoded in form-ur
 Parameter | Required | Description
 ----------|----------|-------------
 `code` | true | The authorization code received in the handle response step.
-`redirect_uri` | false | Not required when using the React SDK, however, is required when using a custom `redirect_uri`.
+`redirect_uri` | true | Not required when using the React SDK, however, is required when using a custom `redirect_uri`.
 
 **Example request**
 
