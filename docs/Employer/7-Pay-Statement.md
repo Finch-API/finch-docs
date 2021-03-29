@@ -99,7 +99,7 @@ Parameter | Type | Required | Description
 }
 ```
 
-**Request body**
+**Response body**
 
 Name | Type | Description
 -----|------|--------------
