@@ -12,7 +12,6 @@ Header | Description
 -------|-------------
 `Authorization` | Bearer authorization header, which is formed by concatenating the word “Bearer” with the access token, separated by a space.
 `Finch-API-Version` | Header used to specify the version for a given API request. Current version is **2020-09-17**.
-`Cache-Control` | When set to `no-cache` instructs the API to forgo returning relevant responses from its cache.
 
 ***
 
@@ -23,5 +22,5 @@ Finch’s additional response headers provide additional information about the d
 Header | Description
 -------|--------------
 `Finch-Request-Id` |	Each response from Finch's API has a unique request identifier. If you need to contact us about a specific request, providing the request identifier will ensure the fastest possible resolution.
-`Finch-Cached-At` |	If the response is being returned is a cached response then this header will represent the date/time in ISO-8601 format that the original response was collected.
+`Finch-Data-Retrieved` |	The date/time in ISO-8601 format that the data was retrieved from the payroll provider.
 
