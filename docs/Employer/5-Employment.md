@@ -106,5 +106,5 @@ Name | Type | Description
 `location.country` | `string` | The 2-letter ISO 3166 country code.
 `income` | `object` | The income object.
 `income.unit` | `string` | The income unit of payment. Options: `yearly`, `monthly`, `hourly`, and `fixed`.
-`income.amount` | `string` | The income amount in cents.
+`income.amount` | `integer` | The income amount in cents.
 `income.currency` | `string` | The currency code.
