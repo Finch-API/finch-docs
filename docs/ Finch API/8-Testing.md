@@ -14,7 +14,7 @@ The Finch Sandbox environment abstracts away the concept of a Payroll provider s
 code working with the Finch API. The "Connect" flow is the same, however the credentials that you use to authenticate
 will alter the behavior of the API.
 
-To use the sandbox environment, simply open the connect flow appending `sandbox=1` into the query string and select "Finch Sandbox":
+To use the sandbox environment, simply open the connect flow appending `sandbox=1` or `sandbox=true` to the query string and select "Finch Sandbox":
 
 ![Sandbox flow - connect](../../assets/sandboxConnect.png "Sandbox flow - connect")
 
@@ -60,8 +60,7 @@ Username              | Password
 ----------------------|-------------
  `reauthorization`    | `letmein` 
 
-The reauthorization scenario is a contrived example which behaves simarly to the simple scenario, except expires credentials when
-requesting pay statements. That is, a `401` error will be returned requesting reauthorization.
+The reauthorization scenario is a contrived example whereby once connected, will always return a `401` error requesting reauthorization.
 
 # Payroll Provider Sandbox
 
@@ -75,7 +74,7 @@ Currently the following providers support a sandbox or test environment that we 
 * Bamboo HR
 * ...
 
-To connect to a payroll provider's sandbox environment simply open the connect flow appending `sandbox=1` into the query string and select the Payroll Provider from the drop down:
+To connect to a payroll provider's sandbox environment simply open the connect flow appending `sandbox=1` or `sandbox=true` to the query string and select the Payroll Provider from the drop down:
 
 ![Sandbox flow - Bamboo HR connect](../../assets/sandboxBambooHRConnect.png "Sandbox flow - Bamboo HR connect")
 
