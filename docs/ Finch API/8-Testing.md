@@ -26,11 +26,11 @@ From there, enter the credentials for your testing scenario below, exchange your
 
 The Finch Sandbox allows for you to test specific scenarios allowing you to customize the area of the system that you'd like to test. The credentials that you use for authenticating your session determine the behavior of the API.
 
-### Simple Scenario
+### Small Company
 
 Username             | Password
 ---------------------|-------------
- `authorized_simple` | `letmein` 
+ `smallco`           | `letmein` 
 
 The most basic example to develop against is the simple scenario. The attributes of this scenario are:
 
@@ -40,17 +40,17 @@ The most basic example to develop against is the simple scenario. The attributes
 * Consequently, a simple directory structure.
 * Two sets of pay statements available.
 
-### Complex
+### Large Company
 
 Username              | Password
 ----------------------|-------------
- `authorized_complex` | `letmein` 
+ `bigco`              | `letmein` 
 
 The complex scenario provides a larger organization superset to work with. The attributes of this scenario are:
 
 * Once authorized, will not require reauthorization.
 * Two companies attached to the credentials. The "Small" company will return "simple scenario" data where as the "Large" company will return a larger data set.
-* Consists of 100 employees.
+* Consists of ~100 employees.
 * The directory structure contains multiple levels and departments.
 * Some employees have no payments/statements, some have multiple.
 
