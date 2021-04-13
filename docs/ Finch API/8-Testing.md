@@ -44,7 +44,7 @@ The most basic example to develop against is the simple scenario. The attributes
 
 Username              | Password
 ----------------------|-------------
- `bigco`              | `letmein` 
+ `largeco`            | `letmein` 
 
 The complex scenario provides a larger organization superset to work with. The attributes of this scenario are:
 
