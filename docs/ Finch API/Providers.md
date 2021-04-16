@@ -20,6 +20,7 @@ Big Fish Employer Services | `big_fish_employer_services`
 Bene-Care | `benecare`
 Bizchecks Payroll | `bizchecks_payroll`
 bob | `bob`
+Ceridian Dayforce | `ceridian_dayforce`
 Collage | `collage`
 Coastal Payroll | `coastal_payroll`
 Commonwealth Payroll & HR | `commonwealth_payroll_hr`
@@ -42,6 +43,7 @@ OnPay | `onpay`
 Patriot | `patriot`
 PayUSA | `pay_usa_inc`
 Paychex Flex | `paychex_flex`
+Paycor | `paycor`
 Payday Workforce Solutions | `payday_workforce_solutions`
 Paylocity | `paylocity`
 Payroll Network | `payroll_network`
@@ -56,17 +58,23 @@ Run Powered by ADP | `adp_run`
 Sage 50 US Edition Accounting | `sage_50_us_edition_accounting`
 Sage 50 Quantum Accounting | `sage_50_quantum_accounting`
 Sage Payroll | `sage_payroll`
+Sapling | `sapling`
 Savant HCM Evolution | `savant_hcm_evolution`
 Square Payroll | `square_payroll`
+SAP SuccessFactors | `successfactors`
 SyncHR | `sync_hr`
 The Payroll Company | `the_payroll_company`
 Toast Payroll | `toast_payroll`
 TriNet | `trinet`
+UltiPro | `ulti_pro`
 Viewpoint HR Management Spectrum | `viewpoint_hr_management_spectrum`
 Viewpoint HR Management Vista | `viewpoint_hr_management_vista`
 Wagepoint | `wagepoint`
 Wave Payroll | `wave`
+WebHR | `web_hr`
 whirks | `whirks`
+Workday | `workday`
 wurk | `wurk`
 Xero | `xero`
 Zenefits | `zenefits`
+Zoho Payroll | `zoho_payroll`
