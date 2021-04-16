@@ -40,7 +40,7 @@ Parameter | Required | Description
  `redirect_uri` | true | The URI a user will be redirected to after authorization. This value must match one of the redirect URIs set on the dashboard.
  `products` | true | A space-separated list of products that your application is requesting access to.
  `state` | false | An optional value included as a query parameter in the `redirect_uri` back to your application. This value is often used to identify a user and/or prevent cross-site request forgery.
- `payroll_provider` | false | An optional parameter that allows users to bypass the provider selection screen. Compatible payrolls are: `adp_workforce_now`, `bamboo_hr`, `gusto`, `insperity`, `justworks`, `paychex`, `paylocity`, `quickbooks`, `rippling`, `adp_run`, `square_payroll`, `trinet`, and `zenefits`.
+ `payroll_provider` | false | An optional parameter that allows users to bypass the provider selection screen by providing the [Provider](./Providers.md) `id`.
 
 **Example**
 
