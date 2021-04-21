@@ -105,6 +105,6 @@ Name | Type | Description
 `location.postal_code` | `string` | The postal code or zip code.
 `location.country` | `string` | The 2-letter ISO 3166 country code.
 `income` | `object` | The income object.
-`income.unit` | `string` | The income unit of payment. Options: `yearly`, `monthly`, `hourly`, and `fixed`.
+`income.unit` | `string` | The income unit of payment. Options: `yearly`, `monthly`, `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`.
 `income.amount` | `integer` | The income amount in cents.
 `income.currency` | `string` | The currency code.
