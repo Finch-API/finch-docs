@@ -93,7 +93,7 @@ Name | Type | Description
 `department.name` | `string` | The name of the department associated with the individual.
 `employment` | `object` | The employment object.
 `employment.type` | `string` | The main employment type of the individual. Options: `employee` and `contractor`.
-`employment.subtype` | `string` | The secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, and `individual_contractor`.
+`employment.subtype` | `string` | The secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.
 `start_date` | `string` | The start date of an individual. ISO 8601 format.
 `end_date` | `string` | The end date of an individual. ISO 8601 format.
 `is_active` | `string` | `true` if the individual an an active employee or contractor at the company.
