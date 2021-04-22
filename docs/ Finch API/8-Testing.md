@@ -38,7 +38,7 @@ The most basic example to develop against is the simple scenario. The attributes
 * A single company attached to the credentials.
 * Within the company, a single employee.
 * Consequently, a simple directory structure.
-* Two sets of pay statements available.
+* Pay statements as far back as 2018-01-01.
 
 ### Large Company
 
@@ -53,6 +53,7 @@ The complex scenario provides a larger organization superset to work with. The a
 * Consists of ~100 employees.
 * The directory structure contains multiple levels and departments.
 * Some employees have no payments/statements, some have multiple.
+* Pay statements as far back as 2018-01-01.
 
 ### Reauthorization
 
