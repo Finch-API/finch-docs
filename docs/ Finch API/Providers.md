@@ -5,9 +5,11 @@ The table below lays out the providers with the associated provider `id`.
 
 Display Name | Id 
 ---------|----------
+AAP isolved | `aap_isolved`
 Accupay isolved | `accupay_isolved`
 ADP TotalSource | `adp_totalsource`
 ADP Workforce Now | `adp_workforce_now`
+Advantage Payroll Services | `advantage_payroll_services`
 Affiliated HR Payroll Services isolved | `affiliated_hr_payroll_services_isolved`
 Affiliated HR Payroll Services Evolution | `affiliated_hr_payroll_services_evolution`
 Ahola | `ahola`
@@ -40,12 +42,15 @@ mp | `mp`
 Namely | `namely`
 Newtek | `newtek`
 OnPay | `onpay`
+Paragon Payroll isolved | `paragon_payroll_isolved`
 Patriot | `patriot`
 PayUSA | `pay_usa_inc`
 Paychex Flex | `paychex_flex`
 Paycor | `paycor`
+Paycom | `paycom`
 Payday Workforce Solutions | `payday_workforce_solutions`
 Paylocity | `paylocity`
+PayPro HCS isolved | `paypro_hcs_isolved`
 Payroll Network | `payroll_network`
 Payroll Plus HCM isolved | `payroll_plus_hcm_isolved`
 Payroll Plus HCM Evolution | `payroll_plus_hcm_evolution`
@@ -60,9 +65,11 @@ Sage 50 Quantum Accounting | `sage_50_quantum_accounting`
 Sage Payroll | `sage_payroll`
 Sapling | `sapling`
 Savant HCM Evolution | `savant_hcm_evolution`
+Sequoia One | `sequoia_one`
 Square Payroll | `square_payroll`
 SAP SuccessFactors | `successfactors`
 SyncHR | `sync_hr`
+Strategic Payroll Solutions isolved | `strategic_payroll_solutions_isolved`
 The Payroll Company | `the_payroll_company`
 Toast Payroll | `toast_payroll`
 TriNet | `trinet`
