@@ -6,7 +6,10 @@ The table below lays out the providers with the associated provider `id`.
 Display Name | Id 
 ---------|----------
 AAP isolved | `aap_isolved`
+Abacus HCM isolved | `abacus_isolved`
+Absolute Payroll isolved | `abacus_isolved`
 Accupay isolved | `accupay_isolved`
+Ace Workforce Technologies isolved | `ace_isolved`
 ADP TotalSource | `adp_totalsource`
 ADP Workforce Now | `adp_workforce_now`
 Advantage Payroll Services | `advantage_payroll_services`
@@ -18,6 +21,7 @@ Asset HR | `asset_hr`
 Asure Software | `asure_software`
 Balance Point | `balance_point`
 Bamboo HR | `bamboo_hr`
+Baron Payroll isolved | `baron_isolved`
 Big Fish Employer Services | `big_fish_employer_services`
 Bene-Care | `benecare`
 Bizchecks Payroll | `bizchecks_payroll`
@@ -26,6 +30,7 @@ Ceridian Dayforce | `ceridian_dayforce`
 Collage | `collage`
 Coastal Payroll | `coastal_payroll`
 Commonwealth Payroll & HR | `commonwealth_payroll_hr`
+CPM Employer Services isolved | `cpm_isolved`
 Crescent Payroll Solutions | `crescent_payroll_solutions`
 Dominion Payroll | `dominion_payroll`
 Employdrive | `employdrive`
