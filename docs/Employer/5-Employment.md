@@ -26,7 +26,7 @@ curl https://api.tryfinch.com/employer/employment \
 Parameter | Type | Required | Description
 ----------|------|----------|-------------
 `requests` | `array` | true | The array of batch requests.
-`requests[].individual_ids` | `array` | true | A stable Finch `id` (UUID v4) for an individual in the company.
+`requests[].individual_ids` | `array` | true | A stable Finch `id` (UUID v4) for an individual in the company. There is no limit to the number of  `individual_id` to send per request. It is preferantial to send all ids in a single request for Finch to optimize provider rate-limits.
 
 ***
 
@@ -93,7 +93,7 @@ Name | Type | Description
 `department.name` | `string` | The name of the department associated with the individual.
 `employment` | `object` | The employment object.
 `employment.type` | `string` | The main employment type of the individual. Options: `employee` and `contractor`.
-`employment.subtype` | `string` | The secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, and `individual_contractor`.
+`employment.subtype` | `string` | The secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.
 `start_date` | `string` | The start date of an individual. ISO 8601 format.
 `end_date` | `string` | The end date of an individual. ISO 8601 format.
 `is_active` | `string` | `true` if the individual an an active employee or contractor at the company.
@@ -105,6 +105,6 @@ Name | Type | Description
 `location.postal_code` | `string` | The postal code or zip code.
 `location.country` | `string` | The 2-letter ISO 3166 country code.
 `income` | `object` | The income object.
-`income.unit` | `string` | The income unit of payment. Options: `yearly`, `monthly`, `hourly`, and `fixed`.
-`income.amount` | `string` | The income amount in cents.
+`income.unit` | `string` | The income unit of payment. Options: `yearly`, `monthly`, `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`.
+`income.amount` | `integer` | The income amount in cents.
 `income.currency` | `string` | The currency code.
