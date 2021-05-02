@@ -37,6 +37,6 @@ This scenario provides a much larger dataset to test against. Some attributes of
 
 ## Live Account Testing
 
-Finch also provides developers access to real payroll accounts. Send an email to developers@tryfinch.com for access.
+Finch also provides developers access to real payroll accounts. Send an email to [developers@tryfinch.com](mailto:developers@tryfinch.com) for access.
 
 
