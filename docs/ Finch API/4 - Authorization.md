@@ -4,7 +4,7 @@ Authorization allows applications to authorize and interact with payroll and HRI
 
 ### Redirect URIs
 
-To authorize with Finch, you'll need to provide one or more redirect URIs. The user will be redirected to the specified URI upon authorization. On redirect, the URI will contain an authorization code query parameter that must be exchanged with Finch's authorization server for an access token.
+To authorize with Finch, you'll need to provide one or more redirect URIs. The user will be redirected to the specified URI upon authorization. On redirect, the URI will contain an authorization code query parameter that must be exchanged with Finch's authorization server for an access token. The default redirect URI is `https://tryfinch.com`. 
 
 The redirect URIs must match one of the following formats—
 
@@ -13,6 +13,8 @@ Protocol | Format | Examples
 ---------|----------|---------
  HTTP | A localhost URI with protocol `http://` | `http://localhost:8000`
  HTTPS | A URI with protocol `https://` | `https://myapplication.com`
+
+**Note**: Users of the Finch React SDK don't need to setup redirect URI handling.
 
 ***
 
@@ -41,6 +43,7 @@ Parameter | Required | Description
  `products` | true | A space-separated list of products that your application is requesting access to.
  `state` | false | An optional value included as a query parameter in the `redirect_uri` back to your application. This value is often used to identify a user and/or prevent cross-site request forgery.
  `payroll_provider` | false | An optional parameter that allows users to bypass the provider selection screen by providing the [Provider](./Providers.md) `id`.
+ `sandbox` | false | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data.
 
 **Example**
 
