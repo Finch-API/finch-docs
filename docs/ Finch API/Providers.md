@@ -27,7 +27,9 @@ Bene-Care | `benecare`
 Bizchecks Payroll | `bizchecks_payroll`
 bob | `bob`
 Ceridian Dayforce | `ceridian_dayforce`
+Ceridian Powerpay | `ceridian_powerpay`
 Collage | `collage`
+CoAdvantage | `coadvantage`
 Coastal Payroll | `coastal_payroll`
 Commonwealth Payroll & HR | `commonwealth_payroll_hr`
 CPM Employer Services isolved | `cpm_isolved`
@@ -43,10 +45,12 @@ Hubstaff | `hubstaff`
 Insperity | `insperity`
 isolve | `isolved`
 Justworks | `justworks`
+Keystone Payroll isolved | `keystone_isolved`
 mp | `mp`
 Namely | `namely`
 Newtek | `newtek`
 OnPay | `onpay`
+Oracle PeopleSoft | `oracle_peoplesoft`
 Paragon Payroll isolved | `paragon_payroll_isolved`
 Patriot | `patriot`
 PayUSA | `pay_usa_inc`
@@ -63,6 +67,7 @@ PCS HCM | `pcs_hcm`
 Platinum Group | `platinum_group`
 PrimePay | `primepay`
 Quickbooks Payroll | `quickbooks`
+Remote | `remote`
 Rippling | `rippling`
 Run Powered by ADP | `adp_run`
 Sage 50 US Edition Accounting | `sage_50_us_edition_accounting`
