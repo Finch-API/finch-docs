@@ -23,8 +23,8 @@ curl https://api.tryfinch.com/employer/payment?start_date=2019-08-01&end_date=20
 
 Parameter | Type | Required | Description
 ----------|------|----------|------------
-`start_date` | `string` | true | The start date to retrieve payments by a company (inclusive).
-`end_date` | `string` | true | The end date to retrieve payments by a company (inclusive). 
+`start_date` | `string` | true | The start date to retrieve payments by a company (inclusive) in `YYYY-MM-DD` format.
+`end_date` | `string` | true | The end date to retrieve payments by a company (inclusive) in `YYYY-MM-DD` format. 
 
 ***
 
