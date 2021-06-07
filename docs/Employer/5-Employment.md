@@ -70,7 +70,8 @@ Parameter | Type | Required | Description
         "income": {
           "unit": "yearly",
           "amount": 10000000,
-          "currency": "usd"
+          "currency": "usd",
+          "effective_date": "2019-03-01",
         }
       }
     }
@@ -108,3 +109,4 @@ Name | Type | Description
 `income.unit` | `string` | The income unit of payment. Options: `yearly`, `monthly`, `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`.
 `income.amount` | `integer` | The income amount in cents.
 `income.currency` | `string` | The currency code.
+`income.effective_date` | `string` | The effective date of the individual's income.
