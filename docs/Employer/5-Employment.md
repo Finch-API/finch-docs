@@ -109,4 +109,4 @@ Name | Type | Description
 `income.unit` | `string` | The income unit of payment. Options: `yearly`, `monthly`, `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`.
 `income.amount` | `integer` | The income amount in cents.
 `income.currency` | `string` | The currency code.
-`income.effective_date` | `string` | The effective date of the individual's income.
+`income.effective_date` | `string` | The date the income amount went into effect.
