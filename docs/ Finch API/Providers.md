@@ -85,6 +85,7 @@ The Payroll Company | `the_payroll_company`
 Toast Payroll | `toast_payroll`
 TriNet | `trinet`
 UltiPro | `ulti_pro`
+VensureHR | `vensure_hr`
 Viewpoint HR Management Spectrum | `viewpoint_hr_management_spectrum`
 Viewpoint HR Management Vista | `viewpoint_hr_management_vista`
 Wagepoint | `wagepoint`
