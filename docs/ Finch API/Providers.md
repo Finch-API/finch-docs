@@ -1,6 +1,6 @@
 # Providers
 
-The table below lays out the providers with the associated provider `id`.
+The table below lays out the providers with the associated provider `id` that can be used in the `payroll_provider` parameter for Finch [Connect](./Authorization.md#redirect-to-connect).
 
 
 Display Name | Id 
