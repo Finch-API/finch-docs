@@ -67,6 +67,7 @@ PCS HCM | `pcs_hcm`
 Platinum Group | `platinum_group`
 PrimePay | `primepay`
 PrismHR | `prism_hr`
+Proxus HR isolved | `proxus_hr`
 Quickbooks Payroll | `quickbooks`
 Remote | `remote`
 Rippling | `rippling`
