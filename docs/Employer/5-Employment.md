@@ -56,7 +56,7 @@ Parameter | Type | Required | Description
           "type": "employee",
           "subtype": "full_time"
         },
-        "start_date": "2019-03-01",
+        "start_date": "2017-06-30",
         "end_date": null,
         "is_active": true,
         "location": {
@@ -72,7 +72,21 @@ Parameter | Type | Required | Description
           "amount": 10000000,
           "currency": "usd",
           "effective_date": "2019-03-01",
-        }
+        },
+        "income_history": [
+          {
+            "unit": "yearly",
+            "amount": 9000000,
+            "currency": "usd",
+            "effective_date": "2018-05-15",
+          },
+          {
+            "unit": "yearly",
+            "amount": 8000000,
+            "currency": "usd",
+            "effective_date": "2017-06-30",
+          }
+        ]
       }
     }
   ]
@@ -110,3 +124,8 @@ Name | Type | Description
 `income.amount` | `integer` | The income amount in cents.
 `income.currency` | `string` | The currency code.
 `income.effective_date` | `string` | The date the income amount went into effect.
+`income_history` | `array` | The array of income history.
+`income_history[].unit` | `string` | The income unit of payment. Options: `yearly`, `monthly`, `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`.
+`income_history[].amount` | `integer` | The income amount in cents.
+`income_history[].currency` | `string` | The currency code.
+`income_history[].effective_date` | `string` | The date the income amount went into effect.
