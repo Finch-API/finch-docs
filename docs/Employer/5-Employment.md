@@ -56,7 +56,7 @@ Parameter | Type | Required | Description
           "type": "employee",
           "subtype": "full_time"
         },
-        "start_date": "2019-03-01",
+        "start_date": "2017-06-30",
         "end_date": null,
         "is_active": true,
         "location": {
