@@ -80,8 +80,9 @@ Savant HCM Evolution | `savant_hcm_evolution`
 Sequoia One | `sequoia_one`
 Square Payroll | `square_payroll`
 SAP SuccessFactors | `successfactors`
-SyncHR | `sync_hr`
+SuitePeople (Oracle NetSuite) | `suite_people`
 Strategic Payroll Solutions isolved | `strategic_payroll_solutions_isolved`
+SyncHR | `sync_hr`
 The Payroll Company | `the_payroll_company`
 Toast Payroll | `toast_payroll`
 TriNet | `trinet`
