@@ -9,7 +9,13 @@ Finch offers two types of test environments for developers -
 
 The Finch Sandbox allows you to login to a fake payroll system and test your application against mock data.
 
+### Auth
+
 To use the sandbox environment, simply [open](https://developer.tryfinch.com/docs/reference/docs/%20Finch%20API/4%20-%20Authorization.md#redirect-to-connect) Finch Connect with the `sandbox` query parameter set to `true`.
+
+You'll want to make sure you include `payment` and `pay_statement` scopes, if you will be requesting these products with the sandbox logins. You'll also want to change the `client_id` with your test client id. Here is an example:
+
+[https://connect.tryfinch.com/authorize?client_id=<your_client_id>&redirect_uri=https://tryfinch.com&sandbox=true&products=company%20directory%20individual%20employment%20payment%20pay_statement%20deduction](https://connect.tryfinch.com/authorize?client_id=<your_client_id&redirect_uri=https://tryfinch.com&sandbox=true&products=company%20directory%20individual%20employment%20payment%20pay_statement%20deduction)
 
 ### Scenarios
 
@@ -34,6 +40,27 @@ This scenario provides a much larger dataset to test against. Some attributes of
 * employees with managers,
 * multiple departments and work locations, and
 * payments with various earning types, deductions, and employer contributions.
+
+### Examples
+
+Payments  endpoint for `smallco`:
+
+```
+curl "https://api.tryfinch.com/employer/payment?start_date=2020-01-01&end_date=2020-12-31" \
+-H "Authorization: Bearer [uuid obtainted during auth]" \
+-H "Finch-API-Version: 2020-09-17" \
+-X "GET"
+```
+This will return a list of `payment_id`s, which you can then query with the `pay-statements` endpoint:
+
+```
+curl https://api.tryfinch.com/employer/pay-statement \
+-H "Authorization: Bearer [uuid obtained during auth]" \
+-H "Finch-API-Version: 2020-09-17" \
+-X "POST" \
+-H "Content-Type: application/json" \
+-d '{"requests": [{ "payment_id": "[uuid obtained from /payments call]" }]}'
+```
 
 ## Live Account Testing
 
