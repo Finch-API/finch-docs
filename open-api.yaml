@@ -1,0 +1,131 @@
+---
+openapi: 3.0.0
+info:
+  title: Finch API
+  version: 2020-09-17
+servers:
+- url: https://api.tryfinch.com
+paths:
+  "/employer/company":
+    get:
+      description: Read basic company data
+      responses:
+        '200':
+          description: Basic company data
+          content:
+            application/json:
+              example:
+                value:
+                  id: 514aa2b7-898f-4ce7-bc05-c2fe993713e8
+                  legal_name: Profound Platform, Inc.
+                  entity:
+                    type: corporation
+                    subtype: s_corporation
+                  ein: 12-3456789
+                  primary_email: founders@joinprofound.com
+                  primary_phone_number: '1234567890'
+                  departments:
+                  - name: Engineering
+                    parent:
+                  - name: Platform
+                    parent:
+                      name: Engineering
+                  locations:
+                  - line1: 628 Forest Ave
+                    line2: Apt A
+                    city: Palo Alto
+                    state: NY
+                    postal_code: '94301'
+                    country: US
+                  accounts:
+                  - routing_number: '122104726'
+                    account_name: CHECKING ACCOUNT
+                    institution_name: BANK OF AMERICA, N.A.
+                    account_type: checking
+                    account_number: '39472919'
+  "/employer/directory":
+    get:
+      description: Read company directory and organization structure
+      parameters:
+      - name: limit
+        in: query
+        description: Number of employees to return (defaults to all)
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: Index to start from (defaults to 0)
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Company directory and organization structure
+          content:
+            application/json:
+              example:
+                value:
+                  paging:
+                    count: 25
+                    offset: 10
+                  individuals:
+                  - id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                    first_name: Jeremy
+                    middle_name:
+                    last_name: Zhang
+                    manager:
+                      id: c205b3fa-b626-4346-bf0f-ca065ab88d31
+                    department:
+                      name: Product
+                    is_active: true
+  "/employer/individual":
+    get:
+      description: Read individual data, excluding income and employment data
+      parameters:
+        - name: requests
+          in: query
+          description: The array of batch requests
+          schema:
+            type: array
+            items:
+              type: object
+              description: A stable Finch id (UUID v4) for an individual in the company. There is no limit to the number of individual_id to send per request. It is preferantial to send all ids in a single request for Finch to optimize provider rate-limits.
+              required:
+                - individual_id
+              properties:
+                individual_id:
+                  type: string 
+
+      responses:
+        '200':
+          description: Individual data
+          content:
+            application/json:
+              example:
+               value:
+                responses:
+                  - individual_id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                    code: 200
+                    body:
+                      id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                      first_name: Jeremy
+                      middle_name:
+                      last_name: Zhang
+                      emails:
+                      - data: jeremy@tryfinch.com
+                        type: work
+                      - data: jeremyziyuzhang@gmail.com
+                        type: personal
+                      phone_numbers:
+                      - data: '4077313626'
+                        type: personal
+                      dob: '1995-08-15'
+                      residence:
+                        line1: 628 Forest Ave
+                        line2: Apt C
+                        city: Palo Alto
+                        state: CA
+                        postal_code: '94301'
+                        country: US
+
