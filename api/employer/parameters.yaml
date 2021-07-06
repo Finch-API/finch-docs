@@ -13,3 +13,4 @@ individualIds:
         properties:
           individual_id:
             type: string 
+            

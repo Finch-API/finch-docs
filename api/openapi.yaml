@@ -18,6 +18,3 @@ paths:
     $ref: './employer/_index.yaml#/payment'
   '/employer/pay-statement':
     $ref: './employer/_index.yaml#/pay-statement'
-
- 
-
