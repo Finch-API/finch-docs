@@ -1,0 +1,281 @@
+company:
+  get:
+    description: Read basic company data
+    responses:
+      '200':
+        description: Basic company data
+        content:
+          application/json:
+            example:
+              value:
+                id: 514aa2b7-898f-4ce7-bc05-c2fe993713e8
+                legal_name: Profound Platform, Inc.
+                entity:
+                  type: corporation
+                  subtype: s_corporation
+                ein: 12-3456789
+                primary_email: founders@joinprofound.com
+                primary_phone_number: '1234567890'
+                departments:
+                - name: Engineering
+                  parent:
+                - name: Platform
+                  parent:
+                    name: Engineering
+                locations:
+                - line1: 628 Forest Ave
+                  line2: Apt A
+                  city: Palo Alto
+                  state: NY
+                  postal_code: '94301'
+                  country: US
+                accounts:
+                - routing_number: '122104726'
+                  account_name: CHECKING ACCOUNT
+                  institution_name: BANK OF AMERICA, N.A.
+                  account_type: checking
+                  account_number: '39472919'
+directory:
+  get:
+    description: Read company directory and organization structure
+    parameters:
+    - name: limit
+      in: query
+      description: Number of employees to return (defaults to all)
+      required: false
+      schema:
+        type: integer
+    - name: offset
+      in: query
+      description: Index to start from (defaults to 0)
+      required: false
+      schema:
+        type: integer
+    responses:
+      '200':
+        description: Company directory and organization structure
+        content:
+          application/json:
+            example:
+              value:
+                paging:
+                  count: 25
+                  offset: 10
+                individuals:
+                - id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                  first_name: Jeremy
+                  middle_name:
+                  last_name: Zhang
+                  manager:
+                    id: c205b3fa-b626-4346-bf0f-ca065ab88d31
+                  department:
+                    name: Product
+                  is_active: true
+individual:
+  post:
+    description: Read individual data, excluding income and employment data
+    parameters:
+      $ref: 'parameters.yaml#/individualIds'
+
+
+    responses:
+      '200':
+        description: Individual data
+        content:
+          application/json:
+            example:
+              value:
+              responses:
+                - individual_id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                  code: 200
+                  body:
+                    id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                    first_name: Jeremy
+                    middle_name:
+                    last_name: Zhang
+                    emails:
+                    - data: jeremy@tryfinch.com
+                      type: work
+                    - data: jeremyziyuzhang@gmail.com
+                      type: personal
+                    phone_numbers:
+                    - data: '4077313626'
+                      type: personal
+                    dob: '1995-08-15'
+                    residence:
+                      line1: 628 Forest Ave
+                      line2: Apt C
+                      city: Palo Alto
+                      state: CA
+                      postal_code: '94301'
+                      country: US
+employment:
+  post:
+    description: Read individual employment and income data
+    parameters:
+      $ref: 'parameters.yaml#/individualIds' 
+
+    responses:
+      '200':
+        description: Employment data
+        content:
+          application/json:
+            example:
+              value:
+              responses:
+              - individual_id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                code: 200
+                body:
+                  id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                  first_name: Jeremy
+                  middle_name:
+                  last_name: Zhang
+                  title: Customer Support
+                  manager:
+                    id: c205b3fa-b626-4346-bf0f-ca065ab88d31
+                  department:
+                    name: Product
+                  employment:
+                    type: employee
+                    subtype: full_time
+                  start_date: '2017-06-30'
+                  end_date:
+                  is_active: true
+                  location:
+                    line1: 628 Forest Ave
+                    line2:
+                    city: Palo Alto
+                    state: CA
+                    postal_code: '94301'
+                    country: US
+                  income:
+                    unit: yearly
+                    amount: 10000000
+                    currency: usd
+                    effective_date: '2019-03-01'
+                  income_history:
+                  - unit: yearly
+                    amount: 9000000
+                    currency: usd
+                    effective_date: '2018-05-15'
+                  - unit: yearly
+                    amount: 8000000
+                    currency: usd
+                    effective_date: '2017-06-30'
+payment:
+  get:
+    description: Read payroll and contractor related payments by the company.
+    parameters:
+      - name: start_date
+        required: true
+        in: query
+        description: The start date to retrieve payments by a company (inclusive) in YYYY-MM-DD format.
+        schema:
+          type: string
+      - name: end_date
+        required: true
+        in: query
+        description: The end date to retrieve payments by a company (inclusive) in YYYY-MM-DD format.
+        schema:
+          type: string
+    responses:
+      '200':
+        description: Employment data
+        content:
+          application/json:
+            example:
+              value:
+                - id: 20aa7cf2-949d-4d4e-9c01-499b59501ded
+                  pay_period:
+                    start_date: '2019-08-01'
+                    end_date: '2019-08-15'
+                  pay_date: '2019-08-22'
+                  debit_date: '2019-08-22'
+                  company_debit:
+                    amount: 360000
+                    currency: usd
+                  gross_pay:
+                    amount: 4000000
+                    currency: usd
+                  net_pay:
+                    amount: 3200000
+                    currency: usd
+                  employer_taxes:
+                    amount: 200000
+                    currency: usd
+                  employee_taxes:
+                    amount: 350000
+                    currency: usd
+                  individual_ids:
+                  - 54719e14-5ea7-4fda-9898-f4d9ccb83c1a
+                  - 0ab620fc-203e-44ad-916c-facc69250f6f
+                
+pay-statement:
+        post:
+          description: Read detailed pay statements for each individual.
+          parameters:
+          - name: requests
+            required: true
+            in: query
+            description: The array of batch requests
+            schema:
+              type: array
+              items:
+                type: object
+                required:
+                  - payment_id
+                properties:
+                  individual_id:
+                    description: A stable Finch id (UUID v4) for a payment.
+                    type: string 
+                  limit:
+                    description: Number of pay statements to return (default to all)
+                    type: integer
+                  offset:
+                    description: Index to start from (defaults to 0)
+                    type: integer
+          responses:
+            '200':
+              description: Employment data
+              content:
+                application/json:
+                  example:
+                    value:
+                      responses:
+                      - payment_id: fc8b024e-d373-4c9c-80fc-f1625383d142
+                        code: 200
+                        body:
+                          paging:
+                            count: 25
+                            offset: 10
+                          pay_statements:
+                          - individual_id: be7b048c-a6f3-4194-a017-2f537d4f3565
+                            type: regular_payroll
+                            payment_method: check
+                            total_hours: 80
+                            gross_pay:
+                              amount: 230000
+                              currency: usd
+                            net_pay:
+                              amount: 180000
+                              currency: usd
+                            earnings:
+                            - type: salary
+                              name: Salary
+                              amount: 230000
+                              currency: usd
+                            taxes:
+                            - type: state
+                              name: State Withholding - OR
+                              employer: false
+                              amount: 0
+                              currency: usd
+                            employee_deductions:
+                            - name: Pre-Tax 401k
+                              amount: 50000
+                              currency: usd
+                              pre_tax: true
+                            employer_contributions:
+                            - name: Employee Medical Insurance
+                              amount: 23272
+                              currency: usd
