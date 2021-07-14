@@ -13,7 +13,7 @@ curl https://api.tryfinch.com/employer/deduction/individual/create \
 -H "Authorization: Bearer {token}" \
 -H "Finch-API-Version: 2020-09-17" \
 -H "Content-Type: application/json" \
--D '{
+-d '{
   "deduction_id": "7adbeaf0-9f98-48c1-935b-26a521f1aa8d",
   "individual_id": "af015567-858a-4355-aa63-5617ff341592",
   "employee_deduction": {
@@ -70,7 +70,7 @@ curl https://api.tryfinch.com/employer/deduction/individual/get \
 -H "Authorization: Bearer {token}" \
 -H "Finch-API-Version: 2020-09-17" \
 -H "Content-Type: application/json" \
--D '{
+-d '{
   "deduction_id": "7adbeaf0-9f98-48c1-935b-26a521f1aa8d",
   "individual_id": "af015567-858a-4355-aa63-5617ff341592"
 }'
@@ -129,7 +129,7 @@ curl https://api.tryfinch.com/employer/deduction/individual/delete \
 -H "Authorization: Bearer {token}" \
 -H "Finch-API-Version: 2020-09-17" \
 -H "Content-Type: application/json" \
--D '{
+-d '{
   "deduction_id": "7adbeaf0-9f98-48c1-935b-26a521f1aa8d",
   "individual_id": "af015567-858a-4355-aa63-5617ff341592"
 }'

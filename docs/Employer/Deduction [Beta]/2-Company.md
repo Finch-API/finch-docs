@@ -13,7 +13,7 @@ curl https://api.tryfinch.com/employer/deduction/company/create \
 -H "Authorization: Bearer {token}" \
 -H "Finch-API-Version: 2020-09-17" \
 -H "Content-Type: application/json" \
--D '{
+-d '{
   "name": "401(k) Deduction",
   "type": "401k_pre_tax",
   "frequency": "recurring"
