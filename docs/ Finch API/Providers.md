@@ -28,6 +28,7 @@ Bizchecks Payroll | `bizchecks_payroll`
 bob | `bob`
 Ceridian Dayforce | `ceridian_dayforce`
 Ceridian Powerpay | `ceridian_powerpay`
+CharlieHR | `charlie_hr`
 Collage | `collage`
 CoAdvantage | `coadvantage`
 Coastal Payroll | `coastal_payroll`
