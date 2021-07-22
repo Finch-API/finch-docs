@@ -50,7 +50,7 @@ curl https://api.tryfinch.com/employer/company \
   ],
   "locations": [
     {
-      "line1": "628 Forest Ave",
+      "line1": "12 Bird Drive",
       "line2": "Apt A",
       "city": "Palo Alto",
       "state": "NY",
@@ -59,11 +59,11 @@ curl https://api.tryfinch.com/employer/company \
     }
   ],
   "accounts": [{
-    "routing_number": "122104726",
+    "routing_number": "123456789",
     "account_name": "CHECKING ACCOUNT",
     "institution_name": "BANK OF AMERICA, N.A.",
     "account_type": "checking",
-    "account_number": "39472919"
+    "account_number": "98765432"
   }]
 }
 ```
