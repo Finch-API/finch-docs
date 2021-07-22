@@ -47,17 +47,17 @@ Parameter | Type | Required | Description
         "last_name": "Doe",
         "emails": [
           {
-            "data": "janedoe@tryfinch.com",
+            "data": "janedoe@work.example.com",
             "type": "work"
           },
           {
-            "data": "janedoe@gmail.com",
+            "data": "janedoe@home.example.com",
             "type": "personal"
           }
         ],
         "phone_numbers": [
           {
-            "data": "4151234567",
+            "data": "2065550100",
             "type": "personal"
           }
         ],

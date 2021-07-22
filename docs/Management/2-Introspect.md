@@ -28,7 +28,7 @@ curl https://api.tryfinch.com/introspect \
     "company",
     "directory"
   ],
-  "username": "janedoe@tryfinch.com",
+  "username": "janedoe@work.example.com",
   "payroll_provider_id": "gusto"
 }
 ```
