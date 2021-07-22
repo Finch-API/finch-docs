@@ -41,9 +41,9 @@ Parameter | Type | Required | Description
   "individuals": [
     {
       "id": "5d0b10a1-a09a-430f-81f1-20be735dc5e9",
-      "first_name": "Jeremy",
+      "first_name": "Jane",
       "middle_name": null,
-      "last_name": "Zhang",
+      "last_name": "Doe",
       "manager": {
         "id": "c205b3fa-b626-4346-bf0f-ca065ab88d31"
       },

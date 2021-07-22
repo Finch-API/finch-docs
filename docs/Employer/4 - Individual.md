@@ -42,29 +42,29 @@ Parameter | Type | Required | Description
       "code": 200,
       "body": {
         "id": "5d0b10a1-a09a-430f-81f1-20be735dc5e9",
-        "first_name": "Jeremy",
+        "first_name": "Jane",
         "middle_name": null,
-        "last_name": "Zhang",
+        "last_name": "Doe",
         "emails": [
           {
-            "data": "jeremy@tryfinch.com",
+            "data": "janedoe@work.example.com",
             "type": "work"
           },
           {
-            "data": "jeremyziyuzhang@gmail.com",
+            "data": "janedoe@home.example.com",
             "type": "personal"
           }
         ],
         "phone_numbers": [
           {
-            "data": "4077313626",
+            "data": "2065550100",
             "type": "personal"
           }
         ],
-        "dob": "1995-08-15",
+        "dob": "1990-01-01",
         "residence": {
-          "line1": "628 Forest Ave",
-          "line2": "Apt C",
+          "line1": "12 Bird Drive",
+          "line2": "Apt F",
           "city": "Palo Alto",
           "state": "CA",
           "postal_code": "94301",

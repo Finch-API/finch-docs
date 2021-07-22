@@ -28,13 +28,13 @@ curl https://api.tryfinch.com/employer/company \
 ```json
 {
   "id": "514aa2b7-898f-4ce7-bc05-c2fe993713e8",
-  "legal_name": "Profound Platform, Inc.",
+  "legal_name": "Example Company Platform, Inc.",
   "entity": {
     "type": "corporation",
     "subtype": "s_corporation"
   },
   "ein": "12-3456789",
-  "primary_email": "founders@joinprofound.com",
+  "primary_email": "founders@example.company.com",
   "primary_phone_number": "1234567890",
   "departments": [
     {
@@ -50,7 +50,7 @@ curl https://api.tryfinch.com/employer/company \
   ],
   "locations": [
     {
-      "line1": "628 Forest Ave",
+      "line1": "12 Bird Drive",
       "line2": "Apt A",
       "city": "Palo Alto",
       "state": "NY",
@@ -59,11 +59,11 @@ curl https://api.tryfinch.com/employer/company \
     }
   ],
   "accounts": [{
-    "routing_number": "122104726",
+    "routing_number": "123456789",
     "account_name": "CHECKING ACCOUNT",
     "institution_name": "BANK OF AMERICA, N.A.",
     "account_type": "checking",
-    "account_number": "39472919"
+    "account_number": "98765432"
   }]
 }
 ```
