@@ -28,13 +28,13 @@ curl https://api.tryfinch.com/employer/company \
 ```json
 {
   "id": "514aa2b7-898f-4ce7-bc05-c2fe993713e8",
-  "legal_name": "Profound Platform, Inc.",
+  "legal_name": "Example Company Platform, Inc.",
   "entity": {
     "type": "corporation",
     "subtype": "s_corporation"
   },
   "ein": "12-3456789",
-  "primary_email": "founders@work.examplecompany.com",
+  "primary_email": "founders@example.company.com",
   "primary_phone_number": "1234567890",
   "departments": [
     {
