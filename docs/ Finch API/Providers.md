@@ -49,6 +49,7 @@ Justworks | `justworks`
 Keystone Payroll isolved | `keystone_isolved`
 mp | `mp`
 Namely | `namely`
+NaturalHR | `natural_hr`
 Newtek | `newtek`
 OnPay | `onpay`
 Oracle PeopleSoft | `oracle_peoplesoft`
