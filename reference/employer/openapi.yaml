@@ -1,0 +1,752 @@
+openapi: 3.0.0
+info:
+  title: Finch API
+  version: '2020-09-17'
+servers:
+  - url: 'https://api.tryfinch.com'
+paths:
+  /employer/company:
+    get:
+      description: Read basic company data
+      responses:
+        '200':
+          description: Basic company data
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    id: 514aa2b7-898f-4ce7-bc05-c2fe993713e8
+                    legal_name: 'Acme, Inc.'
+                    entity:
+                      type: corporation
+                      subtype: s_corporation
+                    ein: 12-3456789
+                    primary_email: founders@acme.com
+                    primary_phone_number: '1234567890'
+                    departments:
+                      - name: Engineering
+                        parent: null
+                      - name: Platform
+                        parent:
+                          name: Engineering
+                    locations:
+                      - line1: 628 Forest Ave
+                        line2: Apt A
+                        city: Palo Alto
+                        state: NY
+                        postal_code: '94301'
+                        country: US
+                    accounts:
+                      - routing_number: '123456789'
+                        account_name: CHECKING ACCOUNT
+                        institution_name: 'BANK OF AMERICA, N.A.'
+                        account_type: checking
+                        account_number: '98765432'
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: A stable Finch `id` (UUID v4) for the company.
+                  legal_name:
+                    type: string
+                    description: The legal name of the company.
+                  entity:
+                    type: object
+                    description: The entity type object.
+                    properties:
+                      type:
+                        type: string
+                        description: 'The tax payer type of the company. Options: `llc`, `corporation`, `sole_proprietor`, `non_profit`, `partnership`, and `cooperative`.'
+                      subtype:
+                        type: string
+                        description: 'The tax payer subtype of the company. Options: `s_corporation`, `c_corporation`, and `b_corporation`.'
+                  primary_email:
+                    type: string
+                    description: The email of the main administrator on the account.
+                  primary_phone_number:
+                    type: string
+                    description: 'The phone number of the main administrator on the account. Format: `XXXXXXXXXX`'
+                  ein:
+                    type: string
+                    description: The employer identification number.
+                  departments:
+                    type: array
+                    description: The array of company departments.
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: The department name.
+                        parent:
+                          type: object
+                          description: 'The parent department, if present.'
+                          nullable: true
+                          properties:
+                            name:
+                              type: string
+                              description: The parent department's name.
+                  locations:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Location'
+                  accounts:
+                    type: array
+                    description: An array of bank account objects associated with the payroll/HRIS system.
+                    items:
+                      type: object
+                      properties:
+                        routing_number:
+                          type: string
+                          description: A nine-digit code that's based on the U.S. Bank location where your account was opened.
+                        account_name:
+                          type: string
+                          description: The name of the bank associated in the payroll/HRIS system.
+                        institution_name:
+                          type: string
+                          description: Name of the banking institution.
+                        account_type:
+                          type: string
+                          description: 'The type of bank account. Options: `checking` and `savings`.'
+                        account_number:
+                          type: string
+                          description: 10-12 digit number to specify the bank account
+      summary: Company
+  /employer/directory:
+    get:
+      description: Read company directory and organization structure
+      parameters:
+        - name: limit
+          in: query
+          description: Number of employees to return (defaults to all)
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: Index to start from (defaults to 0)
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Company directory and organization structure
+          content:
+            application/json:
+              example:
+                value:
+                  paging:
+                    count: 25
+                    offset: 10
+                  individuals:
+                    - id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                      first_name: Jane
+                      middle_name: null
+                      last_name: Doe
+                      manager:
+                        id: c205b3fa-b626-4346-bf0f-ca065ab88d31
+                      department:
+                        name: Product
+                      is_active: true
+              schema:
+                type: object
+                properties:
+                  paging:
+                    $ref: '#/components/schemas/Paging'
+                  individuals:
+                    type: array
+                    description: The array of employees.
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: A stable Finch id (UUID v4) for an individual in the company.
+                        first_name:
+                          type: string
+                          description: The legal first name of the individual.
+                        middle_name:
+                          type: string
+                          description: The legal middle name of the individual.
+                        last_name:
+                          type: string
+                          description: The legal last name of the individual.
+                        manager:
+                          type: object
+                          description: The manager object.
+                          properties:
+                            id:
+                              type: string
+                              description: A stable Finch `id` (UUID v4) for an individual in the company.
+                        department:
+                          type: object
+                          description: The department object.
+                          properties:
+                            name:
+                              type: string
+                              description: The name of the department.
+                        is_active:
+                          type: string
+                          description: '`true` if the individual is an active employee or contractor at the company.'
+      summary: Directory
+  /employer/individual:
+    post:
+      description: 'Read individual data, excluding income and employment data'
+      parameters:
+        - $ref: '#/components/parameters/requests'
+      responses:
+        '200':
+          description: Individual data
+          content:
+            application/json:
+              example:
+                value: null
+                responses:
+                  - individual_id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                    code: 200
+                    body:
+                      id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                      first_name: Jane
+                      middle_name: null
+                      last_name: Doe
+                      emails:
+                        - data: janedoe@acme.com
+                          type: work
+                        - data: janedoe@home.com
+                          type: personal
+                      phone_numbers:
+                        - data: '2065550100'
+                          type: personal
+                      dob: '1970-01-01'
+                      residence:
+                        line1: 628 Forest Ave
+                        line2: Apt G
+                        city: Palo Alto
+                        state: CA
+                        postal_code: '94301'
+                        country: US
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: A stable Finch `id` (UUID v4) for an individual in the company.
+                  first_name:
+                    type: string
+                    description: The legal first name of the individual.
+                  middle_name:
+                    type: string
+                    description: The legal middle name of the individual.
+                  last_name:
+                    type: string
+                    description: The legal last name of the individual.
+                  emails:
+                    type: array
+                    description: An array of email objects.
+                    items:
+                      type: object
+                      properties:
+                        data:
+                          type: string
+                          description: The email address associated with the email type.
+                        type:
+                          type: string
+                          description: 'Indicates the type of email. Options: `work`, `personal`.'
+                  phone_numbers:
+                    type: array
+                    description: An array of phone number objects.
+                    items:
+                      type: object
+                      properties:
+                        data:
+                          type: string
+                          description: 'The phone number associated with the email type. Format: `XXXXXXXXXX`'
+                        type:
+                          type: string
+                          description: 'Indicates the type of phone number. Options: `work`, `personal`.'
+                  dob:
+                    type: string
+                    description: The birthday of the individual. ISO 8601 format.
+                  residence:
+                    $ref: '#/components/schemas/Location'
+      summary: Individual
+  /employer/employment:
+    post:
+      description: Read individual employment and income data
+      parameters:
+        - $ref: '#/components/parameters/requests'
+      responses:
+        '200':
+          description: Employment data
+          content:
+            application/json:
+              example:
+                value: null
+                responses:
+                  - individual_id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                    code: 200
+                    body:
+                      id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                      first_name: Jane
+                      middle_name: null
+                      last_name: Doe
+                      title: Customer Support
+                      manager:
+                        id: c205b3fa-b626-4346-bf0f-ca065ab88d31
+                      department:
+                        name: Product
+                      employment:
+                        type: employee
+                        subtype: full_time
+                      start_date: '2017-06-30'
+                      end_date: null
+                      is_active: true
+                      location:
+                        line1: 12 Bird Drive
+                        line2: null
+                        city: Palo Alto
+                        state: CA
+                        postal_code: '94301'
+                        country: US
+                      income:
+                        unit: yearly
+                        amount: 10000000
+                        currency: usd
+                        effective_date: '2019-03-01'
+                      income_history:
+                        - unit: yearly
+                          amount: 9000000
+                          currency: usd
+                          effective_date: '2018-05-15'
+                        - unit: yearly
+                          amount: 8000000
+                          currency: usd
+                          effective_date: '2017-06-30'
+              schema:
+                type: object
+                properties:
+                  responses:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        individual_id:
+                          type: string
+                        code:
+                          type: integer
+                        body:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: "string\tA stable Finch `id` (UUID v4) for an individual in the company."
+                            first_name:
+                              type: string
+                              description: The legal first name of the individual.
+                            middle_name:
+                              type: string
+                              description: The legal middle name of the individual.
+                            last_name:
+                              type: string
+                              description: "\tThe legal last name of the individual."
+                            title:
+                              type: string
+                              description: The current title of the individual.
+                            manager:
+                              type: object
+                              description: The manager object representing the manager of the individual within the org.
+                              properties:
+                                id:
+                                  type: string
+                                  description: A stable Finch `id` (UUID v4) for an individual in the company.
+                            department:
+                              type: object
+                              description: The department object.
+                              properties:
+                                name:
+                                  type: string
+                                  description: The name of the department associated with the individual.
+                            employment:
+                              type: object
+                              description: The employment object.
+                              properties:
+                                type:
+                                  type: string
+                                  description: 'The main employment type of the individual. Options: `employee` and `contractor`.'
+                                subtype:
+                                  type: string
+                                  description: "\tThe secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`."
+                            start_date:
+                              type: string
+                              description: The start date of an individual. ISO 8601 format.
+                            end_date:
+                              type: string
+                              description: "\tThe end date of an individual. ISO 8601 format."
+                            is_active:
+                              type: boolean
+                              description: '`true` if the individual an an active employee or contractor at the company.'
+                            location:
+                              $ref: '#/components/schemas/Location'
+                            income:
+                              $ref: '#/components/schemas/Income'
+                            income_history:
+                              type: array
+                              description: The array of income history.
+                              items:
+                                $ref: '#/components/schemas/Income'
+      summary: Employment
+  /employer/payment:
+    get:
+      description: Read payroll and contractor related payments by the company.
+      parameters:
+        - name: start_date
+          required: true
+          in: query
+          description: The start date to retrieve payments by a company (inclusive) in YYYY-MM-DD format.
+          schema:
+            type: string
+        - name: end_date
+          required: true
+          in: query
+          description: The end date to retrieve payments by a company (inclusive) in YYYY-MM-DD format.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Employment data
+          content:
+            application/json:
+              example:
+                value:
+                  - id: 20aa7cf2-949d-4d4e-9c01-499b59501ded
+                    pay_period:
+                      start_date: '2019-08-01'
+                      end_date: '2019-08-15'
+                    pay_date: '2019-08-22'
+                    debit_date: '2019-08-22'
+                    company_debit:
+                      amount: 360000
+                      currency: usd
+                    gross_pay:
+                      amount: 4000000
+                      currency: usd
+                    net_pay:
+                      amount: 3200000
+                      currency: usd
+                    employer_taxes:
+                      amount: 200000
+                      currency: usd
+                    employee_taxes:
+                      amount: 350000
+                      currency: usd
+                    individual_ids:
+                      - 54719e14-5ea7-4fda-9898-f4d9ccb83c1a
+                      - 0ab620fc-203e-44ad-916c-facc69250f6f
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: The unique id for the payment.
+                    pay_period:
+                      type: object
+                      description: The pay period object.
+                      properties:
+                        start_date:
+                          type: string
+                          description: The start date for the pay period corresponding with this payment.
+                        end_date:
+                          type: string
+                          description: The end date for the pay period corresponding with this payment.
+                    pay_date:
+                      type: string
+                      description: The date at which individual will be paid for this payment.
+                    debit_date:
+                      type: string
+                      description: The date the company is debited for this payment.
+                    company_debit:
+                      $ref: '#/components/schemas/Money'
+                    gross_pay:
+                      $ref: '#/components/schemas/Money'
+                    net_pay:
+                      $ref: '#/components/schemas/Money'
+                    employer_taxes:
+                      $ref: '#/components/schemas/Money'
+                    employee_taxes:
+                      $ref: '#/components/schemas/Money'
+                    individual_ids:
+                      type: array
+                      description: Array of every individual on this payment.
+                      items:
+                        type: string
+      summary: Payment
+  /employer/pay-statement:
+    post:
+      description: Read detailed pay statements for each individual.
+      parameters:
+        - name: requests
+          required: true
+          in: query
+          description: The array of batch requests
+          schema:
+            type: array
+            items:
+              type: object
+              required:
+                - payment_id
+              properties:
+                individual_id:
+                  description: A stable Finch id (UUID v4) for a payment.
+                  type: string
+                limit:
+                  description: Number of pay statements to return (default to all)
+                  type: integer
+                offset:
+                  description: Index to start from (defaults to 0)
+                  type: integer
+      responses:
+        '200':
+          description: Employment data
+          content:
+            application/json:
+              example:
+                value:
+                  responses:
+                    - payment_id: fc8b024e-d373-4c9c-80fc-f1625383d142
+                      code: 200
+                      body:
+                        paging:
+                          count: 25
+                          offset: 10
+                        pay_statements:
+                          - individual_id: be7b048c-a6f3-4194-a017-2f537d4f3565
+                            type: regular_payroll
+                            payment_method: check
+                            total_hours: 80
+                            gross_pay:
+                              amount: 230000
+                              currency: usd
+                            net_pay:
+                              amount: 180000
+                              currency: usd
+                            earnings:
+                              - type: salary
+                                name: Salary
+                                amount: 230000
+                                currency: usd
+                            taxes:
+                              - type: state
+                                name: State Withholding - OR
+                                employer: false
+                                amount: 0
+                                currency: usd
+                            employee_deductions:
+                              - name: Pre-Tax 401k
+                                amount: 50000
+                                currency: usd
+                                pre_tax: true
+                            employer_contributions:
+                              - name: Employee Medical Insurance
+                                amount: 23272
+                                currency: usd
+              schema:
+                type: object
+                properties:
+                  responses:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        payment_id:
+                          type: string
+                        code:
+                          type: integer
+                        body:
+                          type: object
+                          properties:
+                            paging:
+                              $ref: '#/components/schemas/Paging'
+                            pay_statements:
+                              type: array
+                              description: The array of pay statements for the current payment.
+                              items:
+                                type: object
+                                properties:
+                                  individual_id:
+                                    type: string
+                                    description: A stable Finch `id` (UUID v4) for an individual in the company
+                                  type:
+                                    type: string
+                                    description: 'The type of the payment associated with the pay statement. Options: `regular_payroll`, `off_cycle_payroll`, or `one_time_payment`'
+                                  payment_method:
+                                    type: string
+                                    description: 'The payment method. Options: `check` and `direct_deposit`'
+                                  total_hours:
+                                    type: integer
+                                    description: The number of hours worked for this pay period
+                                  gross_pay:
+                                    $ref: '#/components/schemas/Money'
+                                  net_pay:
+                                    $ref: '#/components/schemas/Money'
+                                  earnings:
+                                    type: array
+                                    description: The array of earnings objects associated with this pay statement
+                                    items:
+                                      type: object
+                                      properties:
+                                        type:
+                                          type: string
+                                          description: 'The type of earning. Options: `salary`, `wage`, `reimbursement`, `overtime`, `severance`, `double_overtime`, `pto`, `sick`, `bonus`, `commission`, `tips`, `1099`, and `other`.'
+                                        name:
+                                          type: string
+                                          description: The exact name of the deduction from the pay statement.
+                                        amount:
+                                          type: integer
+                                          description: The earnings amount in cents.
+                                        currency:
+                                          type: string
+                                          description: The earnings currency code.
+                                  taxes:
+                                    type: array
+                                    description: The array of taxes objects associated with this pay statement.
+                                    items:
+                                      type: object
+                                      properties:
+                                        type:
+                                          type: string
+                                          description: 'The type of taxes. Options: `state`, `federal`, `local`, and `fica`.'
+                                        name:
+                                          type: string
+                                          description: The exact name of tax from the pay statement.
+                                        employer:
+                                          type: boolean
+                                          description: '`true` if the amount is paid by the employers.'
+                                        amount:
+                                          type: integer
+                                          description: The tax amount in cents.
+                                        currency:
+                                          type: string
+                                          description: The currency code.
+                                  employee_deductions:
+                                    type: array
+                                    description: The array of deductions objects associated with this pay statement.
+                                    items:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string
+                                          description: The deduction name from the pay statement.
+                                        amount:
+                                          type: integer
+                                          description: The deduction amount in cents.
+                                        currency:
+                                          type: string
+                                          description: The deduction currency.
+                                        pre_tax:
+                                          type: boolean
+                                          description: Boolean indicating if the deduction is pre-tax.
+                                  employer_contributions:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string
+                                          description: The contribution name from the pay statement.
+                                        amount:
+                                          type: integer
+                                          description: The contribution amount in cents.
+                                        currency:
+                                          type: string
+                                          description: 'The '
+      summary: Pay Statement
+components:
+  schemas:
+    Location:
+      title: Location
+      type: object
+      properties:
+        line1:
+          type: string
+          description: Street address or PO box.
+        line2:
+          type: string
+          description: 'Apartment, suite, unit, or building.'
+        city:
+          type: string
+          description: "\tCity, district, suburb, town, or village."
+        state:
+          type: string
+          description: The state code.
+        postal_code:
+          type: string
+          description: The postal code or zip code.
+        country:
+          type: string
+          description: The 2-letter ISO 3166 country code.
+      required:
+        - line1
+        - line2
+        - city
+        - state
+        - postal_code
+        - country
+    Income:
+      title: Income
+      type: object
+      properties:
+        unit:
+          type: string
+          description: 'The income unit of payment. Options: `yearly`, `monthly`, `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`.'
+        amount:
+          type: string
+          description: The income amount in cents.
+        currency:
+          type: string
+          description: The currency code.
+        effective_date:
+          type: string
+          description: The date the income amount went into effect.
+      required:
+        - unit
+        - amount
+        - currency
+        - effective_date
+    Money:
+      title: Money
+      type: object
+      properties:
+        amount:
+          type: string
+        currency:
+          type: string
+    Paging:
+      title: Paging
+      type: object
+      properties:
+        count:
+          type: integer
+          description: The total number of elements for the entire query (not just the given page)
+        offset:
+          type: integer
+          description: The current start index of the returned list of elements
+  parameters:
+    requests:
+      name: requests
+      required: true
+      in: query
+      description: The array of batch requests
+      schema:
+        type: array
+        items:
+          type: object
+          description: A stable Finch id (UUID v4) for an individual in the company. There is no limit to the number of individual_id to send per request. It is preferantial to send all ids in a single request for Finch to optimize provider rate-limits.
+          required:
+            - individual_id
+          properties:
+            individual_id:
+              type: string
