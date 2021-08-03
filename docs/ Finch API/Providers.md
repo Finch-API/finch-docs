@@ -35,6 +35,7 @@ Coastal Payroll | `coastal_payroll`
 Commonwealth Payroll & HR | `commonwealth_payroll_hr`
 CPM Employer Services isolved | `cpm_isolved`
 Crescent Payroll Solutions | `crescent_payroll_solutions`
+Deel | `deel`
 Dominion Payroll | `dominion_payroll`
 Employdrive | `employdrive`
 Goco | `goco`
