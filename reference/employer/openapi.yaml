@@ -338,6 +338,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Individual-Ids'
+            examples:
+              example-request:
+                value:
+                  requests:
+                    - individual_id: f3ddb1f4-dfa4-4e1d-bfed-bdfd0645b613
   /employer/employment:
     post:
       description: Read individual employment and income data
@@ -482,6 +487,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Individual-Ids'
+            examples:
+              example-request:
+                value:
+                  requests:
+                    - individual_id: f3ddb1f4-dfa4-4e1d-bfed-bdfd0645b613
   /employer/payment:
     get:
       description: Read payroll and contractor related payments by the company.
@@ -935,6 +945,9 @@ components:
         - state
         - postal_code
         - country
+      x-tags:
+        - Models
+      description: ''
     Income:
       title: Income
       type: object
@@ -965,6 +978,8 @@ components:
         - amount
         - currency
         - effective_date
+      x-tags:
+        - Models
     Money:
       title: Money
       type: object
@@ -973,6 +988,8 @@ components:
           type: integer
         currency:
           type: string
+      x-tags:
+        - Models
     Paging:
       title: Paging
       type: object
@@ -983,6 +1000,8 @@ components:
         offset:
           type: integer
           description: The current start index of the returned list of elements
+      x-tags:
+        - Models
     Individual-Ids:
       title: Individual-Ids
       type: object
@@ -1006,4 +1025,5 @@ components:
             requests:
               - individual_id: f3ddb1f4-dfa4-4e1d-bfed-bdfd0645b613
       description: Individual Ids Request Body
-  
+      x-tags:
+        - Models
