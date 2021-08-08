@@ -28,12 +28,14 @@ Bizchecks Payroll | `bizchecks_payroll`
 bob | `bob`
 Ceridian Dayforce | `ceridian_dayforce`
 Ceridian Powerpay | `ceridian_powerpay`
+CharlieHR | `charlie_hr`
 Collage | `collage`
 CoAdvantage | `coadvantage`
 Coastal Payroll | `coastal_payroll`
 Commonwealth Payroll & HR | `commonwealth_payroll_hr`
 CPM Employer Services isolved | `cpm_isolved`
 Crescent Payroll Solutions | `crescent_payroll_solutions`
+Deel | `deel`
 Dominion Payroll | `dominion_payroll`
 Employdrive | `employdrive`
 Goco | `goco`
@@ -48,6 +50,7 @@ Justworks | `justworks`
 Keystone Payroll isolved | `keystone_isolved`
 mp | `mp`
 Namely | `namely`
+NaturalHR | `natural_hr`
 Newtek | `newtek`
 OnPay | `onpay`
 Oracle PeopleSoft | `oracle_peoplesoft`
@@ -79,8 +82,9 @@ Savant HCM Evolution | `savant_hcm_evolution`
 Sequoia One | `sequoia_one`
 Square Payroll | `square_payroll`
 SAP SuccessFactors | `successfactors`
-SyncHR | `sync_hr`
+SuitePeople (Oracle NetSuite) | `suite_people`
 Strategic Payroll Solutions isolved | `strategic_payroll_solutions_isolved`
+SyncHR | `sync_hr`
 The Payroll Company | `the_payroll_company`
 Toast Payroll | `toast_payroll`
 TriNet | `trinet`

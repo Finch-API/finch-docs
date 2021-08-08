@@ -4,7 +4,7 @@ Authorization allows applications to authorize and interact with payroll and HRI
 
 ### Redirect URIs
 
-To authorize with Finch, you'll need to provide one or more redirect URIs. The user will be redirected to the specified URI upon authorization. On redirect, the URI will contain an authorization code query parameter that must be exchanged with Finch's authorization server for an access token. The default redirect URI is `https://tryfinch.com`. 
+To authorize with Finch, you'll need to provide one or more redirect URIs. The user will be redirected to the specified URI upon authorization. On redirect, the URI will contain an authorization code query parameter that must be exchanged with Finch's authorization server for an access token. The default redirect URI is `https://tryfinch.com`.
 
 The redirect URIs must match one of the following formats—
 
@@ -25,7 +25,7 @@ Finch Connect provides a secure and elegant authorization flow for your users. B
 ![](../../assets/images/connect.png)
 
 Connect contains the following steps—
-1. **Redirect to Finch Connect** - Your application redirects the user to the Finch Connect authorization flow. 
+1. **Redirect to Finch Connect** - Your application redirects the user to the Finch Connect authorization flow.
 2. **Authenticate user and obtain consent** - Finch Connect prompts the user to log in with their payroll credentials. Once logged in, the user will be asked to grant your application access to a specific scope of permissions.
 3. **Handle response** - If the user successfully accepted the permissions, Finch Connect will redirect the user back to your application using the specified redirect_uri with an authorization code. If an error occurs, Finch Connect will redirect the user to your application with an error message.
 
@@ -33,14 +33,14 @@ Connect contains the following steps—
 
 When your application needs to access a user’s payroll data, redirect them to Connect.
 
-Construct the Connect redirect with the parameters below— 
+Construct the Connect redirect with the parameters below—
 
 
 Parameter | Required | Description
 ---------|----------|---------
  `client_id` | true | The application’s unique identifier.
  `redirect_uri` | true | The URI a user will be redirected to after authorization. This value must match one of your application's configured redirect URIs. The default ones are `https://tryfinch.com` and `http://localhost:3000/callback`. For a custom redirect uri, send the team a message on Slack!
- `products` | true | A space-separated list of products that your application is requesting access to.
+ `products` | true | A space-separated list of products that your application is requesting access to. The products are listed in the 'Employer' section below; currently: `company`, `directory`, `individual`, `employment`, `payment`, `pay_statement`, and `deduction`.
  `state` | false | An optional value included as a query parameter in the `redirect_uri` back to your application. This value is often used to identify a user and/or prevent cross-site request forgery.
  `payroll_provider` | false | An optional parameter that allows users to bypass the provider selection screen by providing the [Provider](./Providers.md) `id`.
  `sandbox` | false | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data.
