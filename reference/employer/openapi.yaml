@@ -796,6 +796,9 @@ paths:
                                         pre_tax:
                                           type: boolean
                                           description: Boolean indicating if the deduction is pre-tax.
+                                        benefit_id:
+                                          type: string
+                                          description: A stable Finch `id` (uuid v4) for the deduction.
                                   employer_contributions:
                                     type: array
                                     items:
@@ -810,6 +813,9 @@ paths:
                                         currency:
                                           type: string
                                           description: 'The '
+                                        benefit_id:
+                                          type: string
+                                          description: A stable Finch `id` (uuidv4) for the contribution.
       summary: Pay Statement
       operationId: get-pay-statement
       tags:
@@ -926,6 +932,288 @@ paths:
       description: Disconnect an employer from your application and invalidate all `access_token`s associated with the employer. We require applications to implement the Disconnect endpoint for billing and security purposes.
       tags:
         - Management
+  /employer/company/benefits:
+    get:
+      summary: GET Company Benefits
+      tags:
+        - Employer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    benefit_id:
+                      type: string
+                    type:
+                      type: string
+                    description:
+                      type: string
+                    frequency:
+                      type: string
+                    company_contribution:
+                      type: string
+                    employee_deduction:
+                      type: string
+      operationId: get-company-benefits
+      description: List all company-wide benefits.
+    post:
+      summary: POST Create Company-wide Benefit
+      operationId: post-company-benefits
+      responses:
+        '201':
+          description: Successfully Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  benefit_id:
+                    type: string
+                  description:
+                    type: string
+      description: Creates a new company-wide benefit
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                description:
+                  type: string
+                employee_deduction:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                    amount:
+                      type: number
+                company_contribution:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                    amount:
+                      type: integer
+                frequency:
+                  type: string
+                annual_maximum:
+                  type: string
+      tags:
+        - Employer
+  /employer/company/benefits/meta:
+    get:
+      summary: GET Benefits Metadata
+      tags:
+        - Employer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                    description:
+                      type: string
+                    frequencies:
+                      type: array
+                      items:
+                        type: string
+      operationId: get-company-benefits-meta
+      description: Lists available types/frequencies available for a given company for a given provider
+  /employer/company/benefits/<benefit_id>:
+    get:
+      summary: GET Company Benefit
+      tags:
+        - Employer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  benefit_id:
+                    type: string
+                  type:
+                    type: string
+                  description:
+                    type: string
+        '404':
+          description: Benefit Not Found
+      operationId: get-company-benefit
+      description: Lists benefit information for a given benefit
+    post:
+      summary: POST Update Company Benefit
+      operationId: update-company-benefits
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  benefit_id:
+                    type: string
+                  description:
+                    type: string
+        '400':
+          description: Bad Request
+        '404':
+          description: Benefit Not Found
+      description: Updates an existing company-wide benefit
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+      tags:
+        - Employer
+  /employer/company/benefits/<benefit_id>/enrolled:
+    get:
+      summary: GET Enrolled Individuals
+      tags:
+        - Employer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  benefit_id:
+                    type: string
+                  individual_ids:
+                    type: array
+                    items:
+                      type: string
+        '404':
+          description: Benefit Not Found
+      operationId: get-company-benefits-enrolled
+      description: |-
+        Lists individuals currently enrolled in a given benefit.
+        Returns empty for `one-time` benefits.
+  /employer/individual/benefits/<benefit_id>:
+    get:
+      summary: Your GET endpoint
+      tags:
+        - Employer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    individual_id:
+                      type: string
+                    employee_deduction:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                        amount:
+                          type: string
+                    company_contribution:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                        amount:
+                          type: string
+                    next_effective_date:
+                      type: string
+        '404':
+          description: Benefit Not Found
+      operationId: get-individual-benefits
+      description: Get enrolled benefit information for the given individuals
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                individual_ids:
+                  type: array
+                  items:
+                    type: string
+    post:
+      summary: ''
+      operationId: post-employer-individual-benefits-benefit_id
+      responses:
+        '200':
+          description: 'Updated existing benefit information for individuals who were already enrolled, and enrolled new individuals.'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    individual_id:
+                      type: string
+                    status:
+                      type: integer
+                      enum:
+                        - 200
+                        - 201
+        '400':
+          description: Bad Request
+        '404':
+          description: Benefit Not Found
+        '422':
+          description: Either benefit type or payroll provider does not support a deductio or contribution type provided in the request.
+      description: |-
+        Upsert enrolling an individual into a benefit. If the employee is already enrolled, the amounts will be adjusted.
+
+        ```
+        Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
+        ```
+      tags:
+        - Employer
+    delete:
+      summary: ''
+      operationId: delete-individual-benefits
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request (invalid individual_id)
+        '404':
+          description: Benefit Not Found
+      description: Unenroll individuals from a benefit
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  individual_id:
+                    type: string
+      tags:
+        - Employer
 components:
   schemas:
     Location:
