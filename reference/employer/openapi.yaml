@@ -934,7 +934,7 @@ paths:
         - Management
   /employer/company/benefits:
     get:
-      summary: GET Company Benefits
+      summary: List Company Benefits
       tags:
         - Employer
       responses:
@@ -962,7 +962,7 @@ paths:
       operationId: get-company-benefits
       description: List all company-wide benefits.
     post:
-      summary: POST Create Company-wide Benefit
+      summary: Create Company-wide Benefit
       operationId: post-company-benefits
       responses:
         '201':
@@ -1009,7 +1009,7 @@ paths:
         - Employer
   /employer/company/benefits/meta:
     get:
-      summary: GET Benefits Metadata
+      summary: List Benefits Metadata
       tags:
         - Employer
       responses:
@@ -1034,7 +1034,7 @@ paths:
       description: Lists available types/frequencies available for a given company for a given provider
   /employer/company/benefits/<benefit_id>:
     get:
-      summary: GET Company Benefit
+      summary: List Company Benefit
       tags:
         - Employer
       responses:
@@ -1056,7 +1056,7 @@ paths:
       operationId: get-company-benefit
       description: Lists benefit information for a given benefit
     post:
-      summary: POST Update Company Benefit
+      summary: Update Company Benefit
       operationId: update-company-benefits
       responses:
         '200':
@@ -1087,7 +1087,7 @@ paths:
         - Employer
   /employer/company/benefits/<benefit_id>/enrolled:
     get:
-      summary: GET Enrolled Individuals
+      summary: List Enrolled Individuals
       tags:
         - Employer
       responses:
@@ -1112,7 +1112,7 @@ paths:
         Returns empty for `one-time` benefits.
   /employer/individual/benefits/<benefit_id>:
     get:
-      summary: Your GET endpoint
+      summary: List Benefits for Individuals
       tags:
         - Employer
       responses:
@@ -1158,7 +1158,7 @@ paths:
                   items:
                     type: string
     post:
-      summary: ''
+      summary: Update Individuals' Benefits
       operationId: post-employer-individual-benefits-benefit_id
       responses:
         '200':
@@ -1192,7 +1192,7 @@ paths:
       tags:
         - Employer
     delete:
-      summary: ''
+      summary: Unenroll Individuals' Benefits
       operationId: delete-individual-benefits
       responses:
         '200':
