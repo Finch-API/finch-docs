@@ -20,8 +20,6 @@ info:
     - `payment`: Read payroll and contractor related payments by the company
 
     - `pay_statement`: Read detailed pay statements for each individual
-
-    - `deduction`: Create and manage deductions and enrollment within a company
 servers:
   - url: 'https://api.tryfinch.com'
     description: Production
@@ -514,7 +512,7 @@ paths:
         - name: start_date
           required: true
           in: query
-          description: The start date to retrieve payments by a company (inclusive) in YYYY-MM-DD format.
+          description: The start date to retrieve payments by a company (inclusive) in `YYYY-MM-DD` format.
           schema:
             type: string
             format: date
@@ -522,7 +520,7 @@ paths:
         - name: end_date
           required: true
           in: query
-          description: The end date to retrieve payments by a company (inclusive) in YYYY-MM-DD format.
+          description: The end date to retrieve payments by a company (inclusive) in `YYYY-MM-DD` format.
           schema:
             type: string
             format: date
@@ -908,7 +906,7 @@ paths:
       description: Read account information associated with an `access_token`
   /disconnect:
     post:
-      summary: 'Disconnect'
+      summary: Disconnect
       operationId: post-disconnect
       responses:
         '200':
