@@ -50,7 +50,7 @@ Parameter | Type | Required | Description
             "individual_id": "be7b048c-a6f3-4194-a017-2f537d4f3565",
             "type": "regular_payroll",
             "payment_method": "check",
-            "total_hours": 80
+            "total_hours": 80.5,
             "gross_pay": {
               "amount": 230000,
               "currency": "usd"
@@ -110,7 +110,7 @@ Name | Type | Description
 `pay_statements[].individual_id` | `string` | A stable Finch `id` (UUID v4) for an individual in the company.
 `pay_statements[].type` | `string` | The type of the payment associated with the pay statement. Options: `regular_payroll`, `off_cycle_payroll`, or `one_time_payment`.
 `pay_statements[].payment_method` | `string` | The payment method. Options: `check` and `direct_deposit`.
-`pay_statements[].total_hours` | `integer` | The number of hours worked for this pay period. 
+`pay_statements[].total_hours` | `number` | The number of hours worked for this pay period. 
 `pay_statements[].gross_pay` | `object` | The money object for the gross pay amount.
 `pay_statements[].net_pay` | `object` | The money object for the net pay amount.
 `pay_statements[].earnings` | `array` | The array of earnings objects associated with this pay statement.
