@@ -50,7 +50,7 @@ Parameter | Type | Required | Description
             "individual_id": "be7b048c-a6f3-4194-a017-2f537d4f3565",
             "type": "regular_payroll",
             "payment_method": "check",
-            "total_hours": 80.5,
+            "total_hours": 80.67,
             "gross_pay": {
               "amount": 230000,
               "currency": "usd"
