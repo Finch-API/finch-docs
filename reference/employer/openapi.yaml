@@ -812,10 +812,10 @@ paths:
                                           description: The contribution amount in cents.
                                         currency:
                                           type: string
-                                          description: 'The '
+                                          description: The contribution currency.
                                         benefit_id:
                                           type: string
-                                          description: A stable Finch `id` (uuidv4) for the contribution.
+                                          description: A stable Finch `id` (uuid v4) for the contribution.
       summary: Pay Statement
       operationId: get-pay-statement
       tags:
@@ -932,7 +932,7 @@ paths:
       description: Disconnect an employer from your application and invalidate all `access_token`s associated with the employer. We require applications to implement the Disconnect endpoint for billing and security purposes.
       tags:
         - Management
-  /employer/company/benefits:
+  /employer/benefits:
     get:
       summary: List Company Benefits
       tags:
@@ -950,15 +950,17 @@ paths:
                     benefit_id:
                       type: string
                     type:
-                      type: string
+                      $ref: '#/components/schemas/BenefitType'
                     description:
                       type: string
                     frequency:
-                      type: string
+                      $ref: '#/components/schemas/BenefitFrequency'
                     company_contribution:
-                      type: string
+                      $ref: '#/components/schemas/BenefitContribution'
                     employee_deduction:
-                      type: string
+                      $ref: '#/components/schemas/BenefitContribution'
+                    annual_maximum:
+                      type: integer
       operationId: get-company-benefits
       description: List all company-wide benefits.
     post:
@@ -984,30 +986,22 @@ paths:
               type: object
               properties:
                 type:
-                  type: string
+                  $ref: '#/components/schemas/BenefitType'
                 description:
                   type: string
                 employee_deduction:
-                  type: object
-                  properties:
-                    type:
-                      type: string
-                    amount:
-                      type: number
+                  $ref: '#/components/schemas/BenefitContribution'
                 company_contribution:
-                  type: object
-                  properties:
-                    type:
-                      type: string
-                    amount:
-                      type: integer
+                  $ref: '#/components/schemas/BenefitContribution'
                 frequency:
-                  type: string
+                  $ref: '#/components/schemas/BenefitFrequency'
                 annual_maximum:
-                  type: string
+                  type: integer
+                  description: Maximum amount that can be contributed to this benefit annualy.
       tags:
         - Employer
-  /employer/company/benefits/meta:
+    parameters: []
+  /employer/benefits/meta:
     get:
       summary: List Benefits Metadata
       tags:
@@ -1023,16 +1017,17 @@ paths:
                   type: object
                   properties:
                     type:
-                      type: string
+                      $ref: '#/components/schemas/BenefitType'
                     description:
                       type: string
                     frequencies:
                       type: array
                       items:
-                        type: string
+                        $ref: '#/components/schemas/BenefitFrequency'
       operationId: get-company-benefits-meta
       description: Lists available types/frequencies available for a given company for a given provider
-  /employer/company/benefits/<benefit_id>:
+    parameters: []
+  /employer/benefits/<benefit_id>:
     get:
       summary: List Company Benefit
       tags:
@@ -1047,10 +1042,12 @@ paths:
                 properties:
                   benefit_id:
                     type: string
+                    description: A stable Finch uuid (uuid v4) for the benefit.
                   type:
-                    type: string
+                    $ref: '#/components/schemas/BenefitType'
                   description:
                     type: string
+                    description: Name or description of the benefit.
         '404':
           description: Benefit Not Found
       operationId: get-company-benefit
@@ -1083,9 +1080,11 @@ paths:
               properties:
                 description:
                   type: string
+                  description: Name or description to upsert into the benefit
       tags:
         - Employer
-  /employer/company/benefits/<benefit_id>/enrolled:
+    parameters: []
+  /employer/benefits/<benefit_id>/enrolled:
     get:
       summary: List Enrolled Individuals
       tags:
@@ -1110,7 +1109,8 @@ paths:
       description: |-
         Lists individuals currently enrolled in a given benefit.
         Returns empty for `one-time` benefits.
-  /employer/individual/benefits/<benefit_id>:
+    parameters: []
+  /employer/benefits/<benefit_id>/individuals:
     get:
       summary: List Benefits for Individuals
       tags:
@@ -1128,21 +1128,13 @@ paths:
                     individual_id:
                       type: string
                     employee_deduction:
-                      type: object
-                      properties:
-                        type:
-                          type: string
-                        amount:
-                          type: string
+                      $ref: '#/components/schemas/BenefitContribution'
                     company_contribution:
-                      type: object
-                      properties:
-                        type:
-                          type: string
-                        amount:
-                          type: string
+                      $ref: '#/components/schemas/BenefitContribution'
                     next_effective_date:
                       type: string
+                      pattern: '[0-9]{4}-[0-9]{2}-[0-9]{2}'
+                      nullable: true
         '404':
           description: Benefit Not Found
       operationId: get-individual-benefits
@@ -1214,6 +1206,31 @@ paths:
                     type: string
       tags:
         - Employer
+    parameters: []
+  /employer/benefits/<benefit_id>/individuals/<individual_id>:
+    get:
+      summary: List Benefits for a Single Individual
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  individual_id:
+                    type: string
+                  employee_deduction:
+                    $ref: '#/components/schemas/BenefitContribution'
+                  company_contribution:
+                    $ref: '#/components/schemas/BenefitContribution'
+                  next_effective_date:
+                    type: string
+                    pattern: '[0-9]{4}-[0-9]{2}-[0-9]{2}'
+                    nullable: true
+      operationId: get-employer-benefits-benefit_id-individuals-individual_id
+      description: Get enrolled benefit information for the given individual
 components:
   schemas:
     Location:
@@ -1328,3 +1345,42 @@ components:
               - individual_id
       required:
         - requests
+    BenefitType:
+      type: string
+      title: BenefitType
+      enum:
+        - 401k
+        - 401k_roth
+        - 403b
+        - 403b_roth
+        - '457'
+        - 457_roth
+        - s125_medical
+        - s125_dental
+        - s125_vision
+        - hsa_pre
+        - hsa_post
+        - fsa_medical
+        - fsa_dependent_care
+        - simple_ira
+        - simple
+        - other_post
+    BenefitFrequency:
+      type: string
+      title: BenefitFrequency
+      enum:
+        - one_time
+        - every_paycheck
+    BenefitContribution:
+      title: BenefitContribution
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - fixed
+            - percent
+          description: Contribution type
+        amount:
+          type: integer
+          description: Contribution amount in cents.
