@@ -934,7 +934,7 @@ paths:
         - Management
   /employer/benefits:
     get:
-      summary: List Company Benefits
+      summary: Get All Benefits
       tags:
         - Employer
       responses:
@@ -970,7 +970,7 @@ paths:
       operationId: get-company-benefits
       description: List all company-wide benefits.
     post:
-      summary: Create Company-wide Benefit
+      summary: Create Benefit
       operationId: post-company-benefits
       responses:
         '201':
@@ -1031,7 +1031,7 @@ paths:
     parameters: []
   /employer/benefits/meta:
     get:
-      summary: List Benefits Metadata
+      summary: Get Benefits Metadata
       tags:
         - Employer
       responses:
@@ -1064,7 +1064,7 @@ paths:
     parameters: []
   /employer/benefits/<benefit_id>:
     get:
-      summary: List Company Benefit
+      summary: Get Benefit
       tags:
         - Employer
       responses:
@@ -1100,7 +1100,7 @@ paths:
       operationId: get-company-benefit
       description: Lists benefit information for a given benefit
     post:
-      summary: Update Company Benefit
+      summary: Update Benefit
       operationId: update-company-benefits
       responses:
         '200':
@@ -1133,7 +1133,7 @@ paths:
     parameters: []
   /employer/benefits/<benefit_id>/enrolled:
     get:
-      summary: List Enrolled Individuals
+      summary: Get Enrolled Individuals
       tags:
         - Employer
       responses:
@@ -1159,7 +1159,7 @@ paths:
     parameters: []
   /employer/benefits/<benefit_id>/individuals:
     get:
-      summary: List Benefits for Individuals
+      summary: Get Benefits for Individuals
       tags:
         - Employer
       responses:
@@ -1206,7 +1206,7 @@ paths:
                   items:
                     type: string
     post:
-      summary: Update Individuals' Benefits
+      summary: Upsert Individuals' Benefits
       operationId: post-employer-individual-benefits-benefit_id
       responses:
         '200':
@@ -1347,8 +1347,9 @@ paths:
     parameters: []
   /employer/benefits/<benefit_id>/individuals/<individual_id>:
     get:
-      summary: List Benefits for a Single Individual
-      tags: []
+      summary: Get Benefits for a Single Individual
+      tags:
+        - Employer
       responses:
         '200':
           description: OK
@@ -1513,12 +1514,16 @@ components:
         - simple
         - other_post
       description: Type of benefit.
+      x-tags:
+        - Models
     BenefitFrequency:
       type: string
       title: BenefitFrequency
       enum:
         - one_time
         - every_paycheck
+      x-tags:
+        - Models
     BenefitContribution:
       title: BenefitContribution
       type: object
@@ -1532,3 +1537,5 @@ components:
         amount:
           type: integer
           description: Contribution amount in cents.
+      x-tags:
+        - Models
