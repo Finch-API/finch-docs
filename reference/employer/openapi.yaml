@@ -20,6 +20,8 @@ info:
     - `payment`: Read payroll and contractor related payments by the company
 
     - `pay_statement`: Read detailed pay statements for each individual
+
+    - `deduction`: Create and manage benefits and enrollment within a company
 servers:
   - url: 'https://api.tryfinch.com'
     description: Production
