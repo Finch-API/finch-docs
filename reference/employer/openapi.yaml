@@ -635,10 +635,9 @@ paths:
                       - payment_id
               required:
                 - requests
-        description: Pay statement data
       responses:
         '200':
-          description: OK
+          description: Pay statement data
           content:
             application/json:
               examples:
