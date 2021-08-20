@@ -961,6 +961,12 @@ paths:
                       $ref: '#/components/schemas/BenefitContribution'
                     annual_maximum:
                       type: integer
+                      description: 'If the benefit supports an annual maximum, the default value of the annual maximum in cents for all employees enrolled in this benefit.'
+                      nullable: true
+                    catch_up:
+                      type: boolean
+                      description: 'If the benefit supports catch up, whether to enable it for all individuals enrolled in this benefit.'
+                      nullable: true
       operationId: get-company-benefits
       description: List all company-wide benefits.
     post:
@@ -978,6 +984,23 @@ paths:
                     type: string
                   description:
                     type: string
+        '400':
+          description: Invalid Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    description: 'If applicable, a more detailed type denoting why the request is invalid.'
+                  message:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    type: invalid_benefit_type
+                    message: Provider does not support benefit type '401k'
       description: Creates a new company-wide benefit
       requestBody:
         content:
@@ -995,9 +1018,14 @@ paths:
                   $ref: '#/components/schemas/BenefitContribution'
                 frequency:
                   $ref: '#/components/schemas/BenefitFrequency'
+                catch_up:
+                  description: 'If the benefit supports catch up, whether to enable it for all individuals enrolled in this benefit.'
+                  type: boolean
+                  nullable: true
                 annual_maximum:
                   type: integer
-                  description: Maximum amount that can be contributed to this benefit annualy.
+                  description: 'If the benefit supports an annual maximum, the default value of the annual maximum in cents for all employees enrolled in this benefit.'
+                  nullable: true
       tags:
         - Employer
     parameters: []
@@ -1022,8 +1050,15 @@ paths:
                       type: string
                     frequencies:
                       type: array
+                      description: The list of frequencies supported by the provider for this benefit
                       items:
                         $ref: '#/components/schemas/BenefitFrequency'
+                    catch_up:
+                      type: boolean
+                      description: Whether the provider supports catch up for this benefit.
+                    annual_maximum:
+                      type: boolean
+                      description: Whether the provider supports an annual maximum for this benefit.
       operationId: get-company-benefits-meta
       description: Lists available types/frequencies available for a given company for a given provider
     parameters: []
@@ -1042,12 +1077,24 @@ paths:
                 properties:
                   benefit_id:
                     type: string
-                    description: A stable Finch uuid (uuid v4) for the benefit.
                   type:
                     $ref: '#/components/schemas/BenefitType'
                   description:
                     type: string
-                    description: Name or description of the benefit.
+                  employee_deduction:
+                    $ref: '#/components/schemas/BenefitContribution'
+                  company_contribution:
+                    $ref: '#/components/schemas/BenefitContribution'
+                  frequency:
+                    $ref: '#/components/schemas/BenefitFrequency'
+                  catch_up:
+                    type: boolean
+                    description: 'If the benefit supports catch up, whether it is enabled for this benefit. This will apply to every individual enrolled in the benefit. To make more granular decisions, use the `catch_up` parameter when enrolling individuals.'
+                    nullable: true
+                  annual_maximum:
+                    type: integer
+                    description: 'If the benefit supports annual maximum, the default annual maximum value in cents.'
+                    nullable: true
         '404':
           description: Benefit Not Found
       operationId: get-company-benefit
@@ -1131,9 +1178,18 @@ paths:
                       $ref: '#/components/schemas/BenefitContribution'
                     company_contribution:
                       $ref: '#/components/schemas/BenefitContribution'
+                    catch_up:
+                      type: boolean
+                      description: 'If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled for this individual.'
+                      nullable: true
+                    annual_maximum:
+                      type: integer
+                      description: 'If the benefit supports annual maximum, the amount in cents for this individual.'
+                      nullable: true
                     next_effective_date:
                       type: string
                       pattern: '[0-9]{4}-[0-9]{2}-[0-9]{2}'
+                      description: The next date this benefit will be applied for the individual. This field is provided on a best-effort basis.
                       nullable: true
         '404':
           description: Benefit Not Found
@@ -1154,7 +1210,24 @@ paths:
       operationId: post-employer-individual-benefits-benefit_id
       responses:
         '200':
-          description: 'Updated existing benefit information for individuals who were already enrolled, and enrolled new individuals.'
+          description: Success. Enroll new individuals in the benefit and upserted information for individuals already enrolled.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    individual_id:
+                      type: string
+                    status:
+                      type: string
+                      description: Enrollment status for individual.
+                      enum:
+                        - created
+                        - updated
+        '207':
+          description: Multi-Status. Some individuals may not have succeeded. See body for details.
           content:
             application/json:
               schema:
@@ -1166,15 +1239,51 @@ paths:
                       type: string
                     status:
                       type: integer
-                      enum:
-                        - 200
-                        - 201
+                      description: Error status code
+                    type:
+                      type: string
+                      description: Detailed error type description.
+                    message:
+                      type: string
+              examples:
+                multi-status:
+                  value:
+                    - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
+                      status: 201
+                      type: enrolled_new_benefit
+                      message: Successfully enrolled new benefit for individual
+                    - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
+                      status: 200
+                      type: updated_existing_enrollment
+                      message: Benefit information updated for individual
+                    - individual_id: 0c89294b-b7f1-4999-9b7a-bb8a87326717
+                      status: 404
+                      type: not_found
+                      message: Individual not found
+                    - individual_id: fb292e27-bd07-4dbc-88c4-05923b33bbc2
+                      status: 403
+                      type: access_denied
+                      message: Permissions not valid for individual
         '400':
-          description: Bad Request
+          description: Invalid Request
         '404':
           description: Benefit Not Found
         '422':
-          description: Either benefit type or payroll provider does not support a deductio or contribution type provided in the request.
+          description: Either benefit type or payroll provider does not support a deduction/contribution type provided in the request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  message:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    type: invalid_deduction
+                    message: Benefit type 'HSA' does not support provided deduction
       description: |-
         Upsert enrolling an individual into a benefit. If the employee is already enrolled, the amounts will be adjusted.
 
@@ -1183,17 +1292,6 @@ paths:
         ```
       tags:
         - Employer
-    delete:
-      summary: Unenroll Individuals' Benefits
-      operationId: delete-individual-benefits
-      responses:
-        '200':
-          description: OK
-        '400':
-          description: Bad Request (invalid individual_id)
-        '404':
-          description: Benefit Not Found
-      description: Unenroll individuals from a benefit
       requestBody:
         content:
           application/json:
@@ -1204,6 +1302,46 @@ paths:
                 properties:
                   individual_id:
                     type: string
+                  employee_deduction:
+                    $ref: '#/components/schemas/BenefitContribution'
+                  employer_contribution:
+                    $ref: '#/components/schemas/BenefitContribution'
+                  catch_up:
+                    type: boolean
+                    description: 'If this benefit is eligible for catch up, whether to enable it for this individual. Defaults to the value provided in the company-level benefit, if any.'
+                    nullable: true
+                  annual_maximum:
+                    type: integer
+                    description: 'If this benefit supports an annual maxium, the annual maximum in cents for this individual. Defaults to the value provided in the company-level benefit, if any.'
+                    nullable: true
+    delete:
+      summary: Unenroll Individuals' Benefits
+      operationId: delete-individual-benefits
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                example-1:
+                  value:
+                    type: null
+        '404':
+          description: Benefit Not Found
+      description: Unenroll individuals from a benefit
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              description: List of `individual_id`s to unenroll.
+              items:
+                type: string
       tags:
         - Employer
     parameters: []
@@ -1228,6 +1366,15 @@ paths:
                   next_effective_date:
                     type: string
                     pattern: '[0-9]{4}-[0-9]{2}-[0-9]{2}'
+                    description: The next date this benefit will be applied for the individual. This field is provided on a best-effort basis.
+                    nullable: true
+                  catch_up:
+                    type: boolean
+                    description: 'If the benefit supports catch up, whether it is enabled for this individual.'
+                    nullable: true
+                  annual_maximum:
+                    type: integer
+                    description: 'If the benefit supports annual maxiumum, the amount in cents for this individual.'
                     nullable: true
       operationId: get-employer-benefits-benefit_id-individuals-individual_id
       description: Get enrolled benefit information for the given individual
@@ -1365,6 +1512,7 @@ components:
         - simple_ira
         - simple
         - other_post
+      description: Type of benefit.
     BenefitFrequency:
       type: string
       title: BenefitFrequency
@@ -1380,7 +1528,7 @@ components:
           enum:
             - fixed
             - percent
-          description: Contribution type
+          description: Contribution type.
         amount:
           type: integer
           description: Contribution amount in cents.
