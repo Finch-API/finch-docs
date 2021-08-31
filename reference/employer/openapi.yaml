@@ -8,7 +8,7 @@ info:
 
     Please see [here](https://developer.tryfinch.com/docs/reference/branches/open-api/docs/%20Finch%20API/1%20-%20Getting%20Started.md) for an overview of the API
 
-    Employer products are specified by the `product` parameter, a space-separated list of products that your application is requesting access to when an employer authenticated through Finch Connect. Valid product names are—
+    Employer products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. Valid product names are—
     - `company`: Read basic company data
 
     - `directory`: Read company directory and organization structure
@@ -24,7 +24,7 @@ info:
     - `deduction`: Create and manage benefits and enrollment within a company
 servers:
   - url: 'https://api.tryfinch.com'
-    description: Production
+    description: ''
 tags:
   - name: Employer
   - name: Management
@@ -38,7 +38,7 @@ paths:
           content:
             application/json:
               examples:
-                success:
+                Success:
                   value:
                     id: 514aa2b7-898f-4ce7-bc05-c2fe993713e8
                     legal_name: 'Acme, Inc.'
@@ -55,9 +55,9 @@ paths:
                         parent:
                           name: Engineering
                     locations:
-                      - line1: 628 Forest Ave
+                      - line1: 628 Bear Ave
                         line2: Apt A
-                        city: Palo Alto
+                        city: Schenectady
                         state: NY
                         postal_code: '94301'
                         country: US
@@ -97,18 +97,23 @@ paths:
                           - s_corporation
                           - c_corporation
                           - b_corporation
+                        nullable: true
                   primary_email:
                     type: string
                     description: The email of the main administrator on the account.
+                    nullable: true
                   primary_phone_number:
                     type: string
                     description: 'The phone number of the main administrator on the account. Format: `XXXXXXXXXX`'
                     pattern: '[0-9]{10}'
+                    nullable: true
                   departments:
                     type: array
                     description: The array of company departments.
+                    nullable: true
                     items:
                       type: object
+                      nullable: true
                       properties:
                         name:
                           type: string
@@ -124,6 +129,7 @@ paths:
                   ein:
                     type: string
                     description: The employer identification number.
+                    nullable: true
                   locations:
                     type: array
                     items:
@@ -131,31 +137,39 @@ paths:
                   accounts:
                     type: array
                     description: An array of bank account objects associated with the payroll/HRIS system.
+                    nullable: true
                     items:
                       type: object
                       properties:
                         routing_number:
                           type: string
                           description: A nine-digit code that's based on the U.S. Bank location where your account was opened.
+                          nullable: true
                         account_name:
                           type: string
                           description: The name of the bank associated in the payroll/HRIS system.
+                          nullable: true
                         institution_name:
                           type: string
                           description: Name of the banking institution.
+                          nullable: true
                         account_type:
                           type: string
                           description: The type of bank account.
                           enum:
                             - checking
                             - savings
+                          nullable: true
                         account_number:
                           type: string
                           description: 10-12 digit number to specify the bank account
+                          nullable: true
       summary: Company
       operationId: get-company
       tags:
         - Employer
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
   /employer/directory:
     get:
       description: Read company directory and organization structure
@@ -172,13 +186,14 @@ paths:
           required: false
           schema:
             type: integer
+        - $ref: '#/components/parameters/API-Version'
       responses:
         '200':
           description: Company directory and organization structure
           content:
             application/json:
               examples:
-                success:
+                Success:
                   value:
                     paging:
                       count: 25
@@ -210,23 +225,28 @@ paths:
                         first_name:
                           type: string
                           description: The legal first name of the individual.
+                          nullable: true
                         middle_name:
                           type: string
-                          nullable: true
                           description: The legal middle name of the individual.
+                          nullable: true
                         last_name:
                           type: string
                           description: The legal last name of the individual.
+                          nullable: true
                         manager:
                           type: object
                           description: The manager object.
+                          nullable: true
                           properties:
                             id:
                               type: string
                               description: A stable Finch `id` (UUID v4) for an individual in the company.
+                              pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
                         department:
                           type: object
                           description: The department object.
+                          nullable: true
                           properties:
                             name:
                               type: string
@@ -234,6 +254,7 @@ paths:
                         is_active:
                           type: boolean
                           description: '`true` if the individual is an active employee or contractor at the company.'
+                          nullable: true
       summary: Directory
       operationId: get-directory
       tags:
@@ -241,7 +262,8 @@ paths:
   /employer/individual:
     post:
       description: 'Read individual data, excluding income and employment data'
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
       responses:
         '200':
           description: Individual data
@@ -277,6 +299,7 @@ paths:
                               description: The legal last name of the individual.
                             emails:
                               type: array
+                              nullable: true
                               items:
                                 type: object
                                 properties:
@@ -289,6 +312,7 @@ paths:
                                       - personal
                             phone_numbers:
                               type: array
+                              nullable: true
                               items:
                                 type: object
                                 properties:
@@ -301,24 +325,11 @@ paths:
                                       - work
                                       - personal
                             dob:
-                              type: string
+                              $ref: '#/components/schemas/Date'
                             residence:
-                              type: object
-                              properties:
-                                line1:
-                                  type: string
-                                line2:
-                                  type: string
-                                city:
-                                  type: string
-                                state:
-                                  type: string
-                                postal_code:
-                                  type: string
-                                country:
-                                  type: string
+                              $ref: '#/components/schemas/Location'
               examples:
-                success:
+                Success:
                   value:
                     responses:
                       - individual_id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
@@ -349,66 +360,60 @@ paths:
       tags:
         - Employer
       requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Individual-Ids'
-            examples:
-              example-request:
-                value:
-                  requests:
-                    - individual_id: f3ddb1f4-dfa4-4e1d-bfed-bdfd0645b613
+        $ref: '#/components/requestBodies/Individual-Ids'
   /employer/employment:
     post:
       description: Read individual employment and income data
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
       responses:
         '200':
           description: Employment data
           content:
             application/json:
-              example:
-                value: null
-                responses:
-                  - individual_id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
-                    code: 200
-                    body:
-                      id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
-                      first_name: Jane
-                      middle_name: null
-                      last_name: Doe
-                      title: Customer Support
-                      manager:
-                        id: c205b3fa-b626-4346-bf0f-ca065ab88d31
-                      department:
-                        name: Product
-                      employment:
-                        type: employee
-                        subtype: full_time
-                      start_date: '2017-06-30'
-                      end_date: null
-                      is_active: true
-                      location:
-                        line1: 12 Bird Drive
-                        line2: null
-                        city: Palo Alto
-                        state: CA
-                        postal_code: '94301'
-                        country: US
-                      income:
-                        unit: yearly
-                        amount: 10000000
-                        currency: usd
-                        effective_date: '2019-03-01'
-                      income_history:
-                        - unit: yearly
-                          amount: 9000000
-                          currency: usd
-                          effective_date: '2018-05-15'
-                        - unit: yearly
-                          amount: 8000000
-                          currency: usd
-                          effective_date: '2017-06-30'
+              examples:
+                Success:
+                  value:
+                    responses:
+                      - individual_id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                        code: 200
+                        body:
+                          id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                          first_name: Jane
+                          middle_name: null
+                          last_name: Doe
+                          title: Customer Support
+                          manager:
+                            id: c205b3fa-b626-4346-bf0f-ca065ab88d31
+                          department:
+                            name: Product
+                          employment:
+                            type: employee
+                            subtype: full_time
+                          start_date: '2017-06-30'
+                          end_date: null
+                          is_active: true
+                          location:
+                            line1: 12 Bird Drive
+                            line2: null
+                            city: Palo Alto
+                            state: CA
+                            postal_code: '94301'
+                            country: US
+                          income:
+                            unit: yearly
+                            amount: 10000000
+                            currency: usd
+                            effective_date: '2019-03-01'
+                          income_history:
+                            - unit: yearly
+                              amount: 9000000
+                              currency: usd
+                              effective_date: '2018-05-15'
+                            - unit: yearly
+                              amount: 8000000
+                              currency: usd
+                              effective_date: '2017-06-30'
               schema:
                 type: object
                 properties:
@@ -440,16 +445,20 @@ paths:
                             title:
                               type: string
                               description: The current title of the individual.
+                              nullable: true
                             manager:
                               type: object
                               description: The manager object representing the manager of the individual within the org.
+                              nullable: true
                               properties:
                                 id:
                                   type: string
                                   description: A stable Finch `id` (UUID v4) for an individual in the company.
+                                  pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
                             department:
                               type: object
                               description: The department object.
+                              nullable: true
                               properties:
                                 name:
                                   type: string
@@ -474,16 +483,15 @@ paths:
                                     - temp
                                     - seasonal
                                     - individual_contractor
+                                  nullable: true
                             start_date:
-                              type: string
-                              description: The start date of an individual. ISO 8601 format.
+                              $ref: '#/components/schemas/Date'
                             end_date:
-                              type: string
-                              description: "\tThe end date of an individual. ISO 8601 format."
-                              nullable: true
+                              $ref: '#/components/schemas/Date'
                             is_active:
                               type: boolean
                               description: '`true` if the individual an an active employee or contractor at the company.'
+                              nullable: true
                             location:
                               $ref: '#/components/schemas/Location'
                             income:
@@ -491,22 +499,18 @@ paths:
                             income_history:
                               type: array
                               description: The array of income history.
+                              nullable: true
                               items:
                                 $ref: '#/components/schemas/Income'
+                            work_id:
+                              type: string
+                              nullable: true
       summary: Employment
       operationId: get-employment
       tags:
         - Employer
       requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Individual-Ids'
-            examples:
-              example-request:
-                value:
-                  requests:
-                    - individual_id: f3ddb1f4-dfa4-4e1d-bfed-bdfd0645b613
+        $ref: '#/components/requestBodies/Individual-Ids'
   /employer/payment:
     get:
       description: Read payroll and contractor related payments by the company.
@@ -527,13 +531,14 @@ paths:
             type: string
             format: date
             example: '2021-01-01'
+        - $ref: '#/components/parameters/API-Version'
       responses:
         '200':
-          description: Employment data
+          description: Payment data
           content:
             application/json:
               examples:
-                success:
+                Success:
                   value:
                     - id: 20aa7cf2-949d-4d4e-9c01-499b59501ded
                       pay_period:
@@ -542,7 +547,7 @@ paths:
                       pay_date: '2019-08-22'
                       debit_date: '2019-08-22'
                       company_debit:
-                        amount: 360000
+                        amount: 5300000
                         currency: usd
                       gross_pay:
                         amount: 4000000
@@ -567,22 +572,20 @@ paths:
                     id:
                       type: string
                       description: The unique id for the payment.
+                      pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
                     pay_period:
                       type: object
                       description: The pay period object.
+                      nullable: true
                       properties:
                         start_date:
-                          type: string
-                          description: The start date for the pay period corresponding with this payment.
+                          $ref: '#/components/schemas/Date'
                         end_date:
-                          type: string
-                          description: The end date for the pay period corresponding with this payment.
+                          $ref: '#/components/schemas/Date'
                     pay_date:
-                      type: string
-                      description: The date at which individual will be paid for this payment.
+                      $ref: '#/components/schemas/Date'
                     debit_date:
-                      type: string
-                      description: The date the company is debited for this payment.
+                      $ref: '#/components/schemas/Date'
                     company_debit:
                       $ref: '#/components/schemas/Money'
                     gross_pay:
@@ -596,8 +599,10 @@ paths:
                     individual_ids:
                       type: array
                       description: Array of every individual on this payment.
+                      nullable: true
                       items:
                         type: string
+                        pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
       summary: Payment
       operationId: get-payment
       tags:
@@ -620,6 +625,7 @@ paths:
                       payment_id:
                         type: string
                         description: A stable Finch `id` (UUID v4) for a payment.
+                        pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
                       limit:
                         type: integer
                         description: Number of pay statements to return (defaults to all).
@@ -633,49 +639,50 @@ paths:
                 - requests
       responses:
         '200':
-          description: Employment data
+          description: Pay statement data
           content:
             application/json:
-              example:
-                value:
-                  responses:
-                    - payment_id: fc8b024e-d373-4c9c-80fc-f1625383d142
-                      code: 200
-                      body:
-                        paging:
-                          count: 25
-                          offset: 10
-                        pay_statements:
-                          - individual_id: be7b048c-a6f3-4194-a017-2f537d4f3565
-                            type: regular_payroll
-                            payment_method: check
-                            total_hours: 80
-                            gross_pay:
-                              amount: 230000
-                              currency: usd
-                            net_pay:
-                              amount: 180000
-                              currency: usd
-                            earnings:
-                              - type: salary
-                                name: Salary
+              examples:
+                Success:
+                  value:
+                    responses:
+                      - payment_id: fc8b024e-d373-4c9c-80fc-f1625383d142
+                        code: 200
+                        body:
+                          paging:
+                            count: 25
+                            offset: 10
+                          pay_statements:
+                            - individual_id: be7b048c-a6f3-4194-a017-2f537d4f3565
+                              type: regular
+                              payment_method: check
+                              total_hours: 80
+                              gross_pay:
                                 amount: 230000
                                 currency: usd
-                            taxes:
-                              - type: state
-                                name: State Withholding - OR
-                                employer: false
-                                amount: 0
+                              net_pay:
+                                amount: 180000
                                 currency: usd
-                            employee_deductions:
-                              - name: Pre-Tax 401k
-                                amount: 50000
-                                currency: usd
-                                pre_tax: true
-                            employer_contributions:
-                              - name: Employee Medical Insurance
-                                amount: 23272
-                                currency: usd
+                              earnings:
+                                - type: salary
+                                  name: Salary
+                                  amount: 230000
+                                  currency: usd
+                              taxes:
+                                - type: state
+                                  name: State Withholding - OR
+                                  employer: false
+                                  amount: 0
+                                  currency: usd
+                              employee_deductions:
+                                - name: Pre-Tax 401k
+                                  amount: 50000
+                                  currency: usd
+                                  pre_tax: true
+                              employer_contributions:
+                                - name: Employee Medical Insurance
+                                  amount: 23272
+                                  currency: usd
               schema:
                 type: object
                 properties:
@@ -715,9 +722,11 @@ paths:
                                     enum:
                                       - check
                                       - direct_deposit
+                                    nullable: true
                                   total_hours:
                                     type: integer
                                     description: The number of hours worked for this pay period
+                                    nullable: true
                                   gross_pay:
                                     $ref: '#/components/schemas/Money'
                                   net_pay:
@@ -745,9 +754,11 @@ paths:
                                             - tips
                                             - '1099'
                                             - other
+                                          nullable: true
                                         name:
                                           type: string
                                           description: The exact name of the deduction from the pay statement.
+                                          nullable: true
                                         amount:
                                           type: integer
                                           description: The earnings amount in cents.
@@ -768,6 +779,7 @@ paths:
                                             - federal
                                             - local
                                             - fica
+                                          nullable: true
                                         name:
                                           type: string
                                           description: The exact name of tax from the pay statement.
@@ -783,6 +795,7 @@ paths:
                                   employee_deductions:
                                     type: array
                                     description: The array of deductions objects associated with this pay statement.
+                                    nullable: true
                                     items:
                                       type: object
                                       properties:
@@ -803,6 +816,7 @@ paths:
                                           description: A stable Finch `id` (uuid v4) for the deduction.
                                   employer_contributions:
                                     type: array
+                                    nullable: true
                                     items:
                                       type: object
                                       properties:
@@ -822,6 +836,8 @@ paths:
       operationId: get-pay-statement
       tags:
         - Employer
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
   /providers:
     get:
       summary: Providers
@@ -861,7 +877,7 @@ paths:
                       type: string
                       description: The hex code for the primary color of the payroll provider.
               examples:
-                success:
+                Success:
                   value:
                     - id: gusto
                       display_name: Gusto
@@ -902,7 +918,7 @@ paths:
                     type: string
                     description: The payroll provider associated with the `access_token`.
               examples:
-                success:
+                Success:
                   value:
                     client_id: 25ea8bd8-f76b-41f9-96e3-1e6162021c50
                     products:
@@ -928,7 +944,7 @@ paths:
                     type: string
                     description: 'If the request is successful, Finch will return “success” (HTTP 200 status).'
               examples:
-                success:
+                Success:
                   value:
                     status: success
       description: Disconnect an employer from your application and invalidate all `access_token`s associated with the employer. We require applications to implement the Disconnect endpoint for billing and security purposes.
@@ -1387,39 +1403,40 @@ components:
     Location:
       title: Location
       type: object
+      x-tags:
+        - Models
+      description: ''
+      nullable: true
       properties:
         line1:
           type: string
           description: Street address or PO box.
+          nullable: true
         line2:
           type: string
-          nullable: true
           description: 'Apartment, suite, unit, or building.'
+          nullable: true
         city:
           type: string
           description: "\tCity, district, suburb, town, or village."
+          nullable: true
         state:
           type: string
           description: The state code.
+          nullable: true
         postal_code:
           type: string
           description: The postal code or zip code.
+          nullable: true
         country:
           type: string
           description: The 2-letter ISO 3166 country code.
-      required:
-        - line1
-        - line2
-        - city
-        - state
-        - postal_code
-        - country
-      x-tags:
-        - Models
-      description: ''
+          nullable: true
     Income:
       title: Income
       type: object
+      x-tags:
+        - Models
       properties:
         unit:
           type: string
@@ -1433,22 +1450,19 @@ components:
             - daily
             - hourly
             - fixed
+          nullable: true
         amount:
           description: The income amount in cents.
           type: integer
+          nullable: true
         currency:
           type: string
           description: The currency code.
+          nullable: true
         effective_date:
           type: string
           description: The date the income amount went into effect.
-      required:
-        - unit
-        - amount
-        - currency
-        - effective_date
-      x-tags:
-        - Models
+          nullable: true
     Money:
       title: Money
       type: object
@@ -1471,31 +1485,11 @@ components:
           description: The current start index of the returned list of elements
       x-tags:
         - Models
-    Individual-Ids:
-      title: Individual-Ids
-      type: object
-      x-examples:
-        example-1:
-          value:
-            requests:
-              - individual_id: f3ddb1f4-dfa4-4e1d-bfed-bdfd0645b613
-      description: Individual Ids Request Body
-      x-tags:
-        - Models
-      properties:
-        requests:
-          type: array
-          description: The array of batch requests.
-          items:
-            type: object
-            properties:
-              individual_id:
-                type: string
-                description: A stable Finch `id` (UUID v4) for an individual in the company. There is no limit to the number of `individual_id` to send per request. It is preferantial to send all ids in a single request for Finch to optimize provider rate-limits.
-            required:
-              - individual_id
-      required:
-        - requests
+    Date:
+      type: string
+      title: Date
+      pattern: '([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))'
+      nullable: true
     BenefitType:
       type: string
       title: BenefitType
@@ -1542,3 +1536,43 @@ components:
         amount:
           type: integer
           description: Contribution amount in cents (if `fixed`) or base points (if `percent`).
+  requestBodies:
+    Individual-Ids:
+      content:
+        application/json:
+          schema:
+            type: object
+            description: Individual Ids Request Body
+            properties:
+              requests:
+                type: array
+                description: The array of batch requests.
+                items:
+                  type: object
+                  properties:
+                    individual_id:
+                      type: string
+                      description: A stable Finch `id` (UUID v4) for an individual in the company. There is no limit to the number of `individual_id` to send per request. It is preferantial to send all ids in a single request for Finch to optimize provider rate-limits.
+                  required:
+                    - individual_id
+            required:
+              - requests
+  securitySchemes:
+    Bearer ApiKey:
+      name: Authorization
+      type: apiKey
+      in: header
+      description: Please use your Access Token
+  parameters:
+    API-Version:
+      name: Finch-API-Version
+      in: header
+      required: false
+      schema:
+        type: string
+        default: '2020-09-17'
+        format: date
+        pattern: '([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))'
+      description: Header used to specify the version for a given API request. Current version is 2020-09-17.
+security:
+  - Bearer ApiKey: []
