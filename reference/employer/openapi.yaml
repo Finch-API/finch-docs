@@ -631,7 +631,6 @@ paths:
                       offset:
                         type: integer
                         description: Index to start from.
-                        default: 0
                     required:
                       - payment_id
               required:
@@ -1494,13 +1493,14 @@ components:
     Money:
       title: Money
       type: object
+      x-tags:
+        - Models
+      nullable: true
       properties:
         amount:
           type: integer
         currency:
           type: string
-      x-tags:
-        - Models
     Paging:
       title: Paging
       type: object
