@@ -984,10 +984,6 @@ paths:
                       type: integer
                       description: 'If the benefit supports an annual maximum, the default value of the annual maximum in cents for all employees enrolled in this benefit.'
                       nullable: true
-                    catch_up:
-                      type: boolean
-                      description: 'If the benefit supports catch up, whether to enable it for all individuals enrolled in this benefit.'
-                      nullable: true
       operationId: get-company-benefits
       description: List all company-wide benefits.
       parameters:
@@ -1041,10 +1037,6 @@ paths:
                   $ref: '#/components/schemas/BenefitContribution'
                 frequency:
                   $ref: '#/components/schemas/BenefitFrequency'
-                catch_up:
-                  description: 'If the benefit supports catch up, whether to enable it for all individuals enrolled in this benefit.'
-                  type: boolean
-                  nullable: true
                 annual_maximum:
                   type: integer
                   description: 'If the benefit supports an annual maximum, the default value of the annual maximum in cents for all employees enrolled in this benefit.'
@@ -1079,12 +1071,30 @@ paths:
                       description: The list of frequencies supported by the provider for this benefit
                       items:
                         $ref: '#/components/schemas/BenefitFrequency'
-                    catch_up:
-                      type: boolean
-                      description: Whether the provider supports catch up for this benefit.
+                    employee_deduction:
+                      type:
+                        - boolean
+                        - array
+                      items:
+                        type: string
+                        enum:
+                          - fixed
+                          - percent
+                    company_contribution:
+                      type:
+                        - boolean
+                        - array
+                      items:
+                        type: string
+                        enum:
+                          - fixed
+                          - percent
                     annual_maximum:
                       type: boolean
                       description: Whether the provider supports an annual maximum for this benefit.
+                    catch_up:
+                      type: boolean
+                      description: Whether the provider supports catch up for this benefit.
       operationId: get-company-benefits-meta
       description: Lists available types/frequencies available for a given company for a given provider
       parameters:
