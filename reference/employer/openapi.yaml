@@ -264,6 +264,7 @@ paths:
       description: 'Read individual data, excluding income and employment data'
       parameters:
         - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
       responses:
         '200':
           description: Individual data
@@ -366,6 +367,7 @@ paths:
       description: Read individual employment and income data
       parameters:
         - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
       responses:
         '200':
           description: Employment data
@@ -838,6 +840,7 @@ paths:
         - Employer
       parameters:
         - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
   /providers:
     get:
       summary: Providers
@@ -928,6 +931,8 @@ paths:
                     payroll_provider_id: gusto
       operationId: get-introspect
       description: Read account information associated with an `access_token`
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
   /disconnect:
     post:
       summary: Disconnect
@@ -950,6 +955,8 @@ paths:
       description: Disconnect an employer from your application and invalidate all `access_token`s associated with the employer. We require applications to implement the Disconnect endpoint for billing and security purposes.
       tags:
         - Management
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
   /employer/benefits:
     get:
       summary: Get All Benefits
@@ -987,6 +994,8 @@ paths:
                       nullable: true
       operationId: get-company-benefits
       description: List all company-wide benefits.
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
     post:
       summary: Create Benefit
       operationId: post-company-benefits
@@ -1046,6 +1055,9 @@ paths:
                   nullable: true
       tags:
         - Employer
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
     parameters: []
   /employer/benefits/meta:
     get:
@@ -1079,6 +1091,8 @@ paths:
                       description: Whether the provider supports an annual maximum for this benefit.
       operationId: get-company-benefits-meta
       description: Lists available types/frequencies available for a given company for a given provider
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
     parameters: []
   /employer/benefits/<benefit_id>:
     get:
@@ -1117,6 +1131,8 @@ paths:
           description: Benefit Not Found
       operationId: get-company-benefit
       description: Lists benefit information for a given benefit
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
     post:
       summary: Update Benefit
       operationId: update-company-benefits
@@ -1148,6 +1164,9 @@ paths:
                   description: Name or description to upsert into the benefit
       tags:
         - Employer
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
     parameters: []
   /employer/benefits/<benefit_id>/enrolled:
     get:
@@ -1174,6 +1193,8 @@ paths:
       description: |-
         Lists individuals currently enrolled in a given benefit.
         Returns empty for `one-time` benefits.
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
     parameters: []
   /employer/benefits/<benefit_id>/individuals:
     get:
@@ -1224,6 +1245,8 @@ paths:
                   items:
                     type: string
         description: ''
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
     post:
       summary: Upsert Individuals' Benefits
       operationId: post-employer-individual-benefits-benefit_id
@@ -1333,6 +1356,9 @@ paths:
                     type: integer
                     description: 'If this benefit supports an annual maxium, the annual maximum in cents for this individual. Defaults to the value provided in the company-level benefit, if any.'
                     nullable: true
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
     delete:
       summary: Unenroll Individuals' Benefits
       operationId: delete-individual-benefits
@@ -1363,6 +1389,9 @@ paths:
                 type: string
       tags:
         - Employer
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
     parameters: []
   /employer/benefits/<benefit_id>/individuals/<individual_id>:
     get:
@@ -1398,6 +1427,8 @@ paths:
                     nullable: true
       operationId: get-employer-benefits-benefit_id-individuals-individual_id
       description: Get enrolled benefit information for the given individual
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
 components:
   schemas:
     Location:
@@ -1566,12 +1597,20 @@ components:
     API-Version:
       name: Finch-API-Version
       in: header
-      required: false
+      required: true
       schema:
         type: string
         default: '2020-09-17'
         format: date
         pattern: '([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))'
       description: Header used to specify the version for a given API request. Current version is 2020-09-17.
+    Content-Type:
+      name: Content-Type
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+      description: 'Used to indicate the original media type of the resource '
 security:
   - bearerAuth: []
