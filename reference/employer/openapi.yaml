@@ -1196,7 +1196,7 @@ paths:
         '404':
           description: Benefit Not Found
       operationId: get-individual-benefits
-      description: Get enrolled benefit information for the given individuals
+      description: 'Get enrolled benefit information for the given individuals. Note: this GET request has a body. We return information for all individuals enrolled in the benefit if no body is provided.'
       requestBody:
         content:
           application/json:
@@ -1207,6 +1207,7 @@ paths:
                   type: array
                   items:
                     type: string
+        description: ''
     post:
       summary: Upsert Individuals' Benefits
       operationId: post-employer-individual-benefits-benefit_id
@@ -1529,6 +1530,8 @@ components:
     BenefitContribution:
       title: BenefitContribution
       type: object
+      x-tags:
+        - Models
       properties:
         type:
           type: string
@@ -1538,6 +1541,4 @@ components:
           description: Contribution type.
         amount:
           type: integer
-          description: Contribution amount in cents.
-      x-tags:
-        - Models
+          description: Contribution amount in cents (if `fixed`) or base points (if `percent`).
