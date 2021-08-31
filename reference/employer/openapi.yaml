@@ -1558,10 +1558,9 @@ components:
             required:
               - requests
   securitySchemes:
-    Bearer ApiKey:
-      name: Authorization
-      type: apiKey
-      in: header
+    bearerAuth:
+      type: http
+      scheme: bearer
       description: Please use your Access Token
   parameters:
     API-Version:
@@ -1575,4 +1574,4 @@ components:
         pattern: '([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))'
       description: Header used to specify the version for a given API request. Current version is 2020-09-17.
 security:
-  - Bearer ApiKey: []
+  - bearerAuth: []
