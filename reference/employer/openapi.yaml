@@ -504,9 +504,6 @@ paths:
                               nullable: true
                               items:
                                 $ref: '#/components/schemas/Income'
-                            work_id:
-                              type: string
-                              nullable: true
       summary: Employment
       operationId: get-employment
       tags:
