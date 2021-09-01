@@ -364,7 +364,10 @@ paths:
         $ref: '#/components/requestBodies/Individual-Ids'
   /employer/employment:
     post:
-      description: Read individual employment and income data
+      description: |-
+        Read individual employment and income data
+
+        Note: Income information is returned as reported by the provider. This may not always be annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc, depending on what information the provider returns.
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -1400,6 +1403,7 @@ components:
       type: object
       x-tags:
         - Models
+      description: 'The employee''s income as reported by the provider. This may not always be annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc, depending on what information the provider returns.'
       properties:
         unit:
           type: string
