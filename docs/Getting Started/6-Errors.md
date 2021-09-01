@@ -28,4 +28,5 @@ Name | Code | Description
 `invalid_client_error` | 401 | The application does not have access to this product.
 `insufficient_scope_error` | 403 | The application credentials have insufficient permissions to access the requested product.
 `resource_not_found_error` | 404 | The requested resource does not exist.
+`unprocessable_request` | 422 | Attempted to perform an unsupported action.
 `server_error` | 500 | The server experienced an unexpected error.
