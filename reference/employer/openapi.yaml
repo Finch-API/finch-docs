@@ -966,24 +966,7 @@ paths:
               schema:
                 type: array
                 items:
-                  type: object
-                  properties:
-                    benefit_id:
-                      type: string
-                    type:
-                      $ref: '#/components/schemas/BenefitType'
-                    description:
-                      type: string
-                    frequency:
-                      $ref: '#/components/schemas/BenefitFrequency'
-                    company_contribution:
-                      $ref: '#/components/schemas/BenefitContribution'
-                    employee_deduction:
-                      $ref: '#/components/schemas/BenefitContribution'
-                    annual_maximum:
-                      type: integer
-                      description: 'If the benefit supports an annual maximum, the default value of the annual maximum in cents for all employees enrolled in this benefit.'
-                      nullable: true
+                  $ref: '#/components/schemas/CompanyBenefit'
       operationId: get-company-benefits
       description: List all company-wide benefits.
       parameters:
@@ -1000,8 +983,6 @@ paths:
                 type: object
                 properties:
                   benefit_id:
-                    type: string
-                  description:
                     type: string
         '400':
           description: Invalid Request
@@ -1037,10 +1018,6 @@ paths:
                   $ref: '#/components/schemas/BenefitContribution'
                 frequency:
                   $ref: '#/components/schemas/BenefitFrequency'
-                annual_maximum:
-                  type: integer
-                  description: 'If the benefit supports an annual maximum, the default value of the annual maximum in cents for all employees enrolled in this benefit.'
-                  nullable: true
       tags:
         - Employer
       parameters:
@@ -1111,28 +1088,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  benefit_id:
-                    type: string
-                  type:
-                    $ref: '#/components/schemas/BenefitType'
-                  description:
-                    type: string
-                  employee_deduction:
-                    $ref: '#/components/schemas/BenefitContribution'
-                  company_contribution:
-                    $ref: '#/components/schemas/BenefitContribution'
-                  frequency:
-                    $ref: '#/components/schemas/BenefitFrequency'
-                  catch_up:
-                    type: boolean
-                    description: 'If the benefit supports catch up, whether it is enabled for this benefit. This will apply to every individual enrolled in the benefit. To make more granular decisions, use the `catch_up` parameter when enrolling individuals.'
-                    nullable: true
-                  annual_maximum:
-                    type: integer
-                    description: 'If the benefit supports annual maximum, the default annual maximum value in cents.'
-                    nullable: true
+                $ref: '#/components/schemas/CompanyBenefit'
         '404':
           description: Benefit Not Found
       operationId: get-company-benefit
@@ -1151,8 +1107,6 @@ paths:
                 type: object
                 properties:
                   benefit_id:
-                    type: string
-                  description:
                     type: string
         '400':
           description: Bad Request
@@ -1196,9 +1150,7 @@ paths:
         '404':
           description: Benefit Not Found
       operationId: get-company-benefits-enrolled
-      description: |-
-        Lists individuals currently enrolled in a given benefit.
-        Returns empty for `one-time` benefits.
+      description: Lists individuals currently enrolled in a given benefit.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     parameters: []
@@ -1213,29 +1165,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    individual_id:
-                      type: string
-                    employee_deduction:
-                      $ref: '#/components/schemas/BenefitContribution'
-                    company_contribution:
-                      $ref: '#/components/schemas/BenefitContribution'
-                    catch_up:
-                      type: boolean
-                      description: 'If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled for this individual.'
-                      nullable: true
-                    annual_maximum:
-                      type: integer
-                      description: 'If the benefit supports annual maximum, the amount in cents for this individual.'
-                      nullable: true
-                    next_effective_date:
-                      type: string
-                      pattern: '[0-9]{4}-[0-9]{2}-[0-9]{2}'
-                      description: The next date this benefit will be applied for the individual. This field is provided on a best-effort basis.
-                      nullable: true
+                $ref: '#/components/schemas/IndividualBenefits'
         '404':
           description: Benefit Not Found
       operationId: get-individual-benefits
@@ -1258,7 +1188,7 @@ paths:
       operationId: post-employer-individual-benefits-benefit_id
       responses:
         '200':
-          description: Success. Enroll new individuals in the benefit and upserted information for individuals already enrolled.
+          description: Success for all individuals. Enrolled new individuals in the benefit and upserted information for individuals already enrolled.
           content:
             application/json:
               schema:
@@ -1269,11 +1199,17 @@ paths:
                     individual_id:
                       type: string
                     status:
-                      type: string
-                      description: Enrollment status for individual.
+                      type: integer
+                      description: HTTP status code. Either 201 or 200
                       enum:
-                        - created
-                        - updated
+                        - 200
+                        - 201
+                    type:
+                      type: string
+                      description: Indentifier indicating whether the benefit was newly enrolled or updated.
+                    message:
+                      type: string
+                      description: Short description in English that provides more information.
         '207':
           description: Multi-Status. Some individuals may not have succeeded. See body for details.
           content:
@@ -1287,12 +1223,13 @@ paths:
                       type: string
                     status:
                       type: integer
-                      description: Error status code
+                      description: HTTP status code
                     type:
                       type: string
-                      description: Detailed error type description.
+                      description: Identifier that groups broad categories of errors.
                     message:
                       type: string
+                      description: Short description in English that provides more information about the error.
               examples:
                 multi-status:
                   value:
@@ -1325,8 +1262,10 @@ paths:
                 properties:
                   type:
                     type: string
+                    description: Identifier that groups broad categories of errors.
                   message:
                     type: string
+                    description: Short description in English that provides more information about the error.
               examples:
                 example-1:
                   value:
@@ -1356,11 +1295,11 @@ paths:
                     $ref: '#/components/schemas/BenefitContribution'
                   catch_up:
                     type: boolean
-                    description: 'If this benefit is eligible for catch up, whether to enable it for this individual. Defaults to the value provided in the company-level benefit, if any.'
+                    description: 'If this benefit is eligible for catch up, whether to enable it for this individual.'
                     nullable: true
                   annual_maximum:
                     type: integer
-                    description: 'If this benefit supports an annual maxium, the annual maximum in cents for this individual. Defaults to the value provided in the company-level benefit, if any.'
+                    description: 'If this benefit supports an annual maxium, the annual maximum in cents for this individual.'
                     nullable: true
       parameters:
         - $ref: '#/components/parameters/API-Version'
@@ -1369,19 +1308,26 @@ paths:
       summary: Unenroll Individuals' Benefits
       operationId: delete-individual-benefits
       responses:
-        '200':
-          description: OK
-        '400':
-          description: Invalid Request
+        '207':
+          description: Multi-Status (WebDAV)
           content:
             application/json:
               schema:
-                type: object
-                properties: {}
-              examples:
-                example-1:
-                  value:
-                    type: null
+                type: array
+                items:
+                  type: object
+                  properties:
+                    individual_id:
+                      type: string
+                    status:
+                      type: integer
+                      description: HTTP status code
+                    type:
+                      type: string
+                      description: Identifier that groups the response into broad categories.
+                    message:
+                      type: string
+                      description: Short description in English that provides more information about the response.
         '404':
           description: Benefit Not Found
       description: Unenroll individuals from a benefit
@@ -1401,7 +1347,7 @@ paths:
     parameters: []
   /employer/benefits/<benefit_id>/individuals/<individual_id>:
     get:
-      summary: Get Benefits for a Single Individual
+      summary: Get Benefit for a Single Individual
       tags:
         - Employer
       responses:
@@ -1410,27 +1356,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  individual_id:
-                    type: string
-                  employee_deduction:
-                    $ref: '#/components/schemas/BenefitContribution'
-                  company_contribution:
-                    $ref: '#/components/schemas/BenefitContribution'
-                  next_effective_date:
-                    type: string
-                    pattern: '[0-9]{4}-[0-9]{2}-[0-9]{2}'
-                    description: The next date this benefit will be applied for the individual. This field is provided on a best-effort basis.
-                    nullable: true
-                  catch_up:
-                    type: boolean
-                    description: 'If the benefit supports catch up, whether it is enabled for this individual.'
-                    nullable: true
-                  annual_maximum:
-                    type: integer
-                    description: 'If the benefit supports annual maxiumum, the amount in cents for this individual.'
-                    nullable: true
+                $ref: '#/components/schemas/IndividualBenefits'
       operationId: get-employer-benefits-benefit_id-individuals-individual_id
       description: Get enrolled benefit information for the given individual
       parameters:
@@ -1574,6 +1500,48 @@ components:
         amount:
           type: integer
           description: Contribution amount in cents (if `fixed`) or base points (if `percent`).
+    CompanyBenefit:
+      title: CompanyBenefit
+      type: object
+      properties:
+        benefit_id:
+          type: string
+        type:
+          $ref: '#/components/schemas/BenefitType'
+        description:
+          type: string
+        frequency:
+          $ref: '#/components/schemas/BenefitFrequency'
+        company_contribution:
+          $ref: '#/components/schemas/BenefitContribution'
+        employee_deduction:
+          $ref: '#/components/schemas/BenefitContribution'
+    IndividualBenefits:
+      title: IndividualBenefits
+      type: array
+      properties:
+        items:
+          type: object
+          properties:
+            individual_id:
+              type: string
+            code:
+              type: integer
+            body:
+              type: object
+              properties:
+                employee_deduction:
+                  $ref: '#/components/schemas/BenefitContribution'
+                company_contribution:
+                  $ref: '#/components/schemas/BenefitContribution'
+                annual_maximum:
+                  type: integer
+                  description: 'If the benefit supports annual maximum, the amount in cents for this individual.'
+                  nullable: true
+                catch_up:
+                  type: boolean
+                  description: 'If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled for this individual.'
+                  nullable: true
   requestBodies:
     Individual-Ids:
       content:
