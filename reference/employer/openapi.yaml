@@ -1226,7 +1226,7 @@ paths:
                       description: HTTP status code
                     type:
                       type: string
-                      description: Identifier that groups broad categories of errors.
+                      description: 'A short, descriptive identifier for the response.'
                     message:
                       type: string
                       description: Short description in English that provides more information about the error.
@@ -1324,7 +1324,7 @@ paths:
                       description: HTTP status code
                     type:
                       type: string
-                      description: Identifier that groups the response into broad categories.
+                      description: 'A short, descriptive identifier for the response.'
                     message:
                       type: string
                       description: Short description in English that provides more information about the response.
