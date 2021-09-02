@@ -132,6 +132,7 @@ paths:
                     nullable: true
                   locations:
                     type: array
+                    nullable: true
                     items:
                       $ref: '#/components/schemas/Location'
                   accounts:
@@ -291,6 +292,7 @@ paths:
                             first_name:
                               type: string
                               description: The legal first name of the individual.
+                              nullable: true
                             middle_name:
                               type: string
                               description: The legal middle name of the individual.
@@ -298,6 +300,7 @@ paths:
                             last_name:
                               type: string
                               description: The legal last name of the individual.
+                              nullable: true
                             emails:
                               type: array
                               nullable: true
@@ -440,6 +443,7 @@ paths:
                             first_name:
                               type: string
                               description: The legal first name of the individual.
+                              nullable: true
                             middle_name:
                               type: string
                               description: The legal middle name of the individual.
@@ -447,6 +451,7 @@ paths:
                             last_name:
                               type: string
                               description: "\tThe legal last name of the individual."
+                              nullable: true
                             title:
                               type: string
                               description: The current title of the individual.
@@ -471,6 +476,7 @@ paths:
                             employment:
                               type: object
                               description: The employment object.
+                              nullable: true
                               properties:
                                 type:
                                   type: string
@@ -717,6 +723,7 @@ paths:
                                       - regular
                                       - off_cycle_payroll
                                       - one_time_payment
+                                    nullable: true
                                   payment_method:
                                     type: string
                                     description: The payment method.
@@ -735,6 +742,7 @@ paths:
                                   earnings:
                                     type: array
                                     description: The array of earnings objects associated with this pay statement
+                                    nullable: true
                                     items:
                                       type: object
                                       properties:
@@ -769,6 +777,7 @@ paths:
                                   taxes:
                                     type: array
                                     description: The array of taxes objects associated with this pay statement.
+                                    nullable: true
                                     items:
                                       type: object
                                       properties:
@@ -987,22 +996,18 @@ paths:
                 properties:
                   benefit_id:
                     type: string
-        '400':
-          description: Invalid Request
+        '422':
+          description: Request provided with unsupported parameters
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    description: 'If applicable, a more detailed type denoting why the request is invalid.'
-                  message:
-                    type: string
+                $ref: '#/components/schemas/Error'
               examples:
-                example-1:
+                Invalid Benefit:
                   value:
-                    type: invalid_benefit_type
+                    code: 422
+                    name: unprocessable_request_error
+                    finch_code: unsupported_paramters
                     message: Provider does not support benefit type '401k'
       description: Creates a new company-wide benefit
       requestBody:
@@ -1052,18 +1057,14 @@ paths:
                       items:
                         $ref: '#/components/schemas/BenefitFrequency'
                     employee_deduction:
-                      type:
-                        - boolean
-                        - array
+                      type: array
                       items:
                         type: string
                         enum:
                           - fixed
                           - percent
                     company_contribution:
-                      type:
-                        - boolean
-                        - array
+                      type: array
                       items:
                         type: string
                         enum:
@@ -1094,6 +1095,17 @@ paths:
                 $ref: '#/components/schemas/CompanyBenefit'
         '404':
           description: Benefit Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    code: 404
+                    name: not_found_error
+                    finch_code: benefit_not_found
+                    message: Benefit not found
       operationId: get-company-benefit
       description: Lists benefit information for a given benefit
       parameters:
@@ -1152,6 +1164,17 @@ paths:
                       type: string
         '404':
           description: Benefit Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                Not Found:
+                  value:
+                    code: 404
+                    name: not_found_error
+                    finch_code: benefit_not_found
+                    message: Benefit not found
       operationId: get-company-benefits-enrolled
       description: Lists individuals currently enrolled in a given benefit.
       parameters:
@@ -1163,14 +1186,44 @@ paths:
       tags:
         - Employer
       responses:
-        '200':
-          description: OK
+        '207':
+          description: Multi-Status (WebDAV)
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/IndividualBenefits'
+              examples:
+                Multi-status:
+                  value:
+                    - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
+                      code: 200
+                      body:
+                        employee_deduction:
+                          type: fixed
+                          amount: 100
+                        company_contribution:
+                          type: fixed
+                          amount: 100
+                        annual_maximum: 1000
+                        catch_up: false
+                    - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
+                      status: 404
+                      body:
+                        error_name: not_found_error
+                        error_message: Individual not found
         '404':
           description: Benefit Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                Not Found:
+                  value:
+                    code: 404
+                    name: not_found_error
+                    finch_code: benefit_not_found
+                    message: Benefit not found
       operationId: get-individual-benefits
       description: 'Get enrolled benefit information for the given individuals. Note: this GET request has a body. We return information for all individuals enrolled in the benefit if no body is provided.'
       requestBody:
@@ -1186,8 +1239,9 @@ paths:
         description: ''
       parameters:
         - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
     post:
-      summary: Upsert Individuals' Benefits
+      summary: Enroll Individuals in Benefits
       operationId: post-employer-individual-benefits-benefit_id
       responses:
         '200':
@@ -1201,18 +1255,33 @@ paths:
                   properties:
                     individual_id:
                       type: string
-                    status:
+                    code:
                       type: integer
                       description: HTTP status code. Either 201 or 200
                       enum:
                         - 200
                         - 201
-                    type:
+                    name:
                       type: string
                       description: Indentifier indicating whether the benefit was newly enrolled or updated.
+                    finch_code:
+                      type: string
                     message:
                       type: string
                       description: Short description in English that provides more information.
+              examples:
+                Success:
+                  value:
+                    - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
+                      code: 201
+                      name: created
+                      finch_code: enrolled_new_benefit
+                      message: Successfully enrolled new benefit for individual
+                    - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
+                      code: 200
+                      name: success
+                      finch_code: updated_existing_enrollment
+                      message: Benefit information updated for individual
         '207':
           description: Multi-Status. Some individuals may not have succeeded. See body for details.
           content:
@@ -1224,58 +1293,56 @@ paths:
                   properties:
                     individual_id:
                       type: string
-                    status:
+                    code:
                       type: integer
                       description: HTTP status code
-                    type:
+                    name:
                       type: string
                       description: 'A short, descriptive identifier for the response.'
+                    finch_code:
+                      type: string
                     message:
                       type: string
                       description: Short description in English that provides more information about the error.
               examples:
-                multi-status:
+                Multi Status:
                   value:
                     - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
-                      status: 201
-                      type: enrolled_new_benefit
+                      code: 201
+                      name: created
+                      finch_code: enrolled_new_benefit
                       message: Successfully enrolled new benefit for individual
                     - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
-                      status: 200
-                      type: updated_existing_enrollment
+                      code: 200
+                      name: success
+                      finch_code: updated_existing_enrollment
                       message: Benefit information updated for individual
                     - individual_id: 0c89294b-b7f1-4999-9b7a-bb8a87326717
-                      status: 404
-                      type: not_found
+                      code: 404
+                      name: not_found_error
+                      finch_code: individual_not_found
                       message: Individual not found
                     - individual_id: fb292e27-bd07-4dbc-88c4-05923b33bbc2
-                      status: 403
-                      type: access_denied
+                      code: 403
+                      finch_code: access_denied
                       message: Permissions not valid for individual
         '400':
-          description: Invalid Request
+          description: Malformed Request
         '404':
           description: Benefit Not Found
-        '422':
-          description: Either benefit type or payroll provider does not support a deduction/contribution type provided in the request.
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    description: Identifier that groups broad categories of errors.
-                  message:
-                    type: string
-                    description: Short description in English that provides more information about the error.
+                $ref: '#/components/schemas/Error'
               examples:
-                example-1:
+                Not Found:
                   value:
-                    type: invalid_deduction
-                    message: Benefit type 'HSA' does not support provided deduction
+                    code: 404
+                    name: not_found_error
+                    finch_code: benefit_not_found
+                    message: Benefit not found
       description: |-
-        Upsert enrolling an individual into a benefit. If the employee is already enrolled, the amounts will be adjusted.
+        Enrolling an individual into a benefit. If the employee is already enrolled, the enrollment amounts will be adjusted.
 
         ```
         Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
@@ -1308,7 +1375,7 @@ paths:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
     delete:
-      summary: Unenroll Individuals' Benefits
+      summary: Unenroll Individuals from Benefits
       operationId: delete-individual-benefits
       responses:
         '207':
@@ -1360,6 +1427,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IndividualBenefits'
+        '404':
+          description: Benefit not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       operationId: get-employer-benefits-benefit_id-individuals-individual_id
       description: Get enrolled benefit information for the given individual
       parameters:
@@ -1404,6 +1477,7 @@ components:
       x-tags:
         - Models
       description: 'The employee''s income as reported by the provider. This may not always be annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc, depending on what information the provider returns.'
+      nullable: true
       properties:
         unit:
           type: string
@@ -1477,7 +1551,8 @@ components:
         - fsa_dependent_care
         - simple_ira
         - simple
-        - other_post
+        - custom_post_tax
+        - custom_pre_tax
       description: Type of benefit.
       x-tags:
         - Models
@@ -1503,7 +1578,7 @@ components:
           description: Contribution type.
         amount:
           type: integer
-          description: Contribution amount in cents (if `fixed`) or base points (if `percent`).
+          description: Contribution amount in cents (if `fixed`) or basis points (if `percent`).
     CompanyBenefit:
       title: CompanyBenefit
       type: object
@@ -1546,6 +1621,23 @@ components:
                   type: boolean
                   description: 'If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled for this individual.'
                   nullable: true
+    Error:
+      title: Error
+      type: object
+      description: ''
+      properties:
+        code:
+          type: integer
+          description: The status code of the request
+        name:
+          type: string
+          description: An identifier describing the broad error type
+        finch_code:
+          type: string
+          description: A descriptive identifier for the error that occurred
+        message:
+          type: string
+          description: A message explaining the error
   requestBodies:
     Individual-Ids:
       content:

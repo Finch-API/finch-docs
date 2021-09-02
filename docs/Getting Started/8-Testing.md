@@ -13,7 +13,7 @@ To use the sandbox environment, simply [open](https://developer.tryfinch.com/doc
 
 ### Scenarios
 
-The Sandbox allows for various scenarios based on your testing needs. The credentials you use while logging in determine the behavior of the API.
+The sandbox allows for various scenarios based on your testing needs. The credentials you use while logging in determine the behavior of the API.
 
 **Small Company**
 
@@ -34,6 +34,26 @@ This scenario provides a much larger dataset to test against. Some attributes of
 * employees with managers,
 * multiple departments and work locations, and
 * payments with various earning types, deductions, and employer contributions.
+
+**Testing Benefits**
+
+The sandbox supports read access only for all benefits endpoints. For write endpoints, the sandbox will return a `success` status code, but no information will be updated. This allows you to get a feel for how the API works without modifying any state. Example:
+
+Request:
+```shell
+curl https://api.tryfinch.com/employer/benefts \
+-H "Authorization: Bearer {token}" \
+-H "Finch-API-Version: 2020-09-17" \
+-X "POST"
+-H "Content-Type: application/json" \
+-d '{"type":"401k", "description": "Sample 401k", "frequency": \ "every_paycheck", "employee_deduction": {"type": "fixed",\ "amount": 100}, "company_contribution": {"type": "fixed", \ "amount": 100}}'
+```
+Response:
+```json
+{
+  "benefit_id": "12345"
+}
+```
 
 ## Live Account Testing
 
