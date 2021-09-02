@@ -1341,6 +1341,19 @@ paths:
                     name: not_found_error
                     finch_code: benefit_not_found
                     message: Benefit not found
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                Cannot Enroll:
+                  value:
+                    code: 422
+                    name: unprocessable_request_error
+                    finch_code: unprocessable_parameters
+                    message: HSA enrollment are not currently available for this provider
       description: |-
         Enrolling an individual into a benefit. If the employee is already enrolled, the enrollment amounts will be adjusted.
 
