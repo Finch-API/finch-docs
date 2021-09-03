@@ -1415,56 +1415,6 @@ paths:
                       company_contribution:
                         type: fixed
                         amount: 0
-          application/xml:
-            schema:
-              type: object
-              properties: {}
-          multipart/form-data:
-            schema:
-              type: object
-              properties: {}
-          application/zip:
-            schema:
-              type: object
-              properties: {}
-          text/html:
-            schema:
-              type: object
-              properties: {}
-          text/plain:
-            schema:
-              type: object
-              properties: {}
-          application/EDI-X12:
-            schema:
-              type: object
-              properties: {}
-          application/EDIFACT:
-            schema:
-              type: object
-              properties: {}
-          application/atom+xml:
-            schema:
-              type: object
-              properties: {}
-          application/font-woff:
-            schema:
-              type: object
-              properties: {}
-          application/gzip:
-            schema:
-              type: object
-              properties: {}
-          application/javascript:
-            schema:
-              type: object
-              properties: {}
-          application/octet-stream:
-            schema:
-              type: object
-              properties:
-                ok:
-                  type: string
         description: |
           Enrollment bodies have a common format for each benefit type, with a different `configuration` schema based on the benefit type. The configurations for each type are outlined below. These are general configurations and may vary per provider. Please use the `/meta` endpoint to view provider specific supported configurations.
 
