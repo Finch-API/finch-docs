@@ -1009,7 +1009,7 @@ paths:
                     name: unprocessable_request_error
                     finch_code: unsupported_paramters
                     message: Provider does not support benefit type '401k'
-      description: Creates a new company-wide benefit
+      description: Creates a new company-wide benefit.
       requestBody:
         content:
           application/json:
@@ -1020,10 +1020,6 @@ paths:
                   $ref: '#/components/schemas/BenefitType'
                 description:
                   type: string
-                employee_deduction:
-                  $ref: '#/components/schemas/BenefitContribution'
-                company_contribution:
-                  $ref: '#/components/schemas/BenefitContribution'
                 frequency:
                   $ref: '#/components/schemas/BenefitFrequency'
       tags:
@@ -1058,6 +1054,7 @@ paths:
                         $ref: '#/components/schemas/BenefitFrequency'
                     employee_deduction:
                       type: array
+                      description: Supported deduction types. An empty array indicates deductions are not supported.
                       items:
                         type: string
                         enum:
@@ -1065,6 +1062,7 @@ paths:
                           - percent
                     company_contribution:
                       type: array
+                      description: Supported contribution types. An empty array indicates contributions are not supported.
                       items:
                         type: string
                         enum:
@@ -1075,9 +1073,17 @@ paths:
                       description: Whether the provider supports an annual maximum for this benefit.
                     catch_up:
                       type: boolean
-                      description: Whether the provider supports catch up for this benefit.
+                      description: Whether the provider supports catch up for this benefit. This field will only be true for retirement benefits.
+                    hsa_contribution_limit:
+                      description: Whether the provider supports HSA contribution limits. Empty if this feature is not supported for the benefit. This array only have values for HSA benefits.
+                      type: array
+                      items:
+                        type: string
+                        enum:
+                          - individual
+                          - family
       operationId: get-company-benefits-meta
-      description: Lists available types/frequencies available for a given company for a given provider
+      description: Lists available types and configurations for the provider associated with your access token.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     parameters: []
@@ -1372,18 +1378,133 @@ paths:
                 properties:
                   individual_id:
                     type: string
-                  employee_deduction:
-                    $ref: '#/components/schemas/BenefitContribution'
-                  employer_contribution:
-                    $ref: '#/components/schemas/BenefitContribution'
-                  catch_up:
-                    type: boolean
-                    description: 'If this benefit is eligible for catch up, whether to enable it for this individual.'
-                    nullable: true
-                  annual_maximum:
-                    type: integer
-                    description: 'If this benefit supports an annual maxium, the annual maximum in cents for this individual.'
-                    nullable: true
+                  configuration:
+                    type: object
+            examples:
+              Retirement:
+                value:
+                  - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
+                    configuration:
+                      employee_deduction:
+                        type: percent
+                        amount: 1000
+                      company_contribution:
+                        type: percent
+                        amount: 400
+                      catch_up: false
+                      annual_maximum: 500000
+              HSA:
+                value:
+                  - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
+                    configuration:
+                      employee_deduction:
+                        type: fixed
+                        amount: 10000
+                      company_contribution:
+                        type: fixed
+                        amount: 0
+                      annual_maximum: null
+                      annual_contribution_limit: individual
+              Custom:
+                value:
+                  - individual_id: string
+                    configuration:
+                      employee_deduction:
+                        type: fixed
+                        amount: 10000
+                      company_contribution:
+                        type: fixed
+                        amount: 0
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              properties: {}
+          application/zip:
+            schema:
+              type: object
+              properties: {}
+          text/html:
+            schema:
+              type: object
+              properties: {}
+          text/plain:
+            schema:
+              type: object
+              properties: {}
+          application/EDI-X12:
+            schema:
+              type: object
+              properties: {}
+          application/EDIFACT:
+            schema:
+              type: object
+              properties: {}
+          application/atom+xml:
+            schema:
+              type: object
+              properties: {}
+          application/font-woff:
+            schema:
+              type: object
+              properties: {}
+          application/gzip:
+            schema:
+              type: object
+              properties: {}
+          application/javascript:
+            schema:
+              type: object
+              properties: {}
+          application/octet-stream:
+            schema:
+              type: object
+              properties:
+                ok:
+                  type: string
+        description: |
+          Enrollment bodies have a common format for each benefit type, with a different `configuration` schema based on the benefit type. The configurations for each type are outlined below. These are general configurations and may vary per provider. Please use the `/meta` endpoint to view provider specific supported configurations.
+
+          **Retirement Benefits**
+
+          Includes 401(k), Roth 401(k), 403(b), Roth 403(b), 457, Roth 457, and Simple IRA
+
+          Field | Type | Description
+          ------|------ | ----------
+          `employee_deduction.type` | `string` | Deduction Type (`fixed` or `percent`)
+          `employee_deduction.amount`| `integer` | Deduction amount in cents (if `fixed`) or basis points (if `percent`)
+          `company_contribution.type` | `string` | Contribution Type (`fixed` or `percent`)
+          `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points 
+          `catch_up`| `boolean` | Whether to enable catch up for this individual.
+          `annual_maximum`| `integer` (`nullable`)| The annual maximum in cents for this individual.
+
+          ***
+
+          **HSA**
+
+          Field | Type | Description
+          ------|------ | ----------
+          `employee_deduction.type` | `string` | Deduction Type (`fixed` or `percent`)
+          `employee_deduction.amount`| `integer` | Deduction amount in cents (if `fixed`) or basis points (if `percent`)
+          `company_contribution.type` | `string` | Contribution Type (`fixed` or `percent`)
+          `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points 
+          `catch_up`| `boolean` | Whether to enable catch up for this individual.
+          `annual_maximum`| `integer` (`nullable`) | The annual maximum in cents for this individual. 
+          `annual_contribution_limit` | `string` | `individual` or `family`
+
+          ***
+
+          **Section 125 Benefits, FSA, Custom Benefits**
+
+          Field | Type | Description
+          ------|------ | ----------
+          `employee_deduction.type` | `string` | Deduction Type (`fixed` or `percent`)
+          `employee_deduction.amount`| `integer` | Deduction amount in cents (if `fixed`) or basis points (if `percent`)
+          `company_contribution.type` | `string` | Contribution Type (`fixed` or `percent`)
+          `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points 
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -1582,6 +1703,7 @@ components:
       type: object
       x-tags:
         - Models
+      nullable: true
       properties:
         type:
           type: string
