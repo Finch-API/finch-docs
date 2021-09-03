@@ -6,3 +6,5 @@ Finch's Benefits endpoints allows users to read and write benefits information u
  Provider | Read Company Benefits | Create Company Benefits | Read Individual Benefits | Enroll/Unenroll Individual Benefits | Notes
 ---------|----------|---------
  Gusto | 401(k), Roth 401(k), 403(b), Roth 403(b), Simple IRA, HSA (post tax), FSA Dependent, FSA Medical, S125 Medical/Dental/Vision, Commuter Pre Tax, Custom Post Tax | 401(k), Roth 401(k), 403(b), Roth 403(b), Simple IRA, HSA (post tax), FSA Dependent, FSA Medical, S125 Medical/Dental/Vision, Commuter Pre Tax, Custom Post Tax | 401(k), Roth 401(k), 403(b), Roth 403(b), Simple IRA, HSA (post tax), FSA Dependent, FSA Medical, S125 Medical/Dental/Vision, Commuter Pre Tax, Custom Post Tax | 401(k), Roth 401(k), 403(b), Roth 403(b), Simple IRA, HSA (post tax), FSA Dependent, FSA Medical, S125 Medical/Dental/Vision, Commuter Pre Tax, Custom Post Tax | Percentage-based custom post-tax recurring deductions are not currently supported.
+
+ Note: One-time post-tax deductions are not currently supported for benefits.

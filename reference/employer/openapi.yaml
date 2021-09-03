@@ -617,7 +617,9 @@ paths:
         - Employer
   /employer/pay-statement:
     post:
-      description: Read detailed pay statements for each individual.
+      description: |-
+        Read detailed pay statements for each individual.
+        Deduction and contribution types are supported by the payroll systems that support [Benefits](../../docs/Getting\ Started/B\ -\ Benefits.md)
       requestBody:
         content:
           application/json:
@@ -821,9 +823,8 @@ paths:
                                         pre_tax:
                                           type: boolean
                                           description: Boolean indicating if the deduction is pre-tax.
-                                        benefit_id:
-                                          type: string
-                                          description: A stable Finch `id` (uuid v4) for the deduction.
+                                        type:
+                                          $ref: '#/components/schemas/BenefitType'
                                   employer_contributions:
                                     type: array
                                     nullable: true
@@ -839,9 +840,8 @@ paths:
                                         currency:
                                           type: string
                                           description: The contribution currency.
-                                        benefit_id:
-                                          type: string
-                                          description: A stable Finch `id` (uuid v4) for the contribution.
+                                        type:
+                                          $ref: '#/components/schemas/BenefitType'
       summary: Pay Statement
       operationId: get-pay-statement
       tags:
@@ -1664,6 +1664,7 @@ components:
         amount:
           type: integer
           description: Contribution amount in cents (if `fixed`) or basis points (if `percent`).
+      x-examples: {}
     CompanyBenefit:
       title: CompanyBenefit
       type: object
@@ -1683,29 +1684,35 @@ components:
     IndividualBenefits:
       title: IndividualBenefits
       type: array
-      properties:
-        items:
-          type: object
-          properties:
-            individual_id:
-              type: string
-            code:
-              type: integer
-            body:
-              type: object
-              properties:
-                employee_deduction:
-                  $ref: '#/components/schemas/BenefitContribution'
-                company_contribution:
-                  $ref: '#/components/schemas/BenefitContribution'
-                annual_maximum:
-                  type: integer
-                  description: 'If the benefit supports annual maximum, the amount in cents for this individual.'
-                  nullable: true
-                catch_up:
-                  type: boolean
-                  description: 'If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled for this individual.'
-                  nullable: true
+      items:
+        type: object
+        properties:
+          individual_id:
+            type: string
+          code:
+            type: integer
+          body:
+            type: object
+            properties:
+              employee_deduction:
+                $ref: '#/components/schemas/BenefitContribution'
+              company_contribution:
+                $ref: '#/components/schemas/BenefitContribution'
+              annual_maximum:
+                type: integer
+                description: 'If the benefit supports annual maximum, the amount in cents for this individual.'
+                nullable: true
+              catch_up:
+                type: boolean
+                description: 'If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled for this individual.'
+                nullable: true
+              hsa_contribution_limit:
+                type: string
+                enum:
+                  - individual
+                  - family
+                nullable: true
+      x-examples: {}
     Error:
       title: Error
       type: object

@@ -26,9 +26,6 @@ Name | Finch Code | Code | Description
 `authentication_error` | `reauthenticate_user` | 401 | The payroll and HR system indicated that the admin's password or MFA information has changed. They will need to [reauthenticate via Finch Connect](./4-Reauthentication.md).
 `authentication_error` | `no_valid_accounts` | 401 | The credentials provide do not have access to valid payroll admin accounts.
 `authentication_error` | `locked_out` | 401 | The account associated with the credentials provided is locked.
-`authentication_error` | `account_setup_required` | 401 | The account associated with the credentials provided is not adequately set up.
-`authentication_error` | `invalid_mfa_code` | 401 | The MFA code provided during authentication is invalid.
-`authentication_error` | `session_expired` | 401 | During authentication, the session associated with the account expired due to inactivity.
 `invalid_client_error` || 401 | The provided application credentials were incorrect
 `unauthorized_request_error` || 401 | The `access_token` is missing from the header.
 `invalid_client_error` || 401 | The application does not have access to this product.
