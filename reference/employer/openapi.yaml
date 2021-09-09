@@ -1009,7 +1009,7 @@ paths:
                     name: unprocessable_request_error
                     finch_code: unsupported_paramters
                     message: Provider does not support benefit type '401k'
-      description: Creates a new company-wide benefit.
+      description: Creates a new company-wide benefit. Please use the `/meta` endpoint to view available types for each provider.
       requestBody:
         content:
           application/json:
@@ -1239,8 +1239,8 @@ paths:
             type: string
             example: 'd675d2b7-6d7b-41a8-b2d3-001eb3fb88f6,d02a6346-1f08-4312-a064-49ff3cafaa7a'
           in: query
-          name: individualIds
-          description: comma-delimited list of stable Finch uuids for each individual
+          name: individual_ids
+          description: 'comma-delimited list of stable Finch uuids for each individual. If empty, defaults to all individuals'
     post:
       summary: Enroll Individuals in Benefits
       operationId: post-employer-individual-benefits-benefit_id
@@ -1356,7 +1356,7 @@ paths:
                     finch_code: unprocessable_parameters
                     message: HSA enrollment are not currently available for this provider
       description: |-
-        Enrolling an individual into a benefit. If the employee is already enrolled, the enrollment amounts will be adjusted.
+        Enroll an individual into a benefit. If the employee is already enrolled, the enrollment amounts will be adjusted.
 
         ```
         Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
