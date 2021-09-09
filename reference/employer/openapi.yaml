@@ -1635,8 +1635,10 @@ components:
         - fsa_dependent_care
         - simple_ira
         - simple
+        - commuter
         - custom_post_tax
         - custom_pre_tax
+        
       description: Type of benefit.
       x-tags:
         - Models
