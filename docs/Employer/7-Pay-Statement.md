@@ -111,8 +111,8 @@ Name | Type | Description
 `pay_statements[].type` | `string` | The type of the payment associated with the pay statement. Options: `regular_payroll`, `off_cycle_payroll`, or `one_time_payment`.
 `pay_statements[].payment_method` | `string` | The payment method. Options: `check` and `direct_deposit`.
 `pay_statements[].total_hours` | `number` | The number of hours worked for this pay period. 
-`pay_statements[].gross_pay` | `object` | The money object for the gross pay amount.
-`pay_statements[].net_pay` | `object` | The money object for the net pay amount.
+`pay_statements[].gross_pay` | `object` | The money object for the gross pay amount in cents.
+`pay_statements[].net_pay` | `object` | The money object for the net pay amount in cents.
 `pay_statements[].earnings` | `array` | The array of earnings objects associated with this pay statement.
 `pay_statements[].earnings[].type` | `string` | The type of earning. Options: `salary`, `wage`, `reimbursement`, `overtime`, `severance`, `double_overtime`, `pto`, `sick`, `bonus`, `commission`, `tips`, `1099` and `other`. 
 `pay_statements[].earnings[].name` | `string` | The exact name of the deduction from the pay statement.
