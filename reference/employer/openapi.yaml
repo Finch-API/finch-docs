@@ -1231,21 +1231,16 @@ paths:
                     finch_code: benefit_not_found
                     message: Benefit not found
       operationId: get-individual-benefits
-      description: 'Get enrolled benefit information for the given individuals. Note: this GET request has a body. We return information for all individuals enrolled in the benefit if no body is provided.'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                individual_ids:
-                  type: array
-                  items:
-                    type: string
-        description: ''
+      description: Get enrolled benefit information for the given individuals.
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
+        - schema:
+            type: string
+            example: 'd675d2b7-6d7b-41a8-b2d3-001eb3fb88f6,d02a6346-1f08-4312-a064-49ff3cafaa7a'
+          in: query
+          name: individualIds
+          description: comma-delimited list of stable Finch uuids for each individual
     post:
       summary: Enroll Individuals in Benefits
       operationId: post-employer-individual-benefits-benefit_id
@@ -1638,7 +1633,6 @@ components:
         - commuter
         - custom_post_tax
         - custom_pre_tax
-        
       description: Type of benefit.
       x-tags:
         - Models
