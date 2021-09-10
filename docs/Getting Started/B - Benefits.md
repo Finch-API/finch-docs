@@ -1,10 +1,52 @@
 # Benefits
 
-Finch's Benefits endpoints allows users to read and write benefits information under a single, unified API. The table below lays out which benefits features are supported for providers, along with any notable information.
+Finch's Benefits endpoints allows users to read and write benefits information under a single, unified API. The table below lays out which benefits features are supported for providers, along with any notable information. Note: One-time post-tax deductions are not currently supported for benefits.
 
+`✓` - supported
 
- Provider | Read Company Benefits | Create Company Benefits | Read Individual Benefits | Enroll/Unenroll Individual Benefits | Notes
---------|----------|---------|------------|------------|----------
- Gusto | 401(k), Roth 401(k), 403(b), Roth 403(b), Simple IRA, HSA (post tax), FSA Dependent, FSA Medical, S125 Medical/Dental/Vision, Commuter Pre Tax, Custom Post Tax | 401(k), Roth 401(k), 403(b), Roth 403(b), Simple IRA, HSA (post tax), FSA Dependent, FSA Medical, S125 Medical/Dental/Vision, Commuter Pre Tax, Custom Post Tax | 401(k), Roth 401(k), 403(b), Roth 403(b), Simple IRA, HSA (post tax), FSA Dependent, FSA Medical, S125 Medical/Dental/Vision, Commuter Pre Tax, Custom Post Tax | 401(k), Roth 401(k), 403(b), Roth 403(b), Simple IRA, HSA (post tax), FSA Dependent, FSA Medical, S125 Medical/Dental/Vision, Commuter Pre Tax, Custom Post Tax | Only deductions are supported for custom post-tax benefits, not contributions.
+`x` - not supported
 
- Note: One-time post-tax deductions are not currently supported for benefits.
+`n/a` - not supported by provider
+
+### Gusto
+
+**Supported Operations**
+Benefit | Read Company Benefits | Create Company Benefits | Read Individual Benefits | Enroll/Unenroll Individual Benefits
+--------|----------|---------|------------|------------
+**401(k)** | ✓ | ✓ | ✓ | ✓ |
+**Roth 401(k)** | ✓ | ✓ | ✓ | ✓ |
+**403(b)** | ✓ | ✓ | ✓ | ✓ |
+**Roth 403(b)** | ✓ | ✓ | ✓ | ✓ |
+**457** | n/a | n/a | n/a | n/a |
+**Roth 457**  | n/a | n/a | n/a | n/a |
+**Simple IRA** | ✓ | ✓ | ✓ | ✓ |
+**HSA (post-tax)** | n/a | n/a | n/a | n/a |
+**HSA (pre-tax)** | ✓ | ✓ | ✓ | ✓ |
+**FSA Dependent** | ✓ | ✓ | ✓ | ✓ |
+**FSA Medical** | ✓ | ✓ | ✓ | ✓ |
+**Section 125 Dental** | ✓ | ✓ | ✓ | ✓ |
+**Section 125 Medical** | ✓ | ✓ | ✓ | ✓ |
+**Section 125 Vision** | ✓ | ✓ | ✓ | ✓ |
+**Commuter (pre-tax)** | ✓ | ✓ | ✓ | ✓ |
+**Custom pre-tax** | n/a | n/a | n/a | n/a |
+**Custom post-tax** | ✓ | ✓ | ✓ | ✓ |
+
+**Suppored Features**
+
+Benefit | Features
+--------|----------
+**401(k)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
+**Roth 401(k)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
+**403(b)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
+**Roth 403(b)**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
+**457**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
+**Roth 457** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
+**Simple IRA**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
+**HSA (pre-tax)**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
+**FSA Dependent** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
+**FSA Medical** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
+**Section 125 Dental** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
+**Section 125 Medical**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
+**Section 125 Vision** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
+**Commuter (pre-tax)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
+**Custom post-tax** | `employee_deduction`: `fixed`, `percent`<br>`annual_maximum`
