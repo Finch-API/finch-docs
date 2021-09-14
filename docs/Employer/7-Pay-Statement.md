@@ -64,7 +64,8 @@ Parameter | Type | Required | Description
                 "type": "salary",
                 "name": "Salary",
                 "amount": 230000,
-                "currency": "usd"
+                "currency": "usd",
+                "hours": 80.67
               }
             ],
             "taxes": [
@@ -110,14 +111,15 @@ Name | Type | Description
 `pay_statements[].individual_id` | `string` | A stable Finch `id` (UUID v4) for an individual in the company.
 `pay_statements[].type` | `string` | The type of the payment associated with the pay statement. Options: `regular_payroll`, `off_cycle_payroll`, or `one_time_payment`.
 `pay_statements[].payment_method` | `string` | The payment method. Options: `check` and `direct_deposit`.
-`pay_statements[].total_hours` | `number` | The number of hours worked for this pay period. 
+`pay_statements[].total_hours` | `number` | The number of hours worked for this pay period.
 `pay_statements[].gross_pay` | `object` | The money object for the gross pay amount in cents.
 `pay_statements[].net_pay` | `object` | The money object for the net pay amount in cents.
 `pay_statements[].earnings` | `array` | The array of earnings objects associated with this pay statement.
-`pay_statements[].earnings[].type` | `string` | The type of earning. Options: `salary`, `wage`, `reimbursement`, `overtime`, `severance`, `double_overtime`, `pto`, `sick`, `bonus`, `commission`, `tips`, `1099` and `other`. 
+`pay_statements[].earnings[].type` | `string` | The type of earning. Options: `salary`, `wage`, `reimbursement`, `overtime`, `severance`, `double_overtime`, `pto`, `sick`, `bonus`, `commission`, `tips`, `1099` and `other`.
 `pay_statements[].earnings[].name` | `string` | The exact name of the deduction from the pay statement.
 `pay_statements[].earnings[].amount` | `integer` | The earnings amount in cents.
 `pay_statements[].earnings[].currency` | `string ` | The earnings currency code.
+`pay_statements[].earnings[].hours` | `string ` | The hours earned for the relevant earning amount, if applicable.
 `pay_statements[].employee_deductions` | `array` | The array of deductions objects associated with this pay statement.
 `pay_statements[].employee_deductions[].name` | `string` | The deduction name from the pay statement.
 `pay_statements[].employee_deductions[].amount` | `integer` | The deduction amount in cents.
