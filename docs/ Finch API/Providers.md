@@ -70,6 +70,7 @@ PCS HCM | `pcs_hcm`
 Platinum Group | `platinum_group`
 PrimePay | `primepay`
 PrismHR | `prism_hr`
+Proliant | `proliant`
 Proxus HR isolved | `proxus_hr`
 Quickbooks Payroll | `quickbooks`
 Remote | `remote`
@@ -88,6 +89,7 @@ SyncHR | `sync_hr`
 The Payroll Company | `the_payroll_company`
 Toast Payroll | `toast_payroll`
 TriNet | `trinet`
+UKG Ready (Kronos) | `ukg_ready`
 UltiPro | `ulti_pro`
 VensureHR | `vensure_hr`
 Viewpoint HR Management Spectrum | `viewpoint_hr_management_spectrum`
