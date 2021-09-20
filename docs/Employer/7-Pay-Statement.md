@@ -118,8 +118,8 @@ Name | Type | Description
 `pay_statements[].earnings[].type` | `string` | The type of earning. Options: `salary`, `wage`, `reimbursement`, `overtime`, `severance`, `double_overtime`, `pto`, `sick`, `bonus`, `commission`, `tips`, `1099` and `other`.
 `pay_statements[].earnings[].name` | `string` | The exact name of the deduction from the pay statement.
 `pay_statements[].earnings[].amount` | `integer` | The earnings amount in cents.
-`pay_statements[].earnings[].currency` | `string ` | The earnings currency code.
-`pay_statements[].earnings[].hours` | `string ` | The hours earned for the relevant earning amount, if applicable.
+`pay_statements[].earnings[].currency` | `string` | The earnings currency code.
+`pay_statements[].earnings[].hours` | `number` | The number of hours associated with this earning. (For salaried employees, this could be hours per pay period, `0` or `null`, depending on the provider).
 `pay_statements[].employee_deductions` | `array` | The array of deductions objects associated with this pay statement.
 `pay_statements[].employee_deductions[].name` | `string` | The deduction name from the pay statement.
 `pay_statements[].employee_deductions[].amount` | `integer` | The deduction amount in cents.
