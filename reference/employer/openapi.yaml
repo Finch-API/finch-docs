@@ -1083,7 +1083,7 @@ paths:
                           - individual
                           - family
       operationId: get-company-benefits-meta
-      description: Lists available types and configurations for the provider associated with your access token.
+      description: Lists available types and configurations for the provider associated with the access token.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     parameters: []
@@ -1106,7 +1106,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
               examples:
-                example-1:
+                Not Found:
                   value:
                     code: 404
                     name: not_found_error
@@ -1213,10 +1213,11 @@ paths:
                         annual_maximum: 1000
                         catch_up: false
                     - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
-                      status: 404
+                      code: 404
                       body:
-                        error_name: not_found_error
-                        error_message: Individual not found
+                        name: not_found_error
+                        finch_code: individual_not_found
+                        message: Individual not found
         '404':
           description: Benefit Not Found
           content:
@@ -1262,14 +1263,18 @@ paths:
                       enum:
                         - 200
                         - 201
-                    name:
-                      type: string
-                      description: Indentifier indicating whether the benefit was newly enrolled or updated.
-                    finch_code:
-                      type: string
-                    message:
-                      type: string
-                      description: Short description in English that provides more information.
+                    body:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: Identifier indicating whether the benefit was newly enrolled or updated.
+                        finch_code:
+                          type: string
+                          description: A descriptive identifier for the response
+                        message:
+                          type: string
+                          description: Short description in English that provides more information about the response.
               examples:
                 Success:
                   value:
@@ -1297,14 +1302,18 @@ paths:
                     code:
                       type: integer
                       description: HTTP status code
-                    name:
-                      type: string
-                      description: 'A short, descriptive identifier for the response.'
-                    finch_code:
-                      type: string
-                    message:
-                      type: string
-                      description: Short description in English that provides more information about the error.
+                    body:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: Identifier indicating whether the benefit was newly enrolled or updated.
+                        finch_code:
+                          type: string
+                          description: A descriptive identifier for the response.
+                        message:
+                          type: string
+                          description: Short description in English that provides more information about the response.
               examples:
                 Multi Status:
                   value:
@@ -1329,6 +1338,10 @@ paths:
                       message: Permissions not valid for individual
         '400':
           description: Malformed Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         '404':
           description: Benefit Not Found
           content:
@@ -1343,7 +1356,7 @@ paths:
                     finch_code: benefit_not_found
                     message: Benefit not found
         '422':
-          description: Unprocessable Entity (WebDAV)
+          description: Unprocessable Request
           content:
             application/json:
               schema:
@@ -1468,17 +1481,27 @@ paths:
                   properties:
                     individual_id:
                       type: string
-                    status:
+                    code:
                       type: integer
                       description: HTTP status code
-                    type:
-                      type: string
-                      description: 'A short, descriptive identifier for the response.'
-                    message:
-                      type: string
-                      description: Short description in English that provides more information about the response.
+                    body:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: Identifier indicating whether the benefit was newly enrolled or updated.
+                        finch_code:
+                          type: string
+                          description: A descriptive identifier for the response.
+                        message:
+                          type: string
+                          description: Short description in English that provides more information about the response.
         '404':
           description: Benefit Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       description: Unenroll individuals from a benefit
       requestBody:
         content:
@@ -1680,6 +1703,7 @@ components:
     IndividualBenefits:
       title: IndividualBenefits
       type: array
+      x-examples: {}
       items:
         type: object
         properties:
@@ -1707,25 +1731,31 @@ components:
                 enum:
                   - individual
                   - family
+                description: Type for HSA contribution limit if the benefit is a HSA.
                 nullable: true
-      x-examples: {}
     Error:
       title: Error
       type: object
-      description: ''
+      description: Generic error response structure
       properties:
         code:
           type: integer
-          description: The status code of the request
+          description: The status code of the request.
         name:
           type: string
-          description: An identifier describing the broad error type
+          description: Identifier describing the error.
         finch_code:
           type: string
-          description: A descriptive identifier for the error that occurred
+          description: A descriptive identifier for the error.
         message:
           type: string
-          description: A message explaining the error
+          description: A short English description that provides more information about the error.
+      x-examples:
+        not-found-error:
+          code: 404
+          name: not_found_error
+          finch_code: individual_not_found
+          message: Individual not found for benefit
   requestBodies:
     Individual-Ids:
       content:
