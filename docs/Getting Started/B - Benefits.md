@@ -11,6 +11,7 @@ Finch's Benefits endpoints allows users to read and write benefits information u
 ### Gusto
 
 **Supported Operations**
+
 Benefit | Read Company Benefits | Create Company Benefits | Read Individual Benefits | Enroll/Unenroll Individual Benefits
 --------|----------|---------|------------|------------
 **401(k)** | ✓ | ✓ | ✓ | ✓ |
@@ -42,11 +43,11 @@ Benefit | Features
 **457**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
 **Roth 457** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
 **Simple IRA**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
-**HSA (pre-tax)**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
-**FSA Dependent** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
-**FSA Medical** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
-**Section 125 Dental** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
-**Section 125 Medical**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
-**Section 125 Vision** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
-**Commuter (pre-tax)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
+**HSA (pre-tax)**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`<br>`hsa_contribution_limit`: `individual`, `family`
+**FSA Dependent** | `company_contribution`: `fixed`<br>`employee_deduction`: `fixed`
+**FSA Medical** | `company_contribution`: `fixed`<br>`employee_deduction`: `fixed`
+**Section 125 Dental** | `company_contribution`: `fixed`<br>`employee_deduction`: `fixed`
+**Section 125 Medical**| `company_contribution`: `fixed`<br>`employee_deduction`: `fixed`
+**Section 125 Vision** | `company_contribution`: `fixed`<br>`employee_deduction`: `fixed`
+**Commuter (pre-tax)** | `company_contribution`: `fixed` <br>`employee_deduction`: `fixed`
 **Custom post-tax** | `employee_deduction`: `fixed`, `percent`<br>`annual_maximum`

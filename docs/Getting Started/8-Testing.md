@@ -35,7 +35,7 @@ This scenario provides a much larger dataset to test against. Some attributes of
 * multiple departments and work locations, and
 * payments with various earning types, deductions, and employer contributions.
 
-**Testing Benefits**
+### Testing Benefits
 
 The sandbox supports read access only for all benefits endpoints. For write endpoints, the sandbox will return a `success` status code, but no information will be updated. This allows you to get a feel for how the API works without modifying any state. Example:
 

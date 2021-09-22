@@ -983,6 +983,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/CompanyBenefit'
+              examples:
+                Success:
+                  value:
+                    - benefit_id: e8b90071-0c11-471c-86e8-e303ef2f6782
+                      type: 401k
+                      description: Example 401k
+                      frequency: every_paycheck
+                      company_contribution:
+                        type: percent
+                        amount: 400
+                      employee_deduction:
+                        type: percent
+                        amount: 600
       operationId: get-company-benefits
       description: List all company-wide benefits.
       parameters:
@@ -1000,6 +1013,10 @@ paths:
                 properties:
                   benefit_id:
                     type: string
+              examples:
+                Success:
+                  value:
+                    benefit_id: e8b90071-0c11-471c-86e8-e303ef2f6782
         '422':
           description: Request provided with unsupported parameters
           content:
@@ -1086,6 +1103,21 @@ paths:
                         enum:
                           - individual
                           - family
+              examples:
+                Metadata Example:
+                  value:
+                    - type: 401k
+                      description: 401(k)
+                      employee_deduction:
+                        - fixed
+                        - percent
+                      company_contribution:
+                        - fixed
+                        - percent
+                      annual_maximum: true
+                      catch_up: true
+                      frequencies:
+                        - every_paycheck
       operationId: get-company-benefits-meta
       description: Lists available types and configurations for the provider associated with the access token.
       parameters:
@@ -1103,6 +1135,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CompanyBenefit'
+              examples:
+                Example Benefit:
+                  value:
+                    benefit_id: 6547e3aa-d887-4a77-bd41-17221e17cce3
+                    type: 401k
+                    description: Example 401k
+                    frequency: every_paycheck
         '404':
           description: Benefit Not Found
           content:
@@ -1133,6 +1172,10 @@ paths:
                 properties:
                   benefit_id:
                     type: string
+              examples:
+                Success:
+                  value:
+                    benefit_id: 6547e3aa-d887-4a77-bd41-17221e17cce3
         '400':
           description: Bad Request
         '404':
@@ -1172,6 +1215,12 @@ paths:
                     type: array
                     items:
                       type: string
+              examples:
+                Success:
+                  value:
+                    benefit_id: 6547e3aa-d887-4a77-bd41-17221e17cce3
+                    individual_ids:
+                      - 7fc9fb3a-2a62-47c1-9a5a-c9146483b58e
         '404':
           description: Benefit Not Found
           content:
@@ -1500,6 +1549,15 @@ paths:
                         message:
                           type: string
                           description: Short description in English that provides more information about the response.
+              examples:
+                Success:
+                  value:
+                    - individual_id: 7fc9fb3a-2a62-47c1-9a5a-c9146483b58e
+                      code: 200
+                      body:
+                        name: success
+                        finch_code: unenrolled_individual_benefit
+                        message: Unenrolled individual from benefit
         '404':
           description: Benefit Not Found
           content:
@@ -1533,6 +1591,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IndividualBenefits'
+              examples:
+                example-1:
+                  value:
+                    - individual_id: 7fc9fb3a-2a62-47c1-9a5a-c9146483b58e
+                      code: 200
+                      body:
+                        employee_deduction:
+                          type: fixed
+                          amount: 200
+                        company_contribution:
+                          type: fixed
+                          amount: 100
+                        annual_maximum: 1000
+                        catch_up: true
         '404':
           description: Benefit not found
           content:
