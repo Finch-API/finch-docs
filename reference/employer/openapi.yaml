@@ -776,6 +776,10 @@ paths:
                                         currency:
                                           type: string
                                           description: The earnings currency code.
+                                        hours:
+                                          type: number
+                                          description: 'The number of hours associated with this earning. (For salaried employees, this could be hours per pay period, `0` or `null`, depending on the provider).'
+                                          nullable: true
                                   taxes:
                                     type: array
                                     description: The array of taxes objects associated with this pay statement.
@@ -1075,7 +1079,7 @@ paths:
                       type: boolean
                       description: Whether the provider supports catch up for this benefit. This field will only be true for retirement benefits.
                     hsa_contribution_limit:
-                      description: Whether the provider supports HSA contribution limits. Empty if this feature is not supported for the benefit. This array only have values for HSA benefits.
+                      description: Whether the provider supports HSA contribution limits. Empty if this feature is not supported for the benefit. This array only has values for HSA benefits.
                       type: array
                       items:
                         type: string
@@ -1615,6 +1619,7 @@ components:
       properties:
         amount:
           type: integer
+          description: Amount for money object (in cents)
         currency:
           type: string
     Paging:
