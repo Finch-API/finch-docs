@@ -450,7 +450,7 @@ paths:
                               nullable: true
                             last_name:
                               type: string
-                              description: "\tThe legal last name of the individual."
+                              description: The legal last name of the individual.
                               nullable: true
                             title:
                               type: string
@@ -619,7 +619,8 @@ paths:
     post:
       description: |-
         Read detailed pay statements for each individual.
-        Deduction and contribution types are supported by the payroll systems that support [Benefits](../../docs/Getting\ Started/B\ -\ Benefits.md)
+
+        Deduction and contribution types are supported by the payroll systems that support Benefits.
       requestBody:
         content:
           application/json:
@@ -881,13 +882,13 @@ paths:
                         type: string
                     icon:
                       type: string
-                      description: "\tThe url to the official icon of the payroll provider."
+                      description: The url to the official icon of the payroll provider.
                     logo:
                       type: string
                       description: The url to the official logo of the payroll provider.
                     mfa_required:
                       type: boolean
-                      description: '`true` if MFA is required for the provider.'
+                      description: whether MFA is required for the provider.
                     primary_color:
                       type: string
                       description: The hex code for the primary color of the payroll provider.
