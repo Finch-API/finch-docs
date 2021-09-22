@@ -1432,12 +1432,11 @@ paths:
                     name: unprocessable_request_error
                     finch_code: unprocessable_parameters
                     message: HSA enrollment are not currently available for this provider
-      description: |-
+      description: |
         Enroll an individual into a benefit. If the employee is already enrolled, the enrollment amounts will be adjusted.
 
-        ```
-        Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
-        ```
+
+        > Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
       tags:
         - Employer
       requestBody:
