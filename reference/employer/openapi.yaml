@@ -1123,7 +1123,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/API-Version'
     parameters: []
-  /employer/benefits/<benefit_id>:
+  '/employer/benefits/{benefit_id}':
     get:
       summary: Get Benefit
       tags:
@@ -1195,8 +1195,13 @@ paths:
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
-    parameters: []
-  /employer/benefits/<benefit_id>/enrolled:
+    parameters:
+      - schema:
+          type: string
+        name: benefit_id
+        in: path
+        required: true
+  '/employer/benefits/{benefit_id}/enrolled':
     get:
       summary: Get Enrolled Individuals
       tags:
@@ -1238,8 +1243,13 @@ paths:
       description: Lists individuals currently enrolled in a given benefit.
       parameters:
         - $ref: '#/components/parameters/API-Version'
-    parameters: []
-  /employer/benefits/<benefit_id>/individuals:
+    parameters:
+      - schema:
+          type: string
+        name: benefit_id
+        in: path
+        required: true
+  '/employer/benefits/{benefit_id}/individuals':
     get:
       summary: Get Benefits for Individuals
       tags:
@@ -1578,8 +1588,13 @@ paths:
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
-    parameters: []
-  /employer/benefits/<benefit_id>/individuals/<individual_id>:
+    parameters:
+      - schema:
+          type: string
+        name: benefit_id
+        in: path
+        required: true
+  '/employer/benefits/{benefit_id}/individuals/{individual_id}':
     get:
       summary: Get Benefit for a Single Individual
       tags:
@@ -1615,6 +1630,17 @@ paths:
       description: Get enrolled benefit information for the given individual
       parameters:
         - $ref: '#/components/parameters/API-Version'
+    parameters:
+      - schema:
+          type: string
+        name: benefit_id
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: individual_id
+        in: path
+        required: true
 components:
   schemas:
     Location:
