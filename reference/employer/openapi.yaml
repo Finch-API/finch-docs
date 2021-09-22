@@ -1189,7 +1189,7 @@ paths:
               properties:
                 description:
                   type: string
-                  description: Name or description to upsert into the benefit
+                  description: Updated name or description.
       tags:
         - Employer
       parameters:
