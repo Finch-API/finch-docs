@@ -1,0 +1,1908 @@
+openapi: 3.0.0
+info:
+  title: API Reference
+  version: '2020-09-17'
+  contact: {}
+  description: |-
+    Finch's Employer API requires an access token issued by Finch.
+
+    Please see [here](https://developer.tryfinch.com/docs/reference/branches/open-api/docs/%20Finch%20API/1%20-%20Getting%20Started.md) for an overview of the API
+
+    Employer products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. Valid product names are—
+    - `company`: Read basic company data
+
+    - `directory`: Read company directory and organization structure
+
+    - `individual`: Read individual data, excluding income and employment data
+
+    - `employment`: Read individual employment and income data
+
+    - `payment`: Read payroll and contractor related payments by the company
+
+    - `pay_statement`: Read detailed pay statements for each individual
+
+    - `deduction`: Create and manage benefits and enrollment within a company
+servers:
+  - url: 'https://api.tryfinch.com'
+    description: ''
+tags:
+  - name: Employer
+  - name: Management
+paths:
+  /employer/company:
+    get:
+      description: Read basic company data
+      responses:
+        '200':
+          description: Basic company data
+          content:
+            application/json:
+              examples:
+                Success:
+                  value:
+                    id: 514aa2b7-898f-4ce7-bc05-c2fe993713e8
+                    legal_name: 'Acme, Inc.'
+                    entity:
+                      type: corporation
+                      subtype: s_corporation
+                    ein: 12-3456789
+                    primary_email: founders@acme.com
+                    primary_phone_number: '1234567890'
+                    departments:
+                      - name: Engineering
+                        parent: null
+                      - name: Platform
+                        parent:
+                          name: Engineering
+                    locations:
+                      - line1: 628 Bear Ave
+                        line2: Apt A
+                        city: Schenectady
+                        state: NY
+                        postal_code: '94301'
+                        country: US
+                    accounts:
+                      - routing_number: '123456789'
+                        account_name: CHECKING ACCOUNT
+                        institution_name: 'BANK OF AMERICA, N.A.'
+                        account_type: checking
+                        account_number: '98765432'
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: A stable Finch `id` (UUID v4) for the company.
+                  legal_name:
+                    type: string
+                    description: The legal name of the company.
+                  entity:
+                    type: object
+                    description: The entity type object.
+                    properties:
+                      type:
+                        type: string
+                        description: The tax payer type of the company.
+                        enum:
+                          - llc
+                          - corporation
+                          - sole_proprietor
+                          - non_profit
+                          - partnership
+                          - cooperative
+                      subtype:
+                        type: string
+                        description: The tax payer subtype of the company.
+                        enum:
+                          - s_corporation
+                          - c_corporation
+                          - b_corporation
+                        nullable: true
+                  primary_email:
+                    type: string
+                    description: The email of the main administrator on the account.
+                    nullable: true
+                  primary_phone_number:
+                    type: string
+                    description: 'The phone number of the main administrator on the account. Format: `XXXXXXXXXX`'
+                    pattern: '[0-9]{10}'
+                    nullable: true
+                  departments:
+                    type: array
+                    description: The array of company departments.
+                    nullable: true
+                    items:
+                      type: object
+                      nullable: true
+                      properties:
+                        name:
+                          type: string
+                          description: The department name.
+                        parent:
+                          type: object
+                          description: 'The parent department, if present.'
+                          nullable: true
+                          properties:
+                            name:
+                              type: string
+                              description: The parent department's name.
+                  ein:
+                    type: string
+                    description: The employer identification number.
+                    nullable: true
+                  locations:
+                    type: array
+                    nullable: true
+                    items:
+                      $ref: '#/components/schemas/Location'
+                  accounts:
+                    type: array
+                    description: An array of bank account objects associated with the payroll/HRIS system.
+                    nullable: true
+                    items:
+                      type: object
+                      properties:
+                        routing_number:
+                          type: string
+                          description: A nine-digit code that's based on the U.S. Bank location where your account was opened.
+                          nullable: true
+                        account_name:
+                          type: string
+                          description: The name of the bank associated in the payroll/HRIS system.
+                          nullable: true
+                        institution_name:
+                          type: string
+                          description: Name of the banking institution.
+                          nullable: true
+                        account_type:
+                          type: string
+                          description: The type of bank account.
+                          enum:
+                            - checking
+                            - savings
+                          nullable: true
+                        account_number:
+                          type: string
+                          description: 10-12 digit number to specify the bank account
+                          nullable: true
+      summary: Company
+      operationId: get-company
+      tags:
+        - Employer
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+  /employer/directory:
+    get:
+      description: Read company directory and organization structure
+      parameters:
+        - name: limit
+          in: query
+          description: Number of employees to return (defaults to all)
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: Index to start from (defaults to 0)
+          required: false
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/API-Version'
+      responses:
+        '200':
+          description: Company directory and organization structure
+          content:
+            application/json:
+              examples:
+                Success:
+                  value:
+                    paging:
+                      count: 25
+                      offset: 10
+                    individuals:
+                      - id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                        first_name: Jane
+                        middle_name: null
+                        last_name: Doe
+                        manager:
+                          id: c205b3fa-b626-4346-bf0f-ca065ab88d31
+                        department:
+                          name: Product
+                        is_active: true
+              schema:
+                type: object
+                properties:
+                  paging:
+                    $ref: '#/components/schemas/Paging'
+                  individuals:
+                    type: array
+                    description: The array of employees.
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: A stable Finch id (UUID v4) for an individual in the company.
+                        first_name:
+                          type: string
+                          description: The legal first name of the individual.
+                          nullable: true
+                        middle_name:
+                          type: string
+                          description: The legal middle name of the individual.
+                          nullable: true
+                        last_name:
+                          type: string
+                          description: The legal last name of the individual.
+                          nullable: true
+                        manager:
+                          type: object
+                          description: The manager object.
+                          nullable: true
+                          properties:
+                            id:
+                              type: string
+                              description: A stable Finch `id` (UUID v4) for an individual in the company.
+                              pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
+                        department:
+                          type: object
+                          description: The department object.
+                          nullable: true
+                          properties:
+                            name:
+                              type: string
+                              description: The name of the department.
+                        is_active:
+                          type: boolean
+                          description: '`true` if the individual is an active employee or contractor at the company.'
+                          nullable: true
+      summary: Directory
+      operationId: get-directory
+      tags:
+        - Employer
+  /employer/individual:
+    post:
+      description: 'Read individual data, excluding income and employment data'
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+      responses:
+        '200':
+          description: Individual data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  responses:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        individual_id:
+                          type: string
+                        code:
+                          type: integer
+                        body:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: A stable Finch `id` (UUID v4) for an individual in the company.
+                            first_name:
+                              type: string
+                              description: The legal first name of the individual.
+                              nullable: true
+                            middle_name:
+                              type: string
+                              description: The legal middle name of the individual.
+                              nullable: true
+                            last_name:
+                              type: string
+                              description: The legal last name of the individual.
+                              nullable: true
+                            emails:
+                              type: array
+                              nullable: true
+                              items:
+                                type: object
+                                properties:
+                                  data:
+                                    type: string
+                                  type:
+                                    type: string
+                                    enum:
+                                      - work
+                                      - personal
+                            phone_numbers:
+                              type: array
+                              nullable: true
+                              items:
+                                type: object
+                                properties:
+                                  data:
+                                    type: string
+                                    pattern: '[0-9]{10}'
+                                  type:
+                                    type: string
+                                    enum:
+                                      - work
+                                      - personal
+                            dob:
+                              $ref: '#/components/schemas/Date'
+                            residence:
+                              $ref: '#/components/schemas/Location'
+              examples:
+                Success:
+                  value:
+                    responses:
+                      - individual_id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                        code: 200
+                        body:
+                          id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                          first_name: Jane
+                          middle_name: null
+                          last_name: Doe
+                          emails:
+                            - data: jane@acme.com
+                              type: work
+                            - data: janed@personal.com
+                              type: personal
+                          phone_numbers:
+                            - data: '5051234567'
+                              type: personal
+                          dob: '1970-01-01'
+                          residence:
+                            line1: 123 Main St
+                            line2: Apt C
+                            city: Schenectady
+                            state: NY
+                            postal_code: '12345'
+                            country: US
+      summary: Individual
+      operationId: get-individual
+      tags:
+        - Employer
+      requestBody:
+        $ref: '#/components/requestBodies/Individual-Ids'
+  /employer/employment:
+    post:
+      description: |-
+        Read individual employment and income data
+
+        Note: Income information is returned as reported by the provider. This may not always be annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc, depending on what information the provider returns.
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+      responses:
+        '200':
+          description: Employment data
+          content:
+            application/json:
+              examples:
+                Success:
+                  value:
+                    responses:
+                      - individual_id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                        code: 200
+                        body:
+                          id: 5d0b10a1-a09a-430f-81f1-20be735dc5e9
+                          first_name: Jane
+                          middle_name: null
+                          last_name: Doe
+                          title: Customer Support
+                          manager:
+                            id: c205b3fa-b626-4346-bf0f-ca065ab88d31
+                          department:
+                            name: Product
+                          employment:
+                            type: employee
+                            subtype: full_time
+                          start_date: '2017-06-30'
+                          end_date: null
+                          is_active: true
+                          location:
+                            line1: 12 Bird Drive
+                            line2: null
+                            city: Palo Alto
+                            state: CA
+                            postal_code: '94301'
+                            country: US
+                          income:
+                            unit: yearly
+                            amount: 10000000
+                            currency: usd
+                            effective_date: '2019-03-01'
+                          income_history:
+                            - unit: yearly
+                              amount: 9000000
+                              currency: usd
+                              effective_date: '2018-05-15'
+                            - unit: yearly
+                              amount: 8000000
+                              currency: usd
+                              effective_date: '2017-06-30'
+              schema:
+                type: object
+                properties:
+                  responses:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        individual_id:
+                          type: string
+                        code:
+                          type: integer
+                        body:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: "string\tA stable Finch `id` (UUID v4) for an individual in the company."
+                            first_name:
+                              type: string
+                              description: The legal first name of the individual.
+                              nullable: true
+                            middle_name:
+                              type: string
+                              description: The legal middle name of the individual.
+                              nullable: true
+                            last_name:
+                              type: string
+                              description: The legal last name of the individual.
+                              nullable: true
+                            title:
+                              type: string
+                              description: The current title of the individual.
+                              nullable: true
+                            manager:
+                              type: object
+                              description: The manager object representing the manager of the individual within the org.
+                              nullable: true
+                              properties:
+                                id:
+                                  type: string
+                                  description: A stable Finch `id` (UUID v4) for an individual in the company.
+                                  pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
+                            department:
+                              type: object
+                              description: The department object.
+                              nullable: true
+                              properties:
+                                name:
+                                  type: string
+                                  description: The name of the department associated with the individual.
+                            employment:
+                              type: object
+                              description: The employment object.
+                              nullable: true
+                              properties:
+                                type:
+                                  type: string
+                                  description: The main employment type of the individual.
+                                  enum:
+                                    - employee
+                                    - contractor
+                                subtype:
+                                  type: string
+                                  description: "\tThe secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`."
+                                  enum:
+                                    - full_time
+                                    - intern
+                                    - part_time
+                                    - temp
+                                    - seasonal
+                                    - individual_contractor
+                                  nullable: true
+                            start_date:
+                              $ref: '#/components/schemas/Date'
+                            end_date:
+                              $ref: '#/components/schemas/Date'
+                            is_active:
+                              type: boolean
+                              description: '`true` if the individual an an active employee or contractor at the company.'
+                              nullable: true
+                            location:
+                              $ref: '#/components/schemas/Location'
+                            income:
+                              $ref: '#/components/schemas/Income'
+                            income_history:
+                              type: array
+                              description: The array of income history.
+                              nullable: true
+                              items:
+                                $ref: '#/components/schemas/Income'
+      summary: Employment
+      operationId: get-employment
+      tags:
+        - Employer
+      requestBody:
+        $ref: '#/components/requestBodies/Individual-Ids'
+  /employer/payment:
+    get:
+      description: Read payroll and contractor related payments by the company.
+      parameters:
+        - name: start_date
+          required: true
+          in: query
+          description: The start date to retrieve payments by a company (inclusive) in `YYYY-MM-DD` format.
+          schema:
+            type: string
+            format: date
+            example: '2021-01-01'
+        - name: end_date
+          required: true
+          in: query
+          description: The end date to retrieve payments by a company (inclusive) in `YYYY-MM-DD` format.
+          schema:
+            type: string
+            format: date
+            example: '2021-01-01'
+        - $ref: '#/components/parameters/API-Version'
+      responses:
+        '200':
+          description: Payment data
+          content:
+            application/json:
+              examples:
+                Success:
+                  value:
+                    - id: 20aa7cf2-949d-4d4e-9c01-499b59501ded
+                      pay_period:
+                        start_date: '2019-08-01'
+                        end_date: '2019-08-15'
+                      pay_date: '2019-08-22'
+                      debit_date: '2019-08-22'
+                      company_debit:
+                        amount: 5300000
+                        currency: usd
+                      gross_pay:
+                        amount: 4000000
+                        currency: usd
+                      net_pay:
+                        amount: 3200000
+                        currency: usd
+                      employer_taxes:
+                        amount: 200000
+                        currency: usd
+                      employee_taxes:
+                        amount: 350000
+                        currency: usd
+                      individual_ids:
+                        - 54719e14-5ea7-4fda-9898-f4d9ccb83c1a
+                        - 0ab620fc-203e-44ad-916c-facc69250f6f
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: The unique id for the payment.
+                      pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
+                    pay_period:
+                      type: object
+                      description: The pay period object.
+                      nullable: true
+                      properties:
+                        start_date:
+                          $ref: '#/components/schemas/Date'
+                        end_date:
+                          $ref: '#/components/schemas/Date'
+                    pay_date:
+                      $ref: '#/components/schemas/Date'
+                    debit_date:
+                      $ref: '#/components/schemas/Date'
+                    company_debit:
+                      $ref: '#/components/schemas/Money'
+                    gross_pay:
+                      $ref: '#/components/schemas/Money'
+                    net_pay:
+                      $ref: '#/components/schemas/Money'
+                    employer_taxes:
+                      $ref: '#/components/schemas/Money'
+                    employee_taxes:
+                      $ref: '#/components/schemas/Money'
+                    individual_ids:
+                      type: array
+                      description: Array of every individual on this payment.
+                      nullable: true
+                      items:
+                        type: string
+                        pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
+      summary: Payment
+      operationId: get-payment
+      tags:
+        - Employer
+  /employer/pay-statement:
+    post:
+      description: |-
+        Read detailed pay statements for each individual.
+
+        Deduction and contribution types are supported by the payroll systems that support Benefits.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                requests:
+                  type: array
+                  description: The array of batch requests.
+                  items:
+                    type: object
+                    properties:
+                      payment_id:
+                        type: string
+                        description: A stable Finch `id` (UUID v4) for a payment.
+                        pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
+                      limit:
+                        type: integer
+                        description: Number of pay statements to return (defaults to all).
+                      offset:
+                        type: integer
+                        description: Index to start from.
+                    required:
+                      - payment_id
+              required:
+                - requests
+      responses:
+        '200':
+          description: Pay statement data
+          content:
+            application/json:
+              examples:
+                Success:
+                  value:
+                    responses:
+                      - payment_id: fc8b024e-d373-4c9c-80fc-f1625383d142
+                        code: 200
+                        body:
+                          paging:
+                            count: 25
+                            offset: 10
+                          pay_statements:
+                            - individual_id: be7b048c-a6f3-4194-a017-2f537d4f3565
+                              type: regular
+                              payment_method: check
+                              total_hours: 80
+                              gross_pay:
+                                amount: 230000
+                                currency: usd
+                              net_pay:
+                                amount: 180000
+                                currency: usd
+                              earnings:
+                                - type: salary
+                                  name: Salary
+                                  amount: 230000
+                                  currency: usd
+                              taxes:
+                                - type: state
+                                  name: State Withholding - OR
+                                  employer: false
+                                  amount: 0
+                                  currency: usd
+                              employee_deductions:
+                                - name: Pre-Tax 401k
+                                  amount: 50000
+                                  currency: usd
+                                  pre_tax: true
+                              employer_contributions:
+                                - name: Employee Medical Insurance
+                                  amount: 23272
+                                  currency: usd
+              schema:
+                type: object
+                properties:
+                  responses:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        payment_id:
+                          type: string
+                        code:
+                          type: integer
+                        body:
+                          type: object
+                          properties:
+                            paging:
+                              $ref: '#/components/schemas/Paging'
+                            pay_statements:
+                              type: array
+                              description: The array of pay statements for the current payment.
+                              items:
+                                type: object
+                                properties:
+                                  individual_id:
+                                    type: string
+                                    description: A stable Finch `id` (UUID v4) for an individual in the company
+                                  type:
+                                    type: string
+                                    description: The type of the payment associated with the pay statement.
+                                    enum:
+                                      - regular
+                                      - off_cycle_payroll
+                                      - one_time_payment
+                                    nullable: true
+                                  payment_method:
+                                    type: string
+                                    description: The payment method.
+                                    enum:
+                                      - check
+                                      - direct_deposit
+                                    nullable: true
+                                  total_hours:
+                                    type: integer
+                                    description: The number of hours worked for this pay period
+                                    nullable: true
+                                  gross_pay:
+                                    $ref: '#/components/schemas/Money'
+                                  net_pay:
+                                    $ref: '#/components/schemas/Money'
+                                  earnings:
+                                    type: array
+                                    description: The array of earnings objects associated with this pay statement
+                                    nullable: true
+                                    items:
+                                      type: object
+                                      properties:
+                                        type:
+                                          type: string
+                                          description: The type of earning.
+                                          enum:
+                                            - salary
+                                            - wage
+                                            - reimbursement
+                                            - overtime
+                                            - severance
+                                            - double_overtime
+                                            - pto
+                                            - sick
+                                            - bonus
+                                            - commission
+                                            - tips
+                                            - '1099'
+                                            - other
+                                          nullable: true
+                                        name:
+                                          type: string
+                                          description: The exact name of the deduction from the pay statement.
+                                          nullable: true
+                                        amount:
+                                          type: integer
+                                          description: The earnings amount in cents.
+                                        currency:
+                                          type: string
+                                          description: The earnings currency code.
+                                        hours:
+                                          type: number
+                                          description: 'The number of hours associated with this earning. (For salaried employees, this could be hours per pay period, `0` or `null`, depending on the provider).'
+                                          nullable: true
+                                  taxes:
+                                    type: array
+                                    description: The array of taxes objects associated with this pay statement.
+                                    nullable: true
+                                    items:
+                                      type: object
+                                      properties:
+                                        type:
+                                          type: string
+                                          description: The type of taxes.
+                                          enum:
+                                            - state
+                                            - federal
+                                            - local
+                                            - fica
+                                          nullable: true
+                                        name:
+                                          type: string
+                                          description: The exact name of tax from the pay statement.
+                                        employer:
+                                          type: boolean
+                                          description: '`true` if the amount is paid by the employers.'
+                                        amount:
+                                          type: integer
+                                          description: The tax amount in cents.
+                                        currency:
+                                          type: string
+                                          description: The currency code.
+                                  employee_deductions:
+                                    type: array
+                                    description: The array of deductions objects associated with this pay statement.
+                                    nullable: true
+                                    items:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string
+                                          description: The deduction name from the pay statement.
+                                        amount:
+                                          type: integer
+                                          description: The deduction amount in cents.
+                                        currency:
+                                          type: string
+                                          description: The deduction currency.
+                                        pre_tax:
+                                          type: boolean
+                                          description: Boolean indicating if the deduction is pre-tax.
+                                        type:
+                                          $ref: '#/components/schemas/BenefitType'
+                                  employer_contributions:
+                                    type: array
+                                    nullable: true
+                                    items:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string
+                                          description: The contribution name from the pay statement.
+                                        amount:
+                                          type: integer
+                                          description: The contribution amount in cents.
+                                        currency:
+                                          type: string
+                                          description: The contribution currency.
+                                        type:
+                                          $ref: '#/components/schemas/BenefitType'
+      summary: Pay Statement
+      operationId: get-pay-statement
+      tags:
+        - Employer
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+  /providers:
+    get:
+      summary: Providers
+      tags:
+        - Management
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: The id of the payroll provider used in Connect.
+                    display_name:
+                      type: string
+                      description: The display name of the payroll provider.
+                    products:
+                      type: array
+                      description: The list of Finch products supported on this payroll provider.
+                      items:
+                        type: string
+                    icon:
+                      type: string
+                      description: The url to the official icon of the payroll provider.
+                    logo:
+                      type: string
+                      description: The url to the official logo of the payroll provider.
+                    mfa_required:
+                      type: boolean
+                      description: whether MFA is required for the provider.
+                    primary_color:
+                      type: string
+                      description: The hex code for the primary color of the payroll provider.
+              examples:
+                Success:
+                  value:
+                    - id: gusto
+                      display_name: Gusto
+                      products:
+                        - company
+                        - directory
+                      icon: 'https://finch-logos.s3.us-west-2.amazonaws.com/gustoIcon.png'
+                      logo: 'https://finch-logos.s3.us-west-2.amazonaws.com/gustoLogo.png'
+                      mfa_required: true
+                      primary_color: '#f45d47'
+      operationId: get-providers
+      description: Return details on all available payroll and HR systems.
+  /introspect:
+    get:
+      summary: Introspect
+      tags:
+        - Management
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  client_id:
+                    type: string
+                    description: The client id of the application associated with the `access_token`.
+                  products:
+                    type: array
+                    description: An array of the authorized products associated with the `access_token`.
+                    items:
+                      type: string
+                  username:
+                    type: string
+                    description: The account username used for login associated with the `access_token`.
+                  payroll_provider_id:
+                    type: string
+                    description: The payroll provider associated with the `access_token`.
+              examples:
+                Success:
+                  value:
+                    client_id: 25ea8bd8-f76b-41f9-96e3-1e6162021c50
+                    products:
+                      - company
+                      - directory
+                    username: jeremy@tryfinch.com
+                    payroll_provider_id: gusto
+      operationId: get-introspect
+      description: Read account information associated with an `access_token`
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+  /disconnect:
+    post:
+      summary: Disconnect
+      operationId: post-disconnect
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: 'If the request is successful, Finch will return “success” (HTTP 200 status).'
+              examples:
+                Success:
+                  value:
+                    status: success
+      description: Disconnect an employer from your application and invalidate all `access_token`s associated with the employer. We require applications to implement the Disconnect endpoint for billing and security purposes.
+      tags:
+        - Management
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+  /employer/benefits:
+    get:
+      summary: Get All Benefits
+      tags:
+        - Employer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyBenefit'
+              examples:
+                Success:
+                  value:
+                    - benefit_id: e8b90071-0c11-471c-86e8-e303ef2f6782
+                      type: 401k
+                      description: Example 401k
+                      frequency: every_paycheck
+                      company_contribution:
+                        type: percent
+                        amount: 400
+                      employee_deduction:
+                        type: percent
+                        amount: 600
+      operationId: get-company-benefits
+      description: List all company-wide benefits.
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+    post:
+      summary: Create Benefit
+      operationId: post-company-benefits
+      responses:
+        '201':
+          description: Successfully Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  benefit_id:
+                    type: string
+              examples:
+                Success:
+                  value:
+                    benefit_id: e8b90071-0c11-471c-86e8-e303ef2f6782
+        '422':
+          description: Request provided with unsupported parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                Invalid Benefit:
+                  value:
+                    code: 422
+                    name: unprocessable_request_error
+                    finch_code: unsupported_paramters
+                    message: Provider does not support benefit type '401k'
+      description: Creates a new company-wide benefit. Please use the `/meta` endpoint to view available types for each provider.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  $ref: '#/components/schemas/BenefitType'
+                description:
+                  type: string
+                frequency:
+                  $ref: '#/components/schemas/BenefitFrequency'
+      tags:
+        - Employer
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+    parameters: []
+  /employer/benefits/meta:
+    get:
+      summary: Get Benefits Metadata
+      tags:
+        - Employer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type:
+                      $ref: '#/components/schemas/BenefitType'
+                    description:
+                      type: string
+                    frequencies:
+                      type: array
+                      description: The list of frequencies supported by the provider for this benefit
+                      items:
+                        $ref: '#/components/schemas/BenefitFrequency'
+                    employee_deduction:
+                      type: array
+                      description: Supported deduction types. An empty array indicates deductions are not supported.
+                      items:
+                        type: string
+                        enum:
+                          - fixed
+                          - percent
+                    company_contribution:
+                      type: array
+                      description: Supported contribution types. An empty array indicates contributions are not supported.
+                      items:
+                        type: string
+                        enum:
+                          - fixed
+                          - percent
+                    annual_maximum:
+                      type: boolean
+                      description: Whether the provider supports an annual maximum for this benefit.
+                    catch_up:
+                      type: boolean
+                      description: Whether the provider supports catch up for this benefit. This field will only be true for retirement benefits.
+                    hsa_contribution_limit:
+                      description: Whether the provider supports HSA contribution limits. Empty if this feature is not supported for the benefit. This array only has values for HSA benefits.
+                      type: array
+                      items:
+                        type: string
+                        enum:
+                          - individual
+                          - family
+              examples:
+                Metadata Example:
+                  value:
+                    - type: 401k
+                      description: 401(k)
+                      employee_deduction:
+                        - fixed
+                        - percent
+                      company_contribution:
+                        - fixed
+                        - percent
+                      annual_maximum: true
+                      catch_up: true
+                      frequencies:
+                        - every_paycheck
+      operationId: get-company-benefits-meta
+      description: Lists available types and configurations for the provider associated with the access token.
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+    parameters: []
+  '/employer/benefits/{benefit_id}':
+    get:
+      summary: Get Benefit
+      tags:
+        - Employer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyBenefit'
+              examples:
+                Example Benefit:
+                  value:
+                    benefit_id: 6547e3aa-d887-4a77-bd41-17221e17cce3
+                    type: 401k
+                    description: Example 401k
+                    frequency: every_paycheck
+        '404':
+          description: Benefit Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                Not Found:
+                  value:
+                    code: 404
+                    name: not_found_error
+                    finch_code: benefit_not_found
+                    message: Benefit not found
+      operationId: get-company-benefit
+      description: Lists benefit information for a given benefit
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+    post:
+      summary: Update Benefit
+      operationId: update-company-benefits
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  benefit_id:
+                    type: string
+              examples:
+                Success:
+                  value:
+                    benefit_id: 6547e3aa-d887-4a77-bd41-17221e17cce3
+        '400':
+          description: Bad Request
+        '404':
+          description: Benefit Not Found
+      description: Updates an existing company-wide benefit
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: Updated name or description.
+      tags:
+        - Employer
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+    parameters:
+      - schema:
+          type: string
+        name: benefit_id
+        in: path
+        required: true
+  '/employer/benefits/{benefit_id}/enrolled':
+    get:
+      summary: Get Enrolled Individuals
+      tags:
+        - Employer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  benefit_id:
+                    type: string
+                  individual_ids:
+                    type: array
+                    items:
+                      type: string
+              examples:
+                Success:
+                  value:
+                    benefit_id: 6547e3aa-d887-4a77-bd41-17221e17cce3
+                    individual_ids:
+                      - 7fc9fb3a-2a62-47c1-9a5a-c9146483b58e
+        '404':
+          description: Benefit Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                Not Found:
+                  value:
+                    code: 404
+                    name: not_found_error
+                    finch_code: benefit_not_found
+                    message: Benefit not found
+      operationId: get-company-benefits-enrolled
+      description: Lists individuals currently enrolled in a given benefit.
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+    parameters:
+      - schema:
+          type: string
+        name: benefit_id
+        in: path
+        required: true
+  '/employer/benefits/{benefit_id}/individuals':
+    get:
+      summary: Get Benefits for Individuals
+      tags:
+        - Employer
+      responses:
+        '207':
+          description: Multi-Status (WebDAV)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndividualBenefits'
+              examples:
+                Multi-status:
+                  value:
+                    - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
+                      code: 200
+                      body:
+                        employee_deduction:
+                          type: fixed
+                          amount: 100
+                        company_contribution:
+                          type: fixed
+                          amount: 100
+                        annual_maximum: 1000
+                        catch_up: false
+                    - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
+                      code: 404
+                      body:
+                        name: not_found_error
+                        finch_code: individual_not_found
+                        message: Individual not found
+        '404':
+          description: Benefit Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                Not Found:
+                  value:
+                    code: 404
+                    name: not_found_error
+                    finch_code: benefit_not_found
+                    message: Benefit not found
+      operationId: get-individual-benefits
+      description: Get enrolled benefit information for the given individuals.
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+        - schema:
+            type: string
+            example: 'd675d2b7-6d7b-41a8-b2d3-001eb3fb88f6,d02a6346-1f08-4312-a064-49ff3cafaa7a'
+          in: query
+          name: individual_ids
+          description: 'comma-delimited list of stable Finch uuids for each individual. If empty, defaults to all individuals'
+    post:
+      summary: Enroll Individuals in Benefits
+      operationId: post-employer-individual-benefits-benefit_id
+      responses:
+        '200':
+          description: Success for all individuals. Enrolled new individuals in the benefit and upserted information for individuals already enrolled.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    individual_id:
+                      type: string
+                    code:
+                      type: integer
+                      description: HTTP status code. Either 201 or 200
+                      enum:
+                        - 200
+                        - 201
+                    body:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: Identifier indicating whether the benefit was newly enrolled or updated.
+                        finch_code:
+                          type: string
+                          description: A descriptive identifier for the response
+                        message:
+                          type: string
+                          description: Short description in English that provides more information about the response.
+              examples:
+                Success:
+                  value:
+                    - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
+                      code: 201
+                      name: created
+                      finch_code: enrolled_new_benefit
+                      message: Successfully enrolled new benefit for individual
+                    - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
+                      code: 200
+                      name: success
+                      finch_code: updated_existing_enrollment
+                      message: Benefit information updated for individual
+        '207':
+          description: Multi-Status. Some individuals may not have succeeded. See body for details.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    individual_id:
+                      type: string
+                    code:
+                      type: integer
+                      description: HTTP status code
+                    body:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: Identifier indicating whether the benefit was newly enrolled or updated.
+                        finch_code:
+                          type: string
+                          description: A descriptive identifier for the response.
+                        message:
+                          type: string
+                          description: Short description in English that provides more information about the response.
+              examples:
+                Multi Status:
+                  value:
+                    - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
+                      code: 201
+                      name: created
+                      finch_code: enrolled_new_benefit
+                      message: Successfully enrolled new benefit for individual
+                    - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
+                      code: 200
+                      name: success
+                      finch_code: updated_existing_enrollment
+                      message: Benefit information updated for individual
+                    - individual_id: 0c89294b-b7f1-4999-9b7a-bb8a87326717
+                      code: 404
+                      name: not_found_error
+                      finch_code: individual_not_found
+                      message: Individual not found
+                    - individual_id: fb292e27-bd07-4dbc-88c4-05923b33bbc2
+                      code: 403
+                      finch_code: access_denied
+                      message: Permissions not valid for individual
+        '400':
+          description: Malformed Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Benefit Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                Not Found:
+                  value:
+                    code: 404
+                    name: not_found_error
+                    finch_code: benefit_not_found
+                    message: Benefit not found
+        '422':
+          description: Unprocessable Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                Cannot Enroll:
+                  value:
+                    code: 422
+                    name: unprocessable_request_error
+                    finch_code: unprocessable_parameters
+                    message: HSA enrollment are not currently available for this provider
+      description: |
+        Enroll an individual into a benefit. If the employee is already enrolled, the enrollment amounts will be adjusted.
+
+
+        > Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
+      tags:
+        - Employer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  individual_id:
+                    type: string
+                  configuration:
+                    type: object
+            examples:
+              Retirement:
+                value:
+                  - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
+                    configuration:
+                      employee_deduction:
+                        type: percent
+                        amount: 1000
+                      company_contribution:
+                        type: percent
+                        amount: 400
+                      catch_up: false
+                      annual_maximum: 500000
+              HSA:
+                value:
+                  - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
+                    configuration:
+                      employee_deduction:
+                        type: fixed
+                        amount: 10000
+                      company_contribution:
+                        type: fixed
+                        amount: 0
+                      annual_maximum: null
+                      annual_contribution_limit: individual
+              Custom:
+                value:
+                  - individual_id: string
+                    configuration:
+                      employee_deduction:
+                        type: fixed
+                        amount: 10000
+                      company_contribution:
+                        type: fixed
+                        amount: 0
+        description: |
+          Enrollment bodies have a common format for each benefit type, with a different `configuration` schema based on the benefit type. The configurations for each type are outlined below. These are general configurations and may vary per provider. Please use the `/meta` endpoint to view provider specific supported configurations.
+
+          **Retirement Benefits**
+
+          Includes 401(k), Roth 401(k), 403(b), Roth 403(b), 457, Roth 457, and Simple IRA
+
+          Field | Type | Description
+          ------|------ | ----------
+          `employee_deduction.type` | `string` | Deduction Type (`fixed` or `percent`)
+          `employee_deduction.amount`| `integer` | Deduction amount in cents (if `fixed`) or basis points (if `percent`)
+          `company_contribution.type` | `string` | Contribution Type (`fixed` or `percent`)
+          `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points 
+          `catch_up`| `boolean` | Whether to enable catch up for this individual.
+          `annual_maximum`| `integer` (`nullable`)| The annual maximum in cents for this individual.
+
+          ***
+
+          **HSA**
+
+          Field | Type | Description
+          ------|------ | ----------
+          `employee_deduction.type` | `string` | Deduction Type (`fixed` or `percent`)
+          `employee_deduction.amount`| `integer` | Deduction amount in cents (if `fixed`) or basis points (if `percent`)
+          `company_contribution.type` | `string` | Contribution Type (`fixed` or `percent`)
+          `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points 
+          `catch_up`| `boolean` | Whether to enable catch up for this individual.
+          `annual_maximum`| `integer` (`nullable`) | The annual maximum in cents for this individual. 
+          `annual_contribution_limit` | `string` | `individual` or `family`
+
+          ***
+
+          **Section 125 Benefits, FSA, Custom Benefits**
+
+          Field | Type | Description
+          ------|------ | ----------
+          `employee_deduction.type` | `string` | Deduction Type (`fixed` or `percent`)
+          `employee_deduction.amount`| `integer` | Deduction amount in cents (if `fixed`) or basis points (if `percent`)
+          `company_contribution.type` | `string` | Contribution Type (`fixed` or `percent`)
+          `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points 
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+    delete:
+      summary: Unenroll Individuals from Benefits
+      operationId: delete-individual-benefits
+      responses:
+        '207':
+          description: Multi-Status (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    individual_id:
+                      type: string
+                    code:
+                      type: integer
+                      description: HTTP status code
+                    body:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: Identifier indicating whether the benefit was newly enrolled or updated.
+                        finch_code:
+                          type: string
+                          description: A descriptive identifier for the response.
+                        message:
+                          type: string
+                          description: Short description in English that provides more information about the response.
+              examples:
+                Success:
+                  value:
+                    - individual_id: 7fc9fb3a-2a62-47c1-9a5a-c9146483b58e
+                      code: 200
+                      body:
+                        name: success
+                        finch_code: unenrolled_individual_benefit
+                        message: Unenrolled individual from benefit
+        '404':
+          description: Benefit Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: Unenroll individuals from a benefit
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              description: List of `individual_id`s to unenroll.
+              items:
+                type: string
+      tags:
+        - Employer
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+    parameters:
+      - schema:
+          type: string
+        name: benefit_id
+        in: path
+        required: true
+  '/employer/benefits/{benefit_id}/individuals/{individual_id}':
+    get:
+      summary: Get Benefit for a Single Individual
+      tags:
+        - Employer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndividualBenefits'
+              examples:
+                example-1:
+                  value:
+                    - individual_id: 7fc9fb3a-2a62-47c1-9a5a-c9146483b58e
+                      code: 200
+                      body:
+                        employee_deduction:
+                          type: fixed
+                          amount: 200
+                        company_contribution:
+                          type: fixed
+                          amount: 100
+                        annual_maximum: 1000
+                        catch_up: true
+        '404':
+          description: Benefit not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      operationId: get-employer-benefits-benefit_id-individuals-individual_id
+      description: Get enrolled benefit information for the given individual
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+    parameters:
+      - schema:
+          type: string
+        name: benefit_id
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: individual_id
+        in: path
+        required: true
+components:
+  schemas:
+    Location:
+      title: Location
+      type: object
+      x-tags:
+        - Models
+      description: ''
+      nullable: true
+      properties:
+        line1:
+          type: string
+          description: Street address or PO box.
+          nullable: true
+        line2:
+          type: string
+          description: 'Apartment, suite, unit, or building.'
+          nullable: true
+        city:
+          type: string
+          description: "\tCity, district, suburb, town, or village."
+          nullable: true
+        state:
+          type: string
+          description: The state code.
+          nullable: true
+        postal_code:
+          type: string
+          description: The postal code or zip code.
+          nullable: true
+        country:
+          type: string
+          description: The 2-letter ISO 3166 country code.
+          nullable: true
+    Income:
+      title: Income
+      type: object
+      x-tags:
+        - Models
+      description: 'The employee''s income as reported by the provider. This may not always be annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc, depending on what information the provider returns.'
+      nullable: true
+      properties:
+        unit:
+          type: string
+          description: 'The income unit of payment. Options: `yearly`, `monthly`, `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`.'
+          enum:
+            - yearly
+            - monthly
+            - semi_monthly
+            - bi_weekly
+            - weekly
+            - daily
+            - hourly
+            - fixed
+          nullable: true
+        amount:
+          description: The income amount in cents.
+          type: integer
+          nullable: true
+        currency:
+          type: string
+          description: The currency code.
+          nullable: true
+        effective_date:
+          type: string
+          description: The date the income amount went into effect.
+          nullable: true
+    Money:
+      title: Money
+      type: object
+      x-tags:
+        - Models
+      nullable: true
+      properties:
+        amount:
+          type: integer
+          description: Amount for money object (in cents)
+        currency:
+          type: string
+    Paging:
+      title: Paging
+      type: object
+      properties:
+        count:
+          type: integer
+          description: The total number of elements for the entire query (not just the given page)
+        offset:
+          type: integer
+          description: The current start index of the returned list of elements
+      x-tags:
+        - Models
+    Date:
+      type: string
+      title: Date
+      pattern: '([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))'
+      nullable: true
+    BenefitType:
+      type: string
+      title: BenefitType
+      enum:
+        - 401k
+        - 401k_roth
+        - 403b
+        - 403b_roth
+        - '457'
+        - 457_roth
+        - s125_medical
+        - s125_dental
+        - s125_vision
+        - hsa_pre
+        - hsa_post
+        - fsa_medical
+        - fsa_dependent_care
+        - simple_ira
+        - simple
+        - commuter
+        - custom_post_tax
+        - custom_pre_tax
+      description: Type of benefit.
+      x-tags:
+        - Models
+    BenefitFrequency:
+      type: string
+      title: BenefitFrequency
+      enum:
+        - one_time
+        - every_paycheck
+      x-tags:
+        - Models
+    BenefitContribution:
+      title: BenefitContribution
+      type: object
+      x-tags:
+        - Models
+      nullable: true
+      properties:
+        type:
+          type: string
+          enum:
+            - fixed
+            - percent
+          description: Contribution type.
+        amount:
+          type: integer
+          description: Contribution amount in cents (if `fixed`) or basis points (if `percent`).
+      x-examples: {}
+    CompanyBenefit:
+      title: CompanyBenefit
+      type: object
+      properties:
+        benefit_id:
+          type: string
+        type:
+          $ref: '#/components/schemas/BenefitType'
+        description:
+          type: string
+        frequency:
+          $ref: '#/components/schemas/BenefitFrequency'
+        company_contribution:
+          $ref: '#/components/schemas/BenefitContribution'
+        employee_deduction:
+          $ref: '#/components/schemas/BenefitContribution'
+    IndividualBenefits:
+      title: IndividualBenefits
+      type: array
+      x-examples: {}
+      items:
+        type: object
+        properties:
+          individual_id:
+            type: string
+          code:
+            type: integer
+          body:
+            type: object
+            properties:
+              employee_deduction:
+                $ref: '#/components/schemas/BenefitContribution'
+              company_contribution:
+                $ref: '#/components/schemas/BenefitContribution'
+              annual_maximum:
+                type: integer
+                description: 'If the benefit supports annual maximum, the amount in cents for this individual.'
+                nullable: true
+              catch_up:
+                type: boolean
+                description: 'If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled for this individual.'
+                nullable: true
+              hsa_contribution_limit:
+                type: string
+                enum:
+                  - individual
+                  - family
+                description: Type for HSA contribution limit if the benefit is a HSA.
+                nullable: true
+    Error:
+      title: Error
+      type: object
+      description: Generic error response structure
+      properties:
+        code:
+          type: integer
+          description: The status code of the request.
+        name:
+          type: string
+          description: Identifier describing the error.
+        finch_code:
+          type: string
+          description: A descriptive identifier for the error.
+        message:
+          type: string
+          description: A short English description that provides more information about the error.
+      x-examples:
+        not-found-error:
+          code: 404
+          name: not_found_error
+          finch_code: individual_not_found
+          message: Individual not found for benefit
+  requestBodies:
+    Individual-Ids:
+      content:
+        application/json:
+          schema:
+            type: object
+            description: Individual Ids Request Body
+            properties:
+              requests:
+                type: array
+                description: The array of batch requests.
+                items:
+                  type: object
+                  properties:
+                    individual_id:
+                      type: string
+                      description: A stable Finch `id` (UUID v4) for an individual in the company. There is no limit to the number of `individual_id` to send per request. It is preferantial to send all ids in a single request for Finch to optimize provider rate-limits.
+                  required:
+                    - individual_id
+            required:
+              - requests
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Please use your Access Token
+  parameters:
+    API-Version:
+      name: Finch-API-Version
+      in: header
+      required: true
+      schema:
+        type: string
+        default: '2020-09-17'
+        format: date
+        pattern: '([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))'
+      description: Header used to specify the version for a given API request. Current version is 2020-09-17.
+    Content-Type:
+      name: Content-Type
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+      description: 'Used to indicate the original media type of the resource '
+security:
+  - bearerAuth: []
