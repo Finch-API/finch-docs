@@ -44,6 +44,7 @@ GTM Payroll Services isolved | `gtm_payroll_services_isolved`
 GTM Payroll Services Evolution | `gtm_payroll_services_evolution`
 Highflyer HR | `highflyer_hr`
 Hubstaff | `hubstaff`
+Humi | `humi`
 Insperity | `insperity`
 isolve | `isolved`
 Justworks | `justworks`
