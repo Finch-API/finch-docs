@@ -23,7 +23,7 @@ Name | Finch Code | Code | Description
 `invalid_grant_error` | | 400 | The authorization code is invalid.
 `invalid_token_error` | | 401 | The `access_token` is incorrect.
 `invalid_request_error` | | 401 | The request does not match the docs. Example: the request is missing a query parameter.
-`authentication_error` | `reauthenticate_user` | 401 | The payroll and HR system indicated that the admin's password or MFA information has changed. They will need to [reauthenticate via Finch Connect](./4-Reauthentication.md).
+`authentication_error` | `reauthenticate_user` | 401 | The payroll and HR system indicated that the admin's password or MFA information has changed. They will need to [reauthenticate via Finch Connect](4-Reauthentication.md).
 `authentication_error` | `no_valid_accounts` | 401 | The credentials provide do not have access to valid payroll admin accounts.
 `authentication_error` | `locked_out` | 401 | The account associated with the credentials provided is locked.
 `invalid_client_error` | | 401 | The provided application credentials were incorrect
