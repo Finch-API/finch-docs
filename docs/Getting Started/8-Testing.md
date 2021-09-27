@@ -9,7 +9,7 @@ Finch offers two types of test environments for developers -
 
 The Finch Sandbox allows you to login to a fake payroll system and test your application against mock data.
 
-To use the sandbox environment, simply [open](https://developer.tryfinch.com/docs/reference/docs/%20Finch%20API/4%20-%20Authorization.md#redirect-to-connect) Finch Connect with the `sandbox` query parameter set to `true`.
+To use the sandbox environment, simply [open](https://developer.tryfinch.com/docs/reference/ZG9jOjE3NzM3OTYx-authorization#finch-connect) Finch Connect with the `sandbox` query parameter set to `true`.
 
 ### Scenarios
 
