@@ -1,6 +1,6 @@
 # Providers
 
-The table below lays out the providers with the associated provider `id` that can be used in the `payroll_provider` parameter for Finch [Connect](3-Authorization.md#finch-connect).
+The table below lays out the providers with the associated provider `id` that can be used in the `payroll_provider` parameter for Finch [Connect](https://tryfinch.stoplight.io/docs/reference/ZG9jOjIyMzQyODQx-authorization#finch-connect).
 
 
 Display Name | Id 
