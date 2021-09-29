@@ -22,6 +22,7 @@ Asure Software | `asure_software`
 Balance Point | `balance_point`
 Bamboo HR | `bamboo_hr`
 Baron Payroll isolved | `baron_isolved`
+BBCS Payroll | `bbcs`
 Big Fish Employer Services | `big_fish_employer_services`
 Bene-Care | `benecare`
 Bizchecks Payroll | `bizchecks_payroll`
@@ -52,11 +53,13 @@ Keystone Payroll isolved | `keystone_isolved`
 mp | `mp`
 Namely | `namely`
 NaturalHR | `natural_hr`
+Nextep | `nextep`
 Newtek | `newtek`
 OnPay | `onpay`
 Oracle PeopleSoft | `oracle_peoplesoft`
 Paragon Payroll isolved | `paragon_payroll_isolved`
 Patriot | `patriot`
+PayNorthwest | `paynw`
 PayUSA | `pay_usa_inc`
 Paychex Flex | `paychex_flex`
 Paycor | `paycor`
