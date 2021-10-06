@@ -16,6 +16,7 @@ Advantage Payroll Services | `advantage_payroll_services`
 Affiliated HR Payroll Services isolved | `affiliated_hr_payroll_services_isolved`
 Affiliated HR Payroll Services Evolution | `affiliated_hr_payroll_services_evolution`
 Ahola | `ahola`
+Amplify HR | `amplify_hr`
 APS Payroll | `aps_payroll`
 Asset HR | `asset_hr`
 Asure Software | `asure_software`
