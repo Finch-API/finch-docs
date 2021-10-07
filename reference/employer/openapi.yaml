@@ -1449,6 +1449,7 @@ paths:
                 properties:
                   individual_id:
                     type: string
+                    description: Finch id (uuidv4) for the individual to enroll
                   configuration:
                     type: object
             examples:
@@ -1579,10 +1580,14 @@ paths:
         content:
           application/json:
             schema:
-              type: array
-              description: List of `individual_id`s to unenroll.
-              items:
-                type: string
+              type: object
+              description: ''
+              properties:
+                individual_ids:
+                  type: array
+                  description: Array of individual_ids to unenroll.
+                  items:
+                    type: string
       tags:
         - Employer
       parameters:
