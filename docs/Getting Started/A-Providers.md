@@ -71,6 +71,7 @@ PayPro HCS isolved | `paypro_hcs_isolved`
 Payroll Network | `payroll_network`
 Payroll Plus HCM isolved | `payroll_plus_hcm_isolved`
 Payroll Plus HCM Evolution | `payroll_plus_hcm_evolution`
+Payroll Solutions | `payroll_solutions`
 PCS HCM | `pcs_hcm`
 Platinum Group | `platinum_group`
 PrimePay | `primepay`
