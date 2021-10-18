@@ -1268,7 +1268,7 @@ paths:
                     individual_id:
                       type: string
                     code:
-                      type: string
+                      type: integer
                     body:
                       $ref: '#/components/schemas/IndividualBenefits'
               examples:
@@ -1623,17 +1623,14 @@ paths:
               examples:
                 example-1:
                   value:
-                    - individual_id: 7fc9fb3a-2a62-47c1-9a5a-c9146483b58e
-                      code: 200
-                      body:
-                        employee_deduction:
-                          type: fixed
-                          amount: 200
-                        company_contribution:
-                          type: fixed
-                          amount: 100
-                        annual_maximum: 1000
-                        catch_up: true
+                    employee_deduction:
+                      type: fixed
+                      amount: 200
+                    company_contribution:
+                      type: fixed
+                      amount: 100
+                    annual_maximum: 1000
+                    catch_up: true
         '404':
           description: Benefit not found
           content:
