@@ -1261,16 +1261,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    individual_id:
-                      type: string
-                    code:
-                      type: integer
-                    body:
-                      $ref: '#/components/schemas/IndividualBenefits'
+                $ref: '#/components/schemas/IndividualBenefits'
               examples:
                 Multi-status:
                   value:
@@ -1608,50 +1599,6 @@ paths:
         name: benefit_id
         in: path
         required: true
-  '/employer/benefits/{benefit_id}/individuals/{individual_id}':
-    get:
-      summary: Get Benefit for a Single Individual
-      tags:
-        - Employer
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/IndividualBenefits'
-              examples:
-                example-1:
-                  value:
-                    employee_deduction:
-                      type: fixed
-                      amount: 200
-                    company_contribution:
-                      type: fixed
-                      amount: 100
-                    annual_maximum: 1000
-                    catch_up: true
-        '404':
-          description: Benefit not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-      operationId: get-employer-benefits-benefit_id-individuals-individual_id
-      description: Get enrolled benefit information for the given individual
-      parameters:
-        - $ref: '#/components/parameters/API-Version'
-    parameters:
-      - schema:
-          type: string
-        name: benefit_id
-        in: path
-        required: true
-      - schema:
-          type: string
-        name: individual_id
-        in: path
-        required: true
 components:
   schemas:
     Location:
@@ -1816,27 +1763,37 @@ components:
           $ref: '#/components/schemas/BenefitContribution'
     IndividualBenefits:
       title: IndividualBenefits
-      type: object
-      properties:
-        employee_deduction:
-          $ref: '#/components/schemas/BenefitContribution'
-        company_contribution:
-          $ref: '#/components/schemas/BenefitContribution'
-        annual_maximum:
-          type: integer
-          description: 'If the benefit supports annual maximum, the amount in cents for this individual.'
-          nullable: true
-        catch_up:
-          type: boolean
-          description: 'If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled for this individual.'
-          nullable: true
-        hsa_contribution_limit:
-          type: string
-          enum:
-            - individual
-            - family
-          description: Type for HSA contribution limit if the benefit is a HSA.
-          nullable: true
+      type: array
+      x-examples: {}
+      items:
+        type: object
+        properties:
+          individual_id:
+            type: string
+          code:
+            type: integer
+          body:
+            type: object
+            properties:
+              employee_deduction:
+                $ref: '#/components/schemas/BenefitContribution'
+              company_contribution:
+                $ref: '#/components/schemas/BenefitContribution'
+              annual_maximum:
+                type: integer
+                description: 'If the benefit supports annual maximum, the amount in cents for this individual.'
+                nullable: true
+              catch_up:
+                type: boolean
+                description: 'If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled for this individual.'
+                nullable: true
+              hsa_contribution_limit:
+                type: string
+                enum:
+                  - individual
+                  - family
+                description: Type for HSA contribution limit if the benefit is a HSA.
+                nullable: true
     Error:
       title: Error
       type: object
