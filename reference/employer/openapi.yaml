@@ -1599,53 +1599,6 @@ paths:
         name: benefit_id
         in: path
         required: true
-  '/employer/benefits/{benefit_id}/individuals/{individual_id}':
-    get:
-      summary: Get Benefit for a Single Individual
-      tags:
-        - Employer
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/IndividualBenefits'
-              examples:
-                example-1:
-                  value:
-                    - individual_id: 7fc9fb3a-2a62-47c1-9a5a-c9146483b58e
-                      code: 200
-                      body:
-                        employee_deduction:
-                          type: fixed
-                          amount: 200
-                        company_contribution:
-                          type: fixed
-                          amount: 100
-                        annual_maximum: 1000
-                        catch_up: true
-        '404':
-          description: Benefit not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-      operationId: get-employer-benefits-benefit_id-individuals-individual_id
-      description: Get enrolled benefit information for the given individual
-      parameters:
-        - $ref: '#/components/parameters/API-Version'
-    parameters:
-      - schema:
-          type: string
-        name: benefit_id
-        in: path
-        required: true
-      - schema:
-          type: string
-        name: individual_id
-        in: path
-        required: true
 components:
   schemas:
     Location:
