@@ -1261,7 +1261,16 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/IndividualBenefits'
+                type: array
+                items:
+                  type: object
+                  properties:
+                    individual_id:
+                      type: string
+                    code:
+                      type: string
+                    body:
+                      $ref: '#/components/schemas/IndividualBenefits'
               examples:
                 Multi-status:
                   value:
@@ -1810,37 +1819,27 @@ components:
           $ref: '#/components/schemas/BenefitContribution'
     IndividualBenefits:
       title: IndividualBenefits
-      type: array
-      x-examples: {}
-      items:
-        type: object
-        properties:
-          individual_id:
-            type: string
-          code:
-            type: integer
-          body:
-            type: object
-            properties:
-              employee_deduction:
-                $ref: '#/components/schemas/BenefitContribution'
-              company_contribution:
-                $ref: '#/components/schemas/BenefitContribution'
-              annual_maximum:
-                type: integer
-                description: 'If the benefit supports annual maximum, the amount in cents for this individual.'
-                nullable: true
-              catch_up:
-                type: boolean
-                description: 'If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled for this individual.'
-                nullable: true
-              hsa_contribution_limit:
-                type: string
-                enum:
-                  - individual
-                  - family
-                description: Type for HSA contribution limit if the benefit is a HSA.
-                nullable: true
+      type: object
+      properties:
+        employee_deduction:
+          $ref: '#/components/schemas/BenefitContribution'
+        company_contribution:
+          $ref: '#/components/schemas/BenefitContribution'
+        annual_maximum:
+          type: integer
+          description: 'If the benefit supports annual maximum, the amount in cents for this individual.'
+          nullable: true
+        catch_up:
+          type: boolean
+          description: 'If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled for this individual.'
+          nullable: true
+        hsa_contribution_limit:
+          type: string
+          enum:
+            - individual
+            - family
+          description: Type for HSA contribution limit if the benefit is a HSA.
+          nullable: true
     Error:
       title: Error
       type: object
