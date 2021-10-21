@@ -34,12 +34,14 @@ CharlieHR | `charlie_hr`
 Collage | `collage`
 CoAdvantage | `coadvantage`
 Coastal Payroll | `coastal_payroll`
+Cognos HR | `cognos_hr`
 Commonwealth Payroll & HR | `commonwealth_payroll_hr`
 CPM Employer Services isolved | `cpm_isolved`
 Crescent Payroll Solutions | `crescent_payroll_solutions`
 Deel | `deel`
 Dominion Payroll | `dominion_payroll`
 Employdrive | `employdrive`
+Empower HR | `empower_hr`
 Goco | `goco`
 Gusto | `gusto`
 GTM Payroll Services isolved | `gtm_payroll_services_isolved`
@@ -69,6 +71,7 @@ Payday Workforce Solutions | `payday_workforce_solutions`
 Paylocity | `paylocity`
 PayPro HCS isolved | `paypro_hcs_isolved`
 Payroll Network | `payroll_network`
+Payroll Office of America | `payroll_office_of_america`
 Payroll Plus HCM isolved | `payroll_plus_hcm_isolved`
 Payroll Plus HCM Evolution | `payroll_plus_hcm_evolution`
 Payroll Solutions | `payroll_solutions`
