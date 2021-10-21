@@ -41,7 +41,7 @@ Crescent Payroll Solutions | `crescent_payroll_solutions`
 Deel | `deel`
 Dominion Payroll | `dominion_payroll`
 Employdrive | `employdrive`
-Empower HR | `empower_hr`
+EmPower HR | `empower_hr`
 Goco | `goco`
 Gusto | `gusto`
 GTM Payroll Services isolved | `gtm_payroll_services_isolved`
