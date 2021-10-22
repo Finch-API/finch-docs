@@ -328,6 +328,13 @@ paths:
                                     enum:
                                       - work
                                       - personal
+                            gender:
+                              type: string
+                              description: The gender of the individual.
+                              enum:
+                                - male
+                                - female
+                                - other
                             dob:
                               $ref: '#/components/schemas/Date'
                             residence:
