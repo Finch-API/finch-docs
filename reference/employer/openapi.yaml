@@ -360,7 +360,7 @@ paths:
                           phone_numbers:
                             - data: '5051234567'
                               type: personal
-                          gender: 'male'
+                          gender: 'female'
                           dob: '1970-01-01'
                           residence:
                             line1: 123 Main St
