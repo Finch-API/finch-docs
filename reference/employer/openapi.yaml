@@ -328,6 +328,15 @@ paths:
                                     enum:
                                       - work
                                       - personal
+                            gender:
+                              type: string
+                              description: The gender of the individual.
+                              nullable: true
+                              enum:
+                                - female
+                                - male
+                                - other
+                                - decline_to_specify
                             dob:
                               $ref: '#/components/schemas/Date'
                             residence:
@@ -351,6 +360,7 @@ paths:
                           phone_numbers:
                             - data: '5051234567'
                               type: personal
+                          gender: 'male'
                           dob: '1970-01-01'
                           residence:
                             line1: 123 Main St
