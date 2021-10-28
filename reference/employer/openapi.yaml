@@ -688,6 +688,7 @@ paths:
                                   name: Salary
                                   amount: 230000
                                   currency: usd
+                                  hours: 80
                               taxes:
                                 - type: state
                                   name: State Withholding - OR
