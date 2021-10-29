@@ -2,15 +2,19 @@
 
 Finch's Benefits endpoints allows users to read and write benefits information under a single, unified API. The table below lays out which benefits features are supported for providers, along with any notable information. Note: One-time post-tax deductions are not currently supported for benefits.
 
-`✓` - supported
-
-`x` - not supported
-
-`n/a` - not supported by provider
 
 ### Gusto
 
-**Supported Operations**
+<!--
+type: tab
+title: Supported Operations
+-->
+
+>`✓` - supported
+>
+>`x` - not supported by Finch
+>
+>`n/a` - not supported by provider
 
 Benefit | Read Company Benefits | Create Company Benefits | Read Individual Benefits | Enroll/Unenroll Individual Benefits
 --------|----------|---------|------------|------------
@@ -32,7 +36,10 @@ Benefit | Read Company Benefits | Create Company Benefits | Read Individual Bene
 **Custom pre-tax** | n/a | n/a | n/a | n/a |
 **Custom post-tax** | ✓ | ✓ | ✓ | ✓ |
 
-**Suppored Features**
+<!--
+type: tab
+title: Supported Features
+-->
 
 Benefit | Features
 --------|----------
@@ -51,3 +58,6 @@ Benefit | Features
 **Section 125 Vision** | `company_contribution`: `fixed`<br>`employee_deduction`: `fixed`
 **Commuter (pre-tax)** | `company_contribution`: `fixed` <br>`employee_deduction`: `fixed`
 **Custom post-tax** | `employee_deduction`: `fixed`, `percent`<br>`annual_maximum`
+
+
+<!-- type: tab-end -->
