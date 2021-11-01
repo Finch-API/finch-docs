@@ -1,6 +1,8 @@
 # Benefits
 
-Finch's Benefits endpoints allows users to read and write benefits information under a single, unified API. The table below lays out which benefits features are supported for providers, along with any notable information. Note: One-time post-tax deductions are not currently supported for benefits.
+Finch's Benefits endpoints allows users to read and write benefits information under a single, unified API. The table below lays out which benefits features are supported for providers, along with any notable information. 
+
+**Note: One-time post-tax deductions are not currently supported for benefits.**
 
 
 ### Gusto
