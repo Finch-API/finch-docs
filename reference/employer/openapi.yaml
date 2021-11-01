@@ -1615,7 +1615,7 @@ paths:
         required: true
   /employer/deduction/company/create:
     post:
-      summary: ''
+      summary: Create a Deduction
       operationId: post-employer-deduction-company-create
       responses:
         '200':
@@ -1706,7 +1706,7 @@ paths:
         - $ref: '#/components/parameters/Content-Type'
   /employer/deduction/individual/create:
     post:
-      summary: ''
+      summary: Enroll
       operationId: post-employer-deduction-individual-create
       responses:
         '200':
@@ -1773,7 +1773,7 @@ paths:
                 - employee_deduction
   /employer/deduction/individual/get:
     post:
-      summary: ''
+      summary: Get Enrollment
       operationId: post-employer-deduction-individual-get
       responses:
         '200':
@@ -1815,9 +1815,56 @@ paths:
                         enum:
                           - fixed
                           - percent
+              examples:
+                Success:
+                  value:
+                    deduction_id: 7adbeaf0-9f98-48c1-935b-26a521f1aa8d
+                    individual_id: af015567-858a-4355-aa63-5617ff341592
+                    employee_deduction:
+                      amount: 10000
+                      type: fixed
+                    company_contribution:
+                      amount: 10000
+                      type: fixed
       tags:
         - 5. Deprecated
       description: Retrieve the details of an individual's enrollment in a deduction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                deduction_id:
+                  type: string
+                  description: A unique Finch id (UUID v4) for the deduction.
+                individual_id:
+                  type: string
+                  description: A unique Finch id (UUID v4) for the individual.
+              required:
+                - deduction_id
+                - individual_id
+  /employer/deduction/individual/delete:
+    post:
+      summary: Unenroll
+      operationId: post-employer-deduction-individual-delete
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+              examples:
+                Success:
+                  value:
+                    status: success
+      tags:
+        - 5. Deprecated
+      description: Unenroll an individual from a deduction
       requestBody:
         content:
           application/json:
