@@ -21,7 +21,9 @@ info:
 
     - `pay_statement`: Read detailed pay statements for each individual
 
-    - `deduction`: Create and manage benefits and enrollment within a company
+    - `benefits`: Create and manage benefits and benefit enrollment within a company
+
+    - `deduction` (deprecated): Previously used to manage deductions within a company. Please use `benefits`.
 servers:
   - url: 'https://api.tryfinch.com'
     description: ''
