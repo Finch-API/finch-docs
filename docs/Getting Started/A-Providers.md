@@ -59,7 +59,7 @@ Namely | `namely`
 NaturalHR | `natural_hr`
 Nextep | `nextep`
 Newtek | `newtek`
-OneSource Payroll | `OneSource Payroll`
+OneSource Payroll | `onesource_payroll`
 OnPay | `onpay`
 Oracle PeopleSoft | `oracle_peoplesoft`
 Paragon Payroll isolved | `paragon_payroll_isolved`
