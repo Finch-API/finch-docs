@@ -26,8 +26,11 @@ servers:
   - url: 'https://api.tryfinch.com'
     description: ''
 tags:
-  - name: Employer
-  - name: Management
+  - name: 1. Organization
+  - name: 2. Payroll
+  - name: 3. Benefits
+  - name: 4. Management
+  - name: 5. Deprecated
 paths:
   /employer/company:
     get:
@@ -168,7 +171,7 @@ paths:
       summary: Company
       operationId: get-company
       tags:
-        - Employer
+        - 1. Organization
       parameters:
         - $ref: '#/components/parameters/API-Version'
   /employer/directory:
@@ -259,7 +262,7 @@ paths:
       summary: Directory
       operationId: get-directory
       tags:
-        - Employer
+        - 1. Organization
   /employer/individual:
     post:
       description: 'Read individual data, excluding income and employment data'
@@ -372,7 +375,7 @@ paths:
       summary: Individual
       operationId: get-individual
       tags:
-        - Employer
+        - 1. Organization
       requestBody:
         $ref: '#/components/requestBodies/Individual-Ids'
   /employer/employment:
@@ -526,7 +529,7 @@ paths:
       summary: Employment
       operationId: get-employment
       tags:
-        - Employer
+        - 1. Organization
       requestBody:
         $ref: '#/components/requestBodies/Individual-Ids'
   /employer/payment:
@@ -624,7 +627,7 @@ paths:
       summary: Payment
       operationId: get-payment
       tags:
-        - Employer
+        - 2. Payroll
   /employer/pay-statement:
     post:
       description: |-
@@ -861,7 +864,7 @@ paths:
       summary: Pay Statement
       operationId: get-pay-statement
       tags:
-        - Employer
+        - 2. Payroll
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -869,7 +872,7 @@ paths:
     get:
       summary: Providers
       tags:
-        - Management
+        - 4. Management
       responses:
         '200':
           description: OK
@@ -921,7 +924,7 @@ paths:
     get:
       summary: Introspect
       tags:
-        - Management
+        - 4. Management
       responses:
         '200':
           description: OK
@@ -978,14 +981,14 @@ paths:
                     status: success
       description: Disconnect an employer from your application and invalidate all `access_token`s associated with the employer. We require applications to implement the Disconnect endpoint for billing and security purposes.
       tags:
-        - Management
+        - 4. Management
       parameters:
         - $ref: '#/components/parameters/API-Version'
   /employer/benefits:
     get:
       summary: Get All Benefits
       tags:
-        - Employer
+        - 3. Benefits
       responses:
         '200':
           description: OK
@@ -1056,7 +1059,7 @@ paths:
                 frequency:
                   $ref: '#/components/schemas/BenefitFrequency'
       tags:
-        - Employer
+        - 3. Benefits
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -1065,7 +1068,7 @@ paths:
     get:
       summary: Get Benefits Metadata
       tags:
-        - Employer
+        - 3. Benefits
       responses:
         '200':
           description: OK
@@ -1139,7 +1142,7 @@ paths:
     get:
       summary: Get Benefit
       tags:
-        - Employer
+        - 3. Benefits
       responses:
         '200':
           description: OK
@@ -1203,7 +1206,7 @@ paths:
                   type: string
                   description: Updated name or description.
       tags:
-        - Employer
+        - 3. Benefits
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -1217,7 +1220,7 @@ paths:
     get:
       summary: Get Enrolled Individuals
       tags:
-        - Employer
+        - 3. Benefits
       responses:
         '200':
           description: OK
@@ -1265,7 +1268,7 @@ paths:
     get:
       summary: Get Benefits for Individuals
       tags:
-        - Employer
+        - 3. Benefits
       responses:
         '207':
           description: Multi-Status (WebDAV)
@@ -1449,7 +1452,7 @@ paths:
         <!-- theme: warning -->
         > Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
       tags:
-        - Employer
+        - 3. Benefits
       requestBody:
         content:
           application/json:
@@ -1600,7 +1603,7 @@ paths:
                   items:
                     type: string
       tags:
-        - Employer
+        - 3. Benefits
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -1610,6 +1613,273 @@ paths:
         name: benefit_id
         in: path
         required: true
+  /employer/deduction/company/create:
+    post:
+      summary: Create a Deduction
+      operationId: post-employer-deduction-company-create
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: A unique Finch id (UUID v4) for the deduction.
+              examples:
+                Success:
+                  value:
+                    id: 7adbeaf0-9f98-48c1-935b-26a521f1aa8d
+      description: Create a company-wide deduction to enroll individuals in
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The name or short description of the deduction.
+                type:
+                  type: string
+                  description: The type of deduction.
+                  enum:
+                    - post_tax
+                    - 401k_pre_tax
+                frequency:
+                  type: string
+                  description: The frequency to run this deduction with.
+                  enum:
+                    - one_time
+                    - recurring
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+      tags:
+        - 5. Deprecated
+  /employer/deduction/company/list:
+    post:
+      summary: List Deductions
+      operationId: post-employer-deduction-company-list
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: A unique Finch id (UUID v4) for the deduction.
+                    name:
+                      type: string
+                      description: The name or short description of the deduction.
+                    type:
+                      type: string
+                      description: The type of deduction.
+                      enum:
+                        - post_tax
+                        - 401k_pre_tax
+                    frequency:
+                      type: string
+                      description: The frequency to run this deduction with.
+                      enum:
+                        - one_time
+                        - recurring
+              examples:
+                example-1:
+                  value:
+                    - id: 7adbeaf0-9f98-48c1-935b-26a521f1aa8d
+                      name: 401(k) Deduction
+                      type: 401k_pre_tax
+                      frequency: recurring
+      tags:
+        - 5. Deprecated
+      description: List the created company-wide deductions
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+  /employer/deduction/individual/create:
+    post:
+      summary: Enroll
+      operationId: post-employer-deduction-individual-create
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: 'If the request is successful, Finch will return “success” (HTTP 200 status).'
+              examples:
+                Success:
+                  value:
+                    status: success
+      tags:
+        - 5. Deprecated
+      description: ' Enroll an individual in a deduction'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                deduction_id:
+                  type: string
+                  description: A unique Finch id (UUID v4) for the deduction.
+                individual_id:
+                  type: string
+                  description: A unique Finch id (UUID v4) for the individual.
+                employee_deduction:
+                  type: object
+                  required:
+                    - amount
+                    - type
+                  description: An object representing the employee deduction.
+                  properties:
+                    amount:
+                      type: integer
+                      description: 'If the type is fixed, the deduction amount as an integer in cents. Otherwise, if the type is percent, the percentage as an integer from 0 (0%) - 10000 (100%).'
+                    type:
+                      type: string
+                      description: Specify if the deduction is a fixed amount or percentage of the paycheck.
+                      enum:
+                        - fixed
+                        - percent
+                company_contribution:
+                  type: object
+                  description: 'An object representing the company contribution. Note: Required for 401k_pre_tax deduction.'
+                  properties:
+                    amount:
+                      type: integer
+                      description: 'If the type is fixed, the contribution amount as an integer in cents. Otherwise, if the type is percent, the percentage as an integer from 0 (0%) - 10000 (100%).'
+                    type:
+                      type: string
+                      description: "true \tSpecify if the contribution is a fixed amount or percentage of the paycheck. Options: fixed or percent."
+                      enum:
+                        - fixed
+                        - percent
+              required:
+                - deduction_id
+                - individual_id
+                - employee_deduction
+  /employer/deduction/individual/get:
+    post:
+      summary: Get Enrollment
+      operationId: post-employer-deduction-individual-get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  deduction_id:
+                    type: string
+                    description: A unique Finch id (UUID v4) for the deduction.
+                  individual_id:
+                    type: string
+                    description: A unique Finch id (UUID v4) for the individual.
+                  employee_deduction:
+                    type: object
+                    description: An object representing the employee deduction.
+                    properties:
+                      amount:
+                        type: integer
+                        description: 'If the type is fixed, the deduction amount as an integer in cents. Otherwise, if the type is percent, the percentage as an integer from 0 (0%) - 10000 (100%).'
+                      type:
+                        type: string
+                        description: Specify if the deduction is a fixed amount or percentage of the paycheck
+                        enum:
+                          - fixed
+                          - percent
+                  company_contribution:
+                    type: object
+                    description: An object representing the company contribution.
+                    properties:
+                      amount:
+                        type: integer
+                        description: 'If the type is fixed, the contribution amount as an integer in cents. Otherwise, if the type is percent, the percentage as an integer from 0 (0%) - 10000 (100%).'
+                      type:
+                        type: string
+                        description: Specify if the contribution is a fixed amount or percentage of the paycheck.
+                        enum:
+                          - fixed
+                          - percent
+              examples:
+                Success:
+                  value:
+                    deduction_id: 7adbeaf0-9f98-48c1-935b-26a521f1aa8d
+                    individual_id: af015567-858a-4355-aa63-5617ff341592
+                    employee_deduction:
+                      amount: 10000
+                      type: fixed
+                    company_contribution:
+                      amount: 10000
+                      type: fixed
+      tags:
+        - 5. Deprecated
+      description: Retrieve the details of an individual's enrollment in a deduction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                deduction_id:
+                  type: string
+                  description: A unique Finch id (UUID v4) for the deduction.
+                individual_id:
+                  type: string
+                  description: A unique Finch id (UUID v4) for the individual.
+              required:
+                - deduction_id
+                - individual_id
+  /employer/deduction/individual/delete:
+    post:
+      summary: Unenroll
+      operationId: post-employer-deduction-individual-delete
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+              examples:
+                Success:
+                  value:
+                    status: success
+      tags:
+        - 5. Deprecated
+      description: Unenroll an individual from a deduction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                deduction_id:
+                  type: string
+                  description: A unique Finch id (UUID v4) for the deduction.
+                individual_id:
+                  type: string
+                  description: A unique Finch id (UUID v4) for the individual.
+              required:
+                - deduction_id
+                - individual_id
 components:
   schemas:
     Location:
