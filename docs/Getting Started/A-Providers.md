@@ -16,6 +16,7 @@ Advantage Payroll Services | `advantage_payroll_services`
 Affiliated HR Payroll Services isolved | `affiliated_hr_payroll_services_isolved`
 Affiliated HR Payroll Services Evolution | `affiliated_hr_payroll_services_evolution`
 Ahola | `ahola`
+AlphaStaff | `alphastaff`
 Amplify HR | `amplify_hr`
 APS Payroll | `aps_payroll`
 Asset HR | `asset_hr`
@@ -58,10 +59,12 @@ Namely | `namely`
 NaturalHR | `natural_hr`
 Nextep | `nextep`
 Newtek | `newtek`
+OneSource Payroll | `OneSource Payroll`
 OnPay | `onpay`
 Oracle PeopleSoft | `oracle_peoplesoft`
 Paragon Payroll isolved | `paragon_payroll_isolved`
 Patriot | `patriot`
+PayFit | `payfit`
 PayNorthwest | `paynw`
 PayUSA | `pay_usa_inc`
 Paychex Flex | `paychex_flex`
