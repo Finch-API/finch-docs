@@ -7,7 +7,7 @@ Display Name | Id
 ---------|----------
 AAP isolved | `aap_isolved`
 Abacus HCM isolved | `abacus_isolved`
-Absolute Payroll isolved | `abacus_isolved`
+Absolute Payroll isolved | `absolute_isolved`
 Accupay isolved | `accupay_isolved`
 Ace Workforce Technologies isolved | `ace_isolved`
 ADP TotalSource | `adp_totalsource`
