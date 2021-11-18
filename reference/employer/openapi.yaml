@@ -31,6 +31,7 @@ tags:
   - name: 1. Organization
   - name: 2. Payroll
   - name: 3. Benefits
+  - name: 4. Custom Fields
   - name: 4. Management
   - name: 5. Deprecated
 paths:
@@ -1882,6 +1883,157 @@ paths:
               required:
                 - deduction_id
                 - individual_id
+  /employer/company/custom-fields:
+    get:
+      summary: Company Custom Fields
+      tags:
+        - 4. Custom Fields
+      responses:
+        '200':
+          description: Object containing custom fields for a company
+          content:
+            application/json:
+              schema:
+                type: object
+      operationId: get-employer-company-custom-fields
+      description: Returns custom fields for the company endpoint for your application.
+  /employer/individual/custom-fields:
+    post:
+      summary: Individual Custom Fields
+      operationId: post-employer-individual-custom-fields
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    individual_id:
+                      type: string
+                    body:
+                      type: object
+                      description: Object containing the custom fields for the individual.
+      tags:
+        - 4. Custom Fields
+      description: Returns custom fields for the individual endpoint for your application.
+  /employer/employment/custom-fields:
+    post:
+      summary: Employment Custom Fields
+      operationId: post-employer-employment-custom-fields
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    individual_id:
+                      type: string
+                    body:
+                      type: string
+                      description: Object containing the custom fields for this individual.
+      tags:
+        - 4. Custom Fields
+      description: Returns custom fields for the employment endpoint for your application.
+  /employer/payment/custom-fields:
+    get:
+      summary: Payment Custom Fields
+      tags:
+        - 4. Custom Fields
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    body:
+                      type: object
+                      description: Custom fields for this payment.
+      operationId: get-employer-payment-custom-fields
+      description: Returns custom fields for the payment endpoint for your application.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: start_date
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: end_date
+  /employer/pay-statement/custom-fields:
+    post:
+      summary: Pay Statement Custom Fields
+      operationId: post-employer-pay-statement-custom-fields
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    payment_id:
+                      type: string
+                    body:
+                      type: object
+                      description: Custom fields for this pay statement.
+      tags:
+        - 4. Custom Fields
+      description: Returns custom fields for the pay-statement endpoint for your application.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  payment_id:
+                    type: string
+  '/employer/{endpoint}/custom-fields/meta':
+    parameters:
+      - schema:
+          type: string
+        name: endpoint
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags:
+        - 4. Custom Fields
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: The name of the custom field
+                    type:
+                      type: string
+                      description: The type of the custom field
+      operationId: get-employer-endpoint-custom-fields-meta
+      description: 'Metadata describing the custom fields that exist for the given `endpoint` for your application. `{endpoint}` can be any of `company`, `directory`, `individual`, `employment`, `payment`, `pay-statement`, depending on which endpoint Finch has built custom fields for.'
 components:
   schemas:
     Location:
