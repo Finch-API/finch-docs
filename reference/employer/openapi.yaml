@@ -2013,7 +2013,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
+      summary: Custom Fields Metadata
       tags:
         - 4. Custom Fields
       responses:

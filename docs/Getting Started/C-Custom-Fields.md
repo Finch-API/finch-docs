@@ -1,4 +1,4 @@
-# Getting Custom Fields
+# Custom Fields
 
 To fetch custom fields, you can hit any of our standard endpoints (`company`, `individual`, `employment`, `payment`, `pay-statement`) and simply append `/custom-fields` to the end of the endpoint name (e.g. `employment/custom-fields`). The data returned will be either an object containing all of the custom fields for your application, as in the case of `/company`, or an array of objects in a batch response, as in the case of `/employment` or `/individual`. Please see the API documentation for more information. 
 
