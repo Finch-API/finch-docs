@@ -1,0 +1,77 @@
+{
+  "items": [
+    {
+      "type": "divider",
+      "title": "Getting Started"
+    },
+    {
+      "type": "item",
+      "title": "SDKs",
+      "uri": "docs/Getting Started/2-SDKs.md"
+    },
+    {
+      "type": "item",
+      "title": "Introduction",
+      "uri": "docs/Getting Started/1-Introduction.md"
+    },
+    {
+      "type": "item",
+      "title": "Authorization",
+      "uri": "docs/Getting Started/3-Authorization.md"
+    },
+    {
+      "type": "item",
+      "title": "Reauthentication",
+      "uri": "docs/Getting Started/4-Reauthentication.md"
+    },
+    {
+      "type": "item",
+      "title": "Headers",
+      "uri": "docs/Getting Started/5-Headers.md"
+    },
+    {
+      "type": "item",
+      "title": "Errors",
+      "uri": "docs/Getting Started/6-Errors.md"
+    },
+    {
+      "type": "item",
+      "title": "Versioning",
+      "uri": "docs/Getting Started/7-Versioning.md"
+    },
+    {
+      "type": "item",
+      "title": "Testing",
+      "uri": "docs/Getting Started/8-Testing.md"
+    },
+    {
+      "type": "item",
+      "title": "Rate Limits",
+      "uri": "docs/Getting Started/9-Rate-Limit.md"
+    },
+    {
+      "type": "item",
+      "title": "Providers",
+      "uri": "docs/Getting Started/A-Providers.md"
+    },
+    {
+      "type": "item",
+      "title": "Webhooks",
+      "uri": "docs/Getting Started/B-Webhooks.md"
+    },
+    {
+      "type": "item",
+      "title": "Custom Fields",
+      "uri": "docs/Getting Started/C-Custom-Fields.md"
+    },
+    {
+      "type": "divider",
+      "title": "APIS"
+    },
+    {
+      "type": "item",
+      "title": "openapi.yaml",
+      "uri": "reference/employer/openapi.yaml"
+    }
+  ]
+}
