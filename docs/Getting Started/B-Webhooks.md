@@ -8,11 +8,14 @@ When the data you subscribe to has changed, Finch will make a POST request to th
 
 To create a new Webhook, head to the Finch [developer dashboard](https://login.tryfinch.com/u/organization?state=hKFo2SBPejZubUZNbi1ILVRvZ05rYjdSTzl2b3dsUWRFcVZnNKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIEdzQ2p5NVR6VDR6SXc4VDdKZG5aV3hRMXRhbHRidFhEo2NpZNkgTlZsT1hZN3N2R25xSlNHYkFSdE1Ga2tnMGJqMkJmbEk), select the connection you would like to add Webhooks to, and navigate to the **Webhooks** section:
 
-![Screen Shot 2021-11-17 at 7.39.10 PM.png](https://stoplight.io/api/v1/projects/cHJqOjk3MTQ5/images/kqoOU5xRWCQ)
+
+![](../../assets/images/addWebhook.png)
+
 
 Simply click on "Add Webhook" and enter the URL you would like Finch to POST new data to. Be sure to select the products for which you want to receive webhook updates:
 
-![Screen Shot 2021-11-17 at 8.42.44 PM.png](https://stoplight.io/api/v1/projects/cHJqOjk3MTQ5/images/fUMviTQRIRk)
+![](../../assets/images/selectEndpoints.png)
+
 
 ## Response Structure
 
