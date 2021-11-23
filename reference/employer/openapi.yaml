@@ -923,6 +923,8 @@ paths:
                       primary_color: '#f45d47'
       operationId: get-providers
       description: Return details on all available payroll and HR systems.
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
   /introspect:
     get:
       summary: Introspect
