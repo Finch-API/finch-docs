@@ -1518,7 +1518,7 @@ paths:
           `employee_deduction.type` | `string` | Deduction Type (`fixed` or `percent`)
           `employee_deduction.amount`| `integer` | Deduction amount in cents (if `fixed`) or basis points (if `percent`)
           `company_contribution.type` | `string` | Contribution Type (`fixed` or `percent`)
-          `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points 
+          `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points
           `catch_up`| `boolean` | Whether to enable catch up for this individual.
           `annual_maximum`| `integer` (`nullable`)| The annual maximum in cents for this individual.
 
@@ -1531,9 +1531,9 @@ paths:
           `employee_deduction.type` | `string` | Deduction Type (`fixed` or `percent`)
           `employee_deduction.amount`| `integer` | Deduction amount in cents (if `fixed`) or basis points (if `percent`)
           `company_contribution.type` | `string` | Contribution Type (`fixed` or `percent`)
-          `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points 
+          `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points
           `catch_up`| `boolean` | Whether to enable catch up for this individual.
-          `annual_maximum`| `integer` (`nullable`) | The annual maximum in cents for this individual. 
+          `annual_maximum`| `integer` (`nullable`) | The annual maximum in cents for this individual.
           `annual_contribution_limit` | `string` | `individual` or `family`
 
           ***
@@ -1545,7 +1545,7 @@ paths:
           `employee_deduction.type` | `string` | Deduction Type (`fixed` or `percent`)
           `employee_deduction.amount`| `integer` | Deduction amount in cents (if `fixed`) or basis points (if `percent`)
           `company_contribution.type` | `string` | Contribution Type (`fixed` or `percent`)
-          `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points 
+          `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
