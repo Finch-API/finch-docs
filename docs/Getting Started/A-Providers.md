@@ -43,6 +43,7 @@ Deel | `deel`
 Dominion Payroll | `dominion_payroll`
 Employdrive | `employdrive`
 EmPower HR | `empower_hr`
+Flock | `flock`
 Goco | `goco`
 Gusto | `gusto`
 GTM Payroll Services isolved | `gtm_payroll_services_isolved`
@@ -86,6 +87,7 @@ Proliant | `proliant`
 Proxus HR isolved | `proxus_hr`
 Quickbooks Payroll | `quickbooks`
 Remote | `remote`
+RMI PEO | `rmi_peo`
 Run Powered by ADP | `adp_run`
 Sage 50 US Edition Accounting | `sage_50_us_edition_accounting`
 Sage 50 Quantum Accounting | `sage_50_quantum_accounting`
@@ -111,6 +113,7 @@ Wave Payroll | `wave`
 WebHR | `web_hr`
 whirks | `whirks`
 Workday | `workday`
+Worklio | `worklio`
 wurk | `wurk`
 Xero | `xero`
 Zenefits | `zenefits`
