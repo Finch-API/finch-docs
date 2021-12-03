@@ -41,6 +41,7 @@ CPM Employer Services isolved | `cpm_isolved`
 Crescent Payroll Solutions | `crescent_payroll_solutions`
 Deel | `deel`
 Dominion Payroll | `dominion_payroll`
+Doyle | `doyle_hcm`
 Employdrive | `employdrive`
 EmPower HR | `empower_hr`
 Flock | `flock`
