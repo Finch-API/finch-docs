@@ -30,4 +30,4 @@ Finch recommends either using in-app or email notifications to notify your user 
 Below are a couple of options to present the re-connection flow to your users—
 
 1. Prompt your user to log on to their application dashboard where you can present them UI to go through Finch Connect again. 
-2. Send your user an authorization URL with a `redirect_uri` that redirects them back to their application dashboard after a successful reconnection.
+2. Send your user an authorization URL with a `redirect_uri` that redirects them back to their application dashboard after a successful reconnection. Learn more about redirecting your users to Connect here.

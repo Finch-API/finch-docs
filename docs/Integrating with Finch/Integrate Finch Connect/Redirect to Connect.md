@@ -86,7 +86,7 @@ To interact with the Finch API, you will need to exchange your short-lived autho
 
 <!--
 type: tab
-title: Headers Schema
+title: Headers
 -->
 Header | Description
 -------|--------------
@@ -95,7 +95,7 @@ Header | Description
 
 <!--
 type: tab
-title: Body Schema
+title: Body
 -->
 Parameter | Required | Description
 ----------|----------|-------------
