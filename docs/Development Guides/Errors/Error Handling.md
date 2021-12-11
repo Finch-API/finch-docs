@@ -27,8 +27,8 @@ Authentication errors indicate an error on the end user's side. See the re-authe
 A number of Finch endpoints (like `/individual`, `/employment`, and `/pay-statement`) are batch endpoints.
 
 For such endpoints, Finch can return errors in two ways:
-1. Return an error per item within a batch API call response. The error will be in the same format described in the Error Types guide.
-2. Return an error at the HTTP status code level. The error will be in the same format desribed in the Error Types guide.
+1. Return an error per batch request item within the response body. The error will be in the same format described in the Error Types guide.
+2. Return an error at the HTTP status code level. The error will be in the same format described in the Error Types guide.
 
 <!-- theme: info -->
 > Ensure your application can handle both types of errors from a batch API call.
@@ -45,11 +45,15 @@ Response Body:
 {
   "responses": [
     {
-      "individual_id": "fbeabe51-e6d2-45aa-a460-4c8482528f41", // this field varies by endpoint
-      "code": 500, // corresponds to the `code` parameter of the error schema in the Error Types guide
+      // this id varies by endpoint, could also be payment_id or benefit_id
+      "individual_id": "fbeabe51-e6d2-45aa-a460-4c8482528f41",
+      // corresponds to the `code` parameter of the error schema in the Error Types guide
+      "code": 500,
       "body": {
-        "error_name": "server_error", // corresponds to the `name` parameter of the error schema in the Error Types guide
-        "error_message": "Internal Server Error" // corresponds to the `message` parameter of the error schema in the Error Types guide
+        // corresponds to the `name` parameter of the error schema in the Error Types guide
+        "error_name": "server_error",
+        // corresponds to the `message` parameter of the error schema in the Error Types guide
+        "error_message": "Internal Server Error"
       }
     }
   ]
@@ -72,6 +76,7 @@ Error Body:
 ```
 <!-- type: tab-end -->
 
-Refer to the API reference for each endpoint to ensure your application handles errors from each batch endpoint correctly.
+<!-- theme: warning -->
+> Refer to the API reference to ensure your application handles errors from each batch endpoint correctly as response schemas vary by endpoint.
 
 

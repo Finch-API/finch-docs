@@ -5,6 +5,9 @@ Once you have an `access_token` representing your application's access to your u
 ---
 
 ## Sending a request
+<!-- theme: danger -->
+> All API calls should take place from your back-end to ensure an `access_token` is never publicly exposed on the client-side.
+
 Every request to Finch's API requires the following headers—
 
 
