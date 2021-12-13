@@ -61,6 +61,7 @@ Namely | `namely`
 NaturalHR | `natural_hr`
 Nextep | `nextep`
 Newtek | `newtek`
+Oasis | `oasis`
 OneSource Payroll | `onesource_payroll`
 OnPay | `onpay`
 Oracle PeopleSoft | `oracle_peoplesoft`
