@@ -65,6 +65,11 @@
       "uri": "docs/Product-Guides/Finch-Connect.md"
     },
     {
+      "type": "item",
+      "title": "Benefits API",
+      "uri": "docs/Product-Guides/Benefits-API.md"
+    },
+    {
       "type": "divider",
       "title": "Development Guides"
     },
