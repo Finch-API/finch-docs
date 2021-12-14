@@ -1,8 +1,9 @@
-# Webhooks
+# Webhooks [BETA]
 
-Once you've integrated with HR and payroll providers through Finch, you may want to know when specific data changes in order to update business logic for your application. It can be tedious and wasteful to continuously poll our endpoints to check for updates; for this reason, Finch provides **Webhooks**. 
+After connecting to your users' employment systems, you'll want to stay up to date with changes with the systems. Finch provides webhooks to push alerts to your infrastructure instead of having you poll for changes.
 
-When the data you subscribe to has changed, Finch will make a POST request to the URL that your application provides.
+
+When the data you subscribe to changes, Finch sends a `POST` request to the URL that your application provides.
 
 ## Creating Webhooks
 

@@ -11,7 +11,7 @@ Finch offers two types of test environments for developers -
 
 The Finch Sandbox allows you to login to a fake payroll system and test your application against mock data.
 
-To use the sandbox environment, simply [open](https://tryfinch.stoplight.io/docs/reference/ZG9jOjIyMzQyODQx-authorization#finch-connect) Finch Connect with the `sandbox` query parameter set to `true`.
+To use the sandbox environment, simply [open](../Integrating-with-Finch/Integrate-Finch-Connect/Redirect-to-Connect.md#open-connect) Finch Connect with the `sandbox` query parameter set to `true`.
 
 ### Scenarios
 
@@ -41,7 +41,7 @@ This scenario provides a much larger dataset to test against. Some attributes of
 
 The sandbox supports read access only for all benefits endpoints. For write endpoints, the sandbox will return a `success` status code, but no information will be updated. This allows you to get a feel for how the API works without modifying any state. Example:
 
-Request:
+**Request**
 ```shell
 curl https://api.tryfinch.com/employer/benefts \
 -H "Authorization: Bearer {token}" \
@@ -50,7 +50,7 @@ curl https://api.tryfinch.com/employer/benefts \
 -H "Content-Type: application/json" \
 -d '{"type":"401k", "description": "Sample 401k", "frequency": \ "every_paycheck", "employee_deduction": {"type": "fixed",\ "amount": 100}, "company_contribution": {"type": "fixed", \ "amount": 100}}'
 ```
-Response:
+**Response**
 ```json
 {
   "benefit_id": "12345"

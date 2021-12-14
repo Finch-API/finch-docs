@@ -20,15 +20,15 @@ Server errors indicate an error on Finch's side and return an HTTP response with
 
 ### 401 Re-authentication Errors
 
-Authentication errors indicate an error on the end user's side. See the re-authentication docs for more on common causes and troubleshooting steps. 
+Authentication errors indicate an error on the end user's side. See the [re-authentication docs](../Re-authentication.md) for more on common causes and troubleshooting steps. 
 
 ## Batch requests
 
 A number of Finch endpoints (like `/individual`, `/employment`, and `/pay-statement`) are batch endpoints.
 
 For such endpoints, Finch can return errors in two ways:
-1. Return an error per batch request item within the response body. The error will be in the same format described in the Error Types guide.
-2. Return an error at the HTTP status code level. The error will be in the same format described in the Error Types guide.
+1. Return an error per batch request item within the response body. The error will be in the same format described in the [Error Types guide](./Error-Types.md).
+2. Return an error at the HTTP status code level. The error will be in the same format described in the [Error Types guide](./Error-Types.md).
 
 <!-- theme: info -->
 > Ensure your application can handle both types of errors from a batch API call.

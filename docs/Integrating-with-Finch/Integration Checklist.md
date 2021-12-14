@@ -6,45 +6,45 @@ We recommend the following steps while planning and developing your Finch integr
 
 Finch Connect is the front-end UI that allows your users to safely and securely grant your application access to their employment systems. Following these steps will optimize your Connect integration to increase conversion, improve your users’ experiences, and avoid common configuration errors.
 
-- [ ]  Integrate Connect into your application's front end using this guide.
+- [ ]  Integrate Connect into your application's front end using [this](./Integrate-Finch-Connect/Overview.md) guide.
 
 **Designing a seamless onboarding experience**
 
-- [ ]  A well-designed user flow will carefully consider when and how to present Connect to your users. We recommend you read this guide for more tips on this topic.
-- [ ]  If you add Connect to your users' onboarding flow as we'd recommend, read this guide for recommendations on a UI flow to work around the request latencies of some systems.
-- [ ]  Displaying messaging to your customers prior to initiating Connect helps set expectations and increase conversion rates. You can read this guide for more information.
+- [ ]  A well-designed user flow will carefully consider when and how to present Connect to your users. We recommend you read [this](../Product-Guides/Finch-Connect.md#integrating-connect-into-your-product) guide for more tips on this topic.
+- [ ]  Displaying messaging to your customers prior to initiating Connect helps set expectations and increase conversion rates. You can read [this](../Product-Guides/Finch-Connect.md#how-do-i-incentivize-my-user-to-connect-their-system) guide for more information.
+- [ ]  If you add Connect to your users' onboarding flow as we'd recommend, read [this](../Product-Guides/Finch-Connect.md#connect-in-your-users-onboarding) guide for recommendations on a UI flow to work around the request latencies of some systems. 
 
 **Supporting users with custom setups**
 
-- [ ]  Some of your customers may use multiple employment systems. This will involve considerations on your end. This guide presents a few recommendations.
+- [ ]  Some of your customers may use multiple employment systems. Read our [UI recommendations](../Development-Guides/Multi-account-Flow.md#presenting-connect) on how to best present this flow for your users.
 
 ## Integrating Finch API
 
 Given the nature of the underlying systems Finch's API is built on top of, the following steps are recommended to build a resilient integration.
 
-- [ ]  Integrate Finch's API into your application's back-end using this guide.
+- [ ]  Integrate Finch's API into your application's back-end using [this](./Integrate-the-Finch-API.md) guide.
 
 **Sending API requests**
 
-- [ ]  Integrate an external rate limiter into your application that respects Finch API's limits described here.
+- [ ]  Integrate an external rate limiter into your application that respects Finch API's limits described [here](../Development-Guides/Rate-Limits.md).
 
 **Handling API responses**
 
-- [ ]  Most data points returned by the API are `null`able. Ensure your integration is resilient to this. You can read more here.
+- [ ]  Most data points returned by the API are `null`able. Ensure your integration is resilient to this. You can read more [here](../Development-Guides/Handling-API-Response.md).
 
 **Handling error responses**
 
-Your application should expect and handle errors from the Finch API. You can read more about our errors here. 
+Your application should expect and handle errors from the Finch API. You can read more about our errors [here](../Development-Guides/Errors/Error-Types.md). 
 
 There are three important errors your application should be aware of.
 
-- [ ]  Ensure there are user flows built to support `reauthentication_error`s, i.e. when your user needs to go through Finch Connect again to reconnect their employment system if their initial connection has gone stale. You can read more here.
-- [ ]  Implement the troubleshooting tips to gracefully handle `server_error`s from Finch. You can read more here.
-- [ ]  If you use our batch endpoints, ensure your application handles errors returned in the batch format. More information can be found here.
+- [ ]  Ensure there are user flows built to support `reauthentication_error`s, i.e. when your user needs to go through Finch Connect again to reconnect their employment system if their initial connection has gone stale. You can read more [here](../Development-Guides/Re-authentication.md).
+- [ ]  Implement the troubleshooting tips to gracefully handle `server_error`s from Finch. You can read more [here](../Development-Guides/Errors/Error-Handling.md#500-internal-server-errors).
+- [ ]  If you use our batch endpoints, ensure your application handles errors returned in the batch format. More information can be found [here](../Development-Guides/Errors/Error-Handling.md#batch-requests).
 
 **Supporting users with custom setups**
 
-- [ ]  Some of your customers may use multiple employment systems. This will involve application logic and database schema considerations on your end. You can read this guide for detailed guidance.
+- [ ]  Some of your customers may use multiple employment systems. This will involve [application logic](../Development-Guides/Multi-account-Flow.md#application-logic) and [database schema](../Development-Guides/Multi-account-Flow.md#flexible-database-schema) considerations on your end.
 
 ## Security
 
@@ -69,7 +69,7 @@ The following steps will help create a white-labeled experience for your users.
 
 ## Testing your Finch integration and going live
 
-Before going live, it is valuable to know the options available for you to test your Finch integration. Below are the suggested steps. More detailed information is available here.
+Before going live, it is valuable to know the options available for you to test your Finch integration. Below are the suggested steps. More detailed information is available [here](../Development-Guides/Testing.md).
 
 - [ ]  Use the Finch Sandbox mode to test your integration against fake data.
 - [ ]  Some payroll systems like Bamboo HR and Zenefits allow you to sign up for free demos. You can use these accounts to test against a real payroll system.
@@ -84,5 +84,5 @@ Once you have tested your Finch integration with test accounts, you can go live.
 
 The following steps will ensure you and your team is set up for success once your Finch integration has gone live.
 
-- [ ]  Get comfortable with Halp, our support ticket system. Finch aims to minimize errors but every now and then issues pop up due to the nature of the underlying employment systems. We currently use Slack and Halp to keep track of support tickets.
+- [ ]  We currently use Slack and Halp to keep track of support tickets. Ensure your team is on Slack and is comfortable with Halp.
 - [ ]  Learn how to use the developer dashboard to keep track of your connected customers and the health of each connection.

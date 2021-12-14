@@ -11,64 +11,149 @@
       "uri": "docs/2-Registration.md"
     },
     {
+      "type": "item",
+      "title": "Quickstart",
+      "uri": "docs/3-Quickstart.md"
+    },
+    {
       "type": "divider",
-      "title": "Getting Started"
+      "title": "Integrating with Finch"
     },
     {
       "type": "item",
-      "title": "SDKs",
-      "uri": "docs/Getting Started/2-SDKs.md"
+      "title": "How Finch works",
+      "uri": "docs/Integrating-with-Finch/How Finch Works.md"
+    },
+    {
+      "type": "group",
+      "title": "Integrate Finch Connect",
+      "items": [
+        {
+          "type": "item",
+          "title": "Overview",
+          "uri": "docs/Integrating-with-Finch/Integrate-Finch-Connect/Overview.md"
+        },
+        {
+          "type": "item",
+          "title": "Redirecting to Connect",
+          "uri": "docs/Integrating-with-Finch/Integrate-Finch-Connect/Redirect-to-Connect.md"
+        },
+        {
+          "type": "item",
+          "title": "Embedding Connect",
+          "uri": "docs/Integrating-with-Finch/Integrate-Finch-Connect/Embed-Connect.md"
+        }
+      ]
     },
     {
       "type": "item",
-      "title": "Authorization",
-      "uri": "docs/Getting Started/3-Authorization.md"
+      "title": "Integrate the Finch API",
+      "uri": "docs/Integrating-with-Finch/Integrate-the-Finch-API.md"
     },
     {
       "type": "item",
-      "title": "Reauthentication",
-      "uri": "docs/Getting Started/4-Reauthentication.md"
+      "title": "Integration checklist",
+      "uri": "docs/Integrating-with-Finch/Integration Checklist.md"
+    },
+    {
+      "type": "divider",
+      "title": "Product Guides"
     },
     {
       "type": "item",
-      "title": "Headers",
-      "uri": "docs/Getting Started/5-Headers.md"
+      "title": "Connect",
+      "uri": "docs/Product-Guides/Finch-Connect.md"
+    },
+    {
+      "type": "divider",
+      "title": "Development Guides"
     },
     {
       "type": "item",
-      "title": "Errors",
-      "uri": "docs/Getting Started/6-Errors.md"
+      "title": "Re-authentication",
+      "uri": "docs/Development-Guides/Re-authentication.md"
     },
     {
       "type": "item",
-      "title": "Versioning",
-      "uri": "docs/Getting Started/7-Versioning.md"
+      "title": "Multi-account flow",
+      "uri": "docs/Development-Guides/Multi-account-Flow.md"
     },
     {
       "type": "item",
-      "title": "Testing",
-      "uri": "docs/Getting Started/8-Testing.md"
-    },
-    {
-      "type": "item",
-      "title": "Rate Limits",
-      "uri": "docs/Getting Started/9-Rate-Limit.md"
+      "title": "Reconciling employees",
+      "uri": "docs/Development-Guides/Reconciling-Employees.md"
     },
     {
       "type": "item",
       "title": "Providers",
-      "uri": "docs/Getting Started/A-Providers.md"
+      "uri": "docs/Development-Guides/Providers.md"
+    },
+    {
+      "type": "item",
+      "title": "Redirect URIs",
+      "uri": "docs/Development-Guides/Redirect-URIs.md"
+    },
+    {
+      "type": "item",
+      "title": "Permissions",
+      "uri": "docs/Development-Guides/Permissions.md"
+    },
+    {
+      "type": "item",
+      "title": "Headers",
+      "uri": "docs/Development-Guides/Headers.md"
+    },
+    {
+      "type": "item",
+      "title": "API Versioning",
+      "uri": "docs/Development-Guides/Versioning.md"
+    },
+    {
+      "type": "item",
+      "title": "Testing",
+      "uri": "docs/Development-Guides/Testing.md"
+    },
+    {
+      "type": "item",
+      "title": "Rate Limits",
+      "uri": "docs/Development-Guides/Rate-Limits.md"
+    },
+    {
+      "type": "item",
+      "title": "Handling API Responses",
+      "uri": "docs/Development-Guides/Handling-API-Responses.md"
+    },
+    {
+      "type": "group",
+      "title": "Errors",
+      "items": [
+        {
+          "type": "item",
+          "title": "Error types",
+          "uri": "docs/Development-Guides/Errors/Error-Types.md"
+        },
+        {
+          "type": "item",
+          "title": "Error handling",
+          "uri": "docs/Development-Guides/Errors/Error-Handling.md"
+        }
+      ]
+    },
+    {
+      "type": "item",
+      "title": "Response Times",
+      "uri": "docs/Development-Guides/Response Times.md"
     },
     {
       "type": "item",
       "title": "Webhooks",
-      "uri": "docs/Getting Started/B-Webhooks.md"
+      "uri": "docs/Development-Guides/B-Webhooks.md"
     },
     {
       "type": "item",
       "title": "Custom Fields",
-      "uri": "docs/Getting Started/C-Custom-Fields.md"
-    },
+      "uri": "docs/Development-Guides/C-Custom-Fields.md"
+    }, 
     {
       "type": "divider",
       "title": "APIS"

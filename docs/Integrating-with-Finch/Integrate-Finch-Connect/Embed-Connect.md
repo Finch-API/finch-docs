@@ -25,7 +25,7 @@ Parameter | Required | Description
 ---------|----------|---------
  `clientId` | true | Your `client_id`, a unique identifier for your application.
  `products` | true | An array of permissions your application is requesting access to. See [here](../../Development-Guides/Permissions.md) for a list of valid permissions.
- `payrollProvider` | false | An optional parameter that allows you to bypass the employment system selection screen by providing a valid Provider `id`. Read here for more information.
+ `payrollProvider` | false | An optional parameter that allows you to bypass the employment system selection screen by providing a valid Provider `id`. Read [here](../../Development-Guides/Providers.md) for more information.
  `sandbox` | false | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data. Read more on testing [here](../../Development-Guides/Testing.md).
  `manual` | false | An optional value which when set to true displays both automated and Assisted Connect employment systems on the selection screen. Read more about Assisted Connect here.
 

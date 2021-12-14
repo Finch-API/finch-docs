@@ -22,7 +22,7 @@ title: Request
 -->
 ```bash
 curl https://api.tryfinch.com/employer/directory \
-  -H 'Authorization: Bearer d22a16a5-27da-4b49-955c-352229ccfa8d' \
+  -H 'Authorization: Bearer cf7ba7e9-8c5d-417d-a99f-c386cfc235cc' \
   -H 'Content-Type: application/json' \
   -H 'Finch-API-Version: 2020-09-17'
 ```

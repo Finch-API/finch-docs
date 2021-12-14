@@ -23,6 +23,11 @@ Here's an example UI.
 ## Flexible database schema
 Here is an example database schema for the application **Blue Sparrow 401k Co**. 
 
+<!--
+focus: false
+-->
+![](../../assets/images/multiSystemFlowDatabaseSchema.png)
+
 A user can grant **Blue Sparrow 401k Co** access to multiple accounts. In order to allow for multiple accounts at the database level, we recommend defining a `1:many` relationship from your `user` to `finch_account` table.
 
 ## Application logic
@@ -32,7 +37,7 @@ When pulling data for a user, you will need to take into account the user can ha
 There are two scenarios to consider when thinking about reconciling data between multiple `access_token`s— 
 
 - If there are different employees per `access_token` (for example, if a company uses multiple accounts for multiple payroll groups), you can simply concatenate the responses per `access_token`.
-- If there are the intersecting employees per `access_token` (for example, if a company is transitioning payroll systems), you may need to reconcile the responses since Finch will return a different `individual_id` for `John Doe` across the two `access_token`s as `John Doe` has different ids in the underlying systems. See this guide for reconciling employees.
+- If there are the intersecting employees per `access_token` (for example, if a company is transitioning payroll systems), you may need to reconcile the responses since Finch will return a different `individual_id` for `John Doe` across the two `access_token`s as `John Doe` has different ids in the underlying systems. See [this](./Reconciling-Employees.md) guide for reconciling employees.
 
 
 
