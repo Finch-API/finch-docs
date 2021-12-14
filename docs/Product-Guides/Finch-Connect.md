@@ -27,7 +27,7 @@ In the default flow, your user is shown an employment system selector page where
 <!--
 focus: false
 -->
-![](../../assets/images/integratingConnect1A.png)
+![](../../assets/images/integratingConnect1B.png)
 
 If you already know which system your user uses or want to build your own selector page, you can bypass the selector page by using the `payroll_provider` option while opening Connect.
 <!--
@@ -38,7 +38,7 @@ focus: false
 ### How do I incentivize my user to connect their system?
 
 To improve conversion, it is important to set user expectations before opening Connect. We recommend letting the user know they will be asked to connect their employment system and, importantly, why connecting is beneficial for them.
-![](../../assets/images/integratingConnect2B.png)
+![](../../assets/images/improvingConnectConversion.png)
 
 
 ## Connect in your user's onboarding
