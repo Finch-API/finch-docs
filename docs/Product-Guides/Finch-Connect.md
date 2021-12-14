@@ -24,6 +24,10 @@ We recommend asking your user to connect when they are onboarding onto your appl
 ### How should I display Connect?
 
 In the default flow, your user is shown an employment system selector page where they can choose which system they use. 
+<!--
+focus: false
+-->
+![](../../assets/images/integratingConnect1A.png)
 
 If you already know which system your user uses or want to build your own selector page, you can bypass the selector page by using the `payroll_provider` option while opening Connect.
 
