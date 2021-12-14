@@ -2,7 +2,7 @@
 
 Once you have your API keys, you can start interacting with Finch's API using our sandbox mode — a test environment with life-like data.
 
-This guide will help you send your first request to Finch's API while the next guides dive deeper into the concepts and help you get started with integrating Finch into your production application.    
+This guide will help you send your first request to Finch's API while the next guides dive deeper into the concepts and help you integrate Finch into your production application.    
 
 ---
 
@@ -26,24 +26,37 @@ Click on the Finch Sandbox employment system on the selector page and log in wit
 
 ### Exchange the authorization code for an access token
 
-First, construct a basic authorization header for your application, you will need this in the next request. Run the following command from your terminal. Make sure to replace `{client_id}` and `{client_secret}` with your Finch application credentials, don't include the curly braces.
+After successfully logging in, your browser will be redirected to `https://example.com` with the query parameter `code`. Copy the `code`.
+
+To exchange the `code` for a token, you will first need to construct a basic authorization header for your application to use in the next request. Run the following commands from your terminal. Don't include the angle brackets when replacing with your `client_id` and `client_secret`.
 
 ```bash
-echo "Basic `echo -n {client_id}:{client_secret} | base64`"
+export FINCH_CLIENT_ID="<your_finch_client_id>"
+export FINCH_CLIENT_SECRET="<your_finch_client_secret>"
+export FINCH_BASIC_AUTH_HEADER="Basic `echo -n $FINCH_CLIENT_ID:$FINCH_CLIENT_SECRET | base64`"
 ```
 
-After successfully logging in, your browser will be redirected to `[https://example.com](https://example.com)` with the query parameter `code`. Copy the `code` and the basic auth header from the previous step, and run the following.
+Run the following `curl` command to retrieve your `access_token`. Don't forget to replace the `code` in the command with the one you just copied. Don't include the angle brackets when replacing with your `code` in the command.
 
+<!--
+type: tab
+title: Request
+-->
 ```bash
 curl https://api.tryfinch.com/auth/token \
   -X POST \
-  -H 'Authorization: {basic_auth_header}' \
-  -d 'code={code}' \
-  -d 'redirect_uri=https://example.com'
+  -H "Authorization: $FINCH_BASIC_AUTH_HEADER" \
+  -d "code=<your_authorization_code>" \
+  -d "redirect_uri=https://example.com"
 ```
+<!--
+type: tab
+title: Response
+-->
 ```json
 { "access_token": "<your_access_token>" }
 ```
+<!-- type: tab-end -->
 
 The authorization `code` represents a user consenting your application access to their system. You can now exchange it for an `access_token` which represents your application's access to your user's system. 
 
@@ -51,13 +64,20 @@ The authorization `code` represents a user consenting your application access to
 
 Now that you have an `access_token`, you can send API requests to Finch. Run the following command to retrieve the `largeco`'s employee directory!
 
-
+<!--
+type: tab
+title: Request
+-->
 ```bash
 curl https://api.tryfinch.com/employer/directory \
-  -H 'Authorization: Bearer {access_token}' \
+  -H 'Authorization: Bearer <your_access_token>' \
   -H 'Content-Type: application/json' \
   -H 'Finch-API-Version: 2020-09-17'
 ```
+<!--
+type: tab
+title: Response
+-->
 ```json
 {
   "paging": {
@@ -92,6 +112,7 @@ curl https://api.tryfinch.com/employer/directory \
   ]
 }
 ```
+<!-- type: tab-end -->
 ---  
 
 ### Next steps
