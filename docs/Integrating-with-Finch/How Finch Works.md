@@ -2,9 +2,6 @@
 
 The Finch flow begins when your user (a business owner, HR or payroll administrator, etc) wants to connect their employment system to your application.
 
-<!--
-focus: false
--->
 ![](../../assets/images/howFinchWorks4.png)
 
 1. Your application front-end redirects your user to Connect, Finch's OAuth 2.0 based authorization flow, which guides your user through granting you access to their employment system.
