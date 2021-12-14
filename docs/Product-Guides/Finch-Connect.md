@@ -2,6 +2,9 @@
 
 Finch Connect is a front-end UI that allows your users to safely and securely grant your application access to their employment systems. Connect can be displayed in any part of your application and handles credential validation, multi-factor authentication, and error handling for each system we support.
 
+<!--
+focus: false
+-->
 ![](../../assets/images/finchConnectIntro.png)
 
 ---
