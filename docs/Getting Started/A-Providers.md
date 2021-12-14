@@ -44,6 +44,7 @@ Dominion Payroll | `dominion_payroll`
 Doyle | `doyle_hcm`
 Employdrive | `employdrive`
 EmPower HR | `empower_hr`
+Excel Resources | `excel_resources`
 Flock | `flock`
 Goco | `goco`
 Gusto | `gusto`
