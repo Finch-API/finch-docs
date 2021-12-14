@@ -23,11 +23,11 @@ title: Parameters
 Parameter | Required | Description
 ---------|----------|---------
  `client_id` | true | Your `client_id`, a unique identifier for your application.
- `redirect_uri` | true | The URI your user is redirected to after successfully granting your application access to their system. This value must match one of your application's configured redirect URIs. Read more here.
- `products` | true | A space-separated list of permissions your application is requesting access to. See here for a list of valid permissions.
+ `redirect_uri` | true | The URI your user is redirected to after successfully granting your application access to their system. This value must match one of your application's configured redirect URIs. Read more [here](../../Development-Guides/Redirect-URIs.md).
+ `products` | true | A space-separated list of permissions your application is requesting access to. See [here](../../Development-Guides/Permissions.md) for a list of valid permissions.
  `state` | false | An optional value included as a query parameter in the `redirect_uri` back to your application. This value is often used to identify a user and/or prevent cross-site request forgery.
  `payroll_provider` | false | An optional parameter that allows you to bypass the employment system selection screen by providing a valid Provider `id`. Read here for more information.
- `sandbox` | false | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data. Read more on testing here.
+ `sandbox` | false | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data. Read more on testing [here](../../Development-Guides/Testing.md).
  `manual` | false | An optional value which when set to true displays both automated and Assisted Connect employment systems on the selection screen. Read more about Assisted Connect here.
 
 <!--
@@ -36,9 +36,9 @@ title: Example
 -->
 ```curl
 https://connect.tryfinch.com/authorize?
-&client_id={client_id}
+&client_id=fdc8f543-bfb2-4463-883b-fa234106ca9d
 &products=company directory
-&redirect_uri=https://tryfinch.com
+&redirect_uri=https://example.com
 ```
 <!-- type: tab-end -->
 
@@ -66,16 +66,13 @@ title: Example
 -->
 ```curl
 HTTP/1.1 302 Found
-Location: https://tryfinch.com?
+Location: https://example.com?
 code=90abecb6-e7ab-4b85-864a-e1c8bf67f2ad
 ```
 <!-- type: tab-end -->
 
 
 ## Exchange the code for an access token
-<!-- theme: info -->
-> An authorization `code` is valid for only 10 minutes. Therefore, the exchange must occur within 10 minutes of receiving the `code` via the redirect.
-
 To interact with the Finch API, you will need to exchange your short-lived authorization `code` for a long-lived `access_token`. 
 
 
@@ -90,7 +87,7 @@ title: Headers
 -->
 Header | Description
 -------|--------------
-`Authorization` | [HTTP Basic Auth header](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side) containing the `client_id` and `client_secret`. The header is formed by concatenating the word “Basic”, followed by a space, and a base64 encoded string of the `client_id`, a colon `:`, and the `client_secret`.
+`Authorization` | [HTTP Basic Auth header](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side) containing the `client_id` and `client_secret`. The header is formed by concatenating the word “Basic”, followed by a space, and the base64 encoded string of the `client_id`, a colon `:`, and the `client_secret`. For example, `Basic dXNlcm5hbWU6cGFzc3dvcmQ=`.
 `Content-Type` | Must be set to `application/x-www-form-urlencoded`, matching the format of the request body.
 
 <!--
@@ -109,9 +106,10 @@ title: Example
 ```shell
 curl https://api.tryfinch.com/auth/token \
   -X POST \
-  -H 'Authorization: Basic base64({client_id}:{client_secret})' \
+  -H 'Authorization: Basic ZmRjOGY1NDMtYmZiMi00NDYzLTg4M2ItZmEyMzQxMDZjYTlkOnNlY3JldA==' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
   -d 'code=90abecb6-e7ab-4b85-864a-e1c8bf67f2ad' \
-  -d 'redirect_uri=https://tryfinch.com'
+  -d 'redirect_uri=https://example.com'
 ```
 <!-- type: tab-end -->
 

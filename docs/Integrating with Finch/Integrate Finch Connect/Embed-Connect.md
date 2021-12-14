@@ -1,6 +1,6 @@
 # Your application embeds Connect
 
-In this method of integration, your application embeds Connect into your application using a Finch SDK to your user remains on your application. The authorization flow will consist of four steps—
+In this method of integration, your can embed Connect into your application using a Finch SDK so your user remains on your application. The authorization flow will consist of four steps—
 1. **Open Finch Connect—** Your application uses a Finch SDK to launch Connect and initiate the authorization flow for your user.
 2. **Obtain consent—** Connect prompts your user to log in to their employment system and grant your application access to the permissions you are requesting for. 
 3. **Retrieve the authorization code—** If the user successfully connects and grants your application access to their system, Connect will call the registered `onSuccess` handler with a short-lived authorization `code`.
@@ -13,7 +13,7 @@ In this method of integration, your application embeds Connect into your applica
 
 ## Open Connect
 
-To open Connect, you will need to instantiate the SDK with the `useFinchConnect` hook and use the returned `open` method to display the view for your user.
+To open Connect, you will need to instantiate the SDK with the `useFinchConnect` hook and invoke the returned `open` method to display the view for your user.
 
 We recommend registering the `open` method with an `onClick` handler of an HTML button on your application.
 
@@ -24,9 +24,9 @@ title: Parameters
 Parameter | Required | Description
 ---------|----------|---------
  `clientId` | true | Your `client_id`, a unique identifier for your application.
- `products` | true | An array of permissions your application is requesting access to. See here for a list of valid permissions.
+ `products` | true | An array of permissions your application is requesting access to. See [here](../../Development-Guides/Permissions.md) for a list of valid permissions.
  `payrollProvider` | false | An optional parameter that allows you to bypass the employment system selection screen by providing a valid Provider `id`. Read here for more information.
- `sandbox` | false | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data. Read more on testing here.
+ `sandbox` | false | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data. Read more on testing [here](../../Development-Guides/Testing.md).
  `manual` | false | An optional value which when set to true displays both automated and Assisted Connect employment systems on the selection screen. Read more about Assisted Connect here.
 
 <!--
@@ -69,15 +69,12 @@ Connect displays the permissions your application is requesting access to. If yo
 ## Retrieve the authorization code
 Once the user has granted your application to access their employment system, the `onSuccess` method is invoked with an authorization `code`.
 
-Parameter | Required | Description
----------|----------|---------
- `code` | true | An authorization code that will be used to obtain an `access_token` in the following step. The authorization `code` expires in 10 minutes.
+Parameter | Description
+---------|---------
+ `code` | An authorization code that will be used to obtain an `access_token` in the following step. The authorization `code` expires in 10 minutes.
 
 
 ## Exchange the code for an access token
-<!-- theme: info -->
-> An authorization `code` is valid for only 10 minutes. Therefore, the exchange must occur within 10 minutes of receiving the `code` via the redirect.
-
 To interact with the Finch API, you will need to exchange your short-lived authorization `code` for a long-lived `access_token`. 
 
 
@@ -92,7 +89,7 @@ title: Headers
 -->
 Header | Description
 -------|--------------
-`Authorization` | [HTTP Basic Auth header](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side) containing the `client_id` and `client_secret`. The header is formed by concatenating the word “Basic”, followed by a space, and a base64 encoded string of the `client_id`, a colon `:`, and the `client_secret`.
+`Authorization` | [HTTP Basic Auth header](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side) containing the `client_id` and `client_secret`. The header is formed by concatenating the word “Basic”, followed by a space, and the base64 encoded string of the `client_id`, a colon `:`, and the `client_secret`. For example, `Basic dXNlcm5hbWU6cGFzc3dvcmQ=`.
 `Content-Type` | Must be set to `application/x-www-form-urlencoded`, matching the format of the request body.
 
 <!--
@@ -101,8 +98,7 @@ title: Body
 -->
 Parameter | Required | Description
 ----------|----------|-------------
-`code` | true | The authorization code received from the query parameter of the `redirect_uri`.
-`redirect_uri` | true | The `redirect_uri` the `code` was parsed from.
+`code` | true | The authorization code received by the `onSuccess` handler.
 
 <!--
 type: tab
@@ -111,9 +107,9 @@ title: Example
 ```shell
 curl https://api.tryfinch.com/auth/token \
   -X POST \
-  -H 'Authorization: Basic base64({client_id}:{client_secret})' \
-  -d 'code=90abecb6-e7ab-4b85-864a-e1c8bf67f2ad' \
-  -d 'redirect_uri=https://tryfinch.com'
+  -H 'Authorization: <your_basic_auth_header>' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -d 'code=<your_authorization_code>'
 ```
 <!-- type: tab-end -->
 
@@ -135,7 +131,7 @@ title: Example
 -->
 ```json
 {
-  "access_token": "cf7ba7e9-8c5d-417d-a99f-c386cfc235cc",
+  "access_token": "<your_access_token>",
 }
 ```
 <!-- type: tab-end -->
