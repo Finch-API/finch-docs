@@ -1,4 +1,4 @@
-# Webhooks [BETA]
+# Webhooks
 
 After connecting to your users' employment systems, you'll want to stay up to date with changes with the systems. Finch provides webhooks to push alerts to your infrastructure instead of having you poll for changes.
 
