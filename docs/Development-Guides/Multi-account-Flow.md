@@ -19,6 +19,10 @@ Each Finch `access_token` is associated with a single account on one employment 
 To have your user connect multiple accounts to your application, your onboarding flow must allow them to go through Finch Connect multiple times in order to create a Finch `access_token` per account. You will have to save all of the tokens against the user in your database.
 
 Here's an example UI.
+<!--
+focus: false
+-->
+![](../../assets/images/multiSystemFlowUI.png)
 
 ## Flexible database schema
 Here is an example database schema for the application **Blue Sparrow 401k Co**. 
@@ -26,7 +30,7 @@ Here is an example database schema for the application **Blue Sparrow 401k Co**.
 <!--
 focus: false
 -->
-![](../../assets/images/multiSystemFlowDatabaseSchema.png)
+![](../../assets/images/multiSystemFlowDatabaseSchema1.png)
 
 A user can grant **Blue Sparrow 401k Co** access to multiple accounts. In order to allow for multiple accounts at the database level, we recommend defining a `1:many` relationship from your `user` to `finch_account` table.
 
