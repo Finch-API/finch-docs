@@ -22,7 +22,7 @@ Here's an example UI.
 <!--
 focus: false
 -->
-![](../../assets/images/multiSystemFlowUI.png)
+![](../../assets/images/multiSystemFlowUI2.png)
 
 ## Flexible database schema
 Here is an example database schema for the application **Blue Sparrow 401k Co**. 
