@@ -37,7 +37,7 @@ If you already know which system your user uses or want to build your own select
 <!--
 focus: false
 -->
-![](../../assets/images/integratingConnect2B.png)
+![](../../assets/images/integratingConnect2B2X.png)
 
 ### How do I incentivize my user to connect their system?
 
