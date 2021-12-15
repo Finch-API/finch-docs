@@ -4,6 +4,9 @@ API response times depend on a variety of factors including but not limited to t
 
 ## Average response times
 
+<!--
+focus: false
+-->
 ![](../../assets/images/responseTimes.png)
 
 <!-- theme: info -->
