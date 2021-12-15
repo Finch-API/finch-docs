@@ -158,11 +158,6 @@
       "type": "item",
       "title": "Webhooks",
       "uri": "docs/Development-Guides/B-Webhooks.md"
-    },
-    {
-      "type": "item",
-      "title": "Custom Fields",
-      "uri": "docs/Development-Guides/C-Custom-Fields.md"
     }, 
     {
       "type": "divider",
