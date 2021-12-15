@@ -23,13 +23,17 @@ We recommend asking your user to connect when they are onboarding onto your appl
 
 ### How should I display Connect?
 
+#### Default flow
 In the default flow, your user is shown an employment system selector page where they can choose which system they use. 
+
 <!--
 focus: false
 -->
 ![](../../assets/images/integratingConnect1B.png)
 
+#### Selector bypass flow
 If you already know which system your user uses or want to build your own selector page, you can bypass the selector page by using the `payroll_provider` option while opening Connect.
+
 <!--
 focus: false
 -->
@@ -38,6 +42,10 @@ focus: false
 ### How do I incentivize my user to connect their system?
 
 To improve conversion, it is important to set user expectations before opening Connect. We recommend letting the user know they will be asked to connect their employment system and, importantly, why connecting is beneficial for them.
+
+<!--
+focus: false
+-->
 ![](../../assets/images/improvingConnectConversion.png)
 
 
