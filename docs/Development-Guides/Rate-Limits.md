@@ -8,7 +8,7 @@ Finch will return a rate limit error with the HTTP status code `429` when the re
 
 Applications are rate limited on a per `product` basis with the following limits.
 
-Product | Max requests per minute
+Product | Max requests initiated per minute
 -------|-------------
 `company` | 20
 `directory` | 20
@@ -21,7 +21,7 @@ Product | Max requests per minute
 
 Access tokens are rate limited on a per `product` basis with the following limits.
 
-Product | Max requests per minute
+Product | Max requests initiated per minute
 -------|-------------
 `company` | 4
 `directory` | 4
