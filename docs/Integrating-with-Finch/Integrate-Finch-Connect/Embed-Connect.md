@@ -13,7 +13,7 @@ In this method of integration, your can embed Connect into your application usin
 
 ## Open Connect
 
-To open Connect, you will need to instantiate the SDK with the `useFinchConnect` hook and invoke the returned `open` method to display the view for your user.
+To open Connect, you will need to instantiate the [SDK](https://github.com/Finch-API/react-finch-connect) with the `useFinchConnect` hook and invoke the returned `open` method to display the view for your user.
 
 We recommend registering the `open` method with an `onClick` handler of an HTML button on your application.
 
