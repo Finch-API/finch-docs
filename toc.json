@@ -66,6 +66,11 @@
     },
     {
       "type": "item",
+      "title": "Assisted Connect Flow",
+      "uri": "docs/Product-Guides/Assisted-Connect-Flow.md"
+    },
+    {
+      "type": "item",
       "title": "Benefits API",
       "uri": "docs/Product-Guides/Benefits-API.md"
     },
