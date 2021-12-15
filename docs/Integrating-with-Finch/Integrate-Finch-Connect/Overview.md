@@ -10,7 +10,7 @@ The authorization flow on Connect consists of four steps—
 4. **Exchange the code for an access token—** Before sending API requests to Finch, your application will exchange the short-lived `code` for a long-lived `access_token` that represents your application's access to your user's employment system.
 **** 
 
-## Adapter Connect to your front-end
+## Adapting Connect to your front-end
 
 There are two ways to integrate Connect into your application's UI. 
 
