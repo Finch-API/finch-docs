@@ -8,6 +8,7 @@ The default redirect URI is **`https://tryfinch.com`**. For a custom redirect U
 > Users of the Finch React SDK don't need to set up redirect URI handling.
 
 The redirect URIs must match one of the following formats—
+
 Protocol | Format | Examples
 ---------|----------|---------
  HTTP | A localhost URI with protocol `http://` | `http://localhost:8000`
