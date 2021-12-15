@@ -20,13 +20,17 @@ https://connect.tryfinch.com/authorize?
 &sandbox=true
 ```
 
+Note: In production, your application will either [redirect](./Integrating-with-Finch/Integrate-Finch-Connect/Redirect-to-Connect.md) your user to or [embed](./Integrating-with-Finch/Integrate-Finch-Connect/Embed-Connect.md) Connect.
+
 ### Log in to the Finch Sandbox account
 
-Click on the Finch Sandbox employment system on the selector page and log in with the username `largeco` and password `letmein`.  
+Click on the Finch Sandbox employment system on the selector page and log in with the username `largeco` and password `letmein`. 
+
+Note: In production, this is the final interaction your user has with Finch. All the following steps occur on your application's front and back-end.
 
 ### Exchange the authorization code for an access token
 
-After successfully logging in, your browser will be redirected to `https://example.com` with the query parameter `code`. Copy the `code`.
+After successfully logging in, your browser will be redirected to `https://example.com` with the query parameter `code`. Copy the `code` (in production, your application will copy the `code` and perform the remaining steps programmatically).
 
 To exchange the `code` for a token, you will first need to construct a basic authorization header for your application to use in the next request. Run the following commands from your terminal. Don't include the angle brackets when replacing with your `client_id` and `client_secret`.
 

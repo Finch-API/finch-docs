@@ -49,7 +49,7 @@ Connect displays the permissions your application is requesting access to. If yo
 
 Connect sends the end user’s approval or denial back to your application’s server via the specified redirect URI.
 
-If the user grants your application access and successfully connects their account, they are redirected to the specified `redirect_uri` with the query parameters below.
+If the user grants your application access and successfully connects their account, they are redirected to the specified `redirect_uri` with the query parameters below. You will have to ensure the listener at the `redirect_uri`, which can be either on the front or back-end, can parse the `code` out of the uri. 
 
 <!--
 type: tab
