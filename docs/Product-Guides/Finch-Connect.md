@@ -51,9 +51,9 @@ focus: false
 
 ## Connect in your user's onboarding
 
-If you are integrating Finch into your onboarding flow, we recommend taking the request latencies of the underlying employment systems into consideration while designing the onboarding flow. You can read more about latencies here.
+If you are integrating Finch into your onboarding flow, we recommend taking the request latencies of the underlying employment systems into consideration while designing the onboarding flow. You can read more about latencies [here](../Development-Guides/Response-Times.md).
 
 Based on the data points your application needs during onboarding, we recommend the following flows—
 
-1. For `/company` and/or `/directory` data points, we recommend designing a synchronous flow where your user goes through Connect, your application sends API requests to Finch, waits for the responses, and then renders the UI.
-2. For data from other endpoints, we recommend _simulating_ a synchronous flow where your user goes through Connect, your application kicks off API requests in the background, your user continues with the rest of the onboarding flow, and then finally use the data when all API requests have resolved. This will allow you to build a single UI/UX for organizations of all sizes.
+1. For `/company` and/or `/directory` data points, you can design a synchronous flow where your user goes through Connect, your application sends API requests to Finch, waits for the responses, and then renders the UI.
+2. For data from other endpoints, we recomment _simulating_ a sychronous flow. Here, your user goes through Connect and your application kicks off API requests in the background. While the requests are being resolved, your user goes through the rest of the onboarding flow. Finally, once the API requests are resolved, your application renders the appropriate UI, creating a sense of immediacy. 
