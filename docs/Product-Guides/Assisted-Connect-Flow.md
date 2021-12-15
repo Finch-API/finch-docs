@@ -11,10 +11,7 @@ Contact our team at `developers@tryfinch.com` to get started or for more questio
 As with our automated integrations, your user will need to go through [Connect](./Product-Guides.md). However instead of providing their API credentials, they will need to follow a set of instructions, displayed on Connect, to manually connect your application to their employment system. 
 
 ### For you
-Unlike our automated integrations, you will not be able to make API calls to pull data and push changes to your users' systems immediately. Instead, you will have to wait until your user follows the instructions to connect your application to their employment system.
-
-Once your user has connected their system, you will be able to retrieve their data *after* a predetermined number of days. The data will then be periodically refreshed.
-
+Unlike our automated integrations, you will not be able to make API calls to pull data and push changes to your users' systems immediately. Instead, you will have to wait until your user manually connects their employment system to your application followed by a predetermined number of days for the Finch team to pull in the data. After the initial pull, the data will be periodically refreshed.
 
 Contact the Finch team at `developers@tryfinch.com` to learn more about the timelines you can expect!
 
