@@ -14,5 +14,5 @@ The authorization flow on Connect consists of four steps—
 
 There are two ways to integrate Connect into your application's UI. 
 
-1. Your application can redirect your user's browser to Connect hosted by Finch on `https://connect.tryfinch.com`. To integrate with Connect like this, read more [here](./Embed-Connect.md).
-2. Your application can open Connect in an embedded iframe using a Finch SDK. Your user will remain on your application's domain the entire time. To integrate with Connect like this, read more [here](./Redirect-to-Connect.md).
+1. Your application can redirect your user's browser to Connect hosted by Finch on `https://connect.tryfinch.com`. To integrate with Connect like this, read more [here](./Redirect-to-Connect.md).
+2. Your application can open Connect in an embedded iframe using a Finch SDK. Your user will remain on your application's domain the entire time. To integrate with Connect like this, read more [here](./Embed-Connect.md).
