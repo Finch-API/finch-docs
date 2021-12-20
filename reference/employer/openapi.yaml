@@ -939,6 +939,9 @@ paths:
                   client_id:
                     type: string
                     description: The client id of the application associated with the `access_token`.
+                  company_id:
+                    type: string
+                    description: The Finch uuid of the company associated with the `access_token`.
                   products:
                     type: array
                     description: An array of the authorized products associated with the `access_token`.
