@@ -740,7 +740,7 @@ paths:
                                     type: string
                                     description: The type of the payment associated with the pay statement.
                                     enum:
-                                      - regular
+                                      - regular_payroll
                                       - off_cycle_payroll
                                       - one_time_payment
                                     nullable: true
