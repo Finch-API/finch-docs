@@ -98,6 +98,7 @@ Sage Payroll | `sage_payroll`
 Sapling | `sapling`
 Savant HCM Evolution | `savant_hcm_evolution`
 Sequoia One | `sequoia_one`
+Sheakley | `sheakley`
 Square Payroll | `square_payroll`
 SAP SuccessFactors | `successfactors`
 SuitePeople (Oracle NetSuite) | `suite_people`
