@@ -87,6 +87,7 @@ Platinum Group | `platinum_group`
 PrimePay | `primepay`
 PrismHR | `prism_hr`
 Proliant | `proliant`
+PropelHR | `propel_hr`
 Proxus HR isolved | `proxus_hr`
 Quickbooks Payroll | `quickbooks`
 Remote | `remote`
