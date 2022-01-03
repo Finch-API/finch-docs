@@ -8,7 +8,7 @@ A company can have multiple accounts on the same employment system or accounts a
 4. **Foreign workers** — A company has foreign contractors or employees and utilizes a separate payroll or HR system account to manage those individuals. 
 
 <!-- theme: warning -->
-> Each Finch `access_token` is associated with a single account.
+> Each Finch `access_token` is associated with a single account. To identify the account, send an API request to the [`/introspect` endpoint](https://developer.tryfinch.com/docs/reference/b3A6MTc3MTk2Njk-introspect).
 
 Each Finch `access_token` is associated with a single account on one employment system. Therefore, to support multi-account customers, your application will need to support multiple `access_token`s per customer. While planning your Finch integration, you will need to consider—
 1. how to present Connect to your customer so they connect all of their accounts,
