@@ -16,9 +16,25 @@ Each Finch `access_token` is associated with a single account on one employment 
 3. adding application-level logic to support sending Finch API requests for multiple `access_token`s per customer and reconciling the data accordingly.
 
 ## Presenting Connect
-To have your user connect multiple accounts to your application, your onboarding flow must allow them to go through Finch Connect multiple times in order to create a Finch `access_token` per account. You will have to save all of the tokens against the user in your database.
+To have your user connect multiple accounts to your application, your onboarding flow must allow them to go through [Connect](../Product-Guides/Finch-Connect.md) multiple times in order to create a Finch `access_token` per account. You will have to save all of the tokens against the user in your database.
 
-Here's an example UI.
+There are two points in time where you can ask your user to connect *all* of their accounts — during and after onboarding.
+
+**During onboarding**
+
+After your user has gone through Connect to connect an account (see [How should I display Connect](../Product-Guides/Finch-Connect.md#default-flow)), your application can immediately prompt them to connect their other accounts. Below is an example UI. Your application would [launch Connect](../Integrating-with-Finch/Integrate-Finch-Connect/Overview.md) again when your user clicks on the call-to-action button.
+
+<!--
+focus: false
+-->
+![](../../assets/images/multiSystemFlowUIDuringOnboarding.png)
+
+
+
+**After onboarding**
+
+You can present your user with a page showing all of their connections. Here, you can provide the option to connect other accounts. Below an example UI. Your application would [launch Connect](../Integrating-with-Finch/Integrate-Finch-Connect/Overview.md) again when your user clicks on the call-to-action button.
+
 <!--
 focus: false
 -->
