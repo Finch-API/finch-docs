@@ -10,6 +10,7 @@ Abacus HCM isolved | `abacus_isolved`
 Absolute Payroll isolved | `absolute_isolved`
 Accupay isolved | `accupay_isolved`
 Ace Workforce Technologies isolved | `ace_isolved`
+Adams Keegan | `adams_keegan`
 ADP TotalSource | `adp_totalsource`
 ADP Workforce Now | `adp_workforce_now`
 Advantage Payroll Services | `advantage_payroll_services`
@@ -40,6 +41,7 @@ Commonwealth Payroll & HR | `commonwealth_payroll_hr`
 CPM Employer Services isolved | `cpm_isolved`
 Crescent Payroll Solutions | `crescent_payroll_solutions`
 Deel | `deel`
+Deluxe | `deluxe`
 Dominion Payroll | `dominion_payroll`
 Doyle | `doyle_hcm`
 Employdrive | `employdrive`
