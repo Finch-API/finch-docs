@@ -121,6 +121,7 @@ WebHR | `web_hr`
 whirks | `whirks`
 Workday | `workday`
 Worklio | `worklio`
+Workzoom | `workzoom`
 wurk | `wurk`
 Xero | `xero`
 Zenefits | `zenefits`
