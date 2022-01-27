@@ -26,6 +26,7 @@ Balance Point | `balance_point`
 Bamboo HR | `bamboo_hr`
 Baron Payroll isolved | `baron_isolved`
 BBCS Payroll | `bbcs`
+BBSI | `bbsi`
 Big Fish Employer Services | `big_fish_employer_services`
 Bene-Care | `benecare`
 Bizchecks Payroll | `bizchecks_payroll`
@@ -105,6 +106,7 @@ Sheakley | `sheakley`
 Square Payroll | `square_payroll`
 SAP SuccessFactors | `successfactors`
 SuitePeople (Oracle NetSuite) | `suite_people`
+SurePayroll | `surepayroll`
 Strategic Payroll Solutions isolved | `strategic_payroll_solutions_isolved`
 SyncHR | `sync_hr`
 The Payroll Company | `the_payroll_company`
@@ -113,6 +115,7 @@ TriNet | `trinet`
 UKG Ready (Kronos) | `ukg_ready`
 UltiPro (UKG Pro) | `ulti_pro`
 VensureHR | `vensure_hr`
+Vfficient | `vfficient`
 Viewpoint HR Management Spectrum | `viewpoint_hr_management_spectrum`
 Viewpoint HR Management Vista | `viewpoint_hr_management_vista`
 Wagepoint | `wagepoint`
