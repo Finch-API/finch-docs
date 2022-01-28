@@ -1965,9 +1965,10 @@ components:
       properties:
         unit:
           type: string
-          description: "The income unit of payment. Options: `yearly`, `monthly`, `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`."
+          description: "The income unit of payment. Options: `yearly`, `quarterly`, `monthly`, `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`."
           enum:
             - yearly
+            - quarterly
             - monthly
             - semi_monthly
             - bi_weekly
