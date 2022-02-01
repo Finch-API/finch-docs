@@ -152,7 +152,29 @@
     {
       "type": "item",
       "title": "Response Times",
-      "uri": "docs/Development-Guides/Response Times.md"
+      "uri": "docs/Development-Guides/Response-Times.md"
+    },
+    {
+      "type": "group",
+      "title": "Compatibility",
+      "items": [
+        {
+          "type": "item",
+          "title": "Overview",
+          "uri": "docs/Development-Guides/Compatibility/Overview.md"
+        },
+        {
+          "type": "group",
+          "title": "Organization",
+          "items": [
+            {
+              "type": "item",
+              "title": "Company",
+              "uri": "docs/Development-Guides/Compatibility/Organization/Company.md"
+            }
+          ]
+        }
+      ]
     },
     {
       "type": "item",
