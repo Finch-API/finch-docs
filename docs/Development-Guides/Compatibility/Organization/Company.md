@@ -298,6 +298,70 @@ Field | Supported | Notes
  `accounts[].account_type` | ✓ | 
  `accounts[].account_number` | ✓ | 
 
+ <!--
+type: tab
+title: Paycor
+-->
+Field | Supported | Notes
+---------|----------|---------
+ `id` | ✓ | 
+ `legal_name` | ✓ | 
+ `entity` | ✓ | 
+ `entity.type` | ✓ | 
+ `entity.subtype` | ✓ | 
+ `primary_email` | ✓ | 
+ `primary_phone_number` | ✓ | 
+ `ein` | ✓ | 
+ `departments` | ✓ | 
+ `departments[].name` | ✓ | 
+ `departments[].parent` | ✓ | 
+ `departments[].parent.name` | ✓ | 
+ `locations` | ✓ | 
+ `locations[].line1` | ✓ | 
+ `locations[].line2` | ✓ | 
+ `locations[].city` | ✓ | 
+ `locations[].state` | ✓ | 
+ `locations[].country` | ✓ | 
+ `locations[].postal_code` | ✓ | 
+ `accounts` | ✓ | 
+ `accounts[].routing_number` | ✓ | 
+ `accounts[].account_name` | ✓ | 
+ `accounts[].institution_name` | n/a | 
+ `accounts[].account_type` | ✓ | 
+ `accounts[].account_number` | ✓ | 
+
+ <!--
+type: tab
+title: Paycom
+-->
+Field | Supported | Notes
+---------|----------|---------
+ `id` | ✓ | 
+ `legal_name` | ✓ | 
+ `entity` | ✓ | 
+ `entity.type` | ✓ | 
+ `entity.subtype` | ✓ | 
+ `primary_email` | ✓ | 
+ `primary_phone_number` | ✓ | 
+ `ein` | ✓ | 
+ `departments` | ✓ | 
+ `departments[].name` | ✓ | 
+ `departments[].parent` | ✓ | 
+ `departments[].parent.name` | ✓ | 
+ `locations` | ✓ | 
+ `locations[].line1` | ✓ | 
+ `locations[].line2` | ✓ | 
+ `locations[].city` | ✓ | 
+ `locations[].state` | ✓ | 
+ `locations[].country` | ✓ | 
+ `locations[].postal_code` | ✓ | 
+ `accounts` | ✓ | 
+ `accounts[].routing_number` | ✓ | 
+ `accounts[].account_name` | ✓ | 
+ `accounts[].institution_name` | n/a | 
+ `accounts[].account_type` | ✓ | 
+ `accounts[].account_number` | ✓ | 
+
 <!-- type: tab-end -->
 
 
