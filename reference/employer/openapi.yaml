@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: API Reference
-  version: "2020-09-17"
+  version: '2020-09-17'
   contact: {}
   description: |-
     Finch's Employer API requires an access token issued by Finch.
@@ -25,8 +25,8 @@ info:
 
     - `deduction` (deprecated): Previously used to manage deductions within a company. Please use `benefits`.
 servers:
-  - url: "https://api.tryfinch.com"
-    description: ""
+  - url: 'https://api.tryfinch.com'
+    description: ''
 tags:
   - name: 1. Organization
   - name: 2. Payroll
@@ -39,7 +39,7 @@ paths:
     get:
       description: Read basic company data
       responses:
-        "200":
+        '200':
           description: Basic company data
           content:
             application/json:
@@ -47,13 +47,13 @@ paths:
                 Success:
                   value:
                     id: 514aa2b7-898f-4ce7-bc05-c2fe993713e8
-                    legal_name: "Acme, Inc."
+                    legal_name: 'Acme, Inc.'
                     entity:
                       type: corporation
                       subtype: s_corporation
                     ein: 12-3456789
                     primary_email: founders@acme.com
-                    primary_phone_number: "1234567890"
+                    primary_phone_number: '1234567890'
                     departments:
                       - name: Engineering
                         parent: null
@@ -65,14 +65,14 @@ paths:
                         line2: Apt A
                         city: Schenectady
                         state: NY
-                        postal_code: "94301"
+                        postal_code: '94301'
                         country: US
                     accounts:
-                      - routing_number: "123456789"
+                      - routing_number: '123456789'
                         account_name: CHECKING ACCOUNT
-                        institution_name: "BANK OF AMERICA, N.A."
+                        institution_name: 'BANK OF AMERICA, N.A.'
                         account_type: checking
-                        account_number: "98765432"
+                        account_number: '98765432'
               schema:
                 type: object
                 properties:
@@ -110,8 +110,8 @@ paths:
                     nullable: true
                   primary_phone_number:
                     type: string
-                    description: "The phone number of the main administrator on the account. Format: `XXXXXXXXXX`"
-                    pattern: "[0-9]{10}"
+                    description: 'The phone number of the main administrator on the account. Format: `XXXXXXXXXX`'
+                    pattern: '[0-9]{10}'
                     nullable: true
                   departments:
                     type: array
@@ -126,7 +126,7 @@ paths:
                           description: The department name.
                         parent:
                           type: object
-                          description: "The parent department, if present."
+                          description: 'The parent department, if present.'
                           nullable: true
                           properties:
                             name:
@@ -140,7 +140,7 @@ paths:
                     type: array
                     nullable: true
                     items:
-                      $ref: "#/components/schemas/Location"
+                      $ref: '#/components/schemas/Location'
                   accounts:
                     type: array
                     description: An array of bank account objects associated with the payroll/HRIS system.
@@ -176,7 +176,7 @@ paths:
       tags:
         - 1. Organization
       parameters:
-        - $ref: "#/components/parameters/API-Version"
+        - $ref: '#/components/parameters/API-Version'
   /employer/directory:
     get:
       description: Read company directory and organization structure
@@ -193,9 +193,9 @@ paths:
           required: false
           schema:
             type: integer
-        - $ref: "#/components/parameters/API-Version"
+        - $ref: '#/components/parameters/API-Version'
       responses:
-        "200":
+        '200':
           description: Company directory and organization structure
           content:
             application/json:
@@ -219,7 +219,7 @@ paths:
                 type: object
                 properties:
                   paging:
-                    $ref: "#/components/schemas/Paging"
+                    $ref: '#/components/schemas/Paging'
                   individuals:
                     type: array
                     description: The array of employees.
@@ -249,7 +249,7 @@ paths:
                             id:
                               type: string
                               description: A stable Finch `id` (UUID v4) for an individual in the company.
-                              pattern: "[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}"
+                              pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
                         department:
                           type: object
                           description: The department object.
@@ -260,7 +260,7 @@ paths:
                               description: The name of the department.
                         is_active:
                           type: boolean
-                          description: "`true` if the individual is an active employee or contractor at the company."
+                          description: '`true` if the individual is an active employee or contractor at the company.'
                           nullable: true
       summary: Directory
       operationId: get-directory
@@ -268,12 +268,12 @@ paths:
         - 1. Organization
   /employer/individual:
     post:
-      description: "Read individual data, excluding income and employment data"
+      description: 'Read individual data, excluding income and employment data'
       parameters:
-        - $ref: "#/components/parameters/API-Version"
-        - $ref: "#/components/parameters/Content-Type"
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
       responses:
-        "200":
+        '200':
           description: Individual data
           content:
             application/json:
@@ -328,7 +328,7 @@ paths:
                                 properties:
                                   data:
                                     type: string
-                                    pattern: "[0-9]{10}"
+                                    pattern: '[0-9]{10}'
                                   type:
                                     type: string
                                     enum:
@@ -344,9 +344,9 @@ paths:
                                 - other
                                 - decline_to_specify
                             dob:
-                              $ref: "#/components/schemas/Date"
+                              $ref: '#/components/schemas/Date'
                             residence:
-                              $ref: "#/components/schemas/Location"
+                              $ref: '#/components/schemas/Location'
               examples:
                 Success:
                   value:
@@ -364,23 +364,23 @@ paths:
                             - data: janed@personal.com
                               type: personal
                           phone_numbers:
-                            - data: "5051234567"
+                            - data: '5051234567'
                               type: personal
                           gender: female
-                          dob: "1970-01-01"
+                          dob: '1970-01-01'
                           residence:
                             line1: 123 Main St
                             line2: Apt C
                             city: Schenectady
                             state: NY
-                            postal_code: "12345"
+                            postal_code: '12345'
                             country: US
       summary: Individual
       operationId: get-individual
       tags:
         - 1. Organization
       requestBody:
-        $ref: "#/components/requestBodies/Individual-Ids"
+        $ref: '#/components/requestBodies/Individual-Ids'
   /employer/employment:
     post:
       description: |-
@@ -388,10 +388,10 @@ paths:
 
         Note: Income information is returned as reported by the provider. This may not always be annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc, depending on what information the provider returns.
       parameters:
-        - $ref: "#/components/parameters/API-Version"
-        - $ref: "#/components/parameters/Content-Type"
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
       responses:
-        "200":
+        '200':
           description: Employment data
           content:
             application/json:
@@ -414,7 +414,7 @@ paths:
                           employment:
                             type: employee
                             subtype: full_time
-                          start_date: "2017-06-30"
+                          start_date: '2017-06-30'
                           end_date: null
                           is_active: true
                           location:
@@ -422,22 +422,23 @@ paths:
                             line2: null
                             city: Palo Alto
                             state: CA
-                            postal_code: "94301"
+                            postal_code: '94301'
                             country: US
                           income:
                             unit: yearly
                             amount: 10000000
                             currency: usd
-                            effective_date: "2019-03-01"
+                            effective_date: '2019-03-01'
                           income_history:
                             - unit: yearly
                               amount: 9000000
                               currency: usd
-                              effective_date: "2018-05-15"
+                              effective_date: '2018-05-15'
                             - unit: yearly
                               amount: 8000000
                               currency: usd
-                              effective_date: "2017-06-30"
+                              effective_date: '2017-06-30'
+                          pay_group_id: 497d98f3-580a-4ab9-830a-af2346d029b2
               schema:
                 type: object
                 properties:
@@ -480,7 +481,7 @@ paths:
                                 id:
                                   type: string
                                   description: A stable Finch `id` (UUID v4) for an individual in the company.
-                                  pattern: "[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}"
+                                  pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
                             department:
                               type: object
                               description: The department object.
@@ -512,29 +513,32 @@ paths:
                                     - individual_contractor
                                   nullable: true
                             start_date:
-                              $ref: "#/components/schemas/Date"
+                              $ref: '#/components/schemas/Date'
                             end_date:
-                              $ref: "#/components/schemas/Date"
+                              $ref: '#/components/schemas/Date'
                             is_active:
                               type: boolean
-                              description: "`true` if the individual an an active employee or contractor at the company."
+                              description: '`true` if the individual an an active employee or contractor at the company.'
                               nullable: true
                             location:
-                              $ref: "#/components/schemas/Location"
+                              $ref: '#/components/schemas/Location'
                             income:
-                              $ref: "#/components/schemas/Income"
+                              $ref: '#/components/schemas/Income'
                             income_history:
                               type: array
                               description: The array of income history.
                               nullable: true
                               items:
-                                $ref: "#/components/schemas/Income"
+                                $ref: '#/components/schemas/Income'
+                            pay_group_id:
+                              type: string
+                              description: Finch uuid corresponding to the pay group for this employee
       summary: Employment
       operationId: get-employment
       tags:
         - 1. Organization
       requestBody:
-        $ref: "#/components/requestBodies/Individual-Ids"
+        $ref: '#/components/requestBodies/Individual-Ids'
   /employer/payment:
     get:
       description: Read payroll and contractor related payments by the company.
@@ -546,7 +550,7 @@ paths:
           schema:
             type: string
             format: date
-            example: "2021-01-01"
+            example: '2021-01-01'
         - name: end_date
           required: true
           in: query
@@ -554,10 +558,10 @@ paths:
           schema:
             type: string
             format: date
-            example: "2021-01-01"
-        - $ref: "#/components/parameters/API-Version"
+            example: '2021-01-01'
+        - $ref: '#/components/parameters/API-Version'
       responses:
-        "200":
+        '200':
           description: Payment data
           content:
             application/json:
@@ -566,10 +570,10 @@ paths:
                   value:
                     - id: 20aa7cf2-949d-4d4e-9c01-499b59501ded
                       pay_period:
-                        start_date: "2019-08-01"
-                        end_date: "2019-08-15"
-                      pay_date: "2019-08-22"
-                      debit_date: "2019-08-22"
+                        start_date: '2019-08-01'
+                        end_date: '2019-08-15'
+                      pay_date: '2019-08-22'
+                      debit_date: '2019-08-22'
                       company_debit:
                         amount: 5300000
                         currency: usd
@@ -596,37 +600,37 @@ paths:
                     id:
                       type: string
                       description: The unique id for the payment.
-                      pattern: "[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}"
+                      pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
                     pay_period:
                       type: object
                       description: The pay period object.
                       nullable: true
                       properties:
                         start_date:
-                          $ref: "#/components/schemas/Date"
+                          $ref: '#/components/schemas/Date'
                         end_date:
-                          $ref: "#/components/schemas/Date"
+                          $ref: '#/components/schemas/Date'
                     pay_date:
-                      $ref: "#/components/schemas/Date"
+                      $ref: '#/components/schemas/Date'
                     debit_date:
-                      $ref: "#/components/schemas/Date"
+                      $ref: '#/components/schemas/Date'
                     company_debit:
-                      $ref: "#/components/schemas/Money"
+                      $ref: '#/components/schemas/Money'
                     gross_pay:
-                      $ref: "#/components/schemas/Money"
+                      $ref: '#/components/schemas/Money'
                     net_pay:
-                      $ref: "#/components/schemas/Money"
+                      $ref: '#/components/schemas/Money'
                     employer_taxes:
-                      $ref: "#/components/schemas/Money"
+                      $ref: '#/components/schemas/Money'
                     employee_taxes:
-                      $ref: "#/components/schemas/Money"
+                      $ref: '#/components/schemas/Money'
                     individual_ids:
                       type: array
                       description: Array of every individual on this payment.
                       nullable: true
                       items:
                         type: string
-                        pattern: "[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}"
+                        pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
       summary: Payment
       operationId: get-payment
       tags:
@@ -652,7 +656,7 @@ paths:
                       payment_id:
                         type: string
                         description: A stable Finch `id` (UUID v4) for a payment.
-                        pattern: "[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}"
+                        pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
                       limit:
                         type: integer
                         description: Number of pay statements to return (defaults to all).
@@ -664,7 +668,7 @@ paths:
               required:
                 - requests
       responses:
-        "200":
+        '200':
           description: Pay statement data
           content:
             application/json:
@@ -726,7 +730,7 @@ paths:
                           type: object
                           properties:
                             paging:
-                              $ref: "#/components/schemas/Paging"
+                              $ref: '#/components/schemas/Paging'
                             pay_statements:
                               type: array
                               description: The array of pay statements for the current payment.
@@ -756,9 +760,9 @@ paths:
                                     description: The number of hours worked for this pay period
                                     nullable: true
                                   gross_pay:
-                                    $ref: "#/components/schemas/Money"
+                                    $ref: '#/components/schemas/Money'
                                   net_pay:
-                                    $ref: "#/components/schemas/Money"
+                                    $ref: '#/components/schemas/Money'
                                   earnings:
                                     type: array
                                     description: The array of earnings objects associated with this pay statement
@@ -781,7 +785,7 @@ paths:
                                             - bonus
                                             - commission
                                             - tips
-                                            - "1099"
+                                            - '1099'
                                             - other
                                           nullable: true
                                         name:
@@ -796,7 +800,7 @@ paths:
                                           description: The earnings currency code.
                                         hours:
                                           type: number
-                                          description: "The number of hours associated with this earning. (For salaried employees, this could be hours per pay period, `0` or `null`, depending on the provider)."
+                                          description: 'The number of hours associated with this earning. (For salaried employees, this could be hours per pay period, `0` or `null`, depending on the provider).'
                                           nullable: true
                                   taxes:
                                     type: array
@@ -819,7 +823,7 @@ paths:
                                           description: The exact name of tax from the pay statement.
                                         employer:
                                           type: boolean
-                                          description: "`true` if the amount is paid by the employers."
+                                          description: '`true` if the amount is paid by the employers.'
                                         amount:
                                           type: integer
                                           description: The tax amount in cents.
@@ -846,7 +850,7 @@ paths:
                                           type: boolean
                                           description: Boolean indicating if the deduction is pre-tax.
                                         type:
-                                          $ref: "#/components/schemas/BenefitType"
+                                          $ref: '#/components/schemas/BenefitType'
                                   employer_contributions:
                                     type: array
                                     nullable: true
@@ -863,21 +867,21 @@ paths:
                                           type: string
                                           description: The contribution currency.
                                         type:
-                                          $ref: "#/components/schemas/BenefitType"
+                                          $ref: '#/components/schemas/BenefitType'
       summary: Pay Statement
       operationId: get-pay-statement
       tags:
         - 2. Payroll
       parameters:
-        - $ref: "#/components/parameters/API-Version"
-        - $ref: "#/components/parameters/Content-Type"
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
   /providers:
     get:
       summary: Providers
       tags:
         - 4. Management
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -909,6 +913,9 @@ paths:
                     primary_color:
                       type: string
                       description: The hex code for the primary color of the payroll provider.
+                    manual:
+                      type: boolean
+                      description: Whether the Finch integration with this provider uses the Assisted Connect Flow by default.
               examples:
                 Success:
                   value:
@@ -917,21 +924,21 @@ paths:
                       products:
                         - company
                         - directory
-                      icon: "https://finch-logos.s3.us-west-2.amazonaws.com/gustoIcon.png"
-                      logo: "https://finch-logos.s3.us-west-2.amazonaws.com/gustoLogo.png"
+                      icon: 'https://finch-logos.s3.us-west-2.amazonaws.com/gustoIcon.png'
+                      logo: 'https://finch-logos.s3.us-west-2.amazonaws.com/gustoLogo.png'
                       mfa_required: true
-                      primary_color: "#f45d47"
+                      primary_color: '#f45d47'
       operationId: get-providers
       description: Return details on all available payroll and HR systems.
       parameters:
-        - $ref: "#/components/parameters/API-Version"
+        - $ref: '#/components/parameters/API-Version'
   /introspect:
     get:
       summary: Introspect
       tags:
         - 4. Management
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -955,6 +962,9 @@ paths:
                   payroll_provider_id:
                     type: string
                     description: The payroll provider associated with the `access_token`.
+                  manual:
+                    type: boolean
+                    description: 'Whether the connection associated with the `access_token` uses the Assisted Connect Flow. (`true` if using Assisted Connect, `false` if connection is automated)'
               examples:
                 Success:
                   value:
@@ -967,13 +977,13 @@ paths:
       operationId: get-introspect
       description: Read account information associated with an `access_token`
       parameters:
-        - $ref: "#/components/parameters/API-Version"
+        - $ref: '#/components/parameters/API-Version'
   /disconnect:
     post:
       summary: Disconnect
       operationId: post-disconnect
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -982,7 +992,7 @@ paths:
                 properties:
                   status:
                     type: string
-                    description: "If the request is successful, Finch will return “success” (HTTP 200 status)."
+                    description: 'If the request is successful, Finch will return “success” (HTTP 200 status).'
               examples:
                 Success:
                   value:
@@ -991,21 +1001,21 @@ paths:
       tags:
         - 4. Management
       parameters:
-        - $ref: "#/components/parameters/API-Version"
+        - $ref: '#/components/parameters/API-Version'
   /employer/benefits:
     get:
       summary: Get All Benefits
       tags:
         - 3. Benefits
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/CompanyBenefit"
+                  $ref: '#/components/schemas/CompanyBenefit'
               examples:
                 Success:
                   value:
@@ -1022,12 +1032,12 @@ paths:
       operationId: get-company-benefits
       description: List all company-wide benefits.
       parameters:
-        - $ref: "#/components/parameters/API-Version"
+        - $ref: '#/components/parameters/API-Version'
     post:
       summary: Create Benefit
       operationId: post-company-benefits
       responses:
-        "201":
+        '201':
           description: Successfully Created
           content:
             application/json:
@@ -1040,12 +1050,12 @@ paths:
                 Success:
                   value:
                     benefit_id: e8b90071-0c11-471c-86e8-e303ef2f6782
-        "422":
+        '422':
           description: Request provided with unsupported parameters
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
               examples:
                 Invalid Benefit:
                   value:
@@ -1061,16 +1071,16 @@ paths:
               type: object
               properties:
                 type:
-                  $ref: "#/components/schemas/BenefitType"
+                  $ref: '#/components/schemas/BenefitType'
                 description:
                   type: string
                 frequency:
-                  $ref: "#/components/schemas/BenefitFrequency"
+                  $ref: '#/components/schemas/BenefitFrequency'
       tags:
         - 3. Benefits
       parameters:
-        - $ref: "#/components/parameters/API-Version"
-        - $ref: "#/components/parameters/Content-Type"
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
     parameters: []
   /employer/benefits/meta:
     get:
@@ -1078,7 +1088,7 @@ paths:
       tags:
         - 3. Benefits
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1088,14 +1098,14 @@ paths:
                   type: object
                   properties:
                     type:
-                      $ref: "#/components/schemas/BenefitType"
+                      $ref: '#/components/schemas/BenefitType'
                     description:
                       type: string
                     frequencies:
                       type: array
                       description: The list of frequencies supported by the provider for this benefit
                       items:
-                        $ref: "#/components/schemas/BenefitFrequency"
+                        $ref: '#/components/schemas/BenefitFrequency'
                     employee_deduction:
                       type: array
                       description: Supported deduction types. An empty array indicates deductions are not supported.
@@ -1144,20 +1154,20 @@ paths:
       operationId: get-company-benefits-meta
       description: Lists available types and configurations for the provider associated with the access token.
       parameters:
-        - $ref: "#/components/parameters/API-Version"
+        - $ref: '#/components/parameters/API-Version'
     parameters: []
-  "/employer/benefits/{benefit_id}":
+  '/employer/benefits/{benefit_id}':
     get:
       summary: Get Benefit
       tags:
         - 3. Benefits
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CompanyBenefit"
+                $ref: '#/components/schemas/CompanyBenefit'
               examples:
                 Example Benefit:
                   value:
@@ -1165,12 +1175,12 @@ paths:
                     type: 401k
                     description: Example 401k
                     frequency: every_paycheck
-        "404":
+        '404':
           description: Benefit Not Found
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
               examples:
                 Not Found:
                   value:
@@ -1181,12 +1191,12 @@ paths:
       operationId: get-company-benefit
       description: Lists benefit information for a given benefit
       parameters:
-        - $ref: "#/components/parameters/API-Version"
+        - $ref: '#/components/parameters/API-Version'
     post:
       summary: Update Benefit
       operationId: update-company-benefits
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1199,9 +1209,9 @@ paths:
                 Success:
                   value:
                     benefit_id: 6547e3aa-d887-4a77-bd41-17221e17cce3
-        "400":
+        '400':
           description: Bad Request
-        "404":
+        '404':
           description: Benefit Not Found
       description: Updates an existing company-wide benefit
       requestBody:
@@ -1216,21 +1226,21 @@ paths:
       tags:
         - 3. Benefits
       parameters:
-        - $ref: "#/components/parameters/API-Version"
-        - $ref: "#/components/parameters/Content-Type"
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
     parameters:
       - schema:
           type: string
         name: benefit_id
         in: path
         required: true
-  "/employer/benefits/{benefit_id}/enrolled":
+  '/employer/benefits/{benefit_id}/enrolled':
     get:
       summary: Get Enrolled Individuals
       tags:
         - 3. Benefits
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1249,12 +1259,12 @@ paths:
                     benefit_id: 6547e3aa-d887-4a77-bd41-17221e17cce3
                     individual_ids:
                       - 7fc9fb3a-2a62-47c1-9a5a-c9146483b58e
-        "404":
+        '404':
           description: Benefit Not Found
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
               examples:
                 Not Found:
                   value:
@@ -1265,25 +1275,25 @@ paths:
       operationId: get-company-benefits-enrolled
       description: Lists individuals currently enrolled in a given benefit.
       parameters:
-        - $ref: "#/components/parameters/API-Version"
+        - $ref: '#/components/parameters/API-Version'
     parameters:
       - schema:
           type: string
         name: benefit_id
         in: path
         required: true
-  "/employer/benefits/{benefit_id}/individuals":
+  '/employer/benefits/{benefit_id}/individuals':
     get:
       summary: Get Benefits for Individuals
       tags:
         - 3. Benefits
       responses:
-        "207":
+        '207':
           description: Multi-Status (WebDAV)
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/IndividualBenefits"
+                $ref: '#/components/schemas/IndividualBenefits'
               examples:
                 Multi-status:
                   value:
@@ -1304,12 +1314,12 @@ paths:
                         name: not_found_error
                         finch_code: individual_not_found
                         message: Individual not found
-        "404":
+        '404':
           description: Benefit Not Found
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
               examples:
                 Not Found:
                   value:
@@ -1320,19 +1330,19 @@ paths:
       operationId: get-individual-benefits
       description: Get enrolled benefit information for the given individuals.
       parameters:
-        - $ref: "#/components/parameters/API-Version"
-        - $ref: "#/components/parameters/Content-Type"
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
         - schema:
             type: string
-            example: "d675d2b7-6d7b-41a8-b2d3-001eb3fb88f6,d02a6346-1f08-4312-a064-49ff3cafaa7a"
+            example: 'd675d2b7-6d7b-41a8-b2d3-001eb3fb88f6,d02a6346-1f08-4312-a064-49ff3cafaa7a'
           in: query
           name: individual_ids
-          description: "comma-delimited list of stable Finch uuids for each individual. If empty, defaults to all individuals"
+          description: 'comma-delimited list of stable Finch uuids for each individual. If empty, defaults to all individuals'
     post:
       summary: Enroll Individuals in Benefits
       operationId: post-employer-individual-benefits-benefit_id
       responses:
-        "200":
+        '200':
           description: Success for all individuals. Enrolled new individuals in the benefit and upserted information for individuals already enrolled.
           content:
             application/json:
@@ -1374,7 +1384,7 @@ paths:
                       name: success
                       finch_code: updated_existing_enrollment
                       message: Benefit information updated for individual
-        "207":
+        '207':
           description: Multi-Status. Some individuals may not have succeeded. See body for details.
           content:
             application/json:
@@ -1422,18 +1432,18 @@ paths:
                       code: 403
                       finch_code: access_denied
                       message: Permissions not valid for individual
-        "400":
+        '400':
           description: Malformed Request
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
-        "404":
+                $ref: '#/components/schemas/Error'
+        '404':
           description: Benefit Not Found
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
               examples:
                 Not Found:
                   value:
@@ -1441,12 +1451,12 @@ paths:
                     name: not_found_error
                     finch_code: benefit_not_found
                     message: Benefit not found
-        "422":
+        '422':
           description: Unprocessable Request
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
               examples:
                 Cannot Enroll:
                   value:
@@ -1550,13 +1560,13 @@ paths:
           `company_contribution.type` | `string` | Contribution Type (`fixed` or `percent`)
           `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points
       parameters:
-        - $ref: "#/components/parameters/API-Version"
-        - $ref: "#/components/parameters/Content-Type"
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
     delete:
       summary: Unenroll Individuals from Benefits
       operationId: delete-individual-benefits
       responses:
-        "207":
+        '207':
           description: Multi-Status (WebDAV)
           content:
             application/json:
@@ -1591,19 +1601,19 @@ paths:
                         name: success
                         finch_code: unenrolled_individual_benefit
                         message: Unenrolled individual from benefit
-        "404":
+        '404':
           description: Benefit Not Found
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
       description: Unenroll individuals from a benefit
       requestBody:
         content:
           application/json:
             schema:
               type: object
-              description: ""
+              description: ''
               properties:
                 individual_ids:
                   type: array
@@ -1613,8 +1623,8 @@ paths:
       tags:
         - 3. Benefits
       parameters:
-        - $ref: "#/components/parameters/API-Version"
-        - $ref: "#/components/parameters/Content-Type"
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
     parameters:
       - schema:
           type: string
@@ -1626,7 +1636,7 @@ paths:
       summary: Create a Deduction
       operationId: post-employer-deduction-company-create
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1663,8 +1673,8 @@ paths:
                     - one_time
                     - recurring
       parameters:
-        - $ref: "#/components/parameters/API-Version"
-        - $ref: "#/components/parameters/Content-Type"
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
       tags:
         - 5. Deprecated
   /employer/deduction/company/list:
@@ -1672,7 +1682,7 @@ paths:
       summary: List Deductions
       operationId: post-employer-deduction-company-list
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1710,14 +1720,14 @@ paths:
         - 5. Deprecated
       description: List the created company-wide deductions
       parameters:
-        - $ref: "#/components/parameters/API-Version"
-        - $ref: "#/components/parameters/Content-Type"
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
   /employer/deduction/individual/create:
     post:
       summary: Enroll
       operationId: post-employer-deduction-individual-create
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1726,14 +1736,14 @@ paths:
                 properties:
                   status:
                     type: string
-                    description: "If the request is successful, Finch will return “success” (HTTP 200 status)."
+                    description: 'If the request is successful, Finch will return “success” (HTTP 200 status).'
               examples:
                 Success:
                   value:
                     status: success
       tags:
         - 5. Deprecated
-      description: " Enroll an individual in a deduction"
+      description: ' Enroll an individual in a deduction'
       requestBody:
         content:
           application/json:
@@ -1755,7 +1765,7 @@ paths:
                   properties:
                     amount:
                       type: integer
-                      description: "If the type is fixed, the deduction amount as an integer in cents. Otherwise, if the type is percent, the percentage as an integer from 0 (0%) - 10000 (100%)."
+                      description: 'If the type is fixed, the deduction amount as an integer in cents. Otherwise, if the type is percent, the percentage as an integer from 0 (0%) - 10000 (100%).'
                     type:
                       type: string
                       description: Specify if the deduction is a fixed amount or percentage of the paycheck.
@@ -1764,11 +1774,11 @@ paths:
                         - percent
                 company_contribution:
                   type: object
-                  description: "An object representing the company contribution. Note: Required for 401k_pre_tax deduction."
+                  description: 'An object representing the company contribution. Note: Required for 401k_pre_tax deduction.'
                   properties:
                     amount:
                       type: integer
-                      description: "If the type is fixed, the contribution amount as an integer in cents. Otherwise, if the type is percent, the percentage as an integer from 0 (0%) - 10000 (100%)."
+                      description: 'If the type is fixed, the contribution amount as an integer in cents. Otherwise, if the type is percent, the percentage as an integer from 0 (0%) - 10000 (100%).'
                     type:
                       type: string
                       description: "true \tSpecify if the contribution is a fixed amount or percentage of the paycheck. Options: fixed or percent."
@@ -1784,7 +1794,7 @@ paths:
       summary: Get Enrollment
       operationId: post-employer-deduction-individual-get
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1803,7 +1813,7 @@ paths:
                     properties:
                       amount:
                         type: integer
-                        description: "If the type is fixed, the deduction amount as an integer in cents. Otherwise, if the type is percent, the percentage as an integer from 0 (0%) - 10000 (100%)."
+                        description: 'If the type is fixed, the deduction amount as an integer in cents. Otherwise, if the type is percent, the percentage as an integer from 0 (0%) - 10000 (100%).'
                       type:
                         type: string
                         description: Specify if the deduction is a fixed amount or percentage of the paycheck
@@ -1816,7 +1826,7 @@ paths:
                     properties:
                       amount:
                         type: integer
-                        description: "If the type is fixed, the contribution amount as an integer in cents. Otherwise, if the type is percent, the percentage as an integer from 0 (0%) - 10000 (100%)."
+                        description: 'If the type is fixed, the contribution amount as an integer in cents. Otherwise, if the type is percent, the percentage as an integer from 0 (0%) - 10000 (100%).'
                       type:
                         type: string
                         description: Specify if the contribution is a fixed amount or percentage of the paycheck.
@@ -1857,7 +1867,7 @@ paths:
       summary: Unenroll
       operationId: post-employer-deduction-individual-delete
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1893,7 +1903,7 @@ paths:
       summary: Custom Fields
       operationId: post-employer-individual-custom-fields
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -1921,6 +1931,39 @@ paths:
       tags:
         - 4. Custom Fields
       description: Returns custom fields for the individual endpoint for your application.
+  /employer/pay-group:
+    get:
+      summary: Pay Groups
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    frequency:
+                      type: string
+                      enum:
+                        - monthly
+                        - semi-monthly
+                        - bi-weekly
+                        - weekly
+              examples:
+                success:
+                  value:
+                    - id: 497d98f3-580a-4ab9-830a-af2346d029b2
+                      name: Engineering
+                      frequency: monthly
+      operationId: get-employer-pay-group
+      description: 'The pay groups configured for the company, if any.'
 components:
   schemas:
     Location:
@@ -1928,7 +1971,7 @@ components:
       type: object
       x-tags:
         - Models
-      description: ""
+      description: ''
       nullable: true
       properties:
         line1:
@@ -1937,7 +1980,7 @@ components:
           nullable: true
         line2:
           type: string
-          description: "Apartment, suite, unit, or building."
+          description: 'Apartment, suite, unit, or building.'
           nullable: true
         city:
           type: string
@@ -1960,7 +2003,7 @@ components:
       type: object
       x-tags:
         - Models
-      description: "The employee's income as reported by the provider. This may not always be annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc, depending on what information the provider returns."
+      description: 'The employee''s income as reported by the provider. This may not always be annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc, depending on what information the provider returns.'
       nullable: true
       properties:
         unit:
@@ -2026,7 +2069,7 @@ components:
         - 401k_roth
         - 403b
         - 403b_roth
-        - "457"
+        - '457'
         - 457_roth
         - s125_medical
         - s125_dental
@@ -2075,15 +2118,15 @@ components:
         benefit_id:
           type: string
         type:
-          $ref: "#/components/schemas/BenefitType"
+          $ref: '#/components/schemas/BenefitType'
         description:
           type: string
         frequency:
-          $ref: "#/components/schemas/BenefitFrequency"
+          $ref: '#/components/schemas/BenefitFrequency'
         company_contribution:
-          $ref: "#/components/schemas/BenefitContribution"
+          $ref: '#/components/schemas/BenefitContribution'
         employee_deduction:
-          $ref: "#/components/schemas/BenefitContribution"
+          $ref: '#/components/schemas/BenefitContribution'
     IndividualBenefits:
       title: IndividualBenefits
       type: array
@@ -2099,16 +2142,16 @@ components:
             type: object
             properties:
               employee_deduction:
-                $ref: "#/components/schemas/BenefitContribution"
+                $ref: '#/components/schemas/BenefitContribution'
               company_contribution:
-                $ref: "#/components/schemas/BenefitContribution"
+                $ref: '#/components/schemas/BenefitContribution'
               annual_maximum:
                 type: integer
-                description: "If the benefit supports annual maximum, the amount in cents for this individual."
+                description: 'If the benefit supports annual maximum, the amount in cents for this individual.'
                 nullable: true
               catch_up:
                 type: boolean
-                description: "If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled for this individual."
+                description: 'If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled for this individual.'
                 nullable: true
               hsa_contribution_limit:
                 type: string
@@ -2173,7 +2216,7 @@ components:
       required: true
       schema:
         type: string
-        default: "2020-09-17"
+        default: '2020-09-17'
         format: date
         pattern: '([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))'
       description: Header used to specify the version for a given API request. Current version is 2020-09-17.
@@ -2184,6 +2227,6 @@ components:
       schema:
         type: string
         default: application/json
-      description: "Used to indicate the original media type of the resource "
+      description: 'Used to indicate the original media type of the resource '
 security:
   - bearerAuth: []
