@@ -1931,39 +1931,6 @@ paths:
       tags:
         - 4. Custom Fields
       description: Returns custom fields for the individual endpoint for your application.
-  /employer/pay-group:
-    get:
-      summary: Pay Groups
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    name:
-                      type: string
-                    frequency:
-                      type: string
-                      enum:
-                        - monthly
-                        - semi-monthly
-                        - bi-weekly
-                        - weekly
-              examples:
-                success:
-                  value:
-                    - id: 497d98f3-580a-4ab9-830a-af2346d029b2
-                      name: Engineering
-                      frequency: monthly
-      operationId: get-employer-pay-group
-      description: 'The pay groups configured for the company, if any.'
 components:
   schemas:
     Location:
