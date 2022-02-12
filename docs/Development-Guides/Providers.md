@@ -93,6 +93,7 @@ Proliant | `proliant`
 PropelHR | `propel_hr`
 Proxus HR isolved | `proxus_hr`
 Quickbooks Payroll | `quickbooks`
+Rippling | `rippling`
 Remote | `remote`
 RMI PEO | `rmi_peo`
 Run Powered by ADP | `adp_run`
