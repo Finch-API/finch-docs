@@ -94,6 +94,7 @@ PropelHR | `propel_hr`
 Proxus HR isolved | `proxus_hr`
 Quickbooks Payroll | `quickbooks`
 Remote | `remote`
+Rippling | `rippling`
 RMI PEO | `rmi_peo`
 Run Powered by ADP | `adp_run`
 Sage 50 US Edition Accounting | `sage_50_us_edition_accounting`
