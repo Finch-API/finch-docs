@@ -53,9 +53,11 @@ Goco | `goco`
 Gusto | `gusto`
 GTM Payroll Services isolved | `gtm_payroll_services_isolved`
 GTM Payroll Services Evolution | `gtm_payroll_services_evolution`
+Heartland | `heartland`
 Highflyer HR | `highflyer_hr`
 Hubstaff | `hubstaff`
 Humi | `humi`
+INFINITI HR | `infiniti_hr`
 Insperity | `insperity`
 isolve | `isolved`
 Justworks | `justworks`
@@ -87,6 +89,7 @@ Payroll Plus HCM Evolution | `payroll_plus_hcm_evolution`
 Payroll Solutions | `payroll_solutions`
 PCS HCM | `pcs_hcm`
 Platinum Group | `platinum_group`
+PrestigePEO | `prestige_peo`
 PrimePay | `primepay`
 PrismHR | `prism_hr`
 Proliant | `proliant`
