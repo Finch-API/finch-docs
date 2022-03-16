@@ -45,10 +45,12 @@ Deel | `deel`
 Deluxe | `deluxe`
 Dominion Payroll | `dominion_payroll`
 Doyle | `doyle_hcm`
+Emplicity | `emplicity`
 Employdrive | `employdrive`
 EmPower HR | `empower_hr`
 Excel Resources | `excel_resources`
 Flock | `flock`
+G&A Partners | `gna_partners`
 Goco | `goco`
 Gusto | `gusto`
 GTM Payroll Services isolved | `gtm_payroll_services_isolved`
