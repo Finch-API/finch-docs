@@ -437,7 +437,6 @@ paths:
                               amount: 8000000
                               currency: usd
                               effective_date: '2017-06-30'
-                          pay_group_id: 497d98f3-580a-4ab9-830a-af2346d029b2
               schema:
                 type: object
                 properties:
@@ -529,9 +528,6 @@ paths:
                               nullable: true
                               items:
                                 $ref: '#/components/schemas/Income'
-                            pay_group_id:
-                              type: string
-                              description: Finch uuid corresponding to the pay group for this employee
       summary: Employment
       operationId: get-employment
       tags:
@@ -1022,12 +1018,6 @@ paths:
                       type: 401k
                       description: Example 401k
                       frequency: every_paycheck
-                      company_contribution:
-                        type: percent
-                        amount: 400
-                      employee_deduction:
-                        type: percent
-                        amount: 600
       operationId: get-company-benefits
       description: List all company-wide benefits.
       parameters:
@@ -1941,7 +1931,7 @@ components:
       properties:
         unit:
           type: string
-          description: "The income unit of payment. Options: `yearly`, `quarterly`, `monthly`, `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`."
+          description: 'The income unit of payment. Options: `yearly`, `quarterly`, `monthly`, `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`.'
           enum:
             - yearly
             - quarterly
