@@ -31,7 +31,6 @@ tags:
   - name: 1. Organization
   - name: 2. Payroll
   - name: 3. Benefits
-  - name: 4. Custom Fields
   - name: 4. Management
   - name: 5. Deprecated
 paths:
@@ -909,6 +908,9 @@ paths:
                     primary_color:
                       type: string
                       description: The hex code for the primary color of the payroll provider.
+                    manual:
+                      type: boolean
+                      description: Whether the Finch integration with this provider uses the Assisted Connect Flow by default.
               examples:
                 Success:
                   value:
@@ -955,6 +957,9 @@ paths:
                   payroll_provider_id:
                     type: string
                     description: The payroll provider associated with the `access_token`.
+                  manual:
+                    type: boolean
+                    description: 'Whether the connection associated with the `access_token` uses the Assisted Connect Flow. (`true` if using Assisted Connect, `false` if connection is automated)'
               examples:
                 Success:
                   value:
@@ -1882,39 +1887,6 @@ paths:
               required:
                 - deduction_id
                 - individual_id
-  /employer/individual/custom-fields:
-    post:
-      summary: Custom Fields
-      operationId: post-employer-individual-custom-fields
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    individual_id:
-                      type: string
-                    custom_fields:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          id:
-                            type: string
-                            description: The id of the custom field
-                          name:
-                            type: string
-                            description: The display name of the custom field
-                          type:
-                            type: string
-                            description: The type of the custom field
-      tags:
-        - 4. Custom Fields
-      description: Returns custom fields for the individual endpoint for your application.
 components:
   schemas:
     Location:

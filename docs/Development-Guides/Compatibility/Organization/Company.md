@@ -74,7 +74,6 @@ Field | Supported | Notes
  `accounts[].account_type` | n/a | 
  `accounts[].account_number` | n/a | 
 
-
 <!-- type: tab-end -->
 
 

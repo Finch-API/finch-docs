@@ -45,17 +45,21 @@ Deel | `deel`
 Deluxe | `deluxe`
 Dominion Payroll | `dominion_payroll`
 Doyle | `doyle_hcm`
+Emplicity | `emplicity`
 Employdrive | `employdrive`
 EmPower HR | `empower_hr`
 Excel Resources | `excel_resources`
 Flock | `flock`
+G&A Partners | `gna_partners`
 Goco | `goco`
 Gusto | `gusto`
 GTM Payroll Services isolved | `gtm_payroll_services_isolved`
 GTM Payroll Services Evolution | `gtm_payroll_services_evolution`
+Heartland | `heartland`
 Highflyer HR | `highflyer_hr`
 Hubstaff | `hubstaff`
 Humi | `humi`
+INFINITI HR | `infiniti_hr`
 Insperity | `insperity`
 isolve | `isolved`
 Justworks | `justworks`
@@ -87,6 +91,7 @@ Payroll Plus HCM Evolution | `payroll_plus_hcm_evolution`
 Payroll Solutions | `payroll_solutions`
 PCS HCM | `pcs_hcm`
 Platinum Group | `platinum_group`
+PrestigePEO | `prestige_peo`
 PrimePay | `primepay`
 PrismHR | `prism_hr`
 Proliant | `proliant`
@@ -94,6 +99,7 @@ PropelHR | `propel_hr`
 Proxus HR isolved | `proxus_hr`
 Quickbooks Payroll | `quickbooks`
 Remote | `remote`
+Rippling | `rippling`
 RMI PEO | `rmi_peo`
 Run Powered by ADP | `adp_run`
 Sage 50 US Edition Accounting | `sage_50_us_edition_accounting`
