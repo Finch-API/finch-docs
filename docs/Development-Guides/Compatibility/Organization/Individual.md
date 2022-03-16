@@ -1,4 +1,4 @@
-# Company
+# Individual
 
 [API Reference](https://developer.tryfinch.com/docs/reference/b3A6MTcxMzYwOTA-individual)
 
