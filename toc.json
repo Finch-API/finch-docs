@@ -171,6 +171,11 @@
               "type": "item",
               "title": "Company",
               "uri": "docs/Development-Guides/Compatibility/Organization/Company.md"
+            },
+            {
+              "type": "item",
+              "title": "Individual",
+              "uri": "docs/Development-Guides/Compatibility/Organization/Individual.md"
             }
           ]
         }
