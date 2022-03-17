@@ -1,81 +1,45 @@
-# Company
-
-[API Reference](https://developer.tryfinch.com/docs/reference/b3A6MTcxMzYwODg-company)
+# Supported Data Fields
 
 ---
+
 <!-- theme: info -->
+
 > `✓` — supported
 >
 > `x` — not supported by Finch
->
-> `n/a` — not supported by the [provider](../../Providers.md)
 
-<!--
-type: tab
-title: Gusto
--->
-Field | Supported | Notes
----------|----------|---------
- `id` | ✓ | 
- `legal_name` | ✓ | 
- `entity` | ✓ | 
- `entity.type` | ✓ | 
- `entity.subtype` | ✓ | 
- `primary_email` | ✓ | 
- `primary_phone_number` | ✓ | 
- `ein` | ✓ | 
- `departments` | ✓ | 
- `departments[].name` | ✓ | 
- `departments[].parent` | ✓ | 
- `departments[].parent.name` | ✓ | 
- `locations` | ✓ | 
- `locations[].line1` | ✓ | 
- `locations[].line2` | ✓ | 
- `locations[].city` | ✓ | 
- `locations[].state` | ✓ | 
- `locations[].country` | ✓ | 
- `locations[].postal_code` | ✓ | 
- `accounts` | ✓ | 
- `accounts[].routing_number` | ✓ | 
- `accounts[].account_name` | ✓ | 
- `accounts[].institution_name` | n/a | 
- `accounts[].account_type` | ✓ | 
- `accounts[].account_number` | ✓ | 
+## Company
 
-<!--
-type: tab
-title: ADP Workforce Now
--->
-Field | Supported | Notes
----------|----------|---------
- `id` | ✓ | 
- `legal_name` | ✓ | 
- `entity` | ✓ | 
- `entity.type` | ✓ | 
- `entity.subtype` | ✓ | 
- `primary_email` | ✓ | 
- `primary_phone_number` | ✓ | 
- `ein` | ✓ | 
- `departments` | ✓ | 
- `departments[].name` | ✓ | 
- `departments[].parent` | ✓ | 
- `departments[].parent.name` | ✓ | 
- `locations` | x | 
- `locations[].line1` | x | 
- `locations[].line2` | x | 
- `locations[].city` | x | 
- `locations[].state` | x | 
- `locations[].country` | x | 
- `locations[].postal_code` | x | 
- `accounts` | n/a | 
- `accounts[].routing_number` | n/a | 
- `accounts[].account_name` | n/a | 
- `accounts[].institution_name` | n/a | 
- `accounts[].account_type` | n/a | 
- `accounts[].account_number` | n/a | 
+![company.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/c8VFwHnWgQ4)
 
-<!-- type: tab-end -->
+<p><i>* Only availble by inferring from entity.type</i></p>
 
+## Directory
 
+![directory.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/jTkvivHpWtk)
 
+<p><i>* Initial only</i></p>
 
+## Individual
+
+![individual.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/g4K98m7L2Jc)
+
+<p><i>* Initial only</i><br>
+<i>** No work emails</i></p>
+
+## Employment
+
+![employment.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/jl3FD1803p0)
+
+<p><i>* Initial only</i><br>
+<i>** Requires customer to be at highest tier, ADP Run Pro</i></p>
+
+## Payment
+
+![payment.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/3S2mtrjLWdk)
+
+<p><i>* 401k Match cannot be set on Justworks</i></p>
+
+## Pay Statement
+
+![Screen Shot 2022-03-17 at 5.30.12 PM.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/2OytEpT8dlk)
