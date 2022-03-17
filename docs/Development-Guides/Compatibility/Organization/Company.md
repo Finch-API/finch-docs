@@ -38,8 +38,9 @@
 
 ![payment.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/3S2mtrjLWdk)
 
-<p><i>* 401k Match cannot be set on Justworks</i></p>
+
 
 ## Pay Statement
 
 ![Screen Shot 2022-03-17 at 5.30.12 PM.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/2OytEpT8dlk)
+<p><i>* 401k Match cannot be set on Justworks</i></p>
