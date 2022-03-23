@@ -1,6 +1,6 @@
 # Assisted Connect Flow
 
-Assisted Connect Flow (ACF) is our semi-automated product that expands coverage to 70+ providers. In contrast to our automated connections, the data for ACF providers is refreshed periodically. Our full list of coverage — for both API and ACF providers — can be found [here](https://tryfinch.notion.site/2484846e745343638e792ac0ff27481c?v=24efa5ea0cd44de89f3f8d3fbbf2ec6a).
+Assisted Connect Flow (ACF) is our semi-automated product that expands coverage to 70+ providers. In contrast to our automated connections, the data for ACF providers is refreshed periodically. Our full list of coverage — for both API and ACF providers — can be found [here](../Development-Guides/Providers.md).
 
 Contact our team at `developers@tryfinch.com` to get started or for more questions regarding pricing, missing providers, etc.
 
