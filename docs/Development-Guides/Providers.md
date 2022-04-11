@@ -115,7 +115,7 @@ Sage Payroll | `sage_payroll` | <span style="color:darkgreen">Assisted</span> | 
 SAP SuccessFactors | `successfactors` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Sapling | `sapling` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Savant HCM Evolution | `savant_hcm_evolution` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
-Sequoia One | `sequoia_one` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+Sequoia One | `sequoia_one` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
 Sheakley | `sheakley` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Simploy | `simploy` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Skuad | `skuad` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
