@@ -24,6 +24,7 @@ Paylocity | `paylocity` | <span style="color:goldenrod">API</span> | <span style
 QuickBooks Payroll | `quickbooks` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
 Rippling | `rippling` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
 Run Powered by ADP | `adp_run` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
+Sequoia One | `sequoia_one` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
 Square Payroll | `square_payroll` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
 TriNet | `trinet` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
 UltiPro (UKG Pro) | `ulti_pro` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
@@ -130,7 +131,6 @@ Sage Payroll | `sage_payroll` | <span style="color:darkgreen">Assisted</span> | 
 SAP SuccessFactors | `successfactors` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Sapling | `sapling` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Savant HCM Evolution | `savant_hcm_evolution` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
-Sequoia One | `sequoia_one` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
 Sheakley | `sheakley` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Simploy | `simploy` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Skuad | `skuad` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
