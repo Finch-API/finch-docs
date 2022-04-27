@@ -78,6 +78,7 @@ Employer Services Corporation (ESC) | `esc` | <span style="color:darkgreen">Assi
 Everee | `everee` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Excel Resources | `excel_resources` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Flock | `flock` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+FullStack PEO | `fullstack_peo` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 G&A Partners | `gna_partners` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Goco | `goco` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 greytHR | `greyt_hr` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
@@ -85,11 +86,13 @@ GTM Payroll Services Evolution | `gtm_payroll_services_evolution` | <span style=
 GTM Payroll Services iSolved | `gtm_payroll_services_isolved` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Heartland | `heartland` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Highflyer HR | `highflyer_hr` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+HRO | `hro` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Hubstaff | `hubstaff` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Humi | `humi` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 INFINITI HR | `infiniti_hr` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Iris HR | `iris_hr` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 iSolved | `isolved` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+JazzHR | `jazz_hr` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Kenjo | `kenjo` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Keystone Payroll iSolved | `keystone_isolved` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 mp | `mp` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
@@ -115,6 +118,7 @@ Payroll Plus HCM Evolution | `payroll_plus_hcm_evolution` | <span style="color:d
 Payroll Solutions | `payroll_solutions` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 PayUSA | `pay_usa_inc` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 PCS HCM | `pcs_hcm` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+People Lease | `people_lease` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Platinum Group | `platinum_group` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 PrestigePEO | `prestige_peo` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 PrimePay | `primepay` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
@@ -143,6 +147,7 @@ Thread HCM | `thread_hcm` | <span style="color:darkgreen">Assisted</span> | <spa
 Toast Payroll | `toast_payroll` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Trakstar | `trakstar` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 UKG Ready (Kronos) | `ukg_ready` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+Velocity Global | `velocity_global` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 VensureHR | `vensure_hr` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Vfficient | `vfficient` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Viewpoint HR Management Spectrum | `viewpoint_hr_management_spectrum` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
