@@ -13,9 +13,10 @@ Finch's API tries to maintain parity between all [providers](./Providers.md). Ho
 > `x` — not supported by Finch
 
 ### Company
-![company.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/RjDtFReJyT8)
+![company.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/3CK7MNLIo08)
 
-<p><i>* Only available by inferring from entity.type</i></p>
+<p><i>* Only available by inferring from entity.type</i><br>
+<i>** account_number is mask and only shows the last 4 digits</i></p>
 
 ### Directory
 ![directory.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/YjdADwFRuq4)
