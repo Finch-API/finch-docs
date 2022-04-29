@@ -1990,6 +1990,7 @@ components:
       enum:
         - 401k
         - 401k_roth
+        - 401k_loan
         - 403b
         - 403b_roth
         - '457'
@@ -1997,6 +1998,7 @@ components:
         - s125_medical
         - s125_dental
         - s125_vision
+        - hsa
         - hsa_pre
         - hsa_post
         - fsa_medical
