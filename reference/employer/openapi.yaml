@@ -1998,7 +1998,6 @@ components:
         - s125_medical
         - s125_dental
         - s125_vision
-        - hsa
         - hsa_pre
         - hsa_post
         - fsa_medical
