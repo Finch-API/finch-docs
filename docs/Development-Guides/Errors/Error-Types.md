@@ -25,6 +25,8 @@ Name | Finch Code | Code | Description
 `authentication_error` | `reauthenticate_user` | 401 | The user will need to reconnect their employment system. See more here.
 `invalid_client_error` | | 401 | The provided application credentials were incorrect. Relevant to the `/auth/token` endpoint.
 `unauthorized_request_error` | | 401 | The `access_token` is missing from the header.
+`insufficient_permission_error` | `account_update_required` | 403 | The authenticating account lacks sufficient permissions to perform an operation. The account owner must take manual action to gain sufficient permissions.
+`insufficient_permission_error` | `no_valid_accounts` | 403 | We could not find any suitable connections associated with the authenticating account.
 `insufficient_scope_error` | | 403 | The application credentials have insufficient permissions to access the requested product.
 `not_found_error` |`item_not_found`| 404 | The requested resource does not exist. Relevant to the `/employer/benefits/*` endpoints.
 `not_found_error` |`benefit_not_found`| 404 | The requested benefit does not exist. Relevant to the `/employer/benefits/*` endpoints.
