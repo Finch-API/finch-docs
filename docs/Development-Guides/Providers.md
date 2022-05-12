@@ -39,6 +39,7 @@ Abacus HCM iSolved | `abacus_isolved` | <span style="color:darkgreen">Assisted</
 Absolute Payroll iSolved | `absolute_isolved` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Accupay iSolved | `accupay_isolved` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Ace Workforce Technologies isolved | `ace_isolved` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+AccountantsWorld | `accountantsworld` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Adams Keegan | `adams_keegan` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 ADP TotalSource | `adp_totalsource` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Advantage Payroll Services | `advantage_payroll_services` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
@@ -52,6 +53,7 @@ Asset HR | `asset_hr` | <span style="color:darkgreen">Assisted</span> | <span st
 Asure Software | `asure_software` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Balance Point | `balance_point` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Baron Payroll iSolved | `baron_isolved` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+BASIC | `basic` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 BBCS Payroll | `bbcs` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 BBSI | `bbsi` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Bene-Care | `benecare` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
@@ -69,6 +71,7 @@ CPM Employer Services iSolved | `cpm_isolved` | <span style="color:darkgreen">As
 Crescent Payroll Solutions | `crescent_payroll_solutions` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Deel | `deel` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Deluxe | `deluxe` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+DM Payroll Solutions | `dm_payroll_solutions` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Dominion Payroll | `dominion_payroll` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Doyle | `doyle_hcm` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Emplicity | `emplicity` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
@@ -88,6 +91,7 @@ GTM Payroll Services iSolved | `gtm_payroll_services_isolved` | <span style="col
 Heartland | `heartland` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Highflyer HR | `highflyer_hr` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 HRO | `hro` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+HROne | `hrone` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Hubstaff | `hubstaff` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Humi | `humi` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 INFINITI HR | `infiniti_hr` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
@@ -119,6 +123,7 @@ Payroll Plus HCM Evolution | `payroll_plus_hcm_evolution` | <span style="color:d
 Payroll Solutions | `payroll_solutions` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 PayUSA | `pay_usa_inc` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 PCS HCM | `pcs_hcm` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+PeopleHum | `peoplehum` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 People Lease | `people_lease` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Platinum Group | `platinum_group` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 PrestigePEO | `prestige_peo` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
@@ -138,6 +143,7 @@ Savant HCM Evolution | `savant_hcm_evolution` | <span style="color:darkgreen">As
 Sheakley | `sheakley` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Simploy | `simploy` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Skuad | `skuad` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+SourceOne | `sourceone` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Strategic Payroll Solutions isolved | `strategic_payroll_solutions_isolved` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 SuitePeople (Oracle NetSuite) | `suite_people` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 SurePayroll | `surepayroll` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
