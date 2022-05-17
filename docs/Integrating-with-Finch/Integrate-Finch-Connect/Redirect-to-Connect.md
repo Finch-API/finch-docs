@@ -1,20 +1,20 @@
-# Your application redirects to Connect
+# Your application redirects to Finch Connect
 
-In this method of integrating Connect, your application redirects your user's browser to Connect hosted by Finch on `https://connect.tryfinch.com`. The authorization flow will consist of four steps—
+In this method of integrating Finch Connect, your application redirects your user's browser to Connect hosted by Finch on `https://connect.tryfinch.com`. The authorization flow will consist of four steps—
 
-1. **Open Finch Connect—** Your application redirects your user's browser to Connect to initiate the authorization flow.
-2. **Obtain consent—** Connect prompts your user to log in to their employment system and grant your application access to the permissions you are requesting for. 
-3. **Retrieve the authorization code—** If your user successfully connects and grants your application access to their system, Connect will redirect their browser to a specified `redirect_uri` with a short-lived authorization `code`.
+1. **Open Finch Connect—** Your application redirects your user's browser to Finch Connect to initiate the authorization flow.
+2. **Obtain consent—** Finch Connect prompts your user to log in to their employment system and grant your application access to the permissions you are requesting for. 
+3. **Retrieve the authorization code—** If your user successfully connects and grants your application access to their system, Finch Connect will redirect their browser to a specified `redirect_uri` with a short-lived authorization `code`.
 4. **Exchange the code for an access token—** Before sending API requests, your application will exchange the short-lived `code` for a long-lived `access_token` that represents your application's access to your user's employment system.
 
 ---
 
 
 
-## Open Connect
-When your application needs access to your user's employment system redirect them to Connect.
+## Open Finch Connect
+When your application needs access to your user's employment system redirect them to Finch Connect.
 
-Construct the Connect redirect with the parameters below—
+Construct the Finch Connect redirect with the parameters below—
 
 <!--
 type: tab
@@ -26,9 +26,9 @@ Parameter | Required | Description
  `redirect_uri` | true | The URI your user is redirected to after successfully granting your application access to their system. This value must match one of your application's configured redirect URIs. Read more [here](../../Development-Guides/Redirect-URIs.md).
  `products` | true | A space-separated list of permissions your application is requesting access to. See [here](../../Development-Guides/Permissions.md) for a list of valid permissions.
  `state` | false | An optional value included as a query parameter in the `redirect_uri` back to your application. This value is often used to identify a user and/or prevent cross-site request forgery.
- `payroll_provider` | false | An optional parameter that allows you to bypass the employment system selection screen by providing a valid Provider `id`. Read [here](../../Development-Guides/Providers.md) for more information.
- `sandbox` | false | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data. Read more on testing [here](../../Development-Guides/Testing.md).
- `manual` | false | An optional value which when set to true displays both automated and Assisted Connect employment systems on the selection screen. Read more about Assisted Connect here.
+ `payroll_provider` | false | An optional parameter that allows you to bypass the provider selection screen by providing a valid provider `id`. Read [here](../../Development-Guides/Providers.md) for more information.
+ `sandbox` | false | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data. For more information, read our [Testing Development Guide](../../Development-Guides/Testing.md).
+ `manual` | false | An optional value which when set to true displays both [Automated API](../Product-Guides/Automated-Connect-Flow.md) and [Assisted API](../Product-Guides/Assisted-Connect-Flow.md) providers on the selection screen.
 
 <!--
 type: tab
@@ -43,7 +43,7 @@ https://connect.tryfinch.com/authorize?
 <!-- type: tab-end -->
 
 ## Obtain consent
-Connect displays the permissions your application is requesting access to. If your user approves, they are asked to select their employment system and are then prompted to log in to their account.
+Connect displays the permissions your application is requesting access to. If your user approves, they are asked to select their provider and are then prompted to log in to their account.
 
 ## Retrieve the authorization code
 

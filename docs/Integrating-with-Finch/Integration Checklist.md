@@ -1,6 +1,6 @@
 # Integration checklist
 
-We recommend the following steps while planning and developing your Finch integration, from both a product and engineering perspective. The recommendations outlined below will ensure a seamless experience for your users, make your integration more robust and secure, and set you up for success when you launch into production. 
+We recommend the following steps while planning and developing your Finch integration, from both a product and engineering perspective. The recommendations outlined below will ensure a seamless experience for your users, make your integration more robust and secure, and set you up for success when you launch into production.
 
 ## Integrating Finch Connect
 
@@ -10,9 +10,9 @@ Finch Connect is the front-end UI that allows your users to safely and securely 
 
 **Designing a seamless onboarding experience**
 
-- [ ]  A well-designed user flow will carefully consider when and how to present Connect to your users. We recommend you read [this](../Product-Guides/Finch-Connect.md#integrating-connect-into-your-product) guide for more tips on this topic.
-- [ ]  Displaying messaging to your customers prior to initiating Connect helps set expectations and increase conversion rates. You can read [this](../Product-Guides/Finch-Connect.md#how-do-i-incentivize-my-user-to-connect-their-system) guide for more information.
-- [ ]  If you add Connect to your users' onboarding flow as we'd recommend, read [this](../Product-Guides/Finch-Connect.md#connect-in-your-users-onboarding) guide for recommendations on a UI flow to work around the request latencies of some systems. 
+- [ ]  A well-designed user flow will carefully consider when and how to present Connect to your users. We recommend you read the [Automated Connect Flow - Integrating connect into your product](../Product-Guides/Automated-Connect-Flow.md#integrating-connect-into-your-product) guide for more tips on this topic.
+- [ ]  Displaying messaging to your customers prior to initiating Connect helps set expectations and increase conversion rates. You can read the [Automated Connect Flow - How to incentivize your user to connect their system](../Product-Guides/Automated-Connect-Flow.md#how-do-i-incentivize-my-user-to-connect-their-system) guide for more information.
+- [ ]  If you add Connect to your users' onboarding flow as we'd recommend, read [Automated Connect Flow - Using Finch Connect in your onboarding flow](../Product-Guides/Automated-Connect-Flow.md#connect-in-your-users-onboarding) guide for recommendations on a UI flow to work around the request latencies of some systems.
 
 **Supporting users with custom setups**
 

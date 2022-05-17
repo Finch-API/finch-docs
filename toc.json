@@ -61,8 +61,8 @@
     },
     {
       "type": "item",
-      "title": "Connect",
-      "uri": "docs/Product-Guides/Finch-Connect.md"
+      "title": "Automated Connect Flow",
+      "uri": "docs/Product-Guides/Automated-Connect-Flow.md"
     },
     {
       "type": "item",

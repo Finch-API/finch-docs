@@ -1,6 +1,6 @@
 # Re-authentication
 
-Finch aims to ensure your application maintains long-lived access to your users' employment systems. However, when a user changes security settings on their account or an employment system makes changes to its infrastructure, Finch's connection can get disconnected. This will result in an error with the HTTP status code of `401` and `finch_code` of `reauthenticate_user`. When an access token returns this, your user will need to re-authenticate by going through [Finch Connect](../Product-Guides/Finch-Connect.md) again. 
+Finch aims to ensure your application maintains long-lived access to your users' employment systems. However, when a user changes security settings on their account or an employment system makes changes to its infrastructure, Finch's connection can get disconnected. This will result in an error with the HTTP status code of `401` and `finch_code` of `reauthenticate_user`. When an access token returns this, your user will need to re-authenticate by going through the [Automated Connect Flow](../Product-Guides/Automated-Connect-Flow.md) again.
 
 ---
 
