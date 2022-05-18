@@ -1,6 +1,6 @@
-# Your application embeds Connect
+# Your application embeds Finch Connect
 
-In this method of integration, your can embed Connect into your application using a Finch SDK so your user remains on your application. The authorization flow will consist of four steps—
+In this method of integration, your can embed Finch Connect into your application using a Finch SDK so your user remains on your application. The authorization flow will consist of four steps—
 1. **Open Finch Connect—** Your application uses a Finch SDK to launch Connect and initiate the authorization flow for your user.
 2. **Obtain consent—** Connect prompts your user to log in to their employment system and grant your application access to the permissions you are requesting for. 
 3. **Retrieve the authorization code—** If the user successfully connects and grants your application access to their system, Connect will call the registered `onSuccess` handler with a short-lived authorization `code`.
@@ -10,10 +10,9 @@ In this method of integration, your can embed Connect into your application usin
 
 ---
 
+## Open Finch Connect
 
-## Open Connect
-
-To open Connect, you will need to instantiate the [SDK](https://github.com/Finch-API/react-finch-connect) with the `useFinchConnect` hook and invoke the returned `open` method to display the view for your user.
+To open Finch Connect, you will need to instantiate the [SDK](https://github.com/Finch-API/react-finch-connect) with the `useFinchConnect` hook and invoke the returned `open` method to display the view for your user.
 
 We recommend registering the `open` method with an `onClick` handler of an HTML button on your application.
 
@@ -25,9 +24,9 @@ Parameter | Required | Description
 ---------|----------|---------
  `clientId` | true | Your `client_id`, a unique identifier for your application.
  `products` | true | An array of permissions your application is requesting access to. See [here](../../Development-Guides/Permissions.md) for a list of valid permissions.
- `payrollProvider` | false | An optional parameter that allows you to bypass the employment system selection screen by providing a valid Provider `id`. Read [here](../../Development-Guides/Providers.md) for more information.
- `sandbox` | false | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data. Read more on testing [here](../../Development-Guides/Testing.md).
- `manual` | false | An optional value which when set to true displays both automated and Assisted Connect employment systems on the selection screen. Read more about Assisted Connect here.
+ `payrollProvider` | false | An optional parameter that allows you to bypass the provider selection screen by providing a valid provider `id`. Read [here](../../Development-Guides/Providers.md) for more information.
+ `sandbox` | false | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data. For more information, read our [Testing Development Guide](../../Development-Guides/Testing.md).
+ `manual` | false | An optional value which when set to true displays both [Automated API](../Product-Guides/Automated-Connect-Flow.md) and [Assisted API](../Product-Guides/Assisted-Connect-Flow.md) providers on the selection screen.
 
 <!--
 type: tab
@@ -64,7 +63,7 @@ const App = () => {
 <!-- type: tab-end -->
 
 ## Obtain consent
-Connect displays the permissions your application is requesting access to. If your user approves, they are asked to select their employment system and are then prompted to log in to their account.
+Connect displays the permissions your application is requesting access to. If your user approves, they are asked to select their provider and are then prompted to log in to their account.
 
 ## Retrieve the authorization code
 Once the user has granted your application to access their employment system, the `onSuccess` method is invoked with an authorization `code`.

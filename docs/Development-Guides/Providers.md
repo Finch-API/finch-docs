@@ -1,37 +1,37 @@
 # Providers
 
-The table below lays out the providers with the associated provider `id` that can be used in the `payroll_provider` parameter for Finch [Connect](../Product-Guides/Finch-Connect.md).
+The table below lays out the providers with the associated provider `id` that can be used in the `payroll_provider` parameter for [Finch Connect](../Integrating-with-Finch/Integrate-Finch-Connect/Overview.md).
 
 <!-- theme: info -->
-> **Read:** The `Company`, `Directory`, `Individual`, `Employment`, `Payment` and `Pay Statement` endpoint are read-only endpoints. Providers can be either an API provider or an [Assisted Connect provider](../Product-Guides/Assisted-Connect-Flow.md).
+> **Read:** The `Company`, `Directory`, `Individual`, `Employment`, `Payment` and `Pay Statement` endpoint are read-only endpoints. Providers can be either an [Automated API Provider](../Product-Guides/Automated-Connect-Flow.md) or an [Assisted API Provider](../Product-Guides/Assisted-Connect-Flow.md).
 
 <!-- theme: info -->
-> **Benefits:** The benefits endpoints contain both read and write functionalities. Providers can be either an API benefit providers or an Assisted Benefit providers. Only `Create Benefit`, `Update Benefit`, `Enroll Individuals in Benefits` and `Unenroll Individuals from Benefits` endpoints are available for Assisted Benefits providers.
+> **Benefits:** The benefits endpoints contain both read and write functionalities. Providers can be either an Automated API Benefit Provider or an Assisted API Benefit Provider. Only `Create Benefit`, `Update Benefit`, `Enroll Individuals in Benefits` and `Unenroll Individuals from Benefits` endpoints are available for Assisted API Benefit Providers.
 
-### API Providers
+### Automated API Providers
 Display Name | Id | Read | Benefits
 ---------|----------|----------|----------
-ADP Workforce Now | `adp_workforce_now` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-BambooHR | `bamboo_hr` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-bob | `bob` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-Gusto | `gusto` | <span style="color:goldenrod">API</span> | <span style="color:goldenrod">API</span>
-Insperity | `insperity` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-Justworks | `justworks` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-Namely | `namely` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-Paychex Flex | `paychex_flex` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-Paycom | `paycom` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-Paylocity | `paylocity` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-QuickBooks Payroll | `quickbooks` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-Rippling | `rippling` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-Run Powered by ADP | `adp_run` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-Sequoia One | `sequoia_one` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-Square Payroll | `square_payroll` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-TriNet | `trinet` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-UltiPro (UKG Pro) | `ulti_pro` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-Workday | `workday` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
-Zenefits | `zenefits` | <span style="color:goldenrod">API</span> | <span style="color:darkgreen">Assisted</span>
+ADP Workforce Now | `adp_workforce_now` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+BambooHR | `bamboo_hr` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+bob | `bob` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+Gusto | `gusto` | <span style="color:goldenrod">Automated</span> | <span style="color:goldenrod">Automated</span>
+Insperity | `insperity` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+Justworks | `justworks` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+Namely | `namely` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+Paychex Flex | `paychex_flex` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+Paycom | `paycom` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+Paylocity | `paylocity` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+QuickBooks Payroll | `quickbooks` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+Rippling | `rippling` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+Run Powered by ADP | `adp_run` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+Sequoia One | `sequoia_one` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+Square Payroll | `square_payroll` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+TriNet | `trinet` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+UltiPro (UKG Pro) | `ulti_pro` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+Workday | `workday` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
+Zenefits | `zenefits` | <span style="color:goldenrod">Automated</span> | <span style="color:darkgreen">Assisted</span>
 
-### Assisted Providers
+### Assisted API Providers
 Display Name | Id | Read | Benefits
 ---------|----------|----------|----------
 AAP iSolved | `aap_isolved` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
