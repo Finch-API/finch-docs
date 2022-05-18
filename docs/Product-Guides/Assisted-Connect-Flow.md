@@ -1,6 +1,6 @@
 # Assisted Connect Flow
 
-Assisted API Connections is our semi-automated product that expands coverage to 70+ providers. In contrast to our [Automated API Connections](../Product-Guides/Automated-Connect-Flow.md), the data for Assisted API connections is refreshed periodically (usually every 14 days). Our full list of coverage — for both Automated API and Assisted API providers — can be found [here](../Development-Guides/Providers.md).
+Assisted API Connections is our semi-automated product that expands coverage to 70+ providers. In contrast to our [Automated API Connections](../Product-Guides/Automated-Connect-Flow.md), the data for Assisted API connections is refreshed periodically. Our full list of coverage — for both Automated API and Assisted API providers — can be found [here](../Development-Guides/Providers.md).
 
 Contact our team at `developers@tryfinch.com` to get started or for more questions regarding pricing, missing providers, etc.
 

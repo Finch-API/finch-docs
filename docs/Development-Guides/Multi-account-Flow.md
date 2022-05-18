@@ -33,7 +33,7 @@ focus: false
 
 **After onboarding**
 
-You can present your user with a page showing all of their connections. Here, you can provide the option to connect other accounts. Below an example UI. Your application would [launch Finch Connect](../Integrating-with-Finch/Integrate-Finch-Connect/Overview.md) again when your user clicks on the call-to-action button.
+You can present your user with a page showing all of their connections. Here, you can provide the option to connect other accounts. Below is an example UI. Your application would [launch Finch Connect](../Integrating-with-Finch/Integrate-Finch-Connect/Overview.md) again when your user clicks on the call-to-action button.
 
 <!--
 focus: false
