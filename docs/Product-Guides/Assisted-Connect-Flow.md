@@ -8,7 +8,7 @@ Contact our team at `developers@tryfinch.com` to get started or for more questio
 
 ## How Assisted Connect Flow works
 ### For your user
-As with our automated integrations, your user will need to go through [Finch Connect](./Product-Guides.md). However instead of providing their API credentials, they will need to follow a set of instructions, displayed on Finch Connect, to manually connect your application to their employment system.
+As with our automated integrations, your user will need to go through [Finch Connect](./Product-Guides.md). However, instead of providing their API credentials, they will need to follow a set of instructions displayed on Finch Connect to manually connect your application to their employment system.
 
 ### For you
 Unlike our automated integrations, you will not be able to make API calls to pull data and push changes to your users' systems immediately. Instead, you will have to wait until your user manually connects their employment system followed by a predetermined number of days for the Finch team to pull in the data. After the initial pull, the data will be periodically refreshed.
