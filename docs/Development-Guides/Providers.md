@@ -80,6 +80,7 @@ EmPower HR | `empower_hr` | <span style="color:darkgreen">Assisted</span> | <spa
 Engage PEO | `engage_peo` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Employer Services Corporation (ESC) | `esc` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Everee | `everee` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+Evolution Payroll Services | `evolution_payroll_services` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Excel Resources | `excel_resources` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Flock | `flock` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 FullStack PEO | `fullstack_peo` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
@@ -93,6 +94,7 @@ Highflyer HR | `highflyer_hr` | <span style="color:darkgreen">Assisted</span> | 
 HRO | `hro` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 HROne | `hrone` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Hubstaff | `hubstaff` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+Humaans | `humaans` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Humi | `humi` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 INFINITI HR | `infiniti_hr` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Iris HR | `iris_hr` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
@@ -109,6 +111,7 @@ Oasis | `oasis` | <span style="color:darkgreen">Assisted</span> | <span style="c
 OneSource Payroll | `onesource_payroll` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 OnPay | `onpay` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Oracle PeopleSoft | `oracle_peoplesoft` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+Panther | `panther` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Paragon Payroll iSolved | `paragon_payroll_isolved` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Patriot | `patriot` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Paycor | `paycor` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
@@ -125,6 +128,7 @@ PayUSA | `pay_usa_inc` | <span style="color:darkgreen">Assisted</span> | <span s
 PCS HCM | `pcs_hcm` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 PeopleHum | `peoplehum` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 People Lease | `people_lease` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+Personio | `personio` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Platinum Group | `platinum_group` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 PrestigePEO | `prestige_peo` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 PrimePay | `primepay` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
