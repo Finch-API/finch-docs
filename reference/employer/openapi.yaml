@@ -1907,7 +1907,7 @@ components:
           nullable: true
         city:
           type: string
-          description: "\tCity, district, suburb, town, or village."
+          description: "City, district, suburb, town, or village."
           nullable: true
         state:
           type: string
@@ -1990,6 +1990,7 @@ components:
       enum:
         - 401k
         - 401k_roth
+        - 401k_loan
         - 403b
         - 403b_roth
         - '457'
