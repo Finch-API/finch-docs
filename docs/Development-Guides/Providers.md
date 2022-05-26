@@ -99,7 +99,6 @@ Humi | `humi` | <span style="color:darkgreen">Assisted</span> | <span style="col
 INFINITI HR | `infiniti_hr` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Iris HR | `iris_hr` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 iSolved | `isolved` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
-JazzHR | `jazz_hr` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Kenjo | `kenjo` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Keystone Payroll iSolved | `keystone_isolved` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 mp | `mp` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
@@ -126,6 +125,7 @@ Payroll Plus HCM Evolution | `payroll_plus_hcm_evolution` | <span style="color:d
 Payroll Solutions | `payroll_solutions` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 PayUSA | `pay_usa_inc` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 PCS HCM | `pcs_hcm` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+PeopleForce | `peopleforce` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 PeopleHum | `peoplehum` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 People Lease | `people_lease` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Personio | `personio` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
