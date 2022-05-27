@@ -1,8 +1,8 @@
 # Quickstart
 
-Once you have your API keys, you can start interacting with Finch's API using our sandbox mode — a test environment with life-like data.
+Once you have an application's `client_id` and `client_secret`, you can start interacting with Finch's API using our sandbox mode — a test environment with mock data.
 
-This guide will help you send your first request to Finch's API while the next guides dive deeper into the concepts and help you integrate Finch into your production application.    
+This guide will help you send your first request to Finch's API while the following guides dive deeper into the concepts and help you integrate Finch into your production application.
 
 ---
 
@@ -10,7 +10,15 @@ This guide will help you send your first request to Finch's API while the next g
 
 Finch Connect provides a secure and elegant authorization flow for your users to grant your application access to their systems.
 
-Launch Connect by constructing and navigating to the following URL on your browser.
+> Note: this quickstart guide is a simplified, but manual way of generating an authorization `code` and exchanging it for an `access_token`, which can be used to subsequently call our APIs. In a true production environment, you will want to automate this process completely inside your application's code.
+
+Since this quickstart assumes you have not built an application yet, we must make sure that a proper `redirect_uri` is set up before continuing or our authorization code generation will fail. In your [Finch Dashboard](https://dashboard.tryfinch.com), go to the "Redirect URIs" section and select `+ Add Redirect URI`. We are going to use [https://example.com](https://example.com) for testing purposes. In production, you will want to use your own application's urls for the Redirect Uris (and remove all mentions of [https://example.com](https://example.com) or [http://localhost](http://localhost)).
+
+Redirect URIs are only needed if you are [redirecting to Finch Connect](./Integrating-with-Finch/Integrate-Finch-Connect/Redirect-to-Connect.md). If you decide to use our [embedded Finch Connect flow](./Integrating-with-Finch/Integrate-Finch-Connect/Embed-Connect.md), you do not need to specify a redirect_uri; the SDK does this for you.
+
+> Currently, embedded flow only works with our [React SDK](https://developer.tryfinch.com/docs/guides/ZG9jOjEzNDk2NDE-react-tutorial). If you would like to request another embedded flow SDK language, [let us know](mailto:developers@tryfinch.com).
+
+We will launch Finch Connect - our secure and elegant authorization flow for your users to grant your application access to their systems - by constructing and navigating to the following URL on your browser. Copy the url below, open up your favorite text editor (Notes, TextEdit, VS Code, etc), paste, and replace `<your-client-id>` with the client id found in your [Finch Dashboard](https://dashboard.tryfinch.com). Remove the angle brackets when replacing `<your-client-id>`.
 
 ```bash
 https://connect.tryfinch.com/authorize?
@@ -20,19 +28,21 @@ https://connect.tryfinch.com/authorize?
 &sandbox=true
 ```
 
-Note: In production, your application will either [redirect](./Integrating-with-Finch/Integrate-Finch-Connect/Redirect-to-Connect.md) your user to or [embed](./Integrating-with-Finch/Integrate-Finch-Connect/Embed-Connect.md) Connect.
+Note that we have `sandbox=true`. This is required only when calling our sandbox environment for testing purposes.
 
 ### Log in to the Finch Sandbox account
 
-Click on the Finch Sandbox employment system on the selector page and log in with the username `largeco` and password `letmein`. 
+Click on the Finch Sandbox mock provider on the selector page and log in with the username `largeco` and password `letmein`. For more information on the various types of mock payroll providers you can test, visit our [testing](./Development-Guides/Testing.md) page.
 
-Note: In production, this is the final interaction your user has with Finch. All the following steps occur on your application's front and back-end.
+> This is the final interaction your end-user will have with Finch. All of the following steps will occur on your application's front-end and back-end.
 
 ### Exchange the authorization code for an access token
 
-After successfully logging in, your browser will be redirected to `https://example.com` with the query parameter `code`. Copy the `code` (in production, your application will copy the `code` and perform the remaining steps programmatically).
+After successfully logging in via Finch Connect, your browser will be redirected to `https://example.com` with the query parameter `code`. Copy the `code` from the url and save it in your text editor. In a production system, however, the browser will redirect to your url and your application will automatically copy the `code` and perform the remaining steps programmatically.
 
-To exchange the `code` for a token, you will first need to construct a basic authorization header for your application to use in the next request. Run the following commands from your terminal. Don't include the angle brackets when replacing with your `client_id` and `client_secret`.
+To exchange the `code` for a token, you will first need to construct a basic authorization header for your application to use in the next request. The basic authorization header needs to be `Base64` encoded before sending it to our API.
+
+Copy the commands below, paste them into your text editor, and replace `client_id` and `client_secret` found in your [Finch Dashboard](https://dashboard.tryfinch.com). Don't forget to remove the angle brackets when replacing `<your_finch_client_id>` and `<your_finch_client_secret>`.
 
 ```bash
 export FINCH_CLIENT_ID="<your_finch_client_id>"
@@ -40,7 +50,9 @@ export FINCH_CLIENT_SECRET="<your_finch_client_secret>"
 export FINCH_BASIC_AUTH_HEADER="Basic `echo -n $FINCH_CLIENT_ID:$FINCH_CLIENT_SECRET | base64`"
 ```
 
-Run the following `curl` command to retrieve your `access_token`. Don't forget to replace the `code` in the command with the one you just copied. Don't include the angle brackets when replacing with your `code` in the command.
+Copy the three edited `export` commands, paste in your terminal, and run it (by pressing the `Enter` key).
+
+Now we will do the same with the `curl` command below. Copy the code below, paste into your text editor, replace the `code` in the command with the one you saved above (making sure to not include the angle brackets).
 
 <!--
 type: tab
@@ -53,6 +65,7 @@ curl https://api.tryfinch.com/auth/token \
   -d "code=<your_authorization_code>" \
   -d "redirect_uri=https://example.com"
 ```
+
 <!--
 type: tab
 title: Response
@@ -62,11 +75,15 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-The authorization `code` represents a user consenting your application access to their system. You can now exchange it for an `access_token` which represents your application's access to your user's system. 
+Copy, paste, and run the commend in your terminal. This `curl` command is going to make an HTTP POST request which will exchange our authorization header (our client_id and client_secret which is base64 encoded) and our newly generated authorization code for an access token.
+
+In [OAuth2](https://oauth.net/2/) terms, the authorization `code` represents a user consenting your application access to their system. The `access_token` represents your application's access to your user's system.
 
 ### Use the access token to send an API request
 
-Now that you have an `access_token`, you can send API requests to Finch. Run the following command to retrieve the `largeco`'s employee directory!
+Now that you have a valid `access_token`, you will use this access token to send requests to Finch's APIs from now on. You will not have to go through the authentication process again unless you need to get a new access token or a [re-authentication](./Development-Guides/Re-authentication.md) event happens.
+
+Run the following command to retrieve the `largeco`'s employee directory!
 
 <!--
 type: tab
@@ -121,4 +138,4 @@ title: Response
 
 ### Next steps
 
-That's it! Now that you have sent your first request to Finch's API, read on to dive deeper and get started with your production Finch integration.
+Congratulations! You have sent your first request to Finch's API. Read on to dive deeper into [Finch Connect](./Integrating-with-Finch/Integrate-Finch-Connect/Redirect-to-Connect.md) or get started with our [production integration checklist](./Integrating-with-Finch/Integration%20Checklist.md).
