@@ -4,4 +4,4 @@ People are the most important component of an organization, yet the data require
 
 Finch makes it easy to read workforce data and push changes across providers (payroll, HRIS, time management, etc) using HTTP requests.
 
-
+Get started by [registering](./2-Registration.md) first and then following our [quickstart](./3-Quickstart.md) guide.
