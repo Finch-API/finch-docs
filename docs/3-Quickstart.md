@@ -12,7 +12,9 @@ Finch Connect provides a secure and elegant authorization flow for your users to
 
 > Note: this quickstart guide is a simplified, but manual way of generating an authorization `code` and exchanging it for an `access_token`, which can be used to subsequently call our APIs. In a true production environment, you will want to automate this process completely inside your application's code.
 
-Since this quickstart assumes you have not built an application yet, we must make sure that a proper `redirect_uri` is set up before continuing or our authorization code generation will fail. In your [Finch Dashboard](https://dashboard.tryfinch.com), go to the "Redirect URIs" section and select `+ Add Redirect URI`. We are going to use [https://example.com](https://example.com) for testing purposes. In production, you will want to use your own application's urls for the Redirect Uris (and remove all mentions of [https://example.com](https://example.com) or [http://localhost](http://localhost)). You must do this if you are [redirecting to Finch Connect](./Integrating-with-Finch/Integrate-Finch-Connect/Redirect-to-Connect.md), but you can use our [embedded Finch Connect flow](./Integrating-with-Finch/Integrate-Finch-Connect/Embed-Connect.md) to avoid any redirection. Currently, Finch only supports embedded flow with our [React SDK](https://developer.tryfinch.com/docs/guides/ZG9jOjEzNDk2NDE-react-tutorial)
+Since this quickstart assumes you have not built an application yet, we must make sure that a proper `redirect_uri` is set up before continuing or our authorization code generation will fail. In your [Finch Dashboard](https://dashboard.tryfinch.com), go to the "Redirect URIs" section and select `+ Add Redirect URI`. We are going to use [https://example.com](https://example.com) for testing purposes. In production, you will want to use your own application's urls for the Redirect Uris (and remove all mentions of [https://example.com](https://example.com) or [http://localhost](http://localhost)).
+
+> Redirect URIs are only needed if you are [redirecting to Finch Connect](./Integrating-with-Finch/Integrate-Finch-Connect/Redirect-to-Connect.md). If you decide to use our [embedded Finch Connect flow](./Integrating-with-Finch/Integrate-Finch-Connect/Embed-Connect.md), you do not need to specify a redirect_uri; the SDK does this for you. Currently, embedded flow only works with our [React SDK](https://developer.tryfinch.com/docs/guides/ZG9jOjEzNDk2NDE-react-tutorial). If you would like to request another embedded flow SDK language, [let us know](mailto:developers@tryfinch.com).
 
 We will launch Finch Connect - our secure and elegant authorization flow for your users to grant your application access to their systems - by constructing and navigating to the following URL on your browser. Copy the url below, open up your favorite text editor (Notes, TextEdit, VS Code, etc), paste, and replace `<your-client-id>` with the client id found in your [Finch Dashboard](https://dashboard.tryfinch.com). Remove the angle brackets when replacing `<your-client-id>`.
 
@@ -71,7 +73,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-Copy, paste, and run the commend in your terminal. This `curl` command is going to make an HTTP POST command which will exchange our authorization header (our client_id and client_secret which is base64 encoded) and our newly generated authorization code for an access token.
+Copy, paste, and run the commend in your terminal. This `curl` command is going to make an HTTP POST request which will exchange our authorization header (our client_id and client_secret which is base64 encoded) and our newly generated authorization code for an access token.
 
 In [OAuth2](https://oauth.net/2/) terms, the authorization `code` represents a user consenting your application access to their system. The `access_token` represents your application's access to your user's system.
 
