@@ -40,19 +40,7 @@ Click on the Finch Sandbox mock provider on the selector page and log in with th
 
 After successfully logging in via Finch Connect, your browser will be redirected to `https://example.com` with the query parameter `code`. Copy the `code` from the url and save it in your text editor. In a production system, however, the browser will redirect to your url and your application will automatically copy the `code` and perform the remaining steps programmatically.
 
-To exchange the `code` for a token, you will first need to construct a basic authorization header for your application to use in the next request. The basic authorization header needs to be `Base64` encoded before sending it to our API.
-
-Copy the commands below, paste them into your text editor, and replace `client_id` and `client_secret` found in your [Finch Dashboard](https://dashboard.tryfinch.com). Don't forget to remove the angle brackets when replacing `<your_finch_client_id>` and `<your_finch_client_secret>`.
-
-```bash
-export FINCH_CLIENT_ID="<your_finch_client_id>"
-export FINCH_CLIENT_SECRET="<your_finch_client_secret>"
-export FINCH_BASIC_AUTH_HEADER="Basic `echo -n $FINCH_CLIENT_ID:$FINCH_CLIENT_SECRET | base64`"
-```
-
-Copy the three edited `export` commands, paste in your terminal, and run it (by pressing the `Enter` key).
-
-Now we will do the same with the `curl` command below. Copy the code below, paste into your text editor, replace the `code` in the command with the one you saved above (making sure to not include the angle brackets).
+To exchange the `code` for a token, we use the `curl` command below. Copy the code below, paste into your text editor, replace the `<your_authorization_code>` in the command with the one you saved above (making sure to not include the angle brackets).
 
 <!--
 type: tab
@@ -61,9 +49,13 @@ title: Request
 ```bash
 curl https://api.tryfinch.com/auth/token \
   -X POST \
-  -H "Authorization: $FINCH_BASIC_AUTH_HEADER" \
-  -d "code=<your_authorization_code>" \
-  -d "redirect_uri=https://example.com"
+  -H "Content-Type: application/json" \
+  --data-raw '{
+    "client_id": "<your_client_id>",
+    "client_secret": "<your_finch_client_secret>",
+    "code": "<your_authorization_code>",
+    "redirect_uri": "https://example.com"
+}'
 ```
 
 <!--
@@ -71,7 +63,9 @@ type: tab
 title: Response
 -->
 ```json
-{ "access_token": "<your_access_token>" }
+{
+  "access_token": "<your_access_token>",
+}
 ```
 <!-- type: tab-end -->
 

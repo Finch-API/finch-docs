@@ -88,8 +88,7 @@ title: Headers
 -->
 Header | Description
 -------|--------------
-`Authorization` | [HTTP Basic Auth header](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side) containing the `client_id` and `client_secret`. The header is formed by concatenating the word “Basic”, followed by a space, and the base64 encoded string of the `client_id`, a colon `:`, and the `client_secret`. For example, `Basic dXNlcm5hbWU6cGFzc3dvcmQ=`.
-`Content-Type` | Must be set to `application/x-www-form-urlencoded`, matching the format of the request body.
+`Content-Type` | Must be set to `application/json`, matching the format of the request body.
 
 <!--
 type: tab
@@ -97,7 +96,10 @@ title: Body
 -->
 Parameter | Required | Description
 ----------|----------|-------------
+`clientId` | true | Your `client_id`, a public unique identifier for your application.
+`client_secret` | true | Your `client_secret`, a secret value which authorizes your application with Finch. Please ensure you protect your `client_secret`.
 `code` | true | The authorization code received by the `onSuccess` handler.
+
 
 <!--
 type: tab
@@ -106,9 +108,12 @@ title: Example
 ```shell
 curl https://api.tryfinch.com/auth/token \
   -X POST \
-  -H 'Authorization: <your_basic_auth_header>' \
-  -H 'Content-Type: application/x-www-form-urlencoded' \
-  -d 'code=<your_authorization_code>'
+  -H "Content-Type: application/json" \
+  --data-raw '{
+    "client_id": "<your_client_id>",
+    "client_secret": "<your_finch_client_secret>",
+    "code": "<your_authorization_code>"
+}'
 ```
 <!-- type: tab-end -->
 
