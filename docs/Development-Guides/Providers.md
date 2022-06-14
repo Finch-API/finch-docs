@@ -97,6 +97,7 @@ Hubstaff | `hubstaff` | <span style="color:darkgreen">Assisted</span> | <span st
 Humaans | `humaans` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Humi | `humi` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 INFINITI HR | `infiniti_hr` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
+Infor | `infor` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Iris HR | `iris_hr` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 iSolved | `isolved` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
 Kenjo | `kenjo` | <span style="color:darkgreen">Assisted</span> | <span style="color:darkgreen">Assisted</span>
