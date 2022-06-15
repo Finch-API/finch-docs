@@ -52,7 +52,7 @@ curl https://api.tryfinch.com/auth/token \
   -H "Content-Type: application/json" \
   --data-raw '{
     "client_id": "<your_client_id>",
-    "client_secret": "<your_finch_client_secret>",
+    "client_secret": "<your_client_secret>",
     "code": "<your_authorization_code>",
     "redirect_uri": "https://example.com"
 }'
