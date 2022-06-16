@@ -87,8 +87,7 @@ title: Headers
 -->
 Header | Description
 -------|--------------
-`Authorization` | [HTTP Basic Auth header](https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side) containing the `client_id` and `client_secret`. The header is formed by concatenating the word “Basic”, followed by a space, and the base64 encoded string of the `client_id`, a colon `:`, and the `client_secret`. For example, `Basic dXNlcm5hbWU6cGFzc3dvcmQ=`.
-`Content-Type` | Must be set to `application/x-www-form-urlencoded`, matching the format of the request body.
+`Content-Type` | Must be set to `application/json`, matching the format of the request body.
 
 <!--
 type: tab
@@ -96,6 +95,8 @@ title: Body
 -->
 Parameter | Required | Description
 ----------|----------|-------------
+`clientId` | true | Your `client_id`, a public unique identifier for your application.
+`client_secret` | true | Your `client_secret`, a secret value which authorizes your application with Finch. Please ensure you protect your `client_secret`.
 `code` | true | The authorization code received from the query parameter of the `redirect_uri`.
 `redirect_uri` | true | The `redirect_uri` the `code` was parsed from.
 
@@ -106,10 +107,13 @@ title: Example
 ```shell
 curl https://api.tryfinch.com/auth/token \
   -X POST \
-  -H 'Authorization: Basic ZmRjOGY1NDMtYmZiMi00NDYzLTg4M2ItZmEyMzQxMDZjYTlkOnNlY3JldA==' \
-  -H 'Content-Type: application/x-www-form-urlencoded' \
-  -d 'code=90abecb6-e7ab-4b85-864a-e1c8bf67f2ad' \
-  -d 'redirect_uri=https://example.com'
+  -H "Content-Type: application/json" \
+  --data-raw '{
+    "client_id": "<your_client_id>",
+    "client_secret": "<your_client_secret>",
+    "code": "<your_authorization_code>",
+    "redirect_uri": "<your_redirect_uri>"
+}'
 ```
 <!-- type: tab-end -->
 
@@ -131,7 +135,7 @@ title: Example
 -->
 ```json
 {
-  "access_token": "cf7ba7e9-8c5d-417d-a99f-c386cfc235cc",
+  "access_token": "<your_access_token>",
 }
 ```
 <!-- type: tab-end -->
