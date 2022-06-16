@@ -69,7 +69,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-Copy, paste, and run the commend in your terminal. This `curl` command is going to make an HTTP POST request which will exchange our authorization header (our client_id and client_secret which is base64 encoded) and our newly generated authorization code for an access token.
+Copy, paste, and run the command in your terminal. This `curl` command is going to make an HTTP POST request which will exchange our authorization header (our client_id and client_secret which is base64 encoded) and our newly generated authorization code for an access token.
 
 In [OAuth2](https://oauth.net/2/) terms, the authorization `code` represents a user consenting your application access to their system. The `access_token` represents your application's access to your user's system.
 
