@@ -416,6 +416,7 @@ paths:
                           start_date: '2017-06-30'
                           end_date: null
                           is_active: true
+                          class_code: '8810'
                           location:
                             line1: 12 Bird Drive
                             line2: null
@@ -517,6 +518,10 @@ paths:
                             is_active:
                               type: boolean
                               description: '`true` if the individual an an active employee or contractor at the company.'
+                              nullable: true
+                            class_code:
+                              type: string
+                              description: "Worker's compensation'classification code for this employee"
                               nullable: true
                             location:
                               $ref: '#/components/schemas/Location'
