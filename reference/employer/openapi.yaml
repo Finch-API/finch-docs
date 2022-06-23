@@ -521,7 +521,7 @@ paths:
                               nullable: true
                             class_code:
                               type: string
-                              description: "Worker's compensation'classification code for this employee"
+                              description: "Worker's compensation classification code for this employee"
                               nullable: true
                             location:
                               $ref: '#/components/schemas/Location'
