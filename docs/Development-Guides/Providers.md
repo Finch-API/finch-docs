@@ -78,6 +78,7 @@ Emplicity | `emplicity` | <span style="color:goldenrod">Assisted</span> | <span 
 Employdrive | `employdrive` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 EmPower HR | `empower_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Engage PEO | `engage_peo` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Employer Flexible | `employer_flexible` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Employer Services Corporation (ESC) | `esc` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Everee | `everee` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Evolution Payroll Services | `evolution_payroll_services` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -110,6 +111,7 @@ Nextep | `nextep` | <span style="color:goldenrod">Assisted</span> | <span style=
 Oasis | `oasis` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 OneSource Payroll | `onesource_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 OnPay | `onpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Opolis | `opolis` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Oracle PeopleSoft | `oracle_peoplesoft` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Panther | `panther` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Paragon Payroll iSolved | `paragon_payroll_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
