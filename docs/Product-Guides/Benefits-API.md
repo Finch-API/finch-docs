@@ -232,22 +232,3 @@ Benefit | Features
 **Custom post-tax** | `employee_deduction`: `fixed`, `percent`<br>`annual_maximum`
 
 <!-- type: tab-end -->
-
-## Getting access to the test Gusto instance
-
-1. When you request access to the test Gusto instance, you will be added as an admin by Finch. Check your email for the Gusto invite titled `Cisticola LLC has been added as a client on Gusto`
-
-1. You should have received an email that looks like this:
-    
-    ![Gusto Login Email](/assets/images/gustoLoginEmail.png)
-    
-1. Right-click `Login` and open in incognito browser.
-1. Select `Having trouble signing in?` and then `I forgot my password`.
-1. Input your email address.
-1. Navigate back to your inbox where an email will be sent to set up a new password.
-1. Right-click `Change my password` and open in incognito browser
-1. Click `Change Password`
-
-1. [optional] Once logged in, set up the Multi-factor authentication on the account. Select the option of using the **Authenticator App**.
-
-Once you have the credentials, you can enter them into Finch Connect in your own test environment using your dev keys (these are different from sandbox keys. If you don’t have dev keys yet, please ask your Finch representative) and proceed to get an access token to use the API as normal.
