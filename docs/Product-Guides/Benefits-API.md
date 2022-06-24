@@ -86,7 +86,7 @@ The types and features of each benefit can vary between payroll systems, and eve
 
 On request, we can also provide written documentation about supported features and benefit types at the provider level. Please reach out to your account representative for that information.
 
-**Note: One-time post-tax deductions are not currently supported for benefits yet.**
+**Note: One-time post-tax deductions are not currently supported for benefits.**
 
 ### Handling Assisted Benefits API responses
 
