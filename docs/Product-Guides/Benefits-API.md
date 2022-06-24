@@ -26,12 +26,11 @@ You can review [our list of valid providers](https://developer.tryfinch.com/docs
 
 Because of the manual nature of assisted benefit connections, it is important to submit payroll benefit deductions to our API 7 days before the customer’s payroll close date. This will help the Finch team to make the change in the provider’s system so it can be processed with the current payroll period (unless explicitly specified otherwise in your API request).
 
-For most of your customers, this is already a part of the HR admin workflow. We are just changing the location of where they make this change. It is important as the developer to make it clear to your customers what the payroll close date is so that it can be communicated properly if the benefit will take effect this pay period or next pay period.
+For most employers, this information is already needed for the HR admin workflow. As the developer, it is important to understand what the payroll close date is so that it can be communicated properly if the benefit will take effect this pay period or next pay period.
 
 ## Example
 
 As an example, if the payroll period is **June 1 - 15**. The payroll close date might be **June 16** so payroll can be processed before **Friday, June 17**.  Therefore, it would be important to submit payroll deductions via the Finch API by **June 9** for those to take effect during the June 1 - 15 payroll.
-
 
 <pre>
 June 2022
@@ -117,7 +116,7 @@ Example `GET /jobs/{job_id}` response after initial job submission:
 {
   "job_id": "3a82a144-d168-4207-942a-a5852b11df1c",
   "code": 202,
-	"status": "pending"
+ "status": "pending"
 }
 ```
 
@@ -162,6 +161,7 @@ You can [use the benefits endpoints in the Finch Sandbox](https://developer.tryf
 If you need to test reading back the data you write into the system, you can use our test Gusto instance (using the company Cisticola LLC that we set up) for testing our benefits endpoints. At the time of writing (6/22/22), this Gusto instance currently has two active employees, one active contractor, and two inactive employees. The active employees can be enrolled in any of the benefits that Gusto supports. The compatibility matrices of support benefit types and benefit features can be found below - [Gusto Compatibility Matrices](#gusto-compatibility-matrices).
 
 > Please keep in mind that this is a live account for a real LLC that our company runs. This means that there are tax implications to actually moving money.
+>
 > - Please DO NOT EVER RUN PAYROLL ON THIS ACCOUNT.
 > - Please do not edit anything in the Gusto dashboard.
 > - Please do not hire or fire any employees or contractors.
