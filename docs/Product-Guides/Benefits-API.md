@@ -48,32 +48,6 @@ Su Mo Tu We Th Fr Sa
 - Often there is a company contribution and an employee contribution. Some payroll systems separate these, some add them together when calculating the deduction. When validating if the deduction is successful, make sure to understand how the provider you are working with handles contributions. Our team will add the deduction based on how the provider is set up.
 - Some payroll providers offer a dedicated payroll representative to help with making payroll changes. If a payroll rep is helping your customer’s HR admin with changes in their system, it is important that you make it explicitly clear who does what so that the payroll rep does not overwrite any changes Finch has previously made. Calling out Benefit Code types and thoughtful benefit descriptions help.
 
-## Testing benefits
-
-There are three ways we recommend testing benefits.
-
-### Option 1 - Sandbox
-
-You can [use the benefits endpoints in the Finch Sandbox](https://developer.tryfinch.com/docs/reference/ZG9jOjMxOTg1NTMw-testing#testing-benefits). This supports read operations (`GET` requests) and stubbed out write operations (`POST` requests), meaning writes will not actually change any internal state and reads will always return the same responses.
-
-### Option 2 - Automated
-
-If you need to test reading back the data you write into the system, you can use our test Gusto instance (using the company Cisticola LLC that we set up) for testing our benefits endpoints. At the time of writing (6/22/22), this Gusto instance currently has two active employees, one active contractor, and two inactive employees. The active employees can be enrolled in any of the benefits that Gusto supports. The compatibility matrices of support benefit types and benefit features can be found below - [Gusto Compatibility Matrices]().
-
-> Please keep in mind that this is a live account for a real LLC that our company runs. This means that there are tax implications to actually moving money.
-> - Please DO NOT EVER RUN PAYROLL ON THIS ACCOUNT.
-> - Please do not edit anything in the Gusto dashboard.
-> - Please do not hire or fire any employees or contractors.
-> - Please do not add any additional admins to this account.
-
-### Option 3 - Assisted
-
-Assisted Benefits via API allows you to use the Finch API to enroll employees in benefits for providers which are not yet fully automated. Because benefits work very differently across different systems, Finch offers a few test accounts to help explore assisted benefits connections. However, because assisted connections requires some manual work for our product operations team to complete the requests, we will only be able to perform a few test requests.
-
-- Zenefits
-- Paychex Flex
-- JustWorks (coming soon)
-
 ## Calling Finch’s API
 
 Before creating and enrolling employees in benefits, you must create an access token using our Finch Connect flow. If the provider is listed as an [Automated API Provider](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers#automated-api-providers), you will the [Automated Connect Flow](https://developer.tryfinch.com/docs/reference/a2c944f1041f6-automated-connect-flow). If the provider is listed as an [Assisted API Provider](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers#assisted-api-providers), you will use our [Assisted Connect Flow](https://developer.tryfinch.com/docs/reference/8c540ddeca222-assisted-connect-flow). Once you have an access token, you can call the Finch API normally.
@@ -174,6 +148,32 @@ Example `GET /jobs/{job_id}` response after job is completed for a `POST /employ
   ]
 }
 ```
+
+## Testing benefits
+
+There are three ways we recommend testing benefits.
+
+### Option 1 - Sandbox
+
+You can [use the benefits endpoints in the Finch Sandbox](https://developer.tryfinch.com/docs/reference/ZG9jOjMxOTg1NTMw-testing#testing-benefits). This supports read operations (`GET` requests) and stubbed out write operations (`POST` requests), meaning writes will not actually change any internal state and reads will always return the same responses.
+
+### Option 2 - Automated
+
+If you need to test reading back the data you write into the system, you can use our test Gusto instance (using the company Cisticola LLC that we set up) for testing our benefits endpoints. At the time of writing (6/22/22), this Gusto instance currently has two active employees, one active contractor, and two inactive employees. The active employees can be enrolled in any of the benefits that Gusto supports. The compatibility matrices of support benefit types and benefit features can be found below - [Gusto Compatibility Matrices](#gusto-compatibility-matrices).
+
+> Please keep in mind that this is a live account for a real LLC that our company runs. This means that there are tax implications to actually moving money.
+> - Please DO NOT EVER RUN PAYROLL ON THIS ACCOUNT.
+> - Please do not edit anything in the Gusto dashboard.
+> - Please do not hire or fire any employees or contractors.
+> - Please do not add any additional admins to this account.
+
+### Option 3 - Assisted
+
+Assisted Benefits via API allows you to use the Finch API to enroll employees in benefits for providers which are not yet fully automated. Because benefits work very differently across different systems, Finch offers a few test accounts to help explore assisted benefits connections. However, because assisted connections requires some manual work for our product operations team to complete the requests, we will only be able to perform a few test requests.
+
+- Zenefits
+- Paychex Flex
+- JustWorks (coming soon)
 
 ## Gusto Compatibility Matrices
 
