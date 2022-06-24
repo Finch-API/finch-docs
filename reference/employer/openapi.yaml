@@ -24,6 +24,8 @@ info:
     - `benefits`: Create and manage benefits and benefit enrollment within a company
 
     - `deduction` (deprecated): Previously used to manage deductions within a company. Please use `benefits`.
+
+    [![Open in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/21027137-08db0929-883d-4094-a9ce-dbf5a9bee4a4?action=collection%2Ffork&collection-url=entityId%3D21027137-08db0929-883d-4094-a9ce-dbf5a9bee4a4%26entityType%3Dcollection%26workspaceId%3D1edf19bc-e0a8-41e9-ac55-481a4b50790b)
 servers:
   - url: 'https://api.tryfinch.com'
     description: ''
