@@ -24,7 +24,7 @@ You can review [our list of valid providers](https://developer.tryfinch.com/docs
 
 ## Benefits submissions
 
-Because of the manual nature of assisted benefit connections, it is important to submit payroll benefit deductions to our API 7 days before the customer’s payroll close date. This gives the Finch team a higher chance of making the change in the provider’s system so it can be processed with the current payroll period (unless explicitly specified otherwise in your API request).
+Because of the manual nature of assisted benefit connections, it is important to submit payroll benefit deductions to our API 7 days before the customer’s payroll close date. This will help the Finch team to make the change in the provider’s system so it can be processed with the current payroll period (unless explicitly specified otherwise in your API request).
 
 For most of your customers, this is already a part of the HR admin workflow. We are just changing the location of where they make this change. It is important as the developer to make it clear to your customers what the payroll close date is so that it can be communicated properly if the benefit will take effect this pay period or next pay period.
 
