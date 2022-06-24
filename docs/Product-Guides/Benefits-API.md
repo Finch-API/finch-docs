@@ -18,7 +18,7 @@ When considering benefit deductions, it is important to submit any employee dedu
 Finch has two types of ways to call our API: Automated and Assisted.
 
 - If the payroll provider is ***automated***, any deductions that are submitted via our API will be changed in the provider’s system instantaneously.
-- If the payroll provider is ***assisted***, any deductions that are submitted via our API will be changed within 7-14 days. This is because a real Finch employee will read your API request and contact the provider directly, manually assist in creating a benefit and enrolling employees in that benefit, and send a response back to you when the request is complete. This benefits you because your team does not need to build a product operations team to make these changes yourself; Finch does this for you.
+- If the payroll provider is ***assisted***, any deductions that are submitted via our API will be changed within 7-14 days. During this time, the Finch team will manually process your API request, assist in creating a benefit if necessary, enroll employees in that benefit, and send a response back to you when the request is complete. This benefits you because your team does not need to build a product operations team to make these changes yourself; Finch does this for you.
 
 You can review [our list of valid providers](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers) to figure out which providers are automated vs assisted for the Benefits endpoints.
 
