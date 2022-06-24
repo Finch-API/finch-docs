@@ -58,13 +58,13 @@ Before creating and enrolling employees in benefits, you must create an access t
     - `POST /employer/benefits/{benefit_id}` to update an existing company-wide benefit or individual deduction
     - `GET /employer/benefits/meta` to list the available benefit types and configurations for the provider associated with the access token
     - `DELETE /employer/benefits/{benefit_id}/individuals` to unenroll individuals from a benefit
-2. Only **Automated** Benefits connections can call these endpoints**
+2. Only **Automated** Benefits connections can call these endpoints
     - `GET /employer/benefits` to list all company-wide benefits
     - `GET /employer/benefits/{benefit_id}` to list benefit information for a given benefit
     - `GET /employer/benefits/{benefit_id}/enrolled` to list individuals currently enrolled in a given benefit
     - `GET /employer/benefits/{benefits_id}/individuals` to get enrolled benefit information for the given individuals
 
-** Gusto is our only automated benefits provider as of 6/22/22.
+For a list of which providers are automated or assisted, please reference our [Providers](/docs/Development-Guides/Providers.md) guide.
 
 If you are using **Assisted** Benefits connections, if you try to call the automated-only endpoints, you will receive a 501 error code `Not Implemented`. This is expected. As of right now, since Assisted Benefits is an “assisted” process, Finch’s product operations team can only create, update, and enroll benefits; we do not keep track of all the benefits in an Assisted provider. If you would like to learn more about how Assisted Connections work, you can view our [Assisted Connect Flow](/docs/Product-Guides/Assisted-Connect-Flow.md) product guide.
 
