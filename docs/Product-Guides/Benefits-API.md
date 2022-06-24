@@ -13,7 +13,7 @@ Each payroll contains four important dates to know.
 3. Payroll Close Date - The last date to make changes for that pay period
 4. Paycheck Date - The date on which employees are paid
 
-When considering benefit deductions, it is important to submit any employee deductions before the pay close date in order to affect for the current pay period. If any deductions are submitted after the payroll close date, they will only affect the next pay period, not the current. Since each payroll close date is different per provider, it is important to know this date and set proper expectations with your customers.
+When considering benefits, it is important to submit any employee benefit changes before the pay close date in order to affect for the current pay period. If any changes are submitted after the payroll close date, they will only affect the next pay period, not the current. Since each payroll close date is different per provider, it is important to know this date and set proper expectations with your customers.
 
 Finch has two types of ways to call our API: Automated and Assisted.
 
