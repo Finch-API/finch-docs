@@ -1914,7 +1914,7 @@ components:
           nullable: true
         city:
           type: string
-          description: 'City, district, suburb, town, or village.'
+          description: "City, district, suburb, town, or village."
           nullable: true
         state:
           type: string
