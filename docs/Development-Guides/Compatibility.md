@@ -13,24 +13,24 @@ Finch's API tries to maintain parity between all [providers](./Providers.md). Ho
 > `x` — not supported by Finch
 
 ### Company
-![company.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/3CK7MNLIo08)
+![company.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/gIigZuAm88Q)
 
 <p><i>* Only available by inferring from entity.type</i><br>
 <i>** account_number is mask and only shows the last 4 digits</i></p>
 
 ### Directory
-![directory.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/YjdADwFRuq4)
+![directory.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/8UmwmvLO39M)
 
 <p><i>* Initial only</i></p>
 
 ### Individual
-![individual.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/BXNIpVrHn94)
+![individual.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/gCkS7hisB7I)
 
 <p><i>* Initial only</i><br>
 <i>** No work email available</i></p>
 
 ### Employment
-![employment.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/GZNFvPjlWaQ)
+![employment.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/eOqHa68QWqA)
 
 <p><i>* Initial only</i><br>
 <i>** Requires customer to be at highest package tier, ADP Run Pro</i></p>
