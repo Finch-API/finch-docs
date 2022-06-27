@@ -21,6 +21,7 @@ Namely | `namely` | <span style="color:darkgreen">Automated</span> | <span style
 Paychex Flex | `paychex_flex` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Paycom | `paycom` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Paylocity | `paylocity` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Personio | `personio` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 QuickBooks Payroll | `quickbooks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Rippling | `rippling` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Run Powered by ADP | `adp_run` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
@@ -131,7 +132,6 @@ PCS HCM | `pcs_hcm` | <span style="color:goldenrod">Assisted</span> | <span styl
 PeopleForce | `peopleforce` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PeopleHum | `peoplehum` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 People Lease | `people_lease` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-Personio | `personio` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Platinum Group | `platinum_group` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PrestigePEO | `prestige_peo` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PrimePay | `primepay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
