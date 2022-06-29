@@ -652,12 +652,6 @@ paths:
                         type: string
                         description: A stable Finch `id` (UUID v4) for a payment.
                         pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
-                      limit:
-                        type: integer
-                        description: Number of pay statements to return (defaults to all).
-                      offset:
-                        type: integer
-                        description: Index to start from.
                     required:
                       - payment_id
               required:
