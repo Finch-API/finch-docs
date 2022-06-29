@@ -68,6 +68,7 @@ Coastal Payroll | `coastal_payroll` | <span style="color:goldenrod">Assisted</sp
 CognosHR | `cognos_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Collage | `collage` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Commonwealth Payroll & HR | `commonwealth_payroll_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+ConnectPay | `connectpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 CPM Employer Services iSolved | `cpm_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Crescent Payroll Solutions | `crescent_payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Deel | `deel` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -106,6 +107,7 @@ Kenjo | `kenjo` | <span style="color:goldenrod">Assisted</span> | <span style="c
 Keystone Payroll iSolved | `keystone_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 mp | `mp` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 MPAY | `mpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Netchex | `netchex` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 NaturalHR | `natural_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Newtek | `newtek` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Nextep | `nextep` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -169,6 +171,7 @@ Wagepoint | `wagepoint` | <span style="color:goldenrod">Assisted</span> | <span 
 Wave Payroll | `wave` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 WebHR | `web_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 whirks | `whirks` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Workforce Junction | `workforce_junction` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Worklio | `worklio` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Workzoom | `workzoom` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 wurk | `wurk` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
