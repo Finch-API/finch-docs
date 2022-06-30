@@ -523,7 +523,7 @@ paths:
                               nullable: true
                             class_code:
                               type: string
-                              description: "Worker's compensation classification code for this employee"
+                              description: Worker's compensation classification code for this employee
                               nullable: true
                             location:
                               $ref: '#/components/schemas/Location'
@@ -669,6 +669,11 @@ paths:
                       - payment_id
               required:
                 - requests
+            examples:
+              example-1:
+                value:
+                  requests:
+                    - payment_id: string
       responses:
         '200':
           description: Pay statement data
@@ -1914,7 +1919,7 @@ components:
           nullable: true
         city:
           type: string
-          description: "City, district, suburb, town, or village."
+          description: 'City, district, suburb, town, or village.'
           nullable: true
         state:
           type: string
