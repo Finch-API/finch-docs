@@ -25,6 +25,7 @@ Personio | `personio` | <span style="color:darkgreen">Automated</span> | <span s
 QuickBooks Payroll | `quickbooks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Rippling | `rippling` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Run Powered by ADP | `adp_run` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Sapling | `sapling` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Sequoia One | `sequoia_one` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Square Payroll | `square_payroll` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 TriNet | `trinet` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
@@ -147,7 +148,6 @@ Sage 50 Quantum Accounting | `sage_50_quantum_accounting` | <span style="color:g
 Sage 50 US Edition Accounting | `sage_50_us_edition_accounting` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Sage Payroll | `sage_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 SAP SuccessFactors | `successfactors` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-Sapling | `sapling` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Savant HCM Evolution | `savant_hcm_evolution` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Sheakley | `sheakley` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Simploy | `simploy` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
