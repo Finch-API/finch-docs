@@ -19,22 +19,22 @@ You can reference a benefit with its `benefit_id` to perform any action on the b
 
 
 ### Using benefit metadata
-The types and features of each benefit can vary between payroll systems, and even between users of the same payroll system, depending on the configuration that the company has set up. For this reason, we provide a [`/benefits/meta`](https://developer.tryfinch.com/docs/reference/b3A6MTg4Mzc2MjA-get-benefits-metadata) endpoint, which will provide the types and features available for the employer whose benefits you are managing.
+The types and features of each benefit can vary between payroll systems, and even between users of the same payroll system, depending on the configuration that the company has set up. For this reason, we provide a [`/employer/benefits/meta`](https://developer.tryfinch.com/docs/reference/b3A6MTg4Mzc2MjA-get-benefits-metadata) endpoint, which will provide the types and features available for the employer whose benefits you are managing.
 
 On request, we can also provide written documentation about supported features and benefit types at the provider level. Please reach out to your account representative for that information.
 
 ## Enrolling and Unenrolling Individuals
 
 ### Enrolling individuals into a benefit
-Enroll individuals into a benefit using [`POST /benefits/{benefit_id}/individuals`](https://developer.tryfinch.com/docs/reference/b3A6MjE4NDU0NTU-enroll-individuals-in-benefits). The request allows you to uniquely configure each individuals enrollment into a benefit.
+Enroll individuals into a benefit using [`POST /employer/benefits/{benefit_id}/individuals`](https://developer.tryfinch.com/docs/reference/b3A6MjE4NDU0NTU-enroll-individuals-in-benefits). The request allows you to uniquely configure each individuals enrollment into a benefit.
 
 The schema of the configuration varies depending on the type of benefit you are enrolling, so please refer to the docs to ensure you are using the right schema.
 
 
 ### Updating existing enrollments
-To update enrollment configurations for currently enrolled individuals, you can use the same `POST /benefits/{benefit_id}/individuals` endpoint that you use to enroll new individuals.
+To update enrollment configurations for currently enrolled individuals, you can use the same [`POST /employer/benefits/{benefit_id}/individuals`](https://developer.tryfinch.com/docs/reference/eb8994494966c-enroll-individuals-in-benefits) endpoint that you use to enroll new individuals.
 
 When updating an existing enrollment for an individual, the enrollment configuration will be completely overwritten with the new configuration provided in the request, so please make sure to include the entire desired configuration. 
 
 ### Unenrolling indiviudals from a benefit
-You can unenroll individuals by using the [`DELETE /benefits/{benefit_id}/individuals`](https://developer.tryfinch.com/docs/reference/b3A6MjE4NDU0NTY-unenroll-individuals-from-benefits) endpoint.
+You can unenroll individuals by using the [`DELETE /employer/benefits/{benefit_id}/individuals`](https://developer.tryfinch.com/docs/reference/b3A6MjE4NDU0NTY-unenroll-individuals-from-benefits) endpoint.
