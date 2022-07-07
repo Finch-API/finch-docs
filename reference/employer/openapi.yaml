@@ -976,11 +976,13 @@ paths:
                 Success:
                   value:
                     client_id: 25ea8bd8-f76b-41f9-96e3-1e6162021c50
+                    company_id: 87eb4bc3-f76b-35e7-78d2-8f7822021d73
                     products:
                       - company
                       - directory
                     username: jeremy@tryfinch.com
                     payroll_provider_id: gusto
+                    manual: 'false'
       operationId: get-introspect
       description: Read account information associated with an `access_token`
       parameters:
