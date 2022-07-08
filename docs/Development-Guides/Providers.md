@@ -58,6 +58,7 @@ Baron Payroll iSolved | `baron_isolved` | <span style="color:goldenrod">Assisted
 BASIC | `basic` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 BBCS Payroll | `bbcs` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 BBSI | `bbsi` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+BCN Services | `bcn_services` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Bene-Care | `benecare` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Big Fish Employer Services | `big_fish_employer_services` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Bizchecks Payroll | `bizchecks_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -77,6 +78,7 @@ Deluxe | `deluxe` | <span style="color:goldenrod">Assisted</span> | <span style=
 DM Payroll Solutions | `dm_payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Dominion Payroll | `dominion_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Doyle | `doyle_hcm` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Eddy | `eddyhr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Emplicity | `emplicity` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Employdrive | `employdrive` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 EmPower HR | `empower_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
