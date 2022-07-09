@@ -308,6 +308,10 @@ paths:
                               type: string
                               description: The legal last name of the individual.
                               nullable: true
+                            preferredName:
+                              type: string
+                              description: The preferred name of the individual.
+                              nullable: true
                             emails:
                               type: array
                               nullable: true
@@ -359,6 +363,7 @@ paths:
                           first_name: Jane
                           middle_name: null
                           last_name: Doe
+                          preferredName: Janey
                           emails:
                             - data: jane@acme.com
                               type: work
