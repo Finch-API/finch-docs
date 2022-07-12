@@ -308,7 +308,7 @@ paths:
                               type: string
                               description: The legal last name of the individual.
                               nullable: true
-                            preferredName:
+                            preferred_name:
                               type: string
                               description: The preferred name of the individual.
                               nullable: true
