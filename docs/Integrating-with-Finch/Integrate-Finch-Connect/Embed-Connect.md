@@ -136,6 +136,12 @@ title: Example
 ```json
 {
   "access_token": "<your_access_token>",
+  "client_id": "<your_client_id>",
+  "company_id": "<your_company_id>", 
+  "products": "<products_associated_with_access_token>",
+  "username": "<login_associated_with_access_token>",
+  "payroll_provider_id": "<payroll_provider_associated_with_access_token>",
+  "manual": "<uses_finch_assisted_connect"
 }
 ```
 <!-- type: tab-end -->
