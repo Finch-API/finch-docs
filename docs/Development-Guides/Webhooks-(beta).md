@@ -2,9 +2,11 @@
 stoplight-id: 9d3cec5dd527e
 ---
 
-# Introduction to Webhooks
+# Introduction to Webhooks (Beta)
 
 Finch offers webhooks to inform you of changes to data models in a push-notification fashion, rather than you having to rely exclusively on pulling data from our API. A webhook url is an HTTPS endpoint configured by your application to recieve requests from Finch.
+
+
 
 ## Webhook Registration
 Webhooks should use HTTPS and expect to receive POST requests with the following headers:
