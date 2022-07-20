@@ -65,7 +65,7 @@ Before creating and enrolling employees in benefits, you must create an access t
 
 For a list of which providers are automated or assisted, please reference our [Providers](/docs/Development-Guides/Providers.md) guide.
 
-If you are using **Assisted** Benefits connections, if you try to call the automated-only endpoints, you will receive a 501 error code `Not Implemented`. This is expected. As of right now, since Assisted Benefits is an “assisted” process, Finch’s product operations team can only create, update, and enroll benefits; we do not keep track of all the benefits in an Assisted provider. If you would like to learn more about how Assisted Connections work, you can view our [Assisted Connect Flow](/docs/Product-Guides/Assisted-Connect-Flow.md) product guide.
+If you are using **Assisted** Benefits connections and you try to call the automated-only endpoints, you will receive a 501 error code `Not Implemented`. This is expected. The assisted flow does currently not support read endpoints. If you would like to learn more about how Assisted Connections work, you can view our [Assisted Connect Flow](/docs/Product-Guides/Assisted-Connect-Flow.md) product guide.
 
 Example `Not Implemented` response:
 
