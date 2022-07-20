@@ -17,6 +17,8 @@ Before creating and enrolling employees in benefits, you must create an access t
     - `GET /employer/benefits/{benefit_id}` to list benefit information for a given benefit
     - `GET /employer/benefits/{benefit_id}/enrolled` to list individuals currently enrolled in a given benefit
     - `GET /employer/benefits/{benefits_id}/individuals` to get enrolled benefit information for the given individuals
+3. Only **Assisted** Benefits connections can call these endpoints
+    - `GET /jobs/{job_id}` gets the status of an assisted benefits job
 
 For a list of which providers are automated or assisted, please reference our [Providers](/docs/Development-Guides/Providers.md) guide.
 
