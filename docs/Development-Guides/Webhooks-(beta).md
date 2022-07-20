@@ -11,7 +11,7 @@ Finch offers webhooks to inform you of changes to data models in a push-notifica
 ## Webhook Registration
 Webhooks should use HTTPS and expect to receive POST requests with the following headers:
 
-Column A | Column B 
+Header | Content
 ---------|----------|
  `Content-Type` | `application/json` |
  `Finch-Signature` | `<token>` |
