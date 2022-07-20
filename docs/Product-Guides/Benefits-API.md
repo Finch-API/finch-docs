@@ -2,51 +2,6 @@
 
 Finch's [Benefits API](https://developer.tryfinch.com/docs/reference/b3A6MTg4Mzc2MTk-create-benefit) endpoints allow users to read and write benefits information (401k, Health Savings Accounts, Loans, etc) across providers using a single, unified API.
 
-## How do payroll benefit deductions work?
-
-Since benefits work very differently across different providers, it is important to know a little about how payroll and benefits work in general.
-
-Each payroll contains four important dates to know.
-
-1. Payroll Start Date - The first day of the pay period
-2. Payroll End Date - The last day of the pay period
-3. Payroll Close Date - The last date to make changes for that pay period
-4. Paycheck Date - The date on which employees are paid
-
-When considering benefits, it is important to submit any employee benefit changes before the pay close date in order to affect for the current pay period. If any changes are submitted after the payroll close date, they will only affect the next pay period, not the current. Since each payroll close date is different per provider, it is important to know this date and set proper expectations with your customers.
-
-Finch has two types of ways to call our API: Automated and Assisted.
-
-- If the payroll provider is ***automated***, any deductions that are submitted via our API will be changed in the provider’s system instantaneously.
-- If the payroll provider is ***assisted***, any deductions that are submitted via our API will be changed within 7-14 days. During this time, the Finch team will manually process your API request, assist in creating a benefit if necessary, enroll employees in that benefit, and send a response back to you when the request is complete. This benefits you because your team does not need to build a product operations team to make these changes yourself; Finch does this for you.
-
-You can review [our list of valid providers](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers) to figure out which providers are automated vs assisted for the Benefits endpoints.
-
-## Benefits submissions
-
-Because of the manual nature of assisted benefit connections, it is important to submit payroll benefit deductions to our API 7 days before the customer’s payroll close date. This will help the Finch team to make the change in the provider’s system so it can be processed with the current payroll period (unless explicitly specified otherwise in your API request).
-
-For most employers, this information is already needed for the HR admin workflow. As the developer, it is important to understand what the payroll close date is so that it can be communicated properly if the benefit will take effect this pay period or next pay period.
-
-## Example
-
-As an example, if the payroll period is **June 1 - 15**. The payroll close date might be **June 16** so payroll can be processed before **Friday, June 17**.  Therefore, it would be important to submit payroll deductions via the Finch API by **June 9** for those to take effect during the June 1 - 15 payroll.
-
-<pre>
-June 2022
-Su Mo Tu We Th Fr Sa
-          <mark style="background-color: lightblue">1  2  3  4
- 5  6  7  8  9 10 11
-12 13 14 15</mark> <mark style="background-color: yellow">16</mark> <mark style="background-color: green">17</mark> 18
-19 20 21 22 23 24 25
-26 27 28 29 30
-</pre>
-
-### Couple of things to keep in mind
-
-- Often there is a company contribution and an employee contribution. Some payroll systems separate these, some add them together when calculating the deduction. When validating if the deduction is successful, make sure to understand how the provider you are working with handles contributions. Our team will add the deduction based on how the provider is set up.
-- Some payroll providers offer a dedicated payroll representative to help with making payroll changes. If a payroll rep is helping your customer’s HR admin with changes in their system, it is important that you make it explicitly clear who does what so that the payroll rep does not overwrite any changes Finch has previously made. Calling out Benefit Code types and thoughtful benefit descriptions help.
-
 ## Calling Finch’s API
 
 Before creating and enrolling employees in benefits, you must create an access token using our Finch Connect flow. If the provider is listed as an [Automated API Provider](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers#automated-api-providers), you will the [Automated Connect Flow](https://developer.tryfinch.com/docs/reference/a2c944f1041f6-automated-connect-flow). If the provider is listed as an [Assisted API Provider](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers#assisted-api-providers), you will use our [Assisted Connect Flow](https://developer.tryfinch.com/docs/reference/8c540ddeca222-assisted-connect-flow). Once you have an access token, you can call the Finch API normally.
@@ -81,7 +36,7 @@ Example `Not Implemented` response:
 
 ### Using benefit metadata
 
-The types and features of each benefit can vary between payroll systems, and even between users of the same payroll system, depending on the configuration that the company has set up. For this reason, we provide a `/employer/benefits/meta` endpoint, which will provide the types and features available for the employer whose benefits you are managing.
+The types and features of each benefit can vary between payroll systems, and even between users of the same payroll system, depending on the configuration that the company has set up. For this reason, we provide a [`/employer/benefits/meta`](https://developer.tryfinch.com/docs/reference/b3A6MTg4Mzc2MjA-get-benefits-metadata) endpoint, which will provide the types and features available for the employer whose benefits you are managing.
 
 On request, we can also provide written documentation about supported features and benefit types at the provider level. Please reach out to your account representative for that information.
 
@@ -147,88 +102,52 @@ Example `GET /jobs/{job_id}` response after job is completed for a `POST /employ
   ]
 }
 ```
+## General Benefits Information
+
+Since enrolling benefits can be a sensitive activity, it is helpful to understand some of the nuances around payroll and benefits in general.
+
+### How do payroll benefit deductions work?
+
+Each payroll contains four important dates to know.
+
+1. Payroll Start Date - The first day of the pay period
+2. Payroll End Date - The last day of the pay period
+3. Payroll Close Date - The last date to make changes for that pay period
+4. Paycheck Date - The date on which employees are paid
+
+When considering benefits, it is important to submit any employee benefit changes before the pay close date in order to take affect for the current pay period. If any changes are submitted after the payroll close date, they will only affect the next pay period, not the current. Since each payroll close date is different per provider, it is important to know this date and set proper expectations with your customers.
+
+Finch offers two API modes: Automated and Assisted.
+
+You can review [our list of valid providers](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers) to see which providers are automated vs assisted for the Benefits endpoints.
+
+### Benefits submissions
+
+For assisted benefits connections, it is important to submit payroll benefit deductions to our API 7 days before the customer’s payroll close date. This will help ensure that changes can be processed within the current payroll period (unless explicitly specified otherwise in your API request).
+
+**Example**
+
+As an example, if the payroll period is **June 1 - 15**. The payroll close date might be **June 16** so payroll can be processed before **Friday, June 17**.  Therefore, it would be important to submit payroll deductions via the Finch API by **June 9** for those to take effect during the June 1 - 15 payroll.
+
+<pre>
+June 2022
+Su Mo Tu We Th Fr Sa
+          <mark style="background-color: lightblue">1  2  3  4
+ 5  6  7  8  9 10 11
+12 13 14 15</mark> <mark style="background-color: yellow">16</mark> <mark style="background-color: green">17</mark> 18
+19 20 21 22 23 24 25
+26 27 28 29 30
+</pre>
+
+Some payroll providers offer a dedicated payroll representative to help with making payroll changes. If a payroll rep is helping your customer’s HR admin with changes in their system, it is important that you make it explicitly clear who does what so that the payroll rep does not overwrite any changes Finch has previously made. Calling out Benefit Code types and using thoughtful benefit descriptions (e.g. with your company name) help.
 
 ## Testing benefits
 
-There are three ways we recommend testing benefits.
 
-### Option 1 - Sandbox
+### Sandbox
 
 You can [use the benefits endpoints in the Finch Sandbox](https://developer.tryfinch.com/docs/reference/ZG9jOjMxOTg1NTMw-testing#testing-benefits). This supports read operations (`GET` requests) and stubbed out write operations (`POST` requests), meaning writes will not actually change any internal state and reads will always return the same responses.
 
-### Option 2 - Automated
+### Live Accounts
 
-If you need to test reading back the data you write into the system, you can use our test Gusto instance (using the company Cisticola LLC that we set up) for testing our benefits endpoints. At the time of writing (6/22/22), this Gusto instance currently has two active employees, one active contractor, and two inactive employees. The active employees can be enrolled in any of the benefits that Gusto supports. The compatibility matrices of support benefit types and benefit features can be found below - [Gusto Compatibility Matrices](#gusto-compatibility-matrices).
-
-> Please keep in mind that this is a live account for a real LLC that our company runs. This means that there are tax implications to actually moving money.
->
-> - Please DO NOT EVER RUN PAYROLL ON THIS ACCOUNT.
-> - Please do not edit anything in the Gusto dashboard.
-> - Please do not hire or fire any employees or contractors.
-> - Please do not add any additional admins to this account.
-
-### Option 3 - Assisted
-
-Assisted Benefits via API allows you to use the Finch API to enroll employees in benefits for providers which are not yet fully automated. Because benefits work very differently across different systems, Finch offers a few test accounts to help explore assisted benefits connections. However, because assisted connections requires some manual work for our product operations team to complete the requests, we will only be able to perform a few test requests.
-
-- Zenefits
-- Paychex Flex
-- JustWorks (coming soon)
-
-## Gusto Compatibility Matrices
-
-<!--
-type: tab
-title: Supported Operations
--->
-
->`✓` - supported
->
->`x` - not supported by Finch
->
->`n/a` - not supported by provider
-
-Benefit | Read Company Benefits | Create Company Benefits | Read Individual Benefits | Enroll/Unenroll Individual Benefits
---------|----------|---------|------------|------------
-**401(k)** | ✓ | ✓ | ✓ | ✓ |
-**Roth 401(k)** | ✓ | ✓ | ✓ | ✓ |
-**403(b)** | ✓ | ✓ | ✓ | ✓ |
-**Roth 403(b)** | ✓ | ✓ | ✓ | ✓ |
-**457** | n/a | n/a | n/a | n/a |
-**Roth 457**  | n/a | n/a | n/a | n/a |
-**Simple IRA** | ✓ | ✓ | ✓ | ✓ |
-**HSA (post-tax)** | n/a | n/a | n/a | n/a |
-**HSA (pre-tax)** | ✓ | ✓ | ✓ | ✓ |
-**FSA Dependent** | ✓ | ✓ | ✓ | ✓ |
-**FSA Medical** | ✓ | ✓ | ✓ | ✓ |
-**Section 125 Dental** | ✓ | ✓ | ✓ | ✓ |
-**Section 125 Medical** | ✓ | ✓ | ✓ | ✓ |
-**Section 125 Vision** | ✓ | ✓ | ✓ | ✓ |
-**Commuter (pre-tax)** | ✓ | ✓ | ✓ | ✓ |
-**Custom pre-tax** | n/a | n/a | n/a | n/a |
-**Custom post-tax** | ✓ | ✓ | ✓ | ✓ |
-
-<!--
-type: tab
-title: Supported Features
--->
-
-Benefit | Features
---------|----------
-**401(k)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
-**Roth 401(k)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
-**403(b)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
-**Roth 403(b)**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
-**457**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
-**Roth 457** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
-**Simple IRA**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
-**HSA (pre-tax)**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`<br>`hsa_contribution_limit`: `individual`, `family`
-**FSA Dependent** | `company_contribution`: `fixed`<br>`employee_deduction`: `fixed`
-**FSA Medical** | `company_contribution`: `fixed`<br>`employee_deduction`: `fixed`
-**Section 125 Dental** | `company_contribution`: `fixed`<br>`employee_deduction`: `fixed`
-**Section 125 Medical**| `company_contribution`: `fixed`<br>`employee_deduction`: `fixed`
-**Section 125 Vision** | `company_contribution`: `fixed`<br>`employee_deduction`: `fixed`
-**Commuter (pre-tax)** | `company_contribution`: `fixed` <br>`employee_deduction`: `fixed`
-**Custom post-tax** | `employee_deduction`: `fixed`, `percent`<br>`annual_maximum`
-
-<!-- type: tab-end -->
+If you would like to test our Benefits product against a real account, please reach out to a Finch representative so we can set you up with a testing environment.
