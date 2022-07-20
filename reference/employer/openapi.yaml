@@ -521,7 +521,7 @@ paths:
                               nullable: true
                             class_code:
                               type: string
-                              description: "Worker's compensation classification code for this employee"
+                              description: Worker's compensation classification code for this employee
                               nullable: true
                             location:
                               $ref: '#/components/schemas/Location'
@@ -1528,6 +1528,7 @@ paths:
           `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points
           `catch_up`| `boolean` | Whether to enable catch up for this individual.
           `annual_maximum`| `integer` (`nullable`)| The annual maximum in cents for this individual.
+          `effective_date` | `string` (`nullable`) | The date which the benefit should take effect by. **This field is currently only available for assisted benefits.**
 
           ***
 
@@ -1542,6 +1543,7 @@ paths:
           `catch_up`| `boolean` | Whether to enable catch up for this individual.
           `annual_maximum`| `integer` (`nullable`) | The annual maximum in cents for this individual.
           `annual_contribution_limit` | `string` | `individual` or `family`
+          `effective_date` | `string` (`nullable`) | The date which the benefit should take effect by. **This field is currently only available for assisted benefits.**
 
           ***
 
@@ -1553,6 +1555,7 @@ paths:
           `employee_deduction.amount`| `integer` | Deduction amount in cents (if `fixed`) or basis points (if `percent`)
           `company_contribution.type` | `string` | Contribution Type (`fixed` or `percent`)
           `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points
+          `effective_date` | `string` (`nullable`) | The date which the benefit should take effect by. **This field is currently only available for assisted benefits.**
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -1912,7 +1915,7 @@ components:
           nullable: true
         city:
           type: string
-          description: "City, district, suburb, town, or village."
+          description: 'City, district, suburb, town, or village.'
           nullable: true
         state:
           type: string
