@@ -24,6 +24,8 @@ info:
     - `benefits`: Create and manage benefits and benefit enrollment within a company
 
     - `deduction` (deprecated): Previously used to manage deductions within a company. Please use `benefits`.
+
+    [![Open in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/21027137-08db0929-883d-4094-a9ce-dbf5a9bee4a4?action=collection%2Ffork&collection-url=entityId%3D21027137-08db0929-883d-4094-a9ce-dbf5a9bee4a4%26entityType%3Dcollection%26workspaceId%3D1edf19bc-e0a8-41e9-ac55-481a4b50790b)
 servers:
   - url: 'https://api.tryfinch.com'
     description: ''
@@ -306,6 +308,10 @@ paths:
                               type: string
                               description: The legal last name of the individual.
                               nullable: true
+                            preferred_name:
+                              type: string
+                              description: The preferred name of the individual.
+                              nullable: true
                             emails:
                               type: array
                               nullable: true
@@ -357,6 +363,7 @@ paths:
                           first_name: Jane
                           middle_name: null
                           last_name: Doe
+                          preferredName: Janey
                           emails:
                             - data: jane@acme.com
                               type: work
@@ -667,6 +674,11 @@ paths:
                       - payment_id
               required:
                 - requests
+            examples:
+              example-1:
+                value:
+                  requests:
+                    - payment_id: string
       responses:
         '200':
           description: Pay statement data
@@ -969,11 +981,13 @@ paths:
                 Success:
                   value:
                     client_id: 25ea8bd8-f76b-41f9-96e3-1e6162021c50
+                    company_id: 87eb4bc3-f76b-35e7-78d2-8f7822021d73
                     products:
                       - company
                       - directory
                     username: jeremy@tryfinch.com
                     payroll_provider_id: gusto
+                    manual: 'false'
       operationId: get-introspect
       description: Read account information associated with an `access_token`
       parameters:

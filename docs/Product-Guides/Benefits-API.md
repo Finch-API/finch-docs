@@ -38,7 +38,7 @@ Example `Not Implemented` response:
 
 ### Using benefit metadata
 
-The types and features of each benefit can vary between payroll systems, and even between users of the same payroll system, depending on the configuration that the company has set up. For this reason, we provide a [`/employer/benefits/meta`](https://developer.tryfinch.com/docs/reference/b3A6MTg4Mzc2MjA-get-benefits-metadata) endpoint, which will provide the types and features available for the employer whose benefits you are managing.
+The types and features of each benefit can vary between payroll systems, and even between users of the same payroll system, depending on the configuration that the company has set up. For this reason, we provide a [`/employer/benefits/meta`](https://developer.tryfinch.com/docs/reference/b3A6MTg4Mzc2MjA-get-benefits-metadata) endpoint, which will provide the types and features available for the employer whose benefits you are managing.
 
 On request, we can also provide written documentation about supported features and benefit types at the provider level. Please reach out to your account representative for that information.
 
@@ -143,13 +143,14 @@ Su Mo Tu We Th Fr Sa
 
 Some payroll providers offer a dedicated payroll representative to help with making payroll changes. If a payroll rep is helping your customer’s HR admin with changes in their system, it is important that you make it explicitly clear who does what so that the payroll rep does not overwrite any changes Finch has previously made. Calling out Benefit Code types and using thoughtful benefit descriptions (e.g. with your company name) help.
 
-## Testing benefits
 
+## Testing benefits
 
 ### Sandbox
 
 You can [use the benefits endpoints in the Finch Sandbox](https://developer.tryfinch.com/docs/reference/ZG9jOjMxOTg1NTMw-testing#testing-benefits). This supports read operations (`GET` requests) and stubbed out write operations (`POST` requests), meaning writes will not actually change any internal state and reads will always return the same responses.
 
 ### Live Accounts
+
 
 If you would like to test our Benefits product against a real account, please reach out to a Finch representative so we can set you up with a testing environment.

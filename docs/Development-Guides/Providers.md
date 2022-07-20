@@ -15,15 +15,19 @@ ADP Workforce Now | `adp_workforce_now` | <span style="color:darkgreen">Automate
 BambooHR | `bamboo_hr` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 bob | `bob` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Gusto | `gusto` | <span style="color:darkgreen">Automated</span> | <span style="color:darkgreen">Automated</span>
+Humaans | `humaans` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Insperity | `insperity` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Justworks | `justworks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Namely | `namely` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Paychex Flex | `paychex_flex` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Paycom | `paycom` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Paylocity | `paylocity` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Personio | `personio` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 QuickBooks Payroll | `quickbooks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Rippling | `rippling` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Run Powered by ADP | `adp_run` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Sage HR | `sage_hr` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Sapling | `sapling` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Sequoia One | `sequoia_one` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Square Payroll | `square_payroll` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 TriNet | `trinet` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
@@ -56,6 +60,7 @@ Baron Payroll iSolved | `baron_isolved` | <span style="color:goldenrod">Assisted
 BASIC | `basic` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 BBCS Payroll | `bbcs` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 BBSI | `bbsi` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+BCN Services | `bcn_services` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Bene-Care | `benecare` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Big Fish Employer Services | `big_fish_employer_services` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Bizchecks Payroll | `bizchecks_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -67,6 +72,7 @@ Coastal Payroll | `coastal_payroll` | <span style="color:goldenrod">Assisted</sp
 CognosHR | `cognos_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Collage | `collage` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Commonwealth Payroll & HR | `commonwealth_payroll_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+ConnectPay | `connectpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 CPM Employer Services iSolved | `cpm_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Crescent Payroll Solutions | `crescent_payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Deel | `deel` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -74,6 +80,7 @@ Deluxe | `deluxe` | <span style="color:goldenrod">Assisted</span> | <span style=
 DM Payroll Solutions | `dm_payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Dominion Payroll | `dominion_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Doyle | `doyle_hcm` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Eddy | `eddyhr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Emplicity | `emplicity` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Employdrive | `employdrive` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 EmPower HR | `empower_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -95,7 +102,6 @@ Highflyer HR | `highflyer_hr` | <span style="color:goldenrod">Assisted</span> | 
 HRO | `hro` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 HROne | `hrone` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Hubstaff | `hubstaff` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-Humaans | `humaans` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Humi | `humi` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 INFINITI HR | `infiniti_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Infor | `infor` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -105,6 +111,7 @@ Kenjo | `kenjo` | <span style="color:goldenrod">Assisted</span> | <span style="c
 Keystone Payroll iSolved | `keystone_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 mp | `mp` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 MPAY | `mpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Netchex | `netchex` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 NaturalHR | `natural_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Newtek | `newtek` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Nextep | `nextep` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -131,7 +138,6 @@ PCS HCM | `pcs_hcm` | <span style="color:goldenrod">Assisted</span> | <span styl
 PeopleForce | `peopleforce` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PeopleHum | `peoplehum` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 People Lease | `people_lease` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-Personio | `personio` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Platinum Group | `platinum_group` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PrestigePEO | `prestige_peo` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PrimePay | `primepay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -145,7 +151,6 @@ Sage 50 Quantum Accounting | `sage_50_quantum_accounting` | <span style="color:g
 Sage 50 US Edition Accounting | `sage_50_us_edition_accounting` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Sage Payroll | `sage_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 SAP SuccessFactors | `successfactors` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-Sapling | `sapling` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Savant HCM Evolution | `savant_hcm_evolution` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Sheakley | `sheakley` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Simploy | `simploy` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -169,6 +174,7 @@ Wagepoint | `wagepoint` | <span style="color:goldenrod">Assisted</span> | <span 
 Wave Payroll | `wave` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 WebHR | `web_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 whirks | `whirks` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Workforce Junction | `workforce_junction` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Worklio | `worklio` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Workzoom | `workzoom` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 wurk | `wurk` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
