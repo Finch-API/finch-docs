@@ -15,6 +15,7 @@ ADP Workforce Now | `adp_workforce_now` | <span style="color:darkgreen">Automate
 BambooHR | `bamboo_hr` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 bob | `bob` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Gusto | `gusto` | <span style="color:darkgreen">Automated</span> | <span style="color:darkgreen">Automated</span>
+Humaans | `humaans` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Insperity | `insperity` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Justworks | `justworks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Namely | `namely` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
@@ -100,7 +101,6 @@ Highflyer HR | `highflyer_hr` | <span style="color:goldenrod">Assisted</span> | 
 HRO | `hro` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 HROne | `hrone` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Hubstaff | `hubstaff` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-Humaans | `humaans` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Humi | `humi` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 INFINITI HR | `infiniti_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Infor | `infor` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
