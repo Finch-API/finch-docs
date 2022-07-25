@@ -1039,7 +1039,10 @@ paths:
                       description: Example 401k
                       frequency: every_paycheck
       operationId: get-company-benefits
-      description: List all company-wide benefits.
+      description: |-
+        **Availability: Automated Benefits providers only**  
+          
+        List all company-wide benefits.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     post:
@@ -1072,7 +1075,10 @@ paths:
                     name: unprocessable_request_error
                     finch_code: unsupported_paramters
                     message: Provider does not support benefit type '401k'
-      description: Creates a new company-wide benefit. Please use the `/meta` endpoint to view available types for each provider.
+      description: |-
+        **Availability: Automated and Assisted Benefits providers**  
+          
+        Creates a new company-wide benefit. Please use the `/meta` endpoint to view available types for each provider.
       requestBody:
         content:
           application/json:
@@ -1161,7 +1167,10 @@ paths:
                       frequencies:
                         - every_paycheck
       operationId: get-company-benefits-meta
-      description: Lists available types and configurations for the provider associated with the access token.
+      description: |-
+        **Availability: Automated and Assisted Benefits providers**  
+          
+        Lists available types and configurations for the provider associated with the access token.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     parameters: []
@@ -1198,7 +1207,10 @@ paths:
                     finch_code: benefit_not_found
                     message: Benefit not found
       operationId: get-company-benefit
-      description: Lists benefit information for a given benefit
+      description: |-
+        **Availability: Automated Benefits providers only**  
+          
+        Lists benefit information for a given benefit
       parameters:
         - $ref: '#/components/parameters/API-Version'
     post:
@@ -1222,7 +1234,10 @@ paths:
           description: Bad Request
         '404':
           description: Benefit Not Found
-      description: Updates an existing company-wide benefit
+      description: |-
+        **Availability: Automated and Assisted Benefits providers**  
+          
+        Updates an existing company-wide benefit
       requestBody:
         content:
           application/json:
@@ -1282,7 +1297,10 @@ paths:
                     finch_code: benefit_not_found
                     message: Benefit not found
       operationId: get-company-benefits-enrolled
-      description: Lists individuals currently enrolled in a given benefit.
+      description: |-
+        **Availability: Automated Benefits providers only**  
+          
+        Lists individuals currently enrolled in a given benefit.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     parameters:
@@ -1337,7 +1355,10 @@ paths:
                     finch_code: benefit_not_found
                     message: Benefit not found
       operationId: get-individual-benefits
-      description: Get enrolled benefit information for the given individuals.
+      description: |-
+        **Availability: Automated Benefits providers only**  
+          
+        Get enrolled benefit information for the given individuals.
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -1474,6 +1495,8 @@ paths:
                     finch_code: unprocessable_parameters
                     message: HSA enrollment are not currently available for this provider
       description: |
+        **Availability: Automated and Assisted Benefits providers**  
+          
         Enroll an individual into a benefit. If the employee is already enrolled, the enrollment amounts will be adjusted.
 
         <!-- theme: warning -->
@@ -1619,7 +1642,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      description: Unenroll individuals from a benefit
+      description: |-
+        **Availability: Automated and Assisted Benefits providers**  
+          
+        Unenroll individuals from a benefit
       requestBody:
         content:
           application/json:
