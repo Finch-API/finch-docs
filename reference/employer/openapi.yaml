@@ -722,6 +722,7 @@ paths:
                                   amount: 50000
                                   currency: usd
                                   pre_tax: true
+                                  type: 401k
                               employer_contributions:
                                 - name: Employee Medical Insurance
                                   amount: 23272
