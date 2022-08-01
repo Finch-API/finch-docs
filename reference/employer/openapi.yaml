@@ -83,9 +83,11 @@ paths:
                   legal_name:
                     type: string
                     description: The legal name of the company.
+                    nullable: true
                   entity:
                     type: object
                     description: The entity type object.
+                    nullable: true
                     properties:
                       type:
                         type: string
@@ -97,6 +99,7 @@ paths:
                           - non_profit
                           - partnership
                           - cooperative
+                        nullable: true
                       subtype:
                         type: string
                         description: The tax payer subtype of the company.
@@ -125,6 +128,7 @@ paths:
                         name:
                           type: string
                           description: The department name.
+                          nullable: true
                         parent:
                           type: object
                           description: 'The parent department, if present.'
@@ -133,6 +137,7 @@ paths:
                             name:
                               type: string
                               description: The parent department's name.
+                              nullable: true
                   ein:
                     type: string
                     description: The employer identification number.
@@ -523,7 +528,7 @@ paths:
                               nullable: true
                             class_code:
                               type: string
-                              description: "Worker's compensation classification code for this employee"
+                              description: Worker's compensation classification code for this employee
                               nullable: true
                             location:
                               $ref: '#/components/schemas/Location'
@@ -1914,7 +1919,7 @@ components:
           nullable: true
         city:
           type: string
-          description: "City, district, suburb, town, or village."
+          description: 'City, district, suburb, town, or village.'
           nullable: true
         state:
           type: string
