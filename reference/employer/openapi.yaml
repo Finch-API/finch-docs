@@ -384,7 +384,7 @@ paths:
       tags:
         - 1. Organization
       requestBody:
-        $ref: '#/components/requestBodies/Individual-Ids'
+        $ref: '#/components/requestBodies/Individual'
   /employer/employment:
     post:
       description: |-
@@ -2157,6 +2157,28 @@ components:
                     - individual_id
             required:
               - requests
+          examples: {}
+    Individual:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              requests:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    individual_id:
+                      type: string
+              options:
+                type: object
+                nullable: true
+                properties:
+                  include:
+                    type: array
+                    items:
+                      type: string
   securitySchemes:
     bearerAuth:
       type: http
