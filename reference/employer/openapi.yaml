@@ -338,16 +338,19 @@ paths:
                             gender:
                               type: string
                               description: The gender of the individual.
-                              nullable: true
                               enum:
                                 - female
                                 - male
                                 - other
                                 - decline_to_specify
+                              nullable: true
                             dob:
                               $ref: '#/components/schemas/Date'
                             residence:
                               $ref: '#/components/schemas/Location'
+                            ssn:
+                              type: string
+                              nullable: true
               examples:
                 Success:
                   value:
@@ -523,7 +526,7 @@ paths:
                               nullable: true
                             class_code:
                               type: string
-                              description: "Worker's compensation classification code for this employee"
+                              description: Worker's compensation classification code for this employee
                               nullable: true
                             location:
                               $ref: '#/components/schemas/Location'
@@ -535,6 +538,17 @@ paths:
                               nullable: true
                               items:
                                 $ref: '#/components/schemas/Income'
+                            work_id:
+                              type: string
+                              nullable: true
+                            work_id_2:
+                              type: string
+                              nullable: true
+                            pay_group_ids:
+                              type: array
+                              nullable: true
+                              items:
+                                type: string
       summary: Employment
       operationId: get-employment
       tags:
@@ -1914,7 +1928,7 @@ components:
           nullable: true
         city:
           type: string
-          description: "City, district, suburb, town, or village."
+          description: 'City, district, suburb, town, or village.'
           nullable: true
         state:
           type: string
@@ -1927,6 +1941,14 @@ components:
         country:
           type: string
           description: The 2-letter ISO 3166 country code.
+          nullable: true
+        name:
+          type: string
+          description: The name of the location.
+          nullable: true
+        source_id:
+          type: string
+          description: The id of the location in the provider system.
           nullable: true
     Income:
       title: Income
