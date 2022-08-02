@@ -1125,6 +1125,7 @@ paths:
                       $ref: '#/components/schemas/BenefitType'
                     description:
                       type: string
+                      nullable: true
                     frequencies:
                       type: array
                       description: The list of frequencies supported by the provider for this benefit
@@ -1133,6 +1134,7 @@ paths:
                     employee_deduction:
                       type: array
                       description: Supported deduction types. An empty array indicates deductions are not supported.
+                      nullable: true
                       items:
                         type: string
                         enum:
@@ -1141,6 +1143,7 @@ paths:
                     company_contribution:
                       type: array
                       description: Supported contribution types. An empty array indicates contributions are not supported.
+                      nullable: true
                       items:
                         type: string
                         enum:
@@ -1149,12 +1152,15 @@ paths:
                     annual_maximum:
                       type: boolean
                       description: Whether the provider supports an annual maximum for this benefit.
+                      nullable: true
                     catch_up:
                       type: boolean
                       description: Whether the provider supports catch up for this benefit. This field will only be true for retirement benefits.
+                      nullable: true
                     hsa_contribution_limit:
                       description: Whether the provider supports HSA contribution limits. Empty if this feature is not supported for the benefit. This array only has values for HSA benefits.
                       type: array
+                      nullable: true
                       items:
                         type: string
                         enum:
@@ -1389,12 +1395,15 @@ paths:
                         name:
                           type: string
                           description: Identifier indicating whether the benefit was newly enrolled or updated.
+                          nullable: true
                         finch_code:
                           type: string
                           description: A descriptive identifier for the response
+                          nullable: true
                         message:
                           type: string
                           description: Short description in English that provides more information about the response.
+                          nullable: true
               examples:
                 Success:
                   value:
@@ -1610,12 +1619,15 @@ paths:
                         name:
                           type: string
                           description: Identifier indicating whether the benefit was newly enrolled or updated.
+                          nullable: true
                         finch_code:
                           type: string
                           description: A descriptive identifier for the response.
+                          nullable: true
                         message:
                           type: string
                           description: Short description in English that provides more information about the response.
+                          nullable: true
               examples:
                 Success:
                   value:
@@ -2054,6 +2066,7 @@ components:
         - every_paycheck
       x-tags:
         - Models
+      nullable: true
     BenefitContribution:
       title: BenefitContribution
       type: object
@@ -2083,6 +2096,7 @@ components:
           $ref: '#/components/schemas/BenefitType'
         description:
           type: string
+          nullable: true
         frequency:
           $ref: '#/components/schemas/BenefitFrequency'
         company_contribution:
