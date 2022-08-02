@@ -100,6 +100,7 @@ GTM Payroll Services Evolution | `gtm_payroll_services_evolution` | <span style=
 GTM Payroll Services iSolved | `gtm_payroll_services_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Heartland | `heartland` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Highflyer HR | `highflyer_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Horizons | `horizons` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 HRO | `hro` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 HROne | `hrone` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Hubstaff | `hubstaff` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -112,11 +113,13 @@ Kenjo | `kenjo` | <span style="color:goldenrod">Assisted</span> | <span style="c
 Keystone Payroll iSolved | `keystone_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 mp | `mp` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 MPAY | `mpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Multiplier | `multiplier` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Netchex | `netchex` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 NaturalHR | `natural_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Newtek | `newtek` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Nextep | `nextep` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Oasis | `oasis` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+odoo | `odoo` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 OneSource Payroll | `onesource_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 OnPay | `onpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Opolis | `opolis` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -146,6 +149,7 @@ PrimePay | `primepay` | <span style="color:goldenrod">Assisted</span> | <span st
 PrismHR | `prism_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Proliant | `proliant` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PropelHR | `propel_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+ProSoftware | `prosoftware` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Proxus HR isolved | `proxus_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Remote | `remote` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 RMI PEO | `rmi_peo` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -157,6 +161,7 @@ Savant HCM Evolution | `savant_hcm_evolution` | <span style="color:goldenrod">As
 Sheakley | `sheakley` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Simploy | `simploy` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Skuad | `skuad` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Southeast Personnel Leasing | `southeastpersonnel` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 SourceOne | `sourceone` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Strategic Payroll Solutions isolved | `strategic_payroll_solutions_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 SuitePeople (Oracle NetSuite) | `suite_people` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
