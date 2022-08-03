@@ -6,20 +6,21 @@ In this method of integration, your can embed Finch Connect into your applicatio
 3. **Retrieve the authorization code—** If the user successfully connects and grants your application access to their system, Connect will call the registered `onSuccess` handler with a short-lived authorization `code`.
 4. **Exchange the code for an access token—** Before sending API requests, your application will exchange the short-lived `code` for a long-lived `access_token` that represents your application's access to your user's employment system.
 
-**Currently, Finch supports only a React SDK.**
+**Currently, Finch supports a JS or React SDK.**
 
 ---
 
 ## Open Finch Connect
 
+<!--
+type: tab
+title: React SDK
+-->
+
 To open Finch Connect, you will need to instantiate the [SDK](https://github.com/Finch-API/react-finch-connect) with the `useFinchConnect` hook and invoke the returned `open` method to display the view for your user.
 
 We recommend registering the `open` method with an `onClick` handler of an HTML button on your application.
 
-<!--
-type: tab
-title: Parameters
--->
 Parameter | Required | Description
 ---------|----------|---------
  `clientId` | true | Your `client_id`, a unique identifier for your application.
@@ -28,11 +29,8 @@ Parameter | Required | Description
  `sandbox` | false | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data. For more information, read our [Testing Development Guide](../../Development-Guides/Testing.md).
  `manual` | false | An optional value which when set to true displays both [Automated API](../Product-Guides/Automated-Connect-Flow.md) and [Assisted API](../Product-Guides/Assisted-Connect-Flow.md) providers on the selection screen.
 
-<!--
-type: tab
-title: Example
--->
-```javascript lineNumbers
+--- 
+ ```javascript lineNumbers
 import React, { useState } from "react";
 import { useFinchConnect } from "react-finch-connect";
 
@@ -60,6 +58,60 @@ const App = () => {
   );
 };
 ```
+
+
+<!--
+type: tab
+title: JS SDK
+-->
+
+The JS SDK can be loaded via a script tag and then instantiated with some initialization code in your application. 
+
+The returned `FinchConnect` object exposes `open`, `close` and `destroy` lifecycle methods.
+
+Parameter | Required | Description
+---------|----------|---------
+ `clientId` | true | Your `client_id`, a unique identifier for your application.
+ `products` | true | An array of permissions your application is requesting access to. See [here](../../Development-Guides/Permissions.md) for a list of valid permissions.
+ `payrollProvider` | false | An optional parameter that allows you to bypass the provider selection screen by providing a valid provider `id`. Read [here](../../Development-Guides/Providers.md) for more information.
+ `sandbox` | false | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data. For more information, read our [Testing Development Guide](../../Development-Guides/Testing.md).
+ `manual` | false | An optional value which when set to true displays both [Automated API](../Product-Guides/Automated-Connect-Flow.md) and [Assisted API](../Product-Guides/Assisted-Connect-Flow.md) providers on the selection screen.
+
+```html
+<html>
+  <head>
+    <script src="https://prod-cdn.tryfinch.com/v1/connect.js"></script>
+  </head>
+  <body>
+    <button id="connect-button">Open Finch Connect</button>
+    <script>
+      const button = document.getElementById('connect-button');
+      const onSuccess = ({code}) => {
+        // exchange code for access token via your server
+      }
+      const onError = ({ errorMessage }) => {
+        console.error(errorMessage);
+      }
+      const onClose = () => {
+        console.log('Connect closed');
+      }
+      const connect = FinchConnect.initialize({
+        clientId: '<your-client-id>',
+        products: ['company', 'directory', 'employment'],
+        sandbox: false,
+        manual: false,
+        onSuccess,
+        onError,
+        onClose,
+      });
+      button.addEventListener('click', () => {
+        connect.open();
+      })
+    </script>
+  </body>
+</html>
+```
+
 <!-- type: tab-end -->
 
 ## Obtain consent
