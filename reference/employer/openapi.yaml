@@ -83,9 +83,11 @@ paths:
                   legal_name:
                     type: string
                     description: The legal name of the company.
+                    nullable: true
                   entity:
                     type: object
                     description: The entity type object.
+                    nullable: true
                     properties:
                       type:
                         type: string
@@ -97,6 +99,7 @@ paths:
                           - non_profit
                           - partnership
                           - cooperative
+                        nullable: true
                       subtype:
                         type: string
                         description: The tax payer subtype of the company.
@@ -125,6 +128,7 @@ paths:
                         name:
                           type: string
                           description: The department name.
+                          nullable: true
                         parent:
                           type: object
                           description: 'The parent department, if present.'
@@ -133,6 +137,7 @@ paths:
                             name:
                               type: string
                               description: The parent department's name.
+                              nullable: true
                   ein:
                     type: string
                     description: The employer identification number.
@@ -259,6 +264,7 @@ paths:
                             name:
                               type: string
                               description: The name of the department.
+                              nullable: true
                         is_active:
                           type: boolean
                           description: '`true` if the individual is an active employee or contractor at the company.'
@@ -330,24 +336,27 @@ paths:
                               nullable: true
                               items:
                                 type: object
+                                nullable: true
                                 properties:
                                   data:
                                     type: string
                                     pattern: '[0-9]{10}'
+                                    nullable: true
                                   type:
                                     type: string
                                     enum:
                                       - work
                                       - personal
+                                    nullable: true
                             gender:
                               type: string
                               description: The gender of the individual.
-                              nullable: true
                               enum:
                                 - female
                                 - male
                                 - other
                                 - decline_to_specify
+                              nullable: true
                             dob:
                               $ref: '#/components/schemas/Date'
                             residence:
@@ -496,6 +505,7 @@ paths:
                                 name:
                                   type: string
                                   description: The name of the department associated with the individual.
+                                  nullable: true
                             employment:
                               type: object
                               description: The employment object.
@@ -507,6 +517,7 @@ paths:
                                   enum:
                                     - employee
                                     - contractor
+                                  nullable: true
                                 subtype:
                                   type: string
                                   description: "\tThe secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`."
@@ -782,6 +793,7 @@ paths:
                                     nullable: true
                                     items:
                                       type: object
+                                      nullable: true
                                       properties:
                                         type:
                                           type: string
@@ -808,9 +820,11 @@ paths:
                                         amount:
                                           type: integer
                                           description: The earnings amount in cents.
+                                          nullable: true
                                         currency:
                                           type: string
                                           description: The earnings currency code.
+                                          nullable: true
                                         hours:
                                           type: number
                                           description: 'The number of hours associated with this earning. (For salaried employees, this could be hours per pay period, `0` or `null`, depending on the provider).'
@@ -821,6 +835,7 @@ paths:
                                     nullable: true
                                     items:
                                       type: object
+                                      nullable: true
                                       properties:
                                         type:
                                           type: string
@@ -834,34 +849,43 @@ paths:
                                         name:
                                           type: string
                                           description: The exact name of tax from the pay statement.
+                                          nullable: true
                                         employer:
                                           type: boolean
                                           description: '`true` if the amount is paid by the employers.'
+                                          nullable: true
                                         amount:
                                           type: integer
                                           description: The tax amount in cents.
+                                          nullable: true
                                         currency:
                                           type: string
                                           description: The currency code.
+                                          nullable: true
                                   employee_deductions:
                                     type: array
                                     description: The array of deductions objects associated with this pay statement.
                                     nullable: true
                                     items:
                                       type: object
+                                      nullable: true
                                       properties:
                                         name:
                                           type: string
                                           description: The deduction name from the pay statement.
+                                          nullable: true
                                         amount:
                                           type: integer
                                           description: The deduction amount in cents.
+                                          nullable: true
                                         currency:
                                           type: string
                                           description: The deduction currency.
+                                          nullable: true
                                         pre_tax:
                                           type: boolean
                                           description: Boolean indicating if the deduction is pre-tax.
+                                          nullable: true
                                         type:
                                           $ref: '#/components/schemas/BenefitType'
                                   employer_contributions:
@@ -869,16 +893,20 @@ paths:
                                     nullable: true
                                     items:
                                       type: object
+                                      nullable: true
                                       properties:
                                         name:
                                           type: string
                                           description: The contribution name from the pay statement.
+                                          nullable: true
                                         amount:
                                           type: integer
                                           description: The contribution amount in cents.
+                                          nullable: true
                                         currency:
                                           type: string
                                           description: The contribution currency.
+                                          nullable: true
                                         type:
                                           $ref: '#/components/schemas/BenefitType'
       summary: Pay Statement
@@ -1116,6 +1144,7 @@ paths:
                       $ref: '#/components/schemas/BenefitType'
                     description:
                       type: string
+                      nullable: true
                     frequencies:
                       type: array
                       description: The list of frequencies supported by the provider for this benefit
@@ -1124,6 +1153,7 @@ paths:
                     employee_deduction:
                       type: array
                       description: Supported deduction types. An empty array indicates deductions are not supported.
+                      nullable: true
                       items:
                         type: string
                         enum:
@@ -1132,6 +1162,7 @@ paths:
                     company_contribution:
                       type: array
                       description: Supported contribution types. An empty array indicates contributions are not supported.
+                      nullable: true
                       items:
                         type: string
                         enum:
@@ -1140,12 +1171,15 @@ paths:
                     annual_maximum:
                       type: boolean
                       description: Whether the provider supports an annual maximum for this benefit.
+                      nullable: true
                     catch_up:
                       type: boolean
                       description: Whether the provider supports catch up for this benefit. This field will only be true for retirement benefits.
+                      nullable: true
                     hsa_contribution_limit:
                       description: Whether the provider supports HSA contribution limits. Empty if this feature is not supported for the benefit. This array only has values for HSA benefits.
                       type: array
+                      nullable: true
                       items:
                         type: string
                         enum:
@@ -1395,12 +1429,15 @@ paths:
                         name:
                           type: string
                           description: Identifier indicating whether the benefit was newly enrolled or updated.
+                          nullable: true
                         finch_code:
                           type: string
                           description: A descriptive identifier for the response
+                          nullable: true
                         message:
                           type: string
                           description: Short description in English that provides more information about the response.
+                          nullable: true
               examples:
                 Success:
                   value:
@@ -1621,12 +1658,15 @@ paths:
                         name:
                           type: string
                           description: Identifier indicating whether the benefit was newly enrolled or updated.
+                          nullable: true
                         finch_code:
                           type: string
                           description: A descriptive identifier for the response.
+                          nullable: true
                         message:
                           type: string
                           description: Short description in English that provides more information about the response.
+                          nullable: true
               examples:
                 Success:
                   value:
@@ -2059,6 +2099,7 @@ components:
       description: Type of benefit.
       x-tags:
         - Models
+      nullable: true
     BenefitFrequency:
       type: string
       title: BenefitFrequency
@@ -2067,11 +2108,13 @@ components:
         - every_paycheck
       x-tags:
         - Models
+      nullable: true
     BenefitContribution:
       title: BenefitContribution
       type: object
       x-tags:
         - Models
+      x-examples: {}
       nullable: true
       properties:
         type:
@@ -2080,10 +2123,11 @@ components:
             - fixed
             - percent
           description: Contribution type.
+          nullable: true
         amount:
           type: integer
           description: Contribution amount in cents (if `fixed`) or basis points (if `percent`).
-      x-examples: {}
+          nullable: true
     CompanyBenefit:
       title: CompanyBenefit
       type: object
@@ -2094,6 +2138,7 @@ components:
           $ref: '#/components/schemas/BenefitType'
         description:
           type: string
+          nullable: true
         frequency:
           $ref: '#/components/schemas/BenefitFrequency'
         company_contribution:
