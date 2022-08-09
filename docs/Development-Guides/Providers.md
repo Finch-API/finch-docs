@@ -64,6 +64,7 @@ BCN Services | `bcn_services` | <span style="color:goldenrod">Assisted</span> | 
 Bene-Care | `benecare` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Big Fish Employer Services | `big_fish_employer_services` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Bizchecks Payroll | `bizchecks_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Business Online Payroll | `business_online_payroll` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Ceridian Dayforce | `ceridian_dayforce` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Ceridian Powerpay | `ceridian_powerpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Cezanne HR | `cezannehr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -76,6 +77,7 @@ Commonwealth Payroll & HR | `commonwealth_payroll_hr` | <span style="color:golde
 ConnectPay | `connectpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 CPM Employer Services iSolved | `cpm_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Crescent Payroll Solutions | `crescent_payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Decent | `decent` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Deel | `deel` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Deluxe | `deluxe` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 DM Payroll Solutions | `dm_payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -152,6 +154,7 @@ PropelHR | `propel_hr` | <span style="color:goldenrod">Assisted</span> | <span s
 ProSoftware | `prosoftware` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Proxus HR isolved | `proxus_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Remote | `remote` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Resourcing Edge | `resourcing_edge` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 RMI PEO | `rmi_peo` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Sage 50 Quantum Accounting | `sage_50_quantum_accounting` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Sage 50 US Edition Accounting | `sage_50_us_edition_accounting` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
