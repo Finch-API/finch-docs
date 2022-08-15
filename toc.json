@@ -35,20 +35,36 @@
         },
         {
           "type": "item",
-          "title": "Redirecting to Connect",
+          "title": "Redirecting to Finch Connect",
           "uri": "docs/Integrating-with-Finch/Integrate-Finch-Connect/Redirect-to-Connect.md"
         },
         {
           "type": "item",
-          "title": "Embedding Connect",
+          "title": "Embedding Finch Connect",
           "uri": "docs/Integrating-with-Finch/Integrate-Finch-Connect/Embed-Connect.md"
+        },
+        {
+          "type": "item",
+          "title": "React SDK Tutorial",
+          "uri": "docs/Integrating-with-Finch/Integrate-Finch-Connect/React-SDK-Tutorial.md"
         }
       ]
     },
     {
-      "type": "item",
+      "type": "group",
       "title": "Integrate the Finch API",
-      "uri": "docs/Integrating-with-Finch/Integrate-the-Finch-API.md"
+      "items": [
+        {
+          "type": "item",
+          "title": "Sending a request",
+          "uri": "docs/Integrating-with-Finch/Integrate-Finch-API/Sending-A-Request.md"
+        },
+        {
+          "type": "item",
+          "title": "Node SDK Tutorial",
+          "uri": "docs/Integrating-with-Finch/Integrate-Finch-API/Node-SDK-Tutorial.md"
+        }
+      ]
     },
     {
       "type": "item",
@@ -163,7 +179,7 @@
       "type": "item",
       "title": "Webhooks",
       "uri": "docs/Development-Guides/B-Webhooks.md"
-    }, 
+    },
     {
       "type": "divider",
       "title": "APIS"
