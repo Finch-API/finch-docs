@@ -38,6 +38,7 @@ Finch's API tries to maintain parity between all [providers](./Providers.md). Ho
 
 <p><i>* Initial only</i><br>
 <i>** Requires customer to be at highest package tier, ADP Run Pro</i></p>
+<i>*** Quickbooks does not provide these fields for contractors</i></p>
 
 ### Payment
 ![Finch Compatibility - Payment.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/KeoczDkPZ2A)
