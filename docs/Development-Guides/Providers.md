@@ -45,6 +45,7 @@ Accupay iSolved | `accupay_isolved` | <span style="color:goldenrod">Assisted</sp
 Ace Workforce Technologies isolved | `ace_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 AccountantsWorld | `accountantsworld` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Adams Keegan | `adams_keegan` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+ADP Comprehensive Services | `adp_comprehensive` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 ADP TotalSource | `adp_totalsource` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Advantage Payroll Services | `advantage_payroll_services` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Affiliated HR Payroll Services iSolved | `affiliated_hr_payroll_services_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -164,6 +165,7 @@ Savant HCM Evolution | `savant_hcm_evolution` | <span style="color:goldenrod">As
 Sheakley | `sheakley` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Simploy | `simploy` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Skuad | `skuad` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Solution Services | `solution_services` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Southeast Personnel Leasing | `southeastpersonnel` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 SourceOne | `sourceone` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Strategic Payroll Solutions isolved | `strategic_payroll_solutions_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
