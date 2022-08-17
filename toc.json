@@ -161,6 +161,11 @@
     },
     {
       "type": "item",
+      "title": "Data Syncs",
+      "uri": "docs/Development-Guides/Data-Syncs.md"
+    }
+    {
+      "type": "item",
       "title": "Webhooks",
       "uri": "docs/Development-Guides/B-Webhooks.md"
     }, 
