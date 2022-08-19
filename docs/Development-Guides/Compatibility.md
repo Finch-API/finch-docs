@@ -13,27 +13,27 @@ Finch's API tries to maintain parity between all [providers](./Providers.md). Ho
 > `x` — not supported by Finch
 
 ### Company
-![Finch Compatibility - Company.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/AEtHZ61QXIA)
+![Finch Compatibility - Company.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/rGKp0LCE23w)
 
 
 <p><i>* Only available by inferring from entity.type</i><br>
 <i>** account_number is mask and only shows the last 4 digits</i></p>
 
 ### Directory
-![Finch Compatibility - Directory.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/0hkrtIgzNJI)
+![Finch Compatibility - Directory.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/RNlbkHk6kPU)
 
 
 <p><i>* Initial only</i></p>
 
 ### Individual
-![Finch Compatibility - Individual.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/ONSlzNA7C9g)
+![Finch Compatibility - Individual.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/qRUMf3tA2SU)
 
 
 <p><i>* Initial only</i><br>
 <i>** No work email available</i></p>
 
 ### Employment
-![Finch Compatibility - Employment.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/aGyLfMrl7SY)
+![Finch Compatibility - Employment.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/ba0dmondIsE)
 
 
 <p><i>* Initial only</i><br>
@@ -41,11 +41,11 @@ Finch's API tries to maintain parity between all [providers](./Providers.md). Ho
 <i>*** Quickbooks does not provide these fields for contractors</i></p>
 
 ### Payment
-![Finch Compatibility - Payment.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/KeoczDkPZ2A)
+![Finch Compatibility - Payment.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/daYUfnUPcM8)
 
 
 ### Pay Statement
-![Finch Compatibility - Pay Statement.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/uvYJWn0hoZM)
+![Finch Compatibility - Pay Statement.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/ea9SC6Kzzgs)
 
 
 <p><i>* 401k Match cannot be set on Justworks</i></p>
