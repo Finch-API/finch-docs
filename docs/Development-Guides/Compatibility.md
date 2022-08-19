@@ -41,11 +41,11 @@ Finch's API tries to maintain parity between all [providers](./Providers.md). Ho
 <i>*** Quickbooks does not provide these fields for contractors</i></p>
 
 ### Payment
-![Finch Compatibility - Payment.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/daYUfnUPcM8)
+![Finch Compatibility - Payment.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/eUIR1IR9U5k)
 
 
 ### Pay Statement
-![Finch Compatibility - Pay Statement.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/ea9SC6Kzzgs)
+![Finch Compatibility - Pay Statement.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/jSQ6no1e22M)
 
 
 <p><i>* 401k Match cannot be set on Justworks</i></p>
