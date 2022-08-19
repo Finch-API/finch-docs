@@ -20,7 +20,7 @@ Finch's API tries to maintain parity between all [providers](./Providers.md). Ho
 <i>** account_number is mask and only shows the last 4 digits</i></p>
 
 ### Directory
-![Finch Compatibility - Directory.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/RNlbkHk6kPU)
+![Finch Compatibility - Directory.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/I2Dc4OA111I)
 
 
 <p><i>* Initial only</i></p>
