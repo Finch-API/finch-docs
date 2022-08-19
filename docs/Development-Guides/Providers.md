@@ -32,6 +32,7 @@ Sequoia One | `sequoia_one` | <span style="color:darkgreen">Automated</span> | <
 Square Payroll | `square_payroll` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 TriNet | `trinet` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 UltiPro (UKG Pro) | `ulti_pro` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Wave | `wave` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Workday | `workday` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Zenefits | `zenefits` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 
