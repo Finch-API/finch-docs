@@ -1,3 +1,7 @@
+---
+stoplight-id: 0509e1cdd8e34
+---
+
 # API Versioning
 
 We periodically release new, dated versions of the API whenever we make breaking changes. Although we try to only make backward-compatible changes, sometimes we have to make a breaking change to iterate on the API.

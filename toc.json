@@ -2,136 +2,33 @@
   "items": [
     {
       "type": "item",
-      "title": "What is Finch?",
-      "uri": "docs/1-Introduction.md"
-    },
-    {
-      "type": "item",
-      "title": "Registration",
-      "uri": "docs/2-Registration.md"
-    },
-    {
-      "type": "item",
-      "title": "Quickstart",
-      "uri": "docs/3-Quickstart.md"
-    },
-    {
-      "type": "divider",
-      "title": "Integrating with Finch"
-    },
-    {
-      "type": "item",
-      "title": "How Finch works",
-      "uri": "docs/Integrating-with-Finch/How Finch Works.md"
-    },
-    {
-      "type": "group",
-      "title": "Integrate Finch Connect",
-      "items": [
-        {
-          "type": "item",
-          "title": "Overview",
-          "uri": "docs/Integrating-with-Finch/Integrate-Finch-Connect/Overview.md"
-        },
-        {
-          "type": "item",
-          "title": "Redirecting to Connect",
-          "uri": "docs/Integrating-with-Finch/Integrate-Finch-Connect/Redirect-to-Connect.md"
-        },
-        {
-          "type": "item",
-          "title": "Embedding Connect",
-          "uri": "docs/Integrating-with-Finch/Integrate-Finch-Connect/Embed-Connect.md"
-        }
-      ]
-    },
-    {
-      "type": "item",
-      "title": "Integrate the Finch API",
-      "uri": "docs/Integrating-with-Finch/Integrate-the-Finch-API.md"
-    },
-    {
-      "type": "item",
-      "title": "Integration checklist",
-      "uri": "docs/Integrating-with-Finch/Integration Checklist.md"
-    },
-    {
-      "type": "divider",
-      "title": "Product Guides"
-    },
-    {
-      "type": "item",
-      "title": "Automated Connect Flow",
-      "uri": "docs/Product-Guides/Automated-Connect-Flow.md"
-    },
-    {
-      "type": "item",
-      "title": "Assisted Connect Flow",
-      "uri": "docs/Product-Guides/Assisted-Connect-Flow.md"
-    },
-    {
-      "type": "item",
-      "title": "Benefits API",
-      "uri": "docs/Product-Guides/Benefits-API.md"
-    },
-    {
-      "type": "divider",
-      "title": "Development Guides"
-    },
-    {
-      "type": "item",
-      "title": "Re-authentication",
-      "uri": "docs/Development-Guides/Re-authentication.md"
-    },
-    {
-      "type": "item",
-      "title": "Multi-account flow",
-      "uri": "docs/Development-Guides/Multi-account-Flow.md"
-    },
-    {
-      "type": "item",
-      "title": "Reconciling employees",
-      "uri": "docs/Development-Guides/Reconciling-Employees.md"
-    },
-    {
-      "type": "item",
-      "title": "Providers",
-      "uri": "docs/Development-Guides/Providers.md"
-    },
-    {
-      "type": "item",
-      "title": "Redirect URIs",
-      "uri": "docs/Development-Guides/Redirect-URIs.md"
-    },
-    {
-      "type": "item",
-      "title": "Permissions",
-      "uri": "docs/Development-Guides/Permissions.md"
-    },
-    {
-      "type": "item",
-      "title": "Headers",
-      "uri": "docs/Development-Guides/Headers.md"
-    },
-    {
-      "type": "item",
-      "title": "API Versioning",
-      "uri": "docs/Development-Guides/Versioning.md"
-    },
-    {
-      "type": "item",
-      "title": "Testing",
-      "uri": "docs/Development-Guides/Testing.md"
+      "title": "Requesting Permissions",
+      "uri": "docs/Permissions.md"
     },
     {
       "type": "item",
       "title": "Rate Limits",
-      "uri": "docs/Development-Guides/Rate-Limits.md"
+      "uri": "docs/Rate-Limits.md"
     },
     {
       "type": "item",
-      "title": "Handling API Responses",
-      "uri": "docs/Development-Guides/Handling-API-Responses.md"
+      "title": "HTTP Headers",
+      "uri": "docs/Headers.md"
+    },
+    {
+      "type": "item",
+      "title": "API Versioning",
+      "uri": "docs/Versioning.md"
+    },
+    {
+      "type": "item",
+      "title": "Redirect URIs",
+      "uri": "docs/Redirect-URIs.md"
+    },
+    {
+      "type": "item",
+      "title": "Data Syncs",
+      "uri": "docs/Data-Syncs.md"
     },
     {
       "type": "group",
@@ -139,38 +36,23 @@
       "items": [
         {
           "type": "item",
-          "title": "Error types",
-          "uri": "docs/Development-Guides/Errors/Error-Types.md"
+          "title": "Error Types",
+          "uri": "docs/Errors/Error-Types.md"
         },
         {
           "type": "item",
-          "title": "Error handling",
-          "uri": "docs/Development-Guides/Errors/Error-Handling.md"
+          "title": "Error Handling",
+          "uri": "docs/Errors/Error-Handling.md"
         }
       ]
     },
     {
-      "type": "item",
-      "title": "Response Times",
-      "uri": "docs/Development-Guides/Response-Times.md"
-    },
-    {
-      "type": "item",
-      "title": "Compatibility",
-      "uri": "docs/Development-Guides/Compatibility.md"
-    },
-    {
-      "type": "item",
-      "title": "Data Syncs",
-      "uri": "docs/Development-Guides/Data-Syncs.md"
-    },
-    {
       "type": "divider",
-      "title": "APIS"
+      "title": ""
     },
     {
       "type": "item",
-      "title": "API Reference",
+      "title": "Product API Reference",
       "uri": "reference/employer/openapi.yaml"
     }
   ]

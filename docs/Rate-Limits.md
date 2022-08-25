@@ -1,3 +1,7 @@
+---
+stoplight-id: 64f780582a5a2
+---
+
 # Rate Limits
 
 Finch will return a rate limit error with the HTTP status code `429` when the request rate limit for an application or `token` has been exceeded for a given `product`.

@@ -1,3 +1,7 @@
+---
+stoplight-id: 503f5ff508616
+---
+
 # Redirect URIs
 
 To authorize with Finch, you'll need to provide one or more redirect URIs. The user will be redirected to the specified URI upon successfully authorizing your application access to their employment system. On redirect, the URI will contain an authorization `code` query parameter that must be exchanged with Finch's authorization server for an access token.

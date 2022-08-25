@@ -1,4 +1,8 @@
-# Permissions
+---
+stoplight-id: e68b00055f1d8
+---
+
+# Requesting Permissions
 
 Each Finch `access_token` can only make API calls to endpoints the end-user has granted an application permission to. Permissions are specified by the `product` parameter when launching Connect. Valid permissions are—
 

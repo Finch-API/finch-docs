@@ -1,4 +1,8 @@
-# Headers
+---
+stoplight-id: 8182e8be8dd31
+---
+
+# HTTP Headers
 
 ## Request headers
 
