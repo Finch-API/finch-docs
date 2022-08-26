@@ -17,7 +17,7 @@ type: tab
 title: React SDK
 -->
 
-To open Finch Connect, you will need to instantiate the [SDK](https://github.com/Finch-API/react-finch-connect) with the `useFinchConnect` hook and invoke the returned `open` method to display the view for your user.
+To open Finch Connect with React, you will need to instantiate the [React SDK](https://github.com/Finch-API/react-finch-connect) with the `useFinchConnect` hook and invoke the returned `open` method to display the view for your user.
 
 We recommend registering the `open` method with an `onClick` handler of an HTML button on your application.
 
@@ -65,7 +65,7 @@ type: tab
 title: JS SDK
 -->
 
-The JS SDK can be loaded via a script tag and then instantiated with some initialization code in your application. 
+The [JS SDK](https://github.com/Finch-API/finch-connect-js) can be loaded via a script tag and then instantiated with some initialization code in your application.
 
 The returned `FinchConnect` object exposes `open`, `close` and `destroy` lifecycle methods.
 
