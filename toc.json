@@ -161,8 +161,8 @@
     },
     {
       "type": "item",
-      "title": "Webhooks",
-      "uri": "docs/Development-Guides/B-Webhooks.md"
+      "title": "Webhooks (beta)",
+      "uri": "docs/Development-Guides/Webhooks-(beta).md"
     }, 
     {
       "type": "divider",
