@@ -1978,7 +1978,7 @@ paths:
                 - individual_id
   /employer/documents:
     get:
-      summary: Get Documents
+      summary: Documents
       tags:
         - 1. Organization
       responses:
@@ -1993,7 +1993,7 @@ paths:
                     type: string
                     format: uuid
               examples:
-                example-1:
+                Success:
                   value:
                     job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
       operationId: get-employer-documents
@@ -2023,7 +2023,7 @@ paths:
           description: End date for which to stop retrieving documents
   '/jobs/{job_id}':
     get:
-      summary: Get Job Status
+      summary: Job Status
       tags:
         - 4. Management
       responses:
@@ -2055,7 +2055,7 @@ paths:
                   - job_id
                   - code
               examples:
-                pending job response:
+                Pending Job Response:
                   value:
                     job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
                     job_type: w2
@@ -2097,7 +2097,6 @@ paths:
   /jobs:
     get:
       summary: List All Jobs
-      tags: []
       responses:
         '200':
           description: OK
@@ -2119,7 +2118,7 @@ paths:
                     status:
                       $ref: '#/components/schemas/JobStatus'
               examples:
-                example-1:
+                One Pending Job:
                   value:
                     - job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
                       job_type: w2
@@ -2127,6 +2126,8 @@ paths:
                       status: pending
       operationId: get-jobs
       description: List all jobs associated with the access token
+      tags:
+        - 4. Management
 components:
   schemas:
     Location:
