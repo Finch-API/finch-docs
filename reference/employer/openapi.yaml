@@ -1976,6 +1976,157 @@ paths:
               required:
                 - deduction_id
                 - individual_id
+  /employer/documents:
+    get:
+      summary: Get Documents
+      tags:
+        - 1. Organization
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  job_id:
+                    type: string
+                    format: uuid
+              examples:
+                example-1:
+                  value:
+                    job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+      operationId: get-employer-documents
+      description: 'Fetches documents from the employment system. Querying this endpoint will start a background job which handles the document fetch. The job status can be queried via the `/jobs` endpoint. Once the job finishes, a link to download the document will be delivered in the `jobs/<job_id>` response body.'
+      parameters:
+        - schema:
+            type: string
+            enum:
+              - w2
+              - '941'
+          in: query
+          name: type
+          description: The type of document to retrieve
+        - schema:
+            type: string
+            format: date
+            example: '2021-01-01'
+          in: query
+          name: start_date
+          description: Start date from which to begin retrieving documents
+        - schema:
+            type: string
+            format: date
+            example: '2021-12-31'
+          in: query
+          name: end_date
+          description: End date for which to stop retrieving documents
+  '/jobs/{job_id}':
+    get:
+      summary: Get Job Status
+      tags:
+        - 4. Management
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  job_id:
+                    type: string
+                    format: uuid
+                  job_type:
+                    $ref: '#/components/schemas/JobType'
+                  code:
+                    type: integer
+                    enum:
+                      - 200
+                      - 202
+                      - 207
+                      - 404
+                      - 500
+                  status:
+                    $ref: '#/components/schemas/JobStatus'
+                  body:
+                    type: object
+                required:
+                  - job_id
+                  - code
+              examples:
+                pending job response:
+                  value:
+                    job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    job_type: w2
+                    code: 202
+                    status: pending
+                completed document job response:
+                  value:
+                    job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    job_type: w2
+                    code: 200
+                    status: complete
+                    body:
+                      url: 'https://hosted-document.tryfinch.com/453bd7d7-5355-4d6d-a38e-d9e7eb218c3f'
+                error response:
+                  value:
+                    job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    job_type: w2
+                    code: 500
+                    status: error
+                    body:
+                      name: internal_server_error
+                      message: Failed to fetch document from provider
+                not found error:
+                  value:
+                    job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    code: 404
+                    body:
+                      name: not_found_error
+                      message: No job associated with the provided access token was found with the specified job_id
+      operationId: get-employer-jobs
+      description: Get the status of an asynchronous job
+    parameters:
+      - schema:
+          type: string
+          format: uuid
+        name: job_id
+        in: path
+        required: true
+  /jobs:
+    get:
+      summary: List All Jobs
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    job_id:
+                      type: string
+                      format: uuid
+                    job_type:
+                      $ref: '#/components/schemas/JobType'
+                    created_at:
+                      type: string
+                      format: date-time
+                    status:
+                      $ref: '#/components/schemas/JobStatus'
+              examples:
+                example-1:
+                  value:
+                    - job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                      job_type: w2
+                      created_at: '2019-08-24T14:15:22Z'
+                      status: pending
+      operationId: get-jobs
+      description: List all jobs associated with the access token
 components:
   schemas:
     Location:
@@ -2201,6 +2352,31 @@ components:
           name: not_found_error
           finch_code: individual_not_found
           message: Individual not found for benefit
+    JobType:
+      type: string
+      title: JobType
+      x-stoplight:
+        id: oxd0fxsp5sw8y
+      enum:
+        - w2
+        - '1099'
+        - benefit_create
+        - benefit_enroll
+        - benefit_unenroll
+        - benefit_update
+      x-examples:
+        example-1: w2
+        example-2: benefit_enroll
+    JobStatus:
+      type: string
+      title: JobStatus
+      x-stoplight:
+        id: 7n8d7c9ttjo1g
+      enum:
+        - pending
+        - in_progress
+        - complete
+        - error
   requestBodies:
     Individual-Ids:
       content:
