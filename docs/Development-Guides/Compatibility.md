@@ -33,12 +33,14 @@ Finch's API tries to maintain parity between all [providers](./Providers.md). Ho
 <i>** No work email available</i></p>
 
 ### Employment
-![Finch Compatibility - Employment.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/ba0dmondIsE)
+
+![Finch Compatibility - Employment.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/RFMk7Z9saHc)
+
 
 
 <p><i>* Initial only</i><br>
-<i>** Requires customer to be at highest package tier, ADP Run Pro</i></p>
-<i>*** Quickbooks does not provide these fields for contractors</i></p>
+<i>** Requires customer to be at highest package tier, ADP Run Pro</i></br>
+<i>*** These fields are not provided for contractors</i></p>
 
 ### Payment
 ![Finch Compatibility - Payment.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/eUIR1IR9U5k)
@@ -48,5 +50,5 @@ Finch's API tries to maintain parity between all [providers](./Providers.md). Ho
 ![Finch Compatibility - Pay Statement.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/jSQ6no1e22M)
 
 
-<p><i>* 401k Match cannot be set on Justworks</i></p>
+<p><i>* 401k Match cannot be set on Justworks</i>
 <p><i>** Paychex Flex only exposes the previous 24 months of pay data</i></p>
