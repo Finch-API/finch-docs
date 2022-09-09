@@ -184,7 +184,6 @@ Vfficient | `vfficient` | <span style="color:goldenrod">Assisted</span> | <span 
 Viewpoint HR Management Spectrum | `viewpoint_hr_management_spectrum` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Viewpoint HR Management Vista | `viewpoint_hr_management_vista` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Wagepoint | `wagepoint` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-Wave Payroll | `wave` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 WebHR | `web_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 whirks | `whirks` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Workforce Junction | `workforce_junction` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
