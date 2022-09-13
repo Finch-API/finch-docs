@@ -2,7 +2,7 @@
 stoplight-id: 9d3cec5dd527e
 ---
 
-# Introduction to Webhooks (beta)
+# Introduction to Webhooks (coming soon)
 
 Finch offers webhooks to inform you of changes to data models in a push-notification fashion, rather than you having to rely exclusively on pulling data from our API. A webhook url is a HTTPS endpoint configured by your application to recieve requests from Finch.
 
@@ -21,7 +21,7 @@ You can register for webhooks via the developer dashboard.
 ![Screen Shot 2022-08-31 at 4.08.53 PM.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/4ddTnkeC8Hg)
 
 
-Webhooks are available starting at Scale tier. Please reach out to a Finch representative for more details on eligibility.
+Webhooks are available for customers in our Scale tier. Please reach out to a Finch representative for more details on eligibility.
 
 ## Webhook Payload Structure
 
@@ -90,7 +90,6 @@ Beyond the `change_type`, the objects in the `data` array will differ slightly b
     {
       "change_type": "deleted",
       "individual_id": "ea996879-c7c1-45a1-acdb-f07a75bd39b4"
-      ...
     },
     ...
   ]
@@ -191,8 +190,9 @@ if (decodedTokenHeader.alg !== 'RS256') {
   // reject token
 }
 
+const key = await jose.importJWK(publicKey);
 // This will throw an error if verification fails
-const { payload } = await jose.jwtVerify(signedJwt, keyLike, {
+const { payload } = await jose.jwtVerify(signedJwt, key, {
      maxTokenAge: '5 min',
    });
 ```
