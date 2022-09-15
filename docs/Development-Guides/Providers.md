@@ -82,6 +82,7 @@ CPM Employer Services iSolved | `cpm_isolved` | <span style="color:goldenrod">As
 Crescent Payroll Solutions | `crescent_payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Decent | `decent` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Deel | `deel` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Deltek | `deltek` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Deluxe | `deluxe` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 DM Payroll Solutions | `dm_payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Dominion Payroll | `dominion_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -143,6 +144,7 @@ Payroll Office of America | `payroll_office_of_america` | <span style="color:gol
 Payroll Plus HCM isolved | `payroll_plus_hcm_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Payroll Plus HCM Evolution | `payroll_plus_hcm_evolution` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Payroll Solutions | `payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Paytime | `paytime` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PayUSA | `pay_usa_inc` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PCS HCM | `pcs_hcm` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PeopleForce | `peopleforce` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -159,8 +161,6 @@ Proxus HR isolved | `proxus_hr` | <span style="color:goldenrod">Assisted</span> 
 Remote | `remote` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Resourcing Edge | `resourcing_edge` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 RMI PEO | `rmi_peo` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-Sage 50 Quantum Accounting | `sage_50_quantum_accounting` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-Sage 50 US Edition Accounting | `sage_50_us_edition_accounting` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Sage Payroll | `sage_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 SAP SuccessFactors | `successfactors` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Savant HCM Evolution | `savant_hcm_evolution` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
