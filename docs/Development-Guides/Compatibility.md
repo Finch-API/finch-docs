@@ -32,7 +32,8 @@ Finch's API tries to maintain parity between all [providers](./Providers.md). Ho
 <i>** No work email available</i></p>
 
 ### Employment
-![Finch Compatibility - Employment.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/nUS8BSCgJd4)
+![Finch Compatibility - Employment.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/6OCTREXvk4M)
+
 
 
 <p><i>* Initial only</i><br>
