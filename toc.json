@@ -162,7 +162,7 @@
     {
       "type": "item",
       "title": "Webhooks (coming soon)",
-      "uri": "docs/Development-Guides/Webhooks-(beta).md"
+      "uri": "docs/Development-Guides/Webhooks.md"
     }, 
     {
       "type": "divider",
