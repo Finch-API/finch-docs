@@ -160,6 +160,11 @@
       "uri": "docs/Development-Guides/Compatibility.md"
     },
     {
+      "type": "item",
+      "title": "Webhooks (coming soon)",
+      "uri": "docs/Development-Guides/Webhooks-(beta).md"
+    }, 
+    {
       "type": "divider",
       "title": "APIS"
     },
