@@ -83,9 +83,11 @@ paths:
                   legal_name:
                     type: string
                     description: The legal name of the company.
+                    nullable: true
                   entity:
                     type: object
                     description: The entity type object.
+                    nullable: true
                     properties:
                       type:
                         type: string
@@ -97,6 +99,7 @@ paths:
                           - non_profit
                           - partnership
                           - cooperative
+                        nullable: true
                       subtype:
                         type: string
                         description: The tax payer subtype of the company.
@@ -125,6 +128,7 @@ paths:
                         name:
                           type: string
                           description: The department name.
+                          nullable: true
                         parent:
                           type: object
                           description: 'The parent department, if present.'
@@ -133,6 +137,7 @@ paths:
                             name:
                               type: string
                               description: The parent department's name.
+                              nullable: true
                   ein:
                     type: string
                     description: The employer identification number.
@@ -259,6 +264,7 @@ paths:
                             name:
                               type: string
                               description: The name of the department.
+                              nullable: true
                         is_active:
                           type: boolean
                           description: '`true` if the individual is an active employee or contractor at the company.'
@@ -330,24 +336,27 @@ paths:
                               nullable: true
                               items:
                                 type: object
+                                nullable: true
                                 properties:
                                   data:
                                     type: string
                                     pattern: '[0-9]{10}'
+                                    nullable: true
                                   type:
                                     type: string
                                     enum:
                                       - work
                                       - personal
+                                    nullable: true
                             gender:
                               type: string
                               description: The gender of the individual.
-                              nullable: true
                               enum:
                                 - female
                                 - male
                                 - other
                                 - decline_to_specify
+                              nullable: true
                             dob:
                               $ref: '#/components/schemas/Date'
                             residence:
@@ -496,6 +505,7 @@ paths:
                                 name:
                                   type: string
                                   description: The name of the department associated with the individual.
+                                  nullable: true
                             employment:
                               type: object
                               description: The employment object.
@@ -507,6 +517,7 @@ paths:
                                   enum:
                                     - employee
                                     - contractor
+                                  nullable: true
                                 subtype:
                                   type: string
                                   description: "\tThe secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`."
@@ -522,6 +533,7 @@ paths:
                               $ref: '#/components/schemas/Date'
                             end_date:
                               $ref: '#/components/schemas/Date'
+                              nullable: true
                             is_active:
                               type: boolean
                               description: '`true` if the individual an an active employee or contractor at the company.'
@@ -722,6 +734,7 @@ paths:
                                   amount: 50000
                                   currency: usd
                                   pre_tax: true
+                                  type: 401k
                               employer_contributions:
                                 - name: Employee Medical Insurance
                                   amount: 23272
@@ -781,6 +794,7 @@ paths:
                                     nullable: true
                                     items:
                                       type: object
+                                      nullable: true
                                       properties:
                                         type:
                                           type: string
@@ -807,9 +821,11 @@ paths:
                                         amount:
                                           type: integer
                                           description: The earnings amount in cents.
+                                          nullable: true
                                         currency:
                                           type: string
                                           description: The earnings currency code.
+                                          nullable: true
                                         hours:
                                           type: number
                                           description: 'The number of hours associated with this earning. (For salaried employees, this could be hours per pay period, `0` or `null`, depending on the provider).'
@@ -820,6 +836,7 @@ paths:
                                     nullable: true
                                     items:
                                       type: object
+                                      nullable: true
                                       properties:
                                         type:
                                           type: string
@@ -833,34 +850,43 @@ paths:
                                         name:
                                           type: string
                                           description: The exact name of tax from the pay statement.
+                                          nullable: true
                                         employer:
                                           type: boolean
                                           description: '`true` if the amount is paid by the employers.'
+                                          nullable: true
                                         amount:
                                           type: integer
                                           description: The tax amount in cents.
+                                          nullable: true
                                         currency:
                                           type: string
                                           description: The currency code.
+                                          nullable: true
                                   employee_deductions:
                                     type: array
                                     description: The array of deductions objects associated with this pay statement.
                                     nullable: true
                                     items:
                                       type: object
+                                      nullable: true
                                       properties:
                                         name:
                                           type: string
                                           description: The deduction name from the pay statement.
+                                          nullable: true
                                         amount:
                                           type: integer
                                           description: The deduction amount in cents.
+                                          nullable: true
                                         currency:
                                           type: string
                                           description: The deduction currency.
+                                          nullable: true
                                         pre_tax:
                                           type: boolean
                                           description: Boolean indicating if the deduction is pre-tax.
+                                          nullable: true
                                         type:
                                           $ref: '#/components/schemas/BenefitType'
                                   employer_contributions:
@@ -868,16 +894,20 @@ paths:
                                     nullable: true
                                     items:
                                       type: object
+                                      nullable: true
                                       properties:
                                         name:
                                           type: string
                                           description: The contribution name from the pay statement.
+                                          nullable: true
                                         amount:
                                           type: integer
                                           description: The contribution amount in cents.
+                                          nullable: true
                                         currency:
                                           type: string
                                           description: The contribution currency.
+                                          nullable: true
                                         type:
                                           $ref: '#/components/schemas/BenefitType'
       summary: Pay Statement
@@ -1038,7 +1068,10 @@ paths:
                       description: Example 401k
                       frequency: every_paycheck
       operationId: get-company-benefits
-      description: List all company-wide benefits.
+      description: |-
+        **Availability: Automated Benefits providers only**  
+          
+        List all company-wide benefits.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     post:
@@ -1071,7 +1104,10 @@ paths:
                     name: unprocessable_request_error
                     finch_code: unsupported_paramters
                     message: Provider does not support benefit type '401k'
-      description: Creates a new company-wide benefit. Please use the `/meta` endpoint to view available types for each provider.
+      description: |-
+        **Availability: Automated and Assisted Benefits providers**  
+          
+        Creates a new company-wide benefit. Please use the `/meta` endpoint to view available types for each provider.
       requestBody:
         content:
           application/json:
@@ -1109,6 +1145,7 @@ paths:
                       $ref: '#/components/schemas/BenefitType'
                     description:
                       type: string
+                      nullable: true
                     frequencies:
                       type: array
                       description: The list of frequencies supported by the provider for this benefit
@@ -1117,6 +1154,7 @@ paths:
                     employee_deduction:
                       type: array
                       description: Supported deduction types. An empty array indicates deductions are not supported.
+                      nullable: true
                       items:
                         type: string
                         enum:
@@ -1125,6 +1163,7 @@ paths:
                     company_contribution:
                       type: array
                       description: Supported contribution types. An empty array indicates contributions are not supported.
+                      nullable: true
                       items:
                         type: string
                         enum:
@@ -1133,12 +1172,15 @@ paths:
                     annual_maximum:
                       type: boolean
                       description: Whether the provider supports an annual maximum for this benefit.
+                      nullable: true
                     catch_up:
                       type: boolean
                       description: Whether the provider supports catch up for this benefit. This field will only be true for retirement benefits.
+                      nullable: true
                     hsa_contribution_limit:
                       description: Whether the provider supports HSA contribution limits. Empty if this feature is not supported for the benefit. This array only has values for HSA benefits.
                       type: array
+                      nullable: true
                       items:
                         type: string
                         enum:
@@ -1160,7 +1202,10 @@ paths:
                       frequencies:
                         - every_paycheck
       operationId: get-company-benefits-meta
-      description: Lists available types and configurations for the provider associated with the access token.
+      description: |-
+        **Availability: Automated and Assisted Benefits providers**  
+          
+        Lists available types and configurations for the provider associated with the access token.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     parameters: []
@@ -1197,7 +1242,10 @@ paths:
                     finch_code: benefit_not_found
                     message: Benefit not found
       operationId: get-company-benefit
-      description: Lists benefit information for a given benefit
+      description: |-
+        **Availability: Automated Benefits providers only**  
+          
+        Lists benefit information for a given benefit
       parameters:
         - $ref: '#/components/parameters/API-Version'
     post:
@@ -1221,7 +1269,10 @@ paths:
           description: Bad Request
         '404':
           description: Benefit Not Found
-      description: Updates an existing company-wide benefit
+      description: |-
+        **Availability: Automated and Assisted Benefits providers**  
+          
+        Updates an existing company-wide benefit
       requestBody:
         content:
           application/json:
@@ -1281,7 +1332,10 @@ paths:
                     finch_code: benefit_not_found
                     message: Benefit not found
       operationId: get-company-benefits-enrolled
-      description: Lists individuals currently enrolled in a given benefit.
+      description: |-
+        **Availability: Automated Benefits providers only**  
+          
+        Lists individuals currently enrolled in a given benefit.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     parameters:
@@ -1336,7 +1390,10 @@ paths:
                     finch_code: benefit_not_found
                     message: Benefit not found
       operationId: get-individual-benefits
-      description: Get enrolled benefit information for the given individuals.
+      description: |-
+        **Availability: Automated Benefits providers only**  
+          
+        Get enrolled benefit information for the given individuals.
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -1373,12 +1430,15 @@ paths:
                         name:
                           type: string
                           description: Identifier indicating whether the benefit was newly enrolled or updated.
+                          nullable: true
                         finch_code:
                           type: string
                           description: A descriptive identifier for the response
+                          nullable: true
                         message:
                           type: string
                           description: Short description in English that provides more information about the response.
+                          nullable: true
               examples:
                 Success:
                   value:
@@ -1473,6 +1533,8 @@ paths:
                     finch_code: unprocessable_parameters
                     message: HSA enrollment are not currently available for this provider
       description: |
+        **Availability: Automated and Assisted Benefits providers**  
+          
         Enroll an individual into a benefit. If the employee is already enrolled, the enrollment amounts will be adjusted.
 
         <!-- theme: warning -->
@@ -1597,12 +1659,15 @@ paths:
                         name:
                           type: string
                           description: Identifier indicating whether the benefit was newly enrolled or updated.
+                          nullable: true
                         finch_code:
                           type: string
                           description: A descriptive identifier for the response.
+                          nullable: true
                         message:
                           type: string
                           description: Short description in English that provides more information about the response.
+                          nullable: true
               examples:
                 Success:
                   value:
@@ -1618,7 +1683,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      description: Unenroll individuals from a benefit
+      description: |-
+        **Availability: Automated and Assisted Benefits providers**  
+          
+        Unenroll individuals from a benefit
       requestBody:
         content:
           application/json:
@@ -2032,6 +2100,7 @@ components:
       description: Type of benefit.
       x-tags:
         - Models
+      nullable: true
     BenefitFrequency:
       type: string
       title: BenefitFrequency
@@ -2040,11 +2109,13 @@ components:
         - every_paycheck
       x-tags:
         - Models
+      nullable: true
     BenefitContribution:
       title: BenefitContribution
       type: object
       x-tags:
         - Models
+      x-examples: {}
       nullable: true
       properties:
         type:
@@ -2053,10 +2124,11 @@ components:
             - fixed
             - percent
           description: Contribution type.
+          nullable: true
         amount:
           type: integer
           description: Contribution amount in cents (if `fixed`) or basis points (if `percent`).
-      x-examples: {}
+          nullable: true
     CompanyBenefit:
       title: CompanyBenefit
       type: object
@@ -2067,6 +2139,7 @@ components:
           $ref: '#/components/schemas/BenefitType'
         description:
           type: string
+          nullable: true
         frequency:
           $ref: '#/components/schemas/BenefitFrequency'
         company_contribution:
@@ -2145,7 +2218,7 @@ components:
                   properties:
                     individual_id:
                       type: string
-                      description: A stable Finch `id` (UUID v4) for an individual in the company. There is no limit to the number of `individual_id` to send per request. It is preferantial to send all ids in a single request for Finch to optimize provider rate-limits.
+                      description: A stable Finch `id` (UUID v4) for an individual in the company. There is no limit to the number of `individual_id` to send per request. It is preferential to send all ids in a single request for Finch to optimize provider rate-limits.
                   required:
                     - individual_id
             required:

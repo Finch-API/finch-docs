@@ -1,0 +1,19 @@
+{
+  "name": "@finch-api/api-spec",
+  "version": "0.0.1",
+  "description": "",
+  "files": [ "/reference/employer/openapi.yaml"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Finch-API/finch-docs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Finch-API/finch-docs/issues"
+  },
+  "publishConfig": {
+    "@finch-api::registry": "https://npm.pkg.github.com"
+  },
+  "homepage": "https://github.com/Finch-API/finch-docs#readme"
+}

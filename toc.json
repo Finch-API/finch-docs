@@ -160,6 +160,11 @@
       "uri": "docs/Development-Guides/Compatibility.md"
     },
     {
+      "type": "item",
+      "title": "Data Syncs",
+      "uri": "docs/Development-Guides/Data-Syncs.md"
+    },
+    {
       "type": "divider",
       "title": "APIS"
     },
