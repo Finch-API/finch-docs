@@ -98,6 +98,7 @@ Everee | `everee` | <span style="color:goldenrod">Assisted</span> | <span style=
 Evolution Payroll Services | `evolution_payroll_services` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Excel Resources | `excel_resources` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Flock | `flock` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Freshteam | `freshteam` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 FullStack PEO | `fullstack_peo` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 G&A Partners | `gna_partners` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Goco | `goco` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
