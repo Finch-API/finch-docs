@@ -197,4 +197,4 @@ Xenium HR | `xenium_hr` | <span style="color:goldenrod">Assisted</span> | <span 
 Xero | `xero` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Zoho Payroll | `zoho_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 
-**these assisted providers are **Pay Ready**, meaning initial connection time is 14 days instead of 6 weeks*
+**these assisted providers are **Pay Enabled**, meaning initial connection time is 14 days instead of 6 weeks*
