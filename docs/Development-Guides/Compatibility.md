@@ -15,19 +15,17 @@ Finch's API tries to maintain parity between all [providers](./Providers.md). Ho
 ### Company
 ![Finch Compatibility - Company.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/2dCz6aDRirI)
 
-
 <p><i>* Only available by inferring from entity.type</i><br>
 <i>** account_number is mask and only shows the last 4 digits</i></p>
 
 ### Directory
-![Finch Compatibility - Directory.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/I2Dc4OA111I)
+![Finch Compatibility - Directory.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/6CGPKWzFqp8)
 
 
 <p><i>* Initial only</i></p>
 
 ### Individual
 ![Finch Compatibility - Individual.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/THoG3grYJrQ)
-
 
 <p><i>* Initial only</i><br>
 <i>** No work email available</i></p>
@@ -37,16 +35,16 @@ Finch's API tries to maintain parity between all [providers](./Providers.md). Ho
 
 
 <p><i>* Initial only</i><br>
-<i>** Requires customer to be at highest package tier, ADP Run Pro</i></p>
-<i>*** Quickbooks does not provide these fields for contractors</i></p>
+<i>** Requires customer to be at highest package tier, ADP Run Pro</i></br>
+<i>*** These fields are not provided for contractors</i></p>
 
 ### Payment
-![Finch Compatibility - Payment.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/eUIR1IR9U5k)
+![Finch Compatibility - Payment.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/Mzg54m001Xk)
 
 
 ### Pay Statement
 ![Finch Compatibility - Pay Statement.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/OJ1RviqMDyg)
 
 
-<p><i>* 401k Match cannot be set on Justworks</i></p>
+<p><i>* 401k Match cannot be set on Justworks</i>
 <p><i>** Paychex Flex only exposes the previous 24 months of pay data</i></p>
