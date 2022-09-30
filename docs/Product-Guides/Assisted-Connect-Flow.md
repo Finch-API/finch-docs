@@ -2,18 +2,25 @@
 
 Assisted API Connections is our semi-automated product that expands coverage to 70+ providers. In contrast to our [Automated API Connections](../Product-Guides/Automated-Connect-Flow.md), the data for Assisted API connections is refreshed periodically. Our full list of coverage — for both Automated API and Assisted API providers — can be found [here](../Development-Guides/Providers.md).
 
-Contact our team at `developers@tryfinch.com` to get started or for more questions regarding pricing, missing providers, etc.
+Contact our team at `developers@tryfinch.com` to get started or for more questions regarding pricing, supported providers, etc.
 
 ---
 
 ## How Assisted Connect Flow works
 ### For your user
-As with our automated integrations, your user will need to go through [Finch Connect](./Product-Guides.md). However, instead of providing their API credentials, they will need to follow a set of instructions displayed on Finch Connect to manually connect your application to their employment system.
+As with our automated integrations, your user will need to go through [Finch Connect](./Product-Guides.md). However, instead of our standard login flow, the user will need to follow a set of instructions displayed on Finch Connect to manually connect your application to their employment system.
 
 ### For you
 Unlike our automated integrations, you will not be able to make API calls to pull data and push changes to your users' systems immediately. Instead, you will have to wait until your user manually connects their employment system followed by a predetermined number of days for the Finch team to pull in the data. After the initial pull, the data will be periodically refreshed.
 
-Contact the Finch team at `developers@tryfinch.com` to learn more about the timelines you can expect!
+The current refresh times are below:
+
+Assisted Connection Type | Time to Initial Connection | Data Refresh Cadence
+---------|----------|--------
+**Census** <br>(`directory`, `individual`, `employment`) | 14 days | 7 days
+**Census + Pay** <br>(`payment`, `pay-statement`) | 6 weeks* | 7 days
+
+*Initial connections with pay data require additional enablement work. For assisted providers which are already *pay-enabled*, the initial connection time will **still be our standard 14 days**. For new assisted providers which are not pay-enabled, the initial connection time will be six weeks. Please see our [Assisted API Providers](../Development-Guides/Providers.md#assisted-api-providers) page for more information about which providers are currently pay-enabled.
 
 ## Integrating Assisted Connect Flow into your application
 
