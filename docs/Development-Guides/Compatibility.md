@@ -13,25 +13,27 @@ Finch's API tries to maintain parity between all [providers](./Providers.md). Ho
 > `x` — not supported by Finch
 
 ### Company
-![Finch Compatibility - Company.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/2dCz6aDRirI)
+![company.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/KJn3cQAW5mw)
+
 
 <p><i>* Only available by inferring from entity.type</i><br>
 <i>** account_number is mask and only shows the last 4 digits</i></p>
 
 ### Directory
-![Finch Compatibility - Directory.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/6CGPKWzFqp8)
+![directory.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/Nfdo8FPyDCE)
 
 
 <p><i>* Initial only</i></p>
 
 ### Individual
-![Finch Compatibility - Individual.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/THoG3grYJrQ)
+![individual.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/y2Sg2796qJE)
+
 
 <p><i>* Initial only</i><br>
 <i>** No work email available</i></p>
 
 ### Employment
-![Finch Compatibility - Employment.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/q8RoYwlPVi4)
+![employment.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/eF5QpbJau34)
 
 
 <p><i>* Initial only</i><br>
@@ -39,11 +41,11 @@ Finch's API tries to maintain parity between all [providers](./Providers.md). Ho
 <i>*** These fields are not provided for contractors</i></p>
 
 ### Payment
-![Finch Compatibility - Payment.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/Mzg54m001Xk)
+![payment.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/aIOil0UBh3A)
 
 
 ### Pay Statement
-![Finch Compatibility - Pay Statement.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/OJ1RviqMDyg)
+![pay-statement.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/cPQrrgoojtc)
 
 
 <p><i>* 401k Match cannot be set on Justworks</i>
