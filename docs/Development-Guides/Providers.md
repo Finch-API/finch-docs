@@ -183,7 +183,7 @@ Trakstar | `trakstar` | <span style="color:goldenrod">Assisted</span> | <span st
 UKG Ready (Kronos) | `ukg_ready` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Uzio | `uzio` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Velocity Global | `velocity_global` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-VensureHR | `vensure_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+VensureHR* | `vensure_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Vfficient | `vfficient` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Viewpoint HR Management Spectrum | `viewpoint_hr_management_spectrum` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Viewpoint HR Management Vista | `viewpoint_hr_management_vista` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
