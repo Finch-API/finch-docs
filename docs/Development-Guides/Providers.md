@@ -101,6 +101,7 @@ Flock | `flock` | <span style="color:goldenrod">Assisted</span> | <span style="c
 Freshteam | `freshteam` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 FullStack PEO | `fullstack_peo` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 G&A Partners | `gna_partners` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Gig Wage | `gigwage` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Goco | `goco` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 greytHR | `greyt_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 GTM Payroll Services Evolution | `gtm_payroll_services_evolution` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
