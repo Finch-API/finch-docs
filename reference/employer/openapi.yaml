@@ -1016,7 +1016,7 @@ paths:
                       - directory
                     username: jeremy@tryfinch.com
                     payroll_provider_id: gusto
-                    manual: 'false'
+                    manual: false
       operationId: get-introspect
       description: Read account information associated with an `access_token`
       parameters:
@@ -1086,6 +1086,12 @@ paths:
                 properties:
                   benefit_id:
                     type: string
+                    format: uuid
+                    description: The Finch id for the benefit
+                  job_id:
+                    type: string
+                    format: uuid
+                    description: The id for the benefit creation job (assisted connections only)
               examples:
                 Success:
                   value:
@@ -1107,6 +1113,8 @@ paths:
         **Availability: Automated and Assisted Benefits providers**  
           
         Creates a new company-wide benefit. Please use the `/meta` endpoint to view available types for each provider.
+
+        Note: `job_id` is only supported for assisted connections.
       requestBody:
         content:
           application/json:
@@ -1260,6 +1268,12 @@ paths:
                 properties:
                   benefit_id:
                     type: string
+                    format: uuid
+                    description: The Finch Id for the benefit
+                  job_id:
+                    type: string
+                    format: uuid
+                    description: The id for the benefit update job (assisted connections only)
               examples:
                 Success:
                   value:
@@ -1272,6 +1286,8 @@ paths:
         **Availability: Automated and Assisted Benefits providers**  
           
         Updates an existing company-wide benefit
+
+        Note: `job_id` is only supported for assisted connections.
       requestBody:
         content:
           application/json:
@@ -1976,6 +1992,163 @@ paths:
               required:
                 - deduction_id
                 - individual_id
+  '/jobs/{job_id}':
+    parameters:
+      - schema:
+          type: string
+        name: job_id
+        in: path
+        required: true
+    get:
+      summary: Get Job Status
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  job_id:
+                    type: string
+                    format: uuid
+                  code:
+                    type: integer
+                    enum:
+                      - 200
+                  status:
+                    type: string
+                    enum:
+                      - pending
+                      - in_progress
+                      - error
+                      - complete
+                  body:
+                    type: array
+                    nullable: true
+                    description: 'Specific information about the job, such as individual statuses for batch jobs.'
+                    items: {}
+              examples:
+                success:
+                  value:
+                    job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    code: 200
+                    status: complete
+                    body:
+                      - individual_id: 46decc95-451e-44ef-baac-b228d778267f
+                        message: Successfully updated benefit for individual
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  job_id:
+                    type: string
+                    format: uuid
+                  code:
+                    type: integer
+                    enum:
+                      - 201
+                  status:
+                    type: string
+                    enum:
+                      - pending
+                      - in_progress
+                      - error
+                      - complete
+                  body:
+                    type: array
+                    nullable: true
+                    description: 'Specific information about the job, such as individual statuses for batch jobs.'
+                    items: {}
+              examples:
+                success:
+                  value:
+                    job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    code: 201
+                    status: complete
+                    body:
+                      - individual_id: 46decc95-451e-44ef-baac-b228d778267f
+                        message: Successfully created benefit for individual
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  job_id:
+                    type: string
+                    format: uuid
+                  code:
+                    type: integer
+                    enum:
+                      - 202
+                  status:
+                    type: string
+                    enum:
+                      - pending
+                      - in_progress
+                      - error
+                      - complete
+                  body:
+                    type: array
+                    nullable: true
+                    description: 'Specific information about the job, such as individual statuses for batch jobs.'
+                    items: {}
+              examples:
+                success:
+                  value:
+                    job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    code: 202
+                    status: pending
+                    body: null
+        '207':
+          description: Multi-Status (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  job_id:
+                    type: string
+                    format: uuid
+                  code:
+                    type: integer
+                    enum:
+                      - 207
+                  status:
+                    type: string
+                    enum:
+                      - pending
+                      - in_progress
+                      - error
+                      - complete
+                  body:
+                    type: array
+                    nullable: true
+                    description: 'Specific information about the job, such as individual statuses for batch jobs.'
+                    items: {}
+              examples:
+                multi:
+                  value:
+                    job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    code: 207
+                    status: complete
+                    body:
+                      - individual_id: 46decc95-451e-44ef-baac-b228d778267f
+                        message: Successfully updated benefit for individual
+                      - individual_id: e52c4a9f-57cb-4213-bf40-3aec47b0408b
+                        message: Could not update benefit due to permissions issue.
+      operationId: get-jobs-job_id
+      tags:
+        - 4. Management
+      description: Get the status of a long-running Finch job
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
 components:
   schemas:
     Location:
