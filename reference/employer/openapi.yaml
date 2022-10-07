@@ -1088,10 +1088,6 @@ paths:
                     type: string
                     format: uuid
                     description: The Finch id for the benefit
-                  job_id:
-                    type: string
-                    format: uuid
-                    description: The id for the benefit creation job (assisted connections only)
               examples:
                 Success:
                   value:
@@ -1113,8 +1109,6 @@ paths:
         **Availability: Automated and Assisted Benefits providers**  
           
         Creates a new company-wide benefit. Please use the `/meta` endpoint to view available types for each provider.
-
-        Note: `job_id` is only supported for assisted connections.
       requestBody:
         content:
           application/json:
@@ -1270,10 +1264,6 @@ paths:
                     type: string
                     format: uuid
                     description: The Finch Id for the benefit
-                  job_id:
-                    type: string
-                    format: uuid
-                    description: The id for the benefit update job (assisted connections only)
               examples:
                 Success:
                   value:
@@ -1286,8 +1276,6 @@ paths:
         **Availability: Automated and Assisted Benefits providers**  
           
         Updates an existing company-wide benefit
-
-        Note: `job_id` is only supported for assisted connections.
       requestBody:
         content:
           application/json:
