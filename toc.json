@@ -170,8 +170,13 @@
     },
     {
       "type": "item",
-      "title": "API Reference",
+      "title": "HRIS",
       "uri": "reference/employer/openapi.yaml"
+    },
+     {
+      "type": "item",
+      "title": "ATS",
+      "uri": "reference/ats/openapi.yaml"
     }
   ]
 }

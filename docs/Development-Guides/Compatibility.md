@@ -12,6 +12,12 @@ Finch's API tries to maintain parity between all [providers](./Providers.md). Ho
 >
 > `x` — not supported by Finch
 
+<!--
+type: tab
+title: HRIS
+-->
+
+
 ### Company
 ![Finch Compatibility - Company.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/rGKp0LCE23w)
 
@@ -50,3 +56,17 @@ Finch's API tries to maintain parity between all [providers](./Providers.md). Ho
 
 <p><i>* 401k Match cannot be set on Justworks</i></p>
 <p><i>** Paychex Flex only exposes the previous 24 months of pay data</i></p>
+
+<!--
+type: tab
+title: ATS
+-->
+
+### Candidates
+
+### Applications
+
+### Jobs
+
+
+<!-- type: tab-end -->

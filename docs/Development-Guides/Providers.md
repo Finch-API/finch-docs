@@ -2,6 +2,11 @@
 
 The table below lays out the providers with the associated provider `id` that can be used in the `payroll_provider` parameter for [Finch Connect](../Integrating-with-Finch/Integrate-Finch-Connect/Overview.md).
 
+<!--
+type: tab
+title: HRIS
+-->
+
 <!-- theme: info -->
 > **Read:** The `Company`, `Directory`, `Individual`, `Employment`, `Payment` and `Pay Statement` endpoint are read-only endpoints. Providers can be either an [Automated API Provider](../Product-Guides/Automated-Connect-Flow.md) or an [Assisted API Provider](../Product-Guides/Assisted-Connect-Flow.md).
 
@@ -195,3 +200,17 @@ wurk | `wurk` | <span style="color:goldenrod">Assisted</span> | <span style="col
 Xenium HR | `xenium_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Xero | `xero` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Zoho Payroll | `zoho_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+
+<!--
+type: tab
+title: ATS
+-->
+<!-- theme: info -->
+> Assisted Connect is not currently available for ATS integrations.
+
+### API Providers
+Display Name | Id |
+---------|----------
+Lever | `lever`
+
+<!-- type: tab-end -->

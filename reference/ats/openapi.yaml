@@ -1,0 +1,265 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 79ufakk1ygzmg
+info:
+  title: openapi
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /ats/candidates:
+    get:
+      summary: List Candidates
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Candidate'
+      operationId: get-ats-candidate
+      description: Gets all of an organization's candidates. A candidate represents an individual associated with one or more applications.
+    parameters: []
+  '/ats/candidates/{candidate_id}':
+    parameters:
+      - schema:
+          type: string
+        name: candidate_id
+        in: path
+        required: true
+    get:
+      summary: Retrieve Candidate
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Candidate'
+      operationId: get-ats-candidates-candidate_id
+      description: Gets a candidate from an organization. A candidate represents an individual associated with one or more applications.
+  /ats/applications:
+    get:
+      summary: List Applications
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Application'
+      operationId: get-ats-applications
+  '/ats/applications/{application_id}':
+    parameters:
+      - schema:
+          type: string
+        name: application_id
+        in: path
+        required: true
+    get:
+      summary: Retrieve Application
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+      operationId: get-ats-applications-application_id
+  /ats/jobs:
+    get:
+      summary: List Jobs
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Job'
+      operationId: get-ats-jobs
+  '/ats/jobs/{job_id}':
+    parameters:
+      - schema:
+          type: string
+        name: job_id
+        in: path
+        required: true
+    get:
+      summary: Retrieve Job
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+      operationId: get-ats-jobs-job_id
+  /ats/stages:
+    get:
+      summary: List Stages
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stage'
+      operationId: get-ats-stages
+  /ats/offers:
+    get:
+      summary: List Offers
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Offer'
+              examples: {}
+      operationId: get-ats-offers
+  '/ats/offers/{offer_id}':
+    parameters:
+      - schema:
+          type: string
+        name: offer_id
+        in: path
+        required: true
+    get:
+      summary: Retrieve Offer
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Offer'
+      operationId: get-ats-offers-offer_id
+components:
+  schemas:
+    Candidate:
+      title: Candidate
+      x-stoplight:
+        id: 07azupxijhrvq
+      type: object
+      description: A candidate represents an individual associated with one or more applications.
+      properties:
+        id:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        full_name:
+          type: string
+        emails:
+          type: string
+        phone_numbers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+        addresses:
+          type: array
+          items:
+            type: object
+        created_at:
+          type: string
+        last_activity:
+          type: string
+        application_ids:
+          type: array
+          items:
+            type: string
+    Application:
+      title: Application
+      x-stoplight:
+        id: bj615wpi71ynw
+      type: object
+      properties:
+        id:
+          type: string
+        candidate_id:
+          type: string
+        job_id:
+          type: string
+        offer_id:
+          type: string
+        stage:
+          type: object
+        rejected_at:
+          type: string
+        rejected_reason:
+          type: object
+    Job:
+      title: Job
+      x-stoplight:
+        id: bfuo8aqn6gz2v
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+        department:
+          type: object
+        created_at:
+          type: string
+        closed_at:
+          type: string
+        hiring_team:
+          type: object
+    Stage:
+      title: Stage
+      x-stoplight:
+        id: gul2e0glhwi6o
+      type: object
+      properties:
+        id:
+          type: string
+        job_id:
+          type: string
+        name:
+          type: string
+    Offer:
+      title: Offer
+      x-stoplight:
+        id: xmnvbh0trgeo1
+      type: object
+      properties:
+        id:
+          type: string
+        application_id:
+          type: string
+        candidate_id:
+          type: string
+        job_id:
+          type: string
+        created_at:
+          type: string
+        updated_at:
+          type: string
+        status:
+          type: string
