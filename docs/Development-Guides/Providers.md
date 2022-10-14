@@ -176,6 +176,7 @@ Strategic Payroll Solutions isolved | `strategic_payroll_solutions_isolved` | <s
 SuitePeople (Oracle NetSuite) | `suite_people` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 SurePayroll | `surepayroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 SyncHR | `sync_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Teamworks Group | `teamworks` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 The Payroll Company | `the_payroll_company` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Thread HCM | `thread_hcm` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Toast Payroll* | `toast_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
