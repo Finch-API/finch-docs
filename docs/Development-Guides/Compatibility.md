@@ -19,42 +19,42 @@ title: HRIS
 
 
 ### Company
-![Finch Compatibility - Company.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/rGKp0LCE23w)
+![company.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/KJn3cQAW5mw)
 
 
 <p><i>* Only available by inferring from entity.type</i><br>
 <i>** account_number is mask and only shows the last 4 digits</i></p>
 
 ### Directory
-![Finch Compatibility - Directory.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/I2Dc4OA111I)
+![directory.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/Nfdo8FPyDCE)
 
 
 <p><i>* Initial only</i></p>
 
 ### Individual
-![Finch Compatibility - Individual.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/qRUMf3tA2SU)
+![individual.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/y2Sg2796qJE)
 
 
 <p><i>* Initial only</i><br>
 <i>** No work email available</i></p>
 
 ### Employment
-![Finch Compatibility - Employment.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/ba0dmondIsE)
+![employment.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/eF5QpbJau34)
 
 
 <p><i>* Initial only</i><br>
-<i>** Requires customer to be at highest package tier, ADP Run Pro</i></p>
-<i>*** Quickbooks does not provide these fields for contractors</i></p>
+<i>** Requires customer to be at highest package tier, ADP Run Pro</i></br>
+<i>*** These fields are not provided for contractors</i></p>
 
 ### Payment
-![Finch Compatibility - Payment.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/eUIR1IR9U5k)
+![payment.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/aIOil0UBh3A)
 
 
 ### Pay Statement
-![Finch Compatibility - Pay Statement.jpg](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/jSQ6no1e22M)
+![pay-statement.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/cPQrrgoojtc)
 
 
-<p><i>* 401k Match cannot be set on Justworks</i></p>
+<p><i>* 401k Match cannot be set on Justworks</i>
 <p><i>** Paychex Flex only exposes the previous 24 months of pay data</i></p>
 
 <!--

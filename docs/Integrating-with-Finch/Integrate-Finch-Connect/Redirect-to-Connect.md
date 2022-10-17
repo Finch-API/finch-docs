@@ -96,7 +96,7 @@ title: Body
 -->
 Parameter | Required | Description
 ----------|----------|-------------
-`clientId` | true | Your `client_id`, a public unique identifier for your application.
+`client_id` | true | Your `client_id`, a public unique identifier for your application.
 `client_secret` | true | Your `client_secret`, a secret value which authorizes your application with Finch. Please ensure you protect your `client_secret`.
 `code` | true | The authorization code received from the query parameter of the `redirect_uri`.
 `redirect_uri` | true | The `redirect_uri` the `code` was parsed from.
