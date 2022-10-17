@@ -5,7 +5,7 @@ info:
   title: openapi
   version: '1.0'
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'https://api.tryfinch.com'
 paths:
   /ats/candidates:
     get:
@@ -22,6 +22,9 @@ paths:
                   $ref: '#/components/schemas/Candidate'
       operationId: get-ats-candidate
       description: Gets all of an organization's candidates. A candidate represents an individual associated with one or more applications.
+      parameters:
+        - $ref: ../employer/openapi.yaml#/components/parameters/API-Version
+        - $ref: ../employer/openapi.yaml#/components/parameters/Content-Type
     parameters: []
   '/ats/candidates/{candidate_id}':
     parameters:
@@ -42,6 +45,9 @@ paths:
                 $ref: '#/components/schemas/Candidate'
       operationId: get-ats-candidates-candidate_id
       description: Gets a candidate from an organization. A candidate represents an individual associated with one or more applications.
+      parameters:
+        - $ref: ../employer/openapi.yaml#/components/parameters/API-Version
+        - $ref: ../employer/openapi.yaml#/components/parameters/Content-Type
   /ats/applications:
     get:
       summary: List Applications
@@ -56,6 +62,10 @@ paths:
                 items:
                   $ref: '#/components/schemas/Application'
       operationId: get-ats-applications
+      description: Gets all of an organization's applications.
+      parameters:
+        - $ref: ../employer/openapi.yaml#/components/parameters/API-Version
+        - $ref: ../employer/openapi.yaml#/components/parameters/Content-Type
   '/ats/applications/{application_id}':
     parameters:
       - schema:
@@ -74,6 +84,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Application'
       operationId: get-ats-applications-application_id
+      description: Gets an application from an organization.
+      parameters:
+        - $ref: ../employer/openapi.yaml#/components/parameters/API-Version
+        - $ref: ../employer/openapi.yaml#/components/parameters/Content-Type
   /ats/jobs:
     get:
       summary: List Jobs
@@ -88,6 +102,10 @@ paths:
                 items:
                   $ref: '#/components/schemas/Job'
       operationId: get-ats-jobs
+      description: Gets all of an organization's jobs.
+      parameters:
+        - $ref: ../employer/openapi.yaml#/components/parameters/API-Version
+        - $ref: ../employer/openapi.yaml#/components/parameters/Content-Type
   '/ats/jobs/{job_id}':
     parameters:
       - schema:
@@ -106,6 +124,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Job'
       operationId: get-ats-jobs-job_id
+      description: Gets a job from an organization.
+      parameters:
+        - $ref: ../employer/openapi.yaml#/components/parameters/API-Version
+        - $ref: ../employer/openapi.yaml#/components/parameters/Content-Type
   /ats/stages:
     get:
       summary: List Stages
@@ -120,6 +142,10 @@ paths:
                 items:
                   $ref: '#/components/schemas/Stage'
       operationId: get-ats-stages
+      description: 'Get all job stages for an organization. Depending on the system, some jobs may have stages specific to that job. Other job stages may apply broadly to all jobs in the system. Use the `job_id` to determine whether a job applies specifically to a job.'
+      parameters:
+        - $ref: ../employer/openapi.yaml#/components/parameters/API-Version
+        - $ref: ../employer/openapi.yaml#/components/parameters/Content-Type
   /ats/offers:
     get:
       summary: List Offers
@@ -135,6 +161,10 @@ paths:
                   $ref: '#/components/schemas/Offer'
               examples: {}
       operationId: get-ats-offers
+      description: Get all offers put out by an organization.
+      parameters:
+        - $ref: ../employer/openapi.yaml#/components/parameters/API-Version
+        - $ref: ../employer/openapi.yaml#/components/parameters/Content-Type
   '/ats/offers/{offer_id}':
     parameters:
       - schema:
@@ -153,6 +183,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Offer'
       operationId: get-ats-offers-offer_id
+      description: Get a single offer from an organization.
+      parameters:
+        - $ref: ../employer/openapi.yaml#/components/parameters/API-Version
+        - $ref: ../employer/openapi.yaml#/components/parameters/Content-Type
 components:
   schemas:
     Candidate:
@@ -177,18 +211,25 @@ components:
           items:
             type: object
             properties:
-              name:
+              data:
                 type: string
+                nullable: true
+              type:
+                type: string
+                nullable: true
         addresses:
           type: array
           items:
-            type: object
+            $ref: ../employer/openapi.yaml#/components/schemas/Location
         created_at:
           type: string
-        last_activity:
+          format: date-time
+        last_activity_at:
           type: string
+          format: date-time
         application_ids:
           type: array
+          description: Array of Finch uuids corresponding to `application`s for this individual
           items:
             type: string
     Application:
@@ -199,18 +240,31 @@ components:
       properties:
         id:
           type: string
+          format: uuid
         candidate_id:
           type: string
+          format: uuid
         job_id:
           type: string
+          format: uuid
         offer_id:
           type: string
+          format: uuid
+          nullable: true
         stage:
-          type: object
+          $ref: '#/components/schemas/Stage'
+          nullable: true
         rejected_at:
           type: string
+          format: date-time
+          nullable: true
         rejected_reason:
           type: object
+          nullable: true
+          properties:
+            text:
+              type: string
+              nullable: true
     Job:
       title: Job
       x-stoplight:
@@ -219,18 +273,52 @@ components:
       properties:
         id:
           type: string
+          format: uuid
         name:
           type: string
+          nullable: true
         status:
           type: string
+          enum:
+            - open
+            - closed
+            - on_hold
+            - draft
+            - archived
+          nullable: true
         department:
           type: object
+          properties:
+            name:
+              type: string
+              nullable: true
         created_at:
           type: string
+          format: date-time
+          nullable: true
         closed_at:
           type: string
+          format: date-time
+          nullable: true
         hiring_team:
           type: object
+          properties:
+            hiring_managers:
+              type: array
+              nullable: true
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+            recruiters:
+              type: array
+              nullable: true
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
     Stage:
       title: Stage
       x-stoplight:
@@ -241,8 +329,11 @@ components:
           type: string
         job_id:
           type: string
+          description: 'The job id that this stage applies to, if applicable. Not all systems enumerate stages specific to jobs.'
+          nullable: true
         name:
           type: string
+          nullable: true
     Offer:
       title: Offer
       x-stoplight:
@@ -251,15 +342,38 @@ components:
       properties:
         id:
           type: string
+          format: uuid
         application_id:
           type: string
+          format: uuid
         candidate_id:
           type: string
+          format: uuid
         job_id:
           type: string
+          format: uuid
         created_at:
           type: string
+          format: date-time
         updated_at:
           type: string
+          format: date-time
         status:
           type: string
+          enum:
+            - signed
+            - rejected
+            - draft
+            - approval-sent
+            - approved
+            - sent
+            - sent-manually
+            - opened
+            - archived
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Please use an access token
+security:
+  - bearerAuth: []
