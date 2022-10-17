@@ -63,10 +63,20 @@ title: ATS
 -->
 
 ### Candidates
+![candidate.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/xHpEvqi6KAQ)
 
 ### Applications
+![application.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/B2kFm0MqXtQ)
 
 ### Jobs
+![job.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/lqrWiljFmOc)
+
+### Stages
+![stage.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/fcqmlGCgTcQ)
+
+
+### Offers
+![offer.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/qPZzhI60Syg)
 
 
 <!-- type: tab-end -->
