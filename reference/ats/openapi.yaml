@@ -2,8 +2,18 @@ openapi: 3.0.0
 x-stoplight:
   id: 79ufakk1ygzmg
 info:
-  title: openapi
-  version: '1.0'
+  title: ATS API Reference
+  version: '2020-09-17'
+  description: |-
+    The Finch ATS (Applicant Tracking System) API provides a unified way to connect to several ATS systems. The API requires an access token issued by Finch.
+
+    ATS products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. Valid product names are—
+
+
+    -  `candidates`: Read candidate data
+    -   `applications`: Read application data for candidates
+    - `jobs`: Read job requisition data, as well as existing stages of the job pipeline
+    - `offers`: Read offer data for candidates
 servers:
   - url: 'https://api.tryfinch.com'
 paths:
@@ -195,6 +205,29 @@ components:
         id: 07azupxijhrvq
       type: object
       description: A candidate represents an individual associated with one or more applications.
+      x-examples:
+        success:
+          id: 'e5806a14-ca47-4538-a9bf-51639efc676e  '
+          first_name: John
+          last_name: Smith
+          full_name: John Smith
+          emails:
+            - data: john@example.com
+              type: personal
+          phone_numbers:
+            - data: '5555555555'
+              type: personal
+          addresses:
+            - line1: 12 Oak Street
+              line2: null
+              city: Oakland
+              state: CA
+              postal_code: null
+              country: US
+          created_at: '2019-08-24T14:15:22Z'
+          last_activity_at: '2019-08-24T14:15:22Z'
+          application_ids:
+            - c0210513-e8d5-4817-a46c-85dfaaf5f406
       properties:
         id:
           type: string
@@ -205,7 +238,16 @@ components:
         full_name:
           type: string
         emails:
-          type: string
+          type: array
+          items:
+            type: object
+            properties:
+              data:
+                type: string
+                nullable: true
+              type:
+                type: string
+                nullable: true
         phone_numbers:
           type: array
           items:
@@ -265,6 +307,19 @@ components:
             text:
               type: string
               nullable: true
+      x-examples:
+        success:
+          id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+          candidate_id: 2f28f791-f0fd-4155-a356-c24e996beeda
+          job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+          offer_id: d5a7a5b7-a4a3-49e7-9c69-b44d2cbe15cf
+          stage:
+            id: bf25a12f-4544-4b77-a0c9-5726e16b7505
+            job_id: null
+            name: Phone Screen
+          rejected_at: '2019-08-24T14:15:22Z'
+          rejected_reason:
+            text: Underqualified
     Job:
       title: Job
       x-stoplight:
@@ -319,17 +374,38 @@ components:
                 properties:
                   name:
                     type: string
+      x-examples:
+        success:
+          id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+          name: Office Manager
+          status: open
+          department:
+            name: People
+          created_at: '2019-08-24T14:15:22Z'
+          closed_at: '2019-08-24T14:15:22Z'
+          hiring_team:
+            hiring_managers:
+              - name: Michael Glen
+            recruiters:
+              - name: Chris Pine
     Stage:
       title: Stage
       x-stoplight:
         id: gul2e0glhwi6o
       type: object
+      x-examples:
+        example-1:
+          id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+          job_id: null
+          name: Phone Screen
       properties:
         id:
           type: string
+          format: uuid
         job_id:
           type: string
           description: 'The job id that this stage applies to, if applicable. Not all systems enumerate stages specific to jobs.'
+          format: uuid
           nullable: true
         name:
           type: string
@@ -370,6 +446,15 @@ components:
             - sent-manually
             - opened
             - archived
+      x-examples:
+        success:
+          id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+          application_id: 48ac72d0-a829-4896-a067-dcb1c2b0f30c
+          candidate_id: 2f28f791-f0fd-4155-a356-c24e996beeda
+          job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+          created_at: '2019-08-24T14:15:22Z'
+          updated_at: '2019-08-24T14:15:22Z'
+          status: signed
   securitySchemes:
     bearerAuth:
       type: http

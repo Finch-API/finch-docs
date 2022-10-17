@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: API Reference
+  title: HRIS API Reference
   version: '2020-09-17'
   contact: {}
   description: |-

@@ -1,6 +1,6 @@
 # Permissions
 
-Each Finch `access_token` can only make API calls to endpoints the end-user has granted an application permission to. Permissions are specified by the `product` parameter when launching Connect. Both systems will show in Finch Connect, and your user can select whichValid permissions are—
+Each Finch `access_token` can only make API calls to endpoints the end-user has granted an application permission to. Permissions are specified by the `product` parameter when launching Connect. Both systems will show in Finch Connect, and your user can select which. Valid permissions are—
 
 <!--
 type: tab
