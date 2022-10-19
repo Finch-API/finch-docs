@@ -11,9 +11,9 @@ info:
 
 
     -  `candidates`: Read candidate data
-    -   `applications`: Read application data for candidates
-    - `jobs`: Read job requisition data, as well as existing stages of the job pipeline
-    - `offers`: Read offer data for candidates
+    -   `applications`: Read detailed application data for candidates
+    - `jobs`: Read job posting data, as well as existing stages of the job pipeline
+    - `offers`: Read details about offers managed through the ATS
 servers:
   - url: 'https://api.tryfinch.com'
 paths:
