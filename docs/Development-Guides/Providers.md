@@ -216,6 +216,6 @@ title: ATS
 ### API Providers
 Display Name | Id |
 ---------|----------
-Lever | `lever`
+Lever (beta) | `lever`
 
 <!-- type: tab-end -->
