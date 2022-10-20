@@ -323,10 +323,6 @@ components:
               type:
                 type: string
                 nullable: true
-        addresses:
-          type: array
-          items:
-            $ref: ../employer/openapi.yaml#/components/schemas/Location
         created_at:
           type: string
           format: date-time
