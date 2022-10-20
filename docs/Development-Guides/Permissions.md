@@ -7,7 +7,7 @@ type: tab
 title: HRIS
 -->
 
-Permission | Endpoint | Description
+Permission | Endpoints | Description
 ---------|----------|---------
  `company` | `/employer/company` | Read basic company data
  `directory` | `/employer/directory` | Read company directory and organization structure
@@ -27,7 +27,7 @@ Permission | Endpoint | Description
 ---------|----------|---------
   `candidates` | `/ats/candidates` | Read candidate data
   `applications` | `/ats/applications` | Read detailed application data for candidates
-  `jobs` | `/ats/jobs`, `/ats/stages` | Read job posting data, as well as existing stages of the job pipeline
+  `jobs` | `/ats/jobs`, `/ats/stages` | Read job posting data as well as existing stages of the job pipeline
   `offers` | `/ats/offers` | Read details about offers managed through the ATS
 
 <!-- type: tab-end -->
