@@ -35,6 +35,34 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Candidate'
+              examples:
+                success:
+                  value:
+                    paging:
+                      count: 0
+                      offset: 0
+                    candidates:
+                      - id: 'e5806a14-ca47-4538-a9bf-51639efc676e  '
+                        first_name: John
+                        last_name: Smith
+                        full_name: John Smith
+                        emails:
+                          - data: john@example.com
+                            type: personal
+                        phone_numbers:
+                          - data: '5555555555'
+                            type: personal
+                        addresses:
+                          - line1: 12 Oak Street
+                            line2: null
+                            city: Oakland
+                            state: CA
+                            postal_code: null
+                            country: US
+                        created_at: '2019-08-24T14:15:22Z'
+                        last_activity_at: '2019-08-24T14:15:22Z'
+                        application_ids:
+                          - c0210513-e8d5-4817-a46c-85dfaaf5f406
       operationId: get-ats-candidate
       description: Gets all of an organization's candidates. A candidate represents an individual associated with one or more applications.
       parameters:
@@ -69,6 +97,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Candidate'
+              examples:
+                success:
+                  value:
+                    id: 'e5806a14-ca47-4538-a9bf-51639efc676e  '
+                    first_name: John
+                    last_name: Smith
+                    full_name: John Smith
+                    emails:
+                      - data: john@example.com
+                        type: personal
+                    phone_numbers:
+                      - data: '5555555555'
+                        type: personal
+                    addresses:
+                      - line1: 12 Oak Street
+                        line2: null
+                        city: Oakland
+                        state: CA
+                        postal_code: null
+                        country: US
+                    created_at: '2019-08-24T14:15:22Z'
+                    last_activity_at: '2019-08-24T14:15:22Z'
+                    application_ids:
+                      - c0210513-e8d5-4817-a46c-85dfaaf5f406
       operationId: get-ats-candidates-candidate_id
       description: Gets a candidate from an organization. A candidate represents an individual associated with one or more applications.
       parameters:
@@ -92,6 +144,24 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Application'
+              examples:
+                success:
+                  value:
+                    paging:
+                      count: 0
+                      offset: 0
+                    applications:
+                      - id: 497f6eca-6276-4993-bfeb-53cbbbba6f09
+                        candidate_id: 2f28f791-f0fd-4155-a356-c24e996beeda
+                        job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                        offer_id: d5a7a5b7-a4a3-49e7-9c69-b44d2cbe15cf
+                        stage:
+                          id: 497f6eca-6276-4993-bfeb-53cbbbba6f07
+                          job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                          name: string
+                        rejected_at: '2019-08-24T14:15:22Z'
+                        rejected_reason:
+                          text: string
       operationId: get-ats-applications
       description: Gets all of an organization's applications.
       parameters:
@@ -125,6 +195,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Application'
+              examples:
+                example-1:
+                  value:
+                    id: 497f6eca-6276-4993-bfeb-53cbbbba6f18
+                    candidate_id: 2f28f791-f0fd-4155-a356-c24e996beeda
+                    job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    offer_id: d5a7a5b7-a4a3-49e7-9c69-b44d2cbe15cf
+                    stage:
+                      id: bf25a12f-4544-4b77-a0c9-5726e16b7505
+                      job_id: null
+                      name: Phone Screen
+                    rejected_at: '2019-08-24T14:15:22Z'
+                    rejected_reason:
+                      text: Underqualified
       operationId: get-ats-applications-application_id
       description: Gets an application from an organization.
       parameters:
@@ -148,6 +232,25 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Job'
+              examples:
+                success:
+                  value:
+                    paging:
+                      count: 0
+                      offset: 0
+                    jobs:
+                      - id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                        name: Office Manager
+                        status: open
+                        department:
+                          name: People
+                        created_at: '2019-08-24T14:15:22Z'
+                        closed_at: '2019-08-24T14:15:22Z'
+                        hiring_team:
+                          hiring_managers:
+                            - name: Michael Glen
+                          recruiters:
+                            - name: Chris Pine
       operationId: get-ats-jobs
       description: Gets all of an organization's jobs.
       parameters:
@@ -159,8 +262,8 @@ paths:
           name: limit
           description: Number of jobs to return (defaults to all)
         - schema:
-            type: boolean
-            default: '0'
+            type: integer
+            default: 0
           in: query
           name: offset
           description: Index to start from (defaults to 0)
@@ -181,6 +284,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Job'
+              examples:
+                success:
+                  value:
+                    id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                    name: Office Manager
+                    status: open
+                    department:
+                      name: People
+                    created_at: '2019-08-24T14:15:22Z'
+                    closed_at: '2019-08-24T14:15:22Z'
+                    hiring_team:
+                      hiring_managers:
+                        - name: Michael Glen
+                      recruiters:
+                        - name: Chris Pine
       operationId: get-ats-jobs-job_id
       description: Gets a job from an organization.
       parameters:
@@ -199,6 +317,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Stage'
+              examples:
+                Success:
+                  value:
+                    - id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                      job_id: null
+                      name: Phone Screen
       operationId: get-ats-stages
       description: 'Get all job stages for an organization. Depending on the system, some jobs may have stages specific to that job. Other job stages may apply broadly to all jobs in the system. Use the `job_id` to determine whether a job applies specifically to a job.'
       parameters:
@@ -222,7 +346,20 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Offer'
-              examples: {}
+              examples:
+                example-1:
+                  value:
+                    paging:
+                      count: 0
+                      offset: 0
+                    offers:
+                      - id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                        application_id: 48ac72d0-a829-4896-a067-dcb1c2b0f30c
+                        candidate_id: 2f28f791-f0fd-4155-a356-c24e996beeda
+                        job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                        created_at: '2019-08-24T14:15:22Z'
+                        updated_at: '2019-08-24T14:15:22Z'
+                        status: signed
       operationId: get-ats-offers
       description: Get all offers put out by an organization.
       parameters:
@@ -256,6 +393,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Offer'
+              examples:
+                success:
+                  value:
+                    id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                    application_id: 48ac72d0-a829-4896-a067-dcb1c2b0f30c
+                    candidate_id: 2f28f791-f0fd-4155-a356-c24e996beeda
+                    job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    created_at: '2019-08-24T14:15:22Z'
+                    updated_at: '2019-08-24T14:15:22Z'
+                    status: signed
       operationId: get-ats-offers-offer_id
       description: Get a single offer from an organization.
       parameters:
