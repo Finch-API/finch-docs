@@ -64,6 +64,7 @@ title: ATS
 
 ### Candidates
 ![candidate.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/xHpEvqi6KAQ)
+*opportunity leads are excluded from Candidates for Lever
 
 ### Applications
 ![application.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/B2kFm0MqXtQ)
@@ -76,7 +77,8 @@ title: ATS
 
 
 ### Offers
-![offer.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/qPZzhI60Syg)
+![offers.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/h1l2OxWUQPg)
+
 
 
 <!-- type: tab-end -->

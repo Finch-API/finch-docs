@@ -27,14 +27,30 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Candidate'
+                type: object
+                properties:
+                  paging:
+                    $ref: ../employer/openapi.yaml#/components/schemas/Paging
+                  candidates:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Candidate'
       operationId: get-ats-candidate
       description: Gets all of an organization's candidates. A candidate represents an individual associated with one or more applications.
       parameters:
         - $ref: ../employer/openapi.yaml#/components/parameters/API-Version
         - $ref: ../employer/openapi.yaml#/components/parameters/Content-Type
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: Number of candidates to return (defaults to all)
+        - schema:
+            type: integer
+            default: 0
+          in: query
+          name: offset
+          description: Index to start from (defaults to 0)
     parameters: []
   '/ats/candidates/{candidate_id}':
     parameters:
@@ -68,14 +84,30 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Application'
+                type: object
+                properties:
+                  paging:
+                    $ref: ../employer/openapi.yaml#/components/schemas/Paging
+                  applications:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Application'
       operationId: get-ats-applications
       description: Gets all of an organization's applications.
       parameters:
         - $ref: ../employer/openapi.yaml#/components/parameters/API-Version
         - $ref: ../employer/openapi.yaml#/components/parameters/Content-Type
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: Number of applications to return (defaults to all)
+        - schema:
+            type: integer
+            default: 0
+          in: query
+          name: offset
+          description: Index to start from (defaults to 0)
   '/ats/applications/{application_id}':
     parameters:
       - schema:
@@ -108,14 +140,30 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Job'
+                type: object
+                properties:
+                  paging:
+                    $ref: ../employer/openapi.yaml#/components/schemas/Paging
+                  jobs:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Job'
       operationId: get-ats-jobs
       description: Gets all of an organization's jobs.
       parameters:
         - $ref: ../employer/openapi.yaml#/components/parameters/API-Version
         - $ref: ../employer/openapi.yaml#/components/parameters/Content-Type
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: Number of jobs to return (defaults to all)
+        - schema:
+            type: boolean
+            default: '0'
+          in: query
+          name: offset
+          description: Index to start from (defaults to 0)
   '/ats/jobs/{job_id}':
     parameters:
       - schema:
@@ -166,15 +214,31 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Offer'
+                type: object
+                properties:
+                  paging:
+                    $ref: ../employer/openapi.yaml#/components/schemas/Paging
+                  offers:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Offer'
               examples: {}
       operationId: get-ats-offers
       description: Get all offers put out by an organization.
       parameters:
         - $ref: ../employer/openapi.yaml#/components/parameters/API-Version
         - $ref: ../employer/openapi.yaml#/components/parameters/Content-Type
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: Number of offers to return (defaults to all)
+        - schema:
+            type: integer
+            default: 0
+          in: query
+          name: offset
+          description: Index to start from (defaults to 0)
   '/ats/offers/{offer_id}':
     parameters:
       - schema:
