@@ -85,7 +85,7 @@ Field Name | Lever
 ---- | -----
 `id` | <strong><span style="color:green">✓</span></strong>
 `candidate_id` | <strong><span style="color:green">✓</span></strong>
-`job_id` |<strong><span style="color:green">✓</span></strong>
+`job_id` | <strong><span style="color:green">✓</span></strong>
 `offer_id` | <strong><span style="color:green">✓</span></strong>
 `stage` | <strong><span style="color:green">✓</span></strong>
 `stage.id` | <strong><span style="color:green">✓</span></strong>
