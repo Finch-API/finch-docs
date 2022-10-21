@@ -7,6 +7,8 @@ info:
   description: |-
     The Finch ATS (Applicant Tracking System) API provides a unified way to connect to a multitude of ATS systems. The API requires an access token issued by Finch.
 
+    To enable access to the ATS API, please reach out to your Finch representative.
+
     ATS products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. Valid product names are—
 
 
