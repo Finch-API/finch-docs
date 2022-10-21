@@ -11,7 +11,6 @@ info:
 
     ATS products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. Valid product names are—
 
-
     - `candidates`: Read candidate data
     - `applications`: Read detailed application data for candidates
     - `jobs`: Read job posting data, as well as existing stages of the job pipeline
