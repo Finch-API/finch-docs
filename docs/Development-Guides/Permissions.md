@@ -23,7 +23,7 @@ type: tab
 title: ATS
 -->
 
-Permission | Endpoint | Description
+Permission | Endpoints | Description
 ---------|----------|---------
   `candidates` | `/ats/candidates` | Read candidate data
   `applications` | `/ats/applications` | Read detailed application data for candidates

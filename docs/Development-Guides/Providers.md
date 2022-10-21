@@ -214,8 +214,8 @@ title: ATS
 > Assisted Connect is not currently available for ATS integrations.
 
 ### API Providers
-Display Name | Id |
----------|----------
-Lever (beta) | `lever`
+Display Name | Id | Read
+---------|----------|-----
+Lever (beta) | `lever`| <span style="color:darkgreen">Automated</span>
 
 <!-- type: tab-end -->

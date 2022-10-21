@@ -17,7 +17,6 @@ type: tab
 title: HRIS
 -->
 
-
 ### Company
 ![company.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/KJn3cQAW5mw)
 

@@ -5,13 +5,13 @@ info:
   title: ATS API Reference
   version: '2020-09-17'
   description: |-
-    The Finch ATS (Applicant Tracking System) API provides a unified way to connect to several ATS systems. The API requires an access token issued by Finch.
+    The Finch ATS (Applicant Tracking System) API provides a unified way to connect to a multitude of ATS systems. The API requires an access token issued by Finch.
 
     ATS products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. Valid product names are—
 
 
-    -  `candidates`: Read candidate data
-    -   `applications`: Read detailed application data for candidates
+    - `candidates`: Read candidate data
+    - `applications`: Read detailed application data for candidates
     - `jobs`: Read job posting data, as well as existing stages of the job pipeline
     - `offers`: Read details about offers managed through the ATS
 servers:
@@ -428,13 +428,6 @@ components:
           phone_numbers:
             - data: '5555555555'
               type: personal
-          addresses:
-            - line1: 12 Oak Street
-              line2: null
-              city: Oakland
-              state: CA
-              postal_code: null
-              country: US
           created_at: '2019-08-24T14:15:22Z'
           last_activity_at: '2019-08-24T14:15:22Z'
           application_ids:
