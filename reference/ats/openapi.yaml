@@ -438,10 +438,13 @@ components:
           type: string
         first_name:
           type: string
+          nullable: true
         last_name:
           type: string
+          nullable: true
         full_name:
           type: string
+          nullable: true
         emails:
           type: array
           items:
