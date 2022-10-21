@@ -99,7 +99,7 @@ Field Name | Lever
 ---- | -----
 `id` | <strong><span style="color:green">✓</span></strong>
 `name` | <strong><span style="color:green">✓</span></strong>
-`status` |<strong><span style="color:green">✓</span></strong>
+`status` | <strong><span style="color:green">✓</span></strong>
 `department` | <strong><span style="color:green">✓</span></strong>
 `department.name` | <strong><span style="color:green">✓</span></strong>
 `created_at` | <strong><span style="color:green">✓</span></strong>
