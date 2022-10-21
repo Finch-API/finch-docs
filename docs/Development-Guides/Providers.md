@@ -2,6 +2,11 @@
 
 The table below lays out the providers with the associated provider `id` that can be used in the `payroll_provider` parameter for [Finch Connect](../Integrating-with-Finch/Integrate-Finch-Connect/Overview.md).
 
+<!--
+type: tab
+title: HRIS
+-->
+
 <!-- theme: info -->
 > **Read:** The `Company`, `Directory`, `Individual`, `Employment`, `Payment` and `Pay Statement` endpoint are read-only endpoints. Providers can be either an [Automated API Provider](../Product-Guides/Automated-Connect-Flow.md) or an [Assisted API Provider](../Product-Guides/Assisted-Connect-Flow.md).
 
@@ -200,3 +205,21 @@ Xero | `xero` | <span style="color:goldenrod">Assisted</span> | <span style="col
 Zoho Payroll | `zoho_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 
 **these assisted providers are **Pay Enabled**, meaning initial connection time is 14 days instead of 6 weeks*
+
+<!--
+type: tab
+title: ATS
+-->
+<!-- theme: info -->
+
+To enable access to the ATS API, please reach out to your Finch representative.
+
+
+### API Providers
+Display Name | Id | Read
+---------|----------|-----
+Lever (beta) | `lever`| <span style="color:darkgreen">Automated</span>
+
+> Assisted Connect is not currently available for ATS integrations.
+
+<!-- type: tab-end -->
