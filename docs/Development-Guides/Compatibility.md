@@ -112,7 +112,7 @@ Field Name | Lever
 Field Name | Lever
 ---- | -----
 `id` | <strong><span style="color:green">✓</span></strong>
-`job_id` |  <strong><span style="color:red">x</span></strong>
+`job_id` | <strong><span style="color:red">x</span></strong>
 `name` |<strong><span style="color:green">✓</span></strong>
 
 
