@@ -663,3 +663,4 @@ components:
       description: Please use an access token
 security:
   - bearerAuth: []
+x-internal: false
