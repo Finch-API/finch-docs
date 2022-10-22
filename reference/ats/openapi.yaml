@@ -5,7 +5,7 @@ info:
   title: ATS API Reference
   version: '2020-09-17'
   description: |-
-    The Finch ATS (Applicant Tracking System) API provides a unified way to connect to a multitude of ATS systems. The API requires an access token issued by Finch.
+    The Finch ATS (Applicant Tracking System) API provides a unified way to connect to a multitude of ATS providers. The API requires an access token issued by Finch.
 
     To enable access to the ATS API, please reach out to your Finch representative.
 
