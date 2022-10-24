@@ -62,8 +62,8 @@ title: ATS
 -->
 
 ### Candidates
-Field Name | Lever
----- | -----
+Field Name | Lever | Greenhouse
+---- | ----- | ----
 `id` | <strong><span style="color:green">✓</span></strong>
 `first_name` | <strong><span style="color:red">x</span></strong>
 `last_name` | <strong><span style="color:red">x</span></strong>
@@ -81,8 +81,8 @@ Field Name | Lever
 *Opportunity leads are excluded from Candidates for Lever
 
 ### Applications
-Field Name | Lever
----- | -----
+Field Name | Lever | Greenhouse
+---- | ----- | ---
 `id` | <strong><span style="color:green">✓</span></strong>
 `candidate_id` | <strong><span style="color:green">✓</span></strong>
 `job_id` | <strong><span style="color:green">✓</span></strong>
@@ -95,36 +95,36 @@ Field Name | Lever
 `rejected_reason.text`| <strong><span style="color:green">✓</span></strong>
 
 ### Jobs
-Field Name | Lever
----- | -----
-`id` | <strong><span style="color:green">✓</span></strong>
-`name` | <strong><span style="color:green">✓</span></strong>
-`status` | <strong><span style="color:green">✓</span></strong>
-`department` | <strong><span style="color:green">✓</span></strong>
-`department.name` | <strong><span style="color:green">✓</span></strong>
-`created_at` | <strong><span style="color:green">✓</span></strong>
-`closed_at` | <strong><span style="color:green">✓</span></strong>
-`hiring_team` | <strong><span style="color:green">✓</span></strong>
-`hiring_team.hiring_managers`| <strong><span style="color:green">✓</span></strong>
-`hiring_team.recruiters`| <strong><span style="color:red">x</span></strong>
+Field Name | Lever | Greenhouse
+---- | ----- | ----
+`id` | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
+`name` | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
+`status` | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
+`department` | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
+`department.name` | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
+`created_at` | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
+`closed_at` | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
+`hiring_team` | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
+`hiring_team.hiring_managers`| <strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
+`hiring_team.recruiters`| <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong>
 
 ### Stages
-Field Name | Lever
----- | -----
-`id` | <strong><span style="color:green">✓</span></strong>
-`job_id` | <strong><span style="color:red">x</span></strong>
-`name` |<strong><span style="color:green">✓</span></strong>
+Field Name | Lever | Greenhouse
+---- | ----- | ----
+`id` | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
+`job_id` | <strong><span style="color:red">x</span></strong> | <strong><span style="color:red">x</span></strong>
+`name` | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
 
 
 ### Offers
-Field Name | Lever
----- | -----
-`id` | <strong><span style="color:green">✓</span></strong>
-`application_id` | <strong><span style="color:green">✓</span></strong>
-`candidate_id` |<strong><span style="color:green">✓</span></strong>
-`job_id` | <strong><span style="color:green">✓</span></strong>
-`created_at` | <strong><span style="color:green">✓</span></strong>
-`updated_at` | <strong><span style="color:red">x</span></strong>
-`status`| <strong><span style="color:green">✓</span></strong>
+Field Name | Lever | Greenhouse
+---- | ----- | ----
+`id` | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
+`application_id` | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
+`candidate_id` |<strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
+`job_id` | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
+`created_at` | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
+`updated_at` | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong>
+`status`| <strong><span style="color:green">✓</span></strong> | <strong><span style="color:green">✓</span></strong>
 
 <!-- type: tab-end -->
