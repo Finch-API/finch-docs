@@ -18,43 +18,40 @@ title: HRIS
 -->
 
 ### Company
-![company.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/KJn3cQAW5mw)
-
+![company.png](../../assets/images/company.png)
 
 <p><i>* Only available by inferring from entity.type</i><br>
 <i>** account_number is mask and only shows the last 4 digits</i></p>
 
 ### Directory
-![directory.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/Nfdo8FPyDCE)
+![directory.png](../../assets/images/directory.png)
+
 
 
 <p><i>* Initial only</i></p>
 
 ### Individual
-![individual.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/y2Sg2796qJE)
-
+![individual.png](../../assets/images/individual.png)
 
 <p><i>* Initial only</i><br>
 <i>** No work email available</i></p>
 
 ### Employment
-![employment.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/eF5QpbJau34)
-
+![employment.png](../../assets/images/employment.png)
 
 <p><i>* Initial only</i><br>
 <i>** Requires customer to be at highest package tier, ADP Run Pro</i></br>
 <i>*** These fields are not provided for contractors</i></p>
 
 ### Payment
-![payment.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/aIOil0UBh3A)
-
+![payment.png](../../assets/images/payment.png)
 
 ### Pay Statement
-![pay-statement.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/cPQrrgoojtc)
+![pay-statement.png](../../assets/images/pay-statement.png)
 
-
-<p><i>* 401k Match cannot be set on Justworks</i>
-<p><i>** Paychex Flex only exposes the previous 24 months of pay data</i></p>
+<p><i>* 401k Match cannot be set on Justworks</i><br>
+<i>** Paychex Flex only exposes the previous 24 months of pay data</i></br>
+<i>***Attribute not always available via Paylocity's API</i></p>
 
 <!--
 type: tab
