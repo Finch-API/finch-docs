@@ -1,12 +1,11 @@
 openapi: 3.0.0
 info:
-  title: API Reference
+  title: HRIS API Reference
   version: '2020-09-17'
   contact: {}
   description: |-
-    Finch's Employer API requires an access token issued by Finch.
 
-    Please see [here](https://developer.tryfinch.com/docs/reference/branches/open-api/docs/%20Finch%20API/1%20-%20Getting%20Started.md) for an overview of the API
+    The Finch HRIS API provides a unified way to connect to a multitide of HRIS systems. The API requires an access token issued by Finch.
 
     Employer products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. Valid product names are—
     - `company`: Read basic company data
@@ -533,6 +532,7 @@ paths:
                               $ref: '#/components/schemas/Date'
                             end_date:
                               $ref: '#/components/schemas/Date'
+                              nullable: true
                             is_active:
                               type: boolean
                               description: '`true` if the individual an an active employee or contractor at the company.'
@@ -942,6 +942,9 @@ paths:
                       description: The list of Finch products supported on this payroll provider.
                       items:
                         type: string
+                    category:
+                      type: string
+                      description: 'The categroy of the integration. Possible values: `hris`, `ats`'
                     icon:
                       type: string
                       description: The url to the official icon of the payroll provider.

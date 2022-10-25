@@ -24,6 +24,7 @@ We recommend registering the `open` method with an `onClick` handler of an HTML 
 Parameter | Required | Description
 ---------|----------|---------
  `clientId` | true | Your `client_id`, a unique identifier for your application.
+ `category` | false | The category of integrations your applications would like to expose. Options: `hris` and `ats`. If no category is provided, defaults to `hris`.
  `products` | true | An array of permissions your application is requesting access to. See [here](../../Development-Guides/Permissions.md) for a list of valid permissions.
  `payroll_provider` | false | An optional parameter that allows you to bypass the provider selection screen by providing a valid provider `id`. Read [here](../../Development-Guides/Providers.md) for more information.
  `sandbox` | false | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data. For more information, read our [Testing Development Guide](../../Development-Guides/Testing.md).
@@ -72,6 +73,7 @@ The returned `FinchConnect` object exposes `open`, `close` and `destroy` lifecyc
 Parameter | Required | Description
 ---------|----------|---------
  `clientId` | true | Your `client_id`, a unique identifier for your application.
+ `category` | false | The category of integrations your applications would like to expose. Options: `hris` and `ats`. If no category is provided, defaults to `hris`.
  `products` | true | An array of permissions your application is requesting access to. See [here](../../Development-Guides/Permissions.md) for a list of valid permissions.
  `payroll_provider` | false | An optional parameter that allows you to bypass the provider selection screen by providing a valid provider `id`. Read [here](../../Development-Guides/Providers.md) for more information.
  `sandbox` | false | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data. For more information, read our [Testing Development Guide](../../Development-Guides/Testing.md).
@@ -148,7 +150,7 @@ title: Body
 -->
 Parameter | Required | Description
 ----------|----------|-------------
-`clientId` | true | Your `client_id`, a public unique identifier for your application.
+`client_id` | true | Your `client_id`, a public unique identifier for your application.
 `client_secret` | true | Your `client_secret`, a secret value which authorizes your application with Finch. Please ensure you protect your `client_secret`.
 `code` | true | The authorization code received by the `onSuccess` handler.
 
