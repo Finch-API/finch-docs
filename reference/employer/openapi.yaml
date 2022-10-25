@@ -2028,75 +2028,62 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  job_id:
-                    type: string
-                    format: uuid
-                  mode:
-                    type: string
-                    enum:
-                      - automated
-                      - manual
-                  type:
-                    $ref: '#/components/schemas/JobType'
-                  code:
-                    type: integer
-                    enum:
-                      - 200
-                      - 202
-                      - 207
-                      - 404
-                      - 500
-                  status:
-                    $ref: '#/components/schemas/JobStatus'
-                  submitted_at:
-                    type: string
-                    format: date-time
-                  started_at:
-                    type: string
-                    format: date-time
-                  completed_at:
-                    type: string
-                    format: date-time
-                  body:
-                    type: object
-                required:
-                  - job_id
-                  - code
+                $ref: '#/components/schemas/AsyncJob'
               examples:
                 Pending Job Response:
                   value:
                     job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
-                    job_type: w2
-                    code: 202
+                    mode: automated
+                    type: benefit_create
+                    code: 200
                     status: pending
+                    submitted_at: '2019-08-24T14:15:22Z'
+                    started_at: '2019-08-24T14:15:22Z'
+                    completed_at: '2019-08-24T14:15:22Z'
+                    body: {}
                 completed document job response:
                   value:
                     job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
-                    job_type: w2
+                    mode: automated
+                    type: benefit_create
                     code: 200
-                    status: complete
+                    status: pending
+                    submitted_at: '2019-08-24T14:15:22Z'
+                    started_at: '2019-08-24T14:15:22Z'
+                    completed_at: '2019-08-24T14:15:22Z'
                     body:
                       url: 'https://hosted-document.tryfinch.com/453bd7d7-5355-4d6d-a38e-d9e7eb218c3f'
                 error response:
                   value:
                     job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
-                    job_type: w2
-                    code: 500
-                    status: error
+                    mode: automated
+                    type: benefit_create
+                    code: 200
+                    status: pending
+                    submitted_at: '2019-08-24T14:15:22Z'
+                    started_at: '2019-08-24T14:15:22Z'
+                    completed_at: '2019-08-24T14:15:22Z'
                     body:
                       name: internal_server_error
                       message: Failed to fetch document from provider
                 not found error:
                   value:
                     job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
-                    code: 404
+                    mode: automated
+                    type: benefit_create
+                    code: 200
+                    status: pending
+                    submitted_at: '2019-08-24T14:15:22Z'
+                    started_at: '2019-08-24T14:15:22Z'
+                    completed_at: '2019-08-24T14:15:22Z'
                     body:
                       name: not_found_error
                       message: No job associated with the provided access token was found with the specified job_id
       operationId: get-employer-jobs
       description: Get the status of an asynchronous job
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
     parameters:
       - schema:
           type: string
@@ -2115,29 +2102,37 @@ paths:
               schema:
                 type: array
                 items:
-                  type: object
-                  properties:
-                    job_id:
-                      type: string
-                      format: uuid
-                    job_type:
-                      $ref: '#/components/schemas/JobType'
-                    created_at:
-                      type: string
-                      format: date-time
-                    status:
-                      $ref: '#/components/schemas/JobStatus'
+                  $ref: '#/components/schemas/AsyncJob'
               examples:
                 One Pending Job:
                   value:
                     - job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
-                      job_type: w2
-                      created_at: '2019-08-24T14:15:22Z'
+                      mode: automated
+                      type: benefit_create
+                      code: 200
                       status: pending
+                      submitted_at: '2019-08-24T14:15:22Z'
+                      started_at: '2019-08-24T14:15:22Z'
+                      completed_at: '2019-08-24T14:15:22Z'
+                      body: {}
       operationId: get-jobs
       description: List all jobs associated with the access token
       tags:
         - 4. Management
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: Number of jobs to return (defaults to all)
+        - schema:
+            type: number
+            default: 0
+          in: query
+          name: offset
+          description: Index to start from (defaults to 0)
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
 components:
   schemas:
     Location:
@@ -2369,12 +2364,11 @@ components:
       x-stoplight:
         id: oxd0fxsp5sw8y
       enum:
-        - w2
-        - '1099'
         - benefit_create
         - benefit_enroll
         - benefit_unenroll
         - benefit_update
+        - documents_941
       x-examples:
         example-1: w2
         example-2: benefit_enroll
@@ -2388,6 +2382,54 @@ components:
         - in_progress
         - complete
         - error
+    AsyncJob:
+      title: AsyncJob
+      x-stoplight:
+        id: jz95licfxejud
+      type: object
+      properties:
+        job_id:
+          type: string
+          format: uuid
+        mode:
+          type: string
+          enum:
+            - automated
+            - manual
+        type:
+          $ref: '#/components/schemas/JobType'
+        code:
+          type: integer
+          enum:
+            - 200
+            - 202
+            - 207
+            - 404
+            - 500
+        status:
+          $ref: '#/components/schemas/JobStatus'
+        submitted_at:
+          type: string
+          format: date-time
+        started_at:
+          type: string
+          format: date-time
+        completed_at:
+          type: string
+          format: date-time
+        body:
+          type: object
+      x-examples:
+        job:
+          job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+          mode: automated
+          type: benefit_create
+          code: 200
+          status: pending
+          submitted_at: '2019-08-24T14:15:22Z'
+          started_at: '2019-08-24T14:15:22Z'
+          completed_at: '2019-08-24T14:15:22Z'
+          body: {}
   requestBodies:
     Individual-Ids:
       content:
