@@ -11,8 +11,9 @@ Permission | Endpoints | Description
 ---------|----------|---------
  `company` | `/employer/company` | Read basic company data
  `directory` | `/employer/directory` | Read company directory and organization structure
- `individual` | `/employer/individual` | Read individual data, excluding income and employment data
+ `documents_941` | `/employer/documents/941` | Fetch 941 tax document files
  `employment` | `/employer/employment` | Read individual employment and income data
+ `individual` | `/employer/individual` | Read individual data, excluding income and employment data
  `payment` | `/employer/payment` | Read payroll and contractor related payments by the company
  `pay_statement` | `/employer/pay-statement` | Read detailed pay statements for each individual
  `benefits` | `/employer/benefits/*` | Create and manage benefits and benefit enrollment within a company

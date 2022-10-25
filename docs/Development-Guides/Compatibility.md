@@ -27,11 +27,11 @@ title: HRIS
 ![directory.png](../../assets/images/directory.png)
 
 
-
 <p><i>* Initial only</i></p>
 
 ### Individual
 ![individual.png](../../assets/images/individual.png)
+
 
 <p><i>* Initial only</i><br>
 <i>** No work email available</i></p>
@@ -49,9 +49,13 @@ title: HRIS
 ### Pay Statement
 ![pay-statement.png](../../assets/images/pay-statement.png)
 
+
 <p><i>* 401k Match cannot be set on Justworks</i><br>
 <i>** Paychex Flex only exposes the previous 24 months of pay data</i></br>
 <i>***Attribute not always available via Paylocity's API</i></p>
+
+### Documents
+![documents.png](../../assets/images/documents.png)
 
 <!--
 type: tab

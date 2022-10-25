@@ -4,7 +4,6 @@ info:
   version: '2020-09-17'
   contact: {}
   description: |-
-
     The Finch HRIS API provides a unified way to connect to a multitide of HRIS systems. The API requires an access token issued by Finch.
 
     Employer products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. Valid product names are—
@@ -1979,8 +1978,8 @@ paths:
               required:
                 - deduction_id
                 - individual_id
-  /employer/documents:
-    get:
+  /employer/documents/941:
+    post:
       summary: Documents
       tags:
         - 1. Organization
@@ -1999,31 +1998,25 @@ paths:
                 Success:
                   value:
                     job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
-      operationId: get-employer-documents
-      description: 'Fetches documents from the employment system. Querying this endpoint will start a background job which handles the document fetch. The job status can be queried via the `/jobs` endpoint. Once the job finishes, a link to download the document will be delivered in the `jobs/<job_id>` response body.'
+      operationId: post-employer-documents-941
+      description: 'Initiates an asynchronous job to fetch 941 documents from the employment system. The job status can be queried via the `/jobs` endpoint. Once the job finishes, a link to download the document will be delivered in the `jobs/<job_id>` response body.'
       parameters:
-        - schema:
-            type: string
-            enum:
-              - w2
-              - '941'
-          in: query
-          name: type
-          description: The type of document to retrieve
-        - schema:
-            type: string
-            format: date
-            example: '2021-01-01'
-          in: query
-          name: start_date
-          description: Start date from which to begin retrieving documents
-        - schema:
-            type: string
-            format: date
-            example: '2021-12-31'
-          in: query
-          name: end_date
-          description: End date for which to stop retrieving documents
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                period:
+                  type: string
+                  description: 'The quarter to query for. Format: `YYYY-QX`'
+                  example: 2022-Q1
+            examples:
+              example-1:
+                value:
+                  period: 2022-Q1
   '/jobs/{job_id}':
     get:
       summary: Job Status
@@ -2040,7 +2033,12 @@ paths:
                   job_id:
                     type: string
                     format: uuid
-                  job_type:
+                  mode:
+                    type: string
+                    enum:
+                      - automated
+                      - manual
+                  type:
                     $ref: '#/components/schemas/JobType'
                   code:
                     type: integer
@@ -2052,6 +2050,15 @@ paths:
                       - 500
                   status:
                     $ref: '#/components/schemas/JobStatus'
+                  submitted_at:
+                    type: string
+                    format: date-time
+                  started_at:
+                    type: string
+                    format: date-time
+                  completed_at:
+                    type: string
+                    format: date-time
                   body:
                     type: object
                 required:
