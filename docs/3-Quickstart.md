@@ -23,7 +23,7 @@ We will launch Finch Connect - our secure and elegant authorization flow for you
 ```bash
 https://connect.tryfinch.com/authorize?
 &client_id=<your_client_id>
-&products=company directory
+&products=company directory individual employment payment pay_statement
 &redirect_uri=https://example.com
 &sandbox=true
 ```
