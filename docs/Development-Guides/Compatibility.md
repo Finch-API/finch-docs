@@ -26,8 +26,6 @@ title: HRIS
 ### Directory
 ![directory.png](../../assets/images/directory.png)
 
-
-
 <p><i>* Initial only</i></p>
 
 ### Individual
