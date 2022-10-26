@@ -2100,9 +2100,14 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/AsyncJob'
+                type: object
+                properties:
+                  paging:
+                    $ref: '#/components/schemas/Paging'
+                  jobs:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AsyncJob'
               examples:
                 One Pending Job:
                   value:
@@ -2133,6 +2138,11 @@ paths:
           description: Index to start from (defaults to 0)
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
+        - schema:
+            type: string
+          in: query
+          name: type
+          description: Type of job to filter by
 components:
   schemas:
     Location:
