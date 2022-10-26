@@ -114,6 +114,7 @@ GTM Payroll Services iSolved | `gtm_payroll_services_isolved` | <span style="col
 Heartland | `heartland` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Highflyer HR | `highflyer_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Horizons | `horizons` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+HR Cloud | `hrcloud` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 HRO | `hro` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 HROne | `hrone` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Hubstaff | `hubstaff` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
