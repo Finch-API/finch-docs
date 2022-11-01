@@ -29,7 +29,7 @@ title: HRIS
 <p><i>* Initial only</i></p>
 
 ### Individual
-![individual.png](../../assets/images/individual.png)
+![individual.png](../../assets/images/individual-2.png)
 
 <p><i>* Initial only</i><br>
 <i>** No work email available</i></p>
