@@ -4,7 +4,6 @@ info:
   version: '2020-09-17'
   contact: {}
   description: |-
-
     The Finch HRIS API provides a unified way to connect to a multitide of HRIS systems. The API requires an access token issued by Finch.
 
     Employer products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. Valid product names are—
@@ -738,6 +737,7 @@ paths:
                                 - name: Employee Medical Insurance
                                   amount: 23272
                                   currency: usd
+                                  type: s125_medical
               schema:
                 type: object
                 properties:
