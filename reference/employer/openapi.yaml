@@ -355,6 +355,19 @@ paths:
                                 - other
                                 - decline_to_specify
                               nullable: true
+                            ethnicity:
+                              type: string
+                              enum:
+                                - asian
+                                - white
+                                - black_or_african_american
+                                - native_hawaiian_or_pacific_islander
+                                - american_indian_or_alaska_native
+                                - hispanic_or_latino
+                                - two_or_more_races
+                                - decline_to_specify
+                              description: The EEO-1-defined ethnicity of the individual.
+                              nullable: true
                             dob:
                               $ref: '#/components/schemas/Date'
                             residence:
@@ -380,6 +393,7 @@ paths:
                             - data: '5051234567'
                               type: personal
                           gender: female
+                          ethnicity: black_or_african_american
                           dob: '1970-01-01'
                           residence:
                             line1: 123 Main St
