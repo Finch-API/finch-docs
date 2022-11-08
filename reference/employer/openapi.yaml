@@ -398,6 +398,9 @@ paths:
                             state: NY
                             postal_code: '12345'
                             country: US
+                          custom_fields:
+                            - name: tShirtSize
+                              value: L
       summary: Individual
       operationId: get-individual
       tags:
