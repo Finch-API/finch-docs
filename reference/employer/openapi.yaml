@@ -359,16 +359,6 @@ paths:
                               $ref: '#/components/schemas/Date'
                             residence:
                               $ref: '#/components/schemas/Location'
-                            custom_fields:
-                              type: array
-                              description: Custom fields for the individual. These are fields which are defined by the employer in the system
-                              items:
-                                type: object
-                                properties:
-                                  name:
-                                    type: string
-                                  value:
-                                    type: string
               examples:
                 Success:
                   value:
@@ -544,7 +534,6 @@ paths:
                               $ref: '#/components/schemas/Date'
                             end_date:
                               $ref: '#/components/schemas/Date'
-                              nullable: true
                             is_active:
                               type: boolean
                               description: '`true` if the individual an an active employee or contractor at the company.'
@@ -563,6 +552,16 @@ paths:
                               nullable: true
                               items:
                                 $ref: '#/components/schemas/Income'
+                            custom_fields:
+                              type: array
+                              description: Custom fields for the individual. These are fields which are defined by the employer in the system
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                  value:
+                                    type: string
       summary: Employment
       operationId: get-employment
       tags:
