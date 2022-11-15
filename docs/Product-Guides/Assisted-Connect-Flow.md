@@ -6,7 +6,7 @@ Contact our team at `developers@tryfinch.com` to get started or for more questio
 
 ---
 
-## How Assisted Connect Flow works
+## How Assisted Connect Flow Works
 ### For your user
 As with our automated integrations, your user will need to go through [Finch Connect](./Product-Guides.md). However, instead of our standard login flow, the user will need to follow a set of instructions displayed on Finch Connect to manually connect your application to their employment system.
 
@@ -22,7 +22,7 @@ Assisted Connection Type | Time to Initial Connection | Data Refresh Cadence
 
 *Initial connections with pay data require additional enablement work. For assisted providers which are already *pay-enabled*, the initial connection time will **still be our standard 14 days**. For new assisted providers which are not pay-enabled, the initial connection time will be six weeks. Please see our [Assisted API Providers](../Development-Guides/Providers.md#assisted-api-providers) page for more information about which providers are currently pay-enabled.
 
-## Integrating Assisted Connect Flow into your application
+## Integrating Assisted Connect Flow Into Your Application
 
 ### Application setup
 Contact the Finch team at `developers@tryfinch.com` to setup your application to work with Assisted Connect Flow.
@@ -33,7 +33,7 @@ Contact the Finch team at `developers@tryfinch.com` to setup your application to
 
 Launch [Finch Connect](../Integrating-with-Finch/Integrate-Finch-Connect/Redirect-to-Connect.md) with `manual=true` so your user can view all the Assisted API providers Finch supports. After granting your application access, you can retrieve an authorization `code` and exchange it for an `access_token` as usual.
 
-### Handle API responses correctly
+### Handle API Responses Correctly
 #### `202` status code response
 With [Automated API Providers](../Development-Guides/Providers.md#automated-api-providers), you are able to create an `access_token` and immediately use it to pull in data or push changes to your users' systems. However, with [Assisted API Providers](../Development-Guides/Providers.md#assisted-api-providers), there is a short delta from when the `access_token` is created to when you can do anything with it.
 
@@ -42,7 +42,7 @@ Until the `access_token` is ready for use, Finch will return an empty response w
 #### `Finch-Data-Retrieved` header
 Since the data is retrieved and refreshed on a periodic cadence, you may want to know the freshness of the data returned by an API call. You can use the `Finch-Data-Retrieved` [header](../Development-Guides/Headers.md) to get the date and time in ISO-8601 format the data was retrieved.
 
-### Monitoring the status of your Assisted API Connections 
+### Monitoring the status of your Assisted API connections 
 To view the status of your connected employers, you can use the [Finch Developer Dashboard](https://dashboard.tryfinch.com) and navigate to the **Employers** tab on your application's page.
 
 Status | Description

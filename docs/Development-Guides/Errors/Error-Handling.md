@@ -18,11 +18,11 @@ Server errors indicate an error on Finch's side and return an HTTP response with
 - Retrying immediately usually will not resolve the issue. We recommend retrying the API request in a few hours.
 - If the error persists, submit a support ticket with the `Finch-Request-ID` present in the headers of the response.
 
-### 401 Re-authentication Errors
+### 401 re-authentication errors
 
 Authentication errors indicate an error on the end user's side. See the [re-authentication docs](../Re-authentication.md) for more on common causes and troubleshooting steps. 
 
-## Batch requests
+## Batch Requests
 
 A number of Finch endpoints (like `/individual`, `/employment`, and `/pay-statement`) are batch endpoints.
 

@@ -4,7 +4,7 @@ Once you have an `access_token` representing your application's access to your u
 
 ---
 
-## Sending a request
+## Sending a Request
 <!-- theme: danger -->
 > All API calls should take place from your back-end to ensure an `access_token` is never publicly exposed on the client-side.
 
@@ -69,5 +69,5 @@ title: Response
 
 ---
 
-## Next steps
+## Next Steps
 Now that you have integrated the Finch API into your back-end, you are ready to interact with your users' employments systems. Read our integration checklist to learn about the steps needed to launch your integration live!

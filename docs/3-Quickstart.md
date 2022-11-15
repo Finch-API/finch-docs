@@ -6,7 +6,7 @@ This guide will help you send your first request to Finch's API while the follow
 
 ---
 
-### Open Finch Connect in Sandbox mode
+### Open Finch Connect in Sandbox Mode
 
 Finch Connect provides a secure and elegant authorization flow for your users to grant your application access to their systems.
 
@@ -30,7 +30,7 @@ https://connect.tryfinch.com/authorize?
 
 Note that we have `sandbox=true`. This is required only when calling our sandbox environment for testing purposes.
 
-### Log in to the Finch Sandbox account
+### Log in to the Finch Sandbox Account
 
 Click on the Finch Sandbox mock provider on the selector page and log in with the username `largeco` and password `letmein`. For more information on the various types of mock payroll providers you can test, visit our [testing](./Development-Guides/Testing.md) page.
 
