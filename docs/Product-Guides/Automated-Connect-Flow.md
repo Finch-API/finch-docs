@@ -17,11 +17,11 @@ To create the best experience for your users and ensure maximum conversion, you 
 2. How should I launch Finch Connect for my user?
 3. How do I incentivize my user to connect their system?
 
-### When Should my User Connect?
+### When should my user connect?
 
 We recommend asking your user to connect when they are onboarding onto your application for the first time because prompting them to connect later takes considerable effort to have them log on again. Since Finch maintains long-lived access, your users will not need to go through any additional effort after the initial onboarding.
 
-### How Should I Display Finch Connect?
+### How should I display Finch Connect?
 
 #### Default flow
 In the default flow, your user is shown an employment system selector page where they can choose which system they use. 
@@ -39,7 +39,7 @@ focus: false
 -->
 ![](../../assets/images/integratingConnect2B2X.png)
 
-### How do I Incentivize my User to Connect Their System?
+### How do I incentivize my user to connect their system?
 
 To improve conversion, it is important to set user expectations before opening Finch Connect. We recommend letting the user know they will be asked to connect their employment system and, importantly, why connecting is beneficial for them.
 

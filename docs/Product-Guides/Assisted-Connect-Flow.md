@@ -33,7 +33,7 @@ Contact the Finch team at `developers@tryfinch.com` to setup your application to
 
 Launch [Finch Connect](../Integrating-with-Finch/Integrate-Finch-Connect/Redirect-to-Connect.md) with `manual=true` so your user can view all the Assisted API providers Finch supports. After granting your application access, you can retrieve an authorization `code` and exchange it for an `access_token` as usual.
 
-### Handle API Responses Correctly
+### Handle API responses correctly
 #### `202` status code response
 With [Automated API Providers](../Development-Guides/Providers.md#automated-api-providers), you are able to create an `access_token` and immediately use it to pull in data or push changes to your users' systems. However, with [Assisted API Providers](../Development-Guides/Providers.md#assisted-api-providers), there is a short delta from when the `access_token` is created to when you can do anything with it.
 

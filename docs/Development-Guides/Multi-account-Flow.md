@@ -1,4 +1,4 @@
-# Multi-account Flow
+# Multi-Account Flow
 
 A company can have multiple accounts on the same employment system or accounts across different employment systems. Here are some scenarios where this can happen: 
 
