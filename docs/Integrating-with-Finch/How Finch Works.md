@@ -1,4 +1,4 @@
-# How Finch works
+# How Finch Works
 
 The Finch flow begins when your user (a business owner, HR or payroll administrator, etc) wants to connect their employment system to your application.
 

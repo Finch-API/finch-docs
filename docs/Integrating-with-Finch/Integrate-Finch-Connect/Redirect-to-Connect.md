@@ -1,4 +1,4 @@
-# Your application redirects to Finch Connect
+# Your Application Redirects to Finch Connect
 
 In this method of integrating Finch Connect, your application redirects your user's browser to Connect hosted by Finch on `https://connect.tryfinch.com`. The authorization flow will consist of four steps—
 

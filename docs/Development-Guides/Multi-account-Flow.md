@@ -1,4 +1,4 @@
-# Multi-account flow
+# Multi-Account Flow
 
 A company can have multiple accounts on the same employment system or accounts across different employment systems. Here are some scenarios where this can happen: 
 
@@ -40,7 +40,7 @@ focus: false
 -->
 ![](../../assets/images/multiSystemFlowUI2.png)
 
-## Flexible database schema
+## Flexible Database Schema
 Here is an example database schema for the application **Blue Sparrow 401k Co**. 
 
 <!--
@@ -50,7 +50,7 @@ focus: false
 
 A user can grant **Blue Sparrow 401k Co** access to multiple accounts. In order to allow for multiple accounts at the database level, we recommend defining a `1:many` relationship from your `user` to `finch_account` table.
 
-## Application logic
+## Application Logic
 
 When pulling data for a user, you will need to take into account the user can have multiple Finch `access_token`s. If a user has multiple `access_token`s, you will have to send multiple requests to the Finch API to collect all the data.
 

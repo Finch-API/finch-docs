@@ -1,4 +1,4 @@
-# Your application embeds Finch Connect
+# Your Application Embeds Finch Connect
 
 In this method of integration, your can embed Finch Connect into your application using a Finch SDK so your user remains on your application. The authorization flow will consist of four steps—
 1. **Open Finch Connect—** Your application uses a Finch SDK to launch Connect and initiate the authorization flow for your user.
@@ -116,7 +116,7 @@ Parameter | Required | Description
 
 <!-- type: tab-end -->
 
-## Obtain consent
+## Obtain Consent
 Connect displays the permissions your application is requesting access to. If your user approves, they are asked to select their provider and are then prompted to log in to their account.
 
 ## Retrieve the authorization code
@@ -196,7 +196,7 @@ title: Example
 
 ---
 
-## Next steps
+## Next Steps
 Once you have an `access_token`, you can begin pulling data and pushing changes into your users' employment systems! The next step is to integrate the Finch API into your back-end.
 
 

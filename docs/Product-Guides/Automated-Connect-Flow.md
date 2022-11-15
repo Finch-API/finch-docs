@@ -9,7 +9,7 @@ focus: false
 
 ---
 
-## Integrating Finch Connect into your product
+## Integrating Finch Connect Into Your Product
 
 To create the best experience for your users and ensure maximum conversion, you will want to consider the following questions when designing your user journey—
 
@@ -48,7 +48,7 @@ focus: false
 -->
 ![](../../assets/images/improvingConnectConversion.png)
 
-## Finch Connect in your user's onboarding
+## Finch Connect in Your User's Onboarding
 
 If you are integrating Finch into your onboarding flow, we recommend taking the request latencies of the underlying employment systems into consideration while designing the onboarding flow. You can read more about latencies [here](../Development-Guides/Response-Times.md).
 

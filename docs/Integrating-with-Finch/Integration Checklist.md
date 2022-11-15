@@ -1,4 +1,4 @@
-# Integration checklist
+# Integration Checklist
 
 We recommend the following steps while planning and developing your Finch integration, from both a product and engineering perspective. The recommendations outlined below will ensure a seamless experience for your users, make your integration more robust and secure, and set you up for success when you launch into production.
 
@@ -67,7 +67,7 @@ The following steps will help create a white-labeled experience for your users.
 
 - [ ]  Email forwarding to Finch is an enterprise-level feature that allows you to provision a custom email address for some API integrations. Contact our team on Slack or send an email to `developers@tryfinch.com` to get started.
 
-## Testing your Finch integration and going live
+## Testing Your Finch integration and Going Live
 
 Before going live, it is valuable to know the options available for you to test your Finch integration. Below are the suggested steps. More detailed information is available [here](../Development-Guides/Testing.md).
 

@@ -25,7 +25,7 @@ Webhooks are available for customers in our Scale tier. Please reach out to a Fi
 
 ## Webhook Payload Structure
 
-### Data Updates
+### Data updates
 
 Finch currently supports webhook updates for `created`, `updated`, and `deleted` events for the following data endpoints:
 
@@ -148,7 +148,7 @@ Beyond the `change_type`, the objects in the `data` array will differ slightly b
 }
 ```
 
-### Management Updates
+### Management updates
 
 Finch provides a `management` webhook type to deliver updates about the status of a connection. Finch will deliver a webhook if there have been any connection issues within the past 24 hours for a connection. In addition to the schema above, management updates will include a `message` field which provides more detail about the issue encountered while syncing data. The `data` field is omitted from management webhooks:
 
@@ -210,7 +210,7 @@ The test webhook will include the same structure as data update webhooks, with t
 
 Upon failure, Finch will retry sending an event up to 5 times.
 
-## Best practices for handling webhooks
+## Best Practices for Handling Webhooks
 
 **Responding to Webhooks**
 

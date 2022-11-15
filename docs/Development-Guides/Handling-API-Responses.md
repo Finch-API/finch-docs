@@ -4,7 +4,7 @@
 
 All IDs (UUIDs) returned by Finch endpoints are fixed for the same underlying employment system account. They will not change even if you have multiple `access_token`s for the company, a different payroll admin from a company logs in, etc.
 
-## Null values
+## Null Values
 
 API responses can return `null` values for some fields. This can happen for a few different reasons—
 
