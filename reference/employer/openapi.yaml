@@ -2027,10 +2027,13 @@ paths:
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
+      tags:
+        - 4. Management
   /jobs:
     get:
       summary: List All Jobs
-      tags: []
+      tags:
+        - 4. Management
       responses:
         '200':
           description: OK
@@ -2073,7 +2076,8 @@ paths:
         required: true
     get:
       summary: Retrieve a Job
-      tags: []
+      tags:
+        - 4. Management
       responses:
         '200':
           description: OK
