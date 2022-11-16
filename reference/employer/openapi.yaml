@@ -1979,6 +1979,127 @@ paths:
               required:
                 - deduction_id
                 - individual_id
+  /jobs/data-syncs/refresh:
+    post:
+      summary: Trigger a Data Sync
+      operationId: post-jobs-data-syncs-refresh
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  job_id:
+                    type: string
+                    format: uuid
+                  allowed_refreshes:
+                    type: integer
+                  remaining_refreshes:
+                    type: integer
+              examples:
+                Example 1:
+                  value:
+                    job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    allowed_refreshes: 2
+                    remaining_refreshes: 1
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  allowed_refreshes:
+                    type: integer
+                  remaining_refreshes:
+                    type: integer
+              examples:
+                Example 1:
+                  value:
+                    allowed_refreshes: 2
+                    remaining_refreshes: 0
+      description: |-
+        Calling this endpoint will manually enqueue a data sync for the connection. There is a concurrency limit of 1 job at a time per connection. This means that if the endpoint is called while a job is already in progress for this connection, Finch will return the `job_id` of the job that is currently in progress.
+
+        **This endpoint can be called up to two times per hour for each connection.**
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+  /jobs:
+    get:
+      summary: List All Jobs
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AsyncJob'
+              examples:
+                Example 1:
+                  value:
+                    - job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                      mode: automated
+                      type: data_sync_all
+                      code: 202
+                      status: pending
+                      submitted_at: '2019-08-24T14:15:22Z'
+                      started_at: '2019-08-24T14:15:22Z'
+                      completed_at: '2019-08-24T14:15:22Z'
+                      body: {}
+        '400':
+          description: Bad Request
+      operationId: get-jobs
+      description: 'Get all jobs. By default jobs are sorted in descending order by submission time. For jobs that run on a schedule, such as data-syncs, the next scheduled job is included in the response. The `submission_time` for this job is the time the job is scheduled to run.'
+      parameters:
+        - schema:
+            type: array
+          in: query
+          name: types
+          description: Supply job types to filter on
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+  '/jobs/{job_id}':
+    parameters:
+      - schema:
+          type: string
+        name: job_id
+        in: path
+        required: true
+    get:
+      summary: Retrieve a Job
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncJob'
+              examples:
+                Example 1:
+                  value:
+                    job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    mode: automated
+                    type: data_sync_all
+                    code: 202
+                    status: pending
+                    submitted_at: '2019-08-24T14:15:22Z'
+                    started_at: '2019-08-24T14:15:22Z'
+                    completed_at: '2019-08-24T14:15:22Z'
+                    body: {}
+        '404':
+          description: Not Found
+      operationId: get-jobs-job_id
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+      description: Get a job by `job_id`.
 components:
   schemas:
     Location:
@@ -2204,6 +2325,57 @@ components:
           name: not_found_error
           finch_code: individual_not_found
           message: Individual not found for benefit
+    AsyncJob:
+      title: Async Job
+      x-stoplight:
+        id: 680e2e8da5818
+      type: object
+      properties:
+        job_id:
+          type: string
+          format: uuid
+        mode:
+          type: string
+          enum:
+            - automated
+            - manual
+          description: 'Mode indicates how the job will be completed. Manual jobs are completed via human, while automated jobs are completed via a machine.'
+        type:
+          type: string
+          enum:
+            - data_sync_all
+            - benefit_create
+            - benefit_enroll
+            - benefit_unenroll
+            - benefit_update
+        code:
+          type: integer
+          enum:
+            - 202
+            - 200
+            - 404
+            - 500
+        status:
+          type: string
+          enum:
+            - pending
+            - in_progress
+            - error
+            - complete
+        submitted_at:
+          type: string
+          format: date-time
+        started_at:
+          type: string
+          format: date-time
+        completed_at:
+          type: string
+          format: date-time
+        body:
+          type: object
+          description: |-
+            The body object can contain information about the status of current parts of the job. For batch benefits enrollment job, the body will conta
+            in the results of the job, including errors
   requestBodies:
     Individual-Ids:
       content:
