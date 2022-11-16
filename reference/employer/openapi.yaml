@@ -2025,7 +2025,7 @@ paths:
                     - name: commissionYTD
                       type: integer
       operationId: get-employer-custom-fields
-      description: 'Get information about which custom fields exist in a given employer''s system. To retrieve custom field values for a specific individual or set of individuals, use the `/individual` endpoint.'
+      description: 'Get information about which custom fields exist in a given employer''s system. To retrieve custom field values for a specific individual or set of individuals, use the [`/employment`](openapi.yaml/paths/~1employer~1employment) endpoint.'
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
