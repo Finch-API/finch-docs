@@ -388,9 +388,6 @@ paths:
                             state: NY
                             postal_code: '12345'
                             country: US
-                          custom_fields:
-                            - name: tShirtSize
-                              value: L
       summary: Individual
       operationId: get-individual
       tags:
@@ -455,6 +452,9 @@ paths:
                               amount: 8000000
                               currency: usd
                               effective_date: '2017-06-30'
+                          custom_fields:
+                            - name: tShirtSize
+                              value: L
               schema:
                 type: object
                 properties:
