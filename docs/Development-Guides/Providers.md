@@ -85,6 +85,7 @@ Commonwealth Payroll & HR | `commonwealth_payroll_hr` | <span style="color:golde
 ConnectPay | `connectpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 CPM Employer Services iSolved | `cpm_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Crescent Payroll Solutions | `crescent_payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Darwinbox | `darwinbox` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Decent | `decent` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Deel* | `deel` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Deltek | `deltek` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -102,6 +103,7 @@ Employer Services Corporation (ESC) | `esc` | <span style="color:goldenrod">Assi
 Everee | `everee` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Evolution Payroll Services | `evolution_payroll_services` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Excel Resources | `excel_resources` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+ExtensisHR | `extensis_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Flock | `flock` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Freshteam | `freshteam` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 FullStack PEO | `fullstack_peo` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
