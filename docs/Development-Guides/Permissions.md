@@ -31,5 +31,3 @@ Permission | Endpoints | Description
   `offers` | `/ats/offers` | Read details about offers managed through the ATS
 
 <!-- type: tab-end -->
-
-  
