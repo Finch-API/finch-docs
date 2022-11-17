@@ -16,7 +16,7 @@ title: HRIS
 ### Automated API Providers
 Display Name | Id | Read | Benefits
 ---------|----------|----------|----------
-ADP Workforce Now | `adp_workforce_now` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+<!-- ADP Workforce Now | `adp_workforce_now` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> -->
 BambooHR | `bamboo_hr` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 bob | `bob` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Gusto | `gusto` | <span style="color:darkgreen">Automated</span> | <span style="color:darkgreen">Automated</span>
