@@ -26,9 +26,10 @@ Name | Finch Code | Code | Description
 `invalid_client_error` | | 401 | The provided application credentials were incorrect. Relevant to the `/auth/token` endpoint.
 `unauthorized_request_error` | | 401 | The `access_token` is missing from the header.
 `insufficient_scope_error` | | 403 | The application credentials have insufficient permissions to access the requested product.
-`not_found_error` |`item_not_found`| 404 | The requested resource does not exist.
-`not_found_error` |`benefit_not_found`| 404 | The requested benefit does not exist. Relevant to the `/employer/benefits/*` endpoints.
-`not_found_error` |`individual_not_found`| 404 | The requested individual does not exist. Relevant to the `/employer/benefits/*` endpoints.
+`not_found_error` |`item_not_found`| 404 | The requested resource could not be found.
+`not_found_error` |`benefit_not_found`| 404 | The requested benefit could not be found.
+`not_found_error` |`individual_not_found`| 404 | The requested individual could not be found.
+`not_found_error` | `payment_not_found` | 404 | The requested payment could not be found.
 `unprocessable_request_error` |`unsupported_parameters`| 422 | Parameters provided are not supported by the provider or benefit. Relevant to the `/employer/benefits/*` endpoints.
 `unprocessable_request_error` |`invalid_employee_enrollment`| 422 | The employee is unable to be enrolled in a benefit due specific to constraints on the provider side. Relevant to the `/employer/benefits/*` endpoints.
 `server_error` | | 500 | The server experienced an unexpected error.

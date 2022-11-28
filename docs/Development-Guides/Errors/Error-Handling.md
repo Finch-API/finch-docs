@@ -48,12 +48,16 @@ Response Body:
       // this id varies by endpoint, could also be payment_id or benefit_id
       "individual_id": "fbeabe51-e6d2-45aa-a460-4c8482528f41",
       // corresponds to the `code` parameter of the error schema in the Error Types guide
-      "code": 500,
+      "code": 200,
       "body": {
-        // corresponds to the `name` parameter of the error schema in the Error Types guide
-        "error_name": "server_error",
-        // corresponds to the `message` parameter of the error schema in the Error Types guide
-        "error_message": "Internal Server Error"
+        "name": "not_found_error",
+        "code": 404,
+        "finch_code": "individual_not_found",
+        "message": "The individual with id 'fbeabe51-e6d2-45aa-a460-4c8482528f41' could not be found",
+        // deprecated field. corresponds to the `name` parameter of the error schema in the Error Types guide
+        "error_name": "not_found_error",
+        // deprecated field. corresponds to the `message` parameter of the error schema in the Error Types guide
+        "error_message": "The individual with id 'fbeabe51-e6d2-45aa-a460-4c8482528f41' could not be found"
       }
     }
   ]
