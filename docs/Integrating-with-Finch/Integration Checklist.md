@@ -84,5 +84,5 @@ Once you have tested your Finch integration with test accounts, you can go live.
 
 The following steps will ensure you and your team is set up for success once your Finch integration has gone live.
 
-- [ ]  We currently use Slack and Halp to keep track of support tickets. Ensure your team is on Slack and is comfortable with Halp.
-- [ ]  Learn how to use the developer dashboard to keep track of your connected customers and the health of each connection.
+- [ ]  We currently use Jira to keep track of support tickets. Ensure your team is able to access a Jira-based website.
+- [ ]  Learn how to use the Finch Developer Dashboard to keep track of your connected customers and the health of each connection.
