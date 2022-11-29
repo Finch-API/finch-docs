@@ -16,4 +16,8 @@ Response Header | Description
 `Finch-Last-Attempted-Update-Date` | The date/time that Finch last attempted to sync the data for this endpoint.
 `Finch-Last-Attempted-Update-Result` | The result of Finch’s last attempted update. Possible values:<br />`success`: The last attempt succeeded<br />`error`: The last attempt errored<br />`partial_error`: (batch requests only) The last attempt succeeded for some items in the batch and failed for others.
 
+### Batch requests
 For batch endpoints (`/employment`, `/individual`, `/pay-statement`) Finch syncs all of the data for the connection in one atomic operation. This ensures that all items in the batch response you receive are from the same data sync.
+
+### Pay statement history
+Finch currently fetches pay statements from the start of two years from the sync time. For example, if a sync happens on 06/01/2022, pay statements from 01/01/2020 thru 06/01/2022 will be fetched.
