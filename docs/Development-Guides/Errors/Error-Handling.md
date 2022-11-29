@@ -28,6 +28,7 @@ A number of Finch endpoints (like `/individual`, `/employment`, and `/pay-statem
 
 For such endpoints, Finch can return errors in two ways:
 1. Return an error per batch request item within the response body. The error will be in the same format described in the [Error Types guide](./Error-Types.md).
+    * Finch also returns an `error_name` and `error_message` in the response body. **These fields are now deprecated in favor of conforming to our standard error formatting, and will be removed entirely in June 2023.**
 2. Return an error at the HTTP status code level. The error will be in the same format described in the [Error Types guide](./Error-Types.md).
 
 <!-- theme: info -->
