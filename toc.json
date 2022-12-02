@@ -21,7 +21,7 @@
     },
     {
       "type": "item",
-      "title": "How Finch works",
+      "title": "How Finch Works",
       "uri": "docs/Integrating-with-Finch/How Finch Works.md"
     },
     {
@@ -52,7 +52,7 @@
     },
     {
       "type": "item",
-      "title": "Integration checklist",
+      "title": "Integration Checklist",
       "uri": "docs/Integrating-with-Finch/Integration Checklist.md"
     },
     {
@@ -85,12 +85,12 @@
     },
     {
       "type": "item",
-      "title": "Multi-account flow",
+      "title": "Multi-account Flow",
       "uri": "docs/Development-Guides/Multi-account-Flow.md"
     },
     {
       "type": "item",
-      "title": "Reconciling employees",
+      "title": "Reconciling Employees",
       "uri": "docs/Development-Guides/Reconciling-Employees.md"
     },
     {
