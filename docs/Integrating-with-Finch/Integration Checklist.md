@@ -32,6 +32,9 @@ Given the nature of the underlying systems Finch's API is built on top of, the f
 
 - [ ]  Most data points returned by the API are `null`able. Ensure your integration is resilient to this. You can read more [here](../Development-Guides/Handling-API-Response.md).
 
+**Handling response headers**
+- [ ] Finch syncs data with providers on a scheduled cadence, and the status of the data we return is available in the API response headers. Ensure your integration checks these response headers as needed. You can read more about data syncs and the associated response headers [here](../Development-Guides/Data-Syncs.md).
+
 **Handling error responses**
 
 Your application should expect and handle errors from the Finch API. You can read more about our errors [here](../Development-Guides/Errors/Error-Types.md). 
