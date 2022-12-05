@@ -22,14 +22,14 @@ Gusto | `gusto` | <span style="color:darkgreen">Automated</span> | <span style="
 Humaans | `humaans` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Insperity | `insperity` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Justworks | `justworks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
-Namely | `namely` | <span style="color:darkgreen">Automated</span> | <span style="color:darkgreen">Automated</span>
+Namely | `namely` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Paychex Flex | `paychex_flex` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Paycom | `paycom` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Paylocity | `paylocity` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Personio | `personio` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
-QuickBooks Payroll | `quickbooks` | <span style="color:darkgreen">Automated</span> | <span style="color:darkgreen">Automated</span>
+QuickBooks Payroll | `quickbooks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Rippling | `rippling` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
-Run Powered by ADP | `adp_run` | <span style="color:darkgreen">Automated</span> | <span style="color:darkgreen">Automated</span>
+Run Powered by ADP | `adp_run` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Sage HR | `sage_hr` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Sapling | `sapling` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Sequoia One | `sequoia_one` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
@@ -37,7 +37,7 @@ Square Payroll | `square_payroll` | <span style="color:darkgreen">Automated</spa
 TriNet | `trinet` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 UltiPro (UKG Pro) | `ulti_pro` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Wave | `wave` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
-Workday | `workday` | <span style="color:darkgreen">Automated</span> | <span style="color:darkgreen">Automated</span>
+Workday | `workday` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Zenefits | `zenefits` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 
 ### Assisted API Providers
