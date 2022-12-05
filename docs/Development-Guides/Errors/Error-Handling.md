@@ -49,7 +49,7 @@ Response Body:
       // this id varies by endpoint, could also be payment_id or benefit_id
       "individual_id": "fbeabe51-e6d2-45aa-a460-4c8482528f41",
       // corresponds to the `code` parameter of the error schema in the Error Types guide
-      "code": 200,
+      "code": 404,
       "body": {
         "name": "not_found_error",
         "code": 404,
