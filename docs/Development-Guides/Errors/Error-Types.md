@@ -34,3 +34,4 @@ Name | Finch Code | Code | Description
 `unprocessable_request_error` |`invalid_employee_enrollment`| 422 | The employee is unable to be enrolled in a benefit due specific to constraints on the provider side. Relevant to the `/employer/benefits/*` endpoints.
 `server_error` | | 500 | The server experienced an unexpected error.
 `not_implemented` | | 501 | Finch does not support this specific endpoint for this specific provider.
+`timeout_error` | | 504 | The request timed out.

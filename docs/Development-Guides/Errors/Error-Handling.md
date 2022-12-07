@@ -18,6 +18,10 @@ Server errors indicate an error on Finch's side and return an HTTP response with
 - Retrying immediately usually will not resolve the issue. We recommend retrying the API request in a few hours.
 - If the error persists, submit a support ticket with the `Finch-Request-ID` present in the headers of the response.
 
+### 504 Timeout Errors
+
+Timeout errors indicate that the request took too long to process and return a `504` status code. This can be caused by things like large request batch size or network latency.
+
 ### 401 re-authentication errors
 
 Authentication errors indicate an error on the end user's side. See the [re-authentication docs](../Re-authentication.md) for more on common causes and troubleshooting steps. 
