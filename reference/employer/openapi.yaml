@@ -2099,6 +2099,7 @@ components:
         - commuter
         - custom_post_tax
         - custom_pre_tax
+        - null
       description: Type of benefit.
       x-tags:
         - Models
