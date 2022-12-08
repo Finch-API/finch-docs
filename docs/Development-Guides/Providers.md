@@ -28,7 +28,7 @@ Paycom | `paycom` | <span style="color:darkgreen">Automated</span> | <span style
 Paylocity | `paylocity` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Personio | `personio` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 QuickBooks Payroll | `quickbooks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
-Rippling | `rippling` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Rippling | `rippling` | <span style="color:darkgreen">Automated</span> | <span >Not Supported</span>
 Run Powered by ADP | `adp_run` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Sage HR | `sage_hr` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Sapling | `sapling` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
