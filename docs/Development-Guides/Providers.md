@@ -23,7 +23,7 @@ Humaans | `humaans` | <span style="color:darkgreen">Automated</span> | <span>Not
 Insperity | `insperity` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Justworks | `justworks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Namely | `namely` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
-Paychex Flex | `paychex_flex` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Paychex Flex | `paychex_flex` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 Paycom | `paycom` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Paylocity | `paylocity` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Personio | `personio` | <span style="color:darkgreen">Automated</span> | <span>Not Supported</span>
@@ -209,7 +209,7 @@ Zoho Payroll | `zoho_payroll` | <span style="color:goldenrod">Assisted</span> | 
 
 **these assisted providers are [**Pay Enabled**](../Product-Guides/Assisted-Connect-Flow.md#for-you), meaning initial connection time for connections that require pay is 14 days instead of 6 weeks*
 
-***these providers are [**Assisted Benefits Enabled**](../Product-Guides/Benefits-API.md#Using benefit metadata), meaning Finch has connected to the system already and is configured to support the system, including having mapped the benefits supported in the system*
+***these providers are [**Assisted Benefits Enabled**](../Product-Guides/Benefits-API.md#Using-benefit-metadata), meaning Finch has connected to the system already and is configured to support the system, including having mapped the benefits supported in the system*
 
 <!--
 type: tab
