@@ -146,7 +146,7 @@ Patriot | `patriot` | <span style="color:goldenrod">Assisted</span> | <span styl
 Paycor* | `paycor` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Payday Workforce Solutions | `payday_workforce_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PayFit | `payfit` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-PayNorthwest | `paynw` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+PayNorthwest* | `paynw` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PayPro HCS isolved | `paypro_hcs_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Payroll Network | `payroll_network` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Payroll Office of America | `payroll_office_of_america` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
