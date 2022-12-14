@@ -134,6 +134,7 @@ NaturalHR | `natural_hr` | <span style="color:goldenrod">Assisted</span> | <span
 Newtek | `newtek` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Nextep | `nextep` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Oasis | `oasis` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Obsidian HR iSolved | `obsidianhr_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 odoo | `odoo` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 OneSource Payroll | `onesource_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 OnPay* | `onpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -201,6 +202,7 @@ WebHR | `web_hr` | <span style="color:goldenrod">Assisted</span> | <span style="
 whirks | `whirks` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Workforce Junction | `workforce_junction` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Worklio | `worklio` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Workplace HCM | `workplace_hcm` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Workzoom | `workzoom` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 wurk | `wurk` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Xenium HR | `xenium_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
