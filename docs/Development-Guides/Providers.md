@@ -17,21 +17,21 @@ title: HRIS
 Display Name | Id | Read | Benefits
 ---------|----------|----------|----------
 BambooHR | `bamboo_hr` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
-bob | `bob` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+bob | `bob` | <span style="color:darkgreen">Automated</span> | <span >Not Supported</span>
 Gusto | `gusto` | <span style="color:darkgreen">Automated</span> | <span style="color:darkgreen">Automated</span>
-Humaans | `humaans` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Humaans | `humaans` | <span style="color:darkgreen">Automated</span> | <span>Not Supported</span>
 Insperity | `insperity` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Justworks | `justworks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Namely | `namely` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Paychex Flex | `paychex_flex` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Paycom | `paycom` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Paylocity | `paylocity` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
-Personio | `personio` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Personio | `personio` | <span style="color:darkgreen">Automated</span> | <span>Not Supported</span>
 QuickBooks Payroll | `quickbooks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Rippling | `rippling` | <span style="color:darkgreen">Automated</span> | <span >Not Supported</span>
 Run Powered by ADP | `adp_run` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Sage HR | `sage_hr` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
-Sapling | `sapling` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Sapling | `sapling` | <span style="color:darkgreen">Automated</span> | <span>Not Supported</span>
 Sequoia One | `sequoia_one` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Square Payroll | `square_payroll` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 TriNet | `trinet` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
@@ -192,7 +192,7 @@ Trakstar | `trakstar` | <span style="color:goldenrod">Assisted</span> | <span st
 UKG Ready (Kronos) | `ukg_ready` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Uzio | `uzio` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Velocity Global | `velocity_global` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-VensureHR | `vensure_hr` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted</span>
+VensureHR | `vensure_hr` | <span style="color:goldenrod">Assisted*  </span> | <span style="color:goldenrod">Assisted</span>
 Vfficient | `vfficient` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Viewpoint HR Management Spectrum | `viewpoint_hr_management_spectrum` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Viewpoint HR Management Vista | `viewpoint_hr_management_vista` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
