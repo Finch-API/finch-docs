@@ -19,6 +19,7 @@ Assisted Connection Type | Time to Initial Connection | Data Refresh Cadence
 ---------|----------|--------
 **Census** <br>(`directory`, `individual`, `employment`) | 14 days | 7 days
 **Census + Pay** <br>(`payment`, `pay-statement`) | 6 weeks* | 7 days
+**Benefits** <br>(`benefits`) | 14 days | 7 days
 
 *Initial connections with pay data require additional enablement work. For assisted providers which are already *pay-enabled*, the initial connection time will **still be our standard 14 days**. For new assisted providers which are not pay-enabled, the initial connection time will be six weeks. Please see our [Assisted API Providers](../Development-Guides/Providers.md#assisted-api-providers) page for more information about which providers are currently pay-enabled.
 

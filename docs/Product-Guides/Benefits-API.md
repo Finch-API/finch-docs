@@ -42,6 +42,8 @@ The types and features of each benefit can vary between payroll systems, and eve
 
 On request, we can also provide written documentation about supported features and benefit types at the provider level. Please reach out to your account representative for that information.
 
+Please note that for providers supported via Assisted Benefits, only **benefits-enabled** providers have the meta endpoint implemented. This is because Finch must connect to a provider system in order to create an accurate benefit mapping.
+
 **Note: One-time post-tax deductions are not currently supported for benefits.**
 
 ### Handling Assisted Benefits API responses
