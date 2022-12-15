@@ -84,6 +84,7 @@ Commonwealth Payroll & HR | `commonwealth_payroll_hr` | <span style="color:golde
 ConnectPay | `connectpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 CPM Employer Services iSolved | `cpm_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Crescent Payroll Solutions | `crescent_payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+CSC Paymaster | `csc_paymaster` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Darwinbox | `darwinbox` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Decent | `decent` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Deel | `deel` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted</span>
@@ -113,6 +114,7 @@ greytHR | `greyt_hr` | <span style="color:goldenrod">Assisted</span> | <span sty
 GTM Payroll Services Evolution | `gtm_payroll_services_evolution` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 GTM Payroll Services iSolved | `gtm_payroll_services_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Heartland | `heartland` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Helpside | `helpside` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Highflyer HR | `highflyer_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Horizons | `horizons` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 HR Cloud | `hrcloud` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -197,6 +199,7 @@ VensureHR | `vensure_hr` | <span style="color:goldenrod">Assisted*  </span> | <s
 Vfficient | `vfficient` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Viewpoint HR Management Spectrum | `viewpoint_hr_management_spectrum` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Viewpoint HR Management Vista | `viewpoint_hr_management_vista` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Viventium | `viventium` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Wagepoint | `wagepoint` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 WebHR | `web_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 whirks | `whirks` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
