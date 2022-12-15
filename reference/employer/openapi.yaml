@@ -554,7 +554,7 @@ paths:
                                 $ref: '#/components/schemas/Income'
                             custom_fields:
                               type: array
-                              description: Custom fields for the individual. These are fields which are defined by the employer in the system
+                              description: Custom fields for the individual. These are fields which are defined by the employer in the system.
                               items:
                                 type: object
                                 properties:
@@ -2008,14 +2008,15 @@ paths:
                   properties:
                     name:
                       type: string
-                      description: The name of the custom field in the system
+                      description: The name of the custom field in the system.
                     type:
                       type: string
-                      description: The type of the custom field
+                      description: The type of the custom field.
                       enum:
                         - number
                         - string
                         - date
+                        - boolean
                       nullable: true
               examples:
                 Example 1:
