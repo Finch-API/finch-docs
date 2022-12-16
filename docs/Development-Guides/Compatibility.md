@@ -18,7 +18,7 @@ title: HRIS
 -->
 
 ### Company
-![company.png](../../assets/images/company.png)
+![company.jpg](../../assets/images/company.jpg)
 
 <p><i>* Only available by inferring from entity.type</i><br>
 <i>** account_number is mask and only shows the last 4 digits</i></p>
@@ -29,7 +29,7 @@ title: HRIS
 <p><i>* Initial only</i></p>
 
 ### Individual
-![individual.png](../../assets/images/individual-2.png)
+![individual.jpg](../../assets/images/individual.jpg)
 
 <p><i>* Initial only</i><br>
 <i>** No work email available</i></p>
@@ -42,10 +42,10 @@ title: HRIS
 <i>*** These fields are not provided for contractors</i></p>
 
 ### Payment
-![payment.png](../../assets/images/payment.png)
+![payment.jpg](../../assets/images/payment.jpg)
 
 ### Pay Statement
-![pay-statement.png](../../assets/images/pay-statement.png)
+![pay-statement.jpg](../../assets/images/pay-statement.jpg)
 
 <p><i>* 401k Match cannot be set on Justworks</i><br>
 <i>** Paychex Flex only exposes the previous 24 months of pay data</i></br>
