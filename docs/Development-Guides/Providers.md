@@ -76,7 +76,7 @@ Ceridian Powerpay | `ceridian_powerpay` | <span style="color:goldenrod">Assisted
 Cezanne HR | `cezannehr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 CharlieHR | `charlie_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 ClickUp | `clickup` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-CoAdvantage* | `coadvantage` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+CoAdvantage | `coadvantage` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted</span>
 Coastal Payroll | `coastal_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 CognosHR | `cognos_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Collage | `collage` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
