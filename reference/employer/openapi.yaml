@@ -366,7 +366,7 @@ paths:
                                 - hispanic_or_latino
                                 - two_or_more_races
                                 - decline_to_specify
-                              description: The EEO-1-defined ethnicity of the individual.
+                              description: The EEOC-defined ethnicity of the individual.
                               nullable: true
                             dob:
                               $ref: '#/components/schemas/Date'
