@@ -1991,45 +1991,6 @@ paths:
               required:
                 - deduction_id
                 - individual_id
-  /employer/custom-fields:
-    get:
-      summary: Custom Fields
-      tags:
-        - 1. Organization
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    name:
-                      type: string
-                      description: The name of the custom field in the system.
-                    type:
-                      type: string
-                      description: The type of the custom field.
-                      enum:
-                        - number
-                        - string
-                        - date
-                        - boolean
-                      nullable: true
-              examples:
-                Example 1:
-                  value:
-                    - name: tShirtSize
-                      type: string
-                    - name: commissionYTD
-                      type: integer
-      operationId: get-employer-custom-fields
-      description: 'Get information about which custom fields exist in a given employer''s system. To retrieve custom field values for a specific individual or set of individuals, use the [`/employment`](openapi.yaml/paths/~1employer~1employment) endpoint.'
-      parameters:
-        - $ref: '#/components/parameters/API-Version'
-        - $ref: '#/components/parameters/Content-Type'
 components:
   schemas:
     Location:
