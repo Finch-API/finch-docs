@@ -29,13 +29,14 @@ title: HRIS
 <p><i>* Initial only</i></p>
 
 ### Individual
-![individual.jpg](../../assets/images/individual.jpg)
+![individual.png](../../assets/images/individual.png)
 
 <p><i>* Initial only</i><br>
 <i>** No work email available</i></p>
 
 ### Employment
-![employment.png](../../assets/images/employment.png)
+![employment.png](../../assets/images/employment-2.png)
+
 
 <p><i>* Initial only</i><br>
 <i>** Requires customer to be at highest package tier, ADP Run Pro</i></br>
