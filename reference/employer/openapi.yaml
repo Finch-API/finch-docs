@@ -576,11 +576,9 @@ paths:
                                     type: string
                                     nullable: true
                                   value:
-                                    type: string
-                                    enum:
-                                      - string
+                                    type:
                                       - number
-                                      - date
+                                      - string
                                       - boolean
                                     nullable: true
       summary: Employment
