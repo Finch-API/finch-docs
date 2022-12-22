@@ -574,8 +574,15 @@ paths:
                                 properties:
                                   name:
                                     type: string
+                                    nullable: true
                                   value:
                                     type: string
+                                    enum:
+                                      - string
+                                      - number
+                                      - date
+                                      - boolean
+                                    nullable: true
       summary: Employment
       operationId: get-employment
       tags:
