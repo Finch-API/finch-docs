@@ -1020,6 +1020,10 @@ paths:
               schema:
                 type: object
                 properties:
+                  account_id:
+                    type: string
+                    format: uuid
+                    description: The Finch uuid corresponding to the employer account that was used to make this connection.
                   client_id:
                     type: string
                     description: The client id of the application associated with the `access_token`.
