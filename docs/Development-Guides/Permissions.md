@@ -12,6 +12,7 @@ Permission | Endpoints | Description
  `company` | `/employer/company` | Read basic company data
  `directory` | `/employer/directory` | Read company directory and organization structure
  `individual` | `/employer/individual` | Read individual data, excluding income and employment data
+ `ssn` | `/employer/individual` | Read SSN for individuals.
  `employment` | `/employer/employment` | Read individual employment and income data
  `payment` | `/employer/payment` | Read payroll and contractor related payments by the company
  `pay_statement` | `/employer/pay-statement` | Read detailed pay statements for each individual

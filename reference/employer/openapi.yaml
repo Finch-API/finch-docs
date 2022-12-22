@@ -370,6 +370,9 @@ paths:
                               nullable: true
                             dob:
                               $ref: '#/components/schemas/Date'
+                            ssn:
+                              type: string
+                              description: 'Social Security number of the individual. This field is only available with the `ssn` scope enabled and the `options: { include: [''ssn''] }` param set in the body.'
                             residence:
                               $ref: '#/components/schemas/Location'
               examples:
@@ -407,7 +410,46 @@ paths:
       tags:
         - 1. Organization
       requestBody:
-        $ref: '#/components/requestBodies/Individual-Ids'
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                requests:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      individual_id:
+                        type: string
+                        format: uuid
+                options:
+                  type: object
+                  properties:
+                    include:
+                      type: array
+                      description: 'Optional fields to include. Currently only `ssn` is supported. To include this field, the `ssn` scope must be enabled.'
+                      items:
+                        type: string
+                        enum:
+                          - ssn
+              required:
+                - requests
+            examples:
+              Individual ids:
+                value:
+                  requests:
+                    - individual_id: bb20ea64-93f9-45db-940d-960379684d68
+                    - individual_id: c7962b5b-0e6d-4745-a6c3-1ffff6e28832
+              SSN:
+                value:
+                  requests:
+                    - individual_id: bb20ea64-93f9-45db-940d-960379684d68
+                    - individual_id: c7962b5b-0e6d-4745-a6c3-1ffff6e28832
+                  options:
+                    include:
+                      - ssn
+        description: ''
   /employer/employment:
     post:
       description: |-
