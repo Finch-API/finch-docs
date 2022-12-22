@@ -355,6 +355,19 @@ paths:
                                 - other
                                 - decline_to_specify
                               nullable: true
+                            ethnicity:
+                              type: string
+                              enum:
+                                - asian
+                                - white
+                                - black_or_african_american
+                                - native_hawaiian_or_pacific_islander
+                                - american_indian_or_alaska_native
+                                - hispanic_or_latino
+                                - two_or_more_races
+                                - decline_to_specify
+                              description: The EEOC-defined ethnicity of the individual.
+                              nullable: true
                             dob:
                               $ref: '#/components/schemas/Date'
                             residence:
@@ -380,6 +393,7 @@ paths:
                             - data: '5051234567'
                               type: personal
                           gender: female
+                          ethnicity: black_or_african_american
                           dob: '1970-01-01'
                           residence:
                             line1: 123 Main St
@@ -452,6 +466,9 @@ paths:
                               amount: 8000000
                               currency: usd
                               effective_date: '2017-06-30'
+                          custom_fields:
+                            - name: tShirtSize
+                              value: L
               schema:
                 type: object
                 properties:
@@ -531,7 +548,6 @@ paths:
                               $ref: '#/components/schemas/Date'
                             end_date:
                               $ref: '#/components/schemas/Date'
-                              nullable: true
                             is_active:
                               type: boolean
                               description: '`true` if the individual an an active employee or contractor at the company.'
@@ -550,6 +566,16 @@ paths:
                               nullable: true
                               items:
                                 $ref: '#/components/schemas/Income'
+                            custom_fields:
+                              type: array
+                              description: Custom fields for the individual. These are fields which are defined by the employer in the system.
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                  value:
+                                    type: string
       summary: Employment
       operationId: get-employment
       tags:
