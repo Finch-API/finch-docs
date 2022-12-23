@@ -466,6 +466,9 @@ paths:
                               amount: 8000000
                               currency: usd
                               effective_date: '2017-06-30'
+                          custom_fields:
+                            - name: tShirtSize
+                              value: L
               schema:
                 type: object
                 properties:
@@ -545,7 +548,6 @@ paths:
                               $ref: '#/components/schemas/Date'
                             end_date:
                               $ref: '#/components/schemas/Date'
-                              nullable: true
                             is_active:
                               type: boolean
                               description: '`true` if the individual an an active employee or contractor at the company.'
@@ -564,6 +566,21 @@ paths:
                               nullable: true
                               items:
                                 $ref: '#/components/schemas/Income'
+                            custom_fields:
+                              type: array
+                              description: Custom fields for the individual. These are fields which are defined by the employer in the system.
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    nullable: true
+                                  value:
+                                    type:
+                                      - number
+                                      - string
+                                      - boolean
+                                    nullable: true
       summary: Employment
       operationId: get-employment
       tags:
@@ -1003,6 +1020,10 @@ paths:
               schema:
                 type: object
                 properties:
+                  account_id:
+                    type: string
+                    format: uuid
+                    description: The Finch uuid corresponding to the employer account that was used to make this connection.
                   client_id:
                     type: string
                     description: The client id of the application associated with the `access_token`.
