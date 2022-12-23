@@ -1047,12 +1047,13 @@ paths:
               examples:
                 Success:
                   value:
+                    account_id: d8ef1814-5913-492f-b5c0-a16e2d6432c9
                     client_id: 25ea8bd8-f76b-41f9-96e3-1e6162021c50
                     company_id: 87eb4bc3-f76b-35e7-78d2-8f7822021d73
                     products:
                       - company
                       - directory
-                    username: jeremy@tryfinch.com
+                    username: johndoe@tryfinch.com
                     payroll_provider_id: gusto
                     manual: 'false'
       operationId: get-introspect
