@@ -1007,6 +1007,7 @@ paths:
       description: Return details on all available payroll and HR systems.
       parameters:
         - $ref: '#/components/parameters/API-Version'
+      security: []
   /introspect:
     get:
       summary: Introspect
