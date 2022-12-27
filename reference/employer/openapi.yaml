@@ -888,7 +888,7 @@ paths:
                                           nullable: true
                                         name:
                                           type: string
-                                          description: The exact name of the deduction from the pay statement.
+                                          description: The exact name of the earning from the pay statement.
                                           nullable: true
                                         amount:
                                           type: integer
