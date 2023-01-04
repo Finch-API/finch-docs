@@ -1049,6 +1049,7 @@ paths:
       description: Return details on all available payroll and HR systems.
       parameters:
         - $ref: '#/components/parameters/API-Version'
+      security: []
   /introspect:
     get:
       summary: Introspect
@@ -2135,8 +2136,10 @@ components:
         amount:
           type: integer
           description: Amount for money object (in cents)
+          nullable: true
         currency:
           type: string
+          nullable: true
     Paging:
       title: Paging
       type: object
