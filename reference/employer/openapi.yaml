@@ -2235,7 +2235,8 @@ paths:
   /job/manual:
     get:
       summary: List All Manual Jobs
-      tags: []
+      tags:
+        - 4. Management
       responses:
         '200':
           description: OK
@@ -2259,7 +2260,8 @@ paths:
         required: true
     get:
       summary: Retrieve a Manual Job
-      tags: []
+      tags:
+        - 4. Management
       responses:
         '200':
           description: OK
