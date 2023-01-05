@@ -2252,6 +2252,16 @@ paths:
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
+        - schema:
+            type: array
+            enum:
+              - benefit_create
+              - benefit_enroll
+              - benefit_unenroll
+              - benefit_update
+          in: query
+          name: types
+          description: The types of jobs to list. Defaults to all.
   '/jobs/manual/{job_id}':
     parameters:
       - schema:
