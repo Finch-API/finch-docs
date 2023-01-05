@@ -2063,10 +2063,11 @@ paths:
                     code: 404
                     message: could not find job with id job-fb3b25dc-02dc-48eb-9cfc-3f9837276884
                     name: not_found_error
-    parameters: []
     post:
       summary: Add a New Job
       operationId: post-jobs-automated
+      tags:
+        - 4. Management
       responses:
         '201':
           description: Created
@@ -2235,7 +2236,8 @@ paths:
   /job/manual:
     get:
       summary: List All Manual Jobs
-      tags: []
+      tags:
+        - 4. Management
       responses:
         '200':
           description: OK
@@ -2259,7 +2261,8 @@ paths:
         required: true
     get:
       summary: Retrieve a Manual Job
-      tags: []
+      tags:
+        - 4. Management
       responses:
         '200':
           description: OK
