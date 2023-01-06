@@ -1078,7 +1078,9 @@ paths:
                 Success:
                   value:
                     status: success
-      description: Disconnect an employer from your application and invalidate all `access_token`s associated with the employer. We require applications to implement the Disconnect endpoint for billing and security purposes.
+      description: |-
+        Disconnect one or more `access_token`s from your application. Deletion is based on both the employer and provider of the `access_token` used to call this endpoint, and will affect all matching tokens. Other tokens for the same employer, but connected to a different provider, require a separate call.
+        <br /><br />We require applications to implement the Disconnect endpoint for billing and security purposes.
       tags:
         - 4. Management
       parameters:
