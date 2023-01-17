@@ -110,6 +110,12 @@ Example `GET /jobs/{job_id}` response after job is completed for a `POST /employ
 
 Since enrolling benefits can be a sensitive activity, it is helpful to understand some of the nuances around payroll and benefits in general.
 
+### Setting up Admin Accounts
+
+When attempting to set up Assisted Benefits for most Automated providers, certain extra steps will be required from your customer outside of Finch Connect before our team can process your requests. Currently all Automated providers which support Assisted Benefits except Justworks, Quickbooks, and Zenefits require these extra steps. (Assisted providers will already display these instructions inside Finch Connect.)
+
+Your customer will need to manually add Finch as an external administrator to their payroll system with permissions to manage company and employee benefits. This process varies depending on the payroll system. Please reach out to Finch if you plan to leverage our Assisted Benefits product for one or more customers using a provider listed above.
+
 ### How do payroll benefit deductions work?
 
 Each payroll contains four important dates to know.
