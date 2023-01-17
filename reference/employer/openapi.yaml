@@ -610,7 +610,7 @@ paths:
                                 $ref: '#/components/schemas/Income'
                             custom_fields:
                               type: array
-                              description: Custom fields for the individual. These are fields which are defined by the employer in the system.
+                              description: Custom fields for the individual. These are fields which are defined by the employer in the system. Custom fields are not currently supported for assisted connections.
                               items:
                                 type: object
                                 properties:
