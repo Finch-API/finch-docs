@@ -1,5 +1,7 @@
 # Providers
 
+**Last Updated:** 2022-01-20
+
 The table below lays out the providers with the associated provider `id` that can be used in the `payroll_provider` parameter for [Finch Connect](../Integrating-with-Finch/Integrate-Finch-Connect/Overview.md).
 
 <!--
@@ -34,7 +36,7 @@ Sage HR | `sage_hr` | <span style="color:darkgreen">Automated</span> | <span sty
 Sapling | `sapling` | <span style="color:darkgreen">Automated</span> | <span>Not Supported</span>
 Sequoia One | `sequoia_one` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Square Payroll | `square_payroll` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
-TriNet | `trinet` | <span style="color:darkgreen">Automated</span> | <span>Not Supported</span>
+TriNet | `trinet` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 UltiPro (UKG Pro) | `ulti_pro` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Wave | `wave` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Workday | `workday` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
