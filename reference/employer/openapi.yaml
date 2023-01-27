@@ -1198,7 +1198,7 @@ paths:
           
         Creates a new company-wide benefit. Please use the `/meta` endpoint to view available types for each provider.
 
-        This is an idempotent operation, meaning if the same request is made more than once with the same `benefit_type` and `name`, a new benefit will not be created.
+        If the same request is made more than once with the same `benefit_type` and `description`, a new benefit will not be created. Finch will instead return the benefit id of the existing benefit.
 
         This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
       requestBody:
