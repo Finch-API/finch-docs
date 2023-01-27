@@ -6,7 +6,7 @@ stoplight-id: f7af2039f9a7b
 
 Finch syncs data with providers on a 24 hour cadence, and Finch API responses will return data from the most recent successful sync. Performing data syncs in this way ensures that latency for all Finch API requests should remain under 200ms.
 
-After an employer authorizes your application through Finch Connect, Finch will enqueue an initial data fetch job which will fetch all relevant data for the employer connection. If you attempt to request data before the initial sync has completed, Finch will request live data from the provider. Once the initial data sync has completed, Finch API responses will return the synced data.
+After an employer authorizes your application through Finch Connect, Finch will enqueue an initial data fetch job which will fetch all relevant data for the employer connection. If you attempt to request data before the initial sync has completed, Finch will request live data from the provider. Live request latencies may range from several seconds to minutes for large batch sizes. Once the initial data sync has completed, Finch API responses will return the synced data.
 
 You can use several Finch response headers to determine the freshness of the data you receive:
 
