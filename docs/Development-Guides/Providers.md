@@ -59,6 +59,7 @@ Advantage Payroll Services | `advantage_payroll_services` | <span style="color:g
 Affiliated HR Payroll Services iSolved | `affiliated_hr_payroll_services_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Affiliated HR Payroll Services Evolution | `affiliated_hr_payroll_services_evolution` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Ahola | `ahola` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Alcott HR | `alcott_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 AlphaStaff | `alphastaff` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Amplify HR | `amplify_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Apdata | `apdata` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -66,6 +67,7 @@ APS Payroll | `aps_payroll` | <span style="color:goldenrod">Assisted</span> | <s
 Asset HR | `asset_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Asure Software | `asure_software` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Balance Point | `balance_point` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Bambee | `bambee` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Baron Payroll iSolved | `baron_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 BASIC | `basic` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 BBCS Payroll | `bbcs` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
