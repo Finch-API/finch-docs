@@ -6,7 +6,7 @@ stoplight-id: f7af2039f9a7b
 
 Finch syncs data with providers on a 24 hour cadence, and Finch API responses will return data from the most recent successful sync. Performing data syncs in this way ensures that latency for all Finch API requests should remain under 200ms.
 
-After an employer authorizes your application through Finch Connect, Finch will enqueue an initial data fetch job which will fetch all relevant data for the employer connection. If you attempt to request data before the initial sync has completed, Finch will request live data from the provider. Once the initial data sync has completed, Finch API responses will return the synced data.
+After an employer authorizes your application through Finch Connect, Finch will enqueue an initial data fetch job which will fetch all relevant data for the employer connection. If you attempt to request data before the initial sync has completed, Finch will request live data from the provider*. Once the initial data sync has completed, Finch API responses will return the synced data.
 
 You can use several Finch response headers to determine the freshness of the data you receive:
 
@@ -21,3 +21,5 @@ For batch endpoints (`/employment`, `/individual`, `/pay-statement`) Finch syncs
 
 ### Pay statement history
 Finch currently fetches pay statements from the start of two years from the sync time. For example, if a sync happens on 06/01/2022, pay statements from 01/01/2020 thru 06/01/2022 will be fetched.
+
+**ADP Workforce Now connections will not return live data before a data sync has completed. Until the first data sync completes, Finch will return a 202 response for ADP WFN requests. Your application should be prepared to handle 202 responses. Once the first data sync has completed, Finch will begin returning the most recently synced data.*
