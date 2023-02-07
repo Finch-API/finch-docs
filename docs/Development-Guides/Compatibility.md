@@ -32,7 +32,8 @@ title: HRIS
 ![individual.png](../../assets/images/individual.png)
 
 <p><i>* Initial only</i><br>
-<i>** No work email available</i></p>
+<i>** No work email available</i><br>
+<i>*** Contractors don't have these fields in the QBO system</i></p>
 
 ### Employment
 ![employment.png](../../assets/images/employment-2.png)
