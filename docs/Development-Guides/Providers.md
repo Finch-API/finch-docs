@@ -174,6 +174,7 @@ Proliant | `proliant` | <span style="color:goldenrod">Assisted</span> | <span st
 PropelHR | `propel_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 ProSoftware | `prosoftware` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Proxus HR isolved | `proxus_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Quality Payroll and Benefits | `quality_payroll_benefits` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Remote | `remote` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Resourcing Edge | `resourcing_edge` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 RMI PEO | `rmi_peo` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
