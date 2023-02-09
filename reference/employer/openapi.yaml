@@ -636,19 +636,21 @@ paths:
         - name: start_date
           required: true
           in: query
-          description: The start date to retrieve payments by a company (inclusive) in `YYYY-MM-DD` format.
+          description: The start pay date to retrieve payments by a company (inclusive).
           schema:
             type: string
             format: date
             example: '2021-01-01'
+            pattern: YYYY-MM-DD
         - name: end_date
           required: true
           in: query
-          description: The end date to retrieve payments by a company (inclusive) in `YYYY-MM-DD` format.
+          description: The end pay date to retrieve payments by a company (inclusive).
           schema:
             type: string
             format: date
             example: '2021-01-01'
+            pattern: YYYY-MM-DD
         - $ref: '#/components/parameters/API-Version'
       responses:
         '200':
