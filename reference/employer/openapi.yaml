@@ -2325,7 +2325,7 @@ components:
         type: string
         default: '2020-09-17'
         format: date
-        pattern: '([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))'
+        pattern: YYYY-MM-DD
       description: Header used to specify the version for a given API request. Current version is 2020-09-17.
     Content-Type:
       name: Content-Type
