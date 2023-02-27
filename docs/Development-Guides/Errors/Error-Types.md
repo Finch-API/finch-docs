@@ -36,3 +36,4 @@ Name | Finch Code | Code | Description
 `rate_limit_exceeded_error` | `upstream_rate_limit_exceeded` | 429 | The application has exceeded upstream provider rate limits. Please retry later.
 `server_error` | | 500 | The server experienced an unexpected error.
 `not_implemented_error` | | 501 | Finch does not support this specific endpoint for this specific provider.
+`bad_gateway_error` | `upstream_provider_error` | 502 | The server experienced an unexpected error while interacting with an upstream service, such as a provider.
