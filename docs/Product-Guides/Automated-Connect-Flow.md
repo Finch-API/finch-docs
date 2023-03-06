@@ -5,6 +5,7 @@ Finch Connect is a front-end UI that allows your users to safely and securely gr
 <!--
 focus: false
 -->
+
 ![](../../assets/images/finchConnectIntro.png)
 
 ---
@@ -24,19 +25,23 @@ We recommend asking your user to connect when they are onboarding onto your appl
 ### How should I display Finch Connect?
 
 #### Default flow
-In the default flow, your user is shown an employment system selector page where they can choose which system they use. 
+
+In the default flow, your user is shown an employment system selector page where they can choose which system they use.
 
 <!--
 focus: false
 -->
+
 ![](../../assets/images/integratingConnect1B.png)
 
 #### Selector bypass flow
+
 If you already know which system your user uses or want to build your own selector page, you can bypass the selector page by using the `payroll_provider` option while opening Finch Connect.
 
 <!--
 focus: false
 -->
+
 ![](../../assets/images/integratingConnect2B2X.png)
 
 ### How do I incentivize my user to connect their system?
@@ -46,11 +51,12 @@ To improve conversion, it is important to set user expectations before opening F
 <!--
 focus: false
 -->
+
 ![](../../assets/images/improvingConnectConversion.png)
 
 ## Finch Connect in Your User's Onboarding
 
-If you are integrating Finch into your onboarding flow, we recommend taking the request latencies of the underlying employment systems into consideration while designing the onboarding flow. You can read more about latencies [here](../Development-Guides/Response-Times.md).
+If you are integrating Finch into your onboarding flow, we recommend taking the request latencies of the underlying employment systems into consideration while designing the onboarding flow.
 
 Based on the data points your application needs during onboarding, we recommend the following flows—
 
