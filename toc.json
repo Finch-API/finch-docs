@@ -151,11 +151,6 @@
     },
     {
       "type": "item",
-      "title": "Response Times",
-      "uri": "docs/Development-Guides/Response-Times.md"
-    },
-    {
-      "type": "item",
       "title": "Compatibility",
       "uri": "docs/Development-Guides/Compatibility.md"
     },
