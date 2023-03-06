@@ -56,7 +56,7 @@ focus: false
 
 ## Finch Connect in Your User's Onboarding
 
-If you are integrating Finch into your onboarding flow, we recommend taking the request latencies of the underlying employment systems into consideration while designing the onboarding flow.
+If you are integrating Finch into your onboarding flow, we recommend taking the request latencies of the underlying employment systems into consideration while designing the onboarding flow. You can read more about latencies [here](../Development-Guides/Data-Syncs.md)
 
 Based on the data points your application needs during onboarding, we recommend the following flows—
 
