@@ -1,6 +1,6 @@
 # Providers
 
-**Last Updated:** 2023-01-20
+**Last Updated:** 2023-03-07
 
 The table below lays out the providers with the associated provider `id` that can be used in the `payroll_provider` parameter for [Finch Connect](../Integrating-with-Finch/Integrate-Finch-Connect/Overview.md).
 
@@ -13,7 +13,7 @@ title: HRIS
 > **Read:** The `Company`, `Directory`, `Individual`, `Employment`, `Payment` and `Pay Statement` endpoint are read-only endpoints. Providers can be either an [Automated API Provider](../Product-Guides/Automated-Connect-Flow.md) or an [Assisted API Provider](../Product-Guides/Assisted-Connect-Flow.md).
 
 <!-- theme: info -->
-> **Write:** The benefits endpoints contain both read and write functionalities. Providers can be either an Automated API Benefit Provider or an Assisted API Benefit Provider. Only `Create Benefit`, `Update Benefit`, `Enroll Individuals in Benefits` and `Unenroll Individuals from Benefits` endpoints are available for Assisted API Benefit Providers.
+> **Benefits (Write):** The benefits endpoints contain both read and write functionalities. Providers can be either an Automated API Benefit Provider or an Assisted API Benefit Provider. Only `Create Benefit`, `Update Benefit`, `Enroll Individuals in Benefits` and `Unenroll Individuals from Benefits` endpoints are available for Assisted API Benefit Providers.
 
 ### Automated API Providers
 Display Name | Id | Read | Write
