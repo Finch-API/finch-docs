@@ -13,10 +13,10 @@ title: HRIS
 > **Read:** The `Company`, `Directory`, `Individual`, `Employment`, `Payment` and `Pay Statement` endpoint are read-only endpoints. Providers can be either an [Automated API Provider](../Product-Guides/Automated-Connect-Flow.md) or an [Assisted API Provider](../Product-Guides/Assisted-Connect-Flow.md).
 
 <!-- theme: info -->
-> **Benefits:** The benefits endpoints contain both read and write functionalities. Providers can be either an Automated API Benefit Provider or an Assisted API Benefit Provider. Only `Create Benefit`, `Update Benefit`, `Enroll Individuals in Benefits` and `Unenroll Individuals from Benefits` endpoints are available for Assisted API Benefit Providers.
+> **Write:** The benefits endpoints contain both read and write functionalities. Providers can be either an Automated API Benefit Provider or an Assisted API Benefit Provider. Only `Create Benefit`, `Update Benefit`, `Enroll Individuals in Benefits` and `Unenroll Individuals from Benefits` endpoints are available for Assisted API Benefit Providers.
 
 ### Automated API Providers
-Display Name | Id | Read | Benefits
+Display Name | Id | Read | Write
 ---------|----------|----------|----------
 BambooHR | `bamboo_hr` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 bob | `bob` | <span style="color:darkgreen">Automated</span> | <span >Not Supported</span>
@@ -43,7 +43,7 @@ Workday | `workday` | <span style="color:darkgreen">Automated</span> | <span sty
 Zenefits | `zenefits` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 
 ### Assisted API Providers
-Display Name | Id | Read | Benefits
+Display Name | Id | Read | Write
 ---------|----------|----------|----------
 AAP iSolved | `aap_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Abacus HCM iSolved | `abacus_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
