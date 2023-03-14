@@ -32,6 +32,7 @@ tags:
   - name: 2. Payroll
   - name: 3. Benefits
   - name: 4. Management
+  - name: 4.5. Jobs
   - name: 5. Deprecated
 paths:
   /employer/company:
@@ -1984,6 +1985,7 @@ paths:
       summary: List All Automated Jobs
       tags:
         - 4. Management
+        - 4.5. Jobs
       operationId: get-jobs-automated
       description: 'Get all automated jobs. Automated jobs are completed by a machine. By default, jobs are sorted in descending order by submission time. For scheduled jobs such as data syncs, only the next scheduled job is shown.'
       parameters:
@@ -2126,7 +2128,7 @@ paths:
       operationId: post-jobs-automated
       tags:
         - 4. Management
-        - Jobs
+        - 4.5. Jobs
       responses:
         '201':
           description: Created
@@ -2299,6 +2301,7 @@ paths:
       summary: Retrieve an Automated Job
       tags:
         - 4. Management
+        - 4.5. Jobs
       responses:
         '200':
           description: OK
@@ -2324,35 +2327,6 @@ paths:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
       description: Get an automated job by `job_id`.
-  /job/manual:
-    get:
-      summary: List All Manual Jobs
-      tags:
-        - 4. Management
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ManualAsyncJob'
-      operationId: get-job-manual
-      description: 'Get all manual jobs. Manual jobs are completed by a human. By default, jobs are sorted in descending order by submission time.'
-      parameters:
-        - $ref: '#/components/parameters/API-Version'
-        - $ref: '#/components/parameters/Content-Type'
-        - schema:
-            type: array
-            enum:
-              - benefit_create
-              - benefit_enroll
-              - benefit_unenroll
-              - benefit_update
-          in: query
-          name: types
-          description: The types of jobs to list. Defaults to all.
   '/jobs/manual/{job_id}':
     parameters:
       - schema:
@@ -2371,6 +2345,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ManualAsyncJob'
+              examples:
+                Example 1:
+                  value:
+                    job_id: 497d98f3-580a-4ab9-830a-af2346d029b2
+                    status: complete
+                    body:
+                      - individual_id: 430f9d95-1dcf-4b99-b616-45f814416890
+                        code: 201
+                        message: Successfully enrolled individual in benefit
+                      - individual_id: 647975ac-1e0f-4e9c-b705-e3042da48581
+                        code: 200
+                        message: Successfully updated enrollment for individual
+                      - individual_id: 4a0a3b15-d3d6-41c2-a4a4-ca4ed1b68cf8
+                        code: 404
+                        message: Individual not found
         '400':
           description: Bad Request
           content:
@@ -2415,7 +2404,7 @@ paths:
                     name: not_found_error
                     message: could not find job with id '49142223-78e0-4092-80e1-313f510b0977'
       operationId: get-jobs-manual-job_id
-      description: Get a manual job by `job_id`
+      description: Get a manual job by `job_id`. Manual jobs are completed by a human and include Assisted Benefits jobs.
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -2681,6 +2670,8 @@ components:
             - in_progress
             - complete
             - error
+            - reauth_error
+            - permissions_error
         created_at:
           type: string
           format: date-time
@@ -2710,7 +2701,6 @@ components:
       x-examples:
         Example 1:
           job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
-          code: 200
           status: complete
           body:
             - individual_id: 46decc95-451e-44ef-baac-b228d778267f
@@ -2719,8 +2709,6 @@ components:
         job_id:
           type: string
           format: uuid
-        code:
-          type: integer
         status:
           type: string
           enum:
