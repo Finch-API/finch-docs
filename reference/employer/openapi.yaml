@@ -1987,11 +1987,6 @@ paths:
       operationId: get-jobs-automated
       description: 'Get all automated jobs. Automated jobs are completed by a machine. By default, jobs are sorted in descending order by submission time. For scheduled jobs such as data syncs, only the next scheduled job is shown.'
       parameters:
-        - schema:
-            type: array
-          in: query
-          name: type
-          description: Supply job types to filter on. Defaults to all jobs. Currently the only supported automated job type is `data_sync_all`
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
       responses:
@@ -2000,19 +1995,65 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/AutomatedAsyncJob'
+                type: object
+                properties:
+                  '':
+                    $ref: '#/components/schemas/Paging'
+                    x-stoplight:
+                      id: v1wfb98c3yfas
+                  meta:
+                    type: object
+                    x-stoplight:
+                      id: gvogg69yl024d
+                    properties:
+                      quotas:
+                        type: object
+                        x-stoplight:
+                          id: 80r8hgr5r9kjd
+                        description: Information about remaining quotas for this connection. Only applicable for customers opted in to use Finch's Data Sync Refresh endpoint (`POST /jobs/automated`). Please contact a Finch representative for more details.
+                        properties:
+                          data_sync_all:
+                            type: object
+                            x-stoplight:
+                              id: j6xus9hs95ifo
+                            properties:
+                              allowed_refreshes:
+                                type: integer
+                                x-stoplight:
+                                  id: bggi4k2j5d4sm
+                              remaining_refreshes:
+                                type: integer
+                                x-stoplight:
+                                  id: r4ponmfozgkzf
+                  data:
+                    type: array
+                    x-stoplight:
+                      id: fbq2ay71tw5je
+                    items:
+                      $ref: '#/components/schemas/AutomatedAsyncJob'
+                      x-stoplight:
+                        id: 4bjei2fp796pz
+                required: []
               examples:
                 Example 1:
                   value:
-                    - job_id: job-7e8d96ab-898f-4495-8b74-6316bb30b772
-                      status: scheduled
-                      type: data-sync-all
-                      code: 0
-                      created_at: '2019-08-24T14:15:00Z'
-                      started_at: '2019-08-24T14:15:22Z'
-                      completed_at: null
+                    '':
+                      count: 10
+                      offset: 0
+                    meta:
+                      quotas:
+                        data_sync_all:
+                          allowed_refreshes: 2
+                          remaining_refreshes: 2
+                    data:
+                      - job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                        job_url: 'https://api.tryfinch.com/job/automated/453bd7d7-5355-4d6d-a38e-d9e7eb218c3f'
+                        type: data_sync_all
+                        status: pending
+                        created_at: '2019-08-24T14:15:22Z'
+                        scheduled_at: '2019-08-24T14:15:22Z'
+                        started_at: '2019-08-24T14:15:22Z'
+                        completed_at: '2019-08-24T14:15:22Z'
         '401':
           description: Unauthorized
           content:
@@ -2063,6 +2104,23 @@ paths:
                     code: 404
                     message: could not find job with id job-fb3b25dc-02dc-48eb-9cfc-3f9837276884
                     name: not_found_error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                  x-stoplight:
+                    id: 4vv34b4tkreyh
+                  description: The number of items to return. Defaults to 100.
+                offset:
+                  type: integer
+                  x-stoplight:
+                    id: nkqlsybl9wqww
+                  description: Where in the list of jobs to start returning from. Defaults to index 0.
+        description: ''
     post:
       summary: Add a New Job
       operationId: post-jobs-automated
@@ -2079,16 +2137,29 @@ paths:
                   job_id:
                     type: string
                     format: uuid
+                    description: The id of the job that has been created.
+                  job_url:
+                    type: string
+                    x-stoplight:
+                      id: zbhqrlab2bgh5
+                    description: The url that can be used to retrieve the job status
                   allowed_refreshes:
                     type: integer
+                    description: 'The number of allowed refreshes per hour (per hour, fixed window)'
                   remaining_refreshes:
                     type: integer
+                    description: 'The number of remaining refreshes available (per hour, fixed window)'
               examples:
                 Example 1:
                   value:
                     job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    job_url: 'https://api.tryfinch.com/jobs/automated/453bd7d7-5355-4d6d-a38e-d9e7eb218c3f'
                     allowed_refreshes: 2
-                    remaining_refreshes: 2
+                    remaining_refreshes: 1
+            application/xml:
+              schema:
+                type: object
+                properties: {}
         '202':
           description: Accepted. This response will be returned if a job is already enqueued for the connection. This case does not consume any job quota as it just returns the details of an existing job.
           content:
@@ -2096,13 +2167,23 @@ paths:
               schema:
                 type: object
                 properties:
-                  job_Id:
+                  job_id:
                     type: string
                     format: uuid
+                    x-stoplight:
+                      id: 1t5lwm0c3d0wt
+                    description: The id of the job that has been created.
+                  job_url:
+                    type: string
+                    x-stoplight:
+                      id: h4syylb7y085f
+                    description: The url that can be used to retrieve the job status
                   allowed_refreshes:
                     type: integer
+                    description: 'The number of allowed refreshes per hour (per hour, fixed window)'
                   remaining_refreshes:
                     type: integer
+                    description: 'The number of remaining refreshes available (per hour, fixed window)'
               examples:
                 Example 1:
                   value:
@@ -2168,11 +2249,14 @@ paths:
                 properties:
                   allowed_refreshes:
                     type: integer
+                    description: 'The number of allowed refreshes per hour (per hour, fixed window)'
                   remaining_refreshes:
                     type: integer
+                    description: 'The number of remaining refreshes available (per hour, fixed window)'
                   retry_at:
                     type: string
                     format: date-time
+                    description: The datetime when quota for enqueuing new jobs will again be available. Only shown for a 429 response.
               examples:
                 Example 1:
                   value:
@@ -2191,11 +2275,15 @@ paths:
               properties:
                 type:
                   type: string
-                  description: The type of job to enqueue
+                  description: The type of job to start. Currently the only supported type is `data_sync_all`
                   enum:
                     - data-sync-all
               required:
                 - type
+          application/xml:
+            schema:
+              type: object
+              properties: {}
   '/jobs/automated/{job_id}':
     parameters:
       - schema:
@@ -2218,14 +2306,13 @@ paths:
                 Example 1:
                   value:
                     job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
-                    mode: automated
+                    job_url: 'https://api.tryfinch.com/job/automated/453bd7d7-5355-4d6d-a38e-d9e7eb218c3f'
                     type: data_sync_all
-                    code: 202
                     status: pending
-                    submitted_at: '2019-08-24T14:15:22Z'
+                    created_at: '2019-08-24T14:15:22Z'
+                    scheduled_at: '2019-08-24T14:15:22Z'
                     started_at: '2019-08-24T14:15:22Z'
                     completed_at: '2019-08-24T14:15:22Z'
-                    body: {}
         '404':
           description: Not Found
       operationId: get-jobs-job_id
@@ -2558,31 +2645,6 @@ components:
       x-stoplight:
         id: voe2om9cm4h80
       type: object
-      properties:
-        job_id:
-          type: string
-        type:
-          type: string
-          enum:
-            - scheduled
-            - enqueued
-            - started
-            - success
-            - reauth_error
-            - permission_error
-        code:
-          type: integer
-        created_at:
-          type: string
-          format: date-time
-        started_at:
-          type: string
-          format: date-time
-          nullable: true
-        completed_at:
-          type: string
-          format: date-time
-          nullable: true
       x-examples:
         Example 1:
           job_id: job-7e8d96ab-898f-4495-8b74-6316bb30b772
@@ -2591,6 +2653,51 @@ components:
           created_at: '2019-08-24T14:15:22Z'
           started_at: '2019-08-24T14:15:22Z'
           completed_at: '2019-08-24T14:15:22Z'
+      properties:
+        job_id:
+          type: string
+          description: The id of the job that has been created.
+          format: uuid
+        job_url:
+          type: string
+          x-stoplight:
+            id: eabb1yhaw9vnt
+          description: The url that can be used to retrieve the job status
+        type:
+          type: string
+          description: Only `data_sync_all` currently supported
+          enum:
+            - data_sync_all
+        status:
+          type: string
+          x-stoplight:
+            id: x2dvdhxz2b91b
+          enum:
+            - pending
+            - in_progress
+            - complete
+            - error
+        created_at:
+          type: string
+          format: date-time
+          description: 'The datetime when the job was created. for scheduled jobs, this will be the initial connection time. For ad-hoc jobs, this will be the time the creation request was received.'
+        scheduled_at:
+          type: string
+          x-stoplight:
+            id: 1lz356ikigkbb
+          format: date-time
+          description: "The datetime a job is scheduled to be run. For scheduled jobs, this datetime can be in the future if the job has not yet been enqueued. For ad-hoc jobs, this field will be\_null."
+          nullable: true
+        started_at:
+          type: string
+          format: date-time
+          description: The datetime a job entered into the job queue.
+          nullable: true
+        completed_at:
+          type: string
+          format: date-time
+          description: The datetime the job completed.
+          nullable: true
     ManualAsyncJob:
       title: ManualAsyncJob
       x-stoplight:
