@@ -32,7 +32,6 @@ tags:
   - name: 2. Payroll
   - name: 3. Benefits
   - name: 4. Management
-  - name: 4.5. Jobs
   - name: 5. Deprecated
 paths:
   /employer/company:
@@ -1985,7 +1984,6 @@ paths:
       summary: List All Automated Jobs
       tags:
         - 4. Management
-        - 4.5. Jobs
       operationId: get-jobs-automated
       description: 'Get all automated jobs. Automated jobs are completed by a machine. By default, jobs are sorted in descending order by submission time. For scheduled jobs such as data syncs, only the next scheduled job is shown.'
       parameters:
@@ -2124,11 +2122,10 @@ paths:
                   description: Where in the list of jobs to start returning from. Defaults to index 0.
         description: ''
     post:
-      summary: Add a New Job
+      summary: Add a Automated New Job
       operationId: post-jobs-automated
       tags:
         - 4. Management
-        - 4.5. Jobs
       responses:
         '201':
           description: Created
@@ -2301,7 +2298,6 @@ paths:
       summary: Retrieve an Automated Job
       tags:
         - 4. Management
-        - 4.5. Jobs
       responses:
         '200':
           description: OK
