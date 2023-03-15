@@ -158,12 +158,7 @@
       "type": "item",
       "title": "Data Syncs",
       "uri": "docs/Development-Guides/Data-Syncs.md"
-    },
-    {
-      "type": "item",
-      "title": "Authentication Method Configuration",
-      "uri": "docs/Development-Guides/Authorization-Configuration.md"
-    },
+    }
     {
       "type": "divider",
       "title": "APIs"
