@@ -221,7 +221,7 @@ Zoho Payroll | `zoho_payroll` | <span style="color:goldenrod">Assisted</span> | 
 
 ***these providers are [**Assisted Benefits Enabled**](../Product-Guides/Benefits-API.md#Using-benefit-metadata), meaning Finch has connected to the system already and is configured to support the system, including having mapped the benefits supported in the system*
 
-****ADP Workforce Now will function as an Assisted flow in Finch Connect. This means the employer will follow normal Assisted Connect instructions to authorize access. Once the Connect flow is completed, ADP WFN will function as a normal, automated connection with one caveat: until the first Data Sync is completed, Finch will serve a 202 response for any request for ADP WFN data. For more information see the [Data Syncs](../Development-Guides/Data-Syncs.md) page.*
+****ADP Workforce Now utilizes Auth Fallback and so will function as an Assisted flow in Finch Connect. This means the employer will follow normal Assisted Connect instructions to authorize access. Once the Connect flow is completed, ADP WFN will function as a normal, automated connection with one caveat: until the first Data Sync is completed, Finch will serve a 202 response for any request for ADP WFN data. For more information see the [Data Syncs](../Development-Guides/Data-Syncs.md) page.*
 
 <!--
 type: tab
