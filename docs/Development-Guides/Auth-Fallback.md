@@ -1,6 +1,6 @@
 # Auth Fallback
 
-Auth Fallback employers to authorize through Finch Connect even when Finch is experiencing intermittent issues with provider integrations. If an employer attempts to authorize through Finch Connect’s automated flow and receives an error, after three attempts*, Finch Connect will display instructions for the employer to connect Finch manually. This entails the employer adding Finch as a third-party user to the employer’s system. Once Finch has accepted the invite and set up the account, the data for this connection will flow through the Finch API just as it does for every other automated connection. The only key difference is that until the connection is set up on Finch’s side, **your application will receive a 202 response when making requests with that token.**
+Auth Fallback allows employers to authorize through Finch Connect even when Finch is experiencing intermittent issues with provider integrations. If an employer attempts to authorize through Finch Connect’s automated flow and receives an error, after three attempts*, Finch Connect will display instructions for the employer to connect Finch manually. This entails the employer adding Finch as a third-party user to the employer’s system. Once Finch has accepted the invite and set up the account, the data for this connection will flow through the Finch API just as it does for every other automated connection. The only key difference is that until the connection is set up on Finch’s side, **your application will receive a 202 response when making requests with that token.**
 
 For ADP Workforce Now specifically, Finch offers this auth method exclusively. These connections function exactly as above, but rather than being a fallback, there is no fully automated auth method for ADP Workforce Now.
 
@@ -8,13 +8,13 @@ For ADP Workforce Now specifically, Finch offers this auth method exclusively. T
 
 **Can I opt out?**
 
-Yes, this is an opt-in feature. The tradeoff is that when these intermittent issues do occur, your customers will have no way of connecting their accounts until the issues are resolved.
+Yes, this is an opt-in feature. If you choose not to opt in, the tradeoff is that when these intermittent issues do occur, your customers will have no way of connecting their accounts until the issues are resolved.
 
-**Note that if you choose to opt out, Finch’s ADP Workforce now integration not be available to your customers through Finch Connect.**
+**Note that if you choose not to opt in, Finch’s ADP Workforce now integration not be available to your customers through Finch Connect.**
 
 **Why do auth issues occur?**
 
-Auth issues occur for a variety of reasons. The provider backends that Finch is integrating with are often legacy systems, meaning they can often be unreliable. Finch attempts to smooth over these gaps in provider systems with our data sync functionality for serving API requests. This fallback is intended to serve the same purpose for employer authorization.
+Auth issues occur for a variety of reasons. The provider backends that Finch is integrating with are often legacy systems, meaning they can often be unreliable. Finch attempts to smooth over these gaps in provider systems with our [data sync](../Development-Guides/Data-Syncs.md) functionality for serving API requests. This fallback is intended to serve the same purpose for employer authorization.
 
 **What is Finch doing to mitigate auth issues?**
 
