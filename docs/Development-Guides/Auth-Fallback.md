@@ -1,6 +1,8 @@
 # Auth Fallback
 
-Auth Fallback allows employers to authorize through Finch Connect even when Finch is experiencing intermittent issues with provider integrations. If an employer attempts to authorize through Finch Connect’s automated flow and receives an error, after three attempts*, Finch Connect will display instructions for the employer to connect Finch manually. This entails the employer adding Finch as a third-party user to the employer’s system. Once Finch has accepted the invite and set up the account, the data for this connection will flow through the Finch API just as it does for every other automated connection. The only key difference is that until the connection is set up on Finch’s side, **your application will receive a 202 response when making requests with that token.**
+Auth Fallback allows employers to authorize through Finch Connect even when Finch is experiencing intermittent issues with provider integrations. This feature applies only to credential authorization methods, and not to other authorization methods like direct API token entry or OAuth. 
+
+If an employer attempts to authorize through Finch Connect’s automated flow and receives an error, after three attempts*, Finch Connect will display instructions for the employer to connect Finch manually. This entails the employer adding Finch as a third-party user to the employer’s system. Once Finch has accepted the invite and set up the account, the data for this connection will flow through the Finch API just as it does for every other automated connection. The only key difference is that until the connection is set up on Finch’s side, **your application will receive a 202 response when making requests with that token.**
 
 For ADP Workforce Now specifically, Finch offers this auth method exclusively. These connections function exactly as above, but rather than being a fallback, there is no fully automated auth method for ADP Workforce Now.
 
