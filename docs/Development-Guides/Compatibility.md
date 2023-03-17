@@ -18,7 +18,7 @@ title: HRIS
 -->
 
 ### Company
-![company.jpg](../../assets/images/company.jpg)
+![company.jpg](../../assets/images/company.png)
 
 <p><i>* Only available by inferring from entity.type</i><br>
 <i>** account_number is mask and only shows the last 4 digits</i></p>
@@ -32,10 +32,11 @@ title: HRIS
 ![individual.png](../../assets/images/individual.png)
 
 <p><i>* Initial only</i><br>
-<i>** No work email available</i></p>
+<i>** No work email available</i><br>
+<i>*** Contractors don't have these fields in the QBO system</i></p>
 
 ### Employment
-![employment.png](../../assets/images/employment-2.png)
+![employment.png](../../assets/images/employment.png)
 
 
 <p><i>* Initial only</i><br>

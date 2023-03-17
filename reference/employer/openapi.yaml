@@ -6,6 +6,10 @@ info:
   description: |-
     The Finch HRIS API provides a unified way to connect to a multitide of HRIS systems. The API requires an access token issued by Finch.
 
+    By default, Organization, Census, and Payroll requests use Finch's [Data Syncs](docs/Development-Guides/Data-Syncs.md). If a request is made before the initial sync has completed, Finch will request data live from the provider. The latency on live requests may range from seconds to minutes depending on the provider and batch size.
+    Benefits requests (both read and write) are always made live to the provider. Latencies may range from seconds to minutes depending on the provider and batch size.
+
+
     Employer products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. Valid product names are—
     - `company`: Read basic company data
 
@@ -636,19 +640,21 @@ paths:
         - name: start_date
           required: true
           in: query
-          description: The start date to retrieve payments by a company (inclusive) in `YYYY-MM-DD` format.
+          description: The start pay date to retrieve payments by a company (inclusive).
           schema:
             type: string
             format: date
             example: '2021-01-01'
+            pattern: YYYY-MM-DD
         - name: end_date
           required: true
           in: query
-          description: The end date to retrieve payments by a company (inclusive) in `YYYY-MM-DD` format.
+          description: The end pay date to retrieve payments by a company (inclusive).
           schema:
             type: string
             format: date
             example: '2021-01-01'
+            pattern: YYYY-MM-DD
         - $ref: '#/components/parameters/API-Version'
       responses:
         '200':
@@ -1153,8 +1159,10 @@ paths:
       operationId: get-company-benefits
       description: |-
         **Availability: Automated Benefits providers only**  
-          
+
         List all company-wide benefits.
+
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     post:
@@ -1191,6 +1199,10 @@ paths:
         **Availability: Automated and Assisted Benefits providers**  
           
         Creates a new company-wide benefit. Please use the `/meta` endpoint to view available types for each provider.
+
+        If the same request is made more than once with the same `benefit_type` and `description`, a new benefit will not be created. Finch will instead return the benefit id of the existing benefit.
+
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
       requestBody:
         content:
           application/json:
@@ -1329,6 +1341,8 @@ paths:
         **Availability: Automated Benefits providers only**  
           
         Lists benefit information for a given benefit
+
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     post:
@@ -1356,6 +1370,8 @@ paths:
         **Availability: Automated and Assisted Benefits providers**  
           
         Updates an existing company-wide benefit
+
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider.
       requestBody:
         content:
           application/json:
@@ -1419,6 +1435,8 @@ paths:
         **Availability: Automated Benefits providers only**  
           
         Lists individuals currently enrolled in a given benefit.
+
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     parameters:
@@ -1477,6 +1495,8 @@ paths:
         **Availability: Automated Benefits providers only**  
           
         Get enrolled benefit information for the given individuals.
+
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -1618,7 +1638,9 @@ paths:
       description: |
         **Availability: Automated and Assisted Benefits providers**  
           
-        Enroll an individual into a benefit. If the employee is already enrolled, the enrollment amounts will be adjusted.
+        Enroll an individual into a benefit. This is an overwrite operation. If the employee is already enrolled, the enrollment amounts will be adjusted. Making the same request multiple times will not enroll new benefits, but will continue to set the state of the existing enrollment.
+
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
 
         <!-- theme: warning -->
         > Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
@@ -1770,6 +1792,8 @@ paths:
         **Availability: Automated and Assisted Benefits providers**  
           
         Unenroll individuals from a benefit
+
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider.
       requestBody:
         content:
           application/json:
@@ -2323,7 +2347,7 @@ components:
         type: string
         default: '2020-09-17'
         format: date
-        pattern: '([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))'
+        pattern: YYYY-MM-DD
       description: Header used to specify the version for a given API request. Current version is 2020-09-17.
     Content-Type:
       name: Content-Type

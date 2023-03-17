@@ -1,6 +1,6 @@
 # Providers
 
-**Last Updated:** 2022-01-20
+**Last Updated:** 2023-01-20
 
 The table below lays out the providers with the associated provider `id` that can be used in the `payroll_provider` parameter for [Finch Connect](../Integrating-with-Finch/Integrate-Finch-Connect/Overview.md).
 
@@ -160,7 +160,7 @@ Payroll Network | `payroll_network` | <span style="color:goldenrod">Assisted</sp
 Payroll Office of America | `payroll_office_of_america` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Payroll Plus HCM isolved | `payroll_plus_hcm_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Payroll Plus HCM Evolution | `payroll_plus_hcm_evolution` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-Payroll Solutions | `payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Payroll Solutions* | `payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Paytime | `paytime` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted</span>
 PayUSA | `pay_usa_inc` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PCS HCM | `pcs_hcm` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>

@@ -32,5 +32,8 @@ Name | Finch Code | Code | Description
 `not_found_error` | `payment_not_found` | 404 | The requested payment could not be found.
 `unprocessable_request_error` |`unsupported_parameters`| 422 | Parameters provided are not supported by the provider or benefit. Relevant to the `/employer/benefits/*` endpoints.
 `unprocessable_request_error` |`invalid_employee_enrollment`| 422 | The employee is unable to be enrolled in a benefit due specific to constraints on the provider side. Relevant to the `/employer/benefits/*` endpoints.
+`rate_limit_exceeded_error` | `finch_rate_limit_exceeded` | 429 | The application has exceeded Finch's rate limits. Please retry later.
+`rate_limit_exceeded_error` | `upstream_rate_limit_exceeded` | 429 | The application has exceeded upstream provider rate limits. Please retry later.
 `server_error` | | 500 | The server experienced an unexpected error.
 `not_implemented_error` | | 501 | Finch does not support this specific endpoint for this specific provider.
+`bad_gateway_error` | `upstream_provider_error` | 502 | The server experienced an unexpected error while interacting with an upstream service, such as a provider.
