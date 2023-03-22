@@ -18,6 +18,10 @@ Finch Connect is the front-end UI that allows your users to safely and securely 
 
 - [ ]  Some of your customers may use multiple employment systems. Read our [UI recommendations](../Development-Guides/Multi-account-Flow.md#presenting-connect) on how to best present this flow for your users.
 
+**Configure authentication methods**
+
+- [ ] Get in touch with your Finch representative if you would like [specific auth methods](docs/Product-Guides/Automated-Connect-Flow.md#authentication-method-configuration) displayed in Finch Connect, and we can manage it for you.
+
 ## Integrating Finch API
 
 Given the nature of the underlying systems Finch's API is built on top of, the following steps are recommended to build a resilient integration.
