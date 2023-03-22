@@ -49,11 +49,9 @@ There are three important errors your application should be aware of.
 
 - [ ]  Some of your customers may use multiple employment systems. This will involve [application logic](../Development-Guides/Multi-account-Flow.md#application-logic) and [database schema](../Development-Guides/Multi-account-Flow.md#flexible-database-schema) considerations on your end.
 
-## Authorization Method Configuration
-Finch often offers several methods of authorization to end employers. Some integration offer the option for employers to authorization using credenentials, while others also offer OAuth or direct API token input. These methods have different tradeoffs regarding reliability and access to data, and Finch works to give maximal optionality in the way data access happens. With authorization method configuration, Finch allows you as the developer to choose which auth methods you want to expose to your end customers and in which priority. Finch offers a primary and secondary auth method that can be set for each provider and also can hide certain auth methods if you wish. For example, if you would only like to expose the OAuth auth method to BambooHR customers, Finch can hide the credential auth method in Finch Connect for you.
+## Configure Authentication Methods
 
-- [ ] Get in touch with your Finch representative if you would like a specific auth configuration, and we can manage it for you. 
-In the future, we will launch a self-serve feature which will allow you to set these configurations via our developer dashboard.
+- [ ] Get in touch with your Finch representative if you would like [specific auth methods](docs/Product-Guides/Automated-Connect-Flow.md#authentication-method-configuration) displayed in Finch Connect, and we can manage it for you.
 
 ## Security
 
