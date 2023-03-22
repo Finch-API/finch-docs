@@ -2227,7 +2227,7 @@ paths:
                   description: Where in the list of jobs to start returning from. Defaults to index 0.
         description: ''
     post:
-      summary: Add a Automated New Job
+      summary: Enqueue a New Automated Job
       operationId: post-jobs-automated
       tags:
         - 4. Management
