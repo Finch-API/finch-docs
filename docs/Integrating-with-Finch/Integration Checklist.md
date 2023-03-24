@@ -70,9 +70,9 @@ Storing and logging key identifiers will ensure a faster turnaround time when co
 
 ## Auth Fallback and Email Forwarding
 
-- [ ] Email forwarding to Finch is an enterprise-level feature that allows you to provision a custom email address for some API integrations. Contact our team on Slack or send an email to `developers@tryfinch.com` to get started.
+- [ ] Email forwarding to Finch allows you to provision a custom email address for some API integrations. Contact our team on Slack or send an email to `developers@tryfinch.com` to get started.
 
-- [ ] With email forwarding set up, ask our team to opt in to [Auth Fallback](../Development-Guides/Auth-Fallback.md) to allow your customers better ability to authorize through Finch Connect.
+- [ ] With email forwarding set up, ask our team to opt in to [authentication fallback](../Product-Guides/Automated-Connect-Flow.md#authentication-fallback) to allow your customers better ability to authenticate through Finch Connect. This feature is only available to *Scale* tier customers.
 
 
 ## Testing Your Finch integration and Going Live
