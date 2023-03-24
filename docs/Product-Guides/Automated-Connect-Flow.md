@@ -44,6 +44,9 @@ focus: false
 
 ![](../../assets/images/integratingConnect2B2X.png)
 
+### Authentication Method Configuration
+Finch often offers several methods of authentication to end employers. Some integrations offer the option for employers to authenticate using credenentials, while others also offer OAuth or direct API token input. These methods have different tradeoffs regarding reliability and access to data, and Finch works to give maximal optionality in the way data access happens. Finch allows you as the developer to choose which auth methods you want to expose to your end customers and in which priority. Finch offers a primary and secondary auth method that can be set for each provider and also can hide certain auth methods if you wish. For example, if you would only like to expose the OAuth auth method to BambooHR customers, Finch can hide the credential auth method in Finch Connect for you. Get in touch with your Finch representative if you would like a specific auth configuration, and we can manage it for you
+
 ### How do I incentivize my user to connect their system?
 
 To improve conversion, it is important to set user expectations before opening Finch Connect. We recommend letting the user know they will be asked to connect their employment system and, importantly, why connecting is beneficial for them.
@@ -61,4 +64,4 @@ If you are integrating Finch into your onboarding flow, we recommend taking the 
 Based on the data points your application needs during onboarding, we recommend the following flows—
 
 1. For `/company` and/or `/directory` data points, you can design a synchronous flow where your user goes through Finch Connect, your application sends API requests to Finch, waits for the responses, and then renders the UI.
-2. For data from other endpoints, we recomment _simulating_ a sychronous flow. Here, your user goes through Finch Connect and your application kicks off API requests in the background. While the requests are being resolved, your user goes through the rest of the onboarding flow. Finally, once the API requests are resolved, your application renders the appropriate UI, creating a sense of immediacy.
+2. For data from other endpoints, we recommend _simulating_ a sychronous flow. Here, your user goes through Finch Connect and your application kicks off API requests in the background. While the requests are being resolved, your user goes through the rest of the onboarding flow. Finally, once the API requests are resolved, your application renders the appropriate UI, creating a sense of immediacy.
