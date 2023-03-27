@@ -68,11 +68,12 @@ Storing and logging key identifiers will ensure a faster turnaround time when co
 - [ ]  Each Finch `access_token` is associated with a static Finch `company_id`. You can find the id using the `/introspect` endpoint. Save this in your data store alongside the token and use it when contacting Support about an issue or while reconciling billing statements from Finch.
 - [ ]  Each Finch API response returns a `Finch-Request-ID` in the headers. Use this when contacting Support about an issue.
 
-## Production Setup
+## Auth Fallback and Email Forwarding
 
-The following steps will help create a white-labeled experience for your users.
+- [ ] Email forwarding to Finch allows you to provision a custom email address for some API integrations. Contact our team on Slack or send an email to `developers@tryfinch.com` to get started.
 
-- [ ]  Email forwarding to Finch is an enterprise-level feature that allows you to provision a custom email address for some API integrations. Contact our team on Slack or send an email to `developers@tryfinch.com` to get started.
+- [ ] With email forwarding set up, ask our team to opt in to [authentication fallback](../Product-Guides/Automated-Connect-Flow.md#authentication-fallback) to allow your customers better ability to authenticate through Finch Connect. This feature is only available to *Scale* tier customers.
+
 
 ## Testing Your Finch integration and Going Live
 
