@@ -24,24 +24,24 @@ bob | `bob` | <span style="color:darkgreen">Automated</span> | <span >Not Suppor
 Gusto | `gusto` | <span style="color:darkgreen">Automated</span> | <span style="color:darkgreen">Automated</span>
 Humaans | `humaans` | <span style="color:darkgreen">Automated</span> | <span>Not Supported</span>
 Insperity | `insperity` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
-Justworks | `justworks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Justworks | `justworks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 Namely | `namely` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Paychex Flex | `paychex_flex` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 Paycom | `paycom` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Paylocity | `paylocity` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Personio | `personio` | <span style="color:darkgreen">Automated</span> | <span>Not Supported</span>
-QuickBooks Payroll | `quickbooks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+QuickBooks Payroll | `quickbooks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 Rippling | `rippling` | <span style="color:darkgreen">Automated</span> | <span >Not Supported</span>
-Run Powered by ADP | `adp_run` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Run Powered by ADP | `adp_run` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 Sage HR | `sage_hr` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Sapling | `sapling` | <span style="color:darkgreen">Automated</span> | <span>Not Supported</span>
 Sequoia One | `sequoia_one` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Square Payroll | `square_payroll` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
-TriNet | `trinet` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+TriNet | `trinet` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 UltiPro (UKG Pro) | `ulti_pro` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Wave | `wave` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Workday | `workday` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
-Zenefits | `zenefits` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Zenefits | `zenefits` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 
 ### Assisted API Providers
 Display Name | Id | Read | Benefits
@@ -151,7 +151,7 @@ Oracle PeopleSoft | `oracle_peoplesoft` | <span style="color:goldenrod">Assisted
 Panther | `panther` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Paragon Payroll iSolved | `paragon_payroll_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Patriot | `patriot` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-Paycor | `paycor` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted</span>
+Paycor | `paycor` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted**</span>
 Payday Workforce Solutions | `payday_workforce_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PayFit | `payfit` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PayNorthwest | `paynw` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted</span>
@@ -160,7 +160,7 @@ Payroll Network | `payroll_network` | <span style="color:goldenrod">Assisted</sp
 Payroll Office of America | `payroll_office_of_america` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Payroll Plus HCM isolved | `payroll_plus_hcm_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Payroll Plus HCM Evolution | `payroll_plus_hcm_evolution` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-Payroll Solutions* | `payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Payroll Solutions | `payroll_solutions` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted</span>
 Paytime | `paytime` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted</span>
 PayUSA | `pay_usa_inc` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PCS HCM | `pcs_hcm` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
