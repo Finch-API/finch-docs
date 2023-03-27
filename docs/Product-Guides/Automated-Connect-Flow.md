@@ -44,11 +44,13 @@ focus: false
 
 ![](../../assets/images/integratingConnect2B2X.png)
 
-#### Authentication Method Configuration
-Finch often offers several methods of authentication to end employers. Some integrations offer the option for employers to authenticate using credentials, while others also offer OAuth or direct API token input. These methods have different tradeoffs regarding reliability and access to data, and Finch works to give maximal optionality in the way data access happens. Finch allows you as the developer to choose which auth methods you want to expose to your end customers and in which priority. Finch offers a primary and secondary auth method that can be set for each provider and also can hide certain auth methods if you wish. For example, if you would only like to expose the OAuth auth method to BambooHR customers, Finch can hide the credential auth method in Finch Connect for you. Get in touch with your Finch representative if you would like a specific auth configuration, and we can manage it for you.
+#### Configuring Authentication Methods
+Finch often offers several methods of authentication to end employers. Some integrations offer the option for employers to authenticate using credentials, while others also offer OAuth or direct API token input. Each method provides a distinct balance between reliability and data accessibility, and Finch works to give maximal optionality in the way data access happens.
+
+As a developer, you have the flexibility to decide which authentication methods to make available for your end customers and their order of priority. You can set primary and secondary authentication methods for each provider, and even hide specific methods if desired. For example, if you want to present only the OAuth method to BambooHR customers, Finch can conceal the credentials-based authentication method in Finch Connect. To request a custom authentication configuration, please contact your Finch representative
 
 #### Authentication Fallback
-Authentication Fallback is an opt-in feature for *Scale* tier customers which allows employers to authorize through Finch Connect even when Finch is experiencing intermittent issues with provider integrations. This feature applies only to credential authentication methods, and not to other authentication methods like direct API token entry or OAuth.
+The Authentication Fallback feature is an opt-in feature for *Scale* tier customers. It enables employers to authorize through Finch Connect even when Finch is experiencing intermittent issues with provider integrations. This feature applies only to credentials-based authentication methods, and not to other authentication methods like direct API token entry or OAuth.
 
 <!--
 focus: false
@@ -56,9 +58,9 @@ focus: false
 
 ![](../../assets/images/fallback.png)
 
-If an employer attempts to authenticate through Finch Connect’s automated flow and receives an error, after three attempts*, Finch Connect will display instructions for the employer to connect Finch manually. This entails the employer adding Finch as a third-party user to the employer’s system. Once Finch has accepted the invite and set up the account, the data for this connection will flow through the Finch API just as it does for every other automated connection. The only key difference is that until the connection is set up on Finch’s side, **your application will receive a 202 response when making requests with that token.** Therefore, your application should be set up to handle 202 response codes from Finch. Please reach out to your Finch account manager if you would like to enable this feature.
+If an employer encounters an error while attempting to authenticate via Finch Connect's automated flow, Finch Connect will display manual connection instructions after three failed attempts*. This process involves the employer adding Finch as a third-party admin in their system. Once Finch accepts the invitation and sets up the account, the data for the connection will flow through the Finch API, just like any other automated connection. The primary distinction is that your application will **receive a 202 response** when making requests with that token until the connection is established on Finch's end. Ensure that your application is configured to handle 202 response codes from Finch. To enable this feature, please reach out to your Finch account manager.
 
-*the number of errors before presenting the fallback screen is configurable. Currently it is set to three for every provider, but we may adjust this value over time.
+*The number of errors before displaying the fallback screen is adjustable. While the default value is set to three for every provider, this may change over time.
 
 
 ### How do I incentivize my user to connect their system?
