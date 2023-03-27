@@ -160,6 +160,11 @@
       "uri": "docs/Development-Guides/Data-Syncs.md"
     },
     {
+      "type": "item",
+      "title": "Use Case Best Practices",
+      "uri": "docs/Development-Guides/Best-Practices.md"
+    },
+    {
       "type": "divider",
       "title": "APIs"
     },
