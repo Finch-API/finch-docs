@@ -1018,12 +1018,50 @@ paths:
                       description: The display name of the payroll provider.
                     products:
                       type: array
-                      description: The list of Finch products supported on this payroll provider.
+                      description: '[DEPRECATED] The list of Finch products supported on this payroll provider. This field is now deprecated. Please use `authentication_methods` instead.'
                       items:
                         type: string
                     category:
                       type: string
                       description: 'The categroy of the integration. Possible values: `hris`, `ats`'
+                    authentication_methods:
+                      type: array
+                      x-stoplight:
+                        id: kqh1orpm8c2uh
+                      description: The supported authentication methods for this provider.
+                      items:
+                        x-stoplight:
+                          id: wa4yuci2z09fa
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            x-stoplight:
+                              id: z1v5i0z0fygnl
+                            format: uuid
+                          type:
+                            type: string
+                            x-stoplight:
+                              id: zo0rd28yaha2t
+                            enum:
+                              - credentials
+                              - oauth
+                              - api_token
+                              - assisted
+                          allowed_scopes:
+                            type: array
+                            x-stoplight:
+                              id: ecvjvt72ak9jy
+                            description: The Finch scopes that are supported for this authentication method on this provider.
+                            items:
+                              x-stoplight:
+                                id: quoud82vv5m8r
+                              type: string
+                          mfa_required:
+                            type: boolean
+                            x-stoplight:
+                              id: e8kdjn4shez11
+                            description: Whether MFA is required by the employer when authenticating with this method.
                     icon:
                       type: string
                       description: The url to the official icon of the payroll provider.
@@ -1032,13 +1070,13 @@ paths:
                       description: The url to the official logo of the payroll provider.
                     mfa_required:
                       type: boolean
-                      description: whether MFA is required for the provider.
+                      description: '[DEPRECATED] whether MFA is required for the provider. This field is now deprecated. Please use `authentication_methods` instead.'
                     primary_color:
                       type: string
                       description: The hex code for the primary color of the payroll provider.
                     manual:
                       type: boolean
-                      description: Whether the Finch integration with this provider uses the Assisted Connect Flow by default.
+                      description: '[DEPRECATED] Whether the Finch integration with this provider uses the Assisted Connect Flow by default. This field is now deprecated. Please check for a `type` of `assisted` in the `authentication_methods` field instead.'
               examples:
                 Success:
                   value:
