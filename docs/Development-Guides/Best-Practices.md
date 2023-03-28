@@ -1,6 +1,6 @@
 # Use Case Best Practices
 
-Finch APIs have a wide range of use cases. Here, we highlight some best practices for some common scenarios through sequence diagrams demonstrating the flow of logic.
+Finch APIs have a wide range of use cases. Here, we highlight best practices for some common scenarios through sequence diagrams demonstrating the flow of logic.
 
 ### Finch Connect + MFA
 ![connect-flow.png](../../assets/images/connect-flow.png)
