@@ -166,7 +166,7 @@
     {
       "type": "item",
       "title": "Calculating YTD Wages",
-      "uri": "docs/Development-Guides/Calculating-YTD-Wages.md"
+      "uri": "docs/Best-Practices/Calculating-YTD-Wages.md"
     },
     {
       "type": "divider",
