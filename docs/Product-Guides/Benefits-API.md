@@ -4,7 +4,7 @@ Finch's [Benefits API](https://developer.tryfinch.com/docs/reference/b3A6MTg4Mzc
 
 ## Calling Finch’s API
 
-Before creating and enrolling employees in benefits, you must create an access token using our Finch Connect flow. If the provider is listed as an [Automated API Provider](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers#automated-api-providers), you will the [Automated Connect Flow](https://developer.tryfinch.com/docs/reference/a2c944f1041f6-automated-connect-flow). If the provider is listed as an [Assisted API Provider](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers#assisted-api-providers), you will use our [Assisted Connect Flow](https://developer.tryfinch.com/docs/reference/8c540ddeca222-assisted-connect-flow). Once you have an access token, you can call the Finch API normally.
+Before creating and enrolling employees in benefits, you must create an access token using our Finch Connect flow. If the provider is listed as an [Automated API Provider](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers#automated-api-providers), you will use the [Automated Connect Flow](https://developer.tryfinch.com/docs/reference/a2c944f1041f6-automated-connect-flow). If the provider is listed as an [Assisted API Provider](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers#assisted-api-providers), you will use our [Assisted Connect Flow](https://developer.tryfinch.com/docs/reference/8c540ddeca222-assisted-connect-flow). Once you have an access token, you can call the Finch API normally.
 
 1. Both **Automated** and **Assisted** Benefits connections can call these endpoints
     - `POST /employer/benefits` to create a new company-wide benefit or individual deduction
