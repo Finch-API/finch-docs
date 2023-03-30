@@ -20,7 +20,7 @@ Server errors indicate an error on Finch's side and return an HTTP response with
 
 ### 401 re-authentication errors
 
-Authentication errors indicate an error on the end user's side. See the [re-authentication docs](../Re-authentication.md) for more on common causes and troubleshooting steps. 
+Authentication errors indicate an error on the end user's side. See the [re-authentication docs](../../Best-Practices/Re-authentication.md) for more on common causes and troubleshooting steps. 
 
 ## Batch Requests
 

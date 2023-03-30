@@ -80,21 +80,6 @@
     },
     {
       "type": "item",
-      "title": "Re-authentication",
-      "uri": "docs/Development-Guides/Re-authentication.md"
-    },
-    {
-      "type": "item",
-      "title": "Multi-account Flow",
-      "uri": "docs/Development-Guides/Multi-account-Flow.md"
-    },
-    {
-      "type": "item",
-      "title": "Reconciling Employees",
-      "uri": "docs/Development-Guides/Reconciling-Employees.md"
-    },
-    {
-      "type": "item",
       "title": "Providers",
       "uri": "docs/Development-Guides/Providers.md"
     },
@@ -162,6 +147,21 @@
     {
       "type": "divider",
       "title": "Best Practices"
+    },
+    {
+      "type": "item",
+      "title": "Re-authentication",
+      "uri": "docs/Best-Practices/Re-authentication.md"
+    },
+    {
+      "type": "item",
+      "title": "Multi-account Flow",
+      "uri": "docs/Best-Practices/Multi-account-Flow.md"
+    },
+    {
+      "type": "item",
+      "title": "Reconciling Employees",
+      "uri": "docs/Best-Practices/Reconciling-Employees.md"
     },
     {
       "type": "item",

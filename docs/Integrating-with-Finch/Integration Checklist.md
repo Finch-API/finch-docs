@@ -16,7 +16,7 @@ Finch Connect is the front-end UI that allows your users to safely and securely 
 
 **Supporting users with custom setups**
 
-- [ ]  Some of your customers may use multiple employment systems. Read our [UI recommendations](../Development-Guides/Multi-account-Flow.md#presenting-connect) on how to best present this flow for your users.
+- [ ]  Some of your customers may use multiple employment systems. Read our [UI recommendations](../Best-Practices/Multi-account-Flow.md#presenting-connect) on how to best present this flow for your users.
 
 **Configure authentication methods**
 
@@ -45,13 +45,13 @@ Your application should expect and handle errors from the Finch API. You can rea
 
 There are three important errors your application should be aware of.
 
-- [ ]  Ensure there are user flows built to support `reauthentication_error`s, i.e. when your user needs to go through Finch Connect again to reconnect their employment system if their initial connection has gone stale. You can read more [here](../Development-Guides/Re-authentication.md).
+- [ ]  Ensure there are user flows built to support `reauthentication_error`s, i.e. when your user needs to go through Finch Connect again to reconnect their employment system if their initial connection has gone stale. You can read more [here](../Best-Practices/Re-authentication.md).
 - [ ]  Implement the troubleshooting tips to gracefully handle `server_error`s from Finch. You can read more [here](../Development-Guides/Errors/Error-Handling.md#500-internal-server-errors).
 - [ ]  If you use our batch endpoints, ensure your application handles errors returned in the batch format. More information can be found [here](../Development-Guides/Errors/Error-Handling.md#batch-requests).
 
 **Supporting users with custom setups**
 
-- [ ]  Some of your customers may use multiple employment systems. This will involve [application logic](../Development-Guides/Multi-account-Flow.md#application-logic) and [database schema](../Development-Guides/Multi-account-Flow.md#flexible-database-schema) considerations on your end.
+- [ ]  Some of your customers may use multiple employment systems. This will involve [application logic](../Best-Practices/Multi-account-Flow.md#application-logic) and [database schema](../Best-Practices/Multi-account-Flow.md#flexible-database-schema) considerations on your end.
 
 ## Security
 
