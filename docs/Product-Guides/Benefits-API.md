@@ -156,3 +156,11 @@ You can [use the benefits endpoints in the Finch Sandbox](https://developer.tryf
 
 
 If you would like to test our Benefits product against a real account, please reach out to a Finch representative so we can set you up with a testing environment.
+
+### Automated Benefits Sequence Diagram
+
+![automated-benefits.png](../../assets/images/automated-benefits.png)
+
+### Assisted Benefits Sequence Diagram
+
+![assisted-benefits.png](../../assets/images/assisted-benefits.png)
