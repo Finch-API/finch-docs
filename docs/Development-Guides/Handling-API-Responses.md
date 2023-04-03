@@ -14,3 +14,13 @@ API responses can return `null` values for some fields. This can happen for a fe
 
 <!-- theme: success -->
 > Ensure your Finch integration is resilient to `null` values.
+
+## 202 Response Codes
+
+In some cases, requests to the Finch API may return a [`202 accepted`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/202) status code. This is often the case for async operations, such as:
+* Read requests for connections using [Assisted](docs/Product-Guides/Assisted-Connect-Flow.md)
+* Write requests for connections using our [Assisted Benefits](../Product-Guides/Benefits-API.md#handling-assisted-benefits-api-responses) API
+* Read requests for [pay statements](docs/Development-Guides/Data-Syncs.md#pay-statements) which exist but have not yet been fetched
+* Read requests for connections utilizing [authentication fallback](docs/Product-Guides/Automated-Connect-Flow.md#authentication-fallback)
+
+Your implementation should be built to account for these 202 responses.
