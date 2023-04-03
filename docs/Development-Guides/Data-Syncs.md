@@ -21,5 +21,25 @@ Response Header | Description
 ### Batch requests
 For batch endpoints (`/employment`, `/individual`, `/pay-statement`) Finch syncs all of the data for the connection in one atomic operation. This ensures that all items in the batch response you receive are from the same data sync.
 
-### Pay statement history
+### Pay statements
 Finch currently fetches pay statements from the start of 2020.
+
+Because there is significantly more pay statement data than payment data, it may be the case that individual pay statements take much longer to fetch than payments. Therefore if you have received a `payment_id` from the `/payment` endpoint, and try to use it in a `/pay-statement` request, it is possible the pay statement has not been fetched yet. In this case, Finch will return a 202 in the **body** of the `/pay-statement` request. The response will look like this:
+```json
+{
+  "responses": [
+    {
+      "payment_id": "9c8626e3-6d97-48a0-883c-f4c65e736321",
+      "code": 202,
+      "body": {
+        "code": 202,
+        "name": "accepted",
+        "finch_code": "data_sync_in_progress",
+        "message": "The pay statements for this payment are being fetched. Please check back later."
+      }
+    },
+    ...
+  ]
+}
+
+```
