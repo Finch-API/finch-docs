@@ -1,1 +1,7 @@
-/.github/CODEOWNERS /reference/ /toc.json /docs/Development-Guides/Providers.md /docs/Development-Guides/Compatibility.md /docs/Integrating-with-Finch/* /docs/* @alexromano
+/.github/CODEOWNERS @alexromano
+/reference/ @alexromano
+/toc.json @alexromano
+/docs/Development-Guides/Providers.md @alexromano
+/docs/Development-Guides/Compatibility.md @alexromano
+/docs/Integrating-with-Finch/* @alexromano
+/docs/* @alexromano
