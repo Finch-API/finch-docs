@@ -106,6 +106,7 @@ Example `GET /jobs/{job_id}` response after job is completed for a `POST /employ
   ]
 }
 ```
+
 ## General Benefits Information
 
 Since enrolling benefits can be a sensitive activity, it is helpful to understand some of the nuances around payroll and benefits in general.
@@ -145,7 +146,6 @@ Su Mo Tu We Th Fr Sa
 
 Some payroll providers offer a dedicated payroll representative to help with making payroll changes. If a payroll rep is helping your customer’s HR admin with changes in their system, it is important that you make it explicitly clear who does what so that the payroll rep does not overwrite any changes Finch has previously made. Calling out Benefit Code types and using thoughtful benefit descriptions (e.g. with your company name) help.
 
-
 ## Testing benefits
 
 ### Sandbox
@@ -154,5 +154,6 @@ You can [use the benefits endpoints in the Finch Sandbox](https://developer.tryf
 
 ### Live Accounts
 
-
 If you would like to test our Benefits product against a real account, please reach out to a Finch representative so we can set you up with a testing environment.
+
+Last Updated: 04-03-2023
