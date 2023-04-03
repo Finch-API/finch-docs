@@ -1117,20 +1117,43 @@ paths:
                   company_id:
                     type: string
                     description: The Finch uuid of the company associated with the `access_token`.
+                  payroll_provider_id:
+                    type: string
+                    description: The payroll provider associated with the `access_token`.
+                  authentication_methods:
+                    type: array
+                    x-stoplight:
+                      id: n93sobax0x02d
+                    items:
+                      x-stoplight:
+                        id: wy7i8hlmiphxl
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          x-stoplight:
+                            id: ch6pyl3ecvo9f
+                          enum:
+                            - credentials
+                            - api
+                            - oauth
+                            - assisted
+                        granted_scopes:
+                          type: array
+                          x-stoplight:
+                            id: rqvd73usfjbnu
+                          items: {}
                   products:
                     type: array
-                    description: An array of the authorized products associated with the `access_token`.
+                    description: '[DEPRECATED] An array of the authorized products associated with the `access_token`. This field is now deprecated. Please check `authentication_methods[].granted_scopes` instead.'
                     items:
                       type: string
                   username:
                     type: string
                     description: The account username used for login associated with the `access_token`.
-                  payroll_provider_id:
-                    type: string
-                    description: The payroll provider associated with the `access_token`.
                   manual:
                     type: boolean
-                    description: 'Whether the connection associated with the `access_token` uses the Assisted Connect Flow. (`true` if using Assisted Connect, `false` if connection is automated)'
+                    description: '[DEPRECATED] Whether the connection associated with the `access_token` uses the Assisted Connect Flow. (`true` if using Assisted Connect, `false` if connection is automated). This field is now deprecated. Please look for the `assisted` type in `authentication_methods` instead.'
               examples:
                 Success:
                   value:
