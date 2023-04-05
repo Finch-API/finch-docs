@@ -622,10 +622,10 @@ paths:
                                     type: string
                                     nullable: true
                                   value:
-                                    type:
-                                      - number
-                                      - string
-                                      - boolean
+                                    oneOf:
+                                      - type: string
+                                      - type: number
+                                      - type: boolean
                                     nullable: true
       summary: Employment
       operationId: get-employment
