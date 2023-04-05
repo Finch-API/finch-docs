@@ -1135,7 +1135,7 @@ paths:
                             id: ch6pyl3ecvo9f
                           enum:
                             - credentials
-                            - api
+                            - api_token
                             - oauth
                             - assisted
                         granted_scopes:
@@ -1143,6 +1143,19 @@ paths:
                           x-stoplight:
                             id: rqvd73usfjbnu
                           items: {}
+                        connection_status:
+                          type: object
+                          x-stoplight:
+                            id: m463708pc1z32
+                          properties:
+                            status:
+                              type: string
+                              x-stoplight:
+                                id: 58qg4ntak4ffj
+                            message:
+                              type: string
+                              x-stoplight:
+                                id: s1d9dsnea6asp
                   products:
                     type: array
                     description: '[DEPRECATED] An array of the authorized products associated with the `access_token`. This field is now deprecated. Please check `authentication_methods[].granted_scopes` instead.'
