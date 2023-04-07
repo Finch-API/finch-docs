@@ -82,7 +82,7 @@ In [OAuth2](https://oauth.net/2/) terms, the authorization `code` represents a u
 
 ### Use the access token to send an API request
 
-Now that you have a valid `access_token`, you will use this access token to send requests to Finch's APIs from now on. You will not have to go through the authentication process again unless you need to get a new access token or a [re-authentication](./Development-Guides/Re-authentication.md) event happens.
+Now that you have a valid `access_token`, you will use this access token to send requests to Finch's APIs from now on. You will not have to go through the authentication process again unless you need to get a new access token or a [re-authentication](./Best-Practices/Re-authentication.md) event happens.
 
 Run the following command to retrieve the `largeco`'s employee directory!
 
