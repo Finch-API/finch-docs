@@ -44,10 +44,10 @@ title: HRIS
 <i>*** These fields are not provided for contractors</i></p>
 
 ### Payment
-![payment.jpg](../../assets/images/payment.jpg)
+![payment.jpg](../../assets/images/payment.png)
 
 ### Pay Statement
-![pay-statement.jpg](../../assets/images/pay-statement.jpg)
+![pay-statement.jpg](../../assets/images/pay-statement.png)
 
 <p><i>* 401k Match cannot be set on Justworks</i><br>
 <i>** Paychex Flex only exposes the previous 24 months of pay data</i></br>
