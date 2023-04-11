@@ -75,6 +75,7 @@ Bene-Care | `benecare` | <span style="color:goldenrod">Assisted</span> | <span s
 Big Fish Employer Services | `big_fish_employer_services` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Bizchecks Payroll | `bizchecks_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Business Online Payroll | `business_online_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+C2 | `c2` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Ceridian Dayforce | `ceridian_dayforce` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted</span>
 Ceridian Powerpay | `ceridian_powerpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Cezanne HR | `cezannehr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
