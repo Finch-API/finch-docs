@@ -18,8 +18,8 @@ title: HRIS
 ### Automated API Providers
 Display Name | Id | Read Census + Pay Data | Write Benefits
 ---------|----------|----------|----------
-ADP Workforce Now† | `adp_workforce_now` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
-BambooHR | `bamboo_hr` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+ADP Workforce Now† | `adp_workforce_now` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
+BambooHR | `bamboo_hr` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 bob | `bob` | <span style="color:darkgreen">Automated</span> | <span >Not Supported</span>
 Gusto | `gusto` | <span style="color:darkgreen">Automated</span> | <span style="color:darkgreen">Automated</span>
 Humaans | `humaans` | <span style="color:darkgreen">Automated</span> | <span>Not Supported</span>
@@ -39,7 +39,7 @@ Sequoia One | `sequoia_one` | <span style="color:darkgreen">Automated</span> | <
 Square Payroll | `square_payroll` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 TriNet | `trinet` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 UltiPro (UKG Pro) | `ulti_pro` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
-Wave | `wave` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Wave | `wave` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 Workday | `workday` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Zenefits | `zenefits` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 
@@ -55,7 +55,6 @@ AccountantsWorld | `accountantsworld` | <span style="color:goldenrod">Assisted</
 Adams Keegan | `adams_keegan` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 ADP Comprehensive Services | `adp_comprehensive` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted</span>
 ADP TotalSource | `adp_totalsource` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-ADP Workforce Now | `adp_workforce_now` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted</span>
 Advantage Payroll Services | `advantage_payroll_services` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Affiliated HR Payroll Services iSolved | `affiliated_hr_payroll_services_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Affiliated HR Payroll Services Evolution | `affiliated_hr_payroll_services_evolution` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
@@ -86,7 +85,7 @@ Coastal Payroll | `coastal_payroll` | <span style="color:goldenrod">Assisted</sp
 CognosHR | `cognos_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Collage | `collage` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Commonwealth Payroll & HR | `commonwealth_payroll_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-ConnectPay | `connectpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+ConnectPay | `connectpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted**</span>
 CPM Employer Services iSolved | `cpm_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Crescent Payroll Solutions | `crescent_payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 CSC Paymaster | `csc_paymaster` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
