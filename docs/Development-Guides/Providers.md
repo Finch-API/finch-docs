@@ -28,7 +28,7 @@ Justworks | `justworks` | <span style="color:darkgreen">Automated</span> | <span
 Namely | `namely` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Paychex Flex | `paychex_flex` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 Paycom | `paycom` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
-Paylocity | `paylocity` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Paylocity | `paylocity` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 Personio | `personio` | <span style="color:darkgreen">Automated</span> | <span>Not Supported</span>
 QuickBooks Payroll | `quickbooks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 Rippling | `rippling` | <span style="color:darkgreen">Automated</span> | <span >Not Supported</span>
