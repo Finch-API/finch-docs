@@ -374,6 +374,7 @@ paths:
                               nullable: true
                             dob:
                               $ref: '#/components/schemas/Date'
+                              nullable: true
                             ssn:
                               type: string
                               description: 'Social Security number of the individual. This field is only available with the `ssn` scope enabled and the `options: { include: [''ssn''] }` param set in the body.'
