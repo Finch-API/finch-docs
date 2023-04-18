@@ -2,7 +2,7 @@
 
 ## Finch IDs
 
-All IDs (UUIDs) returned by Finch endpoints are fixed for the same underlying employment system account. They will not change even if you have multiple `access_token`s for the company, a different payroll admin from a company logs in, etc.
+Finch IDs (UUIDs) remain constant for all company connections that utilize the same authentication method. However, if you have multiple access tokens for a company connection, and they were generated via different authentication methods, the Finch IDs *may not* be consistent across these tokens. For instance, if an employer first authenticates with credentials (username/password), and then later authenticates again using an API token auth method, the two access tokens generated from these authentications *may* have different Finch IDs. This is because the underyling employment system IDs used to identify an employee or payment may be different depending on the authentication method, and Finch maps its UUIDs to those underlying employment system IDs. You should keep this in mind when incorporating Finch integrations into your application.
 
 ## Null Values
 
