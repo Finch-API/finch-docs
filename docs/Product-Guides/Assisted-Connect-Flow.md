@@ -29,10 +29,18 @@ Assisted Connection Type | Time to Initial Connection | Data Refresh Cadence
 Contact the Finch team at `developers@tryfinch.com` to setup your application to work with Assisted Connect Flow.
 
 ### Launch Finch Connect with the `manual` flag
+Launch [Finch Connect](../Integrating-with-Finch/Integrate-Finch-Connect/Redirect-to-Connect.md) with `manual=true` so your user can view all the Assisted API providers Finch supports. After granting your application access, you can retrieve an authorization `code` and exchange it for an `access_token` as usual.
+
+```bash
+https://connect.tryfinch.com/authorize?
+&client_id=<your_client_id>
+&products=company directory individual employment payment pay_statement
+&redirect_uri=https://example.com
+&manual=true
+```
+
 <!-- theme: info -->
 > For [Assisted API Providers](../Development-Guides/Providers.md#assisted-api-providers) on Finch Connect, your users will see instructions on how to manually connect their employment systems to Finch and your application.
-
-Launch [Finch Connect](../Integrating-with-Finch/Integrate-Finch-Connect/Redirect-to-Connect.md) with `manual=true` so your user can view all the Assisted API providers Finch supports. After granting your application access, you can retrieve an authorization `code` and exchange it for an `access_token` as usual.
 
 ### Handle API responses correctly
 #### `202` status code response
