@@ -342,14 +342,13 @@ paths:
                                 properties:
                                   data:
                                     type: string
-                                    pattern: '[0-9]{10}'
-                                    nullable: true
+                                    nullable: false
                                   type:
                                     type: string
                                     enum:
                                       - work
                                       - personal
-                                    nullable: true
+                                    nullable: false
                             gender:
                               type: string
                               description: The gender of the individual.
