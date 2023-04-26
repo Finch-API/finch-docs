@@ -38,7 +38,6 @@ title: HRIS
 ### Employment
 ![employment.png](../../assets/images/employment.png)
 
-
 <p><i>* Initial only</i><br>
 <i>** Requires customer to be at highest package tier, ADP Run Pro</i></br>
 <i>*** These fields are not provided for contractors</i></p>
@@ -47,7 +46,7 @@ title: HRIS
 ![payment.jpg](../../assets/images/payment.png)
 
 ### Pay Statement
-![pay-statement.jpg](../../assets/images/pay-statement.png)
+![pay-statement.png](../../assets/images/pay-statement.png)
 
 <p><i>* 401k Match cannot be set on Justworks</i><br>
 <i>** Paychex Flex only exposes the previous 24 months of pay data</i></br>
