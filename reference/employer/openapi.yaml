@@ -1077,6 +1077,11 @@ paths:
                     manual:
                       type: boolean
                       description: '[DEPRECATED] Whether the Finch integration with this provider uses the Assisted Connect Flow by default. This field is now deprecated. Please check for a `type` of `assisted` in the `authentication_methods` field instead.'
+                    supported_fields:
+                      type: object
+                      x-stoplight:
+                        id: sbfxdsj41lgms
+                      description: 'endpoint  '
               examples:
                 Success:
                   value:
