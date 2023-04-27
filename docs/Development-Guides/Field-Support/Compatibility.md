@@ -2,7 +2,7 @@
 stoplight-id: 0517ab806dda4
 ---
 
-# Census & Pay Field Support
+# Census & Pay Support
 
 Finch's API tries to maintain parity between all [providers](./Providers.md). However, every now and then, a provider may not support a specific data field (for example: job titles). This section outlines the compatibility of each data field per Automated API Integration and any other miscellaneous information that's important to know.
 

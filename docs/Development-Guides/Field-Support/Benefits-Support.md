@@ -1,4 +1,4 @@
-# Benefits Field Support
+# Benefits Support
 
 Finch's Benefits endpoints provide a unified API that enables users to both read and write benefits information. The tables below outline the features of the Benefits API that are supported for providers, along with any notable information. 
 
