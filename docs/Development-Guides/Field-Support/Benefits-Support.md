@@ -1,6 +1,6 @@
 # Benefits Field Support
 
-Finch's Benefits endpoints allow users to read and write benefits information under a single, unified API. The table below lays out which benefits features are supported for providers, along with any notable information. 
+Finch's Benefits endpoints provide a unified API that enables users to both read and write benefits information. The tables below outline the features of the Benefits API that are supported for providers, along with any notable information. 
 
 **Note: One-time post-tax deductions are not currently supported for benefits.**
 
