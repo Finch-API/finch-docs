@@ -1,4 +1,8 @@
-# Compatibility
+---
+stoplight-id: 0517ab806dda4
+---
+
+# Census & Pay Field Support
 
 Finch's API tries to maintain parity between all [providers](./Providers.md). However, every now and then, a provider may not support a specific data field (for example: job titles). This section outlines the compatibility of each data field per Automated API Integration and any other miscellaneous information that's important to know.
 
@@ -18,35 +22,35 @@ title: HRIS
 -->
 
 ### Company
-![company.jpg](../../assets/images/company.png)
+![company.jpg](../../../assets/images/company.png)
 
 <p><i>* Only available by inferring from entity.type</i><br>
 <i>** account_number is mask and only shows the last 4 digits</i></p>
 
 ### Directory
-![directory.png](../../assets/images/directory.png)
+![directory.png](../../../assets/images/directory.png)
 
 <p><i>* Initial only</i></p>
 
 ### Individual
-![individual.png](../../assets/images/individual.png)
+![individual.png](../../../assets/images/individual.png)
 
 <p><i>* Initial only</i><br>
 <i>** No work email available</i><br>
 <i>*** Contractors don't have these fields in the QBO system</i></p>
 
 ### Employment
-![employment.png](../../assets/images/employment.png)
+![employment.png](../../../assets/images/employment.png)
 
 <p><i>* Initial only</i><br>
 <i>** Requires customer to be at highest package tier, ADP Run Pro</i></br>
 <i>*** These fields are not provided for contractors</i></p>
 
 ### Payment
-![payment.jpg](../../assets/images/payment.png)
+![payment.jpg](../../../assets/images/payment.png)
 
 ### Pay Statement
-![pay-statement.png](../../assets/images/pay-statement.png)
+![pay-statement.png](../../../assets/images/pay-statement.png)
 
 <p><i>* 401k Match cannot be set on Justworks</i><br>
 <i>** Paychex Flex only exposes the previous 24 months of pay data</i></br>

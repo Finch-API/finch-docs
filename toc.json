@@ -134,10 +134,21 @@
         }
       ]
     },
-    {
-      "type": "item",
-      "title": "Compatibility",
-      "uri": "docs/Development-Guides/Compatibility.md"
+     {
+      "type": "group",
+      "title": "Field Support",
+      "items": [
+        {
+          "type": "item",
+          "title": "Census & Pay Field Support",
+          "uri": "docs/Development-Guides/Field-Support/Compatibility.md"
+        },
+        {
+          "type": "item",
+          "title": "Benefits Field Support",
+          "uri": "docs/Development-Guides/Field-Support/Benefits-Support.md"
+        }
+      ]
     },
     {
       "type": "item",
