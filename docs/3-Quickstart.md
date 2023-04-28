@@ -6,7 +6,7 @@ This guide will help you send your first request to Finch's API while the follow
 
 ---
 
-### Open Finch Connect in Sandbox mode
+### Open Finch Connect in sandbox mode
 
 Finch Connect provides a secure and elegant authorization flow for your users to grant your application access to their systems.
 
@@ -23,14 +23,14 @@ We will launch Finch Connect - our secure and elegant authorization flow for you
 ```bash
 https://connect.tryfinch.com/authorize?
 &client_id=<your_client_id>
-&products=company directory
+&products=company directory individual employment payment pay_statement
 &redirect_uri=https://example.com
 &sandbox=true
 ```
 
 Note that we have `sandbox=true`. This is required only when calling our sandbox environment for testing purposes.
 
-### Log in to the Finch Sandbox account
+### Log in to the Finch sandbox account
 
 Click on the Finch Sandbox mock provider on the selector page and log in with the username `largeco` and password `letmein`. For more information on the various types of mock payroll providers you can test, visit our [testing](./Development-Guides/Testing.md) page.
 
@@ -82,7 +82,7 @@ In [OAuth2](https://oauth.net/2/) terms, the authorization `code` represents a u
 
 ### Use the access token to send an API request
 
-Now that you have a valid `access_token`, you will use this access token to send requests to Finch's APIs from now on. You will not have to go through the authentication process again unless you need to get a new access token or a [re-authentication](./Development-Guides/Re-authentication.md) event happens.
+Now that you have a valid `access_token`, you will use this access token to send requests to Finch's APIs from now on. You will not have to go through the authentication process again unless you need to get a new access token or a [re-authentication](./Best-Practices/Re-authentication.md) event happens.
 
 Run the following command to retrieve the `largeco`'s employee directory!
 

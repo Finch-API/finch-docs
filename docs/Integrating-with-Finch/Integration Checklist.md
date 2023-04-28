@@ -1,4 +1,4 @@
-# Integration checklist
+# Integration Checklist
 
 We recommend the following steps while planning and developing your Finch integration, from both a product and engineering perspective. The recommendations outlined below will ensure a seamless experience for your users, make your integration more robust and secure, and set you up for success when you launch into production.
 
@@ -16,7 +16,11 @@ Finch Connect is the front-end UI that allows your users to safely and securely 
 
 **Supporting users with custom setups**
 
-- [ ]  Some of your customers may use multiple employment systems. Read our [UI recommendations](../Development-Guides/Multi-account-Flow.md#presenting-connect) on how to best present this flow for your users.
+- [ ]  Some of your customers may use multiple employment systems. Read our [UI recommendations](../Best-Practices/Multi-account-Flow.md#presenting-connect) on how to best present this flow for your users.
+
+**Configure authentication methods**
+
+- [ ] Get in touch with your Finch representative if you would like [specific auth methods](docs/Product-Guides/Automated-Connect-Flow.md#authentication-method-configuration) displayed in Finch Connect, and we can manage it for you.
 
 ## Integrating Finch API
 
@@ -32,19 +36,22 @@ Given the nature of the underlying systems Finch's API is built on top of, the f
 
 - [ ]  Most data points returned by the API are `null`able. Ensure your integration is resilient to this. You can read more [here](../Development-Guides/Handling-API-Response.md).
 
+**Handling response headers**
+- [ ] Finch syncs data with providers on a scheduled cadence, and the status of the data we return is available in the API response headers. Ensure your integration checks these response headers as needed. You can read more about data syncs and the associated response headers [here](../Development-Guides/Data-Syncs.md).
+
 **Handling error responses**
 
 Your application should expect and handle errors from the Finch API. You can read more about our errors [here](../Development-Guides/Errors/Error-Types.md). 
 
 There are three important errors your application should be aware of.
 
-- [ ]  Ensure there are user flows built to support `reauthentication_error`s, i.e. when your user needs to go through Finch Connect again to reconnect their employment system if their initial connection has gone stale. You can read more [here](../Development-Guides/Re-authentication.md).
+- [ ]  Ensure there are user flows built to support `reauthentication_error`s, i.e. when your user needs to go through Finch Connect again to reconnect their employment system if their initial connection has gone stale. You can read more [here](../Best-Practices/Re-authentication.md).
 - [ ]  Implement the troubleshooting tips to gracefully handle `server_error`s from Finch. You can read more [here](../Development-Guides/Errors/Error-Handling.md#500-internal-server-errors).
 - [ ]  If you use our batch endpoints, ensure your application handles errors returned in the batch format. More information can be found [here](../Development-Guides/Errors/Error-Handling.md#batch-requests).
 
 **Supporting users with custom setups**
 
-- [ ]  Some of your customers may use multiple employment systems. This will involve [application logic](../Development-Guides/Multi-account-Flow.md#application-logic) and [database schema](../Development-Guides/Multi-account-Flow.md#flexible-database-schema) considerations on your end.
+- [ ]  Some of your customers may use multiple employment systems. This will involve [application logic](../Best-Practices/Multi-account-Flow.md#application-logic) and [database schema](../Best-Practices/Multi-account-Flow.md#flexible-database-schema) considerations on your end.
 
 ## Security
 
@@ -61,13 +68,14 @@ Storing and logging key identifiers will ensure a faster turnaround time when co
 - [ ]  Each Finch `access_token` is associated with a static Finch `company_id`. You can find the id using the `/introspect` endpoint. Save this in your data store alongside the token and use it when contacting Support about an issue or while reconciling billing statements from Finch.
 - [ ]  Each Finch API response returns a `Finch-Request-ID` in the headers. Use this when contacting Support about an issue.
 
-## Production Setup
+## Auth Fallback and Email Forwarding
 
-The following steps will help create a white-labeled experience for your users.
+- [ ] Email forwarding to Finch allows you to provision a custom email address for some API integrations. Contact our team on Slack or send an email to `developers@tryfinch.com` to get started.
 
-- [ ]  Email forwarding to Finch is an enterprise-level feature that allows you to provision a custom email address for some API integrations. Contact our team on Slack or send an email to `developers@tryfinch.com` to get started.
+- [ ] With email forwarding set up, ask our team to opt in to [authentication fallback](../Product-Guides/Automated-Connect-Flow.md#authentication-fallback) to allow your customers better ability to authenticate through Finch Connect. This feature is only available to *Scale* tier customers.
 
-## Testing your Finch integration and going live
+
+## Testing Your Finch integration and Going Live
 
 Before going live, it is valuable to know the options available for you to test your Finch integration. Below are the suggested steps. More detailed information is available [here](../Development-Guides/Testing.md).
 
@@ -84,5 +92,5 @@ Once you have tested your Finch integration with test accounts, you can go live.
 
 The following steps will ensure you and your team is set up for success once your Finch integration has gone live.
 
-- [ ]  We currently use Slack and Halp to keep track of support tickets. Ensure your team is on Slack and is comfortable with Halp.
-- [ ]  Learn how to use the developer dashboard to keep track of your connected customers and the health of each connection.
+- [ ]  We currently use Jira to keep track of support tickets. Ensure your team is able to access a Jira-based website.
+- [ ]  Learn how to use the Finch Developer Dashboard to keep track of your connected customers and the health of each connection.

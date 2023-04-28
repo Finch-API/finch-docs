@@ -4,8 +4,11 @@ info:
   version: '2020-09-17'
   contact: {}
   description: |-
-
     The Finch HRIS API provides a unified way to connect to a multitide of HRIS systems. The API requires an access token issued by Finch.
+
+    By default, Organization, Census, and Payroll requests use Finch's [Data Syncs](docs/Development-Guides/Data-Syncs.md). If a request is made before the initial sync has completed, Finch will request data live from the provider. The latency on live requests may range from seconds to minutes depending on the provider and batch size.
+    Benefits requests (both read and write) are always made live to the provider. Latencies may range from seconds to minutes depending on the provider and batch size.
+
 
     Employer products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. Valid product names are—
     - `company`: Read basic company data
@@ -356,8 +359,24 @@ paths:
                                 - other
                                 - decline_to_specify
                               nullable: true
+                            ethnicity:
+                              type: string
+                              enum:
+                                - asian
+                                - white
+                                - black_or_african_american
+                                - native_hawaiian_or_pacific_islander
+                                - american_indian_or_alaska_native
+                                - hispanic_or_latino
+                                - two_or_more_races
+                                - decline_to_specify
+                              description: The EEOC-defined ethnicity of the individual.
+                              nullable: true
                             dob:
                               $ref: '#/components/schemas/Date'
+                            ssn:
+                              type: string
+                              description: 'Social Security number of the individual. This field is only available with the `ssn` scope enabled and the `options: { include: [''ssn''] }` param set in the body.'
                             residence:
                               $ref: '#/components/schemas/Location'
               examples:
@@ -381,6 +400,7 @@ paths:
                             - data: '5051234567'
                               type: personal
                           gender: female
+                          ethnicity: black_or_african_american
                           dob: '1970-01-01'
                           residence:
                             line1: 123 Main St
@@ -394,7 +414,46 @@ paths:
       tags:
         - 1. Organization
       requestBody:
-        $ref: '#/components/requestBodies/Individual-Ids'
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                requests:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      individual_id:
+                        type: string
+                        format: uuid
+                options:
+                  type: object
+                  properties:
+                    include:
+                      type: array
+                      description: 'Optional fields to include. Currently only `ssn` is supported. To include this field, the `ssn` scope must be enabled.'
+                      items:
+                        type: string
+                        enum:
+                          - ssn
+              required:
+                - requests
+            examples:
+              Individual ids:
+                value:
+                  requests:
+                    - individual_id: bb20ea64-93f9-45db-940d-960379684d68
+                    - individual_id: c7962b5b-0e6d-4745-a6c3-1ffff6e28832
+              SSN:
+                value:
+                  requests:
+                    - individual_id: bb20ea64-93f9-45db-940d-960379684d68
+                    - individual_id: c7962b5b-0e6d-4745-a6c3-1ffff6e28832
+                  options:
+                    include:
+                      - ssn
+        description: ''
   /employer/employment:
     post:
       description: |-
@@ -453,6 +512,9 @@ paths:
                               amount: 8000000
                               currency: usd
                               effective_date: '2017-06-30'
+                          custom_fields:
+                            - name: tShirtSize
+                              value: L
               schema:
                 type: object
                 properties:
@@ -532,7 +594,6 @@ paths:
                               $ref: '#/components/schemas/Date'
                             end_date:
                               $ref: '#/components/schemas/Date'
-                              nullable: true
                             is_active:
                               type: boolean
                               description: '`true` if the individual an an active employee or contractor at the company.'
@@ -551,6 +612,21 @@ paths:
                               nullable: true
                               items:
                                 $ref: '#/components/schemas/Income'
+                            custom_fields:
+                              type: array
+                              description: Custom fields for the individual. These are fields which are defined by the employer in the system. Custom fields are not currently supported for assisted connections.
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    nullable: true
+                                  value:
+                                    type:
+                                      - number
+                                      - string
+                                      - boolean
+                                    nullable: true
       summary: Employment
       operationId: get-employment
       tags:
@@ -564,19 +640,21 @@ paths:
         - name: start_date
           required: true
           in: query
-          description: The start date to retrieve payments by a company (inclusive) in `YYYY-MM-DD` format.
+          description: The start pay date to retrieve payments by a company (inclusive).
           schema:
             type: string
             format: date
             example: '2021-01-01'
+            pattern: YYYY-MM-DD
         - name: end_date
           required: true
           in: query
-          description: The end date to retrieve payments by a company (inclusive) in `YYYY-MM-DD` format.
+          description: The end pay date to retrieve payments by a company (inclusive).
           schema:
             type: string
             format: date
             example: '2021-01-01'
+            pattern: YYYY-MM-DD
         - $ref: '#/components/parameters/API-Version'
       responses:
         '200':
@@ -738,6 +816,7 @@ paths:
                                 - name: Employee Medical Insurance
                                   amount: 23272
                                   currency: usd
+                                  type: s125_medical
               schema:
                 type: object
                 properties:
@@ -815,7 +894,7 @@ paths:
                                           nullable: true
                                         name:
                                           type: string
-                                          description: The exact name of the deduction from the pay statement.
+                                          description: The exact name of the earning from the pay statement.
                                           nullable: true
                                         amount:
                                           type: integer
@@ -976,6 +1055,7 @@ paths:
       description: Return details on all available payroll and HR systems.
       parameters:
         - $ref: '#/components/parameters/API-Version'
+      security: []
   /introspect:
     get:
       summary: Introspect
@@ -989,6 +1069,10 @@ paths:
               schema:
                 type: object
                 properties:
+                  account_id:
+                    type: string
+                    format: uuid
+                    description: The Finch uuid corresponding to the employer account that was used to make this connection.
                   client_id:
                     type: string
                     description: The client id of the application associated with the `access_token`.
@@ -1012,12 +1096,13 @@ paths:
               examples:
                 Success:
                   value:
+                    account_id: d8ef1814-5913-492f-b5c0-a16e2d6432c9
                     client_id: 25ea8bd8-f76b-41f9-96e3-1e6162021c50
                     company_id: 87eb4bc3-f76b-35e7-78d2-8f7822021d73
                     products:
                       - company
                       - directory
-                    username: jeremy@tryfinch.com
+                    username: johndoe@tryfinch.com
                     payroll_provider_id: gusto
                     manual: 'false'
       operationId: get-introspect
@@ -1043,7 +1128,9 @@ paths:
                 Success:
                   value:
                     status: success
-      description: Disconnect an employer from your application and invalidate all `access_token`s associated with the employer. We require applications to implement the Disconnect endpoint for billing and security purposes.
+      description: |-
+        Disconnect one or more `access_token`s from your application. Deletion is based on both the employer and provider of the `access_token` used to call this endpoint, and will also delete all tokens with the same employer/provider pair. Other tokens for the same employer, but connected to a different provider, require a separate call.
+        <br /><br />We require applications to implement the Disconnect endpoint for billing and security purposes.
       tags:
         - 4. Management
       parameters:
@@ -1072,8 +1159,10 @@ paths:
       operationId: get-company-benefits
       description: |-
         **Availability: Automated Benefits providers only**  
-          
+
         List all company-wide benefits.
+
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     post:
@@ -1110,6 +1199,10 @@ paths:
         **Availability: Automated and Assisted Benefits providers**  
           
         Creates a new company-wide benefit. Please use the `/meta` endpoint to view available types for each provider.
+
+        If the same request is made more than once with the same `benefit_type` and `description`, a new benefit will not be created. Finch will instead return the benefit id of the existing benefit.
+
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
       requestBody:
         content:
           application/json:
@@ -1248,6 +1341,8 @@ paths:
         **Availability: Automated Benefits providers only**  
           
         Lists benefit information for a given benefit
+
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     post:
@@ -1275,6 +1370,8 @@ paths:
         **Availability: Automated and Assisted Benefits providers**  
           
         Updates an existing company-wide benefit
+
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider.
       requestBody:
         content:
           application/json:
@@ -1338,6 +1435,8 @@ paths:
         **Availability: Automated Benefits providers only**  
           
         Lists individuals currently enrolled in a given benefit.
+
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     parameters:
@@ -1396,6 +1495,8 @@ paths:
         **Availability: Automated Benefits providers only**  
           
         Get enrolled benefit information for the given individuals.
+
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -1537,7 +1638,9 @@ paths:
       description: |
         **Availability: Automated and Assisted Benefits providers**  
           
-        Enroll an individual into a benefit. If the employee is already enrolled, the enrollment amounts will be adjusted.
+        Enroll an individual into a benefit. This is an overwrite operation. If the employee is already enrolled, the enrollment amounts will be adjusted. Making the same request multiple times will not enroll new benefits, but will continue to set the state of the existing enrollment.
+
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
 
         <!-- theme: warning -->
         > Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
@@ -1689,6 +1792,8 @@ paths:
         **Availability: Automated and Assisted Benefits providers**  
           
         Unenroll individuals from a benefit
+
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider.
       requestBody:
         content:
           application/json:
@@ -1979,6 +2084,431 @@ paths:
               required:
                 - deduction_id
                 - individual_id
+  /jobs/automated:
+    get:
+      summary: List All Automated Jobs
+      tags:
+        - 4. Management
+      operationId: get-jobs-automated
+      description: 'Get all automated jobs. Automated jobs are completed by a machine. By default, jobs are sorted in descending order by submission time. For scheduled jobs such as data syncs, only the next scheduled job is shown.'
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+      responses:
+        '200':
+          description: Job was found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '':
+                    $ref: '#/components/schemas/Paging'
+                    x-stoplight:
+                      id: v1wfb98c3yfas
+                  meta:
+                    type: object
+                    x-stoplight:
+                      id: gvogg69yl024d
+                    properties:
+                      quotas:
+                        type: object
+                        x-stoplight:
+                          id: 80r8hgr5r9kjd
+                        description: Information about remaining quotas for this connection. Only applicable for customers opted in to use Finch's Data Sync Refresh endpoint (`POST /jobs/automated`). Please contact a Finch representative for more details.
+                        properties:
+                          data_sync_all:
+                            type: object
+                            x-stoplight:
+                              id: j6xus9hs95ifo
+                            properties:
+                              allowed_refreshes:
+                                type: integer
+                                x-stoplight:
+                                  id: bggi4k2j5d4sm
+                              remaining_refreshes:
+                                type: integer
+                                x-stoplight:
+                                  id: r4ponmfozgkzf
+                  data:
+                    type: array
+                    x-stoplight:
+                      id: fbq2ay71tw5je
+                    items:
+                      $ref: '#/components/schemas/AutomatedAsyncJob'
+                      x-stoplight:
+                        id: 4bjei2fp796pz
+                required: []
+              examples:
+                Example 1:
+                  value:
+                    '':
+                      count: 10
+                      offset: 0
+                    meta:
+                      quotas:
+                        data_sync_all:
+                          allowed_refreshes: 2
+                          remaining_refreshes: 2
+                    data:
+                      - job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                        job_url: 'https://api.tryfinch.com/job/automated/453bd7d7-5355-4d6d-a38e-d9e7eb218c3f'
+                        type: data_sync_all
+                        status: pending
+                        created_at: '2019-08-24T14:15:22Z'
+                        scheduled_at: '2019-08-24T14:15:22Z'
+                        started_at: '2019-08-24T14:15:22Z'
+                        completed_at: '2019-08-24T14:15:22Z'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  status:
+                    type: integer
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                  message:
+                    type: string
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 401
+                    status: 401
+                    code: 401
+                    message: 'Unauthorized request: no authentication given'
+                    name: unauthorized_request_error
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  status:
+                    type: integer
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                  message:
+                    type: string
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 404
+                    status: 404
+                    code: 404
+                    message: could not find job with id job-fb3b25dc-02dc-48eb-9cfc-3f9837276884
+                    name: not_found_error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                  x-stoplight:
+                    id: 4vv34b4tkreyh
+                  description: The number of items to return. Defaults to 100.
+                offset:
+                  type: integer
+                  x-stoplight:
+                    id: nkqlsybl9wqww
+                  description: Where in the list of jobs to start returning from. Defaults to index 0.
+        description: ''
+    post:
+      summary: Enqueue a New Automated Job
+      operationId: post-jobs-automated
+      tags:
+        - 4. Management
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  job_id:
+                    type: string
+                    format: uuid
+                    description: The id of the job that has been created.
+                  job_url:
+                    type: string
+                    x-stoplight:
+                      id: zbhqrlab2bgh5
+                    description: The url that can be used to retrieve the job status
+                  allowed_refreshes:
+                    type: integer
+                    description: 'The number of allowed refreshes per hour (per hour, fixed window)'
+                  remaining_refreshes:
+                    type: integer
+                    description: 'The number of remaining refreshes available (per hour, fixed window)'
+              examples:
+                Example 1:
+                  value:
+                    job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    job_url: 'https://api.tryfinch.com/jobs/automated/453bd7d7-5355-4d6d-a38e-d9e7eb218c3f'
+                    allowed_refreshes: 2
+                    remaining_refreshes: 1
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+        '202':
+          description: Accepted. This response will be returned if a job is already enqueued for the connection. This case does not consume any job quota as it just returns the details of an existing job.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  job_id:
+                    type: string
+                    format: uuid
+                    x-stoplight:
+                      id: 1t5lwm0c3d0wt
+                    description: The id of the job that has been created.
+                  job_url:
+                    type: string
+                    x-stoplight:
+                      id: h4syylb7y085f
+                    description: The url that can be used to retrieve the job status
+                  allowed_refreshes:
+                    type: integer
+                    description: 'The number of allowed refreshes per hour (per hour, fixed window)'
+                  remaining_refreshes:
+                    type: integer
+                    description: 'The number of remaining refreshes available (per hour, fixed window)'
+              examples:
+                Example 1:
+                  value:
+                    job_Id: de9113d6-e2fa-4c72-ba4a-ee1d8a4f8df6
+                    allowed_refreshes: 2
+                    remaining_refreshes: 2
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  status:
+                    type: integer
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  name:
+                    type: string
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 400
+                    status: 400
+                    code: 400
+                    message: cannot create automated job for Assisted Connect token
+                    name: bad_request
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  status:
+                    type: integer
+                  code:
+                    type: integer
+                  name:
+                    type: string
+                  message:
+                    type: string
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 401
+                    status: 401
+                    code: 401
+                    message: 'Unauthorized request: no authentication given'
+                    name: unauthorized_request_error
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  allowed_refreshes:
+                    type: integer
+                    description: 'The number of allowed refreshes per hour (per hour, fixed window)'
+                  remaining_refreshes:
+                    type: integer
+                    description: 'The number of remaining refreshes available (per hour, fixed window)'
+                  retry_at:
+                    type: string
+                    format: date-time
+                    description: The datetime when quota for enqueuing new jobs will again be available. Only shown for a 429 response.
+              examples:
+                Example 1:
+                  value:
+                    allowed_refreshes: 2
+                    remaining_refreshes: 0
+                    retry_at: '2019-08-24T14:15:22Z'
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+      description: |-
+        Enqueue an automated job. Currently, only the `data-sync-all` job type is supported, which will enqueue a job to re-sync all data for a connection. `data-sync-all` has a concurrency limit of 1 job at a time per connection. This means that if this endpoint is called while a job is already in progress for this connection, Finch will return the `job_id` of the job that is currently in progress. Finch allows a fixed window rate limit of 1 forced refresh per hour.
+
+        This endpoint is available for *Scale* tier customers as an add-on. To request access to this endpoint, please contact your Finch account manager.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: The type of job to start. Currently the only supported type is `data_sync_all`
+                  enum:
+                    - data-sync-all
+              required:
+                - type
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+  '/jobs/automated/{job_id}':
+    parameters:
+      - schema:
+          type: string
+        name: job_id
+        in: path
+        required: true
+    get:
+      summary: Retrieve an Automated Job
+      tags:
+        - 4. Management
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutomatedAsyncJob'
+              examples:
+                Example 1:
+                  value:
+                    job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    job_url: 'https://api.tryfinch.com/job/automated/453bd7d7-5355-4d6d-a38e-d9e7eb218c3f'
+                    type: data_sync_all
+                    status: pending
+                    created_at: '2019-08-24T14:15:22Z'
+                    scheduled_at: '2019-08-24T14:15:22Z'
+                    started_at: '2019-08-24T14:15:22Z'
+                    completed_at: '2019-08-24T14:15:22Z'
+        '404':
+          description: Not Found
+      operationId: get-jobs-job_id
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+      description: Get an automated job by `job_id`.
+  '/jobs/manual/{job_id}':
+    parameters:
+      - schema:
+          type: string
+        name: job_id
+        in: path
+        required: true
+    get:
+      summary: Retrieve a Manual Job
+      tags:
+        - 4. Management
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManualAsyncJob'
+              examples:
+                Example 1:
+                  value:
+                    job_id: 497d98f3-580a-4ab9-830a-af2346d029b2
+                    status: complete
+                    body:
+                      - individual_id: 430f9d95-1dcf-4b99-b616-45f814416890
+                        code: 201
+                        message: Successfully enrolled individual in benefit
+                      - individual_id: 647975ac-1e0f-4e9c-b705-e3042da48581
+                        code: 200
+                        message: Successfully updated enrollment for individual
+                      - individual_id: 4a0a3b15-d3d6-41c2-a4a4-ca4ed1b68cf8
+                        code: 404
+                        message: Individual not found
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  finch_code:
+                    type: string
+                  name:
+                    type: string
+                  message:
+                    type: string
+              examples:
+                Example 1:
+                  value:
+                    code: 400
+                    name: invalid_request_error
+                    message: job_id is required
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  finch_code:
+                    type: string
+                  name:
+                    type: string
+                  message:
+                    type: string
+              examples:
+                Example 1:
+                  value:
+                    code: 404
+                    finch_code: item_not_found
+                    name: not_found_error
+                    message: could not find job with id '49142223-78e0-4092-80e1-313f510b0977'
+      operationId: get-jobs-manual-job_id
+      description: Get a manual job by `job_id`. Manual jobs are completed by a human and include Assisted Benefits jobs.
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
 components:
   schemas:
     Location:
@@ -2057,8 +2587,10 @@ components:
         amount:
           type: integer
           description: Amount for money object (in cents)
+          nullable: true
         currency:
           type: string
+          nullable: true
     Paging:
       title: Paging
       type: object
@@ -2099,6 +2631,7 @@ components:
         - commuter
         - custom_post_tax
         - custom_pre_tax
+        - null
       description: Type of benefit.
       x-tags:
         - Models
@@ -2204,6 +2737,94 @@ components:
           name: not_found_error
           finch_code: individual_not_found
           message: Individual not found for benefit
+    AutomatedAsyncJob:
+      title: AutomatedAsyncJob
+      x-stoplight:
+        id: voe2om9cm4h80
+      type: object
+      x-examples:
+        Example 1:
+          job_id: job-7e8d96ab-898f-4495-8b74-6316bb30b772
+          type: scheduled
+          code: 200
+          created_at: '2019-08-24T14:15:22Z'
+          started_at: '2019-08-24T14:15:22Z'
+          completed_at: '2019-08-24T14:15:22Z'
+      properties:
+        job_id:
+          type: string
+          description: The id of the job that has been created.
+          format: uuid
+        job_url:
+          type: string
+          x-stoplight:
+            id: eabb1yhaw9vnt
+          description: The url that can be used to retrieve the job status
+        type:
+          type: string
+          description: Only `data_sync_all` currently supported
+          enum:
+            - data_sync_all
+        status:
+          type: string
+          x-stoplight:
+            id: x2dvdhxz2b91b
+          enum:
+            - pending
+            - in_progress
+            - complete
+            - error
+            - reauth_error
+            - permissions_error
+        created_at:
+          type: string
+          format: date-time
+          description: 'The datetime when the job was created. for scheduled jobs, this will be the initial connection time. For ad-hoc jobs, this will be the time the creation request was received.'
+        scheduled_at:
+          type: string
+          x-stoplight:
+            id: 1lz356ikigkbb
+          format: date-time
+          description: "The datetime a job is scheduled to be run. For scheduled jobs, this datetime can be in the future if the job has not yet been enqueued. For ad-hoc jobs, this field will be\_null."
+          nullable: true
+        started_at:
+          type: string
+          format: date-time
+          description: The datetime a job entered into the job queue.
+          nullable: true
+        completed_at:
+          type: string
+          format: date-time
+          description: The datetime the job completed.
+          nullable: true
+    ManualAsyncJob:
+      title: ManualAsyncJob
+      x-stoplight:
+        id: h9iyzuiemltxj
+      type: object
+      x-examples:
+        Example 1:
+          job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+          status: complete
+          body:
+            - individual_id: 46decc95-451e-44ef-baac-b228d778267f
+              message: Successfully updated benefit for individual
+      properties:
+        job_id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+            - pending
+            - in_progress
+            - error
+            - complete
+        body:
+          type: array
+          description: 'Specific information about the job, such as individual statuses for batch jobs.'
+          nullable: true
+          items: {}
   requestBodies:
     Individual-Ids:
       content:
@@ -2239,7 +2860,7 @@ components:
         type: string
         default: '2020-09-17'
         format: date
-        pattern: '([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))'
+        pattern: YYYY-MM-DD
       description: Header used to specify the version for a given API request. Current version is 2020-09-17.
     Content-Type:
       name: Content-Type

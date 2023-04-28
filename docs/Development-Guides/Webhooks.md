@@ -25,7 +25,7 @@ Webhooks are available for customers in our Scale tier. Please reach out to a Fi
 
 ## Webhook Payload Structure
 
-### Data Updates
+### Data updates
 
 Finch currently supports webhook updates for `created`, `updated`, and `deleted` events for the following data endpoints:
 
@@ -42,6 +42,7 @@ Field Name | Type | Description
 ---------|----------|---------
  `webhook_id` | string (uuid) | A unique identifier for the webhook event
  `company_id` | string (uuid) | Unique Finch id of the company for which data has been updated
+ `account_id` | string (uuid) | Unique Finch id of the employer account that was used to make this connection. If an employer completes authorization through Finch multiple times with different accounts or API tokens, those connections will be associated with different `account_id`s.
  `webhook_type` | string | The type of webhook being delivered. Options are  `company`, `directory`, `individual`, `employment`, `payment`, `pay-statement`,  `management`
  `event_type` | string | The type of event being delivered for this webhook type.<br />`initial_sync` if this update is the result of a new connection via Finch Connect.<br />`update_sync` if this update is the result of a Finch data sync<br />`authentication_error` to indicate connection issues for management webhooks
  `data` | array | The payload of change data
@@ -54,6 +55,7 @@ Beyond the `change_type`, the objects in the `data` array will differ slightly b
 {
   "webhook_id": "b12c125b-8926-49e5-b6a1-b0ab938150bb",
   "company_id": "4f522988-d80c-4d61-b4b0-a9fe3c90d65d",
+  "account_id": "d8ef1814-5913-492f-b5c0-a16e2d6432c9",
   "event_type": "initial_sync",
   "webhook_type": "company",
   "data": [
@@ -68,6 +70,7 @@ Beyond the `change_type`, the objects in the `data` array will differ slightly b
 {
   "webhook_id": "b12c125b-8926-49e5-b6a1-b0ab938150bb",
   "company_id": "4f522988-d80c-4d61-b4b0-a9fe3c90d65d",
+  "account_id": "d8ef1814-5913-492f-b5c0-a16e2d6432c9",
   "event_type": "initial_sync",
   "webhook_type": "directory",
   "data": [
@@ -100,6 +103,7 @@ Beyond the `change_type`, the objects in the `data` array will differ slightly b
 {
   "webhook_id": "b12c125b-8926-49e5-b6a1-b0ab938150bb",
   "company_id": "4f522988-d80c-4d61-b4b0-a9fe3c90d65d",
+  "account_id": "d8ef1814-5913-492f-b5c0-a16e2d6432c9",
   "event_type": "update_sync",
   "webhook_type": "employment"
   "data": [
@@ -116,6 +120,7 @@ Beyond the `change_type`, the objects in the `data` array will differ slightly b
 {
   "webhook_id": "b12c125b-8926-49e5-b6a1-b0ab938150bb",
   "company_id": "4f522988-d80c-4d61-b4b0-a9fe3c90d65d",
+  "account_id": "d8ef1814-5913-492f-b5c0-a16e2d6432c9",
   "event_type": "update_sync",
   "webhook_type": "payment",
   "data": [
@@ -134,6 +139,7 @@ Beyond the `change_type`, the objects in the `data` array will differ slightly b
 {
   "webhook_id": "b12c125b-8926-49e5-b6a1-b0ab938150bb",
   "company_id": "4f522988-d80c-4d61-b4b0-a9fe3c90d65d",
+  "account_id": "d8ef1814-5913-492f-b5c0-a16e2d6432c9",
   "event_type": "update_sync",
   "webhook_type": "payment",
   "data": [
@@ -148,7 +154,7 @@ Beyond the `change_type`, the objects in the `data` array will differ slightly b
 }
 ```
 
-### Management Updates
+### Management updates
 
 Finch provides a `management` webhook type to deliver updates about the status of a connection. Finch will deliver a webhook if there have been any connection issues within the past 24 hours for a connection. In addition to the schema above, management updates will include a `message` field which provides more detail about the issue encountered while syncing data. The `data` field is omitted from management webhooks:
 
@@ -157,6 +163,7 @@ Finch provides a `management` webhook type to deliver updates about the status o
 {
   "webhook_id": "b12c125b-8926-49e5-b6a1-b0ab938150bb",
   "company_id": "4f522988-d80c-4d61-b4b0-a9fe3c90d65d",
+  "account_id": "d8ef1814-5913-492f-b5c0-a16e2d6432c9",
   "webhook_type": "management",
   "event_type": "authentication_error"
   "message": "Please have the user reauthenticate"
@@ -210,7 +217,7 @@ The test webhook will include the same structure as data update webhooks, with t
 
 Upon failure, Finch will retry sending an event up to 5 times.
 
-## Best practices for handling webhooks
+## Best Practices for Handling Webhooks
 
 **Responding to Webhooks**
 
@@ -223,4 +230,4 @@ In order to prevent unnecessary retries, we recommend receiving webhook events a
 
 **Event Mapping**
 
-- Webhooks are delivered with a `company_id` corresponding to the company for which the data changed. This means you will have to retrieve the company id from Finch in order to map webhooks updates to the companies the data belongs to. A simple workflow for this is to call the `/introspect` endpoint after exchanging an auth code for an access token via the `/auth/token` endpoint. The `/introspect` endpoint contains the `company_id` for the company a token is associated with. You can save this id in your system to map incoming webhook events to companies.
+- Webhooks are delivered with a `company_id` and an `account_id` corresponding to the company for which the data changed. You should retrieve these ids from Finch in order to map webhooks updates to the company/account pair the data belongs to. A simple workflow for this is to call the `/introspect` endpoint after exchanging an auth code for an access token via the `/auth/token` endpoint. The `/introspect` endpoint contains the `company_id` and `account_id` for the connection a token is associated with. You can save these ids in your system to map incoming webhook events to companies.

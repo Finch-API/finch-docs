@@ -4,7 +4,7 @@ Finch aims to ensure your application maintains long-lived access to your users'
 
 ---
 
-## General re-authentication flow
+## General Re-authentication Flow
 
 Finch recommends the following steps to handle re-authentication—
 

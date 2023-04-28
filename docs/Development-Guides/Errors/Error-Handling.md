@@ -18,16 +18,17 @@ Server errors indicate an error on Finch's side and return an HTTP response with
 - Retrying immediately usually will not resolve the issue. We recommend retrying the API request in a few hours.
 - If the error persists, submit a support ticket with the `Finch-Request-ID` present in the headers of the response.
 
-### 401 Re-authentication Errors
+### 401 re-authentication errors
 
-Authentication errors indicate an error on the end user's side. See the [re-authentication docs](../Re-authentication.md) for more on common causes and troubleshooting steps. 
+Authentication errors indicate an error on the end user's side. See the [re-authentication docs](../../Best-Practices/Re-authentication.md) for more on common causes and troubleshooting steps. 
 
-## Batch requests
+## Batch Requests
 
 A number of Finch endpoints (like `/individual`, `/employment`, and `/pay-statement`) are batch endpoints.
 
 For such endpoints, Finch can return errors in two ways:
 1. Return an error per batch request item within the response body. The error will be in the same format described in the [Error Types guide](./Error-Types.md).
+    * Finch also returns an `error_name` and `error_message` in the response body. **These fields are now deprecated in favor of conforming to our standard error formatting, and will be removed entirely in June 2023.**
 2. Return an error at the HTTP status code level. The error will be in the same format described in the [Error Types guide](./Error-Types.md).
 
 <!-- theme: info -->
@@ -48,12 +49,16 @@ Response Body:
       // this id varies by endpoint, could also be payment_id or benefit_id
       "individual_id": "fbeabe51-e6d2-45aa-a460-4c8482528f41",
       // corresponds to the `code` parameter of the error schema in the Error Types guide
-      "code": 500,
+      "code": 404,
       "body": {
-        // corresponds to the `name` parameter of the error schema in the Error Types guide
-        "error_name": "server_error",
-        // corresponds to the `message` parameter of the error schema in the Error Types guide
-        "error_message": "Internal Server Error"
+        "name": "not_found_error",
+        "code": 404,
+        "finch_code": "individual_not_found",
+        "message": "The individual with id 'fbeabe51-e6d2-45aa-a460-4c8482528f41' could not be found",
+        // deprecated field. corresponds to the `name` parameter of the error schema in the Error Types guide
+        "error_name": "not_found_error",
+        // deprecated field. corresponds to the `message` parameter of the error schema in the Error Types guide
+        "error_message": "The individual with id 'fbeabe51-e6d2-45aa-a460-4c8482528f41' could not be found"
       }
     }
   ]

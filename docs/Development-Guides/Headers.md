@@ -1,6 +1,6 @@
 # Headers
 
-## Request headers
+## Request Headers
 
 Every request to Finch's API requires the following headers—
 Header | Description
@@ -10,7 +10,7 @@ Header | Description
 
 ***
 
-## Response headers
+## Response Headers
 
 Finch’s additional response headers provide information about the data contained in responses.
 

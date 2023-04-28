@@ -21,7 +21,7 @@
     },
     {
       "type": "item",
-      "title": "How Finch works",
+      "title": "How Finch Works",
       "uri": "docs/Integrating-with-Finch/How Finch Works.md"
     },
     {
@@ -52,7 +52,7 @@
     },
     {
       "type": "item",
-      "title": "Integration checklist",
+      "title": "Integration Checklist",
       "uri": "docs/Integrating-with-Finch/Integration Checklist.md"
     },
     {
@@ -77,21 +77,6 @@
     {
       "type": "divider",
       "title": "Development Guides"
-    },
-    {
-      "type": "item",
-      "title": "Re-authentication",
-      "uri": "docs/Development-Guides/Re-authentication.md"
-    },
-    {
-      "type": "item",
-      "title": "Multi-account flow",
-      "uri": "docs/Development-Guides/Multi-account-Flow.md"
-    },
-    {
-      "type": "item",
-      "title": "Reconciling employees",
-      "uri": "docs/Development-Guides/Reconciling-Employees.md"
     },
     {
       "type": "item",
@@ -149,20 +134,50 @@
         }
       ]
     },
-    {
-      "type": "item",
-      "title": "Response Times",
-      "uri": "docs/Development-Guides/Response-Times.md"
-    },
-    {
-      "type": "item",
-      "title": "Compatibility",
-      "uri": "docs/Development-Guides/Compatibility.md"
+     {
+      "type": "group",
+      "title": "Field Support",
+      "items": [
+        {
+          "type": "item",
+          "title": "Census & Pay Field Support",
+          "uri": "docs/Development-Guides/Field-Support/Compatibility.md"
+        },
+        {
+          "type": "item",
+          "title": "Benefits Field Support",
+          "uri": "docs/Development-Guides/Field-Support/Benefits-Support.md"
+        }
+      ]
     },
     {
       "type": "item",
       "title": "Data Syncs",
       "uri": "docs/Development-Guides/Data-Syncs.md"
+    },
+    {
+      "type": "divider",
+      "title": "Best Practices"
+    },
+    {
+      "type": "item",
+      "title": "Re-authentication",
+      "uri": "docs/Best-Practices/Re-authentication.md"
+    },
+    {
+      "type": "item",
+      "title": "Multi-account Flow",
+      "uri": "docs/Best-Practices/Multi-account-Flow.md"
+    },
+    {
+      "type": "item",
+      "title": "Reconciling Employees",
+      "uri": "docs/Best-Practices/Reconciling-Employees.md"
+    },
+    {
+      "type": "item",
+      "title": "Calculating Year-To-Date (YTD) Wages",
+      "uri": "docs/Best-Practices/Calculating-YTD-Wages.md"
     },
     {
       "type": "divider",

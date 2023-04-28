@@ -5,11 +5,12 @@ Finch Connect is a front-end UI that allows your users to safely and securely gr
 <!--
 focus: false
 -->
+
 ![](../../assets/images/finchConnectIntro.png)
 
 ---
 
-## Integrating Finch Connect into your product
+## Integrating Finch Connect Into Your Product
 
 To create the best experience for your users and ensure maximum conversion, you will want to consider the following questions when designing your user journey—
 
@@ -24,20 +25,52 @@ We recommend asking your user to connect when they are onboarding onto your appl
 ### How should I display Finch Connect?
 
 #### Default flow
-In the default flow, your user is shown an employment system selector page where they can choose which system they use. 
+
+In the default flow, your user is shown an employment system selector page where they can choose which system they use.
 
 <!--
 focus: false
 -->
+
 ![](../../assets/images/integratingConnect1B.png)
 
 #### Selector bypass flow
+
 If you already know which system your user uses or want to build your own selector page, you can bypass the selector page by using the `payroll_provider` option while opening Finch Connect.
 
 <!--
 focus: false
 -->
+
 ![](../../assets/images/integratingConnect2B2X.png)
+
+#### Configuring Authentication Methods
+Finch often offers several methods of authentication to end employers. Some integrations offer the option for employers to authenticate using credentials, while others also offer OAuth or direct API token input. Each method provides a distinct balance between reliability and data accessibility, and Finch works to give maximal optionality in the way data access happens.
+
+As a developer, you have the flexibility to decide which authentication methods to make available for your end customers and their order of priority. You can set primary and secondary authentication methods for each provider, and even hide specific methods if desired. For example, if you want to present only the OAuth method to BambooHR customers, Finch can conceal the credentials-based authentication method in Finch Connect. To request a custom authentication configuration, please contact your Finch representative
+
+#### Authentication Fallback
+The Authentication Fallback feature is an opt-in feature for *Scale* tier customers. It enables employers to authorize through Finch Connect even when Finch is experiencing intermittent issues with provider integrations. This feature applies only to credentials-based authentication methods, and not to other authentication methods like direct API token entry or OAuth.
+
+<!--
+focus: false
+-->
+
+![](../../assets/images/fallback.png)
+
+If an employer encounters an error while attempting to authenticate via Finch Connect's automated flow, Finch Connect will display manual connection instructions after three failed attempts*. This process involves the employer adding Finch as a third-party admin in their system. Once Finch accepts the invitation and sets up the account, the data for the connection will flow through the Finch API, just like any other automated connection. The primary distinction is that your application will **receive a 202 response** when making requests with that token until the connection is established on Finch's end. Ensure that your application is configured to handle 202 response codes from Finch. 
+This feature is currently available for the following integrations:
+- Gusto
+- Justworks
+- Paycom
+- Paylocity
+- Quickbooks
+- Trinet
+
+To enable this feature, please reach out to your Finch account manager.
+
+*The number of errors before displaying the fallback screen is adjustable. While the default value is set to three for every provider, this may change over time.
+
 
 ### How do I incentivize my user to connect their system?
 
@@ -46,13 +79,18 @@ To improve conversion, it is important to set user expectations before opening F
 <!--
 focus: false
 -->
+
 ![](../../assets/images/improvingConnectConversion.png)
 
-## Finch Connect in your user's onboarding
+## Finch Connect in Your User's Onboarding
 
-If you are integrating Finch into your onboarding flow, we recommend taking the request latencies of the underlying employment systems into consideration while designing the onboarding flow. You can read more about latencies [here](../Development-Guides/Response-Times.md).
+If you are integrating Finch into your onboarding flow, we recommend taking the request latencies of the underlying employment systems into consideration while designing the onboarding flow. You can read more about latencies [here](../Development-Guides/Data-Syncs.md).
 
 Based on the data points your application needs during onboarding, we recommend the following flows—
 
 1. For `/company` and/or `/directory` data points, you can design a synchronous flow where your user goes through Finch Connect, your application sends API requests to Finch, waits for the responses, and then renders the UI.
-2. For data from other endpoints, we recomment _simulating_ a sychronous flow. Here, your user goes through Finch Connect and your application kicks off API requests in the background. While the requests are being resolved, your user goes through the rest of the onboarding flow. Finally, once the API requests are resolved, your application renders the appropriate UI, creating a sense of immediacy.
+2. For data from other endpoints, we recommend _simulating_ a sychronous flow. Here, your user goes through Finch Connect and your application kicks off API requests in the background. While the requests are being resolved, your user goes through the rest of the onboarding flow. Finally, once the API requests are resolved, your application renders the appropriate UI, creating a sense of immediacy.
+
+## Finch Connect + MFA Sequence Diagram
+
+![connect-flow.png](../../assets/images/connect-flow.png)

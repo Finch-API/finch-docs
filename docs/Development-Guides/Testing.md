@@ -48,7 +48,8 @@ curl https://api.tryfinch.com/employer/benefts \
 -H "Finch-API-Version: 2020-09-17" \
 -X "POST"
 -H "Content-Type: application/json" \
--d '{"type":"401k", "description": "Sample 401k", "frequency": \ "every_paycheck", "employee_deduction": {"type": "fixed",\ "amount": 100}, "company_contribution": {"type": "fixed", \ "amount": 100}}'
+-d '{"type":"401k", "description": \
+"Sample 401k", "frequency": "every_paycheck"}'
 ```
 **Response**
 ```json

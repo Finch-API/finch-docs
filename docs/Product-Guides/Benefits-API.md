@@ -4,7 +4,7 @@ Finch's [Benefits API](https://developer.tryfinch.com/docs/reference/b3A6MTg4Mzc
 
 ## Calling Finch’s API
 
-Before creating and enrolling employees in benefits, you must create an access token using our Finch Connect flow. If the provider is listed as an [Automated API Provider](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers#automated-api-providers), you will the [Automated Connect Flow](https://developer.tryfinch.com/docs/reference/a2c944f1041f6-automated-connect-flow). If the provider is listed as an [Assisted API Provider](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers#assisted-api-providers), you will use our [Assisted Connect Flow](https://developer.tryfinch.com/docs/reference/8c540ddeca222-assisted-connect-flow). Once you have an access token, you can call the Finch API normally.
+Before creating and enrolling employees in benefits, you must create an access token using our Finch Connect flow. If the provider is listed as an [Automated API Provider](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers#automated-api-providers), you will use the [Automated Connect Flow](https://developer.tryfinch.com/docs/reference/a2c944f1041f6-automated-connect-flow). If the provider is listed as an [Assisted API Provider](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers#assisted-api-providers), you will use our [Assisted Connect Flow](https://developer.tryfinch.com/docs/reference/8c540ddeca222-assisted-connect-flow). Once you have an access token, you can call the Finch API normally.
 
 1. Both **Automated** and **Assisted** Benefits connections can call these endpoints
     - `POST /employer/benefits` to create a new company-wide benefit or individual deduction
@@ -42,7 +42,9 @@ The types and features of each benefit can vary between payroll systems, and eve
 
 On request, we can also provide written documentation about supported features and benefit types at the provider level. Please reach out to your account representative for that information.
 
-**Note: One-time post-tax deductions are not currently supported for benefits.**
+Please note that for providers supported via Assisted Benefits, only **benefits-enabled** providers have the meta endpoint implemented. This is because Finch must first connect to a provider system in order to create an accurate benefit mapping. **Until a provider is benefits-enabled, Finch will return a 202 status code from the `/benefits/meta` endpoint**. Once we have perfomed the benefit mapping to the provider system, we will remove the 202 and return the standardized `/benefits/meta` response. Please see the [Providers page](../Development-Guides/Providers.md) for which providers are currently benefits-enabled, and see our [Assisted Connect SLAs](../Product-Guides/Assisted-Connect-Flow.md#for-you) for enabling new benefits providers.
+
+**Note: One-time post-tax deductions are not currently supported for benefits**
 
 ### Handling Assisted Benefits API responses
 
@@ -154,3 +156,11 @@ You can [use the benefits endpoints in the Finch Sandbox](https://developer.tryf
 
 
 If you would like to test our Benefits product against a real account, please reach out to a Finch representative so we can set you up with a testing environment.
+
+### Automated Benefits Sequence Diagram
+
+![automated-benefits.png](../../assets/images/automated-benefits.png)
+
+### Assisted Benefits Sequence Diagram
+
+![assisted-benefits.png](../../assets/images/assisted-benefits.png)
