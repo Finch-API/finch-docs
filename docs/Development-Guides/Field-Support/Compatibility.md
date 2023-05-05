@@ -6,125 +6,1618 @@ stoplight-id: 0517ab806dda4
 
 Finch's API tries to maintain parity between all [providers](./Providers.md). However, every now and then, a provider may not support a specific data field (for example: job titles). This section outlines the compatibility of each data field per Automated API Integration and any other miscellaneous information that's important to know.
 
-## Supported Data Fields
-
----
-
 <!-- theme: info -->
 
 > <strong><span style="color:green">✓</span></strong> — supported
 >
 > <strong><span style="color:red">x</span></strong> — not supported by Finch
 
+### ADP Workforce Now
 <!--
 type: tab
-title: HRIS
+title: Credentials
 -->
+<details>
+<summary><strong style="display:inline">Company</strong></summary>
 
-### Company
-![company.jpg](../../../assets/images/company.png)
 
-<p><i>* Only available by inferring from entity.type</i><br>
-<i>** account_number is mask and only shows the last 4 digits</i></p>
+  Field | Support
+  ---- | -----
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `legal_name` | <strong><span style="color:green">✓</span></strong>
+  `entity.type` | <strong><span style="color:green">✓</span></strong>
+  `entity.subtype` | <strong><span style="color:green">✓</span></strong>
+  `primary_email` | <strong><span style="color:green">✓</span></strong>
+  `primary_phone_number` | <strong><span style="color:green">✓</span></strong>
+  `ein` | <strong><span style="color:green">✓</span></strong>
+  `departments[]` | <strong><span style="color:green">✓</span></strong>
+  `departments[].parent`| <strong><span style="color:green">✓</span></strong>
+  `departments[].parent.name`| <strong><span style="color:green">✓</span></strong>
+  `locations[].line1` | <strong><span style="color:red">x</span></strong>
+  `locations[].line2` | <strong><span style="color:red">x</span></strong>
+  `locations[].city` | <strong><span style="color:red">x</span></strong>
+  `locations[].state` |<strong><span style="color:red">x</span></strong>
+  `locations[].postal_code` | <strong><span style="color:red">x</span></strong>
+  `locations[].country` | <strong><span style="color:red">x</span></strong>
+  `accounts[].routing_number` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].institution_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_type` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_number` | <strong><span style="color:red">x</span></strong>
 
-### Directory
-![directory.png](../../../assets/images/directory.png)
+</details>
 
-<p><i>* Initial only</i></p>
+<details>
+<summary><strong style="display:inline">Directory</strong></summary>
 
-### Individual
-![individual.png](../../../assets/images/individual.png)
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
 
-<p><i>* Initial only</i><br>
-<i>** No work email available</i><br>
-<i>*** Contractors don't have these fields in the QBO system</i></p>
+</details>
 
-### Employment
-![employment.png](../../../assets/images/employment.png)
+<details>
+<summary><strong style="display:inline">Individual</strong></summary>
 
-<p><i>* Initial only</i><br>
-<i>** Requires customer to be at highest package tier, ADP Run Pro</i></br>
-<i>*** These fields are not provided for contractors</i></p>
 
-### Payment
-![payment.jpg](../../../assets/images/payment.png)
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
 
-### Pay Statement
-![pay-statement.png](../../../assets/images/pay-statement.png)
+</details>
 
-<p><i>* 401k Match cannot be set on Justworks</i><br>
-<i>** Paychex Flex only exposes the previous 24 months of pay data</i></br>
-<i>***Attribute not always available via Paylocity's API</i></p>
+<details>
+<summary><strong style="display:inline">Employment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Payment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Pay Statement</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<!-- type: tab-end -->
+
+### BambooHR
+<!--
+type: tab
+title: Credentials
+-->
+<details>
+<summary><strong style="display:inline">Company</strong></summary>
+
+
+  Field | Support
+  ---- | -----
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `legal_name` | <strong><span style="color:green">✓</span></strong>
+  `entity.type` | <strong><span style="color:green">✓</span></strong>
+  `entity.subtype` | <strong><span style="color:green">✓</span></strong>
+  `primary_email` | <strong><span style="color:green">✓</span></strong>
+  `primary_phone_number` | <strong><span style="color:green">✓</span></strong>
+  `ein` | <strong><span style="color:green">✓</span></strong>
+  `departments[]` | <strong><span style="color:green">✓</span></strong>
+  `departments[].parent`| <strong><span style="color:green">✓</span></strong>
+  `departments[].parent.name`| <strong><span style="color:green">✓</span></strong>
+  `locations[].line1` | <strong><span style="color:red">x</span></strong>
+  `locations[].line2` | <strong><span style="color:red">x</span></strong>
+  `locations[].city` | <strong><span style="color:red">x</span></strong>
+  `locations[].state` |<strong><span style="color:red">x</span></strong>
+  `locations[].postal_code` | <strong><span style="color:red">x</span></strong>
+  `locations[].country` | <strong><span style="color:red">x</span></strong>
+  `accounts[].routing_number` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].institution_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_type` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_number` | <strong><span style="color:red">x</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Directory</strong></summary>
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Individual</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Employment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Payment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Pay Statement</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
 
 <!--
 type: tab
-title: ATS
+title: API
 -->
-
-### Candidates
-Field Name | Lever
----- | -----
-`id` | <strong><span style="color:green">✓</span></strong>
-`first_name` | <strong><span style="color:red">x</span></strong>
-`last_name` | <strong><span style="color:red">x</span></strong>
-`full_name` | <strong><span style="color:green">✓</span></strong>
-`emails` | <strong><span style="color:green">✓</span></strong>
-`emails[].data` | <strong><span style="color:green">✓</span></strong>
-`emails[].type` | <strong><span style="color:green">✓</span></strong>
-`phone_numbers` | <strong><span style="color:green">✓</span></strong>
-`phone_numbers[].type`| <strong><span style="color:green">✓</span></strong>
-`phone_numbers[].data`| <strong><span style="color:green">✓</span></strong>
-`created_at` | <strong><span style="color:green">✓</span></strong>
-`last_activity_at` | <strong><span style="color:green">✓</span></strong>
-`application_ids` | <strong><span style="color:green">✓</span></strong>
-
-*Opportunity leads are excluded from Candidates for Lever
-
-### Applications
-Field Name | Lever
----- | -----
-`id` | <strong><span style="color:green">✓</span></strong>
-`candidate_id` | <strong><span style="color:green">✓</span></strong>
-`job_id` | <strong><span style="color:green">✓</span></strong>
-`offer_id` | <strong><span style="color:green">✓</span></strong>
-`stage` | <strong><span style="color:green">✓</span></strong>
-`stage.id` | <strong><span style="color:green">✓</span></strong>
-`stage.name` | <strong><span style="color:green">✓</span></strong>
-`rejected_at` | <strong><span style="color:green">✓</span></strong>
-`rejected_reason`| <strong><span style="color:green">✓</span></strong>
-`rejected_reason.text`| <strong><span style="color:green">✓</span></strong>
-
-### Jobs
-Field Name | Lever
----- | -----
-`id` | <strong><span style="color:green">✓</span></strong>
-`name` | <strong><span style="color:green">✓</span></strong>
-`status` | <strong><span style="color:green">✓</span></strong>
-`department` | <strong><span style="color:green">✓</span></strong>
-`department.name` | <strong><span style="color:green">✓</span></strong>
-`created_at` | <strong><span style="color:green">✓</span></strong>
-`closed_at` | <strong><span style="color:green">✓</span></strong>
-`hiring_team` | <strong><span style="color:green">✓</span></strong>
-`hiring_team.hiring_managers`| <strong><span style="color:green">✓</span></strong>
-`hiring_team.recruiters`| <strong><span style="color:red">x</span></strong>
-
-### Stages
-Field Name | Lever
----- | -----
-`id` | <strong><span style="color:green">✓</span></strong>
-`job_id` | <strong><span style="color:red">x</span></strong>
-`name` |<strong><span style="color:green">✓</span></strong>
+<details>
+<summary><strong style="display:inline">Company</strong></summary>
 
 
-### Offers
-Field Name | Lever
----- | -----
-`id` | <strong><span style="color:green">✓</span></strong>
-`application_id` | <strong><span style="color:green">✓</span></strong>
-`candidate_id` |<strong><span style="color:green">✓</span></strong>
-`job_id` | <strong><span style="color:green">✓</span></strong>
-`created_at` | <strong><span style="color:green">✓</span></strong>
-`updated_at` | <strong><span style="color:red">x</span></strong>
-`status`| <strong><span style="color:green">✓</span></strong>
+  Field | Support
+  ---- | -----
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `legal_name` | <strong><span style="color:green">✓</span></strong>
+  `entity.type` | <strong><span style="color:green">✓</span></strong>
+  `entity.subtype` | <strong><span style="color:green">✓</span></strong>
+  `primary_email` | <strong><span style="color:green">✓</span></strong>
+  `primary_phone_number` | <strong><span style="color:green">✓</span></strong>
+  `ein` | <strong><span style="color:green">✓</span></strong>
+  `departments[]` | <strong><span style="color:green">✓</span></strong>
+  `departments[].parent`| <strong><span style="color:green">✓</span></strong>
+  `departments[].parent.name`| <strong><span style="color:green">✓</span></strong>
+  `locations[].line1` | <strong><span style="color:red">x</span></strong>
+  `locations[].line2` | <strong><span style="color:red">x</span></strong>
+  `locations[].city` | <strong><span style="color:red">x</span></strong>
+  `locations[].state` |<strong><span style="color:red">x</span></strong>
+  `locations[].postal_code` | <strong><span style="color:red">x</span></strong>
+  `locations[].country` | <strong><span style="color:red">x</span></strong>
+  `accounts[].routing_number` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].institution_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_type` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_number` | <strong><span style="color:red">x</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Directory</strong></summary>
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Individual</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Employment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Payment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Pay Statement</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<!-- type: tab-end -->
+
+### Bob
+<!--
+type: tab
+title: Credentials
+-->
+<details>
+<summary><strong style="display:inline">Company</strong></summary>
+
+
+  Field | Support
+  ---- | -----
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `legal_name` | <strong><span style="color:green">✓</span></strong>
+  `entity.type` | <strong><span style="color:green">✓</span></strong>
+  `entity.subtype` | <strong><span style="color:green">✓</span></strong>
+  `primary_email` | <strong><span style="color:green">✓</span></strong>
+  `primary_phone_number` | <strong><span style="color:green">✓</span></strong>
+  `ein` | <strong><span style="color:green">✓</span></strong>
+  `departments[]` | <strong><span style="color:green">✓</span></strong>
+  `departments[].parent`| <strong><span style="color:green">✓</span></strong>
+  `departments[].parent.name`| <strong><span style="color:green">✓</span></strong>
+  `locations[].line1` | <strong><span style="color:red">x</span></strong>
+  `locations[].line2` | <strong><span style="color:red">x</span></strong>
+  `locations[].city` | <strong><span style="color:red">x</span></strong>
+  `locations[].state` |<strong><span style="color:red">x</span></strong>
+  `locations[].postal_code` | <strong><span style="color:red">x</span></strong>
+  `locations[].country` | <strong><span style="color:red">x</span></strong>
+  `accounts[].routing_number` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].institution_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_type` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_number` | <strong><span style="color:red">x</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Directory</strong></summary>
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Individual</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Employment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Payment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Pay Statement</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<!--
+type: tab
+title: API
+-->
+<details>
+<summary><strong style="display:inline">Company</strong></summary>
+
+
+  Field | Support
+  ---- | -----
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `legal_name` | <strong><span style="color:green">✓</span></strong>
+  `entity.type` | <strong><span style="color:green">✓</span></strong>
+  `entity.subtype` | <strong><span style="color:green">✓</span></strong>
+  `primary_email` | <strong><span style="color:green">✓</span></strong>
+  `primary_phone_number` | <strong><span style="color:green">✓</span></strong>
+  `ein` | <strong><span style="color:green">✓</span></strong>
+  `departments[]` | <strong><span style="color:green">✓</span></strong>
+  `departments[].parent`| <strong><span style="color:green">✓</span></strong>
+  `departments[].parent.name`| <strong><span style="color:green">✓</span></strong>
+  `locations[].line1` | <strong><span style="color:red">x</span></strong>
+  `locations[].line2` | <strong><span style="color:red">x</span></strong>
+  `locations[].city` | <strong><span style="color:red">x</span></strong>
+  `locations[].state` |<strong><span style="color:red">x</span></strong>
+  `locations[].postal_code` | <strong><span style="color:red">x</span></strong>
+  `locations[].country` | <strong><span style="color:red">x</span></strong>
+  `accounts[].routing_number` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].institution_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_type` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_number` | <strong><span style="color:red">x</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Directory</strong></summary>
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Individual</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Employment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Payment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Pay Statement</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<!-- type: tab-end -->
+
+### Gusto
+<!--
+type: tab
+title: Credentials
+-->
+<details>
+<summary><strong style="display:inline">Company</strong></summary>
+
+
+  Field | Support
+  ---- | -----
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `legal_name` | <strong><span style="color:green">✓</span></strong>
+  `entity.type` | <strong><span style="color:green">✓</span></strong>
+  `entity.subtype` | <strong><span style="color:green">✓</span></strong>
+  `primary_email` | <strong><span style="color:green">✓</span></strong>
+  `primary_phone_number` | <strong><span style="color:green">✓</span></strong>
+  `ein` | <strong><span style="color:green">✓</span></strong>
+  `departments[]` | <strong><span style="color:green">✓</span></strong>
+  `departments[].parent`| <strong><span style="color:green">✓</span></strong>
+  `departments[].parent.name`| <strong><span style="color:green">✓</span></strong>
+  `locations[].line1` | <strong><span style="color:red">x</span></strong>
+  `locations[].line2` | <strong><span style="color:red">x</span></strong>
+  `locations[].city` | <strong><span style="color:red">x</span></strong>
+  `locations[].state` |<strong><span style="color:red">x</span></strong>
+  `locations[].postal_code` | <strong><span style="color:red">x</span></strong>
+  `locations[].country` | <strong><span style="color:red">x</span></strong>
+  `accounts[].routing_number` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].institution_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_type` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_number` | <strong><span style="color:red">x</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Directory</strong></summary>
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Individual</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Employment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Payment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Pay Statement</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<!-- type: tab-end -->
+
+### Humaans
+<!--
+type: tab
+title: API
+-->
+<details>
+<summary><strong style="display:inline">Company</strong></summary>
+
+
+  Field | Support
+  ---- | -----
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `legal_name` | <strong><span style="color:green">✓</span></strong>
+  `entity.type` | <strong><span style="color:green">✓</span></strong>
+  `entity.subtype` | <strong><span style="color:green">✓</span></strong>
+  `primary_email` | <strong><span style="color:green">✓</span></strong>
+  `primary_phone_number` | <strong><span style="color:green">✓</span></strong>
+  `ein` | <strong><span style="color:green">✓</span></strong>
+  `departments[]` | <strong><span style="color:green">✓</span></strong>
+  `departments[].parent`| <strong><span style="color:green">✓</span></strong>
+  `departments[].parent.name`| <strong><span style="color:green">✓</span></strong>
+  `locations[].line1` | <strong><span style="color:red">x</span></strong>
+  `locations[].line2` | <strong><span style="color:red">x</span></strong>
+  `locations[].city` | <strong><span style="color:red">x</span></strong>
+  `locations[].state` |<strong><span style="color:red">x</span></strong>
+  `locations[].postal_code` | <strong><span style="color:red">x</span></strong>
+  `locations[].country` | <strong><span style="color:red">x</span></strong>
+  `accounts[].routing_number` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].institution_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_type` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_number` | <strong><span style="color:red">x</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Directory</strong></summary>
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Individual</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Employment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Payment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Pay Statement</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<!-- type: tab-end -->
+
+### Insperity`
+<!--
+type: tab
+title: Credentials
+-->
+<details>
+<summary><strong style="display:inline">Company</strong></summary>
+
+
+  Field | Support
+  ---- | -----
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `legal_name` | <strong><span style="color:green">✓</span></strong>
+  `entity.type` | <strong><span style="color:green">✓</span></strong>
+  `entity.subtype` | <strong><span style="color:green">✓</span></strong>
+  `primary_email` | <strong><span style="color:green">✓</span></strong>
+  `primary_phone_number` | <strong><span style="color:green">✓</span></strong>
+  `ein` | <strong><span style="color:green">✓</span></strong>
+  `departments[]` | <strong><span style="color:green">✓</span></strong>
+  `departments[].parent`| <strong><span style="color:green">✓</span></strong>
+  `departments[].parent.name`| <strong><span style="color:green">✓</span></strong>
+  `locations[].line1` | <strong><span style="color:red">x</span></strong>
+  `locations[].line2` | <strong><span style="color:red">x</span></strong>
+  `locations[].city` | <strong><span style="color:red">x</span></strong>
+  `locations[].state` |<strong><span style="color:red">x</span></strong>
+  `locations[].postal_code` | <strong><span style="color:red">x</span></strong>
+  `locations[].country` | <strong><span style="color:red">x</span></strong>
+  `accounts[].routing_number` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].institution_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_type` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_number` | <strong><span style="color:red">x</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Directory</strong></summary>
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Individual</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Employment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Payment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Pay Statement</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<!--
+type: tab
+title: API
+-->
+<details>
+<summary><strong style="display:inline">Company</strong></summary>
+
+
+  Field | Support
+  ---- | -----
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `legal_name` | <strong><span style="color:green">✓</span></strong>
+  `entity.type` | <strong><span style="color:green">✓</span></strong>
+  `entity.subtype` | <strong><span style="color:green">✓</span></strong>
+  `primary_email` | <strong><span style="color:green">✓</span></strong>
+  `primary_phone_number` | <strong><span style="color:green">✓</span></strong>
+  `ein` | <strong><span style="color:green">✓</span></strong>
+  `departments[]` | <strong><span style="color:green">✓</span></strong>
+  `departments[].parent`| <strong><span style="color:green">✓</span></strong>
+  `departments[].parent.name`| <strong><span style="color:green">✓</span></strong>
+  `locations[].line1` | <strong><span style="color:red">x</span></strong>
+  `locations[].line2` | <strong><span style="color:red">x</span></strong>
+  `locations[].city` | <strong><span style="color:red">x</span></strong>
+  `locations[].state` |<strong><span style="color:red">x</span></strong>
+  `locations[].postal_code` | <strong><span style="color:red">x</span></strong>
+  `locations[].country` | <strong><span style="color:red">x</span></strong>
+  `accounts[].routing_number` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].institution_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_type` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_number` | <strong><span style="color:red">x</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Directory</strong></summary>
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Individual</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Employment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Payment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Pay Statement</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<!-- type: tab-end -->
+
+### Justworks
+<!--
+type: tab
+title: Credentials
+-->
+<details>
+<summary><strong style="display:inline">Company</strong></summary>
+
+
+  Field | Support
+  ---- | -----
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `legal_name` | <strong><span style="color:green">✓</span></strong>
+  `entity.type` | <strong><span style="color:green">✓</span></strong>
+  `entity.subtype` | <strong><span style="color:green">✓</span></strong>
+  `primary_email` | <strong><span style="color:green">✓</span></strong>
+  `primary_phone_number` | <strong><span style="color:green">✓</span></strong>
+  `ein` | <strong><span style="color:green">✓</span></strong>
+  `departments[]` | <strong><span style="color:green">✓</span></strong>
+  `departments[].parent`| <strong><span style="color:green">✓</span></strong>
+  `departments[].parent.name`| <strong><span style="color:green">✓</span></strong>
+  `locations[].line1` | <strong><span style="color:red">x</span></strong>
+  `locations[].line2` | <strong><span style="color:red">x</span></strong>
+  `locations[].city` | <strong><span style="color:red">x</span></strong>
+  `locations[].state` |<strong><span style="color:red">x</span></strong>
+  `locations[].postal_code` | <strong><span style="color:red">x</span></strong>
+  `locations[].country` | <strong><span style="color:red">x</span></strong>
+  `accounts[].routing_number` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].institution_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_type` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_number` | <strong><span style="color:red">x</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Directory</strong></summary>
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Individual</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Employment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Payment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Pay Statement</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<!-- type: tab-end -->
+
+### Namely
+<!--
+type: tab
+title: Credentials
+-->
+<details>
+<summary><strong style="display:inline">Company</strong></summary>
+
+
+  Field | Support
+  ---- | -----
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `legal_name` | <strong><span style="color:green">✓</span></strong>
+  `entity.type` | <strong><span style="color:green">✓</span></strong>
+  `entity.subtype` | <strong><span style="color:green">✓</span></strong>
+  `primary_email` | <strong><span style="color:green">✓</span></strong>
+  `primary_phone_number` | <strong><span style="color:green">✓</span></strong>
+  `ein` | <strong><span style="color:green">✓</span></strong>
+  `departments[]` | <strong><span style="color:green">✓</span></strong>
+  `departments[].parent`| <strong><span style="color:green">✓</span></strong>
+  `departments[].parent.name`| <strong><span style="color:green">✓</span></strong>
+  `locations[].line1` | <strong><span style="color:red">x</span></strong>
+  `locations[].line2` | <strong><span style="color:red">x</span></strong>
+  `locations[].city` | <strong><span style="color:red">x</span></strong>
+  `locations[].state` |<strong><span style="color:red">x</span></strong>
+  `locations[].postal_code` | <strong><span style="color:red">x</span></strong>
+  `locations[].country` | <strong><span style="color:red">x</span></strong>
+  `accounts[].routing_number` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].institution_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_type` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_number` | <strong><span style="color:red">x</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Directory</strong></summary>
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Individual</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Employment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Payment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Pay Statement</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<!--
+type: tab
+title: API
+-->
+<details>
+<summary><strong style="display:inline">Company</strong></summary>
+
+
+  Field | Support
+  ---- | -----
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `legal_name` | <strong><span style="color:green">✓</span></strong>
+  `entity.type` | <strong><span style="color:green">✓</span></strong>
+  `entity.subtype` | <strong><span style="color:green">✓</span></strong>
+  `primary_email` | <strong><span style="color:green">✓</span></strong>
+  `primary_phone_number` | <strong><span style="color:green">✓</span></strong>
+  `ein` | <strong><span style="color:green">✓</span></strong>
+  `departments[]` | <strong><span style="color:green">✓</span></strong>
+  `departments[].parent`| <strong><span style="color:green">✓</span></strong>
+  `departments[].parent.name`| <strong><span style="color:green">✓</span></strong>
+  `locations[].line1` | <strong><span style="color:red">x</span></strong>
+  `locations[].line2` | <strong><span style="color:red">x</span></strong>
+  `locations[].city` | <strong><span style="color:red">x</span></strong>
+  `locations[].state` |<strong><span style="color:red">x</span></strong>
+  `locations[].postal_code` | <strong><span style="color:red">x</span></strong>
+  `locations[].country` | <strong><span style="color:red">x</span></strong>
+  `accounts[].routing_number` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].institution_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_type` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_number` | <strong><span style="color:red">x</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Directory</strong></summary>
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Individual</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Employment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Payment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Pay Statement</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<!-- type: tab-end -->
+
+### Paycom
+<!--
+type: tab
+title: Credentials
+-->
+<details>
+<summary><strong style="display:inline">Company</strong></summary>
+
+
+  Field | Support
+  ---- | -----
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `legal_name` | <strong><span style="color:green">✓</span></strong>
+  `entity.type` | <strong><span style="color:green">✓</span></strong>
+  `entity.subtype` | <strong><span style="color:green">✓</span></strong>
+  `primary_email` | <strong><span style="color:green">✓</span></strong>
+  `primary_phone_number` | <strong><span style="color:green">✓</span></strong>
+  `ein` | <strong><span style="color:green">✓</span></strong>
+  `departments[]` | <strong><span style="color:green">✓</span></strong>
+  `departments[].parent`| <strong><span style="color:green">✓</span></strong>
+  `departments[].parent.name`| <strong><span style="color:green">✓</span></strong>
+  `locations[].line1` | <strong><span style="color:red">x</span></strong>
+  `locations[].line2` | <strong><span style="color:red">x</span></strong>
+  `locations[].city` | <strong><span style="color:red">x</span></strong>
+  `locations[].state` |<strong><span style="color:red">x</span></strong>
+  `locations[].postal_code` | <strong><span style="color:red">x</span></strong>
+  `locations[].country` | <strong><span style="color:red">x</span></strong>
+  `accounts[].routing_number` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].institution_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_type` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_number` | <strong><span style="color:red">x</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Directory</strong></summary>
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Individual</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Employment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Payment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Pay Statement</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<!--
+type: tab
+title: API
+-->
+<details>
+<summary><strong style="display:inline">Company</strong></summary>
+
+
+  Field | Support
+  ---- | -----
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `legal_name` | <strong><span style="color:green">✓</span></strong>
+  `entity.type` | <strong><span style="color:green">✓</span></strong>
+  `entity.subtype` | <strong><span style="color:green">✓</span></strong>
+  `primary_email` | <strong><span style="color:green">✓</span></strong>
+  `primary_phone_number` | <strong><span style="color:green">✓</span></strong>
+  `ein` | <strong><span style="color:green">✓</span></strong>
+  `departments[]` | <strong><span style="color:green">✓</span></strong>
+  `departments[].parent`| <strong><span style="color:green">✓</span></strong>
+  `departments[].parent.name`| <strong><span style="color:green">✓</span></strong>
+  `locations[].line1` | <strong><span style="color:red">x</span></strong>
+  `locations[].line2` | <strong><span style="color:red">x</span></strong>
+  `locations[].city` | <strong><span style="color:red">x</span></strong>
+  `locations[].state` |<strong><span style="color:red">x</span></strong>
+  `locations[].postal_code` | <strong><span style="color:red">x</span></strong>
+  `locations[].country` | <strong><span style="color:red">x</span></strong>
+  `accounts[].routing_number` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].institution_name` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_type` | <strong><span style="color:red">x</span></strong>
+  `accounts[].account_number` | <strong><span style="color:red">x</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Directory</strong></summary>
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Individual</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Employment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Payment</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
+
+<details>
+<summary><strong style="display:inline">Pay Statement</strong></summary>
+
+
+  Field | Support
+  --- | ---
+  `id` | <strong><span style="color:green">✓</span></strong>
+  `first_name` | <strong><span style="color:green">✓</span></strong>
+  `middle_name` | <strong><span style="color:green">✓</span></strong>
+  `last_name` | <strong><span style="color:green">✓</span></strong>
+  `manager.id` | <strong><span style="color:green">✓</span></strong>
+  `department.name` | <strong><span style="color:green">✓</span></strong>
+  `is_active` | <strong><span style="color:green">✓</span></strong>
+
+</details>
 
 <!-- type: tab-end -->
