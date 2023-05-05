@@ -237,6 +237,7 @@ To enable access to the ATS API, please reach out to your Finch representative.
 Display Name | Id | Read
 ---------|----------|-----
 Lever (beta) | `lever`| <span style="color:darkgreen">Automated</span>
+Greenhouse (beta) | `greenhouse` | <span style="color:darkgreen">Automated</span>
 
 > Assisted Connect is not currently available for ATS integrations.
 
