@@ -26,9 +26,10 @@ Field Name | Support
 `last_activity_at` | <strong><span style="color:green">✓</span></strong>
 `application_ids` | <strong><span style="color:green">✓</span></strong>
 
+*Opportunity leads are excluded from Candidates for Lever
+
 </details>
 
-*Opportunity leads are excluded from Candidates for Lever
 
 <details>
 <summary><strong style="display:inline">Applications</strong></summary>
@@ -95,7 +96,6 @@ Field Name | Support
 
 ### Greenhouse
 
-### Lever
 <!--
 type: tab
 title: API
@@ -118,8 +118,6 @@ Field Name | Support
 `application_ids` | <strong><span style="color:green">✓</span></strong>
 
 </details>
-
-*Opportunity leads are excluded from Candidates for Lever
 
 <details>
 <summary><strong style="display:inline">Applications</strong></summary>
