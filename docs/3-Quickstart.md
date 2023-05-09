@@ -16,7 +16,7 @@ Since this quickstart assumes you have not built an application yet, we must mak
 
 Redirect URIs are only needed if you are [redirecting to Finch Connect](./Integrating-with-Finch/Integrate-Finch-Connect/Redirect-to-Connect.md). If you decide to use our [embedded Finch Connect flow](./Integrating-with-Finch/Integrate-Finch-Connect/Embed-Connect.md), you do not need to specify a redirect_uri; the SDK does this for you.
 
-> Currently, embedded flow only works with our [React SDK](https://developer.tryfinch.com/docs/guides/ZG9jOjEzNDk2NDE-react-tutorial). If you would like to request another embedded flow SDK language, [let us know](mailto:developers@tryfinch.com).
+> Currently, embedded flow only works with our [React SDK](https://github.com/Finch-API/react-connect). If you would like to request another embedded flow SDK language, [let us know](mailto:developers@tryfinch.com).
 
 We will launch Finch Connect - our secure and elegant authorization flow for your users to grant your application access to their systems - by constructing and navigating to the following URL on your browser. Copy the url below, open up your favorite text editor (Notes, TextEdit, VS Code, etc), paste, and replace `<your-client-id>` with the client id found in your [Finch Dashboard](https://dashboard.tryfinch.com). Remove the angle brackets when replacing `<your-client-id>`.
 
