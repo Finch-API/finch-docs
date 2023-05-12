@@ -1,12 +1,33 @@
 # Rate Limits
 
-Finch will return a rate limit error with the HTTP status code `429` when the request rate limit for an application or `token` has been exceeded for a given `product`.
+Finch will return a rate limit error with the HTTP status code 429 when the request rate limit for an application, access token, or an individual IP address has been exceeded.  
 
-*** 
+Finch's rate limits work on a per-product basis for both applications and access tokens. Rate limits are summed on a rolling 60-second basis for each unique `product`. This is commonly referred to as a Sliding or Rolling Window rate limit.
 
-## Application
+You can think of a `product` rate limit like a "bucket". Therefore, when a request is made to a `product` (which correspond directly to an API endpoint), a single gallon of water is added to that endpoint’s bucket, thus starting that bucket's 60-second Time-To-Live (TTL) timer.
 
-Applications are rate limited on a per `product` basis with the following limits.
+After the product's rate limit is reset after 60 seconds, the first request to that `product` starts the 60-second Time-To-Live (TTL) timer again.
+
+***
+
+## Access Token Rate Limits
+
+For access token rate limits, each `product` manages its own "bucket" with its own 60-second Time-To-Live (TTL) timer. The first request by an access token to a new product endpoint starts the timer for only that product's bucket, and rate limits reset only for that product endpoint after the 60-second period.
+
+Product | Max requests initiated per minute
+-------|-------------
+`company` | 4
+`directory` | 4
+`individual` | 4
+`employment` | 4
+`payment` | 2
+`pay-statement` | 2
+
+## Application Rate Limits
+
+Similarly, multiple access tokens can be created from a single Finch application as more employers are connected. A Finch application has its own rate limits separate from the access token rate limits. You can think of an application like a development environment or application stage. Finch will assign three types of applications: `sandbox`, `development`, and `production`. Each will have their own `client_id` which represents the application.
+
+For application-level rate limits, each `product` manages another “larger” bucket simultaneously counting all requests across all access tokens created by that application. Each bucket is still scoped to a product endpoint like with access tokens; the only difference is that the application-level bucket is larger.
 
 Product | Max requests initiated per minute
 -------|-------------
@@ -17,15 +38,150 @@ Product | Max requests initiated per minute
 `payment` | 12
 `pay-statement` | 12
 
-## Access Token
+## IP Address Rate Limits
 
-Access tokens are rate limited on a per `product` basis with the following limits.
+Finch also enforces individual IP Address rate limits. An IP address is a unique address that identifies a device on the internet or a local network. If the number of `max requests` are sent from the same IP Address within the `duration` time set, a `penalty` is enforced. No more requests are allowed once the penalty is enforced. Once the penalty duration is complete, requests will be accepted again.
 
-Product | Max requests initiated per minute
--------|-------------
-`company` | 4
-`directory` | 4
-`individual` | 4
-`employment` | 4
-`payment` | 2
-`pay-statement` | 2
+Type | Max requests | Duration | Penalty
+-------|-------------|-------|-------------
+`API` | 1000 | 5 minutes | 60 minutes
+
+## Other types of rate limits
+
+### Finch Connect Rate limits
+
+Finch enforces rate limits on Employers going thru [Finch Connect](/docs/Integrating-with-Finch/Integrate-Finch-Connect/Overview.md). Each "step" in Finch Connect (the provider selection, logging in, multi-factor authentication prompts, etc) makes a single request to the Finch `/auth/authorize` endpoint. It is highly unlikely for an Employer to encounter these rate limit under normal use. However, an example of this rate limit being encountered is if an employer forgot their password and tried 30 different passwords in the time period of 1 minute. In this case, they would receive a rate limit penalty of 5 minutes.
+
+Type | Max requests | Duration | Penalty
+-------|-------------|-------|-------------
+`Auth` | 30 | 1 minute | 5 minutes
+
+### Upstream Provider Rate Limits
+
+Because Finch integrates directly with 180+ providers, we take extreme care to avoid provider-specific rate limits. However, it inevitably happens. In this case, we will return a specific error code [upstream_rate_limit_exceeded](/docs/Development-Guides/Errors/Error-Types.md#error-types-1) explaining that Finch encountered a provider-specific rate limit. In these cases, wait a few moments before retrying. It is difficult to recommend a wait duration since every provider is different.
+
+## Scenarios
+
+### Scenario 1: Hitting access token level rate limits
+
+In this scenario, let's focus on a single access token (Token A) and assume you are making API requests to any of the the `company`, `directory`, `individual`, `employment`, `payment`, and `pay-statement` endpoints. When a request  is sent to an endpoint, a single gallon of water is added to the endpoint’s bucket each time. The first requests starts that bucket’s 60-second Time-To-Live (TTL) timer.
+
+1. Token A makes `4` requests to the `directory` endpoint within a minute pouring 4 gallons of water into the “directory” bucket.
+    Bucket | Capacity
+    -------|-------------
+    `company` | 0/4
+    `directory` | 4/4 (FULL)
+    `individual` | 0/4
+    `employment` | 0/4
+    `payment` | 0/2
+    `pay-statement` | 0/2
+1. Token A makes `2` requests to the `payment` endpoint within the same minute pouring 2 gallons of water into the “payment” endpoint.
+    Bucket | Capacity
+    -------|-------------
+    `company` | 0/4
+    `directory` | 4/4 (FULL)
+    `individual` | 0/4
+    `employment` | 0/4
+    `payment` | 2/2 (FULL)
+    `pay-statement` | 0/2
+1. At this point, no rate limits have been encountered yet.
+1. Within the same minute, Token A makes `1` request to the `directory` endpoint then 1 request to the `pay-statement` endpoint.
+    Bucket | Capacity
+    -------|-------------
+    `company` | 0/4
+    `directory` | 4/4 (FULL)
+    `individual` | 0/4
+    `employment` | 0/4
+    `payment` | 2/2 (FULL)
+    `pay-statement` | 1/2
+1. The request to the `directory` endpoint will fail and receive a 429 rate limit error, but the request to the `pay-statement` endpoint will succeed. This is because the `directory` endpoint bucket is already full (4/4 gallons), but the `pay-statement` endpoint bucket is not full so it adds another gallon (1/2 gallons).
+1. Assume 60 seconds passes. All endpoint buckets reset.
+    Bucket | Capacity
+    -------|-------------
+    `company` | 0/4
+    `directory` | 0/4
+    `individual` | 0/4
+    `employment` | 0/4
+    `payment` | 0/2
+    `pay-statement` | 0/2
+
+### Scenario 2: Hitting application level rate limits
+
+In this scenario, let's assume your application has six access tokens (Token A, Token B, Token C, Token D, Token E, Token F) and you are making API requests to any of the the `company`, `directory`, `individual`, `employment`, `payment`, and `pay-statement` endpoints.  Using the same bucket analogy, each application-level product endpoint manages another “larger” bucket counting all requests across all access tokens  (Token A, Token B, Token C, Token D, Token E, Token F).
+
+1. Token A makes `4` requests to the `company` endpoint, `3` requests to the `directory` endpoint, and `2` requests to the `payment` endpoint within a minute.
+    - Access Token A rate limits
+        Bucket | Capacity
+        -------|-------------
+        `company` | 4/4 (FULL)
+        `directory` | 3/4
+        `individual` | 0/4
+        `employment` | 0/4
+        `payment` | 2/2 (FULL)
+        `pay-statement` | 0/2
+    - Application-level rate limits
+        Bucket | Capacity
+        -------|-------------
+        `company` | 4/20
+        `directory` | 3/20
+        `individual` | 0/20
+        `employment` | 0/20
+        `payment` | 2/12
+        `pay-statement` | 0/12
+1. Token B makes `5` requests to the `company` endpoint, `3` requests to the `directory` endpoint, and `2` requests to the `payment` endpoint within the same minute. Token B’s first 4 requests to the `company` endpoint will succeed, but the 5th will fail and return a 429 rate limit error. Note: Only succeeded requests count towards the application level rate limits.
+    - Access Token B rate limits
+        Bucket | Capacity
+        -------|-------------
+        `company` | 4/4 (FULL)
+        `directory` | 3/4
+        `individual` | 0/4
+        `employment` | 0/4
+        `payment` | 2/2 (FULL)
+        `pay-statement` | 0/2
+    - Application-level rate limits
+        Bucket | Capacity
+        -------|-------------
+        `company` | 8/20
+        `directory` | 6/20
+        `individual` | 0/20
+        `employment` | 0/20
+        `payment` | 4/12
+        `pay-statement` | 0/12
+1. Token C, D, and E repeats the same process as Token B making `5` requests to the `company` endpoint, `3` requests to the `directory` endpoint, and `2` requests to the `payment` endpoint all within the same minute. Similarly, every 5th request to the `company` endpoint for each token fails and returns a 429 rate limit error.
+    - Access Token C, D, and E individual rate limits
+        Bucket | Capacity
+        -------|-------------
+        `company` | 4/4 (FULL)
+        `directory` | 3/4
+        `individual` | 0/4
+        `employment` | 0/4
+        `payment` | 2/2 (FULL)
+        `pay-statement` | 0/2
+    - Application-level rate limits
+        Bucket | Capacity
+        -------|-------------
+        `company` | 20/20 (FULL)
+        `directory` | 15/20
+        `individual` | 0/20
+        `employment` | 0/20
+        `payment` | 12/12 (FULL)
+        `pay-statement` | 0/12
+1. If Token F makes `1` request to the `company` endpoint and `1` request to the `directory` endpoint. The `company` request will fail and return a 429 rate limit error even though Token F has not maxed out its access-token specific `company` bucket. That is because the application-level bucket is now full. No requests from any token will succeed calling the `company` endpoint until the `company` bucket’s 60-second Time-To-Live (TTL) timer resets. However, Token F’s request to the `directory` endpoint will succeed because its access-token specific `directory` bucket is not full AND the application-level `directory` bucket is not full either.
+    - Access Token F rate limits
+        Bucket | Capacity
+        -------|-------------
+        `company` | 1/4
+        `directory` | 1/4
+        `individual` | 0/4
+        `employment` | 0/4
+        `payment` | 0/2
+        `pay-statement` | 0/2
+    - Application-level rate limits
+        Bucket | Capacity
+        -------|-------------
+        `company` | 20/20 (FULL)
+        `directory` | 16/20
+        `individual` | 0/20
+        `employment` | 0/20
+        `payment` | 12/12 (FULL)
+        `pay-statement` | 0/12
