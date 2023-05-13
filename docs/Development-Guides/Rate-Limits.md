@@ -23,6 +23,20 @@ Product | Max requests initiated per minute
 `payment` | 2
 `pay-statement` | 2
 
+If an access token rate limit is encountered, it will contain the `finch_code`: [finch_token_rl](/docs/Development-Guides/Errors/Error-Types.md#error-types-1) in the response body.
+
+```json
+// HTTP 429 response body for access token rate limit exceeded
+{
+    “statusCode”: 429,
+    “status”: 429,
+    “code”: 429,
+    “message”: “Too many requests for token”,
+    “name”: “rate_limit_exceeded_error”,
+    “finch_code”: “finch_token_rl”
+}
+```
+
 ## Application Rate Limits
 
 Similarly, multiple access tokens can be created from a single Finch application as more employers are connected. A Finch application has its own rate limits separate from the access token rate limits. You can think of an application like a development environment or application stage. Finch will assign three types of applications: `sandbox`, `development`, and `production`. Each will have their own `client_id` which represents the application.
@@ -38,6 +52,20 @@ Product | Max requests initiated per minute
 `payment` | 12
 `pay-statement` | 12
 
+If an application rate limit is encountered, it will contain the `finch_code`: [finch_application_rl](/docs/Development-Guides/Errors/Error-Types.md#error-types-1) in the response body.
+
+```json
+// HTTP 429 response body for application rate limit exceeded
+{
+    "statusCode": 429,
+    "status": 429,
+    "code”: 429,
+    "message": "Too many requests for token",
+    "name": "rate_limit_exceeded_error",
+    "finch_code": "finch_application_rl"
+}
+```
+
 ## IP Address Rate Limits
 
 Finch also enforces individual IP Address rate limits. An IP address is a unique address that identifies a device on the internet or a local network. If the number of `max requests` are sent from the same IP Address within the `duration` time set, a `penalty` is enforced. No more requests are allowed once the penalty is enforced. Once the penalty duration is complete, requests will be accepted again.
@@ -45,6 +73,20 @@ Finch also enforces individual IP Address rate limits. An IP address is a unique
 Type | Max requests | Duration | Penalty
 -------|-------------|-------|-------------
 `API` | 1000 | 5 minutes | 60 minutes
+
+If an IP Address rate limit is encountered, it will contain the `finch_code`: [finch_api_ip_rl](/docs/Development-Guides/Errors/Error-Types.md#error-types-1) in the response body.
+
+```json
+// HTTP 429 response body for application rate limit exceeded
+{
+    "statusCode": 429,
+    "status": 429,
+    "code”: 429,
+    "message": "Too many requests for token",
+    "name": "rate_limit_exceeded_error",
+    "finch_code": "finch_api_ip_rl"
+}
+```
 
 ## Other types of rate limits
 
@@ -56,9 +98,37 @@ Type | Max requests | Duration | Penalty
 -------|-------------|-------|-------------
 `Auth` | 30 | 1 minute | 5 minutes
 
+If an Finch Connect rate limit is encountered, it will contain the `finch_code`: [finch_auth_ip_rl](/docs/Development-Guides/Errors/Error-Types.md#error-types-1) in the response body.
+
+```json
+// HTTP 429 response body for application rate limit exceeded
+{
+    "statusCode": 429,
+    "status": 429,
+    "code”: 429,
+    "message": "Too many requests for token",
+    "name": "rate_limit_exceeded_error",
+    "finch_code": "finch_auth_ip_rl"
+}
+```
+
 ### Upstream Provider Rate Limits
 
 Because Finch integrates directly with 180+ providers, we take extreme care to avoid provider-specific rate limits. However, it inevitably happens. In this case, we will return a specific error code [upstream_rate_limit_exceeded](/docs/Development-Guides/Errors/Error-Types.md#error-types-1) explaining that Finch encountered a provider-specific rate limit. In these cases, wait a few moments before retrying. It is difficult to recommend a wait duration since every provider is different.
+
+If an Upstream Provider rate limit is encountered, it will contain the `finch_code`: [upstream_rate_limit_exceeded](/docs/Development-Guides/Errors/Error-Types.md#error-types-1) in the response body.
+
+```json
+// HTTP 429 response body for application rate limit exceeded
+{
+    "statusCode": 429,
+    "status": 429,
+    "code”: 429,
+    "message": "Too many requests for token",
+    "name": "rate_limit_exceeded_error",
+    "finch_code": "upstream_rate_limit_exceeded"
+}
+```
 
 ## Scenarios
 
@@ -185,3 +255,51 @@ In this scenario, let's assume your application has six access tokens (Token A, 
         `employment` | 0/20
         `payment` | 12/12 (FULL)
         `pay-statement` | 0/12
+
+## Code Example
+
+Suppose the rate limit for a particular Finch `product` is 20 requests per minute. You can use the following JavaScript code example to enforce this rate limit quota in your application. The `RateLimiter` class implements a simple rate limiter that allows you to make requests up to the specified rate limit (20 requests per minute) and pauses further requests until the rate limit resets. The `request` method of the rate limiter is used to make API requests to Finch's endpoints, ensuring that you stay within the rate limit "bucket" quota for that endpoint. Simply initialize a new `RateLimiter` class for each Finch `product` endpoint being called.
+
+```js
+class RateLimiter {
+  constructor(limit) {
+    this.limit = limit;
+    this.requests = [];
+  }
+
+  async request(fn) {
+    const now = Date.now();
+    this.requests = this.requests.filter((timestamp) => now - timestamp < 60000);
+
+    if (this.requests.length >= this.limit) {
+      const delay = this.requests[0] + 60000 - now;
+      await new Promise((resolve) => setTimeout(resolve, delay));
+      this.requests.shift();
+    }
+
+    this.requests.push(now);
+    return fn();
+  }
+}
+
+const directoryRateLimiter = new RateLimiter(20); // 20 requests per minute
+const url = 'https://api.tryfinch.com/employer/directory'; // Replace with the desired endpoint
+const accessToken = '<your_access_token>';
+
+const fetchIndividualData = (
+) =>
+  fetch(url, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+  });
+
+// Use the rate limiter to make API requests
+directoryRateLimiter
+  .request(fetchIndividualData)
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.error('Error:', error));
+```
