@@ -88,48 +88,6 @@ If an IP Address rate limit is encountered, it will contain the `finch_code`: [f
 }
 ```
 
-## Other types of rate limits
-
-### Finch Connect Rate limits
-
-Finch enforces rate limits on Employers going thru [Finch Connect](/docs/Integrating-with-Finch/Integrate-Finch-Connect/Overview.md). Each "step" in Finch Connect (the provider selection, logging in, multi-factor authentication prompts, etc) makes a single request to the Finch `/auth/authorize` endpoint. It is highly unlikely for an Employer to encounter these rate limit under normal use. However, an example of this rate limit being encountered is if an employer forgot their password and tried 30 different passwords in the time period of 1 minute. In this case, they would receive a rate limit penalty of 5 minutes.
-
-Type | Max requests | Duration | Penalty
--------|-------------|-------|-------------
-`Auth` | 30 | 1 minute | 5 minutes
-
-If an Finch Connect rate limit is encountered, it will contain the `finch_code`: [finch_auth_ip_rl](/docs/Development-Guides/Errors/Error-Types.md#error-types-1) in the response body.
-
-```json
-// HTTP 429 response body for application rate limit exceeded
-{
-    "statusCode": 429,
-    "status": 429,
-    "code”: 429,
-    "message": "Too many requests for token",
-    "name": "rate_limit_exceeded_error",
-    "finch_code": "finch_auth_ip_rl"
-}
-```
-
-### Upstream Provider Rate Limits
-
-Because Finch integrates directly with 180+ providers, we take extreme care to avoid provider-specific rate limits. However, it inevitably happens. In this case, we will return a specific error code [upstream_rate_limit_exceeded](/docs/Development-Guides/Errors/Error-Types.md#error-types-1) explaining that Finch encountered a provider-specific rate limit. In these cases, wait a few moments before retrying. It is difficult to recommend a wait duration since every provider is different.
-
-If an Upstream Provider rate limit is encountered, it will contain the `finch_code`: [upstream_rate_limit_exceeded](/docs/Development-Guides/Errors/Error-Types.md#error-types-1) in the response body.
-
-```json
-// HTTP 429 response body for application rate limit exceeded
-{
-    "statusCode": 429,
-    "status": 429,
-    "code”: 429,
-    "message": "Too many requests for token",
-    "name": "rate_limit_exceeded_error",
-    "finch_code": "upstream_rate_limit_exceeded"
-}
-```
-
 ## Scenarios
 
 ### Scenario 1: Hitting access token level rate limits
