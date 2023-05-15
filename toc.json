@@ -134,7 +134,7 @@
         }
       ]
     },
-     {
+    {
       "type": "group",
       "title": "Field Support",
       "items": [
@@ -180,6 +180,11 @@
       "uri": "docs/Best-Practices/Calculating-YTD-Wages.md"
     },
     {
+      "type": "item",
+      "title": "Handling Rate Limit Errors",
+      "uri": "docs/Best-Practices/Handling-Rate-Limit-Errors.md"
+    },
+    {
       "type": "divider",
       "title": "APIs"
     },
@@ -188,7 +193,7 @@
       "title": "HRIS",
       "uri": "reference/employer/openapi.yaml"
     },
-     {
+    {
       "type": "item",
       "title": "ATS",
       "uri": "reference/ats/openapi.yaml"
