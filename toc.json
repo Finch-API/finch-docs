@@ -2,13 +2,8 @@
   "items": [
     {
       "type": "item",
-      "title": "What is Finch?",
-      "uri": "docs/1-Introduction.md"
-    },
-    {
-      "type": "item",
       "title": "Quickstart",
-      "uri": "docs/2-Quickstart.md"
+      "uri": "docs/1-Quickstart.md"
     },
     {
       "type": "divider",
