@@ -7,13 +7,8 @@
     },
     {
       "type": "item",
-      "title": "Registration",
-      "uri": "docs/2-Registration.md"
-    },
-    {
-      "type": "item",
       "title": "Quickstart",
-      "uri": "docs/3-Quickstart.md"
+      "uri": "docs/2-Quickstart.md"
     },
     {
       "type": "divider",
