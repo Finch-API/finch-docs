@@ -88,6 +88,23 @@ If an IP Address rate limit is encountered, it will contain the `finch_code`: [f
 }
 ```
 
+## Handling Rate Limit Errors
+
+Minimize the risk of hitting rate limits by batching individual requests into a single request. Several of Finch’s endpoints are “batch” endpoints (`individual`, `employment`, `pay-statement`). This means that several IDs can be sent in a single request. Finch will correspondingly return a single response with an array of objects equal to the IDs sent. Determine your optimal batch size for your use case when making batch requests to Finch APIs. Pass all the required IDs in a single batch request to optimize API usage and minimize the risk of hitting rate limits. A batch request example is as follows:
+
+```json
+{
+  "requests": [
+    {
+      "individual_id": "772b3c4f-d764-433d-bd69-ff8bbac33ffe"
+    },
+    {
+      "individual_id": "84364585-c2ce-40aa-bcc0-666ac9577315"
+    }
+  ]
+}
+```
+
 ## Scenarios
 
 ### Scenario 1: Hitting access token level rate limits
