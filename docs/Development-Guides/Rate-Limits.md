@@ -39,7 +39,7 @@ If an access token rate limit is encountered, it will contain the `finch_code`: 
 
 ## Application Rate Limits
 
-Similarly, multiple access tokens can be created from a single Finch application as more employers are connected. A Finch application has its own rate limits separate from the access token rate limits. You can think of an application like a development environment or application stage. Finch will assign three types of applications: `sandbox`, `development`, and `production`. Each will have their own `client_id` which represents the application.
+Similarly, multiple access tokens can be created from a single Finch application as more employers are connected. A Finch application has its own rate limits separate from the access token rate limits. (A Finch application corresponds to a unique `client_id`. You may have several `client_id`s if you use a development or sandbox application in addition to production).
 
 For application-level rate limits, each `product` manages another “larger” bucket simultaneously counting all requests across all access tokens created by that application. Each bucket is still scoped to a product endpoint like with access tokens; the only difference is that the application-level bucket is larger.
 
