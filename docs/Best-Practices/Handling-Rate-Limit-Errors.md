@@ -29,7 +29,7 @@ A batch request example is as follows:
 
 ## Implement a Rate Limiter Enforcer
 
-Suppose the rate limit for a particular Finch `product` is 20 requests per minute. You can use the following JavaScript code example to enforce this rate limit quota in your application. The `RateLimiter` class implements a simple rate limiter that allows you to make requests up to the specified rate limit (20 requests per minute) and pauses further requests until the rate limit resets before resuming API requests. Alternatively to pausing, you can implement a “back-off and retry” strategy. The `request` method of the rate limiter is used to make API requests to Finch's endpoints, ensuring that you stay within the rate limit "bucket" quota for that endpoint. Simply initialize a new `RateLimiter` class for each Finch `product` endpoint being called.
+Suppose the rate limit for a particular Finch `product` is 20 requests per minute. You can use the following JavaScript code example to enforce this rate limit quota in your application. The `RateLimiter` class implements a simple rate limiter that allows you to make requests up to the specified rate limit (20 requests per minute) and pauses further requests until the rate limit resets . As an alternative, you can implement a “back off and retry” strategy. The `request` method of the rate limiter is used to make API requests to Finch's endpoints, ensuring that you stay within the rate limit "bucket" quota for that endpoint. Simply initialize a new `RateLimiter` class for each Finch `product` endpoint being called.
 
 ```js
 class RateLimiter {
