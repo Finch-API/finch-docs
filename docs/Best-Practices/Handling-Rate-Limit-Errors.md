@@ -4,7 +4,7 @@ If you are experiencing rate limits, there are several ways to minimize the risk
 
 ## Implement batched requests
 
-Minimize the risk of hitting rate limits by batching individual requests into a single request. Several of Finch’s endpoints are “batch” endpoints (`individual`, `employment`, `pay-statement`). This means that several IDs can be sent in a single request. Finch will correspondingly return a single response with an array of objects equal to the IDs sent. Determine your optimal batch size for your use case when making batch requests to Finch APIs. Pass all the required IDs in a single batch request to optimize API usage and minimize the risk of hitting rate limits. A batch request example is as follows:
+Minimize the risk of hitting rate limits by batching individual requests into a single request. Several of Finch’s endpoints are “batch” endpoints ([/individual](https://developer.tryfinch.com/docs/reference/9d6c83b09e205-individual), [/employment](https://developer.tryfinch.com/docs/reference/1ba5cdec4c979-employment), and [/pay-statment](https://developer.tryfinch.com/docs/reference/d5fd02c41e83a-pay-statement)). This means that several IDs can be sent in a single request. Finch will correspondingly return a single response with an array of objects equal to the IDs sent. Determine your optimal batch size for your use case when making batch requests to Finch APIs. Pass all the required IDs in a single batch request to optimize API usage and minimize the risk of hitting rate limits. A batch request example is as follows:
 
 ```json
 {
@@ -12,6 +12,12 @@ Minimize the risk of hitting rate limits by batching individual requests into a 
     {
       "individual_id": "772b3c4f-d764-433d-bd69-ff8bbac33ffe"
     },
+    {
+      "individual_id": "a7a77065-0f68-418d-a85a-da24fb2139b7"
+    },
+    .
+    .
+    .
     {
       "individual_id": "84364585-c2ce-40aa-bcc0-666ac9577315"
     }
