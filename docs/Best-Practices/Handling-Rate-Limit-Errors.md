@@ -4,7 +4,7 @@ If you are experiencing rate limits, there are several ways to minimize the risk
 
 ## Implement batched requests
 
-Minimize the risk of hitting rate limits by batching individual requests into a single request. Several of Finch’s endpoints are “batch” endpoints ([/individual](https://developer.tryfinch.com/docs/reference/9d6c83b09e205-individual), [/employment](https://developer.tryfinch.com/docs/reference/1ba5cdec4c979-employment), and [/pay-statment](https://developer.tryfinch.com/docs/reference/d5fd02c41e83a-pay-statement)). Batch endpoints allow a list of IDs to be sent in a single request. Finch will correspondingly return a single response with an array of objects equal to the IDs sent.
+Minimize the risk of hitting rate limits by batching individual requests into a single request. Several of Finch’s endpoints are “batch” endpoints ([/individual](https://developer.tryfinch.com/docs/reference/9d6c83b09e205-individual), [/employment](https://developer.tryfinch.com/docs/reference/1ba5cdec4c979-employment), and [/pay-statment](https://developer.tryfinch.com/docs/reference/d5fd02c41e83a-pay-statement)). These batch endpoints allow you to send a list of IDs in a single request and receive a response with an array of objects matching the IDs sent.
 
 There is no limit to the amount of IDs that can be sent in a single request. Determine your optimal batch size for your use case when making batch requests to Finch APIs. By passing all the required IDs in a single batch request optimizes your API usage and minimizes the risk of hitting rate limits.
 
