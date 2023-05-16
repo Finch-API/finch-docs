@@ -19,9 +19,7 @@ A batch request example is as follows:
     {
       "individual_id": "a7a77065-0f68-418d-a85a-da24fb2139b7"
     },
-    .
-    .
-    .
+    ...
     {
       "individual_id": "84364585-c2ce-40aa-bcc0-666ac9577315"
     }
