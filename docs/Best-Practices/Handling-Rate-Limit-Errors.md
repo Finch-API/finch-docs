@@ -81,7 +81,7 @@ Still confused about how rate limits work? Here a couple of theoretical examples
 
 ### Scenario 1: Hitting access token level rate limits
 
-In this scenario, let's focus on a single access token (Token A) and assume you are making API requests to any of the the `company`, `directory`, `individual`, `employment`, `payment`, and `pay-statement` endpoints. When a request  is sent to an endpoint, a single gallon of water is added to the endpoint’s bucket each time. The first requests starts that bucket’s 60-second Time-To-Live (TTL) timer.
+In this scenario, let's focus on a single access token (Token A) and assume you are making API requests to any of the the `company`, `directory`, `individual`, `employment`, `payment`, and `pay-statement` endpoints. When a request  is sent to an endpoint, a single gallon of water is added to the endpoint’s bucket each time. The first requests starts that bucket’s 60-second TTL timer.
 
 1. Token A makes 4 requests to the [/employer/directory](https://developer.tryfinch.com/docs/reference/12419c085fc0e-directory) endpoint within a minute pouring 4 gallons of water into the “directory” bucket.
     Bucket | Capacity
