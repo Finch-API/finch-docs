@@ -1,6 +1,9 @@
 # Quickstart
 
-Once you have an application's `client_id` and `client_secret`, you can start interacting with Finch's API using our sandbox mode — a test environment with mock data.
+To get started, sign up for a free account at [https://dashboard.tryfinch.com/signup](https://dashboard.tryfinch.com/signup). After registration, you will have access to an application's `client_id` and `client_secret` to build and test how Finch works using our sandbox environment — a test environment with life-like data.
+
+<!-- theme: info -->
+> This `client_id` and `client_secret` will only work for the sandbox provider. If you would like to test real providers with live data, you must request developer keys from [developers@tryfinch.com](mailto:developers@tryfinch.com).
 
 This guide will help you send your first request to Finch's API while the following guides dive deeper into the concepts and help you integrate Finch into your production application.
 
