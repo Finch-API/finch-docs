@@ -12,7 +12,7 @@ After the product's rate limit is reset after 60 seconds, the first request to t
 
 ## Access Token Rate Limits
 
-For access token rate limits, each `product` manages its own "bucket" with its own 60-second Time-To-Live (TTL) timer. The first request by an access token to a new product endpoint starts the timer for only that product's bucket, and rate limits reset only for that product endpoint after the 60-second period.
+For access token rate limits, each product has its own "bucket" with its own 60-second TTL timer. The first request made by an access token to a new product endpoint starts the timer for that specific product's bucket. Rate limits reset only for that product endpoint after the 60-second period.
 
 Product | Max requests initiated per minute
 -------|-------------
