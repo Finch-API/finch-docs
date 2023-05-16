@@ -6,7 +6,7 @@ Finch's rate limits work on a per-product basis for both applications and access
 
 You can think of a `product` rate limit like a "bucket". Therefore, when a request is made to a `product` (which corresponds directly to an API endpoint), a single gallon of water is added to that endpoint’s bucket, thus starting that bucket's 60-second time-to-live (TTL) timer.
 
-After the product's rate limit is reset after 60 seconds, the first request to that `product` starts the 60-second Time-To-Live (TTL) timer again.
+After the product's rate limit is reset after 60 seconds, the first request to that `product` starts the 60-second TTL again.
 
 ***
 
