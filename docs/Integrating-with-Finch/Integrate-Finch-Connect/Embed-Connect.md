@@ -29,6 +29,7 @@ Inside your code base folder, use the command line to install `react-finch-conne
 npm install --save react-finch-connect
 ```
 
+
 ### 2. Import the 'useFinchConnect' Hook
 
  ```javascript
@@ -82,6 +83,7 @@ const App = () => {
   );
 };
 ```
+
 
 ### 4. Receive the authorization code
 
@@ -155,6 +157,7 @@ The returned `FinchConnect` object exposes `open`, `close` and `destroy` lifecyc
 </html>
 ```
 
+
 ### 2. Initialize Finch Connect
 
 Inside a `<script>` inside the page `<body>`, initialize the FinchConnect object.
@@ -218,6 +221,7 @@ To open Finch Connect, use the `open` function returned by `FinchConnect` and ad
   </body>
 </html>
 ```
+
 
 ### 4. Exchange the authorization code
 
