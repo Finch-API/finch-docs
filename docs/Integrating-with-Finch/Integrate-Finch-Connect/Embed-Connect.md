@@ -1,8 +1,9 @@
 # Your Application Embeds Finch Connect
 
 In this method of integration, your can embed Finch Connect into your application using a Finch SDK so your user remains on your application. The authorization flow will consist of four steps—
+
 1. **Open Finch Connect—** Your application uses a Finch SDK to launch Finch Connect and initiate the authorization flow for your user.
-2. **Obtain consent—** Finch Connect prompts your user to log in to their employment system and grant your application access to the permissions you are requesting. 
+2. **Obtain consent—** Finch Connect prompts your user to log in to their employment system and grant your application access to the permissions you are requesting.
 3. **Retrieve the authorization code—** If the user successfully connects and grants your application access to their system, Finch Connect will call the registered `onSuccess` handler with a short-lived authorization `code`.
 4. **Exchange the code for an access token—** Before sending API requests, your application will exchange the short-lived `code` for a long-lived `access_token` that represents your application's access to your user's employment system.
 
@@ -62,7 +63,7 @@ Parameter | Required | Description
  `clientId` | true | Your `client_id`, a unique identifier for your application.
  `category` | false | The category of integrations your applications would like to expose. Options: `hris` and `ats`. If no category is provided, defaults to `hris`.
  `products` | true | An array of permissions your application is requesting access to. See [here](../../Development-Guides/Permissions.md) for a list of valid permissions.
- `payroll_provider` | false | An optional parameter that allows you to bypass the provider selection screen by providing a valid provider `id`. Read [here](../../Development-Guides/Providers.md) for more information.
+ `payrollProvider` | false | An optional parameter that allows you to bypass the provider selection screen by providing a valid provider `id`. Read [here](../../Development-Guides/Providers.md) for more information.
  `sandbox` | false | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data. For more information, read our [Testing Development Guide](../../Development-Guides/Testing.md).
  `manual` | false | An optional value which when set to true displays both [Automated API](../Product-Guides/Automated-Connect-Flow.md) and [Assisted API](../Product-Guides/Assisted-Connect-Flow.md) providers on the selection screen.
 
@@ -128,7 +129,8 @@ const App = () => {
   // ...
 };
 ```
---- 
+
+---
 
 <!--
 type: tab
@@ -272,7 +274,6 @@ Assuming our back-end has a `/company` endpoint that returns information on the 
 
 <!-- type: tab-end -->
 
-
 ### Request
 
 <!-- theme: danger -->
@@ -295,7 +296,6 @@ Parameter | Required | Description
 `client_id` | true | Your `client_id`, a public unique identifier for your application.
 `client_secret` | true | Your `client_secret`, a secret value which authorizes your application with Finch. Please ensure you protect your `client_secret`.
 `code` | true | The authorization code received by the `onSuccess` handler.
-
 
 <!--
 type: tab
@@ -339,7 +339,5 @@ title: Example
 ---
 
 ## Next Steps
+
 Once you have an `access_token`, you can begin pulling data and pushing changes into your users' employment systems! The next step is to integrate the Finch API into your back-end.
-
-
-
