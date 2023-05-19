@@ -62,6 +62,7 @@ Ahola | `ahola` | <span style="color:goldenrod">Assisted</span> | <span style="c
 AlphaStaff | `alphastaff` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Amplify HR | `amplify_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Apdata | `apdata` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Apex | `apex` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 APS Payroll | `aps_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Asset HR | `asset_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Asure Software | `asure_software` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
