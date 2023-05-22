@@ -1,7 +1,7 @@
 # Integrating the Benefits API
 
 
-Finch's [Benefits API](https://developer.tryfinch.com/docs/reference/b3A6MTg4Mzc2MTk-create-benefit) endpoints allow users to read and write contributions and deductions across HRIS providers for retirement, medical, and fringe benefits using a single, unified API.
+Finch's [Benefits API](https://developer.tryfinch.com/docs/reference/b3A6MTg4Mzc2MTk-create-benefit) endpoints allow developers to read and write contributions and deductions across HRIS providers for retirement, medical, and fringe benefits using a single, unified API.
 
 Finch’s Benefits API operates at two levels: the company level and the employee level. Our API allows you to:
 
@@ -15,20 +15,20 @@ Finch’s Benefits API operates at two levels: the company level and the employe
 There are several steps you should take to ensure a smooth Benefits onboarding experience before beginning implementation.
 
 **Read our API docs to understand the functionality and required parameters of each of our Benefits endpoints. Some highlights:**
-- Create a New Benefit
-- Enroll Individuals
-- Unenroll Individuals
+- [Create a New Benefit](https://developer.tryfinch.com/docs/reference/48b2addc6de34-create-benefit)
+- [Enroll Individuals](https://developer.tryfinch.com/docs/reference/eb8994494966c-enroll-individuals-in-benefits)
+- [Unenroll Individuals](https://developer.tryfinch.com/docs/reference/d52800ec818bd-unenroll-individuals-from-benefits)
 
 **Prepare for provider limitations**
     
-Providers have varying limitations on which operations are available and which actions can be performed via Finch’s API. For example, you should be prepared for providers which do not allow for benefit creation and design your workflow to accommodate those cases. As Finch encounters new provider limitations, we document them here. For each of the limited providers, you should confirm with the employer that the correct benefits are set up in the system prior to the company authenticating through Finch Connect. If you try to enroll an employee in a benefit that is not set up, you may receive a 422 from Finch indicating that the benefit is not set up by the company. In these cases, you should reach out to the employer to ensure the benefits have been correctly set up.
+Providers have varying limitations on which operations are available and which actions can be performed via Finch’s API. For example, you should be prepared for providers which do not allow for benefit creation and design your workflow to accommodate those cases. As Finch encounters new provider limitations, we add them to our [field support docs](../Development-Guides/Field-Support/Benefits-Support.md). For each of the limited providers, you should confirm with the employer that the correct benefits are set up in the system prior to the company authenticating through Finch Connect. If you try to enroll an employee in a benefit that is not set up, you may receive a 422 response code from Finch indicating that the benefit is not set up by the company. In these cases, you should reach out to the employer to ensure the benefits have been correctly set up.
     
 **Understand Assisted vs Automated Connections**
     
 Finch offers two methods of fulfilling API requests: assisted and automated. Assisted integration requests are fulfilled by our operations team, and so have slight differences in behavior and functionality compared to automated integrations.
     
 - [Review Assisted SLAs](https://developer.tryfinch.com/docs/reference/8c540ddeca222-assisted-connect-flow#for-you)
-- [Read more about Assisted Benefits](#automated-vs-assisted-connections)
+- [Read more about Assisted Benefits](./Benefits-API.md#automated-vs-assisted-connections)
 
 ## Getting and Creating Company Benefits
 
@@ -45,11 +45,11 @@ You can use this `benefit_id` to perform enrollment, un-enrollment, and benefi
 
 ### **Using benefits metadata**
 
-The types and features of each benefit can vary between payroll systems depending on the configuration that the company has set up. For this reason, we provide a [`/employer/benefits/meta`](https://developer.tryfinch.com/docs/reference/b3A6MTg4Mzc2MjA-get-benefits-metadata) endpoint, which will provide the types and features available for the employer whose benefits you are managing. If you try to make a request using an access token that does not allow a certain configuration or benefit type, our API will respond with a 400 or 422 status code (see [Errors](https://developer.tryfinch.com/docs/reference/1f80003f67f0d-error-types)), depending on the error. This endpoint can help you avoid those errors by understanding beforehand what types of requests you can make.
+The types and features of each benefit can vary between payroll systems depending on the configuration that the company has set up. For this reason, we provide a [`/benefits/meta`](https://developer.tryfinch.com/docs/reference/b3A6MTg4Mzc2MjA-get-benefits-metadata) endpoint, which will provide the types and features available for the employer whose benefits you are managing. If you try to make a request using an access token that does not allow a certain configuration or benefit type, our API will respond with a 400 or 422 status code (see [Errors](https://developer.tryfinch.com/docs/reference/1f80003f67f0d-error-types)), depending on the error. This endpoint can help you avoid those errors by understanding beforehand what types of requests you can make.
 
 This information is also available in [our documentation](https://developer.tryfinch.com/docs/reference/cc0d83f948d99-benefits-support).
 
-Please note that for providers supported via Assisted Benefits only **benefits-enabled** providers have the meta endpoint implemented. This is because Finch must first connect to a provider system in order to create an accurate benefit mapping. **Until a provider is benefits-enabled, Finch will return a 202 status code from the `/benefits/meta` endpoint, and will return 501s for all other benefits endpoints for that provider**. Once we have performed the benefit mapping to the provider system, we will remove the 202 and return the standardized **`/benefits/meta`** response, and begin allowing benefits requests through. Please see the [Providers page](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers) for which providers are currently benefits-enabled, and see our [Assisted Connect SLAs](https://developer.tryfinch.com/docs/reference/8c540ddeca222-assisted-connect-flow#for-you) for enabling new benefits providers.
+Please note that for providers supported via Assisted Benefits, only **benefits-enabled** providers have the `/benefits/meta` endpoint implemented. This is because Finch must first connect to a provider system in order to create an accurate benefit mapping. **Until a provider is benefits-enabled, Finch will return a 202 status code from the `/benefits/meta` endpoint, and will return 501s for all other benefits endpoints for that provider**. Once we have performed the benefit mapping to the provider system, we will remove the 202 and return the standardized **`/benefits/meta`** response, and begin allowing benefits requests through. Please see the [Providers page](https://developer.tryfinch.com/docs/reference/96f5be9e0ec1a-providers) for which providers are currently benefits-enabled, and see our [Assisted Connect SLAs](https://developer.tryfinch.com/docs/reference/8c540ddeca222-assisted-connect-flow#for-you) for enabling new benefits providers.
 
 ## Enrolling and Unenrolling Individuals
 
@@ -79,7 +79,7 @@ Example `POST /employer/benefits` response:
 
 ```
 
-Example `POST /employer/benefits/{benefit_id}/individuals` Response:
+Example `POST /employer/benefits/{benefit_id}/individuals` response:
 
 ```json
 {
