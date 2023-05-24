@@ -1,5 +1,6 @@
 # Quickstart
 
+
 To get started, sign up for a free account at [https://dashboard.tryfinch.com/signup](https://dashboard.tryfinch.com/signup). After registration, you will have access to an application's `client_id` and `client_secret` to build and test how Finch works using our sandbox environment — a test environment with life-like data.
 
 <!-- theme: info -->
