@@ -146,7 +146,7 @@ Oasis | `oasis` | <span style="color:goldenrod">Assisted</span> | <span style="c
 Obsidian HR iSolved | `obsidianhr_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 odoo | `odoo` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 OneSource Payroll | `onesource_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-OnPay | `onpay` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted</span>
+OnPay | `onpay` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted**</span>
 Opolis | `opolis` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Oracle Fusion | `oracle_fusion` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Oracle PeopleSoft | `oracle_peoplesoft` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
