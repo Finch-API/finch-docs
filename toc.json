@@ -130,7 +130,7 @@
       "items": [
         {
           "type": "item",
-          "title": "Census & Pay Field Support",
+          "title": "Organization & Pay Field Support",
           "uri": "docs/Development-Guides/Field-Support/Compatibility.md"
         },
         {

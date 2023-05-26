@@ -308,6 +308,58 @@ Benefit | Features
 
 <!-- type: tab-end -->
 
+### OnPay
+
+<!--
+type: tab
+title: Supported Operations
+-->
+
+Benefit | Read Company Benefits | Create Company Benefits | Read Individual Benefits | Enroll/Unenroll Individual Benefits
+--------|----------|---------|------------|------------
+**401(k)** | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> |
+**Roth 401(k)** | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> |
+**401(k) Loan** | n/a | n/a | n/a | n/a |
+**403(b)** | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> |
+**Roth 403(b)** | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> |
+**457** | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> |
+**Roth 457**  | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> |
+**Simple IRA** | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> |
+**HSA (post-tax)** | n/a | n/a | n/a | n/a |
+**HSA (pre-tax)** | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> |
+**FSA Dependent** | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> |
+**FSA Medical** | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> |
+**Section 125 Dental** | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> |
+**Section 125 Medical** | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> |
+**Section 125 Vision** | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> |
+**Commuter (pre-tax)** | n/a | n/a | n/a | n/a |
+**Custom pre-tax** | n/a | n/a | n/a | n/a |
+**Custom post-tax** | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> | <strong><span style="color:red">x</span></strong> | <strong><span style="color:green">✓</span></strong> |
+
+<!--
+type: tab
+title: Supported Features
+-->
+
+Benefit | Features
+--------|----------
+**401(k)** | `company_contribution`: `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
+**Roth 401(k)** | `employee_deduction`: `fixed`, `percent`
+**403(b)** |  `employee_deduction`: `fixed`, `percent`
+**Roth 403(b)**|  `employee_deduction`: `fixed`, `percent`
+**457** |  `employee_deduction`: `fixed`, `percent`
+**Roth  457** |  `employee_deduction`: `fixed`, `percent`
+**Section 125 Dental** |  `employee_deduction`: `fixed`, `percent`
+**Section 125 Medical**|  `employee_deduction`: `fixed`, `percent`
+**Section 125 Vision** |  `employee_deduction`: `fixed`, `percent`
+**HSA (pre-tax)**|   `employee_deduction`: `fixed`, `percent`<br>`annual_maximum`<br>`catch_up`<br>`hsa_contribution_limit`: `individual`, `family`
+**FSA Medical** |  `employee_deduction`: `fixed`, `percent`
+**FSA Dependent Care** |  `employee_deduction`: `fixed`, `percent`
+**Simple IRA** |  `employee_deduction`: `fixed`, `percent`
+**Custom post-tax** |  `employee_deduction`: `fixed`, `percent`
+
+<!-- type: tab-end -->
+
 ### Patriot
 
 <!--
