@@ -167,7 +167,7 @@ Benefit | Features
 **457**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
 **Roth 457** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
 **Simple IRA**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
-**HSA (pre-tax)**| `employee_deduction`: `fixed`, `percent`<br>`hsa_contribution_limit`: `individual`, `family`
+**HSA (pre-tax)**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`hsa_contribution_limit`: `individual`, `family`
 **HSA (post-tax)**| `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
 **FSA Dependent** | `employee_deduction`: `fixed`
 **FSA Medical** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
