@@ -447,6 +447,8 @@ title: Supported Features
 
 Benefit | Features
 --------|----------
+**401(k)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
+**Roth 401(k)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
 **Section 125 Dental** | `employee_deduction`: `fixed`, `percent` <br>
 **Section 125 Medical**| `employee_deduction`: `fixed`, `percent` <br>
 **Section 125 Vision** | `employee_deduction`: `fixed`, `percent` <br>
