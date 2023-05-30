@@ -709,7 +709,6 @@ Benefit | Features
 **Section 125 Vision** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`annual_maximum`
 **Custom post-tax** | `employee_deduction`: `fixed`, `percent`<br>`annual_maximum`
 
-
 <!-- type: tab-end -->
 
 ### Square Payroll
