@@ -146,6 +146,7 @@ Netchex | `netchex` | <span style="color:goldenrod">Assisted</span> | <span styl
 NaturalHR | `natural_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Newtek | `newtek` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Nextep | `nextep` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+North Bay Payroll | `north_bay_payroll` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 nVision | `nvision` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Oasis | `oasis` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Obsidian HR iSolved | `obsidianhr_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
