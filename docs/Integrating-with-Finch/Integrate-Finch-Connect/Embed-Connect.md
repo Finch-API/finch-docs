@@ -37,11 +37,12 @@ import React, { useState } from 'react';
 import { useFinchConnect } from '@tryfinch/react-connect';
 
 const App = () => {
-  const [code, setCode] = useState(null);
+  const [sendState, setSendState] = useState<boolean>(false);
+  const [result, setResult] = useState<ResultContainer>();
 
-  const onSuccess = ({ code }) => setCode(code);
-  const onError = ({ errorMessage }) => console.error(errorMessage);
-  const onClose = () => console.log('User exited Finch Connect');
+  const onSuccess = (value: SuccessEvent) => setResult({ kind: 'success', value });
+  const onError = (value: ErrorEvent) => setResult({ kind: 'error', value });
+  const onClose = () => setResult({ kind: 'closed' });
 
   // 1. Initialize Finch Connect
   const { open } = useFinchConnect({
@@ -69,7 +70,8 @@ const App = () => {
 | ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `clientId`        | true     | Your `client_id`, a unique identifier for your application.                                                                                                                                                                                |
 | `category`        | false    | The category of integrations your applications would like to expose. Options: `hris` and `ats`. If no category is provided, defaults to `hris`.                                                                                            |
-| `products`        | true     | An array of permissions your application is requesting access to. See [here](../../Development-Guides/Permissions.md) for a list of valid permissions.                                                                                     |
+| `products`        | true     | An array of permissions your application is requesting access to. See [here](../../Development-Guides/Permissions.md) for a list of valid permissions.         |
+| `state` | false | An optional value that will be included as a response alongside the authorization code. This value is often used to identify a user and/or prevent cross-site request forgery.                                                                                    |
 | `payrollProvider` | false    | An optional parameter that allows you to bypass the provider selection screen by providing a valid provider `id`. Read [here](../../Development-Guides/Providers.md) for more information.                                                 |
 | `sandbox`         | false    | An optional value that allows users to switch on the sandbox mode to login with fake credentials and test applications against mock data. For more information, read our [Testing Development Guide](../../Development-Guides/Testing.md). |
 | `manual`          | false    | An optional value which when set to true displays both [Automated API](../Product-Guides/Automated-Connect-Flow.md) and [Assisted API](../Product-Guides/Assisted-Connect-Flow.md) providers on the selection screen.                      |
@@ -84,9 +86,19 @@ const App = () => {
 
   // 2. Display Finch Connect
   return (
-    <button type='button' onClick={() => open()}>
-      Open Finch Connect
-    </button>
+    <div className="container">
+      <form className="actions" onSubmit={submissionHandler}>
+        <div className="row">
+          <label className="top-label">Include State:</label>
+          <input type="checkbox" checked={sendState} onChange={() => setSendState(prev => !prev)} />
+        </div>
+        <div className="row">
+          <button className="cta" type="submit">
+            Open Finch Connect
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 ```
