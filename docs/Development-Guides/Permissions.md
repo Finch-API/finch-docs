@@ -17,7 +17,6 @@ Permission | Endpoints | Description
  `payment` | `/employer/payment` | Read payroll and contractor related payments by the company
  `pay_statement` | `/employer/pay-statement` | Read detailed pay statements for each individual
  `benefits` | `/employer/benefits/*` | Create and manage benefits and benefit enrollment within a company
- `deduction` | `/employer/deduction/*` | (DEPRECATED) Previously used to manage deductions within a company. Please use **`benefits`**.
 
 <!--
 type: tab
