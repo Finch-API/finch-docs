@@ -34,7 +34,6 @@ tags:
   - name: 2. Payroll
   - name: 3. Benefits
   - name: 4. Management
-  - name: 5. Deprecated
 paths:
   /employer/company:
     get:
