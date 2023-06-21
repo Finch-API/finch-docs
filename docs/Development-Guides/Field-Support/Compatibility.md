@@ -40,7 +40,7 @@ title: HRIS
 <i>*** Contractors don't have these fields in the QBO system</i></p>
 
 ### Employment
-![employment.png](../../../assets/images/employment.png)
+![docs_employment.png](../../../assets/images/employment.png)
 
 <p><i>* Initial only</i><br>
 <i>** Requires customer to be at highest package tier, ADP Run Pro</i></br>
