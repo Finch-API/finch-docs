@@ -857,7 +857,7 @@ paths:
                                       - direct_deposit
                                     nullable: true
                                   total_hours:
-                                    type: integer
+                                    type: number
                                     description: The number of hours worked for this pay period
                                     nullable: true
                                   gross_pay:
