@@ -1084,6 +1084,7 @@ paths:
                   username:
                     type: string
                     description: The account username used for login associated with the `access_token`.
+                    nullable: true
                   payroll_provider_id:
                     type: string
                     description: The payroll provider associated with the `access_token`.
