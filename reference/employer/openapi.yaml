@@ -373,7 +373,7 @@ paths:
                               nullable: true
                             ssn:
                               type: string
-                              description: 'Social Security number of the individual. This field is only available with the `ssn` scope enabled and the `options: { include: [''ssn''] }` param set in the body.'
+                              description: "Social Security number of the individual. This field is only available with the `ssn` scope enabled and the `options: { include: ['ssn'] }` param set in the body."
                             residence:
                               $ref: '#/components/schemas/Location'
               examples:
@@ -1036,6 +1036,63 @@ paths:
                     manual:
                       type: boolean
                       description: Whether the Finch integration with this provider uses the Assisted Connect Flow by default.
+                    authentication_methods:
+                      type: array
+                      description: The list of authentication methods supported by the provider.
+                      items:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            description: The type of authentication method.
+                            enum:
+                              - assisted
+                              - credential
+                              - api
+                          supported_benefits_features:
+                            type: object
+                            description: Each benefit type and their supported features.
+                            properties:
+                              '457':
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              '401k':
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              '401k_roth':
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              401k_loan:
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              403b:
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              403b_roth:
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              457_roth:
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              s125_medical:
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              s125_dental:
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              s125_vision:
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              hsa_pre:
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              hsa_post:
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              fsa_medical:
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              fsa_dependent_care:
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              simple_ira:
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              simple:
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              commuter:
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              custom_post_tax:
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                              custom_pre_tax:
+                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+                            additionalProperties: false
+
               examples:
                 Success:
                   value:
@@ -1048,6 +1105,32 @@ paths:
                       logo: 'https://finch-logos.s3.us-west-2.amazonaws.com/gustoLogo.png'
                       mfa_required: true
                       primary_color: '#f45d47'
+                      authentication_methods:
+                        - type: api
+                          supported_benefits_features:
+                            '401k':
+                              company_contribution: null
+                              employee_deduction:
+                                - fixed
+                                - percent
+                              frequencies:
+                                - one_time
+                                - every_paycheck
+                              annual_maximum: false
+                              catch_up: false
+                              description: '401(k)'
+                              supported_operations:
+                                company_benefits:
+                                  read: 'not_supported_by_finch'
+                                  create: supported
+                                  update: supported
+                                  delete: 'not_supported_by_finch'
+                                individual_benefits:
+                                  read: 'not_supported_by_finch'
+                                  create: supported
+                                  delete: supported
+                                  update: supported
+
       operationId: get-providers
       description: Return details on all available payroll and HR systems.
       parameters:
@@ -2278,7 +2361,7 @@ components:
       type: object
       x-tags:
         - Models
-      description: 'The employee''s income as reported by the provider. This may not always be annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc, depending on what information the provider returns.'
+      description: "The employee's income as reported by the provider. This may not always be annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc, depending on what information the provider returns."
       nullable: true
       properties:
         unit:
@@ -2440,6 +2523,50 @@ components:
                   - family
                 description: Type for HSA contribution limit if the benefit is a HSA.
                 nullable: true
+    BenefitFeaturesAndOperations:
+      allOf:
+        - $ref: '#/components/schemas/CompanyBenefit'
+        - type: object
+          properties:
+            supported_operations:
+              $ref: '#/components/schemas/SupportPerBenefitType'
+    OperationSupport:
+      type: string
+      enum:
+        - supported
+        - operation_not_supported_by_finch
+        - operation_not_supported_by_provider
+        - operation_is_client_access_only
+      description: >
+        * `supported`: This operation is supported by both the provider and Finch
+        * `operation_not_supported_by_finch`: This operation is not supported by Finch but supported by the provider
+        * `operation_not_supported_by_provider`: This operation is not supported by the provider, so Finch cannot support
+        * `operation_is_client_access_only`: This behavior is supported by the provider, but only available to the client and not to Finch
+    ApiOperation:
+      type: string
+      enum:
+        - create
+        - update
+        - delete
+        - read
+    OperationSupportMatrix:
+      type: object
+      properties:
+        create:
+          $ref: '#/components/schemas/OperationSupport'
+        update:
+          $ref: '#/components/schemas/OperationSupport'
+        delete:
+          $ref: '#/components/schemas/OperationSupport'
+        read:
+          $ref: '#/components/schemas/OperationSupport'
+    SupportPerBenefitType:
+      type: object
+      properties:
+        company_benefits:
+          $ref: '#/components/schemas/OperationSupportMatrix'
+        individual_benefits:
+          $ref: '#/components/schemas/OperationSupportMatrix'
     Error:
       title: Error
       type: object
