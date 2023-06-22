@@ -1,5 +1,7 @@
 # Your Application Embeds Finch Connect
 
+TESTING 
+
 In this method of integration, your can embed Finch Connect into your application using a Finch SDK so your user remains on your application. The authorization flow will consist of four steps—
 
 1. **Open Finch Connect—** Your application uses a Finch SDK to launch Finch Connect and initiate the authorization flow for your user.
