@@ -2484,12 +2484,46 @@ components:
         description:
           type: string
           nullable: true
-        frequency:
-          $ref: '#/components/schemas/BenefitFrequency'
-        company_contribution:
-          $ref: '#/components/schemas/BenefitContribution'
+        frequencies:
+          type: array
+          description: The list of frequencies supported by the provider for this benefit
+          items:
+            $ref: '#/components/schemas/BenefitFrequency'
         employee_deduction:
-          $ref: '#/components/schemas/BenefitContribution'
+          type: array
+          description: Supported deduction types. An empty array indicates deductions are not supported.
+          nullable: true
+          items:
+            type: string
+            enum:
+              - fixed
+              - percent
+        company_contribution:
+          type: array
+          description: Supported contribution types. An empty array indicates contributions are not supported.
+          nullable: true
+          items:
+            type: string
+            enum:
+              - fixed
+              - percent
+        annual_maximum:
+          type: boolean
+          description: Whether the provider supports an annual maximum for this benefit.
+          nullable: true
+        catch_up:
+          type: boolean
+          description: Whether the provider supports catch up for this benefit. This field will only be true for retirement benefits.
+          nullable: true
+        hsa_contribution_limit:
+          description: Whether the provider supports HSA contribution limits. Empty if this feature is not supported for the benefit. This array only has values for HSA benefits.
+          type: array
+          nullable: true
+          items:
+            type: string
+            enum:
+              - individual
+              - family
     CompanyBenefit:
       title: CompanyBenefit
       type: object
