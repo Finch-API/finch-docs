@@ -1051,7 +1051,7 @@ paths:
                               - api
                           supported_benefits_features:
                             type: object
-                            description: Each benefit type and their supported features.
+                            description: Each benefit type and their supported features. If the benefit type is not supported, the property will be null
                             properties:
                               '457':
                                 $ref: '#/components/schemas/BenefitFeaturesAndOperations'
@@ -2477,6 +2477,19 @@ components:
           type: integer
           description: Contribution amount in cents (if `fixed`) or basis points (if `percent`).
           nullable: true
+    BenefitFeature:
+      title: BenefitFeature
+      type: object
+      properties:
+        description:
+          type: string
+          nullable: true
+        frequency:
+          $ref: '#/components/schemas/BenefitFrequency'
+        company_contribution:
+          $ref: '#/components/schemas/BenefitContribution'
+        employee_deduction:
+          $ref: '#/components/schemas/BenefitContribution'
     CompanyBenefit:
       title: CompanyBenefit
       type: object
@@ -2525,8 +2538,9 @@ components:
                 nullable: true
     BenefitFeaturesAndOperations:
       allOf:
-        - $ref: '#/components/schemas/CompanyBenefit'
+        - $ref: '#/components/schemas/BenefitFeature'
         - type: object
+          nullable: true
           properties:
             supported_operations:
               $ref: '#/components/schemas/SupportPerBenefitType'
