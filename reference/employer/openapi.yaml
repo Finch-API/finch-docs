@@ -1015,7 +1015,7 @@ paths:
                       description: The display name of the payroll provider.
                     products:
                       type: array
-                      description: The list of Finch products supported on this payroll provider.
+                      description: '[DEPRECATED] The list of Finch products supported on this payroll provider. This field is now deprecated. Please use `authentication_methods` instead.'
                       items:
                         type: string
                     category:
@@ -1029,13 +1029,13 @@ paths:
                       description: The url to the official logo of the payroll provider.
                     mfa_required:
                       type: boolean
-                      description: whether MFA is required for the provider.
+                      description: '[DEPRECATED] whether MFA is required for the provider. This field is now deprecated. Please use `authentication_methods` instead.'
                     primary_color:
                       type: string
                       description: The hex code for the primary color of the payroll provider.
                     manual:
                       type: boolean
-                      description: Whether the Finch integration with this provider uses the Assisted Connect Flow by default.
+                      description: '[DEPRECATED] Whether the Finch integration with this provider uses the Assisted Connect Flow by default. This field is now deprecated. Please check for a `type` of `assisted` in the `authentication_methods` field instead.'
                     authentication_methods:
                       type: array
                       description: The list of authentication methods supported by the provider.
@@ -2534,14 +2534,14 @@ components:
       type: string
       enum:
         - supported
-        - operation_not_supported_by_finch
-        - operation_not_supported_by_provider
-        - operation_is_client_access_only
+        - not_supported_by_finch
+        - not_supported_by_provider
+        - client_access_only
       description: >
         * `supported`: This operation is supported by both the provider and Finch
-        * `operation_not_supported_by_finch`: This operation is not supported by Finch but supported by the provider
-        * `operation_not_supported_by_provider`: This operation is not supported by the provider, so Finch cannot support
-        * `operation_is_client_access_only`: This behavior is supported by the provider, but only available to the client and not to Finch
+        * `not_supported_by_finch`: This operation is not supported by Finch but supported by the provider
+        * `not_supported_by_provider`: This operation is not supported by the provider, so Finch cannot support
+        * `client_access_only`: This behavior is supported by the provider, but only available to the client and not to Finch
     ApiOperation:
       type: string
       enum:
