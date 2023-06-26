@@ -1091,6 +1091,55 @@ paths:
                   manual:
                     type: boolean
                     description: 'Whether the connection associated with the `access_token` uses the Assisted Connect Flow. (`true` if using Assisted Connect, `false` if connection is automated)'
+                  authentication_methods:
+                    type: array
+                    x-stoplight:
+                      id: b3dendp1j6f5w
+                    items:
+                      x-stoplight:
+                        id: wpu4ak9ukniy6
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          x-stoplight:
+                            id: lqscbpmokf77w
+                          description: The type of authentication method.
+                          enum:
+                            - credential
+                            - assisted
+                            - oauth
+                            - api_token
+                        connection_status:
+                          type: object
+                          x-stoplight:
+                            id: 1cfz1pwwcaawt
+                          description: |-
+                            The status of the connection for this authentication method:
+
+                            `pending` - [`assisted` only] This employer has created a token, and we are waiting for access to its provider <br>
+                            `processing` - [`assisted` only] We have received an invitation from this employer's provider with the correct permissions and are in the process of pulling their data for the first time <br>
+                            `connected` - This connection is working as expected <br>
+                            `reauth` - This employer needs to re-authenticate <br>
+                            `error_no_accout_setup` - [`assisted` only] This employer has created a token, but we have not received an invitation to its system. Please instruct the employer to follow the instructions in Finch Connect to add Finch as a third-party admin <br>
+                            `error_permissions` - [`assisted` only] This employer has added Finch successfully, but with improper permissions. Please instruct the employer to re-add Finch following the instructions in Finch Connect <br>
+                          properties:
+                            status:
+                              type: string
+                              x-stoplight:
+                                id: fpwf81zm4vufx
+                              enum:
+                                - pending
+                                - processing
+                                - connected
+                                - error_no_account_setup
+                                - error_permissions
+                                - reauth
+                                - unknown
+                            message:
+                              type: string
+                              x-stoplight:
+                                id: rec630ll5o6xz
               examples:
                 Success:
                   value:
