@@ -1090,7 +1090,7 @@ paths:
                     description: The payroll provider associated with the `access_token`.
                   manual:
                     type: boolean
-                    description: 'Whether the connection associated with the `access_token` uses the Assisted Connect Flow. (`true` if using Assisted Connect, `false` if connection is automated)'
+                    description: '[DEPRECATED] Whether the connection associated with the `access_token` uses the Assisted Connect Flow. (`true` if using Assisted Connect, `false` if connection is automated). This field is now deprecated. Please look for the `assisted` type in `authentication_methods` instead.'
                   authentication_methods:
                     type: array
                     x-stoplight:
