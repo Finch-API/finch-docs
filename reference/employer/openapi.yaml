@@ -1152,6 +1152,15 @@ paths:
                     username: johndoe@tryfinch.com
                     payroll_provider_id: gusto
                     manual: 'false'
+                    authentication_methods:
+                      - type: assisted
+                        connection_status:
+                          status: pending
+                          message: 'This employer has created a token, and we are waiting for access to its provider'
+                      - type: credential
+                        connection_status:
+                          status: connected
+                          message: This employer is working as expected
       operationId: get-introspect
       description: Read account information associated with an `access_token`
       parameters:
