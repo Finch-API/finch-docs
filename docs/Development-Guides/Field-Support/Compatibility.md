@@ -22,7 +22,7 @@ title: HRIS
 -->
 
 ### Company
-![company.jpg](../../../assets/images/company.png)
+![company.png](../../../assets/images/company.png)
 
 <p><i>* Only available by inferring from entity.type</i><br>
 <i>** account_number is mask and only shows the last 4 digits</i></p>
