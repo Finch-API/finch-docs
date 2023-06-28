@@ -47,7 +47,7 @@ title: HRIS
 <i>*** These fields are not provided for contractors</i></p>
 
 ### Payment
-![payment.jpg](../../../assets/images/payment.png)
+![payment.png](../../../assets/images/payment.png)
 
 ### Pay Statement
 ![pay-statement.png](../../../assets/images/pay-statement.png)
