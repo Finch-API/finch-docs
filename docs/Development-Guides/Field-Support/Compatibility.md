@@ -29,7 +29,7 @@ title: HRIS
 <i>** account_number is mask and only shows the last 4 digits</i></p>
 
 ### Directory
-![directory.png](../../../assets/images/directory.png)
+![directory.png](../../../assets/images/directory-2.png)
 
 <p><i>* Initial only</i></p>
 
