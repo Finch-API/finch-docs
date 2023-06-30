@@ -28,6 +28,7 @@ Justworks | `justworks` | <span style="color:darkgreen">Automated</span> | <span
 Namely | `namely` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
 Paychex Flex | `paychex_flex` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 Paycom | `paycom` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span>
+Paycor | `paycor` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 Paylocity | `paylocity` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
 Personio | `personio` | <span style="color:darkgreen">Automated</span> | <span>Not Supported</span>
 QuickBooks Payroll | `quickbooks` | <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted**</span>
@@ -158,7 +159,6 @@ Oracle PeopleSoft | `oracle_peoplesoft` | <span style="color:goldenrod">Assisted
 Panther | `panther` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Paragon Payroll iSolved | `paragon_payroll_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Patriot | `patriot` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-Paycor | `paycor` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted**</span>
 Payday Workforce Solutions | `payday_workforce_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PayFit | `payfit` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PayNorthwest | `paynw` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted</span>
