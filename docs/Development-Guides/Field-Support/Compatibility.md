@@ -24,27 +24,27 @@ title: HRIS
 ### Company
 ![company.png](../../../assets/images/company.png)
 
-<p><i>* Only available by inferring from entity.type</i><br>
-<i>** account_number is mask and only shows the last 4 digits</i></p>
+<p><i>¹ Only available by inferring from entity.type</i><br>
+<i>² account_number is mask and only shows the last 4 digits</i></p>
 
 ### Directory
 ![directory.png](../../../assets/images/directory.png)
 
-<p><i>* Initial only</i></p>
+<p><i>¹ Initial only</i></p>
 
 ### Individual
 ![individual.png](../../../assets/images/individual.png)
 
-<p><i>* Initial only</i><br>
-<i>** No work email available</i><br>
-<i>*** Contractors don't have these fields in the QBO system</i></p>
+<p><i>¹ Initial only</i><br>
+<i>² No work email available</i><br>
+<i>³ Contractors don't have these fields in the QBO system</i></p>
 
 ### Employment
 ![employment.png](../../../assets/images/employment.png)
 
-<p><i>* Initial only</i><br>
-<i>** Requires customer to be at highest package tier, ADP Run Pro</i></br>
-<i>*** These fields are not provided for contractors</i></p>
+<p><i>¹ Initial only</i><br>
+<i>² Requires customer to be at highest package tier, ADP Run Pro</i></br>
+<i>³ These fields are not provided for contractors</i></p>
 
 ### Payment
 ![payment.png](../../../assets/images/payment.png)
@@ -52,9 +52,9 @@ title: HRIS
 ### Pay Statement
 ![pay-statement.png](../../../assets/images/pay-statement.png)
 
-<p><i>* 401k Match cannot be set on Justworks</i><br>
-<i>** Paychex Flex only exposes the previous 24 months of pay data</i></br>
-<i>***Attribute not always available via Paylocity's API</i></p>
+<p><i>¹ 401k Match cannot be set on Justworks</i><br>
+<i>² Paychex Flex only exposes the previous 24 months of pay data</i></br>
+<i>³Attribute not always available via Paylocity's API</i></p>
 
 <!--
 type: tab
