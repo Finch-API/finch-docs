@@ -1048,7 +1048,8 @@ paths:
                             enum:
                               - assisted
                               - credential
-                              - api
+                              - api_token
+                              - oauth
                           supported_benefits_features:
                             type: object
                             description: Each benefit type and their supported features. If the benefit type is not supported, the property will be null
