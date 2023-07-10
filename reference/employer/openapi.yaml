@@ -1015,7 +1015,7 @@ paths:
                       description: The display name of the payroll provider.
                     products:
                       type: array
-                      description: '[DEPRECATED] The list of Finch products supported on this payroll provider. This field is now deprecated. Please use `authentication_methods` instead.'
+                      description: 'The list of Finch products supported on this payroll provider.'
                       items:
                         type: string
                     category:
@@ -1029,7 +1029,7 @@ paths:
                       description: The url to the official logo of the payroll provider.
                     mfa_required:
                       type: boolean
-                      description: '[DEPRECATED] whether MFA is required for the provider. This field is now deprecated. Please use `authentication_methods` instead.'
+                      description: 'whether MFA is required for the provider.'
                     primary_color:
                       type: string
                       description: The hex code for the primary color of the payroll provider.
@@ -1037,63 +1037,17 @@ paths:
                       type: boolean
                       description: '[DEPRECATED] Whether the Finch integration with this provider uses the Assisted Connect Flow by default. This field is now deprecated. Please check for a `type` of `assisted` in the `authentication_methods` field instead.'
                     authentication_methods:
-                      type: array
+                      type: object
                       description: The list of authentication methods supported by the provider.
-                      items:
-                        type: object
-                        properties:
-                          type:
-                            type: string
-                            description: The type of authentication method.
-                            enum:
-                              - assisted
-                              - credential
-                              - api_token
-                              - oauth
-                          supported_benefits_features:
-                            type: object
-                            description: Each benefit type and their supported features. If the benefit type is not supported, the property will be null
-                            properties:
-                              '457':
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              '401k':
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              '401k_roth':
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              401k_loan:
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              403b:
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              403b_roth:
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              457_roth:
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              s125_medical:
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              s125_dental:
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              s125_vision:
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              hsa_pre:
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              hsa_post:
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              fsa_medical:
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              fsa_dependent_care:
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              simple_ira:
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              simple:
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              commuter:
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              custom_post_tax:
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                              custom_pre_tax:
-                                $ref: '#/components/schemas/BenefitFeaturesAndOperations'
-                            additionalProperties: false
-
+                      properties:
+                        assisted:
+                          $ref: '#/components/schemas/AuthenticationMethod'
+                        api_token:
+                          $ref: '#/components/schemas/AuthenticationMethod'
+                        oauth:
+                          $ref: '#/components/schemas/AuthenticationMethod'
+                        credential:
+                          $ref: '#/components/schemas/AuthenticationMethod'
               examples:
                 Success:
                   value:
@@ -1108,18 +1062,19 @@ paths:
                       primary_color: '#f45d47'
                       authentication_methods:
                         - type: api
-                          supported_benefits_features:
+                          benefits_support:
                             '401k':
-                              company_contribution: null
-                              employee_deduction:
-                                - fixed
-                                - percent
-                              frequencies:
-                                - one_time
-                                - every_paycheck
-                              annual_maximum: false
-                              catch_up: false
-                              description: '401(k)'
+                              supported_features:
+                                company_contribution: null
+                                employee_deduction:
+                                  - fixed
+                                  - percent
+                                frequencies:
+                                  - one_time
+                                  - every_paycheck
+                                annual_maximum: false
+                                catch_up: false
+                                description: '401(k)'
                               supported_operations:
                                 company_benefits:
                                   read: 'not_supported_by_finch'
@@ -2572,13 +2527,59 @@ components:
                 description: Type for HSA contribution limit if the benefit is a HSA.
                 nullable: true
     BenefitFeaturesAndOperations:
-      allOf:
-        - $ref: '#/components/schemas/BenefitFeature'
-        - type: object
-          nullable: true
+      type: object
+      nullable: true
+      properties:
+        supported_features:
+          $ref: '#/components/schemas/BenefitFeature'
+        supported_operations:
+          $ref: '#/components/schemas/SupportPerBenefitType'
+    AuthenticationMethod:
+      type: object
+      properties:
+        benefits_support:
+          type: object
+          description: Each benefit type and their supported features. If the benefit type is not supported, the property will be null
           properties:
-            supported_operations:
-              $ref: '#/components/schemas/SupportPerBenefitType'
+            '457':
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            '401k':
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            '401k_roth':
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            401k_loan:
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            403b:
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            403b_roth:
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            457_roth:
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            s125_medical:
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            s125_dental:
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            s125_vision:
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            hsa_pre:
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            hsa_post:
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            fsa_medical:
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            fsa_dependent_care:
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            simple_ira:
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            simple:
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            commuter:
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            custom_post_tax:
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+            custom_pre_tax:
+              $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+          additionalProperties: false
     OperationSupport:
       type: string
       enum:
