@@ -38,6 +38,7 @@ title: HRIS
 <p><i>¹ Initial only</i><br>
 <i>² No work email available</i><br>
 <i>³ Contractors don't have these fields in the QBO system</i></p>
+<i>⁴ This field has been deprecated and should not be relied upon for accuracy</i></p>
 
 ### Employment
 ![employment.png](../../../assets/images/employment.png)
