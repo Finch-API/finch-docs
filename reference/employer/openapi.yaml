@@ -1116,12 +1116,62 @@ paths:
                   username:
                     type: string
                     description: The account username used for login associated with the `access_token`.
+                    nullable: true
                   payroll_provider_id:
                     type: string
                     description: The payroll provider associated with the `access_token`.
                   manual:
                     type: boolean
-                    description: 'Whether the connection associated with the `access_token` uses the Assisted Connect Flow. (`true` if using Assisted Connect, `false` if connection is automated)'
+                    description: '[DEPRECATED] Whether the connection associated with the `access_token` uses the Assisted Connect Flow. (`true` if using Assisted Connect, `false` if connection is automated). This field is now deprecated. Please look for the `assisted` type in `authentication_methods` instead.'
+                  authentication_methods:
+                    type: array
+                    x-stoplight:
+                      id: b3dendp1j6f5w
+                    items:
+                      x-stoplight:
+                        id: wpu4ak9ukniy6
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          x-stoplight:
+                            id: lqscbpmokf77w
+                          description: The type of authentication method.
+                          enum:
+                            - credential
+                            - assisted
+                            - oauth
+                            - api_token
+                        connection_status:
+                          type: object
+                          x-stoplight:
+                            id: 1cfz1pwwcaawt
+                          description: |-
+                            The status of the connection for this authentication method:
+
+                            `pending` - [`assisted` only] This employer has created a token, and we are waiting for access to its provider <br>
+                            `processing` - [`assisted` only] We have received an invitation from this employer's provider with the correct permissions and are in the process of pulling their data for the first time <br>
+                            `connected` - This connection is working as expected <br>
+                            `reauth` - This employer needs to re-authenticate <br>
+                            `error_no_accout_setup` - [`assisted` only] This employer has created a token, but we have not received an invitation to its system. Please instruct the employer to follow the instructions in Finch Connect to add Finch as a third-party admin <br>
+                            `error_permissions` - [`assisted` only] This employer has added Finch successfully, but with improper permissions. Please instruct the employer to re-add Finch following the instructions in Finch Connect <br>
+                          properties:
+                            status:
+                              type: string
+                              x-stoplight:
+                                id: fpwf81zm4vufx
+                              enum:
+                                - pending
+                                - processing
+                                - connected
+                                - error_no_account_setup
+                                - error_permissions
+                                - reauth
+                                - unknown
+                            message:
+                              type: string
+                              x-stoplight:
+                                id: rec630ll5o6xz
               examples:
                 Success:
                   value:
@@ -1134,6 +1184,15 @@ paths:
                     username: johndoe@tryfinch.com
                     payroll_provider_id: gusto
                     manual: 'false'
+                    authentication_methods:
+                      - type: assisted
+                        connection_status:
+                          status: pending
+                          message: 'This employer has created a token, and we are waiting for access to its provider'
+                      - type: credential
+                        connection_status:
+                          status: connected
+                          message: This employer is working as expected
       operationId: get-introspect
       description: Read account information associated with an `access_token`
       parameters:
@@ -2134,7 +2193,7 @@ paths:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
       description: |-
-        Enqueue an automated job. Currently, only the `data-sync-all` job type is supported, which will enqueue a job to re-sync all data for a connection. `data-sync-all` has a concurrency limit of 1 job at a time per connection. This means that if this endpoint is called while a job is already in progress for this connection, Finch will return the `job_id` of the job that is currently in progress. Finch allows a fixed window rate limit of 1 forced refresh per hour.
+        Enqueue an automated job. Currently, only the `data-sync-all` job type is supported, which will enqueue a job to re-sync all data for a connection. `data-sync-all` has a concurrency limit of 1 job at a time per connection. This means that if this endpoint is called while a job is already in progress for this connection, Finch will return the `job_id` of the job that is currently in progress. Finch allows a fixed window rate limit of 1 forced refresh per hour per connection.
 
         This endpoint is available for *Scale* tier customers as an add-on. To request access to this endpoint, please contact your Finch account manager.
       requestBody:

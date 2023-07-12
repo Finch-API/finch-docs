@@ -170,18 +170,18 @@ Top-level status code: 207
   {
     "individual_id": "d02a6346-1f08-4312-a064-49ff3cafaa7a",
     "code": 500,
-		"body": {
-			"name": "internal_server_error",
-	    "message": "Internal sever error"
-		}
+    "body": {
+      "name": "internal_server_error",
+      "message": "Internal sever error"
+    }
   },
   {
     "individual_id": "e63c21ab-7cde-49d8-b6d6-ce208e84bf09",
     "code": 500,
-		"body": {
-			"name": "internal_server_error",
-	    "message": "Internal sever error"
-		}
+    "body": {
+      "name": "internal_server_error",
+      "message": "Internal sever error"
+    }
   }
 ]
 ```
