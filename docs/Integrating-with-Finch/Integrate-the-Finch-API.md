@@ -14,7 +14,7 @@ Every request to Finch's API requires the following headers—
 Header | Description
 ---------|----------
  `Authorization` | Bearer authorization header, which is formed by concatenating the word “Bearer” with the `access_token`, separated by a space.
- `Finch-API-Version` | Header used to specify the version for a given API request. Current version is 2020-09-17.
+ `Finch-API-Version` | Header used to specify the version for a given API request. Current version is 2020-09-17 (we only increment the [version](../Development-Guides/Versioning.md) for breaking changes).
 
 <!--
 type: tab
