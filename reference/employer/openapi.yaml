@@ -1202,7 +1202,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetCompanyBenefitsResponse"
+                type: array
+                items:
+                  $ref: "#/components/schemas/GetCompanyBenefit"
               examples:
                 Success:
                   value:
