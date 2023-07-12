@@ -1204,7 +1204,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/GetCompanyBenefit"
+                  $ref: '#/components/schemas/GetCompanyBenefit'
               examples:
                 Success:
                   value:
