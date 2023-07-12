@@ -21,7 +21,7 @@ Webhook endpoints should use HTTPS and expect to receive POST requests with the 
 
 You can register for webhooks via the developer dashboard or via API
 
-![Screen Shot 2022-08-31 at 4.08.53 PM.png](../../assets/images/addWebhook.png)
+![Screen Shot 2022-08-31 at 4.08.53 PM.png](../../assets/images/createWebhook.png)
 
 
 Webhooks are available for customers in our Scale tier. Please reach out to a Finch representative for more details on eligibility.
@@ -180,7 +180,7 @@ public class Main {
 
 You can send a test request to any webhook through the developer dashboard.
 
-![Screen Shot 2022-08-31 at 4.18.15 PM.png](../../assets/images/selectEndpoints.png)
+![Screen Shot 2022-08-31 at 4.18.15 PM.png](../../assets/images/testWebhook.png)
 
 
 The test webhook will include the same structure as data update webhooks, with the `event_type` set to `test`
