@@ -1037,17 +1037,10 @@ paths:
                       type: boolean
                       description: '[DEPRECATED] Whether the Finch integration with this provider uses the Assisted Connect Flow by default. This field is now deprecated. Please check for a `type` of `assisted` in the `authentication_methods` field instead.'
                     authentication_methods:
-                      type: object
+                      type: array
                       description: The list of authentication methods supported by the provider.
-                      properties:
-                        assisted:
-                          $ref: '#/components/schemas/AuthenticationMethod'
-                        api_token:
-                          $ref: '#/components/schemas/AuthenticationMethod'
-                        oauth:
-                          $ref: '#/components/schemas/AuthenticationMethod'
-                        credential:
-                          $ref: '#/components/schemas/AuthenticationMethod'
+                      items:
+                        $ref: '#/components/schemas/AuthenticationMethod'
               examples:
                 Success:
                   value:
@@ -2537,6 +2530,14 @@ components:
     AuthenticationMethod:
       type: object
       properties:
+        type:
+          type: string
+          description: The type of authentication method.
+          enum:
+            - assisted
+            - credential
+            - api_token
+            - oauth
         benefits_support:
           type: object
           description: Each benefit type and their supported features. If the benefit type is not supported, the property will be null
