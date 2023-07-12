@@ -146,11 +146,6 @@
       "uri": "docs/Development-Guides/Data-Syncs.md"
     },
     {
-      "type": "item",
-      "title": "Webhooks",
-      "uri": "docs/Development-Guides/Webhooks.md"
-    },
-    {
       "type": "divider",
       "title": "Best Practices"
     },
