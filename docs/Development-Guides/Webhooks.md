@@ -4,218 +4,199 @@ stoplight-id: 9d3cec5dd527e
 
 # Introduction to Webhooks (coming soon)
 
-Finch offers webhooks to inform you of changes to data models in a push-notification fashion, rather than you having to rely exclusively on pulling data from our API. A webhook url is a HTTPS endpoint configured by your application to recieve requests from Finch.
+Finch offers webhooks to inform you of changes to data models in a push-notification fashion, rather than you having to rely exclusively on pulling data from our API. A webhook URL is a HTTPS endpoint configured by your application to recieve requests from Finch.
 
 
 
 ## Webhook Registration
-Webhooks should use HTTPS and expect to receive POST requests with the following headers:
+Webhook endpoints should use HTTPS and expect to receive POST requests with the following headers:
+```json
+{
+  "Content-Type": "application/json",
+  "Webhook-Id": "msg_2SFMDibF3lmRw8DzX4t1JjiEZQl",
+  "Webhook-Signature": "v1,8rFENj/WpNAMx+Kh5R1NLQunmpaBx4vOntjJdbGKbvM=",
+  "Webhook-Timestamp": "1688737757"
+}
+```
 
-Header | Content
----------|----------|
- `Content-Type` | `application/json` |
- `Finch-Signature` | `<token>` |
+You can register for webhooks via the developer dashboard or via API
 
-You can register for webhooks via the developer dashboard. 
-
-![Screen Shot 2022-08-31 at 4.08.53 PM.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/4ddTnkeC8Hg)
+![Screen Shot 2022-08-31 at 4.08.53 PM.png](../../assets/images/createWebhook.png)
 
 
 Webhooks are available for customers in our Scale tier. Please reach out to a Finch representative for more details on eligibility.
 
 ## Webhook Payload Structure
-
-### Data updates
-
-Finch currently supports webhook updates for `created`, `updated`, and `deleted` events for the following data endpoints:
-
-- `company`
-- `directory`
-- `individual`
-- `employment`
-- `payment`
-- `pay-statement`
-
-The body of each webhook has the following schema:
-
+### Common Fields
+Each webhook event contains the following fields in the response body:
 Field Name | Type | Description
 ---------|----------|---------
- `webhook_id` | string (uuid) | A unique identifier for the webhook event
- `company_id` | string (uuid) | Unique Finch id of the company for which data has been updated
- `account_id` | string (uuid) | Unique Finch id of the employer account that was used to make this connection. If an employer completes authorization through Finch multiple times with different accounts or API tokens, those connections will be associated with different `account_id`s.
- `webhook_type` | string | The type of webhook being delivered. Options are  `company`, `directory`, `individual`, `employment`, `payment`, `pay-statement`,  `management`
- `event_type` | string | The type of event being delivered for this webhook type.<br />`initial_sync` if this update is the result of a new connection via Finch Connect.<br />`update_sync` if this update is the result of a Finch data sync<br />`authentication_error` to indicate connection issues for management webhooks
- `data` | array | The payload of change data
- `data[].change_type` | string | The type of change for the object. Options are `created`, `updated`, `deleted`
+`event_id` | string | A unique identifier for the webhook event.
+`company_id` | string<uuid> | Unique Finch id of the company for which data has been updated.
+`account_id` | string<uuid> | Unique Finch id of the employer account that was used to make this connection. If an employer completes authorization through Finch multiple times with different accounts or API tokens, those connections will be associated with different account_ids.
+`event_type` | string | The type of webhook being delivered.
+`data` | object | More information aboute the associated event. The structure of this object will vary per event type.
 
-Beyond the `change_type`, the objects in the `data` array will differ slightly based on the `webhook_type`. Below are examples for each type:
+Finch provides two general types of webhook events: account updates and job completions.
 
-**company**
+### Account Updates
+Account update events contain information about account connections, such as when a connection has been established or when a connection has entered an error state. This type of webhook has the following schema:
+Field Name | Type | Description
+---------|----------|---------
+`event_id` | string | A unique identifier for the webhook event.
+`company_id` | string<uuid> | Unique Finch id of the company for which data has been updated.
+`account_id` | string<uuid> | Unique Finch id of the employer account that was used to make this connection. If an employer completes authorization through Finch multiple times with different accounts or API tokens, those connections will be associated with different account_ids.
+`event_type` | string | Always `account.updated`.
+`data.status` | string | The status of the account. This follows our standard connection status schema. Options are `pending`, `processing`, `connected`, `error_permissions`, `error_reauth`, `error_no_acount_setup`.
+`data.authentication_method` | string | The method of authentication used to connect this account. Options follow the standard Finch enums for authentication types: `credential`, `api_token`, `oauth`, and `assisted`.
+
+Example:
 ```json
 {
-  "webhook_id": "b12c125b-8926-49e5-b6a1-b0ab938150bb",
-  "company_id": "4f522988-d80c-4d61-b4b0-a9fe3c90d65d",
-  "account_id": "d8ef1814-5913-492f-b5c0-a16e2d6432c9",
-  "event_type": "initial_sync",
-  "webhook_type": "company",
-  "data": [
-    {
-      "change_type": "updated"
-    }
-  ]
-}
-```
-**directory**
-```json
-{
-  "webhook_id": "b12c125b-8926-49e5-b6a1-b0ab938150bb",
-  "company_id": "4f522988-d80c-4d61-b4b0-a9fe3c90d65d",
-  "account_id": "d8ef1814-5913-492f-b5c0-a16e2d6432c9",
-  "event_type": "initial_sync",
-  "webhook_type": "directory",
-  "data": [
-    {
-      "change_type": "created",
-      "individual_id": "ea996879-c7c1-45a1-acdb-f07a75bd39b4"
-    },
-    ...
-  ]
-}
-```
-**individual**
-```json
-{
-  "webhook_id": "b12c125b-8926-49e5-b6a1-b0ab938150bb",
-  "company_id": "4f522988-d80c-4d61-b4b0-a9fe3c90d65d",
-  "event_type": "update_sync",
-  "webhook_type": "individual",
-  "data": [
-    {
-      "change_type": "deleted",
-      "individual_id": "ea996879-c7c1-45a1-acdb-f07a75bd39b4"
-    },
-    ...
-  ]
-}
-```
-**employment**
-```json
-{
-  "webhook_id": "b12c125b-8926-49e5-b6a1-b0ab938150bb",
-  "company_id": "4f522988-d80c-4d61-b4b0-a9fe3c90d65d",
-  "account_id": "d8ef1814-5913-492f-b5c0-a16e2d6432c9",
-  "event_type": "update_sync",
-  "webhook_type": "employment"
-  "data": [
-    {
-      "change_type": "updated",
-      "individual_id": "ea996879-c7c1-45a1-acdb-f07a75bd39b4"
-    },
-    ...
-  ]
-}
-```
-**payment**
-```json
-{
-  "webhook_id": "b12c125b-8926-49e5-b6a1-b0ab938150bb",
-  "company_id": "4f522988-d80c-4d61-b4b0-a9fe3c90d65d",
-  "account_id": "d8ef1814-5913-492f-b5c0-a16e2d6432c9",
-  "event_type": "update_sync",
-  "webhook_type": "payment",
-  "data": [
-    {
-      "change_type": "created",
-      "payment_id": "b05b5bde-9fe2-4ca6-8f7e-bfa8669f2176",
-      "start_date": "07-07-2022",
-      "end_date": "07-21-2022"
-    },
-    ...
-  ]
-}
-```
-**pay-statement**
-```json
-{
-  "webhook_id": "b12c125b-8926-49e5-b6a1-b0ab938150bb",
-  "company_id": "4f522988-d80c-4d61-b4b0-a9fe3c90d65d",
-  "account_id": "d8ef1814-5913-492f-b5c0-a16e2d6432c9",
-  "event_type": "update_sync",
-  "webhook_type": "payment",
-  "data": [
-    {
-      "change_type": "created",
-      "payment_id": "b05b5bde-9fe2-4ca6-8f7e-bfa8669f2176",
-      "start_date": "07-07-2022",
-      "end_date": "07-21-2022"
-    },
-    ...
-  ]
+  "event_id": "msg_1srOrx2ZWZBpBUvZwXKQmoEYga2",
+  "company_id": "720be419-0293-4d32-a707-32179b0827ab",
+  "account_id": "fa872170-b49d-4fb5-aa39-fb1515db0925",
+  "event_type": "account.updated",
+  "data": {
+    "status": "connected"
+    "authentication_method": "assisted"
+  }
 }
 ```
 
-### Management updates
+### Job Completion
+Job completion events fire when a job finishes running, whether the final state is a success or an error. This type of webhook has the following schema:
+Field Name | Type | Description
+---------|----------|---------
+`event_id` | string | A unique identifier for the webhook event.
+`company_id` | string<uuid> | Unique Finch id of the company for which data has been updated.
+`account_id` | string<uuid> | Unique Finch id of the employer account that was used to make this connection. If an employer completes authorization through Finch multiple times with different accounts or API tokens, those connections will be associated with different account_ids.
+`event_type` | string | Follows the schema `job.{job_type}.complete`. `{job_type}` can be any valid Finch job type such as `data_sync_all`, `benefit_create`, or `benefit_enroll`.
+`data.job_id`| string<uuid> | The id of the job which has completed.
+`data.job_url` | string | The url to query the result of the job.
 
-Finch provides a `management` webhook type to deliver updates about the status of a connection. Finch will deliver a webhook if there have been any connection issues within the past 24 hours for a connection. In addition to the schema above, management updates will include a `message` field which provides more detail about the issue encountered while syncing data. The `data` field is omitted from management webhooks:
-
-**management**
+Example:
 ```json
 {
-  "webhook_id": "b12c125b-8926-49e5-b6a1-b0ab938150bb",
-  "company_id": "4f522988-d80c-4d61-b4b0-a9fe3c90d65d",
-  "account_id": "d8ef1814-5913-492f-b5c0-a16e2d6432c9",
-  "webhook_type": "management",
-  "event_type": "authentication_error"
-  "message": "Please have the user reauthenticate"
+  "event_id": "msg_1srOrx2ZWZBpBUvZwXKQmoEYga2",
+  "company_id": "720be419-0293-4d32-a707-32179b0827ab",
+  "account_id": "fa872170-b49d-4fb5-aa39-fb1515db0925",
+  "event_type": "job.benefit_enroll.completed",
+  "data": {
+    "job_id": "10f249d5-c974-4ce3-979a-31164323a34f",
+    "job_url": "https://api.tryfinch.com/jobs/10f249d5-c974-4ce3-979a-31164323a34f"
+  }
 }
 ```
 
-Management update webhooks are required in order to use the webhooks feature. You will be prompted to set up exactly one endpoint to receive management updates when you set up webhooks through the developer dashboard.
 
 ## Webhook Verification
 
-Finch uses JWTs for webhook verification, and includes a JWT in the `Finch-Verification` header. More information about JWTs can be found at [jwt.io](http://jwt.io). Libraries likely exist in your preferred language for dealing with JWTs. The following are steps you can use to verify a webhook using the verification header:
+Finch uses HMAC webhook verification, The following are steps you can use to verify a webhook using the verification header:
 
-1. **Extract the header** using your preferred library. If the value of the `alg` field in the token header is not `RS256`, reject the webhook.
-2. **Get the webhook verification key** using the Finch API. The  `/webhook_verification_key?client_id=<client_id>` endpoint provides a [JSON Web Key (JWK)](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-key-set-properties). This is the public key that can be used to verify a JWT. We recommended that you cache the public key on your application side and update from this endpoint only if webhook verification fails with your cached key.
-3. **Validate the webhook** using your preferred JWT library. If the signature is not valid reject the webhook. If it is valid, extract the `iat` field from the JWT payload, and ensure the timestamp is not more than 5 minutes old. Using outdated webhooks increases susceptibility to [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
+1. **Extract the signature from the header**. The `Webhook-Signature` header consists of a list of signatures (space delimited) to account for secret rotations. During the verification process, the signature must match at least one signature in the list to be considered valid.
+2. **Validate the webhook**. Using the webhook secret, hash the webhook content in the form `{webhook_id}.{timestamp}.{body}`. If the signature does not match the value received in the `Webhook-Signature` header, reject the webhook. If it is valid, ensure the timestamp is not greater than five minutes in the past or future. Using outdated webhooks increases susceptibility to [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
+<!--
+type: tab
+title: Javascript
+-->
 <!--
 title: "Webhook verification example"
 lineNumbers: true
-highlightLines: [[1,2], [4,5]]
 -->
 ```javascript
-const jwt_decode = require('jwt-decode');
-const jose = require('jose');
+const crypto = require('crypto');
 
-const publicKey = '<YOUR_CACHED_PUBLIC_KEY>';
+const signedContent = `${svix_id}.${svix_timestamp}.${body}`
+const SECRET = "5WbX5kEWLlfzsGNjH64I8lOOqUB6e8FH";
 
-const signedJwt = JSON.parse(headers)['Finch-Verification'];
-const decodedTokenHeader = jwt_decode(signedJwt, { header: true });
-
-if (decodedTokenHeader.alg !== 'RS256') {
-  // reject token
-}
-
-const key = await jose.importJWK(publicKey);
-// This will throw an error if verification fails
-const { payload } = await jose.jwtVerify(signedJwt, key, {
-     maxTokenAge: '5 min',
-   });
+// Need to base64 decode the secret
+const secretBytes = new Buffer(SECRET, "base64");
+const signature = crypto
+  .createHmac('sha256', secretBytes)
+  .update(signedContent)
+  .digest('base64');
 ```
+
+<!--
+type: tab
+title: Python
+-->
+<!--
+title: "Webhook verification example"
+lineNumbers: true
+-->
+```python
+import hmac
+import base64
+
+signedContent = f"{svix_id}.{svix_timestamp}.{body}"
+SECRET = "5WbX5kEWLlfzsGNjH64I8lOOqUB6e8FH"
+
+# Need to base64 decode the secret
+secretBytes = base64.b64decode(SECRET)
+signature = base64.b64encode(hmac.new(secretBytes, signedContent.encode(), 'sha256').digest()).decode()
+
+```
+
+<!--
+type: tab
+title: Java
+-->
+<!--
+title: "Webhook verification example"
+lineNumbers: true
+-->
+```java
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        String signedContent = svix_id + "." + svix_timestamp + "." + body;
+        String SECRET = "5WbX5kEWLlfzsGNjH64I8lOOqUB6e8FH";
+
+        // Need to base64 decode the secret
+        byte[] secretBytes = Base64.getDecoder().decode(SECRET);
+
+        Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
+        SecretKeySpec secret_key = new SecretKeySpec(secretBytes, "HmacSHA256");
+        sha256_HMAC.init(secret_key);
+
+        byte[] rawHmac = sha256_HMAC.doFinal(signedContent.getBytes(StandardCharsets.UTF_8));
+
+        // base64 encode the result
+        String signature = Base64.getEncoder().encodeToString(rawHmac);
+        System.out.println(signature);
+    }
+}
+```
+
+<!-- type: tab-end -->
 
 ## Testing Webhooks
 
 You can send a test request to any webhook through the developer dashboard.
 
-![Screen Shot 2022-08-31 at 4.18.15 PM.png](https://stoplight.io/api/v1/projects/cHJqOjEzNjY0/images/8FPFMReUjzw)
+![Screen Shot 2022-08-31 at 4.18.15 PM.png](../../assets/images/testWebhook.png)
 
 
 The test webhook will include the same structure as data update webhooks, with the `event_type` set to `test`
 
 ## Retries
 
-Upon failure, Finch will retry sending an event up to 5 times.
+Upon failure, Finch will retry according to the following schedule with exponential backoff:
+
+- Immediately
+- 5 seconds
+- 5 minutes
+- 30 minutes
+- 2 hours
+- 5 hours
+- 10 hours
+- 10 hours (in addition to the previous)
 
 ## Best Practices for Handling Webhooks
 
@@ -225,7 +206,7 @@ In order to prevent unnecessary retries, we recommend receiving webhook events a
 
 **Event delivery and ordering**
 
-- It is possible that you may occasionally receive the same webhook event more than once. We recommend setting up idempotent event processing by using the `webhook_id`.
+- It is possible that you may occasionally receive the same webhook event more than once. We recommend setting up idempotent event processing by using the `event_id`.
 - Finch does not guarantee delivery of events in the order they happen. For example, you may receive an `update` event for an `individual` before a `created` event. You should also use the Finch API to occasionally fetch any missing data. For example, you can fetch an individual if you happen to receive an `update` event first.
 
 **Event Mapping**
