@@ -6,7 +6,7 @@ stoplight-id: 9d3cec5dd527e
 
 Finch offers webhooks to inform you of changes to data models in a push-notification fashion, rather than you having to rely exclusively on pulling data from our API. A webhook URL is a HTTPS endpoint configured by your application to recieve requests from Finch.
 
-
+Webhooks are available for customers in our Scale tier. Please reach out to a Finch representative for more details on eligibility.
 
 ## Webhook Registration
 Webhook endpoints should use HTTPS and expect to receive POST requests with the following headers:
@@ -19,12 +19,8 @@ Webhook endpoints should use HTTPS and expect to receive POST requests with the 
 }
 ```
 
-You can register for webhooks via the developer dashboard or via API
+You can register webhooks via API. After registering a webhook, you will be provided with a webhook secret. This secret can be used to validate that the webhooks you receive were sent by Finch. This secret will only be displayed once, so we recommend you store it as soon as you receive it. See the Webhook Verification section for more details.
 
-![Screen Shot 2022-08-31 at 4.08.53 PM.png](../../assets/images/createWebhook.png)
-
-
-Webhooks are available for customers in our Scale tier. Please reach out to a Finch representative for more details on eligibility.
 
 ## Webhook Payload Structure
 ### Common Fields
@@ -33,22 +29,19 @@ Field Name | Type | Description
 ---------|----------|---------
 `event_id` | string | A unique identifier for the webhook event.
 `company_id` | string<uuid> | Unique Finch id of the company for which data has been updated.
-`account_id` | string<uuid> | Unique Finch id of the employer account that was used to make this connection. If an employer completes authorization through Finch multiple times with different accounts or API tokens, those connections will be associated with different account_ids.
+`account_id` | string<uuid> | Unique Finch id of the employer account that was used to make this connection. If an employer completes authorization through Finch multiple times with different accounts or API tokens, those connections will be associated with different `account_id`s.
 `event_type` | string | The type of webhook being delivered.
-`data` | object | More information aboute the associated event. The structure of this object will vary per event type.
+`data` | object | More information about the associated event. The structure of this object will vary per event type.
 
 Finch provides two general types of webhook events: account updates and job completions.
 
 ### Account Updates
-Account update events contain information about account connections, such as when a connection has been established or when a connection has entered an error state. This type of webhook has the following schema:
+Account update events contain information about account connections, such as when a connection has been established or when a connection has entered an error state. This type of webhook has the following unique schema:
 Field Name | Type | Description
 ---------|----------|---------
-`event_id` | string | A unique identifier for the webhook event.
-`company_id` | string<uuid> | Unique Finch id of the company for which data has been updated.
-`account_id` | string<uuid> | Unique Finch id of the employer account that was used to make this connection. If an employer completes authorization through Finch multiple times with different accounts or API tokens, those connections will be associated with different account_ids.
 `event_type` | string | Always `account.updated`.
 `data.status` | string | The status of the account. This follows our standard connection status schema. Options are `pending`, `processing`, `connected`, `error_permissions`, `error_reauth`, `error_no_acount_setup`.
-`data.authentication_method` | string | The method of authentication used to connect this account. Options follow the standard Finch enums for authentication types: `credential`, `api_token`, `oauth`, and `assisted`.
+`data.authentication_method` | string | The method of authentication used to connect this account. Options follow the standard Finch authentication types: `credential`, `api_token`, `oauth`, and `assisted`.
 
 Example:
 ```json
@@ -65,12 +58,9 @@ Example:
 ```
 
 ### Job Completion
-Job completion events fire when a job finishes running, whether the final state is a success or an error. This type of webhook has the following schema:
+Job completion events fire when a job finishes running, whether the final state is a success or an error. This type of webhook has the following `data` schema:
 Field Name | Type | Description
 ---------|----------|---------
-`event_id` | string | A unique identifier for the webhook event.
-`company_id` | string<uuid> | Unique Finch id of the company for which data has been updated.
-`account_id` | string<uuid> | Unique Finch id of the employer account that was used to make this connection. If an employer completes authorization through Finch multiple times with different accounts or API tokens, those connections will be associated with different account_ids.
 `event_type` | string | Follows the schema `job.{job_type}.complete`. `{job_type}` can be any valid Finch job type such as `data_sync_all`, `benefit_create`, or `benefit_enroll`.
 `data.job_id`| string<uuid> | The id of the job which has completed.
 `data.job_url` | string | The url to query the result of the job.
@@ -92,9 +82,9 @@ Example:
 
 ## Webhook Verification
 
-Finch uses HMAC webhook verification, The following are steps you can use to verify a webhook using the verification header:
+Finch uses HMAC webhook verification. The following are steps you can use to verify a webhook using the verification header:
 
-1. **Extract the signature from the header**. The `Webhook-Signature` header consists of a list of signatures (space delimited) to account for secret rotations. During the verification process, the signature must match at least one signature in the list to be considered valid.
+1. **Extract the signature from the header**. The `Webhook-Signature` header consists of a list of signatures (space delimited) to account for secret rotations. During the verification process, the signature you generate must match at least one signature in the list to be considered valid.
 2. **Validate the webhook**. Using the webhook secret, hash the webhook content in the form `{webhook_id}.{timestamp}.{body}`. If the signature does not match the value received in the `Webhook-Signature` header, reject the webhook. If it is valid, ensure the timestamp is not greater than five minutes in the past or future. Using outdated webhooks increases susceptibility to [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
 <!--
 type: tab
