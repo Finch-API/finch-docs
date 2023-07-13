@@ -1447,7 +1447,7 @@ paths:
     parameters: []
   /employer/benefits/meta:
     get:
-      summary: Get Benefits Metadata
+      summary: '[Deprecated] Get Benefits Metadata'
       tags:
         - 3. Benefits
       responses:
@@ -1522,6 +1522,9 @@ paths:
                         - every_paycheck
       operationId: get-company-benefits-meta
       description: |-
+        <!-- theme: warning -->
+        > This endpoint is now deprecated. The existing fields on this endpoint will continue to be updated, but no new fields will be added. Please use `authentication_methods[].benefits_support` on `/providers` instead.
+
         **Availability: Automated and Assisted Benefits providers**  
           
         Lists available types and configurations for the provider associated with the access token.
