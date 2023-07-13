@@ -2476,10 +2476,6 @@ components:
           nullable: true
         frequency:
           $ref: '#/components/schemas/GetBenefitFrequency'
-        company_contribution:
-          $ref: '#/components/schemas/BenefitContribution'
-        employee_deduction:
-          $ref: '#/components/schemas/BenefitContribution'
     IndividualBenefits:
       title: IndividualBenefits
       type: array
