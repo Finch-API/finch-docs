@@ -2469,6 +2469,157 @@ paths:
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
+  /webhooks:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-webhooks
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: limit
+        - schema:
+            type: string
+          in: query
+          name: offset
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/Client-Id'
+        - $ref: '#/components/parameters/Client-Secret'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                paging:
+                  type: string
+                  x-stoplight:
+                    id: hvs23l6tob71d
+                data:
+                  type: array
+                  x-stoplight:
+                    id: xgzfozdxe20vv
+                  items:
+                    $ref: '#/components/schemas/Webhook'
+    parameters: []
+    post:
+      summary: ''
+      operationId: post-webhooks
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    x-stoplight:
+                      id: kg0thy57cehos
+                  url:
+                    type: string
+                    x-stoplight:
+                      id: vh7mdvlsxbvvd
+                  event_types:
+                    type: array
+                    x-stoplight:
+                      id: cbdhci9vw879l
+                    items:
+                      $ref: '#/components/schemas/WebhookEventType'
+                  secret_key:
+                    type: string
+                    x-stoplight:
+                      id: hy1pcqv1d4phh
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  x-stoplight:
+                    id: jwohhb3pc7u15
+                event_types:
+                  type: array
+                  x-stoplight:
+                    id: ig833n00cklgv
+                  items:
+                    $ref: '#/components/schemas/WebhookEventType'
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/Client-Id'
+        - $ref: '#/components/parameters/Client-Secret'
+  '/webhooks/{webhook_id}':
+    parameters:
+      - schema:
+          type: string
+        name: webhook_id
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+      operationId: get-webhooks-webhook_id
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/Client-Id'
+        - $ref: '#/components/parameters/Client-Secret'
+    put:
+      summary: ''
+      operationId: put-webhooks-webhook_id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  x-stoplight:
+                    id: lgjxsdmknbxog
+                event_types:
+                  type: array
+                  x-stoplight:
+                    id: 44vu3avqfyvh9
+                  items:
+                    $ref: '#/components/schemas/WebhookEventType'
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/Client-Id'
+        - $ref: '#/components/parameters/Client-Secret'
+    delete:
+      summary: ''
+      operationId: delete-webhooks-webhook_id
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/Client-Id'
+        - $ref: '#/components/parameters/Client-Secret'
 components:
   schemas:
     Location:
@@ -3247,6 +3398,33 @@ components:
           description: 'Specific information about the job, such as individual statuses for batch jobs.'
           nullable: true
           items: {}
+    Webhook:
+      title: Webhook
+      x-stoplight:
+        id: jlhvybxwrixj1
+      type: object
+      properties:
+        id:
+          type: string
+          x-stoplight:
+            id: g04ratf4gv0mq
+        url:
+          type: string
+          x-stoplight:
+            id: 9za1qgxnpjcav
+        event_types:
+          type: array
+          x-stoplight:
+            id: k777qbfixxcxp
+          items:
+            $ref: '#/components/schemas/WebhookEventType'
+    WebhookEventType:
+      title: WebhookEventTypes
+      x-stoplight:
+        id: 76chacv5innmr
+      enum:
+        - account.updated
+        - 'job.{job_status}.completed'
   requestBodies:
     Individual-Ids:
       content:
@@ -3292,5 +3470,17 @@ components:
         type: string
         default: application/json
       description: 'Used to indicate the original media type of the resource '
+    Client-Id:
+      name: Client-Id
+      in: header
+      required: false
+      schema:
+        type: string
+    Client-Secret:
+      name: Client-Secret
+      in: header
+      required: false
+      schema:
+        type: string
 security:
   - bearerAuth: []
