@@ -1,6 +1,6 @@
 # Providers
 
-**Last Updated:** 2023-03-27
+**Last Updated:** 2023-07-13
 
 The table below lays out the providers with the associated provider `id` that can be used in the `payroll_provider` parameter for [Finch Connect](../Integrating-with-Finch/Integrate-Finch-Connect/Overview.md).
 
