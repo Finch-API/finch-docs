@@ -1035,7 +1035,12 @@ paths:
                       description: The hex code for the primary color of the payroll provider.
                     manual:
                       type: boolean
-                      description: Whether the Finch integration with this provider uses the Assisted Connect Flow by default.
+                      description: '[DEPRECATED] Whether the Finch integration with this provider uses the Assisted Connect Flow by default. This field is now deprecated. Please check for a `type` of `assisted` in the `authentication_methods` field instead.'
+                    authentication_methods:
+                      type: array
+                      description: The list of authentication methods supported by the provider.
+                      items:
+                        $ref: '#/components/schemas/AuthenticationMethod'
               examples:
                 Success:
                   value:
@@ -1048,6 +1053,169 @@ paths:
                       logo: 'https://finch-logos.s3.us-west-2.amazonaws.com/gustoLogo.png'
                       mfa_required: true
                       primary_color: '#f45d47'
+                      authentication_methods:
+                        - type: api
+                          benefits_support:
+                            401k:
+                              supported_features:
+                                company_contribution: null
+                                employee_deduction:
+                                  - fixed
+                                  - percent
+                                frequencies:
+                                  - one_time
+                                  - every_paycheck
+                                annual_maximum: false
+                                catch_up: false
+                                description: 401(k)
+                              supported_operations:
+                                company_benefits:
+                                  read: not_supported_by_finch
+                                  create: supported
+                                  update: supported
+                                  delete: not_supported_by_finch
+                                individual_benefits:
+                                  read: not_supported_by_finch
+                                  create: supported
+                                  delete: supported
+                                  update: supported
+                      supported_fields:
+                        company:
+                          id: true
+                          legal_name: true
+                          entity:
+                            type: true
+                            subtype: false
+                          primary_email: true
+                          primary_phone_number: true
+                          ein: true
+                          accounts:
+                            routing_number: true
+                            account_name: true
+                            institution_name: true
+                            account_type: true
+                            account_number: true
+                          departments:
+                            name: true
+                            parent:
+                              name: true
+                          locations:
+                            line1: true
+                            line2: true
+                            city: true
+                            state: true
+                            postal_code: true
+                            country: true
+                        directory:
+                          paging:
+                            count: true
+                            offset: true
+                          individuals:
+                            id: true
+                            first_name: true
+                            middle_name: true
+                            last_name: true
+                            is_active: true
+                            department: null
+                            manager:
+                              id: true
+                        individual:
+                          id: true
+                          first_name: true
+                          middle_name: true
+                          last_name: true
+                          preferred_name: true
+                          dob: true
+                          gender: false
+                          ethnicity: false
+                          ssn: true
+                          emails:
+                            data: true
+                            type: true
+                          phone_numbers:
+                            data: true
+                            type: true
+                          residence:
+                            city: true
+                            country: true
+                            line1: true
+                            line2: true
+                            postal_code: true
+                            state: true
+                        employment:
+                          id: true
+                          first_name: true
+                          middle_name: true
+                          last_name: true
+                          title: true
+                          start_date: true
+                          end_date: true
+                          is_active: true
+                          income_history: false
+                          class_code: true
+                          custom_fields: false
+                          department:
+                            name: true
+                          employment:
+                            type: true
+                            subtype: true
+                          income:
+                            amount: true
+                            currency: true
+                            unit: true
+                          location:
+                            line1: true
+                            line2: true
+                            city: true
+                            state: true
+                            postal_code: true
+                            country: true
+                          manager: null
+                        payment:
+                          id: true
+                          pay_date: true
+                          debit_date: false
+                          company_debit: true
+                          gross_pay: true
+                          net_pay: true
+                          employer_taxes: true
+                          employee_taxes: true
+                          individual_ids: true
+                          pay_period:
+                            start_date: false
+                            end_date: false
+                        pay_statement:
+                          paging:
+                            count: true
+                            offset: true
+                          pay_statements:
+                            individual_id: true
+                            type: true
+                            payment_method: true
+                            total_hours: true
+                            gross_pay: true
+                            net_pay: true
+                            earnings:
+                              type: true
+                              name: true
+                              amount: true
+                              currency: true
+                            employee_deductions:
+                              name: true
+                              amount: true
+                              type: true
+                              pre_tax: true
+                              currency: true
+                            employer_deductions:
+                              name: true
+                              amount: true
+                              currency: true
+                            taxes:
+                              type: true
+                              name: true
+                              employer: true
+                              amount: true
+                              currency: true
       operationId: get-providers
       description: Return details on all available payroll and HR systems.
       parameters:
@@ -1279,7 +1447,7 @@ paths:
     parameters: []
   /employer/benefits/meta:
     get:
-      summary: Get Benefits Metadata
+      summary: '[Deprecated] Get Benefits Metadata'
       tags:
         - 3. Benefits
       responses:
@@ -1354,6 +1522,9 @@ paths:
                         - every_paycheck
       operationId: get-company-benefits-meta
       description: |-
+        <!-- theme: warning -->
+        > This endpoint is now deprecated. The existing fields on this endpoint will continue to be updated, but no new fields will be added. Please use `authentication_methods[].benefits_support` on `/providers` instead.
+
         **Availability: Automated and Assisted Benefits providers**  
           
         Lists available types and configurations for the provider associated with the access token.
@@ -2453,6 +2624,53 @@ components:
           type: integer
           description: Contribution amount in cents (if `fixed`) or basis points (if `percent`).
           nullable: true
+    BenefitFeature:
+      title: BenefitFeature
+      type: object
+      properties:
+        description:
+          type: string
+          nullable: true
+        frequencies:
+          type: array
+          description: The list of frequencies supported by the provider for this benefit
+          items:
+            $ref: '#/components/schemas/BenefitFrequency'
+        employee_deduction:
+          type: array
+          description: Supported deduction types. An empty array indicates deductions are not supported.
+          nullable: true
+          items:
+            type: string
+            enum:
+              - fixed
+              - percent
+        company_contribution:
+          type: array
+          description: Supported contribution types. An empty array indicates contributions are not supported.
+          nullable: true
+          items:
+            type: string
+            enum:
+              - fixed
+              - percent
+        annual_maximum:
+          type: boolean
+          description: Whether the provider supports an annual maximum for this benefit.
+          nullable: true
+        catch_up:
+          type: boolean
+          description: Whether the provider supports catch up for this benefit. This field will only be true for retirement benefits.
+          nullable: true
+        hsa_contribution_limit:
+          description: Whether the provider supports HSA contribution limits. Empty if this feature is not supported for the benefit. This array only has values for HSA benefits.
+          type: array
+          nullable: true
+          items:
+            type: string
+            enum:
+              - individual
+              - family
     CompanyBenefit:
       title: CompanyBenefit
       type: object
@@ -2499,6 +2717,425 @@ components:
                   - family
                 description: Type for HSA contribution limit if the benefit is a HSA.
                 nullable: true
+    BenefitFeaturesAndOperations:
+      type: object
+      nullable: true
+      properties:
+        supported_features:
+          $ref: '#/components/schemas/BenefitFeature'
+        supported_operations:
+          $ref: '#/components/schemas/SupportPerBenefitType'
+    BenefitsSupport:
+      type: object
+      nullable: true
+      description: 'Each benefit type and their supported features. If the benefit type is not supported, the property will be null'
+      properties:
+        '457':
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        401k:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        401k_roth:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        401k_loan:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        403b:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        403b_roth:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        457_roth:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        s125_medical:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        s125_dental:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        s125_vision:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        hsa_pre:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        hsa_post:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        fsa_medical:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        fsa_dependent_care:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        simple_ira:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        simple:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        commuter:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        custom_post_tax:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+        custom_pre_tax:
+          $ref: '#/components/schemas/BenefitFeaturesAndOperations'
+      additionalProperties: false
+    AuthenticationMethod:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The type of authentication method.
+          enum:
+            - assisted
+            - credential
+            - api_token
+            - oauth
+        benefits_support:
+          $ref: '#/components/schemas/BenefitsSupport'
+        supported_fields:
+          $ref: '#/components/schemas/SupportedFields'
+    SupportedFields:
+      type: object
+      properties:
+        company:
+          $ref: '#/components/schemas/SupportedCompanyFields'
+        directory:
+          $ref: '#/components/schemas/SupportedDirectoryFields'
+        individual:
+          $ref: '#/components/schemas/SupportedIndividualFields'
+        employment:
+          $ref: '#/components/schemas/SupportedEmploymentFields'
+        payment:
+          $ref: '#/components/schemas/SupportedPaymentFields'
+        pay_statement:
+          $ref: '#/components/schemas/SupportedPayStatementFields'
+      nullable: true
+    SupportedCompanyFields:
+      type: object
+      properties:
+        id:
+          type: boolean
+        legal_name:
+          type: boolean
+        entity:
+          type: object
+          properties:
+            type:
+              type: boolean
+            subtype:
+              type: boolean
+        primary_email:
+          type: boolean
+        primary_phone_number:
+          type: boolean
+        ein:
+          type: boolean
+        accounts:
+          type: object
+          properties:
+            routing_number:
+              type: boolean
+            account_name:
+              type: boolean
+            institution_name:
+              type: boolean
+            account_type:
+              type: boolean
+            account_number:
+              type: boolean
+        departments:
+          type: object
+          properties:
+            name:
+              type: boolean
+            parent:
+              type: object
+              properties:
+                name:
+                  type: boolean
+        locations:
+          type: object
+          properties:
+            line1:
+              type: boolean
+            line2:
+              type: boolean
+            city:
+              type: boolean
+            state:
+              type: boolean
+            postal_code:
+              type: boolean
+            country:
+              type: boolean
+    SupportedDirectoryFields:
+      type: object
+      properties:
+        paging:
+          type: object
+          properties:
+            count:
+              type: boolean
+            offset:
+              type: boolean
+        individuals:
+          type: object
+          properties:
+            id:
+              type: boolean
+            first_name:
+              type: boolean
+            middle_name:
+              type: boolean
+            last_name:
+              type: boolean
+            is_active:
+              type: boolean
+            department:
+              type: boolean
+              nullable: true
+            manager:
+              type: object
+              properties:
+                id:
+                  type: boolean
+    SupportedIndividualFields:
+      type: object
+      properties:
+        id:
+          type: boolean
+        first_name:
+          type: boolean
+        middle_name:
+          type: boolean
+        last_name:
+          type: boolean
+        preferred_name:
+          type: boolean
+        dob:
+          type: boolean
+        gender:
+          type: boolean
+        ethnicity:
+          type: boolean
+        ssn:
+          type: boolean
+        emails:
+          type: object
+          properties:
+            data:
+              type: boolean
+            type:
+              type: boolean
+        phone_numbers:
+          type: object
+          properties:
+            data:
+              type: boolean
+            type:
+              type: boolean
+        residence:
+          type: object
+          properties:
+            city:
+              type: boolean
+            country:
+              type: boolean
+            line1:
+              type: boolean
+            line2:
+              type: boolean
+            postal_code:
+              type: boolean
+            state:
+              type: boolean
+    SupportedEmploymentFields:
+      type: object
+      properties:
+        id:
+          type: boolean
+        first_name:
+          type: boolean
+        middle_name:
+          type: boolean
+        last_name:
+          type: boolean
+        title:
+          type: boolean
+        start_date:
+          type: boolean
+        end_date:
+          type: boolean
+        is_active:
+          type: boolean
+        income_history:
+          type: boolean
+        class_code:
+          type: boolean
+        custom_fields:
+          type: boolean
+        department:
+          type: object
+          properties:
+            name:
+              type: boolean
+        employment:
+          type: object
+          properties:
+            type:
+              type: boolean
+            subtype:
+              type: boolean
+        income:
+          type: object
+          properties:
+            amount:
+              type: boolean
+            currency:
+              type: boolean
+            unit:
+              type: boolean
+        location:
+          type: object
+          properties:
+            line1:
+              type: boolean
+            line2:
+              type: boolean
+            city:
+              type: boolean
+            state:
+              type: boolean
+            postal_code:
+              type: boolean
+            country:
+              type: boolean
+        manager:
+          type: boolean
+          nullable: true
+    SupportedPaymentFields:
+      type: object
+      properties:
+        id:
+          type: boolean
+        pay_date:
+          type: boolean
+        debit_date:
+          type: boolean
+        company_debit:
+          type: boolean
+        gross_pay:
+          type: boolean
+        net_pay:
+          type: boolean
+        employer_taxes:
+          type: boolean
+        employee_taxes:
+          type: boolean
+        individual_ids:
+          type: boolean
+        pay_period:
+          type: object
+          properties:
+            start_date:
+              type: boolean
+            end_date:
+              type: boolean
+    SupportedPayStatementFields:
+      type: object
+      properties:
+        paging:
+          type: object
+          properties:
+            count:
+              type: boolean
+            offset:
+              type: boolean
+          required:
+            - count
+            - offset
+        pay_statements:
+          type: object
+          properties:
+            individual_id:
+              type: boolean
+            type:
+              type: boolean
+            payment_method:
+              type: boolean
+            total_hours:
+              type: boolean
+            gross_pay:
+              type: boolean
+            net_pay:
+              type: boolean
+            earnings:
+              type: object
+              properties:
+                type:
+                  type: boolean
+                name:
+                  type: boolean
+                amount:
+                  type: boolean
+                currency:
+                  type: boolean
+            employee_deductions:
+              type: object
+              properties:
+                name:
+                  type: boolean
+                amount:
+                  type: boolean
+                type:
+                  type: boolean
+                pre_tax:
+                  type: boolean
+                currency:
+                  type: boolean
+            employer_deductions:
+              type: object
+              properties:
+                name:
+                  type: boolean
+                amount:
+                  type: boolean
+                currency:
+                  type: boolean
+            taxes:
+              type: object
+              properties:
+                type:
+                  type: boolean
+                name:
+                  type: boolean
+                employer:
+                  type: boolean
+                amount:
+                  type: boolean
+                currency:
+                  type: boolean
+    OperationSupport:
+      type: string
+      enum:
+        - supported
+        - not_supported_by_finch
+        - not_supported_by_provider
+        - client_access_only
+      description: |
+        - `supported`: This operation is supported by both the provider and Finch <br>
+        - `not_supported_by_finch`: This operation is not supported by Finch but supported by the provider <br>
+        - `not_supported_by_provider`: This operation is not supported by the provider, so Finch cannot support <br>
+        - `client_access_only`: This behavior is supported by the provider, but only available to the client and not to Finch
+    OperationSupportMatrix:
+      type: object
+      properties:
+        create:
+          $ref: '#/components/schemas/OperationSupport'
+        update:
+          $ref: '#/components/schemas/OperationSupport'
+        delete:
+          $ref: '#/components/schemas/OperationSupport'
+        read:
+          $ref: '#/components/schemas/OperationSupport'
+    SupportPerBenefitType:
+      type: object
+      title: SupportPerBenefitType
+      properties:
+        company_benefits:
+          $ref: '#/components/schemas/OperationSupportMatrix'
+        individual_benefits:
+          $ref: '#/components/schemas/OperationSupportMatrix'
     Error:
       title: Error
       type: object

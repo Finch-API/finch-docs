@@ -91,6 +91,7 @@ CognosHR | `cognos_hr` | <span style="color:goldenrod">Assisted</span> | <span >
 Collage | `collage` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Commonwealth Payroll & HR | `commonwealth_payroll_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 ConnectPay | `connectpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted**</span>
+CoStaff HR | `costaff` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 CPM Employer Services iSolved | `cpm_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Creative Business Resources | `creative_business_resources` | <span style="color:goldenrod">Assisted</span> | <span >Not Supported</span>
 Crescent Payroll Solutions | `crescent_payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>

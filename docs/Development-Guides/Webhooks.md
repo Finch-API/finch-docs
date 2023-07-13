@@ -82,10 +82,10 @@ Example:
 
 ## Webhook Verification
 
-Finch uses HMAC webhook verification. The following are steps you can use to verify a webhook using the verification header:
+Finch uses HMAC-SHA256 webhook verification, The following are steps you can use to verify a webhook using the verification header:
 
-1. **Extract the signature from the header**. The `Webhook-Signature` header consists of a list of signatures (space delimited) to account for secret rotations. During the verification process, the signature you generate must match at least one signature in the list to be considered valid.
-2. **Validate the webhook**. Using the webhook secret, hash the webhook content in the form `{webhook_id}.{timestamp}.{body}`. If the signature does not match the value received in the `Webhook-Signature` header, reject the webhook. If it is valid, ensure the timestamp is not greater than five minutes in the past or future. Using outdated webhooks increases susceptibility to [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
+1. **Extract the signature from the header**. The `Webhook-Signature` header consists of a list of signatures (space delimited) to account for secret rotations. During the verification process, the signature must match at least one signature in the list to be considered valid.
+2. **Validate the webhook**. Using the webhook secret, hash the webhook content in the form `{webhook_id}.{webhook_timestamp}.{body}`. If the signature does not match the value received in the `Webhook-Signature` header, reject the webhook. If it is valid, ensure the timestamp is not greater than five minutes in the past or future. Using outdated webhooks increases susceptibility to [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
 <!--
 type: tab
 title: Javascript
@@ -97,7 +97,7 @@ lineNumbers: true
 ```javascript
 const crypto = require('crypto');
 
-const signedContent = `${svix_id}.${svix_timestamp}.${body}`
+const signedContent = `${webhook_id}.${webhook_timestamp}.${body}`
 const SECRET = "5WbX5kEWLlfzsGNjH64I8lOOqUB6e8FH";
 
 // Need to base64 decode the secret
@@ -120,12 +120,18 @@ lineNumbers: true
 import hmac
 import base64
 
-signedContent = f"{svix_id}.{svix_timestamp}.{body}"
+signedContent = f"{webhook_id}.{webhook_timestamp}.{body}"
 SECRET = "5WbX5kEWLlfzsGNjH64I8lOOqUB6e8FH"
 
 # Need to base64 decode the secret
 secretBytes = base64.b64decode(SECRET)
-signature = base64.b64encode(hmac.new(secretBytes, signedContent.encode(), 'sha256').digest()).decode()
+signature = base64.b64encode(
+    hmac.new(
+        secretBytes,
+        signedContent.encode(),
+        'sha256'
+    ).digest()
+).decode()
 
 ```
 
@@ -145,7 +151,7 @@ import java.util.Base64;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        String signedContent = svix_id + "." + svix_timestamp + "." + body;
+        String signedContent = webhook_id + "." + webhook_timestamp + "." + body;
         String SECRET = "5WbX5kEWLlfzsGNjH64I8lOOqUB6e8FH";
 
         // Need to base64 decode the secret
