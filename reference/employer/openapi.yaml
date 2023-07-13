@@ -2496,22 +2496,37 @@ paths:
               type: object
               properties:
                 paging:
-                  type: string
-                  x-stoplight:
-                    id: hvs23l6tob71d
+                  $ref: '#/components/schemas/Paging'
                 data:
                   type: array
                   x-stoplight:
                     id: xgzfozdxe20vv
                   items:
                     $ref: '#/components/schemas/Webhook'
+            examples:
+              Example 1:
+                value:
+                  paging:
+                    count: 0
+                    offset: 0
+                  data:
+                    - id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                      url: 'http://example.com'
+                      event_types:
+                        - account.updated
     parameters: []
     post:
       summary: Register a new Webhook
       operationId: post-webhooks
       responses:
+        '200':
+          description: A webhook with the given url has already been created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
         '201':
-          description: Created
+          description: A new webhook was successfully created
           content:
             application/json:
               schema:
@@ -2520,21 +2535,31 @@ paths:
                   id:
                     type: string
                     x-stoplight:
-                      id: kg0thy57cehos
+                      id: g9q7z19vo61z6
+                    format: uuid
                   url:
                     type: string
                     x-stoplight:
-                      id: vh7mdvlsxbvvd
+                      id: vechnbcktp8j0
+                    format: uri
                   event_types:
                     type: array
                     x-stoplight:
-                      id: cbdhci9vw879l
+                      id: a9y9a5sv7x5ph
                     items:
                       $ref: '#/components/schemas/WebhookEventType'
                   secret_key:
                     type: string
                     x-stoplight:
-                      id: hy1pcqv1d4phh
+                      id: oxxldc3hpztg4
+              examples:
+                Example 1:
+                  value:
+                    id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                    url: 'http://example.com'
+                    event_types:
+                      - account.updated
+                    secret_key: C2FVsBQIhrscChlQIMV+b5sSYspob7oD
       requestBody:
         content:
           application/json:
@@ -2545,12 +2570,14 @@ paths:
                   type: string
                   x-stoplight:
                     id: jwohhb3pc7u15
+                  format: uri
                 event_types:
                   type: array
                   x-stoplight:
                     id: ig833n00cklgv
                   items:
                     $ref: '#/components/schemas/WebhookEventType'
+        description: ''
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -2576,6 +2603,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Webhook'
+              examples:
+                Example 1:
+                  value:
+                    id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                    url: 'http://example.com'
+                    event_types:
+                      - account.updated
+        '404':
+          description: A webhook with the given id could not be found.
       operationId: get-webhooks-webhook_id
       parameters:
         - $ref: '#/components/parameters/API-Version'
@@ -2592,6 +2628,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Webhook'
+        '404':
+          description: A webhook with the given id could not be found.
       requestBody:
         content:
           application/json:
@@ -2602,12 +2640,19 @@ paths:
                   type: string
                   x-stoplight:
                     id: lgjxsdmknbxog
+                  format: uri
                 event_types:
                   type: array
                   x-stoplight:
                     id: 44vu3avqfyvh9
                   items:
                     $ref: '#/components/schemas/WebhookEventType'
+            examples:
+              Example 1:
+                value:
+                  url: 'http://example.com'
+                  event_types:
+                    - account.updated
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -2621,6 +2666,8 @@ paths:
       responses:
         '200':
           description: OK
+        '404':
+          description: A webhook with the given id could not be found.
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -3416,10 +3463,12 @@ components:
           type: string
           x-stoplight:
             id: g04ratf4gv0mq
+          format: uuid
         url:
           type: string
           x-stoplight:
             id: 9za1qgxnpjcav
+          format: uri
         event_types:
           type: array
           x-stoplight:
