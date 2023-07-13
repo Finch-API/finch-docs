@@ -2471,7 +2471,7 @@ paths:
         - $ref: '#/components/parameters/Content-Type'
   /webhooks:
     get:
-      summary: Your GET endpoint
+      summary: List All Webhooks
       tags:
         - 4. Management
       responses: {}
@@ -2507,7 +2507,7 @@ paths:
                     $ref: '#/components/schemas/Webhook'
     parameters: []
     post:
-      summary: ''
+      summary: Register a new Webhook
       operationId: post-webhooks
       responses:
         '201':
@@ -2566,7 +2566,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
+      summary: Get a Webhook by Id
       tags:
         - 4. Management
       responses:
@@ -2583,7 +2583,7 @@ paths:
         - $ref: '#/components/parameters/Client-Id'
         - $ref: '#/components/parameters/Client-Secret'
     put:
-      summary: ''
+      summary: Update a Webhook
       operationId: put-webhooks-webhook_id
       responses:
         '200':
@@ -2616,7 +2616,7 @@ paths:
       tags:
         - 4. Management
     delete:
-      summary: ''
+      summary: Delete a Webhook
       operationId: delete-webhooks-webhook_id
       responses:
         '200':
