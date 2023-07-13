@@ -2472,7 +2472,8 @@ paths:
   /webhooks:
     get:
       summary: Your GET endpoint
-      tags: []
+      tags:
+        - 4. Management
       responses: {}
       operationId: get-webhooks
       parameters:
@@ -2555,6 +2556,8 @@ paths:
         - $ref: '#/components/parameters/Content-Type'
         - $ref: '#/components/parameters/Client-Id'
         - $ref: '#/components/parameters/Client-Secret'
+      tags:
+        - 4. Management
   '/webhooks/{webhook_id}':
     parameters:
       - schema:
@@ -2564,7 +2567,8 @@ paths:
         required: true
     get:
       summary: Your GET endpoint
-      tags: []
+      tags:
+        - 4. Management
       responses:
         '200':
           description: OK
@@ -2609,6 +2613,8 @@ paths:
         - $ref: '#/components/parameters/Content-Type'
         - $ref: '#/components/parameters/Client-Id'
         - $ref: '#/components/parameters/Client-Secret'
+      tags:
+        - 4. Management
     delete:
       summary: ''
       operationId: delete-webhooks-webhook_id
@@ -2620,6 +2626,8 @@ paths:
         - $ref: '#/components/parameters/Content-Type'
         - $ref: '#/components/parameters/Client-Id'
         - $ref: '#/components/parameters/Client-Secret'
+      tags:
+        - 4. Management
 components:
   schemas:
     Location:
