@@ -11,5 +11,5 @@ We periodically release new, dated versions of the API whenever we make breaking
 
 Our current version is **2020-09-17**
 
-- We only increment the version for breaking changes, so this may be an older date. That doesn't mean API changes haven't occurred, merely that they were backward compatible.
 - The `Finch-API-Version` header must be set for every single request to our API.
+- We only increment the version for breaking changes, so this may be an older date. That doesn't mean API changes haven't occurred, merely that they were backward compatible.
