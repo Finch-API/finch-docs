@@ -1270,7 +1270,7 @@ paths:
                 description:
                   type: string
                 frequency:
-                  $ref: '#/components/schemas/BenefitFrequencyPost'
+                  $ref: '#/components/schemas/PostBenefitFrequency'
       tags:
         - 3. Benefits
       parameters:
@@ -1301,7 +1301,7 @@ paths:
                       type: array
                       description: The list of frequencies supported by the provider for this benefit
                       items:
-                        $ref: '#/components/schemas/BenefitFrequencyPost'
+                        $ref: '#/components/schemas/PostBenefitFrequency'
                     employee_deduction:
                       type: array
                       description: Supported deduction types. An empty array indicates deductions are not supported.
@@ -2425,18 +2425,18 @@ components:
       x-tags:
         - Models
       nullable: true
-    BenefitFrequencyPost:
+    PostBenefitFrequency:
       type: string
-      title: BenefitFrequencyPost
+      title: PostBenefitFrequency
       enum:
         - one_time
         - every_paycheck
       x-tags:
         - Models
       nullable: true
-    BenefitFrequencyGet:
+    GetBenefitFrequency:
       type: string
-      title: BenefitFrequencyGet
+      title: GetBenefitFrequency
       enum:
         - one_time
         - every_paycheck
@@ -2475,7 +2475,7 @@ components:
           type: string
           nullable: true
         frequency:
-          $ref: '#/components/schemas/BenefitFrequencyGet'
+          $ref: '#/components/schemas/GetBenefitFrequency'
         company_contribution:
           $ref: '#/components/schemas/BenefitContribution'
         employee_deduction:
