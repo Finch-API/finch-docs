@@ -1204,7 +1204,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GetCompanyBenefit'
+                  $ref: '#/components/schemas/CompanyBenefit'
               examples:
                 Success:
                   value:
@@ -1270,7 +1270,7 @@ paths:
                 description:
                   type: string
                 frequency:
-                  $ref: '#/components/schemas/PostBenefitFrequency'
+                  $ref: '#/components/schemas/BenefitFrequency'
       tags:
         - 3. Benefits
       parameters:
@@ -1301,7 +1301,7 @@ paths:
                       type: array
                       description: The list of frequencies supported by the provider for this benefit
                       items:
-                        $ref: '#/components/schemas/PostBenefitFrequency'
+                        $ref: '#/components/schemas/BenefitFrequency'
                     employee_deduction:
                       type: array
                       description: Supported deduction types. An empty array indicates deductions are not supported.
@@ -1371,7 +1371,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetCompanyBenefit'
+                $ref: '#/components/schemas/CompanyBenefit'
               examples:
                 Example Benefit:
                   value:
@@ -2425,18 +2425,9 @@ components:
       x-tags:
         - Models
       nullable: true
-    PostBenefitFrequency:
+    BenefitFrequency:
       type: string
-      title: PostBenefitFrequency
-      enum:
-        - one_time
-        - every_paycheck
-      x-tags:
-        - Models
-      nullable: true
-    GetBenefitFrequency:
-      type: string
-      title: GetBenefitFrequency
+      title: BenefitFrequency
       enum:
         - one_time
         - every_paycheck
@@ -2463,8 +2454,8 @@ components:
           type: integer
           description: Contribution amount in cents (if `fixed`) or basis points (if `percent`).
           nullable: true
-    GetCompanyBenefit:
-      title: GetCompanyBenefit
+    CompanyBenefit:
+      title: CompanyBenefit
       type: object
       properties:
         benefit_id:
@@ -2475,7 +2466,7 @@ components:
           type: string
           nullable: true
         frequency:
-          $ref: '#/components/schemas/GetBenefitFrequency'
+          $ref: '#/components/schemas/BenefitFrequency'
     IndividualBenefits:
       title: IndividualBenefits
       type: array
