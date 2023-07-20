@@ -1422,7 +1422,7 @@ paths:
       description: |-
         **Availability: Automated and Assisted Benefits providers**  
           
-        Creates a new company-wide benefit. Please use the `/meta` endpoint to view available types for each provider.
+        Creates a new company-wide benefit. Please use the [/provider](https://developer.tryfinch.com/docs/reference/327c384190aeb-providers) endpoint to view available types for each provider.
 
         If the same request is made more than once with the same `benefit_type` and `description`, a new benefit will not be created. Finch will instead return the benefit id of the existing benefit.
 
