@@ -1445,6 +1445,72 @@ paths:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
     parameters: []
+  /employer/benefits/register:
+    post:
+      summary: Register Benefit
+      operationId: register-company-benefits
+      responses:
+        '201':
+          description: Successfully Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  benefit_id:
+                    type: string
+                  job_id:
+                    type: string
+              examples:
+                Success:
+                  value:
+                    benefit_id: e8b90071-0c11-471c-86e8-e303ef2f6782
+        '400':
+          description: Requested adapter is not assisted benefits
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                Invalid Adapter:
+                  value:
+                    code: 400
+                    name: invalid_request_error
+                    message: This adapter does not support assisted benefits.
+        '422':
+          description: Request provided with unsupported parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                Invalid Benefit:
+                  value:
+                    code: 422
+                    name: unprocessable_request_error
+                    finch_code: unsupported_paramters
+                    message: Provider does not support benefit type '401k'
+      description: |-
+        **Availability: Assisted Benefits providers only**
+
+        Register existing benefits from the customer on the provider, on Finch's end. Please use the `/provider` endpoint to view available types for each provider.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  $ref: '#/components/schemas/BenefitType'
+                description:
+                  type: string
+                frequency:
+                  $ref: '#/components/schemas/BenefitFrequency'
+      tags:
+        - 3. Benefits
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
   /employer/benefits/meta:
     get:
       summary: '[Deprecated] Get Benefits Metadata'
