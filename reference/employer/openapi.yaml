@@ -1523,7 +1523,7 @@ paths:
       operationId: get-company-benefits-meta
       description: |-
         <!-- theme: warning -->
-        > This endpoint is now deprecated. The existing fields on this endpoint will continue to be updated, but no new fields will be added. Please use `authentication_methods[].benefits_support` on `/providers` instead.
+        > This endpoint is now deprecated. The existing fields on this endpoint will continue to be updated, but no new fields will be added. Please use `authentication_methods[].benefits_support` on [/providers](https://developer.tryfinch.com/docs/reference/327c384190aeb-providers) instead.
 
         **Availability: Automated and Assisted Benefits providers**  
           
