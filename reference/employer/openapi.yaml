@@ -373,7 +373,7 @@ paths:
                               nullable: true
                             ssn:
                               type: string
-                              description: 'Social Security number of the individual. This field is only available with the `ssn` scope enabled and the `options: { include: [''ssn''] }` param set in the body.'
+                              description: "Social Security number of the individual. This field is only available with the `ssn` scope enabled and the `options: { include: ['ssn'] }` param set in the body."
                             residence:
                               $ref: '#/components/schemas/Location'
               examples:
@@ -1079,143 +1079,161 @@ paths:
                                   create: supported
                                   delete: supported
                                   update: supported
-                      supported_fields:
-                        company:
-                          id: true
-                          legal_name: true
-                          entity:
-                            type: true
-                            subtype: false
-                          primary_email: true
-                          primary_phone_number: true
-                          ein: true
-                          accounts:
-                            routing_number: true
-                            account_name: true
-                            institution_name: true
-                            account_type: true
-                            account_number: true
-                          departments:
-                            name: true
-                            parent:
-                              name: true
-                          locations:
-                            line1: true
-                            line2: true
-                            city: true
-                            state: true
-                            postal_code: true
-                            country: true
-                        directory:
-                          paging:
-                            count: true
-                            offset: true
-                          individuals:
-                            id: true
-                            first_name: true
-                            middle_name: true
-                            last_name: true
-                            is_active: true
-                            department: null
-                            manager:
+                            401k_roth: null
+                            401k_loan: null
+                            403b: null
+                            403b_roth: null
+                            '457': null
+                            457_roth: null
+                            s125_medical: null
+                            s125_dental: null
+                            s125_vision: null
+                            hsa_pre: null
+                            hsa_post: null
+                            fsa_medical: null
+                            fsa_dependent_care: null
+                            simple_ira: null
+                            simple: null
+                            commuter: null
+                            custom_post_tax: null
+                            custom_pre_tax: null
+                          supported_fields:
+                            company:
                               id: true
-                        individual:
-                          id: true
-                          first_name: true
-                          middle_name: true
-                          last_name: true
-                          preferred_name: true
-                          dob: true
-                          gender: false
-                          ethnicity: false
-                          ssn: true
-                          emails:
-                            data: true
-                            type: true
-                          phone_numbers:
-                            data: true
-                            type: true
-                          residence:
-                            city: true
-                            country: true
-                            line1: true
-                            line2: true
-                            postal_code: true
-                            state: true
-                        employment:
-                          id: true
-                          first_name: true
-                          middle_name: true
-                          last_name: true
-                          title: true
-                          start_date: true
-                          end_date: true
-                          is_active: true
-                          income_history: false
-                          class_code: true
-                          custom_fields: false
-                          department:
-                            name: true
-                          employment:
-                            type: true
-                            subtype: true
-                          income:
-                            amount: true
-                            currency: true
-                            unit: true
-                          location:
-                            line1: true
-                            line2: true
-                            city: true
-                            state: true
-                            postal_code: true
-                            country: true
-                          manager: null
-                        payment:
-                          id: true
-                          pay_date: true
-                          debit_date: false
-                          company_debit: true
-                          gross_pay: true
-                          net_pay: true
-                          employer_taxes: true
-                          employee_taxes: true
-                          individual_ids: true
-                          pay_period:
-                            start_date: false
-                            end_date: false
-                        pay_statement:
-                          paging:
-                            count: true
-                            offset: true
-                          pay_statements:
-                            individual_id: true
-                            type: true
-                            payment_method: true
-                            total_hours: true
-                            gross_pay: true
-                            net_pay: true
-                            earnings:
-                              type: true
-                              name: true
-                              amount: true
-                              currency: true
-                            employee_deductions:
-                              name: true
-                              amount: true
-                              type: true
-                              pre_tax: true
-                              currency: true
-                            employer_deductions:
-                              name: true
-                              amount: true
-                              currency: true
-                            taxes:
-                              type: true
-                              name: true
-                              employer: true
-                              amount: true
-                              currency: true
+                              legal_name: true
+                              entity:
+                                type: true
+                                subtype: false
+                              primary_email: true
+                              primary_phone_number: true
+                              ein: true
+                              accounts:
+                                routing_number: true
+                                account_name: true
+                                institution_name: true
+                                account_type: true
+                                account_number: true
+                              departments:
+                                name: true
+                                parent:
+                                  name: true
+                              locations:
+                                line1: true
+                                line2: true
+                                city: true
+                                state: true
+                                postal_code: true
+                                country: true
+                            directory:
+                              paging:
+                                count: true
+                                offset: true
+                              individuals:
+                                id: true
+                                first_name: true
+                                middle_name: true
+                                last_name: true
+                                is_active: true
+                                department: null
+                                manager:
+                                  id: true
+                            individual:
+                              id: true
+                              first_name: true
+                              middle_name: true
+                              last_name: true
+                              preferred_name: true
+                              dob: true
+                              gender: false
+                              ethnicity: false
+                              ssn: true
+                              emails:
+                                data: true
+                                type: true
+                              phone_numbers:
+                                data: true
+                                type: true
+                              residence:
+                                city: true
+                                country: true
+                                line1: true
+                                line2: true
+                                postal_code: true
+                                state: true
+                            employment:
+                              id: true
+                              first_name: true
+                              middle_name: true
+                              last_name: true
+                              title: true
+                              start_date: true
+                              end_date: true
+                              is_active: true
+                              income_history: false
+                              class_code: true
+                              custom_fields: false
+                              department:
+                                name: true
+                              employment:
+                                type: true
+                                subtype: true
+                              income:
+                                amount: true
+                                currency: true
+                                unit: true
+                              location:
+                                line1: true
+                                line2: true
+                                city: true
+                                state: true
+                                postal_code: true
+                                country: true
+                              manager: null
+                            payment:
+                              id: true
+                              pay_date: true
+                              debit_date: false
+                              company_debit: true
+                              gross_pay: true
+                              net_pay: true
+                              employer_taxes: true
+                              employee_taxes: true
+                              individual_ids: true
+                              pay_period:
+                                start_date: false
+                                end_date: false
+                            pay_statement:
+                              paging:
+                                count: true
+                                offset: true
+                              pay_statements:
+                                individual_id: true
+                                type: true
+                                payment_method: true
+                                total_hours: true
+                                gross_pay: true
+                                net_pay: true
+                                earnings:
+                                  type: true
+                                  name: true
+                                  amount: true
+                                  currency: true
+                                employee_deductions:
+                                  name: true
+                                  amount: true
+                                  type: true
+                                  pre_tax: true
+                                  currency: true
+                                employer_deductions:
+                                  name: true
+                                  amount: true
+                                  currency: true
+                                taxes:
+                                  type: true
+                                  name: true
+                                  employer: true
+                                  amount: true
+                                  currency: true
       operationId: get-providers
       description: Return details on all available payroll and HR systems.
       parameters:
@@ -2508,7 +2526,7 @@ components:
       type: object
       x-tags:
         - Models
-      description: 'The employee''s income as reported by the provider. This may not always be annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc, depending on what information the provider returns.'
+      description: "The employee's income as reported by the provider. This may not always be annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc, depending on what information the provider returns."
       nullable: true
       properties:
         unit:
@@ -2786,6 +2804,7 @@ components:
           $ref: '#/components/schemas/SupportedFields'
     SupportedFields:
       type: object
+      description: 'The supported data fields returned by our HR and payroll endpoints'
       properties:
         company:
           $ref: '#/components/schemas/SupportedCompanyFields'
