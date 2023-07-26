@@ -6,7 +6,7 @@ stoplight-id: 9d3cec5dd527e
 
 Finch offers webhooks to inform you of changes to data models in a push-notification fashion, rather than you having to rely exclusively on pulling data from our API. A webhook URL is a HTTPS endpoint configured by your application to recieve requests from Finch.
 
-Webhooks are available for customers in our Scale tier. Please reach out to a Finch representative for more details on eligibility.
+*Webhooks are available for customers in our Scale tier. Please reach out to a Finch representative for more details on eligibility.*
 
 ## Webhook Registration
 Webhook endpoints should use HTTPS and expect to receive POST requests with the following headers:
@@ -19,7 +19,15 @@ Webhook endpoints should use HTTPS and expect to receive POST requests with the 
 }
 ```
 
-You can register webhooks via API. After registering a webhook, you will be provided with a webhook secret. This secret can be used to validate that the webhooks you receive were sent by Finch. This secret will only be displayed once, so we recommend you store it as soon as you receive it. See the Webhook Verification section for more details.
+You can register webhooks via the [developer dashboard](https://dashboard.tryfinch.com/).
+
+![Screen Shot 2023-07-26 at 2.37.15 PM.png](<../../assets/images/createWebhook.png>)
+
+After registering a webhook, you will be provided with a webhook secret. This secret can be used to validate that the webhooks you receive were sent by Finch.
+
+![Screen Shot 2023-07-26 at 2.40.47 PM.png](<../../assets/images/webhookSecret.png>)
+
+This secret will only be displayed once, so we recommend you store it as soon as you receive it. See the Webhook Verification section for more details.
 
 
 ## Webhook Payload Structure
@@ -190,9 +198,7 @@ Upon failure, Finch will retry according to the following schedule with exponent
 - 5 minutes
 - 30 minutes
 - 2 hours
-- 5 hours
-- 10 hours
-- 10 hours (in addition to the previous)
+
 
 ## Best Practices for Handling Webhooks
 
