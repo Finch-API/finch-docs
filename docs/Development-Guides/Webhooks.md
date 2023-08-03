@@ -13,9 +13,9 @@ Webhook endpoints should use HTTPS and expect to receive POST requests with the 
 ```json
 {
   "Content-Type": "application/json",
-  "Webhook-Id": "msg_2SFMDibF3lmRw8DzX4t1JjiEZQl",
-  "Webhook-Signature": "v1,8rFENj/WpNAMx+Kh5R1NLQunmpaBx4vOntjJdbGKbvM=",
-  "Webhook-Timestamp": "1688737757"
+  "Finch-Event-Id": "msg_2SFMDibF3lmRw8DzX4t1JjiEZQl",
+  "Finch-Signature": "v1,8rFENj/WpNAMx+Kh5R1NLQunmpaBx4vOntjJdbGKbvM=",
+  "Finch-Timestamp": "1688737757"
 }
 ```
 
@@ -35,7 +35,6 @@ This secret will only be displayed once, so we recommend you store it as soon as
 Each webhook event contains the following fields in the response body:
 Field Name | Type | Description
 ---------|----------|---------
-`event_id` | string | A unique identifier for the webhook event.
 `company_id` | string<uuid> | Unique Finch id of the company for which data has been updated.
 `account_id` | string<uuid> | Unique Finch id of the employer account that was used to make this connection. If an employer completes authorization through Finch multiple times with different accounts or API tokens, those connections will be associated with different `account_id`s.
 `event_type` | string | The type of webhook being delivered.
@@ -54,7 +53,6 @@ Field Name | Type | Description
 Example:
 ```json
 {
-  "event_id": "msg_1srOrx2ZWZBpBUvZwXKQmoEYga2",
   "company_id": "720be419-0293-4d32-a707-32179b0827ab",
   "account_id": "fa872170-b49d-4fb5-aa39-fb1515db0925",
   "event_type": "account.updated",
@@ -76,7 +74,6 @@ Field Name | Type | Description
 Example:
 ```json
 {
-  "event_id": "msg_1srOrx2ZWZBpBUvZwXKQmoEYga2",
   "company_id": "720be419-0293-4d32-a707-32179b0827ab",
   "account_id": "fa872170-b49d-4fb5-aa39-fb1515db0925",
   "event_type": "job.benefit_enroll.completed",
@@ -208,7 +205,7 @@ In order to prevent unnecessary retries, we recommend receiving webhook events a
 
 **Event delivery and ordering**
 
-- It is possible that you may occasionally receive the same webhook event more than once. We recommend setting up idempotent event processing by using the `event_id`.
+- It is possible that you may occasionally receive the same webhook event more than once. We recommend setting up idempotent event processing by using the `Finch-Event-Id`.
 - Finch does not guarantee delivery of events in the order they happen. For example, you may receive an `update` event for an `individual` before a `created` event. You should also use the Finch API to occasionally fetch any missing data. For example, you can fetch an individual if you happen to receive an `update` event first.
 
 **Event Mapping**
