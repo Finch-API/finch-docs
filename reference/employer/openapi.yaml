@@ -387,7 +387,7 @@ paths:
                           first_name: Jane
                           middle_name: null
                           last_name: Doe
-                          preferredName: Janey
+                          preferred_name: Janey
                           emails:
                             - data: jane@acme.com
                               type: work
