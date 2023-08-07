@@ -146,6 +146,11 @@
       "uri": "docs/Development-Guides/Data-Syncs.md"
     },
     {
+       "type": "item",
+      "title": "SDKs",
+      "uri": "docs/Development-Guides/SDKs.md"
+    },
+    {
       "type": "divider",
       "title": "Best Practices"
     },
