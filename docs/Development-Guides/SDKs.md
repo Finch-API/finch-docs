@@ -5,7 +5,7 @@ stoplight-id: 1nu9t8ipeuh7p
 # SDKs
 
 ### Backend SDKs
-Finch maintains SDKs in several popular languages to make it easy to integrate with Finch APIs. These SDKs are regularly updated for breaking and non-breaking API changes. In addition to the installation and quickstart information, each repository contains an `api.md` which documents available methods and data models.
+Finch maintains SDKs in several popular languages to make it easy to integrate with Finch APIs. These SDKs are regularly updated for breaking and non-breaking API changes. In addition to installation and quickstart information, each repository contains an `api.md` which documents available methods and data models.
 
 * [Node](https://github.com/Finch-API/finch-api-node)
 * [Python](https://github.com/Finch-API/finch-api-python)
