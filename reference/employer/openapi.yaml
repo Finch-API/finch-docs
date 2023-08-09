@@ -1494,6 +1494,8 @@ paths:
         **Availability: Assisted Benefits providers only**
 
         Register existing benefits from the customer on the provider, on Finch's end. Please use the `/provider` endpoint to view available types for each provider.
+        
+        If successfully registered, the resulting benefit_id can be used to manage employee deductions going forward.
       requestBody:
         content:
           application/json:
