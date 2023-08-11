@@ -16,5 +16,6 @@ If you do not see your language here, reach out to us!
 ### Frontend SDKs
 
 Finch's frontend SDKs allow you to [embed Finch Connect](Embed-Connect.md) into your application, enabling you to provide a seamless integration experience for your users. Take a look at our repositories below:
+
 * [Javascript](https://github.com/Finch-API/finch-connect-js)
 * [React](https://github.com/Finch-API/react-connect)
