@@ -89,11 +89,11 @@ Example:
 
 Finch uses HMAC-SHA256 webhook verification, The following are steps you can use to verify a webhook using the verification header:
 
-1. **Extract the signature from the header**. The `Webhook-Signature` header consists of a list of signatures (space delimited) to account for secret rotations; there may be multiple signatures present for cases where a secret was rotated. During the verification process, the signature must match at least one signature in the list to be considered valid.
+1. **Extract the signature from the header**. The `Finch-Signature` header consists of a list of signatures (space delimited) to account for secret rotations; there may be multiple signatures present for cases where a secret was rotated. During the verification process, the signature must match at least one signature in the list to be considered valid.
 ```json
 v1,g0hM9SsE+OTPJTGt/tmIKtSyZlE3uFJELVlNIOLJ1OE= v1,bm9ldHUjKzFob2VudXRob2VodWUzMjRvdWVvdW9ldQo= v2,MzJsNDk4MzI0K2VvdSMjMTEjQEBAQDEyMzMzMzEyMwo=
 ```
-2. **Generate the webhook secret**. Using the webhook secret, hash the webhook content in the form `{webhook_id}.{webhook_timestamp}.{body}` where body is the raw body of the request. The signature is sensitive to any changes, so even a small change in the body will cause the signature to be completely different. This means that you should not change the body in any way before verifying. If the signature does not match the value received in the `Webhook-Signature` header, reject the webhook.
+2. **Generate the webhook secret**. Using the webhook secret, hash the webhook content in the form `{webhook_id}.{webhook_timestamp}.{body}` where body is the raw body of the request. The signature is sensitive to any changes, so even a small change in the body will cause the signature to be completely different. This means that you should not change the body in any way before verifying. If the signature does not match the value received in the `Finch-Signature` header, reject the webhook.
 <!--
 type: tab
 title: Javascript
