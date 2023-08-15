@@ -698,7 +698,7 @@ title: Supported Features
 Benefit | Features
 --------|----------
 **401(k)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
-**Roth 401(k)** | `employee_deduction`: `fixed`, `percent`<br>`annual_maximum`<br>`catch_up`<br>
+**Roth 401(k)** | `employee_deduction`: `fixed`, `percent`<br>`annual_maximum`<br>`catch_up`
 **401(k) Loan** | `employee_deduction`: `fixed`, `percent`<br>`annual_maximum`
 **403(b)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
 **Roth 403(b)**| `employee_deduction`: `fixed`, `percent`<br>`annual_maximum`
