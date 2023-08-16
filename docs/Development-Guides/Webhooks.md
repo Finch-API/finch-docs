@@ -2,7 +2,7 @@
 stoplight-id: 9d3cec5dd527e
 ---
 
-# Introduction to Webhooks (coming soon)
+# Webhooks
 
 Finch offers webhooks to inform you of changes to data models in a push-notification fashion, rather than you having to rely exclusively on pulling data from our API. A webhook URL is a HTTPS endpoint configured by your application to recieve requests from Finch.
 
