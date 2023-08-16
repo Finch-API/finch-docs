@@ -34,7 +34,6 @@ Name | Finch Code | Code | Description
 `not_found_error` | `payment_not_found` | 404 | The requested payment could not be found.
 `unprocessable_request_error` |`unsupported_parameters`| 422 | Parameters provided are not supported by the provider or benefit. Relevant to the `/employer/benefits/*` endpoints.
 `unprocessable_request_error` |`invalid_employee_enrollment`| 422 | The employee is unable to be enrolled in a benefit due specific to constraints on the provider side. Relevant to the `/employer/benefits/*` endpoints.
-`rate_limit_exceeded_error` | `finch_token_rl` | 429 | The application has exceeded Finch's [access token rate limits](/docs/Development-Guides/Rate-Limits.md#access-token-rate-limits).
 `rate_limit_exceeded_error` | `finch_application_rl` | 429 | The application has exceeded Finch's [application rate limits](/docs/Development-Guides/Rate-Limits.md#application-rate-limits).
 `rate_limit_exceeded_error` | `finch_api_ip_rl` | 429 | The application has exceeded Finch's [IP Address rate limits](/docs/Development-Guides/Rate-Limits.md#ip-address-rate-limits).
 `rate_limit_exceeded_error` | `finch_auth_ip_rl` | 429 | The application has exceeded [Finch Connect rate limits](/docs/Development-Guides/Rate-Limits.md#finch-connect-rate-limits).

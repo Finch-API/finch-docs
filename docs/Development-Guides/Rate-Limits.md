@@ -10,33 +10,6 @@ After the product's rate limit is reset after 60 seconds, the first request to t
 
 ***
 
-## Access Token Rate Limits
-
-For access token rate limits, each product has its own "bucket" with its own 60-second TTL timer. The first request made by an access token to a new product endpoint starts the timer for that specific product's bucket. Rate limits reset only for that product endpoint after the 60-second period.
-
-Product | Max requests initiated per minute
--------|-------------
-`company` | 4
-`directory` | 4
-`individual` | 4
-`employment` | 4
-`payment` | 2
-`pay-statement` | 2
-
-If an access token rate limit is encountered, it will contain the `finch_code`: [finch_token_rl](/docs/Development-Guides/Errors/Error-Types.md#error-types-1) in the response body.
-
-```json
-// HTTP 429 response body for access token rate limit exceeded
-{
-    “statusCode”: 429,
-    “status”: 429,
-    “code”: 429,
-    “message”: “Too many requests for token”,
-    “name”: “rate_limit_exceeded_error”,
-    “finch_code”: “finch_token_rl”
-}
-```
-
 ## Application Rate Limits
 
 Similarly, multiple access tokens can be created from a single Finch application as more employers are connected. A Finch application has its own rate limits separate from the access token rate limits. (A Finch application corresponds to a unique `client_id`. You may have several `client_id`s if you use a development or sandbox application in addition to production).
