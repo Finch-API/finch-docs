@@ -155,6 +155,7 @@ Paragon Payroll iSolved | `paragon_payroll_isolved` | <span style="color:goldenr
 Patriot | `patriot` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Paycor | `paycor` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted**</span>
 Payday Workforce Solutions | `payday_workforce_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Payentry | `payentry` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PayFit | `payfit` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PayNorthwest | `paynw` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted</span>
 PayPro HCS isolved | `paypro_hcs_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
