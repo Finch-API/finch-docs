@@ -60,6 +60,7 @@ focus: false
 
 If an employer encounters an error while attempting to authenticate via Finch Connect's automated flow, Finch Connect will display manual connection instructions after three failed attempts*. This process involves the employer adding Finch as a third-party admin in their system. Once Finch accepts the invitation and sets up the account, the data for the connection will flow through the Finch API, just like any other automated connection. The primary distinction is that your application will **receive a 202 response** when making requests with that token until the connection is established on Finch's end. Ensure that your application is configured to handle 202 response codes from Finch. 
 This feature is currently available for the following integrations:
+- ADP Workforce Now
 - Gusto
 - Justworks
 - Paycom
