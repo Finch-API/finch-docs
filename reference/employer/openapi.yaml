@@ -619,11 +619,12 @@ paths:
                                     type: string
                                     nullable: true
                                   value:
-                                    type:
-                                      - number
-                                      - string
-                                      - boolean
-                                    nullable: true
+                                    oneOf:
+                                      - type: string
+                                      - type: array
+                                      - type: number
+                                      - type: boolean
+                                      - type: 'null'
       summary: Employment
       operationId: get-employment
       tags:
