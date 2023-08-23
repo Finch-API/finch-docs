@@ -8,8 +8,6 @@ Finch’s Benefits API operates at two levels: the company level and the employe
 - Create, read, and update benefits at the company level
 - Manage enrollments for company benefits at the employee level
 
-**Note: one-time post-tax deductions are not currently supported**
-
 ## Setup
 
 There are several steps you should take to ensure a smooth Benefits onboarding experience before beginning implementation.
