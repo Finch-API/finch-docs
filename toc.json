@@ -1,77 +1,13 @@
 {
   "items": [
     {
-      "type": "item",
-      "title": "Quickstart",
-      "uri": "docs/1-Quickstart.md"
-    },
-    {
-      "type": "divider",
-      "title": "Integrating with Finch"
-    },
-    {
-      "type": "item",
-      "title": "How Finch Works",
-      "uri": "docs/Integrating-with-Finch/How Finch Works.md"
-    },
-    {
-      "type": "group",
-      "title": "Integrate Finch Connect",
-      "items": [
-        {
-          "type": "item",
-          "title": "Overview",
-          "uri": "docs/Integrating-with-Finch/Integrate-Finch-Connect/Overview.md"
-        },
-        {
-          "type": "item",
-          "title": "Redirecting to Connect",
-          "uri": "docs/Integrating-with-Finch/Integrate-Finch-Connect/Redirect-to-Connect.md"
-        },
-        {
-          "type": "item",
-          "title": "Embedding Connect",
-          "uri": "docs/Integrating-with-Finch/Integrate-Finch-Connect/Embed-Connect.md"
-        }
-      ]
-    },
-    {
-      "type": "item",
-      "title": "Integrate the Finch API",
-      "uri": "docs/Integrating-with-Finch/Integrate-the-Finch-API.md"
-    },
-    {
-      "type": "item",
-      "title": "Integration Checklist",
-      "uri": "docs/Integrating-with-Finch/Integration Checklist.md"
-    },
-    {
-      "type": "divider",
-      "title": "Product Guides"
-    },
-    {
-      "type": "item",
-      "title": "Automated Connect Flow",
-      "uri": "docs/Product-Guides/Automated-Connect-Flow.md"
-    },
-    {
-      "type": "item",
-      "title": "Assisted Connect Flow",
-      "uri": "docs/Product-Guides/Assisted-Connect-Flow.md"
-    },
-    {
-      "type": "item",
-      "title": "Benefits API",
-      "uri": "docs/Product-Guides/Benefits-API.md"
-    },
-    {
       "type": "divider",
       "title": "Development Guides"
     },
     {
       "type": "item",
-      "title": "Providers",
-      "uri": "docs/Development-Guides/Providers.md"
+      "title": "Headers",
+      "uri": "docs/Development-Guides/Headers.md"
     },
     {
       "type": "item",
@@ -85,28 +21,8 @@
     },
     {
       "type": "item",
-      "title": "Headers",
-      "uri": "docs/Development-Guides/Headers.md"
-    },
-    {
-      "type": "item",
-      "title": "API Versioning",
-      "uri": "docs/Development-Guides/Versioning.md"
-    },
-    {
-      "type": "item",
-      "title": "Testing",
-      "uri": "docs/Development-Guides/Testing.md"
-    },
-    {
-      "type": "item",
       "title": "Rate Limits",
       "uri": "docs/Development-Guides/Rate-Limits.md"
-    },
-    {
-      "type": "item",
-      "title": "Handling API Responses",
-      "uri": "docs/Development-Guides/Handling-API-Responses.md"
     },
     {
       "type": "group",
@@ -125,22 +41,6 @@
       ]
     },
     {
-      "type": "group",
-      "title": "Field Support",
-      "items": [
-        {
-          "type": "item",
-          "title": "Organization & Pay Field Support",
-          "uri": "docs/Development-Guides/Field-Support/Compatibility.md"
-        },
-        {
-          "type": "item",
-          "title": "Benefits Field Support",
-          "uri": "docs/Development-Guides/Field-Support/Benefits-Support.md"
-        }
-      ]
-    },
-    {
       "type": "item",
       "title": "Data Syncs",
       "uri": "docs/Development-Guides/Data-Syncs.md"
@@ -151,33 +51,9 @@
       "uri": "docs/Development-Guides/Webhooks.md"
     },
     {
-      "type": "divider",
-      "title": "Best Practices"
-    },
-    {
       "type": "item",
-      "title": "Re-authentication",
-      "uri": "docs/Best-Practices/Re-authentication.md"
-    },
-    {
-      "type": "item",
-      "title": "Multi-account Flow",
-      "uri": "docs/Best-Practices/Multi-account-Flow.md"
-    },
-    {
-      "type": "item",
-      "title": "Reconciling Employees",
-      "uri": "docs/Best-Practices/Reconciling-Employees.md"
-    },
-    {
-      "type": "item",
-      "title": "Calculating Year-To-Date (YTD) Wages",
-      "uri": "docs/Best-Practices/Calculating-YTD-Wages.md"
-    },
-    {
-      "type": "item",
-      "title": "Handling Rate Limit Errors",
-      "uri": "docs/Best-Practices/Handling-Rate-Limit-Errors.md"
+      "title": "API Versioning",
+      "uri": "docs/Development-Guides/Versioning.md"
     },
     {
       "type": "divider",
