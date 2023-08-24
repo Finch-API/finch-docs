@@ -97,7 +97,7 @@ Crescent Payroll Solutions | `crescent_payroll_solutions` | <span style="color:g
 CSC Paymaster | `csc_paymaster` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Darwinbox | `darwinbox` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Decent | `decent` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
-Deel | `deel` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted</span>
+Deel | `deel` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Deltek | `deltek` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Deluxe | `deluxe` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 DM Payroll Solutions | `dm_payroll_solutions` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
