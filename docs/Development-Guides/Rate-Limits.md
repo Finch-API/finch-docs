@@ -5,7 +5,7 @@ Finch will return a rate limit error with the HTTP status code 429 when the requ
 Finch's rate limits work on a per-product basis for applications. Rate limits are summed on a rolling 60-second basis for each unique `product`. This is commonly referred to as a Sliding or Rolling Window rate limit.
 
 <!-- theme: info -->
-> **Access Token rate limits** Finch previously enforced rate limits at the access token level but this is not longer the case past August 2023.
+> **Access Token rate limits** Finch previously enforced rate limits at the access token level but this is not longer the case as of August 2023.
 
 You can think of a `product` rate limit like a "bucket". Therefore, when a request is made to a `product` (which corresponds directly to an API endpoint), a single gallon of water is added to that endpoint’s bucket, thus starting that bucket's 60-second time-to-live (TTL) timer.
 
