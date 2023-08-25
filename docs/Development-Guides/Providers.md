@@ -2,10 +2,6 @@
 
 **Last Updated:** 2023-08-25
 
-# HRIS
-
-### HRIS Integrations
-
 Below you will find each HRIS provider supported by Finch, the `id` for the `payroll_provider` parameter in [Finch Connect](../Integrating-with-Finch/Integrate-Finch-Connect/Overview.md), and associated products and integration types.
 
 **Please Note:**
