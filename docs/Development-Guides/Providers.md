@@ -62,7 +62,7 @@ All supported HRIS integrations and products.
 | ADP Comprehensive Services | `adp_comprehensive` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span> | Upon Request |
 | ADP Workforce Now† | `adp_workforce_now` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> |
 | Advantage Payroll Services | `advantage_payroll_services` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
-| Affiliated HR Payroll Services iSolved | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
+| Affiliated HR Payroll Services iSolved | `affiliated_hr_payroll_services_isolved` |  <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Affiliated HR Payroll Services Evolution | `affiliated_hr_payroll_services_evolution` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Ahola | `ahola` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Alcott HR | `alcott_hr` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
@@ -79,17 +79,17 @@ All supported HRIS integrations and products.
 | Baron Payroll iSolved | `baron_isolved`| <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | BASIC | `basic` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | BBCS Payroll | `bbcs`| <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
-| BBSI | `bbsi`| <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Requeststyle="color:goldenrod">Assisted</span>
+| BBSI | `bbsi`| <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | BCN Services | `bcn_services` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Bene-Care | `benecare`| <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
-| Big Fish Employer Services | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
+| Big Fish Employer Services | `big_fish_employer_services` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Bizchecks Payroll | `bizchecks_payroll` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | bob | `bob` |  <span style="color:darkgreen">Automated</span> | Upon Request | N/A |
 | Business Online Payroll | `business_online_payroll`| <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | C2 | `c2` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Ceridian Dayforce | `ceridian_dayforce` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span> | Upon Request |
 | Ceridian Powerpay | `ceridian_powerpay` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
-| Cezanne HR | `cezannehr` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Requeststyle="color:goldenrod">Assisted</span>
+| Cezanne HR | `cezannehr` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | CharlieHR | `charlie_hr` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | ClickUp | `clickup` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | CoAdvantage | `coadvantage` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request |
@@ -107,7 +107,7 @@ All supported HRIS integrations and products.
 | Deel | `deel` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request |
 | Deltek | `deltek` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Deluxe | `deluxe` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
-| DM Payroll Solutions | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
+| DM Payroll Solutions | `dm_payroll_solutions` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Dominion Payroll | `dominion_payroll` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Doyle | `doyle_hcm` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Eddy | `eddyhr` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
@@ -155,14 +155,14 @@ greytHR | `greyt_hr` | <span style="color:goldenrod">Assisted</span> | Upon Requ
 | MPAY | `mpay` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Multiplier | `multiplier` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Namely | `namely` |  <span style="color:darkgreen">Automated</span> | Upon Request | Upon Request |
-| Netchex | `netchex`  <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
-| NaturalHR | `natural_hr`  <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
-| Newtek | `newtek`  <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
-| Nextep | `nextep`  <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
+| Netchex | `netchex` |  <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
+| NaturalHR | `natural_hr` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
+| Newtek | `newtek` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
+| Nextep | `nextep` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | North Bay Payroll | `north_bay_payroll` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | nVision | `nvision` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Oasis | `oasis` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
-| Obsidian HR iSolved | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
+| Obsidian HR iSolved | `obsidianhr_isolved` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | odoo | `odoo` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | OneSource Payroll | `onesource_payroll` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | OnPay | `onpay` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span> |
@@ -170,12 +170,12 @@ greytHR | `greyt_hr` | <span style="color:goldenrod">Assisted</span> | Upon Requ
 | Oracle Fusion | `oracle_fusion` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Oracle PeopleSoft | `oracle_peoplesoft` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Panther | `panther` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
-| Paragon Payroll iSolved | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
+| Paragon Payroll iSolved | `paragon_payroll_isolved` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Patriot | `patriot` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span> |
 | Paychex Flex | `paychex_flex` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> |
 | Paycom | `paycom` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | Upon Request |
 | Paycor | `paycor` |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> | Upon Request |
-| Payday Workforce Solutions | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
+| Payday Workforce Solutions | `payday_workforce_solutions` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Payentry | `payentry` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | PayFit | `payfit` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | PayNorthwest | `paynw` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span> | Upon Request |
@@ -202,7 +202,7 @@ greytHR | `greyt_hr` | <span style="color:goldenrod">Assisted</span> | Upon Requ
 | PropelHR | `propel_hr` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | ProSoftware | `prosoftware` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Proxus HR isolved | `proxus_hr` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
-| Quality Payroll and Benefits | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
+| Quality Payroll and Benefits |`quality_payroll_benefits`| <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | QuickBooks Payroll | `quickbooks` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> |
 | Remote | `remote` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Resourcing Edge | `resourcing_edge` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
@@ -240,7 +240,7 @@ Velocity Global | `velocity_global` | <span style="color:goldenrod">Assisted</sp
 | VensureHR | `vensure_hr` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span> | <span style="color:red">Not Supported</span> |
 | Venture Workforce | `venture_workforce` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span> | <span style="color:red">Not Supported</span> |
 | Vfficient | `vfficient` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span> | <span style="color:red">Not Supported</span> |
-| Viewpoint HR Management Spectrum | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
+| Viewpoint HR Management Spectrum |`viewpoint_hr_management_spectrum`| <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Viewpoint HR Management Vista | `viewpoint_hr_management_vista` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Viventium | `viventium` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Wagepoint | `wagepoint` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
@@ -257,7 +257,6 @@ Velocity Global | `velocity_global` | <span style="color:goldenrod">Assisted</sp
 | Xero | `xero` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Zenefits | `zenefits` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod"><span style="color:goldenrod">Assisted</span></span> |
 | Zoho Payroll | `zoho_payroll` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
-| ALL OTHERS |  | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request |
 
 </details>
 
