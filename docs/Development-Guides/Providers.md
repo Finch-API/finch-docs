@@ -165,6 +165,7 @@ Payentry | `payentry` | <span style="color:goldenrod">Assisted</span> | <span st
 PayFit | `payfit` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 PayNorthwest | `paynw` | <span style="color:goldenrod">Assisted*</span> | <span style="color:goldenrod">Assisted</span>
 PayPro HCS isolved | `paypro_hcs_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
+Payroll 4 Construction | `payroll_for_construction` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Payroll Network | `payroll_network` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Payroll Office of America | `payroll_office_of_america` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
 Payroll Plus HCM isolved | `payroll_plus_hcm_isolved` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span>
