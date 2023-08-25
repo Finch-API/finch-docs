@@ -10,7 +10,7 @@ Below you will find each HRIS provider supported by Finch, the `id` for the `p
 
 **Please Note:**
 
-- Finch supports two integration types: Automated and Assisted. Automated Integrations refresh the data every 24 hours, while Assisted Integrations refresh the data every 7 days and require a configuration period. Learn more about integration types and configuration periods here [[Assisted Connect Flow](../Product-Guides/Assisted-Connect-Flow.md) ].
+- Finch supports two integration types: Automated and Assisted. Automated Integrations refresh the data every 24 hours, while Assisted Integrations refresh the data every 7 days and require a configuration period. Learn more about integration types and configuration periods here [Assisted Connect Flow](../Product-Guides/Assisted-Connect-Flow.md).
 - Integration types may impact field support for a given provider. For more information, see our [Field Support](Field-Support/Compatibility.md) guides.
 - If you would like to request support for a new integration, please get in touch with your Account Manager or reach out to developers@tryfinch.com.
 
@@ -99,8 +99,6 @@ All supported HRIS integrations and products.
 | Wave | `wave` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> |
 | Workday | `workday` |  <span style="color:darkgreen">Automated</span> | Upon Request | Upon Request |
 | Zenefits | `zenefits` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod"><span style="color:goldenrod">Assisted</span></span> |
-| … | … | … | … | … |
-| … | … | … | … | … |
 | ALL OTHERS |  | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request |
 
 </details>
