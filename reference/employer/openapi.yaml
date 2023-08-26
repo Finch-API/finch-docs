@@ -622,6 +622,8 @@ paths:
                                     type:
                                       - number
                                       - string
+                                      - array
+                                      - object
                                       - boolean
                                     nullable: true
       summary: Employment
