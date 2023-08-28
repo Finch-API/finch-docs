@@ -1774,14 +1774,16 @@ paths:
                   value:
                     - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
                       code: 201
-                      name: created
-                      finch_code: enrolled_new_benefit
-                      message: Successfully enrolled new benefit for individual
+                      body:
+                        name: created
+                        finch_code: enrolled_new_benefit
+                        message: Successfully enrolled new benefit for individual
                     - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
                       code: 200
-                      name: success
-                      finch_code: updated_existing_enrollment
-                      message: Benefit information updated for individual
+                      body:
+                        name: success
+                        finch_code: updated_existing_enrollment
+                        message: Benefit information updated for individual
         '207':
           description: Multi-Status. Some individuals may not have succeeded. See body for details.
           content:
@@ -1813,29 +1815,35 @@ paths:
                   value:
                     - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
                       code: 201
-                      name: created
-                      finch_code: enrolled_new_benefit
-                      message: Successfully enrolled new benefit for individual
+                      body:
+                        name: created
+                        finch_code: enrolled_new_benefit
+                        message: Successfully enrolled new benefit for individual
                     - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
                       code: 200
-                      name: success
-                      finch_code: updated_existing_enrollment
-                      message: Benefit information updated for individual
+                      body:
+                        name: success
+                        finch_code: updated_existing_enrollment
+                        message: Benefit information updated for individual
                     - individual_id: 0c89294b-b7f1-4999-9b7a-bb8a87326717
                       code: 404
-                      name: not_found_error
-                      finch_code: individual_not_found
-                      message: Individual not found
-                    - individual_id: fb292e27-bd07-4dbc-88c4-05923b33bbc2
-                      code: 403
-                      finch_code: access_denied
-                      message: Permissions not valid for individual
+                      body:
+                        name: not_found_error
+                        finch_code: individual_not_found
+                        message: Individual not found
         '400':
           description: Malformed Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+              examples:
+                Bad Request:
+                  value:
+                    code: 400
+                    name: invalid_request_error
+                    finch_code: invalid_request
+                    message: '[path_params:benefit_id]: Not a valid uuid'
         '404':
           description: Benefit Not Found
           content:
@@ -1971,8 +1979,54 @@ paths:
       summary: Unenroll Individuals from Benefits
       operationId: delete-individual-benefits
       responses:
+        '200':
+          description: Success for all individuals. Unenrolled all individuals from the benefit.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    individual_id:
+                      type: string
+                    code:
+                      type: integer
+                      description: HTTP status code.
+                      enum:
+                        - 200
+                    body:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: Identifier indicating whether the individual was successfully unenrolled.
+                          nullable: true
+                        finch_code:
+                          type: string
+                          description: A descriptive identifier for the response
+                          nullable: true
+                        message:
+                          type: string
+                          description: Short description in English that provides more information about the response.
+                          nullable: true
+              examples:
+                Success:
+                  value:
+                    - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
+                      code: 200
+                      body:
+                        name: success
+                        finch_code: unenrolled_individual_benefit
+                        message: Unenrolled individual from benefit
+                    - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
+                      code: 200
+                      body:
+                        name: success
+                        finch_code: unenrolled_individual_benefit
+                        message: Unenrolled individual from benefit
         '207':
-          description: Multi-Status (WebDAV)
+          description: Multi-Status. Some individuals may not have succeeded. See body for details.
           content:
             application/json:
               schema:
@@ -1990,31 +2044,67 @@ paths:
                       properties:
                         name:
                           type: string
-                          description: Identifier indicating whether the benefit was newly enrolled or updated.
-                          nullable: true
+                          description: Identifier indicating whether the individual was successfully unenrolled.
                         finch_code:
                           type: string
                           description: A descriptive identifier for the response.
-                          nullable: true
                         message:
                           type: string
                           description: Short description in English that provides more information about the response.
-                          nullable: true
               examples:
-                Success:
+                Multi Status:
                   value:
-                    - individual_id: 7fc9fb3a-2a62-47c1-9a5a-c9146483b58e
+                    - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
                       code: 200
                       body:
                         name: success
                         finch_code: unenrolled_individual_benefit
                         message: Unenrolled individual from benefit
+                    - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
+                      code: 404
+                      body:
+                        name: not_found_error
+                        finch_code: individual_not_found
+                        message: Individual not found
+        '400':
+          description: Malformed Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                Bad Request:
+                  value:
+                    code: 400
+                    name: invalid_request_error
+                    finch_code: invalid_request
+                    message: '[path_params:benefit_id]: Not a valid uuid'
         '404':
           description: Benefit Not Found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+              examples:
+                Not Found:
+                  value:
+                    code: 404
+                    name: not_found_error
+                    finch_code: benefit_not_found
+                    message: Benefit not found
+        '422':
+          description: Unprocessable Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                Cannot Enroll:
+                  value:
+                    code: 422
+                    name: unprocessable_request_error
+                    finch_code: unprocessable_parameters
+                    message: HSA enrollment are not currently available for this provider
       description: |-
         **Availability: Automated and Assisted Benefits providers**  
           
