@@ -29,8 +29,10 @@ Inside your code base folder, use the command line to install `react-connect`
 ```bash
 npm install --save @tryfinch/react-connect
 ```
+<br>
 
-### 2. Import the 'useFinchConnect' Hook
+### 2. Import the `useFinchConnect` Hook
+<br>
 
 ```javascript
 import React, { useState } from 'react';

@@ -447,8 +447,9 @@ title: Supported Features
 
 Benefit | Features
 --------|----------
-**401(k)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
-**Roth 401(k)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
+**401(k)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch-up`
+**Roth 401(k)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch-up`
+**401(k) Loan** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
 **Section 125 Dental** | `employee_deduction`: `fixed`, `percent` <br>
 **Section 125 Medical**| `employee_deduction`: `fixed`, `percent` <br>
 **Section 125 Vision** | `employee_deduction`: `fixed`, `percent` <br>
@@ -492,7 +493,7 @@ Benefit | Features
 --------|----------
 **401(k)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
 **Roth 401(k)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`
-**401(k) Loan** | 
+**401(k) Loan** | `employee_deduction`: `fixed`, `percent`
 **403(b)** | 
 **Roth 403(b)**| 
 **457** | 
@@ -697,7 +698,7 @@ title: Supported Features
 Benefit | Features
 --------|----------
 **401(k)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
-**Roth 401(k)** | `employee_deduction`: `fixed`, `percent`<br>`annual_maximum`
+**Roth 401(k)** | `employee_deduction`: `fixed`, `percent`<br>`annual_maximum`<br>`catch_up`
 **401(k) Loan** | `employee_deduction`: `fixed`, `percent`<br>`annual_maximum`
 **403(b)** | `company_contribution`: `fixed`, `percent`<br>`employee_deduction`: `fixed`, `percent`<br>`catch_up`<br>`annual_maximum`
 **Roth 403(b)**| `employee_deduction`: `fixed`, `percent`<br>`annual_maximum`

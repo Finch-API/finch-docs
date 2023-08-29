@@ -146,9 +146,14 @@
       "uri": "docs/Development-Guides/Data-Syncs.md"
     },
     {
-       "type": "item",
+      "type": "item",
       "title": "SDKs",
       "uri": "docs/Development-Guides/SDKs.md"
+    },
+    {
+      "type": "item",
+      "title": "Webhooks (beta)",
+      "uri": "docs/Development-Guides/Webhooks.md"
     },
     {
       "type": "divider",

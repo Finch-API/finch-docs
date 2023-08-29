@@ -2,7 +2,10 @@
 
 Finch will return a rate limit error with the HTTP status code 429 when the request rate limit for an application, access token, or an individual IP address has been exceeded.
 
-Finch's rate limits work on a per-product basis for both applications and access tokens. Rate limits are summed on a rolling 60-second basis for each unique `product`. This is commonly referred to as a Sliding or Rolling Window rate limit.
+Finch's rate limits work on a per-endpoint basis for applications, and we refer to each distinct endpoint as a unique `product`. Rate limits are summed on a rolling 60-second basis for each unique `product`. This is commonly referred to as a Sliding or Rolling Window rate limit.
+
+<!-- theme: info -->
+> **Access Token rate limits** Finch previously enforced rate limits at the access token level but this is not longer the case as of August 2023.
 
 You can think of a `product` rate limit like a "bucket". Therefore, when a request is made to a `product` (which corresponds directly to an API endpoint), a single gallon of water is added to that endpoint’s bucket, thus starting that bucket's 60-second time-to-live (TTL) timer.
 
@@ -10,38 +13,9 @@ After the product's rate limit is reset after 60 seconds, the first request to t
 
 ***
 
-## Access Token Rate Limits
-
-For access token rate limits, each product has its own "bucket" with its own 60-second TTL timer. The first request made by an access token to a new product endpoint starts the timer for that specific product's bucket. Rate limits reset only for that product endpoint after the 60-second period.
-
-Product | Max requests initiated per minute
--------|-------------
-`company` | 4
-`directory` | 4
-`individual` | 4
-`employment` | 4
-`payment` | 2
-`pay-statement` | 2
-
-If an access token rate limit is encountered, it will contain the `finch_code`: [finch_token_rl](/docs/Development-Guides/Errors/Error-Types.md#error-types-1) in the response body.
-
-```json
-// HTTP 429 response body for access token rate limit exceeded
-{
-    “statusCode”: 429,
-    “status”: 429,
-    “code”: 429,
-    “message”: “Too many requests for token”,
-    “name”: “rate_limit_exceeded_error”,
-    “finch_code”: “finch_token_rl”
-}
-```
-
 ## Application Rate Limits
 
-Similarly, multiple access tokens can be created from a single Finch application as more employers are connected. A Finch application has its own rate limits separate from the access token rate limits. (A Finch application corresponds to a unique `client_id`. You may have several `client_id`s if you use a development or sandbox application in addition to production).
-
-For application-level rate limits, each `product` manages another “larger” bucket simultaneously counting all requests across all access tokens created by that application. Each bucket is still scoped to a product endpoint like with access tokens; the only difference is that the application-level bucket is larger.
+A Finch application has its own rate limits and all access tokens associated with the application will be subject to the application's rate limits. For application-level rate limits, each `product` manages a bucket simultaneously counting all requests across all access tokens created by that application. Multiple access tokens can be created from a single Finch application as more employers are connected. (A Finch application corresponds to a unique `client_id`. You may have several `client_id`s if you use a development or sandbox application in addition to production).
 
 Product | Max requests initiated per minute
 -------|-------------

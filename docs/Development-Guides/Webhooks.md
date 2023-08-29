@@ -2,7 +2,7 @@
 stoplight-id: 9d3cec5dd527e
 ---
 
-# Introduction to Webhooks (coming soon)
+# Webhooks
 
 Finch offers webhooks to inform you of changes to data models in a push-notification fashion, rather than you having to rely exclusively on pulling data from our API. A webhook URL is a HTTPS endpoint configured by your application to recieve requests from Finch.
 
@@ -89,14 +89,17 @@ Example:
 
 Finch uses HMAC-SHA256 webhook verification, The following are steps you can use to verify a webhook using the verification header:
 
-1. **Extract the signature from the header**. The `Webhook-Signature` header consists of a list of signatures (space delimited) to account for secret rotations. During the verification process, the signature must match at least one signature in the list to be considered valid.
-2. **Validate the webhook**. Using the webhook secret, hash the webhook content in the form `{webhook_id}.{webhook_timestamp}.{body}`. If the signature does not match the value received in the `Webhook-Signature` header, reject the webhook. If it is valid, ensure the timestamp is not greater than five minutes in the past or future. Using outdated webhooks increases susceptibility to [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
+1. **Extract the signature from the header**. The `Finch-Signature` header consists of a list of signatures (space delimited) to account for secret rotations; there may be multiple signatures present for cases where a secret was rotated. During the verification process, the signature must match at least one signature in the list to be considered valid.
+```json
+v1,g0hM9SsE+OTPJTGt/tmIKtSyZlE3uFJELVlNIOLJ1OE= v1,bm9ldHUjKzFob2VudXRob2VodWUzMjRvdWVvdW9ldQo= v2,MzJsNDk4MzI0K2VvdSMjMTEjQEBAQDEyMzMzMzEyMwo=
+```
+2. **Generate the webhook secret**. Using the webhook secret, hash the webhook content in the form `{webhook_id}.{webhook_timestamp}.{body}` where body is the raw body of the request. The signature is sensitive to any changes, so even a small change in the body will cause the signature to be completely different. This means that you should not change the body in any way before verifying. If the signature does not match the value received in the `Finch-Signature` header, reject the webhook.
 <!--
 type: tab
 title: Javascript
 -->
 <!--
-title: "Webhook verification example"
+title: "Signature generation example"
 lineNumbers: true
 -->
 ```javascript
@@ -118,7 +121,7 @@ type: tab
 title: Python
 -->
 <!--
-title: "Webhook verification example"
+title: "Signature generation example"
 lineNumbers: true
 -->
 ```python
@@ -145,7 +148,7 @@ type: tab
 title: Java
 -->
 <!--
-title: "Webhook verification example"
+title: "Signature generation example"
 lineNumbers: true
 -->
 ```java
@@ -174,7 +177,215 @@ public class Main {
     }
 }
 ```
+<!-- type: tab-end -->
 
+3. **Verify the webhook timestamp** If the signature is valid, ensure the timestamp is not greater than five minutes in the past or future. Using outdated webhooks increases susceptibility to [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
+
+<!--
+type: tab
+title: Javascript
+-->
+<!--
+title: "Full verification example"
+lineNumbers: true
+-->
+```javascript
+import { createHmac } from 'crypto';
+
+interface FinchWebhookHeaders {
+  'finch-event-id': string;
+  'finch-signature': string;
+  'finch-timestamp': string;
+}
+
+export class FinchWebhookVerifier {
+  private readonly secret: Buffer;
+  private readonly MAX_TIMESTAMP_AGE_MS = 5 * 60 * 1000; // 5 minutes
+
+  constructor(secret: string) {
+    // Base64 decode the secret
+    this.secret = Buffer.from(secret, 'base64');
+  }
+
+  public verify(payload: string, headers: FinchWebhookHeaders): boolean {
+    const signature = headers['finch-signature'];
+    const timestamp = headers['finch-timestamp'];
+    const eventId = headers['finch-event-id'];
+
+    // Compare this timestamp against your system timestamp to make sure
+    // it's within your tolerance in order to prevent timestamp attacks.
+    // Usually we allow for a few minutes (5 min) of tolerance, but you can
+    // tighten this up based on your security requirements.
+    if (!this.verifyTimestamp(timestamp)) {
+      // The timestamp is too old, fail the verification
+      return false;
+    }
+
+    const generatedSignature = this.createSignature(
+      eventId,
+      timestamp,
+      payload
+    );
+    const signatures = this.getSignatures(signature);
+
+    return signatures.some((s) => s === generatedSignature);
+  }
+
+  // The signature header is composed of a list of signatures and their corresponding version identifier.
+  // For example: "v1,signature1 v1,signature2"
+  // Usually there is only one signature, but in case of a key rotation there
+  // might be multiple valid signatures until the old key has expired (after 24h).
+  // We return all signatures so that the caller can check if any of them is valid.
+  private getSignatures(signature: string): string[] {
+    return signature.split(' ').map((s) => {
+      const [_, value] = s.split(',');
+      return value;
+    });
+  }
+
+  // Create a HMAC SHA256 hash using the secret and the signed payload and encode it as base64
+  private createSignature(
+    eventId: string,
+    timestamp: string,
+    payload: string
+  ): string {
+    const signedPayload = `${eventId}.${timestamp}.${payload}`;
+    return createHmac('sha256', this.secret)
+      .update(signedPayload)
+      .digest('base64');
+  }
+
+  private verifyTimestamp(timestamp: string): boolean {
+    // Get the current time
+    const now = Date.now();
+    // The timestamp is in seconds, but we need milliseconds
+    const timestampMs = Number(timestamp) * 1000;
+    // Check that the timestamp is not older than MAX_TIMESTAMP_AGE_MS
+    return Math.abs(now - timestampMs) < this.MAX_TIMESTAMP_AGE_MS;
+  }
+}
+```
+
+<!--
+type: tab
+title: Python
+-->
+<!--
+title: "Full verification example"
+lineNumbers: true
+-->
+```python
+import hashlib
+import base64
+from typing import Dict
+
+class FinchWebhookVerifier:
+    def __init__(self, secret: str):
+        self.secret = base64.b64decode(secret)
+        self.MAX_TIMESTAMP_AGE_MS = 5 * 60 * 1000  # 5 minutes
+
+    def verify(self, payload: str, headers: Dict[str, str]) -> bool:
+        signature = headers['finch-signature']
+        timestamp = headers['finch-timestamp']
+        eventId = headers['finch-event-id']
+
+        if not self.verify_timestamp(timestamp):
+            return False
+
+        generated_signature = self.create_signature(eventId, timestamp, payload)
+        signatures = self.get_signatures(signature)
+
+        return any(s == generated_signature for s in signatures)
+
+    def get_signatures(self, signature: str) -> list:
+        return [value for _, value in (s.split(',') for s in signature.split(' '))]
+
+    def create_signature(self, eventId: str, timestamp: str, payload: str) -> str:
+        signed_payload = f'{eventId}.{timestamp}.{payload}'.encode('utf-8')
+        hmac_digest = hashlib.sha256(self.secret + signed_payload).digest()
+        return base64.b64encode(hmac_digest).decode('utf-8')
+
+    def verify_timestamp(self, timestamp: str) -> bool:
+        now = int(time.time() * 1000)
+        timestamp_ms = int(timestamp) * 1000
+        return abs(now - timestamp_ms) < self.MAX_TIMESTAMP_AGE_MS
+```
+
+<!--
+type: tab
+title: Java
+-->
+<!--
+title: "Full verification example"
+lineNumbers: true
+-->
+```java
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+
+public class FinchWebhookVerifier {
+    private byte[] secret;
+    private static final long MAX_TIMESTAMP_AGE_MS = 5 * 60 * 1000; // 5 minutes
+
+    public FinchWebhookVerifier(String secret) {
+        this.secret = Base64.getDecoder().decode(secret);
+    }
+
+    public boolean verify(String payload, HashMap<String, String> headers) {
+        String signature = headers.get("finch-signature");
+        String timestamp = headers.get("finch-timestamp");
+        String eventId = headers.get("finch-event-id");
+
+        if (!verifyTimestamp(timestamp)) {
+            return false;
+        }
+
+        String generatedSignature = createSignature(eventId, timestamp, payload);
+        List<String> signatures = getSignatures(signature);
+
+        for (String s : signatures) {
+            if (s.equals(generatedSignature)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private List<String> getSignatures(String signature) {
+        List<String> signatures = new ArrayList<>();
+        String[] parts = signature.split(" ");
+        for (String part : parts) {
+            String[] keyValue = part.split(",");
+            signatures.add(keyValue[1]);
+        }
+        return signatures;
+    }
+
+    private String createSignature(String eventId, String timestamp, String payload) {
+        try {
+            String signedPayload = eventId + "." + timestamp + "." + payload;
+            Mac sha256HMAC = Mac.getInstance("HmacSHA256");
+            SecretKeySpec secretKey = new SecretKeySpec(secret, "HmacSHA256");
+            sha256HMAC.init(secretKey);
+            byte[] hmacDigest = sha256HMAC.doFinal(signedPayload.getBytes("UTF-8"));
+            return Base64.getEncoder().encodeToString(hmacDigest);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to create signature", e);
+        }
+    }
+
+    private boolean verifyTimestamp(String timestamp) {
+        long now = System.currentTimeMillis();
+        long timestampMs = Long.parseLong(timestamp) * 1000;
+        return Math.abs(now - timestampMs) < MAX_TIMESTAMP_AGE_MS;
+    }
+}
+
+```
 <!-- type: tab-end -->
 
 ## Testing Webhooks
