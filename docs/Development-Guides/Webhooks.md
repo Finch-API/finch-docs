@@ -229,7 +229,7 @@ export class FinchWebhookVerifier {
     const signatures = this.getSignatures(signature);
 
     return signatures.some(
-        (s) => crypto.timingSafeEqual(
+        (s) => timingSafeEqual(
             Buffer.from(s),
             Buffer.from(generatedSignature)
         ));
