@@ -281,7 +281,7 @@ lineNumbers: true
 ```python
 import base64
 import hashlib
-imprt hmac
+import hmac
 from typing import Dict
 
 class FinchWebhookVerifier:
