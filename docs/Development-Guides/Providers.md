@@ -61,6 +61,7 @@ All supported HRIS integrations and products.
 | Adams Keegan | `adams_keegan` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | ADP Comprehensive Services | `adp_comprehensive` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span> | Upon Request |
 | ADP Workforce Now† | `adp_workforce_now` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> |
+| ADP TotalSource | `adp_totalsource` |  <span style="color:goldenrod">Assisted</span> |  <span style="color:goldenrod">Assisted</span> | Upon Request |
 | Advantage Payroll Services | `advantage_payroll_services` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Affiliated HR Payroll Services iSolved | `affiliated_hr_payroll_services_isolved` |  <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Affiliated HR Payroll Services Evolution | `affiliated_hr_payroll_services_evolution` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
