@@ -93,7 +93,7 @@ Finch uses HMAC-SHA256 webhook verification, The following are steps you can use
 ```json
 v1,g0hM9SsE+OTPJTGt/tmIKtSyZlE3uFJELVlNIOLJ1OE= v1,bm9ldHUjKzFob2VudXRob2VodWUzMjRvdWVvdW9ldQo= v2,MzJsNDk4MzI0K2VvdSMjMTEjQEBAQDEyMzMzMzEyMwo=
 ```
-2. **Generate the webhook secret**. Using the webhook secret, hash the webhook content in the form `{webhook_id}.{webhook_timestamp}.{body}` where body is the raw body of the request. The signature is sensitive to any changes, so even a small change in the body will cause the signature to be completely different. This means that you should not change the body in any way before verifying. If the signature does not match the value received in the `Finch-Signature` header, reject the webhook.
+2. **Generate the webhook secret**. Using the webhook secret, hash the webhook content in the form `{webhook_id}.{webhook_timestamp}.{body}` where body is the raw body of the request. The signature is sensitive to any changes, so even a small change in the body will cause the signature to be completely different. This means that you should not change the body in any way before verifying. If the signature does not match the value received in the `Finch-Signature` header, reject the webhook. **Note: when performing signature comparison, it is safest to use a constant-time comparison to avoid potential timing attacks.**
 <!--
 type: tab
 title: Javascript
@@ -190,7 +190,7 @@ title: "Full verification example"
 lineNumbers: true
 -->
 ```javascript
-import { createHmac } from 'crypto';
+import { createHmac, timingSafeEqual } from 'crypto';
 
 interface FinchWebhookHeaders {
   'finch-event-id': string;
@@ -228,7 +228,11 @@ export class FinchWebhookVerifier {
     );
     const signatures = this.getSignatures(signature);
 
-    return signatures.some((s) => s === generatedSignature);
+    return signatures.some(
+        (s) => crypto.timingSafeEqual(
+            Buffer.from(s),
+            Buffer.from(generatedSignature)
+        ));
   }
 
   // The signature header is composed of a list of signatures and their corresponding version identifier.
@@ -275,8 +279,9 @@ title: "Full verification example"
 lineNumbers: true
 -->
 ```python
-import hashlib
 import base64
+import hashlib
+import hmac
 from typing import Dict
 
 class FinchWebhookVerifier:
@@ -295,7 +300,7 @@ class FinchWebhookVerifier:
         generated_signature = self.create_signature(eventId, timestamp, payload)
         signatures = self.get_signatures(signature)
 
-        return any(s == generated_signature for s in signatures)
+        return any(hmac.compare_digest(s, generated_signature) for s in signatures)
 
     def get_signatures(self, signature: str) -> list:
         return [value for _, value in (s.split(',') for s in signature.split(' '))]
@@ -322,6 +327,8 @@ lineNumbers: true
 ```java
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
@@ -348,7 +355,9 @@ public class FinchWebhookVerifier {
         List<String> signatures = getSignatures(signature);
 
         for (String s : signatures) {
-            if (s.equals(generatedSignature)) {
+            byte[] sBytes = s.getBytes(StandardCharsets.UTF_8);
+            byte[] generatedSignatureBytes = generatedSignature.getBytes(StandardCharsets.UTF_8);
+            if (MessageDigest.isEqual(sBytes, generatedSignatureBytes)) {
                 return true;
             }
         }
