@@ -87,7 +87,7 @@ Example:
 
 ## Webhook Verification
 
-Finch uses HMAC-SHA256 webhook verification, The following are steps you can use to verify a webhook using the verification header:
+Finch uses HMAC-SHA256 webhook verification. The following are steps you can use to verify a webhook using the verification header:
 
 1. **Extract the signature from the header**. The `Finch-Signature` header consists of a list of signatures (space delimited) to account for secret rotations; there may be multiple signatures present for cases where a secret was rotated. During the verification process, the signature must match at least one signature in the list to be considered valid.
 ```json
