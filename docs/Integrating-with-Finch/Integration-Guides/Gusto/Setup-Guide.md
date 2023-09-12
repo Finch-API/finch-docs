@@ -6,7 +6,7 @@ stoplight-id: laumymk97efgi
 
 Before gaining access to Gusto’s production API, all developers are subject to Gusto’s standard security and compliance review. As an official Gusto development partner, Finch will work closely with you to support you through your onboarding journey. The onboarding steps are outlined below.
 
-> If you are a current Finch customer using the existing Gusto integration, please note that end users must reauthorize into the improved integration by **November 30, 2023**. Finch’s legacy integration will be deprecated on that date.
+> If you are a current Finch customer using the existing Gusto integration, please note that you must complete the steps outlined below and have your clients reauthorize into the improved integration by **November 30, 2023**. Finch’s legacy integration will be deprecated on that date.
 
 ### Step 1: Setup in Gusto’s Developer Portal
 
