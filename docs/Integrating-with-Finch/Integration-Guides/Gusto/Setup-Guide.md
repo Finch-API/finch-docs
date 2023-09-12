@@ -2,7 +2,7 @@
 stoplight-id: laumymk97efgi
 ---
 
-# Gusto Onboarding
+# Gusto Onboarding and Migration Guide
 
 Before gaining access to Gusto’s production API, all developers are subject to Gusto’s standard security and compliance review. As an official Gusto development partner, Finch will work closely with you to support you through your onboarding journey. The onboarding steps are as follows:
 
