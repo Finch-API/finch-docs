@@ -12,7 +12,7 @@ Before gaining access to Gusto’s production API, all developers are subject to
 
 **[5 minutes]**
 
-Gusto requires that all developers be set up in their Developer Portal. Finch offers a managed service by default where we will create and manage your DevPortal "organization" - all you need to do is [sign up for a DevPortal account](https://dev.gusto.com/accounts/sign_up), provide us with the corresponding email address and we’ll take it from there. Please reach out to your Success manager or developers@tryfinch.com if you have any questions.
+Gusto requires that all developers be set up in their Developer Portal. Finch offers a managed service by default where we will create and manage your DevPortal "organization" - all you need to do is [sign up for a DevPortal account](https://dev.gusto.com/accounts/sign_up) and we’ll take it from there. Please reach out to your Success manager or developers@tryfinch.com if you have any questions.
 
 ### Step 2: Complete Gusto’s Onboarding Questionnaire
 
