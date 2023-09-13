@@ -4,11 +4,23 @@ stoplight-id: laumymk97efgi
 
 # Gusto Onboarding and Migration Guide
 
-Before gaining access to Gusto’s production API, all developers are subject to Gusto’s standard security and compliance review. As an official Gusto development partner, Finch will work closely with you to support you through your onboarding journey. The onboarding steps are outlined below.
+Before gaining access to Gusto’s production API, all developers are subject to Gusto’s standard security and compliance review. As an official Gusto development partner, Finch will work closely with you to support you through your onboarding journey. The onboarding process consists of the following steps:
+
+**Step 1:** Create an account in Gusto’s Developer Portal
+
+**Step 2:** Complete the Gusto Onboarding Questionnaire
+
+**Step 3:** Gusto Security Review
+
+**Step 4:** (Optional) Let your Finch Developer Success representative know if you need your Finch IDs to remain stable with your current integration. See Step 4 below for additional details.
+
+The remainder of this page outlines these steps in greater detail.
+
+---
 
 > If you are a current Finch customer using the existing Gusto integration, please note that you must complete the steps outlined below and have your clients reauthorize into the improved integration by **November 30, 2023**. Finch’s legacy integration will be deprecated on that date.
 
-### Step 1: Setup in Gusto’s Developer Portal
+### Step 1: Create an account in Gusto’s Developer Portal
 
 **[5 minutes]**
 
@@ -46,10 +58,11 @@ Please note that with this migration, there will be some changes to the underlyi
 1. We will work with Gusto to map your old IDs to new IDs, so that existing references are compatible with the API integration.
 1. We will then reactivate your Gusto integration, add Gusto back as an integration option to Finch Connect, and invite your users to reauthorize the Finch connection.
 
-### Step 5: Connect Your Clients!
+### Connect Your Clients!
 
 Finch will be notified by Gusto as soon as your account credentials are ready for use to activate your API integration. Finch will notify you once your integration has been activated. Your clients can then go through Finch Connect and connect to their Gusto account to authorize your application for data access!
 
+---
 
 We understand that these changes may cause some inconvenience, and appreciate your partnership during this transition.
 
