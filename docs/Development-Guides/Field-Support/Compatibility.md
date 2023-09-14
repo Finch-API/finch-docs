@@ -35,7 +35,6 @@ title: HRIS
 ### Individual
 ![individual.png](../../../assets/images/individual.png)
 
-
 <p><i>¹ Initial only</i><br>
 <i>² No work email available</i><br>
 <i>³ Contractors don't have these fields in the QBO system</i></p>
