@@ -12,11 +12,11 @@ Before gaining access to Gusto’s production API, all developers are subject to
 
 **Step 3:** Gusto Security Review
 
-**Step 4:** (Optional) Let your Finch Developer Success representative know if you need your Finch IDs to remain stable with your current integration. See Step 4 below for additional details.
-
-The remainder of this page outlines these steps in greater detail.
+**Step 4:** (Optional) Let your Finch Developer Success representative know if you need your Finch IDs to remain stable with your current integration.
 
 ![Gusto-Signup.gif](../../../../assets/images/Gusto-Signup.gif)
+
+The remainder of this page outlines these steps in greater detail.
 
 ---
 
