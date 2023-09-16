@@ -1,4 +1,8 @@
-# Deel Onboarding Guide!
+---
+stoplight-id: zz1jt69h6o6be
+---
+
+# Deel Onboarding Guide
 
 ![deel-setup-diagram.png](<../../../../assets/images/deelSetupDiagram.png>)
 
