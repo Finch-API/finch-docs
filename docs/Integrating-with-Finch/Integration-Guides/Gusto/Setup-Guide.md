@@ -16,6 +16,8 @@ Before gaining access to Gusto’s production API, all developers are subject to
 
 The remainder of this page outlines these steps in greater detail.
 
+![Gusto-Signup.gif](../../../../assets/images/Gusto-Signup.gif)
+
 ---
 
 > If you are a current Finch customer using the existing Gusto integration, please note that you must complete the steps outlined below and have your clients reauthorize into the improved integration by **November 30, 2023**. Finch’s legacy integration will be deprecated on that date.
