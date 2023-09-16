@@ -2,8 +2,6 @@
 
 ![deel-setup-diagram.png](<../../../../assets/images/deelSetupDiagram.png>)
 
-> Integrating Deel via Finch makes your organization eligible for the Deel Partner Program. This includes go-to-market motions and revenue share opportunities with Deel. If you are interested or have already built an app, reach out here to learn more about the program.
-
 Integrating with Deel through Finch is a simple 3-step process! To get set up, you need to:
 
 1. Create a Deel account
@@ -12,7 +10,9 @@ Integrating with Deel through Finch is a simple 3-step process! To get set up, y
 
 This page explains each of these steps in detail. Happy integrating!
 
-## Create a Deel account
+> Integrating Deel via Finch makes your organization eligible for the Deel Partner Program. This includes go-to-market motions and revenue share opportunities with Deel. If you are interested or have already built an app, reach out here to learn more about the program.
+
+## 1. Create a Deel account
 
 If your company does not already have an account with Deel, you’ll need to create one. To create an account, follow the instructions below.
 
@@ -38,7 +38,7 @@ If your company does not already have an account with Deel, you’ll need to cre
     ![deel_homepage.png](../../../../assets/images/deel_homepage.png)
 
 
-## Create a Deel OAuth application
+## 2. Create a Deel OAuth application
 
 > To create a Deel OAuth application, you must be an **Organization Admin** or an **IT Developer Admin**.
 >
@@ -65,7 +65,7 @@ Follow the instructions below to create and publish your Deel OAuth application.
 1. Follow Deel’s [Publish an App](https://developer.deel.com/docs/oauth2-apps#publish-an-app) guide to publish the app you just created. In production, all apps are submitted for review by default so you don’t need to do anything for this step to initialize the publishing process. You may need to wait a few business days for Deel to officially publish your app.
 
 
-## Connect your Deel OAuth application to Finch
+## 3. Connect your Deel OAuth application to Finch
 
 The final step in your process is to configure your Deel integration with Finch. To do this, please reach out to your Developer Success representative, or reach out to **developers@tryfinch.com** with the following email subject and body.
 
