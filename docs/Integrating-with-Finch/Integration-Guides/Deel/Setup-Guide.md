@@ -63,3 +63,19 @@ Follow the instructions below to create and publish your Deel OAuth application.
     ![deel_credentials_view.png](<../../../../assets/images/deel_credentials_view.png>)
     
 1. Follow Deel’s [Publish an App](https://developer.deel.com/docs/oauth2-apps#publish-an-app) guide to publish the app you just created. In production, all apps are submitted for review by default so you don’t need to do anything for this step to initialize the publishing process. You may need to wait a few business days for Deel to officially publish your app.
+
+
+## Connect your Deel OAuth application to Finch
+
+The final step in your process is to configure your Deel integration with Finch. To do this, please reach out to your Developer Success representative, or reach out to **developers@tryfinch.com** with the following email subject and body.
+
+> **Subject:** Ready to configure Deel OAuth with Finch
+>
+> **Body:**
+> Hi Finch team!
+>
+> We have successfully created an OAuth application in Deel and are ready to have it connected with Finch.
+>
+> \- Your company name
+
+Upon receipt of this email, Finch will initiate the process for securely submitting your OAuth app’s credentials. Once this is done and your Deel OAuth app has been connected with Finch, you’ll receive confirmation from your Developer Success representative that your integration is all set and ready to go! 🚀 🙌
