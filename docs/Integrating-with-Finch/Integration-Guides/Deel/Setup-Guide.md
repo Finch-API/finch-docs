@@ -36,3 +36,30 @@ If your company does not already have an account with Deel, you’ll need to cre
 1. Voila! Your account setup is now complete! You should now be looking at your Deel home page, which should look something like the screenshot below.
 
     ![deel_homepage.png](../../../../assets/images/deel_homepage.png)
+
+
+## Create a Deel OAuth application
+
+> To create a Deel OAuth application, you must be an **Organization Admin** or an **IT Developer Admin**.
+>
+>**Organization Admin:** The highest level of visibility and permissions. Can manage all aspects of the organization. This includes everything from members, billing, and other organization-wide settings.
+>
+>**IT Developer Admin:** Can build apps using Deel's API or subscribing to webhooks. They can also set up any native integration.
+>
+>More details can be found [here](https://help.letsdeel.com/hc/en-gb/articles/13916824207505-How-To-Add-Organization-Admins).
+
+You’ll need to create and publish a Deel app for your customers to authorize your access to their data. Deel uses OAuth 2.0’s authorization code grant flow to issue access tokens that grant access to specific groups of data. Please consult [Deel’s public documentation](https://developer.deel.com/docs/oauth2) for more information on the OAuth2 flow.
+
+Follow the instructions below to create and publish your Deel OAuth application.
+
+1. Log into your organization’s Deel account. If you do not already have a Deel account, please follow the instructions laid out in the **Create a Deel Account** section.
+
+1. Follow Deel’s [Create an App](https://developer.deel.com/docs/oauth2-apps#create-an-app) guide to create your app. Be sure to set your app type to **Organization**!
+
+    ![deel_createapp_form.png](../../../../assets/images/deel_createapp_form.png)
+    
+    > **IMPORTANT:** Copy and store your app secret (client secret) as it won't show again!
+
+    ![deel_credentials_view.png](<../../../../assets/images/deel_credentials_view.png>)
+    
+1. Follow Deel’s [Publish an App](https://developer.deel.com/docs/oauth2-apps#publish-an-app) guide to publish the app you just created. In production, all apps are submitted for review by default so you don’t need to do anything for this step to initialize the publishing process. You may need to wait a few business days for Deel to officially publish your app.
