@@ -1699,14 +1699,14 @@ components:
                         Example: `{"Content-Type": "application/xml", "X-API-Version": "v1" }`
                     params:
                       type: object
-                        description: >-
-                          The query parameters for the forwarded request. This value must be
-                          specified as a valid JSON object rather than a query string.
+                      description: >-
+                        The query parameters for the forwarded request. This value must be
+                        specified as a valid JSON object rather than a query string.
                     data:
                       type: string
-                        description: >-
-                          The body for the forwarded request. This value must be specified as
-                          either a string or a valid JSON object.
+                      description: >-
+                        The body for the forwarded request. This value must be specified as
+                        either a string or a valid JSON object.
                   required:
                     - method
                     - route
