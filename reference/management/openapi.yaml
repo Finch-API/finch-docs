@@ -446,7 +446,7 @@ paths:
       operationId: post-forward
       responses:
         '200':
-          description: OK
+          description: Successful response
           content:
             application/json:
               schema:
@@ -457,6 +457,7 @@ paths:
                     description: >-
                       The HTTP headers of the forwarded request’s response, exactly as
                       received from the underlying integration’s API.
+                    nullable: true
                   statusCode:
                     type: integer
                     description: >-
@@ -1721,6 +1722,17 @@ components:
             required:
               - method
               - route
+          examples:
+            Sample:
+              value:
+                method: 'POST'
+                route: '/people/search'
+                headers:
+                  'content-type': 'application/json'
+                params:
+                  showInactive: true
+                  humanReadable: true
+                data: null
   securitySchemes:
     bearerAuth:
       type: http
