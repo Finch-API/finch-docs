@@ -7,7 +7,6 @@ info:
     The Management API provides a set of system-agnostic functionality for
     managing your Finch connections.
 
-
     [![Open in
     Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/21027137-08db0929-883d-4094-a9ce-dbf5a9bee4a4?action=collection%2Ffork&collection-url=entityId%3D21027137-08db0929-883d-4094-a9ce-dbf5a9bee4a4%26entityType%3Dcollection%26workspaceId%3D1edf19bc-e0a8-41e9-ac55-481a4b50790b)
 servers:
@@ -436,8 +435,6 @@ paths:
 
         <br /><br />We require applications to implement the Disconnect endpoint
         for billing and security purposes.
-      tags:
-        - 4. Management
       parameters:
         - $ref: '#/components/parameters/API-Version'
   /forward:
@@ -1024,34 +1021,6 @@ components:
           description: The current start index of the returned list of elements
       x-tags:
         - Models
-    BenefitType:
-      type: string
-      title: BenefitType
-      enum:
-        - 401k
-        - 401k_roth
-        - 401k_loan
-        - 403b
-        - 403b_roth
-        - '457'
-        - 457_roth
-        - s125_medical
-        - s125_dental
-        - s125_vision
-        - hsa_pre
-        - hsa_post
-        - fsa_medical
-        - fsa_dependent_care
-        - simple_ira
-        - simple
-        - commuter
-        - custom_post_tax
-        - custom_pre_tax
-        - null
-      description: Type of benefit.
-      x-tags:
-        - Models
-      nullable: true
     BenefitFrequency:
       type: string
       title: BenefitFrequency
@@ -1061,27 +1030,6 @@ components:
       x-tags:
         - Models
       nullable: true
-    BenefitContribution:
-      title: BenefitContribution
-      type: object
-      x-tags:
-        - Models
-      x-examples: {}
-      nullable: true
-      properties:
-        type:
-          type: string
-          enum:
-            - fixed
-            - percent
-          description: Contribution type.
-          nullable: true
-        amount:
-          type: integer
-          description: >-
-            Contribution amount in cents (if `fixed`) or basis points (if
-            `percent`).
-          nullable: true
     BenefitFeature:
       title: BenefitFeature
       type: object
