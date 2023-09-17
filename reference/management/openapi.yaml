@@ -538,8 +538,6 @@ paths:
         The Forward API allows you to make direct requests to an employment system. If Finch’s unified API
         doesn’t have a data model that cleanly fits your needs, then Forward allows you to push or pull
         data models directly against an integration’s API.
-      tags:
-        - 4. Management
       parameters:
         - $ref: '#/components/parameters/API-Version'
       requestBody:
@@ -1025,11 +1023,6 @@ components:
           description: The current start index of the returned list of elements
       x-tags:
         - Models
-    Date:
-      type: string
-      title: Date
-      pattern: '([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))'
-      nullable: true
     BenefitType:
       type: string
       title: BenefitType
@@ -1144,56 +1137,6 @@ components:
             enum:
               - individual
               - family
-    CompanyBenefit:
-      title: CompanyBenefit
-      type: object
-      properties:
-        benefit_id:
-          type: string
-        type:
-          $ref: '#/components/schemas/BenefitType'
-        description:
-          type: string
-          nullable: true
-        frequency:
-          $ref: '#/components/schemas/BenefitFrequency'
-    IndividualBenefits:
-      title: IndividualBenefits
-      type: array
-      x-examples: {}
-      items:
-        type: object
-        properties:
-          individual_id:
-            type: string
-          code:
-            type: integer
-          body:
-            type: object
-            properties:
-              employee_deduction:
-                $ref: '#/components/schemas/BenefitContribution'
-              company_contribution:
-                $ref: '#/components/schemas/BenefitContribution'
-              annual_maximum:
-                type: integer
-                description: >-
-                  If the benefit supports annual maximum, the amount in cents
-                  for this individual.
-                nullable: true
-              catch_up:
-                type: boolean
-                description: >-
-                  If the benefit supports catch up (401k, 403b, etc.), whether
-                  catch up is enabled for this individual.
-                nullable: true
-              hsa_contribution_limit:
-                type: string
-                enum:
-                  - individual
-                  - family
-                description: Type for HSA contribution limit if the benefit is a HSA.
-                nullable: true
     BenefitFeaturesAndOperations:
       type: object
       nullable: true
