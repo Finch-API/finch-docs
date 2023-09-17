@@ -89,7 +89,7 @@ paths:
                       mfa_required: true
                       primary_color: '#f45d47'
                       authentication_methods:
-                        - type: api
+                        - type: api_token
                           benefits_support:
                             401k:
                               supported_features:
@@ -390,7 +390,7 @@ paths:
                       - directory
                     username: johndoe@tryfinch.com
                     payroll_provider_id: gusto
-                    manual: 'false'
+                    manual: false
                     authentication_methods:
                       - type: assisted
                         connection_status:
@@ -531,7 +531,6 @@ paths:
                       $ref: '#/components/schemas/AutomatedAsyncJob'
                       x-stoplight:
                         id: gaxb3wl3umjse
-                required: []
               examples:
                 Example 1:
                   value:
@@ -1674,44 +1673,36 @@ components:
             type: object
             description: Forward Request Body
             properties:
-              requests:
+              method:
+                type: string
+                description: >-
+                  The HTTP method for the forwarded request. Valid values include:
+                  `GET` , `POST` , `PUT` , `DELETE` , and `PATCH`.
+              route:
+                type: string
+                description: >-
+                  The URL route path for the forwarded request. This value must begin
+                  with a forward-slash ( / ) and may only contain alphanumeric
+                  characters, hyphens, and underscores.
+              headers:
                 type: object
-                description: The details of the request to forward.
-                items:
-                  type: object
-                  properties:
-                    method:
-                      type: string
-                      description: >-
-                        The HTTP method for the forwarded request. Valid values include:
-                        `GET` , `POST` , `PUT` , `DELETE` , and `PATCH`.
-                    route:
-                      type: string
-                      description: >-
-                        The URL route path for the forwarded request. This value must begin
-                        with a forward-slash ( / ) and may only contain alphanumeric
-                        characters, hyphens, and underscores.
-                    headers:
-                      type: object
-                      description: >-
-                        The HTTP headers to include on the forwarded request. This value
-                        must be specified as an object of key-value pairs.
-                        Example: `{"Content-Type": "application/xml", "X-API-Version": "v1" }`
-                    params:
-                      type: object
-                      description: >-
-                        The query parameters for the forwarded request. This value must be
-                        specified as a valid JSON object rather than a query string.
-                    data:
-                      type: string
-                      description: >-
-                        The body for the forwarded request. This value must be specified as
-                        either a string or a valid JSON object.
-                  required:
-                    - method
-                    - route
+                description: >-
+                  The HTTP headers to include on the forwarded request. This value
+                  must be specified as an object of key-value pairs.
+                  Example: `{"Content-Type": "application/xml", "X-API-Version": "v1" }`
+              params:
+                type: object
+                description: >-
+                  The query parameters for the forwarded request. This value must be
+                  specified as a valid JSON object rather than a query string.
+              data:
+                type: string
+                description: >-
+                  The body for the forwarded request. This value must be specified as
+                  either a string or a valid JSON object.
             required:
-              - requests
+              - method
+              - route
   securitySchemes:
     bearerAuth:
       type: http
