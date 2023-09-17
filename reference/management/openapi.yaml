@@ -440,6 +440,37 @@ paths:
         - 4. Management
       parameters:
         - $ref: '#/components/parameters/API-Version'
+  /forward:
+    post:
+      summary: Forward (Passthrough)
+      operationId: post-forward
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: 'If the request is successful, Finch will return “success” (HTTP 200 status).'
+              examples:
+                Success:
+                  value:
+                    status: success
+      description: |-
+        The Forward API allows you to make direct requests to an employment system. If Finch’s unified API
+        doesn’t have a data model that cleanly fits your needs, then Forward allows you to push or pull
+        data models directly against an integration’s API.
+      tags:
+        - 4. Management
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+      requestBody:
+        $ref: '#/components/requestBodies/Forward'
+      x-stoplight:
+        id: dwnn4o21afzyr
   /jobs/automated:
     get:
       summary: List All Automated Jobs
@@ -1636,29 +1667,49 @@ components:
           nullable: true
           items: {}
   requestBodies:
-    Individual-Ids:
+    Forward:
       content:
         application/json:
           schema:
             type: object
-            description: Individual Ids Request Body
+            description: Forward Request Body
             properties:
               requests:
-                type: array
-                description: The array of batch requests.
+                type: object
+                description: The details of the request to forward.
                 items:
                   type: object
                   properties:
-                    individual_id:
+                    method:
                       type: string
                       description: >-
-                        A stable Finch `id` (UUID v4) for an individual in the
-                        company. There is no limit to the number of
-                        `individual_id` to send per request. It is preferential
-                        to send all ids in a single request for Finch to
-                        optimize provider rate-limits.
+                        The HTTP method for the forwarded request. Valid values include:
+                        `GET` , `POST` , `PUT` , `DELETE` , and `PATCH`.
+                    route:
+                      type: string
+                      description: >-
+                        The URL route path for the forwarded request. This value must begin
+                        with a forward-slash ( / ) and may only contain alphanumeric
+                        characters, hyphens, and underscores.
+                    headers:
+                      type: object
+                      description: >-
+                        The HTTP headers to include on the forwarded request. This value
+                        must be specified as an object of key-value pairs.
+                        Example: `{"Content-Type": "application/xml", "X-API-Version": "v1" }`
+                    params:
+                      type: object
+                        description: >-
+                          The query parameters for the forwarded request. This value must be
+                          specified as a valid JSON object rather than a query string.
+                    data:
+                      type: string
+                        description: >-
+                          The body for the forwarded request. This value must be specified as
+                          either a string or a valid JSON object.
                   required:
-                    - individual_id
+                    - method
+                    - route
             required:
               - requests
   securitySchemes:
