@@ -491,7 +491,7 @@ paths:
                         description: >-
                           The specified HTTP headers that were included in the forwarded
                           request. If no headers were specified, this will be returned as `null`.
-                        nullabe: true
+                        nullable: true
                       params:
                         type: object
                         description: >-
@@ -505,6 +505,17 @@ paths:
                           not specified in the original request, this value will be returned as
                           null ; otherwise, this value will always be returned as a string.
                         nullable: true
+                    required:
+                      - method
+                      - route
+                      - headers
+                      - params
+                      - data
+                required:
+                  - headers
+                  - statusCode
+                  - data
+                  - request
               examples:
                 Success:
                   value:
