@@ -452,9 +452,59 @@ paths:
               schema:
                 type: object
                 properties:
-                  status:
+                  headers:
+                    type: object
+                    description: >-
+                      The HTTP headers of the forwarded request’s response, exactly as
+                      received from the underlying integration’s API.
+                  statusCode:
+                    type: integer
+                    description: >-
+                      The HTTP status code of the forwarded request’s response, exactly
+                      received from the underlying integration’s API. This value will be
+                      returned as an integer.
+                  data:
                     type: string
-                    description: 'If the request is successful, Finch will return “success” (HTTP 200 status).'
+                    description: >-
+                      A string representation of the HTTP response body of the forwarded
+                      request’s response received from the underlying integration’s API.
+                      This field may be null in the case where the upstream system’s
+                      response is empty.
+                    nullable: true
+                  request:
+                    type: object
+                    description: >-
+                      An object containing details of your original forwarded request, for
+                      your ease of reference.
+                    properties:
+                      method:
+                        type: string
+                        description: >-
+                          The HTTP method that was specified for the forwarded request. Valid
+                          values include: `GET` , `POST` , `PUT` , `DELETE` , and `PATCH`.
+                      route:
+                        type: string
+                        description: >-
+                          The URL route path that was specified for the forwarded request.
+                      headers:
+                        type: object
+                        description: >-
+                          The specified HTTP headers that were included in the forwarded
+                          request. If no headers were specified, this will be returned as `null`.
+                        nullabe: true
+                      params:
+                        type: object
+                        description: >-
+                          The query parameters that were included in the forwarded request. If
+                          no query parameters were specified, this will be returned as `null`.
+                        nullable: true
+                      data:
+                        type: string
+                        description: >-
+                          The body that was specified for the forwarded request. If a value was
+                          not specified in the original request, this value will be returned as
+                          null ; otherwise, this value will always be returned as a string.
+                        nullable: true
               examples:
                 Success:
                   value:
