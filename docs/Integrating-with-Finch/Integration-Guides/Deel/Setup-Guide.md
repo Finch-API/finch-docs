@@ -18,7 +18,7 @@ Integrating with Deel through Finch is a simple 3-step process! To get set up, y
 This page explains each of these steps in detail. Happy integrating!
 
 <!-- theme: success -->
-> Integrating Deel via Finch makes your organization eligible for the Deel Partner Program. This includes go-to-market motions and revenue share opportunities with Deel. If you are interested or have already built an app, reach out here to learn more about the program.
+> Integrating Deel via Finch makes your organization eligible for the Deel Partner Program. This includes go-to-market motions and revenue share opportunities with Deel. If you are interested or have already built an app, [**reach out here**](mailto:talaal.burny@deel.com?subject=Deel%20API%20Partner%20via%20Finch&body=Hi%2C%0D%0A%0D%0AWe%20are%20interested%20in%20building%20on%20the%20Deel%20API%20and%20would%20like%20to%20know%20more%20about%20your%20API%20Partner%20Program.%0D%0A%0D%0AThanks.) to learn more about the program.
 
 ## Step 1: Create a Deel account
 
