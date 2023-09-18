@@ -4,6 +4,9 @@ stoplight-id: zz1jt69h6o6be
 
 # Deel Onboarding Guide
 
+<!--
+focus: false
+-->
 ![deel-setup-diagram.png](<../../../../assets/images/deelSetupDiagram.png>)
 
 Integrating with Deel through Finch is a simple 3-step process! To get set up, you need to:
