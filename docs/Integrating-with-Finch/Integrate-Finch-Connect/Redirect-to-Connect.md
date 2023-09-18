@@ -24,7 +24,6 @@ Parameter | Required | Description
 ---------|----------|---------
  `client_id` | true | Your `client_id`, a unique identifier for your application.
  `redirect_uri` | true | The URI your user is redirected to after successfully granting your application access to their system. This value must match one of your application's configured redirect URIs. Read more [here](../../Development-Guides/Redirect-URIs.md).
- `category` | false | The category of integrations your applications would like to expose. Options: `hris` and `ats`. If no category is provided, defaults to `hris`.
  `products` | true | A space-separated list of permissions your application is requesting access to. See [here](../../Development-Guides/Permissions.md) for a list of valid permissions.
  `state` | false | An optional value included as a query parameter in the `redirect_uri` back to your application. This value is often used to identify a user and/or prevent cross-site request forgery.
  `payroll_provider` | false | An optional parameter that allows you to bypass the provider selection screen by providing a valid provider `id`. Read [here](../../Development-Guides/Providers.md) for more information.
