@@ -17,6 +17,7 @@ Integrating with Deel through Finch is a simple 3-step process! To get set up, y
 
 This page explains each of these steps in detail. Happy integrating!
 
+<!-- theme: success -->
 > Integrating Deel via Finch makes your organization eligible for the Deel Partner Program. This includes go-to-market motions and revenue share opportunities with Deel. If you are interested or have already built an app, reach out here to learn more about the program.
 
 ## Step 1: Create a Deel account
@@ -62,7 +63,6 @@ If your company does not already have an account with Deel, you’ll need to cre
 
 ## Step 2: Create a Deel OAuth application
 
-<!-- theme: success -->
 > To create a Deel OAuth application, you must be an **Organization Admin** or an **IT Developer Admin**.
 >
 >**Organization Admin:** The highest level of visibility and permissions. Can manage all aspects of the organization. This includes everything from members, billing, and other organization-wide settings.
