@@ -37,15 +37,15 @@ If your company does not already have an account with Deel, you’ll need to cre
 
 1. If your form was submitted successfully, you’ll be taken to a confirmation page. You should now have received an email confirmation in your inbox. Open this email and follow the ensuing instructions to log into your generated account. 
 
-    ![deel_signup_3.png](../../../../assets/images/deel_signup_3.png)
+    ![deel_signup_3_whitepace.png](<../../../../assets/images/deel_signup_3_whitepace.png>)
 
 1. After logging into your account, follow the ensuing instructions to complete your account setup. When prompted with the solutions selection page, you may select ********Skip,******** and proceed with the remaining steps to complete your setup.
 
-    ![deel_signup_4.png](../../../../assets/images/deel_signup_4.png)
+    ![deel_signup_4_whitespace.png](<../../../../assets/images/deel_signup_4_whitespace.png>)
 
 1. Voila! Your account setup is now complete! You should now be looking at your Deel home page, which should look something like the screenshot below.
 
-    ![deel_homepage.png](../../../../assets/images/deel_homepage.png)
+    ![deel_homepage_whitespace.png](<../../../../assets/images/deel_homepage_whitespace.png>)
 
 
 ## 2. Create a Deel OAuth application
