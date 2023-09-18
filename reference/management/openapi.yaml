@@ -3,12 +3,11 @@ info:
   title: Management API Reference
   version: '2020-09-17'
   contact: {}
-  description: >-
-    The Management API provides a set of system-agnostic functionality for
-    managing your Finch connections.
+  description: |-
+    The Management API provides a set of system-agnostic functionality for managing your Finch connections.
 
-    [![Open in
-    Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/21027137-08db0929-883d-4094-a9ce-dbf5a9bee4a4?action=collection%2Ffork&collection-url=entityId%3D21027137-08db0929-883d-4094-a9ce-dbf5a9bee4a4%26entityType%3Dcollection%26workspaceId%3D1edf19bc-e0a8-41e9-ac55-481a4b50790b)
+
+    [![Open in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/21027137-08db0929-883d-4094-a9ce-dbf5a9bee4a4?action=collection%2Ffork&collection-url=entityId%3D21027137-08db0929-883d-4094-a9ce-dbf5a9bee4a4%26entityType%3Dcollection%26workspaceId%3D1edf19bc-e0a8-41e9-ac55-481a4b50790b)
 servers:
   - url: 'https://api.tryfinch.com'
     description: ''
@@ -34,16 +33,12 @@ paths:
                       description: The display name of the payroll provider.
                     products:
                       type: array
-                      description: >-
-                        The list of Finch products supported on this payroll
-                        provider.
+                      description: The list of Finch products supported on this payroll provider.
                       items:
                         type: string
                     category:
                       type: string
-                      description: >-
-                        The categroy of the integration. Possible values:
-                        `hris`, `ats`
+                      description: 'The categroy of the integration. Possible values: `hris`, `ats`'
                     icon:
                       type: string
                       description: The url to the official icon of the payroll provider.
@@ -55,22 +50,13 @@ paths:
                       description: whether MFA is required for the provider.
                     primary_color:
                       type: string
-                      description: >-
-                        The hex code for the primary color of the payroll
-                        provider.
+                      description: The hex code for the primary color of the payroll provider.
                     manual:
                       type: boolean
-                      description: >-
-                        [DEPRECATED] Whether the Finch integration with this
-                        provider uses the Assisted Connect Flow by default. This
-                        field is now deprecated. Please check for a `type` of
-                        `assisted` in the `authentication_methods` field
-                        instead.
+                      description: '[DEPRECATED] Whether the Finch integration with this provider uses the Assisted Connect Flow by default. This field is now deprecated. Please check for a `type` of `assisted` in the `authentication_methods` field instead.'
                     authentication_methods:
                       type: array
-                      description: >-
-                        The list of authentication methods supported by the
-                        provider.
+                      description: The list of authentication methods supported by the provider.
                       items:
                         $ref: '#/components/schemas/AuthenticationMethod'
               examples:
@@ -81,10 +67,8 @@ paths:
                       products:
                         - company
                         - directory
-                      icon: >-
-                        https://finch-logos.s3.us-west-2.amazonaws.com/gustoIcon.png
-                      logo: >-
-                        https://finch-logos.s3.us-west-2.amazonaws.com/gustoLogo.png
+                      icon: 'https://finch-logos.s3.us-west-2.amazonaws.com/gustoIcon.png'
+                      logo: 'https://finch-logos.s3.us-west-2.amazonaws.com/gustoLogo.png'
                       mfa_required: true
                       primary_color: '#f45d47'
                       authentication_methods:
@@ -269,43 +253,28 @@ paths:
                   account_id:
                     type: string
                     format: uuid
-                    description: >-
-                      The Finch uuid corresponding to the employer account that
-                      was used to make this connection.
+                    description: The Finch uuid corresponding to the employer account that was used to make this connection.
                   client_id:
                     type: string
-                    description: >-
-                      The client id of the application associated with the
-                      `access_token`.
+                    description: The client id of the application associated with the `access_token`.
                   company_id:
                     type: string
-                    description: >-
-                      The Finch uuid of the company associated with the
-                      `access_token`.
+                    description: The Finch uuid of the company associated with the `access_token`.
                   products:
                     type: array
-                    description: >-
-                      An array of the authorized products associated with the
-                      `access_token`.
+                    description: An array of the authorized products associated with the `access_token`.
                     items:
                       type: string
                   username:
                     type: string
-                    description: >-
-                      The account username used for login associated with the
-                      `access_token`.
+                    description: The account username used for login associated with the `access_token`.
                     nullable: true
                   payroll_provider_id:
                     type: string
                     description: The payroll provider associated with the `access_token`.
                   manual:
                     type: boolean
-                    description: >-
-                      [DEPRECATED] Whether the connection associated with the
-                      `access_token` uses the Assisted Connect Flow. (`true` if
-                      using Assisted Connect, `false` if connection is
-                      automated). This field is now deprecated. Please look for
-                      the `assisted` type in `authentication_methods` instead.
+                    description: '[DEPRECATED] Whether the connection associated with the `access_token` uses the Assisted Connect Flow. (`true` if using Assisted Connect, `false` if connection is automated). This field is now deprecated. Please look for the `assisted` type in `authentication_methods` instead.'
                   authentication_methods:
                     type: array
                     x-stoplight:
@@ -329,38 +298,15 @@ paths:
                           type: object
                           x-stoplight:
                             id: 11ywt2u7zko2o
-                          description: >-
-                            The status of the connection for this authentication
-                            method:
+                          description: |-
+                            The status of the connection for this authentication method:
 
-
-                            `pending` - [`assisted` only] This employer has
-                            created a token, and we are waiting for access to
-                            its provider <br>
-
-                            `processing` - [`assisted` only] We have received an
-                            invitation from this employer's provider with the
-                            correct permissions and are in the process of
-                            pulling their data for the first time <br>
-
-                            `connected` - This connection is working as expected
-                            <br>
-
-                            `reauth` - This employer needs to re-authenticate
-                            <br>
-
-                            `error_no_accout_setup` - [`assisted` only] This
-                            employer has created a token, but we have not
-                            received an invitation to its system. Please
-                            instruct the employer to follow the instructions in
-                            Finch Connect to add Finch as a third-party admin
-                            <br>
-
-                            `error_permissions` - [`assisted` only] This
-                            employer has added Finch successfully, but with
-                            improper permissions. Please instruct the employer
-                            to re-add Finch following the instructions in Finch
-                            Connect <br>
+                            `pending` - [`assisted` only] This employer has created a token, and we are waiting for access to its provider <br>
+                            `processing` - [`assisted` only] We have received an invitation from this employer's provider with the correct permissions and are in the process of pulling their data for the first time <br>
+                            `connected` - This connection is working as expected <br>
+                            `reauth` - This employer needs to re-authenticate <br>
+                            `error_no_accout_setup` - [`assisted` only] This employer has created a token, but we have not received an invitation to its system. Please instruct the employer to follow the instructions in Finch Connect to add Finch as a third-party admin <br>
+                            `error_permissions` - [`assisted` only] This employer has added Finch successfully, but with improper permissions. Please instruct the employer to re-add Finch following the instructions in Finch Connect <br>
                           properties:
                             status:
                               type: string
@@ -394,9 +340,7 @@ paths:
                       - type: assisted
                         connection_status:
                           status: pending
-                          message: >-
-                            This employer has created a token, and we are
-                            waiting for access to its provider
+                          message: 'This employer has created a token, and we are waiting for access to its provider'
                       - type: credential
                         connection_status:
                           status: connected
@@ -419,22 +363,14 @@ paths:
                 properties:
                   status:
                     type: string
-                    description: >-
-                      If the request is successful, Finch will return “success”
-                      (HTTP 200 status).
+                    description: 'If the request is successful, Finch will return “success” (HTTP 200 status).'
               examples:
                 Success:
                   value:
                     status: success
-      description: >-
-        Disconnect one or more `access_token`s from your application. Deletion
-        is based on both the employer and provider of the `access_token` used to
-        call this endpoint, and will also delete all tokens with the same
-        employer/provider pair. Other tokens for the same employer, but
-        connected to a different provider, require a separate call.
-
-        <br /><br />We require applications to implement the Disconnect endpoint
-        for billing and security purposes.
+      description: |-
+        Disconnect one or more `access_token`s from your application. Deletion is based on both the employer and provider of the `access_token` used to call this endpoint, and will also delete all tokens with the same employer/provider pair. Other tokens for the same employer, but connected to a different provider, require a separate call.
+        <br /><br />We require applications to implement the Disconnect endpoint for billing and security purposes.
       parameters:
         - $ref: '#/components/parameters/API-Version'
   /forward:
@@ -451,57 +387,36 @@ paths:
                 properties:
                   headers:
                     type: object
-                    description: >-
-                      The HTTP headers of the forwarded request’s response, exactly as
-                      received from the underlying integration’s API.
+                    description: 'The HTTP headers of the forwarded request’s response, exactly as received from the underlying integration’s API.'
                     nullable: true
                   statusCode:
                     type: integer
-                    description: >-
-                      The HTTP status code of the forwarded request’s response, exactly
-                      received from the underlying integration’s API. This value will be
-                      returned as an integer.
+                    description: 'The HTTP status code of the forwarded request’s response, exactly received from the underlying integration’s API. This value will be returned as an integer.'
                   data:
                     type: string
-                    description: >-
-                      A string representation of the HTTP response body of the forwarded
-                      request’s response received from the underlying integration’s API.
-                      This field may be null in the case where the upstream system’s
-                      response is empty.
+                    description: A string representation of the HTTP response body of the forwarded request’s response received from the underlying integration’s API. This field may be null in the case where the upstream system’s response is empty.
                     nullable: true
                   request:
                     type: object
-                    description: >-
-                      An object containing details of your original forwarded request, for
-                      your ease of reference.
+                    description: 'An object containing details of your original forwarded request, for your ease of reference.'
                     properties:
                       method:
                         type: string
-                        description: >-
-                          The HTTP method that was specified for the forwarded request. Valid
-                          values include: `GET` , `POST` , `PUT` , `DELETE` , and `PATCH`.
+                        description: 'The HTTP method that was specified for the forwarded request. Valid values include: `GET` , `POST` , `PUT` , `DELETE` , and `PATCH`.'
                       route:
                         type: string
-                        description: >-
-                          The URL route path that was specified for the forwarded request.
+                        description: The URL route path that was specified for the forwarded request.
                       headers:
                         type: object
-                        description: >-
-                          The specified HTTP headers that were included in the forwarded
-                          request. If no headers were specified, this will be returned as `null`.
+                        description: 'The specified HTTP headers that were included in the forwarded request. If no headers were specified, this will be returned as `null`.'
                         nullable: true
                       params:
                         type: object
-                        description: >-
-                          The query parameters that were included in the forwarded request. If
-                          no query parameters were specified, this will be returned as `null`.
+                        description: 'The query parameters that were included in the forwarded request. If no query parameters were specified, this will be returned as `null`.'
                         nullable: true
                       data:
                         type: string
-                        description: >-
-                          The body that was specified for the forwarded request. If a value was
-                          not specified in the original request, this value will be returned as
-                          null ; otherwise, this value will always be returned as a string.
+                        description: 'The body that was specified for the forwarded request. If a value was not specified in the original request, this value will be returned as null ; otherwise, this value will always be returned as a string.'
                         nullable: true
                     required:
                       - method
@@ -518,20 +433,19 @@ paths:
                 Success:
                   value:
                     request:
-                      method: 'POST'
-                      route: '/people/search'
+                      method: POST
+                      route: /people/search
                       headers:
-                        'content-type': 'application/json'
+                        content-type: application/json
                       params:
                         showInactive: true
                         humanReadable: true
                       data: null
                     headers:
                       date: 'Sun, 17 Sep 2023 21:27:25 GMT'
-                      'content-type': 'application/json'
+                      content-type: application/json
                     statusCode: 200
-                    data: >-
-                      '{\"employees\":[{\"/work/custom/field_1693264321143\":{\"value\":580192},\"fullName\":\"Anna Gibbons\",\"/payroll/employment/siteWorkingPattern\":{\"value\":{\"workingPatternType\":\"partial_week\",\"days\":{\"sunday\":false,\"tuesday\":true,\"wednesday\":true,\"monday\":true,\"friday\":true,\"thursday\":true,\"saturday\":false},\"hoursPerDay\":9,\"workingPatternId\":null}},\"/about/avatar\":{\"value\":\"https://media-process.hibob.com/image/upload/v1/hibob/demo-avatar/demo_employee/images/UiRYuQQyDc4sLbYzFFtN_59.jpg?__cld_token__=exp=4795680381~acl=*%2fhibob%2fdemo-avatar%2fdemo_employee%2fimages%2fUiRYuQQyDc4sLbYzFFtN_59.jpg*~hmac=07e5aff698027029ebbb4d8cb067db044ec46a86f9bf71430c53cc590f9c07a6\"},\"displayName\":\"Anna Gibbons\",\"/work/reportsTo/email\":{\"value\":\"joshua.tyler_632127@samplebob.com\"},\"/payroll/employment/activeEffectiveDate\":{\"value\":\"2015-03-03\"},\"payroll\":{\"employment\":{\"standardWorkingPattern\":null,\"fte\":100,\"type\":null,\"flsaCode\":null,\"actualWorkingPattern\":{\"workingPatternType\":\"partial_week\",\"days\":{\"sunday\":false,\"tuesday\":true,\"wednesday\":true,\"monday\":true,\"friday\":true,\"thursday\":true,\"saturday\":false},\"hoursPerDay\":9,\"workingPatternId\":null},\"contract\":\"Full time\",\"customColumns\":{\"column_1693433488092\":null,\"column_1693419526345\":null},\"calendarId\":null,\"salaryPayType\":null,\"workingPattern\":null,\"activeEffectiveDate\":\"2015-03-03\",\"weeklyHours\":45,\"siteWorkingPattern\":{\"workingPatternType\":\"partial_week\",\"days\":{\"sunday\":false,\"tuesday\":true,\"wednesday\":true,\"monday\":true,\"friday\":true,\"thursday\":true,\"saturday\":false},\"hoursPerDay\":9,\"workingPatternId\":null}}},\"/root/firstName\":{\"value\":\"Anna\"},\"/work/employeeIdInCompany\":{\"value\":38},\"/work/tenureDurationYears\":{\"value\":8.542},\"/about/foodPreferences\":{\"value\":[]},\"/work/site\":{\"value\":\"New York (Demo)\"},\"/work/tenureYears\":{\"value\":9},\"creationDateTime\":\"2023-07-13T06:37:04.94395\",\"/about/hobbies\":{\"value\":[\"theatre\",\"film\",\"music\"]},\"/root/email\":{\"value\":\"anna.gibbons_632127@samplebob.com\"},\"/work/title\":{\"value\":\"Sales Manager\"},\"employee\":{\"payrollManager\":null,\"hrbp\":null,\"itAdmin\":null,\"buddy\":null},\"work\":{\"shortStartDate\":\"03-03\",\"startDate\":\"2015-03-03\",\"manager\":\"3145813558047015811\",\"tenureDuration\":{\"periodISO\":\"P8Y6M15D\",\"sortFactor\":3075,\"humanize\":\"8 years, 6 months and 15 days\"},\"custom\":{\"field_1693264337015\":580192,\"field_1693264321143\":580192},\"durationOfEmployment\":{\"periodISO\":\"P8Y6M15D\",\"sortFactor\":3075,\"humanize\":\"8 years, 6 months and 15 days\"},\"reportsToIdInCompany\":27,\"employeeIdInCompany\":38,\"reportsTo\":{\"displayName\":\"Joshua Tyler\",\"email\":\"joshua.tyler_632127@samplebob.com\",\"surname\":\"Tyler\",\"firstName\":\"Joshua\",\"id\":\"3145813558047015811\"},\"indirectReports\":null,\"siteId\":2477371,\"tenureDurationYears\":8.542,\"department\":\"Sales\",\"tenureYears\":9,\"isManager\":false,\"title\":\"Sales Manager\",\"site\":\"New York (Demo)\",\"activeEffectiveDate\":\"2015-03-03\",\"directReports\":null,\"secondLevelManager\":\"3145813528661721978\",\"daysOfPreviousService\":0,\"yearsOfService\":8.542},\"/payroll/employment/weeklyHours\":{\"value\":45},\"/root/creationDateTime\":{\"value\":\"2023-07-13T06:37:04.94395\"},\"avatarUrl\":\"https://media-process.hibob.com/image/upload/v1/hibob/demo-avatar/demo_employee/images/UiRYuQQyDc4sLbYzFFtN_59.jpg?__cld_token__=exp=4795680381~acl=*%2fhibob%2fdemo-avatar%2fdemo_employee%2fimages%2fUiRYuQQyDc4sLbYzFFtN_59.jpg*~hmac=07e5aff698027029ebbb4d8cb067db044ec46a86f9bf71430c53cc590f9c07a6\",\"secondName\":null,\"/work/startDate\":{\"value\":\"2015-03-03\"},\"about\":{\"foodPreferences\":[],\"socialData\":{\"linkedin\":null,\"twitter\":null,\"facebook\":null},\"superpowers\":[\"proof reading\"],\"hobbies\":[\"theatre\",\"film\",\"music\"],\"about\":\"I dont have a life story, my story is my life \",\"avatar\":\"https://media-process.hibob.com/image/upload/v1/hibob/demo-avatar/demo_employee/images/UiRYuQQyDc4sLbYzFFtN_59.jpg?__cld_token__=exp=4795680381~acl=*%2fhibob%2fdemo-avatar%2fdemo_employee%2fimages%2fUiRYuQQyDc4sLbYzFFtN_59.jpg*~hmac=07e5aff698027029ebbb4d8cb067db044ec46a86f9bf71430c53cc590f9c07a6\"},\"/root/fullName\":{\"value\":\"Anna Gibbons\"},\"/payroll/employment/contract\":{\"value\":\"Full time\"},\"/payroll/employment/actualWorkingPattern\":{\"value\":{\"workingPatternType\":\"partial_week\",\"days\":{\"sunday\":false,\"tuesday\":true,\"wednesday\":true,\"monday\":true,\"friday\":true,\"thursday\":true,\"saturday\":false},\"hoursPerDay\":9,\"workingPatternId\":null}},\"companyId\":632127,\"/root/coverImageUrl\":{\"value\":\"https://media-process.hibob.com/image/upload/v1/hibob/public-image/cover/default_cover_image.png?token=X19jbGRfdG9rZW5fXz1leHA9NDg0OTgzNjczOX5hY2w9KiUyZmhpYm9iJTJmcHVibGljLWltYWdlJTJmY292ZXIlMmZkZWZhdWx0X2NvdmVyX2ltYWdlLnBuZyp+aG1hYz0zMjY3NjE4ZDQ1MzZjZjE3MWFiM2Y2MzJlY2JmZmQ5MWZkYTRmY2FmOGY3MDExYjllNmZlZTI4Njc0MzZlN2M5&vendor=cloudinary\"},\"/work/secondLevelManager\":{\"value\":\"3145813528661721978\"},\"/work/yearsOfService\":{\"value\":8.542},\"/work/daysOfPreviousService\":{\"value\":0},\"/about/about\":{\"value\":\"I dont have a life story, my story is my life \"},\"/root/avatarUrl\":{\"value\":\"https://media-process.hibob.com/image/upload/v1/hibob/demo-avatar/demo_employee/images/UiRYuQQyDc4sLbYzFFtN_59.jpg?__cld_token__=exp=4795680381~acl=*%2fhibob%2fdemo-avatar%2fdemo_employee%2fimages%2fUiRYuQQyDc4sLbYzFFtN_59.jpg*~hmac=07e5aff698027029ebbb4d8cb067db044ec46a86f9bf71430c53cc590f9c07a6\"},\"/root/surname\":{\"value\":\"Gibbons\"},\"/work/shortStartDate\":{\"value\":\"03-03\"},\"/work/activeEffectiveDate\":{\"value\":\"2015-03-03\"},\"/root/id\":{\"value\":\"3145813590838084494\"},\"email\":\"anna.gibbons_632127@samplebob.com\",\"/work/manager\":{\"value\":\"3145813558047015811\"},\"surname\":\"Gibbons\",\"/work/reportsTo\":{\"value\":{\"displayName\":\"Joshua Tyler\",\"email\":\"joshua.tyler_632127@samplebob.com\",\"surname\":\"Tyler\",\"firstName\":\"Joshua\",\"id\":\"3145813558047015811\"}},\"/root/displayName\":{\"value\":\"Anna Gibbons\"},\"/root/companyId\":{\"value\":632127},\"/payroll/employment/fte\":{\"value\":100},\"/work/department\":{\"value\":\"Sales\"},\"/work/isManager\":{\"value\":false},\"/work/custom/field_1693264337015\":{\"value\":580192},\"/work/reportsToIdInCompany\":{\"value\":27},\"/work/tenureDuration\":{\"value\":{\"periodISO\":\"P8Y6M15D\",\"sortFactor\":3075,\"humanize\":\"8 years, 6 months and 15 days\"}},\"coverImageUrl\":\"https://media-process.hibob.com/image/upload/v1/hibob/public-image/cover/default_cover_image.png?token=X19jbGRfdG9rZW5fXz1leHA9NDg0OTgzNjczOX5hY2w9KiUyZmhpYm9iJTJmcHVibGljLWltYWdlJTJmY292ZXIlMmZkZWZhdWx0X2NvdmVyX2ltYWdlLnBuZyp+aG1hYz0zMjY3NjE4ZDQ1MzZjZjE3MWFiM2Y2MzJlY2JmZmQ5MWZkYTRmY2FmOGY3MDExYjllNmZlZTI4Njc0MzZlN2M5&vendor=cloudinary\",\"/about/superpowers\":{\"value\":[\"proof reading\"]},\"/work/siteId\":{\"value\":2477371},\"id\":\"3145813590838084494\",\"firstName\":\"Anna\",\"/work/durationOfEmployment\":{\"value\":{\"periodISO\":\"P8Y6M15D\",\"sortFactor\":3075,\"humanize\":\"8 years, 6 months and 15 days\"}}}]}'
+                    data: '''{\"employees\":[{\"/work/custom/field_1693264321143\":{\"value\":580192},\"fullName\":\"Anna Gibbons\",\"/payroll/employment/siteWorkingPattern\":{\"value\":{\"workingPatternType\":\"partial_week\",\"days\":{\"sunday\":false,\"tuesday\":true,\"wednesday\":true,\"monday\":true,\"friday\":true,\"thursday\":true,\"saturday\":false},\"hoursPerDay\":9,\"workingPatternId\":null}},\"/about/avatar\":{\"value\":\"https://media-process.hibob.com/image/upload/v1/hibob/demo-avatar/demo_employee/images/UiRYuQQyDc4sLbYzFFtN_59.jpg?__cld_token__=exp=4795680381~acl=*%2fhibob%2fdemo-avatar%2fdemo_employee%2fimages%2fUiRYuQQyDc4sLbYzFFtN_59.jpg*~hmac=07e5aff698027029ebbb4d8cb067db044ec46a86f9bf71430c53cc590f9c07a6\"},\"displayName\":\"Anna Gibbons\",\"/work/reportsTo/email\":{\"value\":\"joshua.tyler_632127@samplebob.com\"},\"/payroll/employment/activeEffectiveDate\":{\"value\":\"2015-03-03\"},\"payroll\":{\"employment\":{\"standardWorkingPattern\":null,\"fte\":100,\"type\":null,\"flsaCode\":null,\"actualWorkingPattern\":{\"workingPatternType\":\"partial_week\",\"days\":{\"sunday\":false,\"tuesday\":true,\"wednesday\":true,\"monday\":true,\"friday\":true,\"thursday\":true,\"saturday\":false},\"hoursPerDay\":9,\"workingPatternId\":null},\"contract\":\"Full time\",\"customColumns\":{\"column_1693433488092\":null,\"column_1693419526345\":null},\"calendarId\":null,\"salaryPayType\":null,\"workingPattern\":null,\"activeEffectiveDate\":\"2015-03-03\",\"weeklyHours\":45,\"siteWorkingPattern\":{\"workingPatternType\":\"partial_week\",\"days\":{\"sunday\":false,\"tuesday\":true,\"wednesday\":true,\"monday\":true,\"friday\":true,\"thursday\":true,\"saturday\":false},\"hoursPerDay\":9,\"workingPatternId\":null}}},\"/root/firstName\":{\"value\":\"Anna\"},\"/work/employeeIdInCompany\":{\"value\":38},\"/work/tenureDurationYears\":{\"value\":8.542},\"/about/foodPreferences\":{\"value\":[]},\"/work/site\":{\"value\":\"New York (Demo)\"},\"/work/tenureYears\":{\"value\":9},\"creationDateTime\":\"2023-07-13T06:37:04.94395\",\"/about/hobbies\":{\"value\":[\"theatre\",\"film\",\"music\"]},\"/root/email\":{\"value\":\"anna.gibbons_632127@samplebob.com\"},\"/work/title\":{\"value\":\"Sales Manager\"},\"employee\":{\"payrollManager\":null,\"hrbp\":null,\"itAdmin\":null,\"buddy\":null},\"work\":{\"shortStartDate\":\"03-03\",\"startDate\":\"2015-03-03\",\"manager\":\"3145813558047015811\",\"tenureDuration\":{\"periodISO\":\"P8Y6M15D\",\"sortFactor\":3075,\"humanize\":\"8 years, 6 months and 15 days\"},\"custom\":{\"field_1693264337015\":580192,\"field_1693264321143\":580192},\"durationOfEmployment\":{\"periodISO\":\"P8Y6M15D\",\"sortFactor\":3075,\"humanize\":\"8 years, 6 months and 15 days\"},\"reportsToIdInCompany\":27,\"employeeIdInCompany\":38,\"reportsTo\":{\"displayName\":\"Joshua Tyler\",\"email\":\"joshua.tyler_632127@samplebob.com\",\"surname\":\"Tyler\",\"firstName\":\"Joshua\",\"id\":\"3145813558047015811\"},\"indirectReports\":null,\"siteId\":2477371,\"tenureDurationYears\":8.542,\"department\":\"Sales\",\"tenureYears\":9,\"isManager\":false,\"title\":\"Sales Manager\",\"site\":\"New York (Demo)\",\"activeEffectiveDate\":\"2015-03-03\",\"directReports\":null,\"secondLevelManager\":\"3145813528661721978\",\"daysOfPreviousService\":0,\"yearsOfService\":8.542},\"/payroll/employment/weeklyHours\":{\"value\":45},\"/root/creationDateTime\":{\"value\":\"2023-07-13T06:37:04.94395\"},\"avatarUrl\":\"https://media-process.hibob.com/image/upload/v1/hibob/demo-avatar/demo_employee/images/UiRYuQQyDc4sLbYzFFtN_59.jpg?__cld_token__=exp=4795680381~acl=*%2fhibob%2fdemo-avatar%2fdemo_employee%2fimages%2fUiRYuQQyDc4sLbYzFFtN_59.jpg*~hmac=07e5aff698027029ebbb4d8cb067db044ec46a86f9bf71430c53cc590f9c07a6\",\"secondName\":null,\"/work/startDate\":{\"value\":\"2015-03-03\"},\"about\":{\"foodPreferences\":[],\"socialData\":{\"linkedin\":null,\"twitter\":null,\"facebook\":null},\"superpowers\":[\"proof reading\"],\"hobbies\":[\"theatre\",\"film\",\"music\"],\"about\":\"I dont have a life story, my story is my life \",\"avatar\":\"https://media-process.hibob.com/image/upload/v1/hibob/demo-avatar/demo_employee/images/UiRYuQQyDc4sLbYzFFtN_59.jpg?__cld_token__=exp=4795680381~acl=*%2fhibob%2fdemo-avatar%2fdemo_employee%2fimages%2fUiRYuQQyDc4sLbYzFFtN_59.jpg*~hmac=07e5aff698027029ebbb4d8cb067db044ec46a86f9bf71430c53cc590f9c07a6\"},\"/root/fullName\":{\"value\":\"Anna Gibbons\"},\"/payroll/employment/contract\":{\"value\":\"Full time\"},\"/payroll/employment/actualWorkingPattern\":{\"value\":{\"workingPatternType\":\"partial_week\",\"days\":{\"sunday\":false,\"tuesday\":true,\"wednesday\":true,\"monday\":true,\"friday\":true,\"thursday\":true,\"saturday\":false},\"hoursPerDay\":9,\"workingPatternId\":null}},\"companyId\":632127,\"/root/coverImageUrl\":{\"value\":\"https://media-process.hibob.com/image/upload/v1/hibob/public-image/cover/default_cover_image.png?token=X19jbGRfdG9rZW5fXz1leHA9NDg0OTgzNjczOX5hY2w9KiUyZmhpYm9iJTJmcHVibGljLWltYWdlJTJmY292ZXIlMmZkZWZhdWx0X2NvdmVyX2ltYWdlLnBuZyp+aG1hYz0zMjY3NjE4ZDQ1MzZjZjE3MWFiM2Y2MzJlY2JmZmQ5MWZkYTRmY2FmOGY3MDExYjllNmZlZTI4Njc0MzZlN2M5&vendor=cloudinary\"},\"/work/secondLevelManager\":{\"value\":\"3145813528661721978\"},\"/work/yearsOfService\":{\"value\":8.542},\"/work/daysOfPreviousService\":{\"value\":0},\"/about/about\":{\"value\":\"I dont have a life story, my story is my life \"},\"/root/avatarUrl\":{\"value\":\"https://media-process.hibob.com/image/upload/v1/hibob/demo-avatar/demo_employee/images/UiRYuQQyDc4sLbYzFFtN_59.jpg?__cld_token__=exp=4795680381~acl=*%2fhibob%2fdemo-avatar%2fdemo_employee%2fimages%2fUiRYuQQyDc4sLbYzFFtN_59.jpg*~hmac=07e5aff698027029ebbb4d8cb067db044ec46a86f9bf71430c53cc590f9c07a6\"},\"/root/surname\":{\"value\":\"Gibbons\"},\"/work/shortStartDate\":{\"value\":\"03-03\"},\"/work/activeEffectiveDate\":{\"value\":\"2015-03-03\"},\"/root/id\":{\"value\":\"3145813590838084494\"},\"email\":\"anna.gibbons_632127@samplebob.com\",\"/work/manager\":{\"value\":\"3145813558047015811\"},\"surname\":\"Gibbons\",\"/work/reportsTo\":{\"value\":{\"displayName\":\"Joshua Tyler\",\"email\":\"joshua.tyler_632127@samplebob.com\",\"surname\":\"Tyler\",\"firstName\":\"Joshua\",\"id\":\"3145813558047015811\"}},\"/root/displayName\":{\"value\":\"Anna Gibbons\"},\"/root/companyId\":{\"value\":632127},\"/payroll/employment/fte\":{\"value\":100},\"/work/department\":{\"value\":\"Sales\"},\"/work/isManager\":{\"value\":false},\"/work/custom/field_1693264337015\":{\"value\":580192},\"/work/reportsToIdInCompany\":{\"value\":27},\"/work/tenureDuration\":{\"value\":{\"periodISO\":\"P8Y6M15D\",\"sortFactor\":3075,\"humanize\":\"8 years, 6 months and 15 days\"}},\"coverImageUrl\":\"https://media-process.hibob.com/image/upload/v1/hibob/public-image/cover/default_cover_image.png?token=X19jbGRfdG9rZW5fXz1leHA9NDg0OTgzNjczOX5hY2w9KiUyZmhpYm9iJTJmcHVibGljLWltYWdlJTJmY292ZXIlMmZkZWZhdWx0X2NvdmVyX2ltYWdlLnBuZyp+aG1hYz0zMjY3NjE4ZDQ1MzZjZjE3MWFiM2Y2MzJlY2JmZmQ5MWZkYTRmY2FmOGY3MDExYjllNmZlZTI4Njc0MzZlN2M5&vendor=cloudinary\",\"/about/superpowers\":{\"value\":[\"proof reading\"]},\"/work/siteId\":{\"value\":2477371},\"id\":\"3145813590838084494\",\"firstName\":\"Anna\",\"/work/durationOfEmployment\":{\"value\":{\"periodISO\":\"P8Y6M15D\",\"sortFactor\":3075,\"humanize\":\"8 years, 6 months and 15 days\"}}}]}'''
       description: |-
         The Forward API allows you to make direct requests to an employment system. If Finch’s unified API
         doesn’t have a data model that cleanly fits your needs, then Forward allows you to push or pull
@@ -546,10 +460,7 @@ paths:
     get:
       summary: List All Automated Jobs
       operationId: get-jobs-automated
-      description: >-
-        Get all automated jobs. Automated jobs are completed by a machine. By
-        default, jobs are sorted in descending order by submission time. For
-        scheduled jobs such as data syncs, only the next scheduled job is shown.
+      description: 'Get all automated jobs. Automated jobs are completed by a machine. By default, jobs are sorted in descending order by submission time. For scheduled jobs such as data syncs, only the next scheduled job is shown.'
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -574,12 +485,7 @@ paths:
                         type: object
                         x-stoplight:
                           id: cyrjsuvgo4yfp
-                        description: >-
-                          Information about remaining quotas for this
-                          connection. Only applicable for customers opted in to
-                          use Finch's Data Sync Refresh endpoint (`POST
-                          /jobs/automated`). Please contact a Finch
-                          representative for more details.
+                        description: Information about remaining quotas for this connection. Only applicable for customers opted in to use Finch's Data Sync Refresh endpoint (`POST /jobs/automated`). Please contact a Finch representative for more details.
                         properties:
                           data_sync_all:
                             type: object
@@ -615,8 +521,7 @@ paths:
                           remaining_refreshes: 2
                     data:
                       - job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
-                        job_url: >-
-                          https://api.tryfinch.com/job/automated/453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                        job_url: 'https://api.tryfinch.com/job/automated/453bd7d7-5355-4d6d-a38e-d9e7eb218c3f'
                         type: data_sync_all
                         status: pending
                         created_at: '2019-08-24T14:15:22Z'
@@ -671,9 +576,7 @@ paths:
                     statusCode: 404
                     status: 404
                     code: 404
-                    message: >-
-                      could not find job with id
-                      job-fb3b25dc-02dc-48eb-9cfc-3f9837276884
+                    message: could not find job with id job-fb3b25dc-02dc-48eb-9cfc-3f9837276884
                     name: not_found_error
       requestBody:
         content:
@@ -690,9 +593,7 @@ paths:
                   type: integer
                   x-stoplight:
                     id: ecl0kzfvns278
-                  description: >-
-                    Where in the list of jobs to start returning from. Defaults
-                    to index 0.
+                  description: Where in the list of jobs to start returning from. Defaults to index 0.
         description: ''
     post:
       summary: Enqueue a New Automated Job
@@ -716,20 +617,15 @@ paths:
                     description: The url that can be used to retrieve the job status
                   allowed_refreshes:
                     type: integer
-                    description: >-
-                      The number of allowed refreshes per hour (per hour, fixed
-                      window)
+                    description: 'The number of allowed refreshes per hour (per hour, fixed window)'
                   remaining_refreshes:
                     type: integer
-                    description: >-
-                      The number of remaining refreshes available (per hour,
-                      fixed window)
+                    description: 'The number of remaining refreshes available (per hour, fixed window)'
               examples:
                 Example 1:
                   value:
                     job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
-                    job_url: >-
-                      https://api.tryfinch.com/jobs/automated/453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    job_url: 'https://api.tryfinch.com/jobs/automated/453bd7d7-5355-4d6d-a38e-d9e7eb218c3f'
                     allowed_refreshes: 2
                     remaining_refreshes: 1
             application/xml:
@@ -737,10 +633,7 @@ paths:
                 type: object
                 properties: {}
         '202':
-          description: >-
-            Accepted. This response will be returned if a job is already
-            enqueued for the connection. This case does not consume any job
-            quota as it just returns the details of an existing job.
+          description: Accepted. This response will be returned if a job is already enqueued for the connection. This case does not consume any job quota as it just returns the details of an existing job.
           content:
             application/json:
               schema:
@@ -759,14 +652,10 @@ paths:
                     description: The url that can be used to retrieve the job status
                   allowed_refreshes:
                     type: integer
-                    description: >-
-                      The number of allowed refreshes per hour (per hour, fixed
-                      window)
+                    description: 'The number of allowed refreshes per hour (per hour, fixed window)'
                   remaining_refreshes:
                     type: integer
-                    description: >-
-                      The number of remaining refreshes available (per hour,
-                      fixed window)
+                    description: 'The number of remaining refreshes available (per hour, fixed window)'
               examples:
                 Example 1:
                   value:
@@ -832,20 +721,14 @@ paths:
                 properties:
                   allowed_refreshes:
                     type: integer
-                    description: >-
-                      The number of allowed refreshes per hour (per hour, fixed
-                      window)
+                    description: 'The number of allowed refreshes per hour (per hour, fixed window)'
                   remaining_refreshes:
                     type: integer
-                    description: >-
-                      The number of remaining refreshes available (per hour,
-                      fixed window)
+                    description: 'The number of remaining refreshes available (per hour, fixed window)'
                   retry_at:
                     type: string
                     format: date-time
-                    description: >-
-                      The datetime when quota for enqueuing new jobs will again
-                      be available. Only shown for a 429 response.
+                    description: The datetime when quota for enqueuing new jobs will again be available. Only shown for a 429 response.
               examples:
                 Example 1:
                   value:
@@ -855,19 +738,10 @@ paths:
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
-      description: >-
-        Enqueue an automated job. Currently, only the `data-sync-all` job type
-        is supported, which will enqueue a job to re-sync all data for a
-        connection. `data-sync-all` has a concurrency limit of 1 job at a time
-        per connection. This means that if this endpoint is called while a job
-        is already in progress for this connection, Finch will return the
-        `job_id` of the job that is currently in progress. Finch allows a fixed
-        window rate limit of 1 forced refresh per hour per connection.
+      description: |-
+        Enqueue an automated job. Currently, only the `data-sync-all` job type is supported, which will enqueue a job to re-sync all data for a connection. `data-sync-all` has a concurrency limit of 1 job at a time per connection. This means that if this endpoint is called while a job is already in progress for this connection, Finch will return the `job_id` of the job that is currently in progress. Finch allows a fixed window rate limit of 1 forced refresh per hour per connection.
 
-
-        This endpoint is available for *Scale* tier customers as an add-on. To
-        request access to this endpoint, please contact your Finch account
-        manager.
+        This endpoint is available for *Scale* tier customers as an add-on. To request access to this endpoint, please contact your Finch account manager.
       requestBody:
         content:
           application/json:
@@ -876,9 +750,7 @@ paths:
               properties:
                 type:
                   type: string
-                  description: >-
-                    The type of job to start. Currently the only supported type
-                    is `data_sync_all`
+                  description: The type of job to start. Currently the only supported type is `data_sync_all`
                   enum:
                     - data-sync-all
               required:
@@ -907,8 +779,7 @@ paths:
                 Example 1:
                   value:
                     job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
-                    job_url: >-
-                      https://api.tryfinch.com/job/automated/453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+                    job_url: 'https://api.tryfinch.com/job/automated/453bd7d7-5355-4d6d-a38e-d9e7eb218c3f'
                     type: data_sync_all
                     status: pending
                     created_at: '2019-08-24T14:15:22Z'
@@ -995,13 +866,9 @@ paths:
                     code: 404
                     finch_code: item_not_found
                     name: not_found_error
-                    message: >-
-                      could not find job with id
-                      '49142223-78e0-4092-80e1-313f510b0977'
+                    message: could not find job with id '49142223-78e0-4092-80e1-313f510b0977'
       operationId: get-jobs-manual-job_id
-      description: >-
-        Get a manual job by `job_id`. Manual jobs are completed by a human and
-        include Assisted Benefits jobs.
+      description: Get a manual job by `job_id`. Manual jobs are completed by a human and include Assisted Benefits jobs.
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -1013,9 +880,7 @@ components:
       properties:
         count:
           type: integer
-          description: >-
-            The total number of elements for the entire query (not just the
-            given page)
+          description: The total number of elements for the entire query (not just the given page)
         offset:
           type: integer
           description: The current start index of the returned list of elements
@@ -1044,9 +909,7 @@ components:
             $ref: '#/components/schemas/BenefitFrequency'
         employee_deduction:
           type: array
-          description: >-
-            Supported deduction types. An empty array indicates deductions are
-            not supported.
+          description: Supported deduction types. An empty array indicates deductions are not supported.
           nullable: true
           items:
             type: string
@@ -1055,9 +918,7 @@ components:
               - percent
         company_contribution:
           type: array
-          description: >-
-            Supported contribution types. An empty array indicates contributions
-            are not supported.
+          description: Supported contribution types. An empty array indicates contributions are not supported.
           nullable: true
           items:
             type: string
@@ -1070,15 +931,10 @@ components:
           nullable: true
         catch_up:
           type: boolean
-          description: >-
-            Whether the provider supports catch up for this benefit. This field
-            will only be true for retirement benefits.
+          description: Whether the provider supports catch up for this benefit. This field will only be true for retirement benefits.
           nullable: true
         hsa_contribution_limit:
-          description: >-
-            Whether the provider supports HSA contribution limits. Empty if this
-            feature is not supported for the benefit. This array only has values
-            for HSA benefits.
+          description: Whether the provider supports HSA contribution limits. Empty if this feature is not supported for the benefit. This array only has values for HSA benefits.
           type: array
           nullable: true
           items:
@@ -1097,9 +953,7 @@ components:
     BenefitsSupport:
       type: object
       nullable: true
-      description: >-
-        Each benefit type and their supported features. If the benefit type is
-        not supported, the property will be null
+      description: 'Each benefit type and their supported features. If the benefit type is not supported, the property will be null'
       properties:
         '457':
           $ref: '#/components/schemas/BenefitFeaturesAndOperations'
@@ -1483,18 +1337,11 @@ components:
         - not_supported_by_finch
         - not_supported_by_provider
         - client_access_only
-      description: >
-        - `supported`: This operation is supported by both the provider and
-        Finch <br>
-
-        - `not_supported_by_finch`: This operation is not supported by Finch but
-        supported by the provider <br>
-
-        - `not_supported_by_provider`: This operation is not supported by the
-        provider, so Finch cannot support <br>
-
-        - `client_access_only`: This behavior is supported by the provider, but
-        only available to the client and not to Finch
+      description: |
+        - `supported`: This operation is supported by both the provider and Finch <br>
+        - `not_supported_by_finch`: This operation is not supported by Finch but supported by the provider <br>
+        - `not_supported_by_provider`: This operation is not supported by the provider, so Finch cannot support <br>
+        - `client_access_only`: This behavior is supported by the provider, but only available to the client and not to Finch
     OperationSupportMatrix:
       type: object
       properties:
@@ -1530,9 +1377,7 @@ components:
           description: A descriptive identifier for the error.
         message:
           type: string
-          description: >-
-            A short English description that provides more information about the
-            error.
+          description: A short English description that provides more information about the error.
       x-examples:
         not-found-error:
           code: 404
@@ -1581,10 +1426,7 @@ components:
         created_at:
           type: string
           format: date-time
-          description: >-
-            The datetime when the job was created. for scheduled jobs, this will
-            be the initial connection time. For ad-hoc jobs, this will be the
-            time the creation request was received.
+          description: 'The datetime when the job was created. for scheduled jobs, this will be the initial connection time. For ad-hoc jobs, this will be the time the creation request was received.'
         scheduled_at:
           type: string
           x-stoplight:
@@ -1627,9 +1469,7 @@ components:
             - complete
         body:
           type: array
-          description: >-
-            Specific information about the job, such as individual statuses for
-            batch jobs.
+          description: 'Specific information about the job, such as individual statuses for batch jobs.'
           nullable: true
           items: {}
   requestBodies:
@@ -1642,33 +1482,21 @@ components:
             properties:
               method:
                 type: string
-                description: >-
-                  The HTTP method for the forwarded request. Valid values include:
-                  `GET` , `POST` , `PUT` , `DELETE` , and `PATCH`.
+                description: 'The HTTP method for the forwarded request. Valid values include: `GET` , `POST` , `PUT` , `DELETE` , and `PATCH`.'
               route:
                 type: string
-                description: >-
-                  The URL route path for the forwarded request. This value must begin
-                  with a forward-slash ( / ) and may only contain alphanumeric
-                  characters, hyphens, and underscores.
+                description: 'The URL route path for the forwarded request. This value must begin with a forward-slash ( / ) and may only contain alphanumeric characters, hyphens, and underscores.'
               headers:
                 type: object
-                description: >-
-                  The HTTP headers to include on the forwarded request. This value
-                  must be specified as an object of key-value pairs.
-                  Example: `{"Content-Type": "application/xml", "X-API-Version": "v1" }`
+                description: 'The HTTP headers to include on the forwarded request. This value must be specified as an object of key-value pairs. Example: `{"Content-Type": "application/xml", "X-API-Version": "v1" }`'
                 nullable: true
               params:
                 type: object
-                description: >-
-                  The query parameters for the forwarded request. This value must be
-                  specified as a valid JSON object rather than a query string.
+                description: The query parameters for the forwarded request. This value must be specified as a valid JSON object rather than a query string.
                 nullable: true
               data:
                 type: string
-                description: >-
-                  The body for the forwarded request. This value must be specified as
-                  either a string or a valid JSON object.
+                description: The body for the forwarded request. This value must be specified as either a string or a valid JSON object.
                 nullable: true
             required:
               - method
@@ -1676,10 +1504,10 @@ components:
           examples:
             Sample:
               value:
-                method: 'POST'
-                route: '/people/search'
+                method: POST
+                route: /people/search
                 headers:
-                  'content-type': 'application/json'
+                  content-type: application/json
                 params:
                   showInactive: true
                   humanReadable: true
@@ -1699,9 +1527,7 @@ components:
         default: '2020-09-17'
         format: date
         pattern: YYYY-MM-DD
-      description: >-
-        Header used to specify the version for a given API request. Current
-        version is 2020-09-17.
+      description: Header used to specify the version for a given API request. Current version is 2020-09-17.
     Content-Type:
       name: Content-Type
       in: header
@@ -1712,4 +1538,3 @@ components:
       description: 'Used to indicate the original media type of the resource '
 security:
   - bearerAuth: []
-  
