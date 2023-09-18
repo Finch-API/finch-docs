@@ -46,7 +46,7 @@ If your company does not already have an account with Deel, you’ll need to cre
     -->
     ![deel_signup_3_whitepace.png](<../../../../assets/images/deel_signup_3_whitepace.png>)
 
-1. After logging into your account, follow the ensuing instructions to complete your account setup. When prompted with the solutions selection page, you may select ********Skip,******** and proceed with the remaining steps to complete your setup.
+1. After logging into your account, follow the ensuing instructions to complete your account setup. When prompted with the solutions selection page, you may select **Skip**, and proceed with the remaining steps to complete your setup.
 
     <!--
     focus: false
