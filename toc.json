@@ -197,6 +197,11 @@
       "type": "item",
       "title": "ATS",
       "uri": "reference/ats/openapi.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Management",
+      "uri": "reference/management/openapi.yaml"
     }
   ]
 }
