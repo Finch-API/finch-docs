@@ -78,10 +78,16 @@ Follow the instructions below to create and publish your Deel OAuth application.
 
 1. Follow Deel’s [Create an App](https://developer.deel.com/docs/oauth2-apps#create-an-app) guide to create your app. Be sure to set your app type to **Organization**!
 
+    <!--
+    focus: false
+    -->
     ![deel_createapp_form_whitespace.png](<../../../../assets/images/deel_createapp_form_whitespace.png>)
     
     > **IMPORTANT:** Copy and store your app secret (client secret) as it won't show again!
 
+    <!--
+    focus: false
+    -->
     ![deel_credentials_view_whitespace.png](<../../../../assets/images/deel_credentials_view_whitespace.png>)
     
 1. Follow Deel’s [Publish an App](https://developer.deel.com/docs/oauth2-apps#publish-an-app) guide to publish the app you just created. In production, all apps are submitted for review by default so you don’t need to do anything for this step to initialize the publishing process. You may need to wait a few business days for Deel to officially publish your app.
