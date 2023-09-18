@@ -23,10 +23,16 @@ If your company does not already have an account with Deel, you’ll need to cre
 1. Navigate to https://app.deel.com/signup in your browser
 1. Select the **I’m A Business** option and click **Next**
 
+    <!--
+    focus: false
+    -->
     ![deel_signup_1_whitespace.png](<../../../../assets/images/deel_signup_1_whitespace.png>)
 
 1. Either **Sign Up Using Google SSO** or fill in the form below and select **Create Your Deel Account**
 
+    <!--
+    focus: false
+    -->
     ![deel_signup_2_whitespace.png](<../../../../assets/images/deel_signup_2_whitespace.png>)
 
 1. If your form was submitted successfully, you’ll be taken to a confirmation page. You should now have received an email confirmation in your inbox. Open this email and follow the ensuing instructions to log into your generated account. 
