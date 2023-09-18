@@ -62,6 +62,7 @@ If your company does not already have an account with Deel, you’ll need to cre
 
 ## Step 2: Create a Deel OAuth application
 
+<!-- theme: success -->
 > To create a Deel OAuth application, you must be an **Organization Admin** or an **IT Developer Admin**.
 >
 >**Organization Admin:** The highest level of visibility and permissions. Can manage all aspects of the organization. This includes everything from members, billing, and other organization-wide settings.
