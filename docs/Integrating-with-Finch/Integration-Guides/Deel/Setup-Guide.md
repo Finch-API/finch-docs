@@ -35,16 +35,25 @@ If your company does not already have an account with Deel, you’ll need to cre
     -->
     ![deel_signup_2_whitespace.png](<../../../../assets/images/deel_signup_2_whitespace.png>)
 
-1. If your form was submitted successfully, you’ll be taken to a confirmation page. You should now have received an email confirmation in your inbox. Open this email and follow the ensuing instructions to log into your generated account. 
+1. If your form was submitted successfully, you’ll be taken to a confirmation page. You should now have received an email confirmation in your inbox. Open this email and follow the ensuing instructions to log into your generated account.
 
+    <!--
+    focus: false
+    -->
     ![deel_signup_3_whitepace.png](<../../../../assets/images/deel_signup_3_whitepace.png>)
 
 1. After logging into your account, follow the ensuing instructions to complete your account setup. When prompted with the solutions selection page, you may select ********Skip,******** and proceed with the remaining steps to complete your setup.
 
+    <!--
+    focus: false
+    -->
     ![deel_signup_4_whitespace.png](<../../../../assets/images/deel_signup_4_whitespace.png>)
 
 1. Voila! Your account setup is now complete! You should now be looking at your Deel home page, which should look something like the screenshot below.
 
+    <!--
+    focus: false
+    -->
     ![deel_homepage_whitespace.png](<../../../../assets/images/deel_homepage_whitespace.png>)
 
 
