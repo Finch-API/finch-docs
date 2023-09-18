@@ -24,7 +24,7 @@ This page explains each of these steps in detail. Happy integrating!
 
 If your company does not already have an account with Deel, you’ll need to create one. To create an account, follow the instructions below.
 
-1. Navigate to https://app.deel.com/signup in your browser
+1. Navigate to **https://app.deel.com/signup** in your browser
 1. Select the **I’m A Business** option and click **Next**
 
     <!--
@@ -71,13 +71,13 @@ If your company does not already have an account with Deel, you’ll need to cre
 >
 >More details can be found [**here**](https://help.letsdeel.com/hc/en-gb/articles/13916824207505-How-To-Add-Organization-Admins).
 
-You’ll need to create and publish a Deel app for your customers to authorize your access to their data. Deel uses OAuth 2.0’s authorization code grant flow to issue access tokens that grant access to specific groups of data. Please consult [Deel’s public documentation](https://developer.deel.com/docs/oauth2) for more information on the OAuth2 flow.
+You’ll need to create and publish a Deel app for your customers to authorize your access to their data. Deel uses OAuth 2.0’s authorization code grant flow to issue access tokens that grant access to specific groups of data. Please consult [**Deel’s public documentation**](https://developer.deel.com/docs/oauth2) for more information on the OAuth2 flow.
 
 Follow the instructions below to create and publish your Deel OAuth application.
 
 1. Log into your organization’s Deel account. If you do not already have a Deel account, please follow the instructions laid out in the **Create a Deel Account** section.
 
-1. Follow Deel’s [Create an App](https://developer.deel.com/docs/oauth2-apps#create-an-app) guide to create your app. Be sure to set your app type to **Organization**!
+1. Follow Deel’s [**Create an App**](https://developer.deel.com/docs/oauth2-apps#create-an-app) guide to create your app. Be sure to set your app type to **Organization**!
 
     <!--
     focus: false
@@ -91,7 +91,7 @@ Follow the instructions below to create and publish your Deel OAuth application.
     -->
     ![deel_credentials_view_whitespace.png](<../../../../assets/images/deel_credentials_view_whitespace.png>)
     
-1. Follow Deel’s [Publish an App](https://developer.deel.com/docs/oauth2-apps#publish-an-app) guide to publish the app you just created. In production, all apps are submitted for review by default so you don’t need to do anything for this step to initialize the publishing process. You may need to wait a few business days for Deel to officially publish your app.
+1. Follow Deel’s [**Publish an App**](https://developer.deel.com/docs/oauth2-apps#publish-an-app) guide to publish the app you just created. In production, all apps are submitted for review by default so you don’t need to do anything for this step to initialize the publishing process. You may need to wait a few business days for Deel to officially publish your app.
 
 
 ## Step 3: Connect your Deel OAuth application to Finch
