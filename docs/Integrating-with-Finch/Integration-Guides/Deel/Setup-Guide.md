@@ -69,7 +69,7 @@ If your company does not already have an account with Deel, you’ll need to cre
 >
 >**IT Developer Admin:** Can build apps using Deel's API or subscribing to webhooks. They can also set up any native integration.
 >
->More details can be found [here](https://help.letsdeel.com/hc/en-gb/articles/13916824207505-How-To-Add-Organization-Admins).
+>More details can be found [**here**](https://help.letsdeel.com/hc/en-gb/articles/13916824207505-How-To-Add-Organization-Admins).
 
 You’ll need to create and publish a Deel app for your customers to authorize your access to their data. Deel uses OAuth 2.0’s authorization code grant flow to issue access tokens that grant access to specific groups of data. Please consult [Deel’s public documentation](https://developer.deel.com/docs/oauth2) for more information on the OAuth2 flow.
 
