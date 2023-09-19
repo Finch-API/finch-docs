@@ -1022,7 +1022,7 @@ paths:
                         type: string
                     category:
                       type: string
-                      description: 'The categroy of the integration. Possible values: `hris`, `ats`'
+                      description: 'The categroy of the integration. Only `hris` is supported.'
                     icon:
                       type: string
                       description: The url to the official icon of the payroll provider.
