@@ -14,12 +14,14 @@ Finch Forward is a passthrough API that enables you to issue raw requests direct
 
 Requests to one of Finch’s standard API endpoints go through a data transformation layer to ensure that you have a consistent request and response structure to work with, regardless of the system you’re extracting data from.
 
+<!-- focus: false -->
 ![finch_standard_api.png](../../assets/images/finch_standard_api.png)
 
 **Finch Forward API**
 
 Requests using Finch Forward bypass the data transformation layer, giving you access to the raw data exposed by an integration and leaving the data mapping fully in your control.
 
+<!-- focus: false -->
 ![finch_forward_api.png](../../assets/images/finch_forward_api.png)
 
 For more details on making requests using Finch Forward, please refer to the API reference for `/forward`.
