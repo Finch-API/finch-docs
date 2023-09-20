@@ -65,6 +65,11 @@
       "uri": "docs/Product-Guides/Benefits-API.md"
     },
     {
+      "type": "item",
+      "title": "Request Forwarding",
+      "uri": "docs/Product-Guides/Request-Forwarding.md"
+    },
+    {
       "type": "divider",
       "title": "Development Guides"
     },
