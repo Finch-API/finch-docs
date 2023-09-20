@@ -2,31 +2,31 @@
 stoplight-id: jayy0h4zg16kf
 ---
 
-# Finch Forward: Passthrough API
+# Request Forwarding
 
 ## Enabling Custom Data Requests
 
-Finch Forward is a passthrough API that enables you to issue raw requests directly against an integration. With Finch Forward, you have the ability to access any functionality that is natively supported by an integration. You’ll be able to access data elements that are outside of Finch’s existing API structure and standard data model. You’ll also be able to write data elements that are outside the scope of what is supported through one of Finch’s standardized APIs.
+Request Forwarding is a passthrough API feature that enables you to issue raw requests directly against an integration. With Finch Forward, you have the ability to access any functionality that is natively supported by an integration. You’ll be able to access data elements that are outside of Finch’s existing API structure and standard data model. You’ll also be able to write data elements that are outside the scope of what is supported through one of Finch’s standardized APIs.
 
 ### How it Works
 
-**Finch's Standard API**
+**Standard Finch API Request**
 
 Requests to one of Finch’s standard API endpoints go through a data transformation layer to ensure that you have a consistent request and response structure to work with, regardless of the system you’re extracting data from.
 
 <!-- focus: false -->
 ![finch_standard_api.png](../../assets/images/finch_standard_api.png)
 
-**Finch Forward API**
+**Finch Request Forwarding**
 
 Requests using Finch Forward bypass the data transformation layer, giving you access to the raw data exposed by an integration and leaving the data mapping fully in your control.
 
 <!-- focus: false -->
-![finch_forward_api.png](../../assets/images/finch_forward_api.png)
+![finch_request_forwarding.png](../../assets/images/finch_request_forwarding.png)
 
 For more details on making requests using Finch Forward, please refer to the API reference for `/forward`.
 
-### Using Finch Forward
+### Using Request Forwarding
 
 // Loom Video?
 
