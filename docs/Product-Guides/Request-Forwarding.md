@@ -6,7 +6,7 @@ stoplight-id: sl9n3gphljf2w
 
 ## Enabling Custom Data Requests
 
-Request Forwarding is a passthrough API feature that enables you to issue raw requests directly against an integration. With Finch Forward, you have the ability to access any functionality that is natively supported by an integration. You’ll be able to access data elements that are outside of Finch’s existing API structure and standard data model. You’ll also be able to write data elements that are outside the scope of what is supported through one of Finch’s standardized APIs.
+Request Forwarding is a passthrough API feature that enables you to issue raw requests directly against an integration. With Request Forwarding, you have the ability to access any functionality that is natively supported by an integration. You’ll be able to access data elements that are outside of Finch’s existing API structure and standard data model. You’ll also be able to write data elements that are outside the scope of what is supported through one of Finch’s standardized APIs.
 
 ### How it Works
 
@@ -19,12 +19,12 @@ Requests to one of Finch’s standard API endpoints go through a data transforma
 
 **Finch Request Forwarding**
 
-Requests using Finch Forward bypass the data transformation layer, giving you access to the raw data exposed by an integration and leaving the data mapping fully in your control.
+Request Forwarding bypasses the data transformation layer, giving you access to the raw data exposed by an integration and leaving the data mapping fully in your control.
 
 <!-- focus: false -->
 ![finch_request_forwarding.png](../../assets/images/finch_request_forwarding.png)
 
-For more details on making requests using Finch Forward, please refer to the API reference for `/forward`.
+For more details on making requests using Request Forwarding, please refer to the API reference for `/forward`.
 
 ### Using Request Forwarding
 
@@ -34,19 +34,23 @@ For more details on making requests using Finch Forward, please refer to the API
 
 ### Supported Integrations
 
-> Finch Forward supports Finch's API-based integrations. For providers that have both API and non-API based authentication methods, Finch Forward is only supported for connections that were established via the API-based auth method.
+> For providers that have both API and non-API based authentication methods, Request Forwarding is only supported for connections that were established via the API-based auth method.
 
-API documentation for the systems that are currently supported by Finch Forward are referenced below.
+API documentation for the systems that are currently supported by Request Forwarding are referenced below.
 
+* **Bamboo**: [API Documentation](https://documentation.bamboohr.com/reference)
+* **Gusto:** [API Documentation](https://docs.gusto.com/app-integrations/reference)
 * **HiBob:** [API Documentation](https://apidocs.hibob.com/reference)
 * **Personio:** [API Documentation](https://developer.personio.de/reference)
+* **Trinet**: [API Documentation](https://developers.trinet.com/explore-trinet-apis)
+* **UKG Pro:** [API Documentation](https://developer.ukg.com/hcm/reference/welcome-to-the-pro-developer-hub)
 
-For specifics on how to make requests using Finch Forward, please refer to the API reference for `/forward`.
+For specifics on how to make requests using Request Forwarding, please refer to the API reference for `/forward`.
 
-### Why Finch Forward?
+### Why Request Forwarding?
 
-For each supported integration, Finch provides a standardized set of API endpoints and data models. However, if you require additional information outside this standard model, Finch Forward enables your application to read or write specific fields from provider-supported API endpoints. This supplements the standardized endpoints and fields without needing to handle the complexities of building and managing a separate integration yourself for accessing non-standardized fields.
+For each supported integration, Finch provides a standardized set of API endpoints and data models. However, if you require additional information outside this standard model, Request Forwarding enables your application to read or write specific fields from provider-supported API endpoints. This supplements the standardized endpoints and fields without needing to handle the complexities of building and managing a separate integration yourself for accessing non-standardized fields.
 
-For example, consider a situation where Finch’s data model supports 95% of the fields your application needs. Instead of having to build a direct integration with the provider to get the other 5% of fields you need, you can look to Finch Forward. After all, building and maintaining a single integration is the reason you chose Finch in the first place! With the Forward API, you could gain access to the other 5% of the data you need.
+For example, consider a situation where Finch’s data model supports 95% of the fields your application needs. Instead of having to build a direct integration with the provider to get the other 5% of fields you need, you can look to Request Forwarding. After all, building and maintaining a single integration is the reason you chose Finch in the first place! With Request Forwarding, you could gain access to the other 5% of the data you need.
 
-When using the Forward API, Finch leverages the existing connection that was established via Finch Connect, forwards the request to the provider, and then forwards the provider’s response back to your application. It is important to note that Finch Forward does not alter requests or responses, it simply forwards them between you and the provider while managing credentials through the connection authentication step for you.
+When using Request Forwarding, Finch leverages the existing connection that was established via Finch Connect, forwards the request to the provider, and then forwards the provider’s response back to your application. It is important to note that Request Forwarding does not alter requests or responses, it simply forwards them between you and the provider while Finch manages credentials and authentication for you.
