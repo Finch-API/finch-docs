@@ -10,6 +10,8 @@ Finch maintains SDKs in several popular languages to make it easy to integrate w
 * [Node](https://github.com/Finch-API/finch-api-node)
 * [Python](https://github.com/Finch-API/finch-api-python)
 * [Java](https://github.com/Finch-API/finch-api-java)
+* [Kotlin](https://github.com/Finch-API/finch-api-kotlin)
+* [Go](https://github.com/Finch-API/finch-api-go)
 
 If you do not see your language here, reach out to us!
 
