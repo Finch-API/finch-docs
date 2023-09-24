@@ -28,9 +28,9 @@ For more details on making requests using Request Forwarding, please refer to th
 
 ### Using Request Forwarding
 
-// Loom Video?
+You can watch a video demonstration that exhibits how to use the /forward API for [accessing deeper data sets](https://www.loom.com/share/81f86fa4a2fc4c13b42bb153e66dba06?sid=5ba4e1df-840a-40f6-b2f7-4abbb71eb01c) within an employment system.
 
-// Use case examples?
+For more details on making requests using Request Forwarding, please refer to the API reference for `/forward`.
 
 ### Supported Integrations
 
