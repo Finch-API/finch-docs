@@ -14,13 +14,11 @@ Before gaining access to Gusto’s production API, all developers are subject to
 
 **Step 4:** (Optional) Let your Finch Developer Success representative know if you need your Finch IDs to remain stable with your current integration.
 
-**Step 5:** Connect your clients! If you are a current customer of Finch using the existing Gusto integration, please **read the disclaimer** below.
+**Step 5:** Connect your clients! If you are a current customer of Finch using the existing Gusto integration, please **read the notice** below.
 
 > **For existing Finch customers using the legacy Gusto integration** 📣
 > 
-> Please note that you must complete the aforementioned steps, further detailed below, and have your clients reauthorize into the improved integration by **November 30, 2023**. Finch’s legacy integration will be decommissioned on that date.
-> 
-> Please begin this process as soon as possible and **allow up to 1 month of lead time** to go through this process and have your clients reauthorize into the new integration.
+> Please note that you must complete the aforementioned steps, further detailed below, and have your clients reauthorize into the improved integration by **November 30, 2023**. Finch’s legacy integration will be deprecated on that date.
 
 <!--
 focus: false
