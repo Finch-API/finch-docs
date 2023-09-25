@@ -512,6 +512,7 @@ paths:
                           custom_fields:
                             - name: tShirtSize
                               value: L
+                          source_id: "000001"
               schema:
                 type: object
                 properties:
@@ -626,6 +627,9 @@ paths:
                                       - object
                                       - boolean
                                     nullable: true
+                            source_id:
+                              type: string
+                              description: The source system's unique employment identifier for this individual
       summary: Employment
       operationId: get-employment
       tags:
