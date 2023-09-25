@@ -4,21 +4,21 @@ stoplight-id: laumymk97efgi
 
 # Gusto Onboarding and Migration Guide
 
+> **Attention: Finch customers using the existing Gusto integration** 📣
+> 
+> To avoid interruptions to your service, please complete the migration process and have your customers reauthorize by **November 30th, 2023** (see Step 5 below for more details).
+
 Before gaining access to Gusto’s production API, all developers are subject to Gusto’s standard security and compliance review. As an official Gusto development partner, Finch will work closely with you to support you through your onboarding journey. The onboarding process consists of the following steps:
 
 **Step 1:** Create an account in Gusto’s Developer Portal
 
 **Step 2:** Complete the Gusto Onboarding Questionnaire
 
-**Step 3:** Gusto Security Review
+**Step 3:** Assist Gusto Security Review
 
 **Step 4:** (Optional) Let your Finch Developer Success representative know if you need your Finch IDs to remain stable with your current integration.
 
-**Step 5:** Connect your clients! If you are a current customer of Finch using the existing Gusto integration, please **read the notice** below.
-
-> **For existing Finch customers using the legacy Gusto integration** 📣
-> 
-> Please note that you must complete the aforementioned steps, further detailed below, and have your clients reauthorize into the improved integration by **November 30, 2023**. Finch’s legacy integration will be deprecated on that date.
+**Step 5:** Connect your Clients!
 
 <!--
 focus: false
@@ -45,11 +45,11 @@ The requirements for each developer will depend upon the sensitivity of the data
 
 We understand that answering the questionnaire can be time-consuming but it is a necessary step in ensuring that your application meets Gusto’s data security requirements. In rare cases, Gusto may not approve an application for production access for a reason other than security concerns, such as for a use case Gusto prohibits on their platform (e.g. mature content, etc.). If you have questions on how to respond to a specific question, please don’t hesitate to reach out to our Developer Success team
 
-### Step 3: Gusto Security Review
+### Step 3: Assist Gusto Security Review
 
 **[1-2 weeks]**
 
-After you submit the questionnaire, Gusto will conduct a security review via a third party called VISO Trust. The VISO Trust process typically takes one week. In most cases, nothing further will be needed from you; however, in certain cases VISO Trust may reach out for additional information or clarification. 
+After you submit the questionnaire, Gusto will conduct a security review via a third party called VISO Trust. The VISO Trust process typically takes one week. In most cases, nothing further will be needed from you; however, VISO Trust may reach out for additional information or clarification. Please respond to these requests timely, as any delays could impact when production access will be made available to you. 
 
 Once you have been approved, the Gusto team will enable production access and issue credentials within their Developer Portal. Gusto will then apply the appropriate data scopes that were requested as part of the security questionnaire to your configuration, thereby adhering to the security principle of least privilege. Finch will be notified by Gusto to take those credentials and activate the API integration for your account. Finch will notify you once your integration has been successfully activated.
 
@@ -67,7 +67,11 @@ Please note that with this migration, there will be some changes to the underlyi
 1. We will work with Gusto to map your old IDs to new IDs, so that existing references are compatible with the API integration.
 1. We will then reactivate your Gusto integration, add Gusto back as an integration option to Finch Connect, and invite your users to reauthorize the Finch connection.
 
-### Step 5: Connect Your Clients!
+### Step 5: Connect your Clients!
+
+> **Attention: Finch customers using the existing Gusto integration** 📣
+>
+> Finch's existing Gusto integration and associated connections are being decommissioned on **November 30, 2023**. Please be sure to notify your clients in advance that they will need to reauthorize through Finch Connect by this date to keep their connections alive. For any questions or concerns, please reach out to your Finch Developer Success representative.
 
 Finch will be notified by Gusto as soon as your account credentials are ready for use to activate your API integration. Finch will notify you once your integration has been activated. Your clients can then go through Finch Connect and connect to their Gusto account to authorize your application for data access!
 
