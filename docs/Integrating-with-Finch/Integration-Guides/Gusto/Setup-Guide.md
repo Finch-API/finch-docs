@@ -47,7 +47,7 @@ We understand that answering the questionnaire can be time-consuming but it is a
 
 ### Step 3: Assist Gusto Security Review
 
-**[1-2 weeks]**
+**[1 to 2 weeks]**
 
 After you submit the questionnaire, Gusto will conduct a security review via a third party called VISO Trust. The VISO Trust process typically takes one week. In most cases, nothing further will be needed from you; however, VISO Trust may reach out for additional information or clarification. Please respond to these requests timely, as any delays could impact when production access will be made available to you. 
 
