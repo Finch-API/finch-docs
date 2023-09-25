@@ -20,11 +20,6 @@ Before gaining access to Gusto’s production API, all developers are subject to
 
 **[Step 5](#step-5-connect-your-clients):** Connect your Clients!
 
-<!--
-focus: false
--->
-![gusto-signup.gif](../../../../assets/images/gusto-signup.gif)
-
 The remainder of this page outlines these steps in greater detail.
 
 ---
@@ -35,6 +30,11 @@ The remainder of this page outlines these steps in greater detail.
 
 Gusto requires that all developers be set up in their Developer Portal. Finch offers a managed service by default where we will create and manage your DevPortal "organization" - all you need to do is [sign up for a DevPortal account](https://dev.gusto.com/accounts/sign_up) and we’ll take it from there. Please reach out to your Success manager or developers@tryfinch.com if you have any questions.
 
+<!--
+focus: false
+-->
+![gusto-signup.gif](../../../../assets/images/gusto-signup.gif)
+
 ### Step 2: Complete Gusto’s Onboarding Questionnaire
 
 **[30 minutes to 1 hour]**
@@ -43,7 +43,7 @@ Please fill out this [Finch-specific onboarding questionnaire](https://gusto.az1
 
 The requirements for each developer will depend upon the sensitivity of the data access requested. If you have a SOC 2 Type 2 Report, ISO 27001 Certificate, or PCI Certificate, you will be shown a simplified questionnaire and your review process will be expedited. **If you do not have one of these reports, and you require data access to sensitive PII (e.g., benefits data), please contact your Developer Success representative to discuss further.**
 
-We understand that answering the questionnaire can be time-consuming but it is a necessary step in ensuring that your application meets Gusto’s data security requirements. In rare cases, Gusto may not approve an application for production access for a reason other than security concerns, such as for a use case Gusto prohibits on their platform (e.g. mature content, etc.). If you have questions on how to respond to a specific question, please don’t hesitate to reach out to our Developer Success team
+We understand that answering the questionnaire can be time-consuming but it is a necessary step in ensuring that your application meets Gusto’s data security requirements. In rare cases, Gusto may not approve an application for production access for a reason other than security concerns, such as for a use case Gusto prohibits on their platform (e.g. mature content, etc.). If you have questions on how to respond to a specific question, please don’t hesitate to reach out to our Developer Success team.
 
 ### Step 3: Assist Gusto Security Review
 
@@ -72,11 +72,11 @@ Please note that with this migration, there will be some changes to the underlyi
 > **Attention: Finch customers using the existing Gusto integration** 📣
 >
 > Finch's existing Gusto integration and associated connections are being decommissioned on **November 30, 2023**. Please be sure to notify your clients in advance that they will need to reauthorize through Finch Connect by this date to keep their connections alive. For any questions or concerns, please reach out to your Finch Developer Success representative.
+>
+> We understand that these changes may cause some inconvenience, and appreciate your partnership during this transition.
 
 Finch will be notified by Gusto as soon as your account credentials are ready for use to activate your API integration. Finch will notify you once your integration has been activated. Your clients can then go through Finch Connect and connect to their Gusto account to authorize your application for data access!
 
 ---
 
-We understand that these changes may cause some inconvenience, and appreciate your partnership during this transition.
-
-We hope this onboarding process guide is helpful. If you have any questions, please do not hesitate to reach out to your Finch Developer Success representative. We look forward to working with you to provide a seamless integration with Gusto. We understand that this process can be complex and we are here to help you every step of the way.
+If you have any questions, please do not hesitate to reach out to your Finch Developer Success representative. We look forward to working with you to provide a seamless integration with Gusto. We understand that this process can be complex and we are here to help you every step of the way.
