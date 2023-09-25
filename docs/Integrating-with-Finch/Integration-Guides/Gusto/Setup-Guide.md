@@ -10,15 +10,15 @@ stoplight-id: laumymk97efgi
 
 Before gaining access to Gusto’s production API, all developers are subject to Gusto’s standard security and compliance review. As an official Gusto development partner, Finch will work closely with you to support you through your onboarding journey. The onboarding process consists of the following steps:
 
-**Step 1:** Create an account in Gusto’s Developer Portal
+**[Step 1](#step-1-create-an-account-in-gustos-developer-portal):** Create an account in Gusto’s Developer Portal
 
-**Step 2:** Complete the Gusto Onboarding Questionnaire
+**[Step 2](#step-2-complete-gustos-onboarding-questionnaire):** Complete the Gusto Onboarding Questionnaire
 
-**Step 3:** Assist Gusto Security Review
+**[Step 3](#step-3-assist-gusto-security-review):** Assist Gusto Security Review
 
-**Step 4:** (Optional) Let your Finch Developer Success representative know if you need your Finch IDs to remain stable with your current integration.
+**[Step 4](#step-4-id-migration-for-existing-users):** (Optional) Let your Finch Developer Success representative know if you need your Finch IDs to remain stable with your current integration.
 
-**Step 5:** Connect your Clients!
+**[Step 5](#step-5-connect-your-clients):** Connect your Clients!
 
 <!--
 focus: false
