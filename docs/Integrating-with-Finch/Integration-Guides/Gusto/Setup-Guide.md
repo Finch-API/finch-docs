@@ -18,7 +18,7 @@ Before gaining access to Gusto’s production API, all developers are subject to
 
 **[Step 4](#step-4-id-migration-for-existing-users):** (Optional) Let your Finch Developer Success representative know if you need your Finch IDs to remain stable with your current integration.
 
-**[Step 5](#step-5-connect-your-clients):** Connect your Clients!
+**[Step 5](#step-5-connect-your-employers):** Connect your Employers!
 
 The remainder of this page outlines these steps in greater detail.
 
@@ -67,15 +67,15 @@ Please note that with this migration, there will be some changes to the underlyi
 1. We will work with Gusto to map your old IDs to new IDs, so that existing references are compatible with the API integration.
 1. We will then reactivate your Gusto integration, add Gusto back as an integration option to Finch Connect, and invite your users to reauthorize the Finch connection.
 
-### Step 5: Connect your Clients!
+### Step 5: Connect your Employers!
 
 > **Attention: Finch customers using the existing Gusto integration** 📣
 >
-> Finch's existing Gusto integration and associated connections are being decommissioned on **November 30, 2023**. Please be sure to notify your clients in advance that they will need to reauthorize through Finch Connect by this date to keep their connections alive. For any questions or concerns, please reach out to your Finch Developer Success representative.
+> Finch's existing Gusto integration and associated connections are being decommissioned on **November 30, 2023**. Please be sure to notify your employers in advance that they will need to reauthorize through Finch Connect by this date to keep their connections alive. For any questions or concerns, please reach out to your Finch Developer Success representative.
 >
 > We understand that these changes may cause some inconvenience, and appreciate your partnership during this transition.
 
-Finch will be notified by Gusto as soon as your account credentials are ready for use to activate your API integration. Finch will notify you once your integration has been activated. Your clients can then go through Finch Connect and connect to their Gusto account to authorize your application for data access!
+Finch will be notified by Gusto as soon as your account credentials are ready for use to activate your API integration. Finch will notify you once your integration has been activated. Your employers can then go through Finch Connect and connect to their Gusto account to authorize your application for data access!
 
 ---
 
