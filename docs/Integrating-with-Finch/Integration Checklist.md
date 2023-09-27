@@ -32,6 +32,10 @@ Given the nature of the underlying systems Finch's API is built on top of, the f
 
 - [ ]  Integrate an external rate limiter into your application that respects Finch API's limits described [here](../Development-Guides/Rate-Limits.md).
 
+**Receiving webhooks**
+
+- [ ] To avoid polling behavior, set up [webhooks](../Development-Guides/Webhooks.md) to get notified when state changes for your connections.
+
 **Handling API responses**
 
 - [ ]  Most data points returned by the API are `null`able. Ensure your integration is resilient to this. You can read more [here](../Development-Guides/Handling-API-Response.md).
