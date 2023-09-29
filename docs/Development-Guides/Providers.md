@@ -112,6 +112,7 @@ All supported HRIS integrations and products.
 | Dominion Payroll | `dominion_payroll` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Doyle | `doyle_hcm` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Eddy | `eddyhr` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
+| EmCentrix | `emcentrix` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Emplicity | `emplicity` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Employdrive | `employdrive` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | EmPower HR | `empower_hr` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
