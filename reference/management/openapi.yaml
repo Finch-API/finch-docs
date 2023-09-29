@@ -379,7 +379,7 @@ paths:
         - $ref: '#/components/parameters/API-Version'
   /forward:
     post:
-      summary: Forward (Passthrough)
+      summary: Request Forwarding
       operationId: post-forward
       responses:
         '200':
