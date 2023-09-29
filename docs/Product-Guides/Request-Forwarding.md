@@ -8,6 +8,8 @@ stoplight-id: sl9n3gphljf2w
 
 Request Forwarding is a passthrough API feature that enables you to issue raw requests directly against an integration. With Request Forwarding, you have the ability to access any functionality that is natively supported by an integration. You’ll be able to access data elements that are outside of Finch’s existing API structure and standard data model. You’ll also be able to write data elements that are outside the scope of what is supported through one of Finch’s standardized APIs.
 
+*Request Forwarding is available for customers in our Scale tier. Please reach out to a Finch representative for more details on eligibility.*
+
 ### How it Works
 
 **Standard Finch API Request**
