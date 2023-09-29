@@ -1,5 +1,5 @@
 openapi: 3.0.0
-info:
+info: 
   title: Management API Reference
   version: '2020-09-17'
   contact: {}
@@ -351,32 +351,6 @@ paths:
                           message: This employer is working as expected
       operationId: get-introspect
       description: Read account information associated with an `access_token`
-      parameters:
-        - $ref: '#/components/parameters/API-Version'
-  /disconnect:
-    post:
-      summary: Disconnect
-      operationId: post-disconnect
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                    description: 'If the request is successful, Finch will return “success” (HTTP 200 status).'
-              examples:
-                Success:
-                  value:
-                    status: success
-      description: |-
-        Disconnect one or more `access_token`s from your application. Deletion is based on both the employer and provider of the `access_token` used to call this endpoint, and will also delete all tokens with the same employer/provider pair. Other tokens for the same employer, but connected to a different provider, require a separate call.
-        <br /><br />We require applications to implement the Disconnect endpoint for billing and security purposes.
-      tags:
-        - 4. Management
       parameters:
         - $ref: '#/components/parameters/API-Version'
   /disconnect:
