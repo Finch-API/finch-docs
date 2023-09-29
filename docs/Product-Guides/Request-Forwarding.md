@@ -34,7 +34,7 @@ For more details on making requests using Request Forwarding, please refer to th
 
 ### Supported Integrations
 
-> For providers that have both API and non-API based authentication methods, Request Forwarding is only supported for connections that were established via the API-based auth method.
+> Request Forwarding is only supported for connections that were established via the API-based auth method.
 
 API documentation for the systems that are currently supported by Request Forwarding are referenced below.
 
