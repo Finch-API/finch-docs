@@ -105,7 +105,7 @@ All supported HRIS integrations and products.
 | CSC Paymaster | `csc_paymaster` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Darwinbox | `darwinbox` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Decent | `decent` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
-| Deel | `deel` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request |
+| Deel | `deel` | <span style="color:darkgreen">Automated</span> | Upon Request | Upon Request |
 | Deltek | `deltek` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Deluxe | `deluxe` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | DM Payroll Solutions | `dm_payroll_solutions` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request

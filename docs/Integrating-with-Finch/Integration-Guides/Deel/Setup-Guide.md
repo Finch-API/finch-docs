@@ -7,7 +7,8 @@ stoplight-id: zz1jt69h6o6be
 <!--
 focus: false
 -->
-![deel-setup-diagram.png](<../../../../assets/images/deelSetupDiagram.png>)
+
+![deel-setup-diagram.png](../../../../assets/images/deel-setup-diagram.png)
 
 Integrating with Deel through Finch is a simple 3-step process! To get set up, you need to:
 

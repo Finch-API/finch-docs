@@ -67,7 +67,7 @@ https://connect.tryfinch.com/authorize?
 
 #### 202 status code response
 
-With Automated Integrations, you can create an **`access_token`** and immediately use it to pull in data or push changes to your users' systems. However, with Assisted Integrations, there is a short delta from when the **`access_token`** is created to when you can use it to make data requests (`/employer` or `/ats`).
+With Automated Integrations, you can create an **`access_token`** and immediately use it to pull in data or push changes to your users' systems. However, with Assisted Integrations, there is a short delta from when the **`access_token`** is created to when you can use it to make data requests (`/employer`).
 
 Until the **`access_token`** is ready for use, Finch will return an empty response from data endpoints with the HTTP status code **`202`** indicating the request is valid but data is still pending. When the **`access_token`** is ready, data endpoints will return data with the HTTP status code **`200`** as usual.
 

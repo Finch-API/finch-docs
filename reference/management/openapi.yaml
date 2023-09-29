@@ -15,6 +15,8 @@ paths:
   /providers:
     get:
       summary: Providers
+      tags:
+        - 4. Management
       responses:
         '200':
           description: OK
@@ -38,7 +40,7 @@ paths:
                         type: string
                     category:
                       type: string
-                      description: 'The categroy of the integration. Possible values: `hris`, `ats`'
+                      description: 'The categroy of the integration. Only `hris` is supported.'
                     icon:
                       type: string
                       description: The url to the official icon of the payroll provider.
@@ -72,7 +74,7 @@ paths:
                       mfa_required: true
                       primary_color: '#f45d47'
                       authentication_methods:
-                        - type: api_token
+                        - type: api
                           benefits_support:
                             401k:
                               supported_features:
@@ -242,6 +244,8 @@ paths:
   /introspect:
     get:
       summary: Introspect
+      tags:
+        - 4. Management
       responses:
         '200':
           description: OK
@@ -278,16 +282,16 @@ paths:
                   authentication_methods:
                     type: array
                     x-stoplight:
-                      id: z411a1ngk2nvm
+                      id: b3dendp1j6f5w
                     items:
                       x-stoplight:
-                        id: d29u5a7sf7fps
+                        id: wpu4ak9ukniy6
                       type: object
                       properties:
                         type:
                           type: string
                           x-stoplight:
-                            id: q4bai2n93nltm
+                            id: lqscbpmokf77w
                           description: The type of authentication method.
                           enum:
                             - credential
@@ -297,7 +301,7 @@ paths:
                         connection_status:
                           type: object
                           x-stoplight:
-                            id: 11ywt2u7zko2o
+                            id: 1cfz1pwwcaawt
                           description: |-
                             The status of the connection for this authentication method:
 
@@ -311,7 +315,7 @@ paths:
                             status:
                               type: string
                               x-stoplight:
-                                id: u15a41sqiznat
+                                id: fpwf81zm4vufx
                               enum:
                                 - pending
                                 - processing
@@ -323,7 +327,7 @@ paths:
                             message:
                               type: string
                               x-stoplight:
-                                id: pjjw6f5w5sra5
+                                id: rec630ll5o6xz
               examples:
                 Success:
                   value:
@@ -335,7 +339,7 @@ paths:
                       - directory
                     username: johndoe@tryfinch.com
                     payroll_provider_id: gusto
-                    manual: false
+                    manual: 'false'
                     authentication_methods:
                       - type: assisted
                         connection_status:
@@ -347,6 +351,32 @@ paths:
                           message: This employer is working as expected
       operationId: get-introspect
       description: Read account information associated with an `access_token`
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+  /disconnect:
+    post:
+      summary: Disconnect
+      operationId: post-disconnect
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: 'If the request is successful, Finch will return “success” (HTTP 200 status).'
+              examples:
+                Success:
+                  value:
+                    status: success
+      description: |-
+        Disconnect one or more `access_token`s from your application. Deletion is based on both the employer and provider of the `access_token` used to call this endpoint, and will also delete all tokens with the same employer/provider pair. Other tokens for the same employer, but connected to a different provider, require a separate call.
+        <br /><br />We require applications to implement the Disconnect endpoint for billing and security purposes.
+      tags:
+        - 4. Management
       parameters:
         - $ref: '#/components/parameters/API-Version'
   /disconnect:
