@@ -8,6 +8,8 @@ stoplight-id: sl9n3gphljf2w
 
 Request Forwarding is a passthrough API feature that enables you to issue raw requests directly against an employment system's API. With Request Forwarding, you have the ability to access any functionality that is natively supported by an integration, including data elements that are outside of Finch’s existing API structure and standard data model. You’ll also be able to write data elements that are outside the scope of what is supported through one of Finch’s standardized APIs.
 
+*Request Forwarding is available for customers in our Scale tier. Please reach out to a Finch representative for more details on eligibility.*
+
 ### Using Request Forwarding
 
 You can [watch a video demonstration](https://www.loom.com/share/15ca7fb93c2d43b9a052362fd3368e37?sid=07e1313d-011b-4c73-9c78-d05ec0f9ab9d) that exhibits how to use the /forward API for accessing deeper data sets within an employment system.
