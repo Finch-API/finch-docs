@@ -6,7 +6,7 @@ stoplight-id: sl9n3gphljf2w
 
 ## Enabling Custom Data Requests
 
-Request Forwarding is a passthrough API feature that enables you to issue raw requests directly against an integration. With Request Forwarding, you have the ability to access any functionality that is natively supported by an integration, including data elements that are outside of Finch’s existing API structure and standard data model. You’ll also be able to write data elements that are outside the scope of what is supported through one of Finch’s standardized APIs.
+Request Forwarding is a passthrough API feature that enables you to issue raw requests directly against an employment system's API. With Request Forwarding, you have the ability to access any functionality that is natively supported by an integration, including data elements that are outside of Finch’s existing API structure and standard data model. You’ll also be able to write data elements that are outside the scope of what is supported through one of Finch’s standardized APIs.
 
 ### Using Request Forwarding
 
