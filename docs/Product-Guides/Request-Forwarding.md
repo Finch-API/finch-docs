@@ -41,7 +41,7 @@ API documentation for the systems that are currently supported by Request Forwar
 * **HiBob:** [API Documentation](https://apidocs.hibob.com/reference)
 * **Paycom:** [API Documentation](https://drive.google.com/file/d/1aC9C4W1mZo4oFxNIZUtS1zkfJ4tH6WjD/view?usp=sharing)
 * **Personio:** [API Documentation](https://developer.personio.de/reference)
-* **Trinet**: [API Documentation](https://developers.trinet.com/explore-trinet-apis)
+* **TriNet**: [API Documentation](https://developers.trinet.com/explore-trinet-apis)
 * **UKG Pro:** [API Documentation](https://developer.ukg.com/hcm/reference/welcome-to-the-pro-developer-hub)
 
 ### Why Request Forwarding?
