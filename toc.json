@@ -192,6 +192,11 @@
       "type": "item",
       "title": "HRIS",
       "uri": "reference/employer/openapi.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Management",
+      "uri": "reference/management/openapi.yaml"
     }
   ]
 }
