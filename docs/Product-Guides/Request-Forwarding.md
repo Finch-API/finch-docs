@@ -36,7 +36,7 @@ For more details on making requests using Request Forwarding, please refer to th
 
 API documentation for the systems that are currently supported by Request Forwarding are referenced below.
 
-* **Bamboo**: [API Documentation](https://documentation.bamboohr.com/reference)
+* **BambooHR**: [API Documentation](https://documentation.bamboohr.com/reference)
 * **Gusto:** [API Documentation](https://docs.gusto.com/app-integrations/reference)
 * **HiBob:** [API Documentation](https://apidocs.hibob.com/reference)
 * **Paycom:** [API Documentation](https://drive.google.com/file/d/1aC9C4W1mZo4oFxNIZUtS1zkfJ4tH6WjD/view?usp=sharing)
