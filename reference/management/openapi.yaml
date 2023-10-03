@@ -11,6 +11,8 @@ info:
 servers:
   - url: 'https://api.tryfinch.com'
     description: ''
+tags:
+  - name: Sandbox
 paths:
   /providers:
     get:
@@ -970,7 +972,10 @@ paths:
                 - provider_id
       tags:
         - Sandbox
-  '/sandbox/connections/accounts/{account_id}':
+      parameters: []
+      security:
+        - basicAuth: []
+  /sandbox/connections/accounts:
     post:
       summary: Create a new sandbox account
       operationId: post-sandbox-connections-accounts
@@ -1051,33 +1056,25 @@ paths:
                 - provider_id
       tags:
         - Sandbox
+      security:
+        - basicAuth: []
+    parameters: []
+  '/sandbox/connections/accounts/{account_id}':
+    parameters:
+      - schema:
+          type: string
+        name: account_id
+        in: path
+        required: true
     put:
       summary: Update an existing sandbox account
-      operationId: put-sandbox-connections-accounts
+      operationId: put-sandbox-connections-accounts-account_id
       responses:
         '200':
           description: OK
-        '':
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  account_id:
-                    type: string
-                    x-stoplight:
-                      id: buoj1a5gy6slt
-                  connection_status:
-                    type: string
-                    x-stoplight:
-                      id: 4qzzqi40r7hm2
-                  '':
-                    type: string
-                    x-stoplight:
-                      id: smaoct33tgjcf
       x-stoplight:
-        id: wk9wnu9bgis63
-      description: Update the connection status for an account.
+        id: o0gf0fenusl4j
+      description: Update an existing sandbox account
       requestBody:
         content:
           application/json:
@@ -1087,15 +1084,99 @@ paths:
                 connection_status:
                   type: string
                   x-stoplight:
-                    id: hwvxy7kwlf0bq
+                    id: 882d594gc3feg
       tags:
         - Sandbox
-    parameters:
-      - schema:
-          type: string
-        name: account_id
-        in: path
-        required: true
+    delete:
+      summary: Delete a sandbox account
+      operationId: delete-sandbox-connections-accounts-account_id
+      responses:
+        '200':
+          description: OK
+      x-stoplight:
+        id: 7b1tm4cft9hgk
+      tags:
+        - Sandbox
+      description: Delete a sandbox account
+  /sandbox/company:
+    put:
+      summary: Update a sandbox company's data
+      operationId: put-sandbox-company
+      responses:
+        '200':
+          description: OK
+      x-stoplight:
+        id: gyzgeqxw1nu2n
+      tags:
+        - Sandbox
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                legal_name:
+                  type: string
+                  x-stoplight:
+                    id: 4k9zj2m8dl27r
+                ein:
+                  type: string
+                  x-stoplight:
+                    id: 254aetxb5l0ff
+                location:
+                  type: string
+                  x-stoplight:
+                    id: xdrd18b0ndxjz
+  /sandbox/directory:
+    post:
+      summary: Add new individuals to a sandbox company
+      operationId: post-sandbox-directory
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  x-stoplight:
+                    id: bzhypb0nsnbj4
+                  type: object
+                  properties:
+                    individual_id:
+                      type: string
+                      x-stoplight:
+                        id: rmuy3y0n925zq
+                    first_name:
+                      type: string
+                      x-stoplight:
+                        id: x095pbtaoac53
+                    last_name:
+                      type: string
+                      x-stoplight:
+                        id: mg6d8cazl52uf
+      x-stoplight:
+        id: rxsjtho6i7tys
+      tags:
+        - Sandbox
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                x-stoplight:
+                  id: hndy1lcdt3itt
+                type: object
+                properties:
+                  first_name:
+                    type: string
+                    x-stoplight:
+                      id: qig29vw5dftjh
+                  last_name:
+                    type: string
+                    x-stoplight:
+                      id: x81lmqazui6oh
 components:
   schemas:
     Paging:
@@ -1741,6 +1822,10 @@ components:
       type: http
       scheme: bearer
       description: Please use your Access Token
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'base64 encoded string of `client_id`:`client_secret`'
   parameters:
     API-Version:
       name: Finch-API-Version
