@@ -12,7 +12,7 @@ Request Forwarding is a passthrough API feature that enables you to issue raw re
 
 ### Using Request Forwarding
 
-You can [watch a video demonstration](https://www.loom.com/share/15ca7fb93c2d43b9a052362fd3368e37?sid=07e1313d-011b-4c73-9c78-d05ec0f9ab9d) that exhibits how to use the /forward API for accessing deeper data sets within an employment system.
+You can [watch a video demonstration](https://www.loom.com/share/15ca7fb93c2d43b9a052362fd3368e37) that exhibits how to use the /forward API for accessing deeper data sets within an employment system.
 
 For more details on making requests using Request Forwarding, please refer to the API reference for [`/forward`](https://developer.tryfinch.com/docs/reference/dwnn4o21afzyr-request-forwarding).
 
