@@ -32,7 +32,7 @@ Request Forwarding bypasses the data transformation layer, giving you access to 
 
 ### Why Request Forwarding?
 
-For each supported integration, Finch provides a standardized set of API endpoints and data models. However, if you require additional information outside this standard model, Request Forwarding enables your application to read or write specific fields from provider-supported API endpoints. This supplements Finch's standardized endpoints and fields without you needing to handle the complexities of building and managing a separate integration yourself for accessing non-standardized fields.
+For each supported integration, Finch provides a standardized set of API endpoints and data models. However, if you require additional information outside these standard models, Request Forwarding enables your application to read or write specific fields from provider-supported API endpoints. This supplements Finch's standardized endpoints and fields without you needing to handle the complexities of building and managing a separate integration yourself for accessing non-standardized fields.
 
 For example, consider a situation where Finch’s data model supports 95% of the fields your application needs. Instead of having to build a direct integration with the provider to get the other 5% of fields you need, you can look to Request Forwarding. After all, building and maintaining a single integration is the reason you chose Finch in the first place! With Request Forwarding, you can gain access to the other 5% of the data you need.
 
