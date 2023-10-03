@@ -1,5 +1,5 @@
 openapi: 3.0.0
-info: 
+info:
   title: Management API Reference
   version: '2020-09-17'
   contact: {}
@@ -38,7 +38,7 @@ paths:
                         type: string
                     category:
                       type: string
-                      description: 'The categroy of the integration. Only `hris` is supported.'
+                      description: The categroy of the integration. Only `hris` is supported.
                     icon:
                       type: string
                       description: The url to the official icon of the payroll provider.
@@ -445,7 +445,7 @@ paths:
                       date: 'Sun, 17 Sep 2023 21:27:25 GMT'
                       content-type: application/json
                     statusCode: 200
-                    data: "{\"employees\":[{\"/work/custom/field_1693264321143\":{\"value\":580192},\"fullName\":\"Anna Gibbons\",\"/payroll/employment/siteWorkingPattern\":{\"value\":{\"workingPatternType\":\"partial_week\",\"days\":{\"sunday\":false,\"tuesday\":true,\"wednesday\":true,\"monday\":true,\"friday\":true,\"thursday\":true,\"saturday\":false},\"hoursPerDay\":9,\"workingPatternId\":null}},\"/about/avatar\":{\"value\":\"https://media-process.hibob.com/image/upload/v1/hibob/demo-avatar/demo_employee/images/UiRYuQQyDc4sLbYzFFtN_59.jpg?__cld_token__=exp=4795680381~acl=*%2fhibob%2fdemo-avatar%2fdemo_employee%2fimages%2fUiRYuQQyDc4sLbYzFFtN_59.jpg*~hmac=07e5aff698027029ebbb4d8cb067db044ec46a86f9bf71430c53cc590f9c07a6\"},\"displayName\":\"Anna Gibbons\",\"/work/reportsTo/email\":{\"value\":\"joshua.tyler_632127@samplebob.com\"},\"/payroll/employment/activeEffectiveDate\":{\"value\":\"2015-03-03\"},\"payroll\":{\"employment\":{\"standardWorkingPattern\":null,\"fte\":100,\"type\":null,\"flsaCode\":null,\"actualWorkingPattern\":{\"workingPatternType\":\"partial_week\",\"days\":{\"sunday\":false,\"tuesday\":true,\"wednesday\":true,\"monday\":true,\"friday\":true,\"thursday\":true,\"saturday\":false},\"hoursPerDay\":9,\"workingPatternId\":null},\"contract\":\"Full time\",\"customColumns\":{\"column_1693433488092\":null,\"column_1693419526345\":null},\"calendarId\":null,\"salaryPayType\":null,\"workingPattern\":null,\"activeEffectiveDate\":\"2015-03-03\",\"weeklyHours\":45,\"siteWorkingPattern\":{\"workingPatternType\":\"partial_week\",\"days\":{\"sunday\":false,\"tuesday\":true,\"wednesday\":true,\"monday\":true,\"friday\":true,\"thursday\":true,\"saturday\":false},\"hoursPerDay\":9,\"workingPatternId\":null}}},\"/root/firstName\":{\"value\":\"Anna\"},\"/work/employeeIdInCompany\":{\"value\":38},\"/work/tenureDurationYears\":{\"value\":8.545},\"/about/foodPreferences\":{\"value\":[]},\"/work/site\":{\"value\":\"New York (Demo)\"},\"/work/tenureYears\":{\"value\":9},\"creationDateTime\":\"2023-07-13T06:37:04.94395\",\"/about/hobbies\":{\"value\":[\"theatre\",\"film\",\"music\"]},\"/root/email\":{\"value\":\"anna.gibbons_632127@samplebob.com\"},\"/work/title\":{\"value\":\"Sales Manager\"},\"employee\":{\"payrollManager\":null,\"hrbp\":null,\"itAdmin\":null,\"buddy\":null},\"work\":{\"shortStartDate\":\"03-03\",\"startDate\":\"2015-03-03\",\"manager\":\"3145813558047015811\",\"tenureDuration\":{\"periodISO\":\"P8Y6M16D\",\"sortFactor\":3076,\"humanize\":\"8 years, 6 months and 16 days\"},\"custom\":{\"field_1693264337015\":580192,\"field_1693264321143\":580192},\"durationOfEmployment\":{\"periodISO\":\"P8Y6M16D\",\"sortFactor\":3076,\"humanize\":\"8 years, 6 months and 16 days\"},\"reportsToIdInCompany\":27,\"employeeIdInCompany\":38,\"reportsTo\":{\"displayName\":\"Joshua Tyler\",\"email\":\"joshua.tyler_632127@samplebob.com\",\"surname\":\"Tyler\",\"firstName\":\"Joshua\",\"id\":\"3145813558047015811\"},\"indirectReports\":null,\"siteId\":2477371,\"tenureDurationYears\":8.545,\"department\":\"Sales\",\"tenureYears\":9,\"isManager\":false,\"title\":\"Sales Manager\",\"site\":\"New York (Demo)\",\"activeEffectiveDate\":\"2015-03-03\",\"directReports\":null,\"secondLevelManager\":\"3145813528661721978\",\"daysOfPreviousService\":0,\"yearsOfService\":8.545},\"/payroll/employment/weeklyHours\":{\"value\":45},\"/root/creationDateTime\":{\"value\":\"2023-07-13T06:37:04.94395\"},\"avatarUrl\":\"https://media-process.hibob.com/image/upload/v1/hibob/demo-avatar/demo_employee/images/UiRYuQQyDc4sLbYzFFtN_59.jpg?__cld_token__=exp=4795680381~acl=*%2fhibob%2fdemo-avatar%2fdemo_employee%2fimages%2fUiRYuQQyDc4sLbYzFFtN_59.jpg*~hmac=07e5aff698027029ebbb4d8cb067db044ec46a86f9bf71430c53cc590f9c07a6\",\"secondName\":null,\"/work/startDate\":{\"value\":\"2015-03-03\"},\"about\":{\"foodPreferences\":[],\"socialData\":{\"linkedin\":null,\"twitter\":null,\"facebook\":null},\"superpowers\":[\"proof reading\"],\"hobbies\":[\"theatre\",\"film\",\"music\"],\"about\":\"I dont have a life story, my story is my life \",\"avatar\":\"https://media-process.hibob.com/image/upload/v1/hibob/demo-avatar/demo_employee/images/UiRYuQQyDc4sLbYzFFtN_59.jpg?__cld_token__=exp=4795680381~acl=*%2fhibob%2fdemo-avatar%2fdemo_employee%2fimages%2fUiRYuQQyDc4sLbYzFFtN_59.jpg*~hmac=07e5aff698027029ebbb4d8cb067db044ec46a86f9bf71430c53cc590f9c07a6\"},\"/root/fullName\":{\"value\":\"Anna Gibbons\"},\"/payroll/employment/contract\":{\"value\":\"Full time\"},\"/payroll/employment/actualWorkingPattern\":{\"value\":{\"workingPatternType\":\"partial_week\",\"days\":{\"sunday\":false,\"tuesday\":true,\"wednesday\":true,\"monday\":true,\"friday\":true,\"thursday\":true,\"saturday\":false},\"hoursPerDay\":9,\"workingPatternId\":null}},\"companyId\":632127,\"/root/coverImageUrl\":{\"value\":\"https://media-process.hibob.com/image/upload/v1/hibob/public-image/cover/default_cover_image.png?token=X19jbGRfdG9rZW5fXz1leHA9NDg0OTgzNjczOX5hY2w9KiUyZmhpYm9iJTJmcHVibGljLWltYWdlJTJmY292ZXIlMmZkZWZhdWx0X2NvdmVyX2ltYWdlLnBuZyp+aG1hYz0zMjY3NjE4ZDQ1MzZjZjE3MWFiM2Y2MzJlY2JmZmQ5MWZkYTRmY2FmOGY3MDExYjllNmZlZTI4Njc0MzZlN2M5&vendor=cloudinary\"},\"/work/secondLevelManager\":{\"value\":\"3145813528661721978\"},\"/work/yearsOfService\":{\"value\":8.545},\"/work/daysOfPreviousService\":{\"value\":0},\"/about/about\":{\"value\":\"I dont have a life story, my story is my life \"},\"/root/avatarUrl\":{\"value\":\"https://media-process.hibob.com/image/upload/v1/hibob/demo-avatar/demo_employee/images/UiRYuQQyDc4sLbYzFFtN_59.jpg?__cld_token__=exp=4795680381~acl=*%2fhibob%2fdemo-avatar%2fdemo_employee%2fimages%2fUiRYuQQyDc4sLbYzFFtN_59.jpg*~hmac=07e5aff698027029ebbb4d8cb067db044ec46a86f9bf71430c53cc590f9c07a6\"},\"/root/surname\":{\"value\":\"Gibbons\"},\"/work/shortStartDate\":{\"value\":\"03-03\"},\"/work/activeEffectiveDate\":{\"value\":\"2015-03-03\"},\"/root/id\":{\"value\":\"3145813590838084494\"},\"email\":\"anna.gibbons_632127@samplebob.com\",\"/work/manager\":{\"value\":\"3145813558047015811\"},\"surname\":\"Gibbons\",\"/work/reportsTo\":{\"value\":{\"displayName\":\"Joshua Tyler\",\"email\":\"joshua.tyler_632127@samplebob.com\",\"surname\":\"Tyler\",\"firstName\":\"Joshua\",\"id\":\"3145813558047015811\"}},\"/root/displayName\":{\"value\":\"Anna Gibbons\"},\"/root/companyId\":{\"value\":632127},\"/payroll/employment/fte\":{\"value\":100},\"/work/department\":{\"value\":\"Sales\"},\"/work/isManager\":{\"value\":false},\"/work/custom/field_1693264337015\":{\"value\":580192},\"/work/reportsToIdInCompany\":{\"value\":27},\"/work/tenureDuration\":{\"value\":{\"periodISO\":\"P8Y6M16D\",\"sortFactor\":3076,\"humanize\":\"8 years, 6 months and 16 days\"}},\"coverImageUrl\":\"https://media-process.hibob.com/image/upload/v1/hibob/public-image/cover/default_cover_image.png?token=X19jbGRfdG9rZW5fXz1leHA9NDg0OTgzNjczOX5hY2w9KiUyZmhpYm9iJTJmcHVibGljLWltYWdlJTJmY292ZXIlMmZkZWZhdWx0X2NvdmVyX2ltYWdlLnBuZyp+aG1hYz0zMjY3NjE4ZDQ1MzZjZjE3MWFiM2Y2MzJlY2JmZmQ5MWZkYTRmY2FmOGY3MDExYjllNmZlZTI4Njc0MzZlN2M5&vendor=cloudinary\",\"/about/superpowers\":{\"value\":[\"proof reading\"]},\"/work/siteId\":{\"value\":2477371},\"id\":\"3145813590838084494\",\"firstName\":\"Anna\",\"/work/durationOfEmployment\":{\"value\":{\"periodISO\":\"P8Y6M16D\",\"sortFactor\":3076,\"humanize\":\"8 years, 6 months and 16 days\"}}}]}"
+                    data: '{"employees":[{"/work/custom/field_1693264321143":{"value":580192},"fullName":"Anna Gibbons","/payroll/employment/siteWorkingPattern":{"value":{"workingPatternType":"partial_week","days":{"sunday":false,"tuesday":true,"wednesday":true,"monday":true,"friday":true,"thursday":true,"saturday":false},"hoursPerDay":9,"workingPatternId":null}},"/about/avatar":{"value":"https://media-process.hibob.com/image/upload/v1/hibob/demo-avatar/demo_employee/images/UiRYuQQyDc4sLbYzFFtN_59.jpg?__cld_token__=exp=4795680381~acl=*%2fhibob%2fdemo-avatar%2fdemo_employee%2fimages%2fUiRYuQQyDc4sLbYzFFtN_59.jpg*~hmac=07e5aff698027029ebbb4d8cb067db044ec46a86f9bf71430c53cc590f9c07a6"},"displayName":"Anna Gibbons","/work/reportsTo/email":{"value":"joshua.tyler_632127@samplebob.com"},"/payroll/employment/activeEffectiveDate":{"value":"2015-03-03"},"payroll":{"employment":{"standardWorkingPattern":null,"fte":100,"type":null,"flsaCode":null,"actualWorkingPattern":{"workingPatternType":"partial_week","days":{"sunday":false,"tuesday":true,"wednesday":true,"monday":true,"friday":true,"thursday":true,"saturday":false},"hoursPerDay":9,"workingPatternId":null},"contract":"Full time","customColumns":{"column_1693433488092":null,"column_1693419526345":null},"calendarId":null,"salaryPayType":null,"workingPattern":null,"activeEffectiveDate":"2015-03-03","weeklyHours":45,"siteWorkingPattern":{"workingPatternType":"partial_week","days":{"sunday":false,"tuesday":true,"wednesday":true,"monday":true,"friday":true,"thursday":true,"saturday":false},"hoursPerDay":9,"workingPatternId":null}}},"/root/firstName":{"value":"Anna"},"/work/employeeIdInCompany":{"value":38},"/work/tenureDurationYears":{"value":8.545},"/about/foodPreferences":{"value":[]},"/work/site":{"value":"New York (Demo)"},"/work/tenureYears":{"value":9},"creationDateTime":"2023-07-13T06:37:04.94395","/about/hobbies":{"value":["theatre","film","music"]},"/root/email":{"value":"anna.gibbons_632127@samplebob.com"},"/work/title":{"value":"Sales Manager"},"employee":{"payrollManager":null,"hrbp":null,"itAdmin":null,"buddy":null},"work":{"shortStartDate":"03-03","startDate":"2015-03-03","manager":"3145813558047015811","tenureDuration":{"periodISO":"P8Y6M16D","sortFactor":3076,"humanize":"8 years, 6 months and 16 days"},"custom":{"field_1693264337015":580192,"field_1693264321143":580192},"durationOfEmployment":{"periodISO":"P8Y6M16D","sortFactor":3076,"humanize":"8 years, 6 months and 16 days"},"reportsToIdInCompany":27,"employeeIdInCompany":38,"reportsTo":{"displayName":"Joshua Tyler","email":"joshua.tyler_632127@samplebob.com","surname":"Tyler","firstName":"Joshua","id":"3145813558047015811"},"indirectReports":null,"siteId":2477371,"tenureDurationYears":8.545,"department":"Sales","tenureYears":9,"isManager":false,"title":"Sales Manager","site":"New York (Demo)","activeEffectiveDate":"2015-03-03","directReports":null,"secondLevelManager":"3145813528661721978","daysOfPreviousService":0,"yearsOfService":8.545},"/payroll/employment/weeklyHours":{"value":45},"/root/creationDateTime":{"value":"2023-07-13T06:37:04.94395"},"avatarUrl":"https://media-process.hibob.com/image/upload/v1/hibob/demo-avatar/demo_employee/images/UiRYuQQyDc4sLbYzFFtN_59.jpg?__cld_token__=exp=4795680381~acl=*%2fhibob%2fdemo-avatar%2fdemo_employee%2fimages%2fUiRYuQQyDc4sLbYzFFtN_59.jpg*~hmac=07e5aff698027029ebbb4d8cb067db044ec46a86f9bf71430c53cc590f9c07a6","secondName":null,"/work/startDate":{"value":"2015-03-03"},"about":{"foodPreferences":[],"socialData":{"linkedin":null,"twitter":null,"facebook":null},"superpowers":["proof reading"],"hobbies":["theatre","film","music"],"about":"I dont have a life story, my story is my life ","avatar":"https://media-process.hibob.com/image/upload/v1/hibob/demo-avatar/demo_employee/images/UiRYuQQyDc4sLbYzFFtN_59.jpg?__cld_token__=exp=4795680381~acl=*%2fhibob%2fdemo-avatar%2fdemo_employee%2fimages%2fUiRYuQQyDc4sLbYzFFtN_59.jpg*~hmac=07e5aff698027029ebbb4d8cb067db044ec46a86f9bf71430c53cc590f9c07a6"},"/root/fullName":{"value":"Anna Gibbons"},"/payroll/employment/contract":{"value":"Full time"},"/payroll/employment/actualWorkingPattern":{"value":{"workingPatternType":"partial_week","days":{"sunday":false,"tuesday":true,"wednesday":true,"monday":true,"friday":true,"thursday":true,"saturday":false},"hoursPerDay":9,"workingPatternId":null}},"companyId":632127,"/root/coverImageUrl":{"value":"https://media-process.hibob.com/image/upload/v1/hibob/public-image/cover/default_cover_image.png?token=X19jbGRfdG9rZW5fXz1leHA9NDg0OTgzNjczOX5hY2w9KiUyZmhpYm9iJTJmcHVibGljLWltYWdlJTJmY292ZXIlMmZkZWZhdWx0X2NvdmVyX2ltYWdlLnBuZyp+aG1hYz0zMjY3NjE4ZDQ1MzZjZjE3MWFiM2Y2MzJlY2JmZmQ5MWZkYTRmY2FmOGY3MDExYjllNmZlZTI4Njc0MzZlN2M5&vendor=cloudinary"},"/work/secondLevelManager":{"value":"3145813528661721978"},"/work/yearsOfService":{"value":8.545},"/work/daysOfPreviousService":{"value":0},"/about/about":{"value":"I dont have a life story, my story is my life "},"/root/avatarUrl":{"value":"https://media-process.hibob.com/image/upload/v1/hibob/demo-avatar/demo_employee/images/UiRYuQQyDc4sLbYzFFtN_59.jpg?__cld_token__=exp=4795680381~acl=*%2fhibob%2fdemo-avatar%2fdemo_employee%2fimages%2fUiRYuQQyDc4sLbYzFFtN_59.jpg*~hmac=07e5aff698027029ebbb4d8cb067db044ec46a86f9bf71430c53cc590f9c07a6"},"/root/surname":{"value":"Gibbons"},"/work/shortStartDate":{"value":"03-03"},"/work/activeEffectiveDate":{"value":"2015-03-03"},"/root/id":{"value":"3145813590838084494"},"email":"anna.gibbons_632127@samplebob.com","/work/manager":{"value":"3145813558047015811"},"surname":"Gibbons","/work/reportsTo":{"value":{"displayName":"Joshua Tyler","email":"joshua.tyler_632127@samplebob.com","surname":"Tyler","firstName":"Joshua","id":"3145813558047015811"}},"/root/displayName":{"value":"Anna Gibbons"},"/root/companyId":{"value":632127},"/payroll/employment/fte":{"value":100},"/work/department":{"value":"Sales"},"/work/isManager":{"value":false},"/work/custom/field_1693264337015":{"value":580192},"/work/reportsToIdInCompany":{"value":27},"/work/tenureDuration":{"value":{"periodISO":"P8Y6M16D","sortFactor":3076,"humanize":"8 years, 6 months and 16 days"}},"coverImageUrl":"https://media-process.hibob.com/image/upload/v1/hibob/public-image/cover/default_cover_image.png?token=X19jbGRfdG9rZW5fXz1leHA9NDg0OTgzNjczOX5hY2w9KiUyZmhpYm9iJTJmcHVibGljLWltYWdlJTJmY292ZXIlMmZkZWZhdWx0X2NvdmVyX2ltYWdlLnBuZyp+aG1hYz0zMjY3NjE4ZDQ1MzZjZjE3MWFiM2Y2MzJlY2JmZmQ5MWZkYTRmY2FmOGY3MDExYjllNmZlZTI4Njc0MzZlN2M5&vendor=cloudinary","/about/superpowers":{"value":["proof reading"]},"/work/siteId":{"value":2477371},"id":"3145813590838084494","firstName":"Anna","/work/durationOfEmployment":{"value":{"periodISO":"P8Y6M16D","sortFactor":3076,"humanize":"8 years, 6 months and 16 days"}}}]}'
       description: |-
         The Forward API allows you to make direct requests to an employment system. If Finch’s unified API
         doesn’t have a data model that cleanly fits your needs, then Forward allows you to push or pull
@@ -872,6 +872,230 @@ paths:
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
+  /sandbox/connections:
+    post:
+      summary: Create a new Sandbox Connection
+      operationId: post-sandbox-connections
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  company_id:
+                    type: string
+                    x-stoplight:
+                      id: kv6fgmbo2gqh1
+                    format: uuid
+                  provider_id:
+                    type: string
+                    x-stoplight:
+                      id: ojfhoewcu8cfi
+                    format: uuid
+                  account:
+                    type: object
+                    x-stoplight:
+                      id: feqdw8zn2h8v5
+                    required:
+                      - account_id
+                      - authentication_type
+                      - products
+                      - access_token
+                    properties:
+                      account_id:
+                        type: string
+                        x-stoplight:
+                          id: tp65hkvb7kuyk
+                        format: uuid
+                      authentication_type:
+                        type: string
+                        x-stoplight:
+                          id: ui03urttdudm3
+                      products:
+                        type: array
+                        x-stoplight:
+                          id: kq4cjkrezzk1w
+                        items:
+                          x-stoplight:
+                            id: e78ioolzop4re
+                          type: string
+                      access_token:
+                        type: string
+                        x-stoplight:
+                          id: 7i8dxjftj0fd3
+                        format: uuid
+                required:
+                  - company_id
+                  - provider_id
+                  - account
+      x-stoplight:
+        id: prx8dxxl61uzs
+      description: Create a new connection (new company/provider pair) with a new account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                provider_id:
+                  type: string
+                  x-stoplight:
+                    id: uun3x0odjceio
+                account:
+                  type: object
+                  x-stoplight:
+                    id: 0ztvp3xl2n5z7
+                  description: 'Optional. If not provided, a default Oauth account with Organization scopes will be created'
+                  properties:
+                    authentication_type:
+                      type: string
+                      x-stoplight:
+                        id: iewin6olagru6
+                    products:
+                      type: array
+                      x-stoplight:
+                        id: f7i64upr7we78
+                      items:
+                        x-stoplight:
+                          id: uwskmkcmv8set
+                        type: string
+                employer_size:
+                  type: integer
+                  x-stoplight:
+                    id: 3rhgbz7ot0lxv
+                  description: 'Optional: the size of the employer to be created with this connection. Defaults to 20   '
+              required:
+                - provider_id
+      tags:
+        - Sandbox
+  '/sandbox/connections/accounts/{account_id}':
+    post:
+      summary: Create a new sandbox account
+      operationId: post-sandbox-connections-accounts
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account_id:
+                    type: string
+                    x-stoplight:
+                      id: mcvmwla5cba05
+                    format: uuid
+                  authentication_type:
+                    type: string
+                    x-stoplight:
+                      id: y426otluxa4od
+                  company_id:
+                    type: string
+                    x-stoplight:
+                      id: 1p5kihnqf1jf0
+                    format: uuid
+                  provider_id:
+                    type: string
+                    x-stoplight:
+                      id: y0ypgpa5dueh3
+                  products:
+                    type: array
+                    x-stoplight:
+                      id: fwvam102bpoq9
+                    items:
+                      x-stoplight:
+                        id: 5xucktm15atw8
+                      type: string
+                  access_token:
+                    type: string
+                    x-stoplight:
+                      id: kqh1a21inu49j
+                    format: uuid
+      x-stoplight:
+        id: oa8w9ocdh7gxy
+      description: Create a new account for an existing connection (company/provider pair)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company_id:
+                  type: string
+                  x-stoplight:
+                    id: bxiqn7ui5ziyk
+                  format: uuid
+                provider_id:
+                  type: string
+                  x-stoplight:
+                    id: 8xrj1z96wb9o5
+                  format: uuid
+                authentication_type:
+                  type: string
+                  x-stoplight:
+                    id: 68yx6pv2yab8f
+                  description: 'Optional, defaults to `oauth`'
+                products:
+                  type: array
+                  x-stoplight:
+                    id: xs1otbzss1wzy
+                  description: 'Optional, defaults to Organization products (`company`, `directory`, `employment`, `individual`)'
+                  items:
+                    x-stoplight:
+                      id: o5i9uqxupj0vy
+                    type: string
+              required:
+                - company_id
+                - provider_id
+      tags:
+        - Sandbox
+    put:
+      summary: Update an existing sandbox account
+      operationId: put-sandbox-connections-accounts
+      responses:
+        '200':
+          description: OK
+        '':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account_id:
+                    type: string
+                    x-stoplight:
+                      id: buoj1a5gy6slt
+                  connection_status:
+                    type: string
+                    x-stoplight:
+                      id: 4qzzqi40r7hm2
+                  '':
+                    type: string
+                    x-stoplight:
+                      id: smaoct33tgjcf
+      x-stoplight:
+        id: wk9wnu9bgis63
+      description: Update the connection status for an account.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                connection_status:
+                  type: string
+                  x-stoplight:
+                    id: hwvxy7kwlf0bq
+      tags:
+        - Sandbox
+    parameters:
+      - schema:
+          type: string
+        name: account_id
+        in: path
+        required: true
 components:
   schemas:
     Paging:
