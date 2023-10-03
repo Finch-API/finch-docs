@@ -15,8 +15,6 @@ paths:
   /providers:
     get:
       summary: Providers
-      tags:
-        - 4. Management
       responses:
         '200':
           description: OK
@@ -244,8 +242,6 @@ paths:
   /introspect:
     get:
       summary: Introspect
-      tags:
-        - 4. Management
       responses:
         '200':
           description: OK
