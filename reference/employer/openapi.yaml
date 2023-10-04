@@ -511,7 +511,7 @@ paths:
                           custom_fields:
                             - name: tShirtSize
                               value: L
-                          source_id: "000001"
+                          source_id: '000001'
               schema:
                 type: object
                 properties:
@@ -1582,7 +1582,7 @@ paths:
           `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points
           `catch_up`| `boolean` | Whether to enable catch up for this individual.
           `annual_maximum`| `integer` (`nullable`) | The annual maximum in cents for this individual.
-          `annual_contribution_limit` | `string` | `individual` or `family`
+          `annual_contribution_limit` | `string` (`nullable`) | `individual` or `family`
           `effective_date` | `string` (`nullable`) | The date which the benefit should take effect by. **This field is currently only available for assisted benefits.**
 
           ***
