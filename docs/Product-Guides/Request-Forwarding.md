@@ -109,7 +109,7 @@ Response:
 }
 ```
 
-**Step 2:** Using the individual's unique ID, make a request to Finch's /employment endpoint to gather holistic detail on their employment.
+**Step 2:** Using the individual's unique ID, make a request to Finch's /employment endpoint to gather holistic details of their employment.
 
 Request:
 
