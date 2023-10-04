@@ -222,8 +222,6 @@ Response:
         "x-is-shadow": "false",
         "vary": "Accept-Encoding, Origin",
         "cache-control": "no-cache, private",
-        "authorization": "Bearer papi-BPzkN1v8FufvCBidgBhh4GqI1BDfjkXRevmNo8GM1s-BCPGj2LJn1QEs8xOF2pKBhGfOI2pr5-UmimqDN6PyLw-MTI0Mzc0",
-        "x-frame-options": "DENY",
         "content-security-policy": "frame-ancestors 'none'",
         "strict-transport-security": "max-age=31536000",
         "x-xss-protection": "1; mode=block",
