@@ -54,7 +54,7 @@ API documentation for the systems that are currently supported by Request Forwar
 * **TriNet**: [API Documentation](https://developers.trinet.com/explore-trinet-apis)
 * **UKG Pro:** [API Documentation](https://developer.ukg.com/hcm/reference/welcome-to-the-pro-developer-hub)
 
-### Usage Example of Request Forwarding
+### Example Usage
 
 A simple example use case for using Request Forwarding is to access the termination details for an inactive individual in an HRIS system. Finch's [/employment data model](https://developer.tryfinch.com/docs/reference/1ba5cdec4c979-employment) includes information related to an individual's employment, such as their name, title, department, start and end date, and employment status, but does not include information specific to their termination, such as the reason for their termination.
 
