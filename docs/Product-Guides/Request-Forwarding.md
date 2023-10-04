@@ -245,4 +245,4 @@ The /forward API response includes details of the original `request`, alongside 
 }
 ```
 
-To recap, we've illustrated an example of how to use Request Forwarding to complement Finch's standardized data models, providing you with the most comprehensive view of the data you need, without having to incur the burden of managing an additional integration, all using a single Finch access token.
+To recap, we've illustrated an example of how to use Request Forwarding to complement Finch's standardized data models, providing you with the most comprehensive view of the data you need, without having to incur the burden of managing an additional integration, all using a single Finch access token!
