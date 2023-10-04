@@ -79,20 +79,6 @@ Response:
     },
     "individuals": [
         {
-            "id": "ed535ff8-6f61-4756-8cb9-edba67c87766",
-            "first_name": "Yajaira",
-            "last_name": "Borton",
-            "middle_name": null,
-            "department": {
-                "name": "HR"
-            },
-            "manager": {
-                "id": "03ab76b5-d158-4c7f-aaf6-a82894e66790"
-            },
-            "is_active": true
-        },
-        [...]
-        {
             "id": "51834db6-94e4-4e34-bc5d-76bc8456fb55",
             "first_name": "Myriam",
             "last_name": "Smith",
@@ -104,6 +90,20 @@ Response:
                 "id": "8b59db87-1b44-4a84-82f4-763885e2b99b"
             },
             "is_active": false
+        },
+        [...],
+        {
+            "id": "ed535ff8-6f61-4756-8cb9-edba67c87766",
+            "first_name": "Yajaira",
+            "last_name": "Borton",
+            "middle_name": null,
+            "department": {
+                "name": "HR"
+            },
+            "manager": {
+                "id": "03ab76b5-d158-4c7f-aaf6-a82894e66790"
+            },
+            "is_active": true
         }
     ]
 }
