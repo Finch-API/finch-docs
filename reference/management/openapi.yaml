@@ -739,7 +739,7 @@ paths:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
       description: |-
-        Enqueue an automated job. Currently, only the `data-sync-all` job type is supported, which will enqueue a job to re-sync all data for a connection. `data-sync-all` has a concurrency limit of 1 job at a time per connection. This means that if this endpoint is called while a job is already in progress for this connection, Finch will return the `job_id` of the job that is currently in progress. Finch allows a fixed window rate limit of 1 forced refresh per hour per connection.
+        Enqueue an automated job. Currently, only the `data_sync_all` job type is supported, which will enqueue a job to re-sync all data for a connection. `data_sync_all` has a concurrency limit of 1 job at a time per connection. This means that if this endpoint is called while a job is already in progress for this connection, Finch will return the `job_id` of the job that is currently in progress. Finch allows a fixed window rate limit of 1 forced refresh per hour per connection.
 
         This endpoint is available for *Scale* tier customers as an add-on. To request access to this endpoint, please contact your Finch account manager.
       requestBody:
@@ -752,7 +752,7 @@ paths:
                   type: string
                   description: The type of job to start. Currently the only supported type is `data_sync_all`
                   enum:
-                    - data-sync-all
+                    - data_sync_all
               required:
                 - type
           application/xml:
