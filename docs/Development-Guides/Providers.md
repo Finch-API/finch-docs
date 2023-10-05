@@ -27,7 +27,7 @@ Finch’s most popular providers and supported products.
 | Namely | `namely` |  <span style="color:darkgreen">Automated</span> | Upon Request | Upon Request |
 | Paychex Flex | `paychex_flex` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> |
 | Paycom | `paycom` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | Upon Request |
-| Paycor | `paycor` |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> | Upon Request |
+| Paycor | `paycor` |  <span style="color:darkgreen">Automated</span> | <span style="color:darkgreen">Automated</span> | Upon Request |
 | Paylocity | `paylocity` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> |
 | Personio | `personio` |  <span style="color:darkgreen">Automated</span> | N/A | N/A |
 | QuickBooks Payroll | `quickbooks` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> |
