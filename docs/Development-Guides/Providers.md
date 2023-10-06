@@ -26,7 +26,7 @@ Finch’s most popular providers and supported products.
 | Justworks | `justworks` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> |
 | Namely | `namely` |  <span style="color:darkgreen">Automated</span> | Upon Request | Upon Request |
 | Paychex Flex | `paychex_flex` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> |
-| Paycom | `paycom` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | Upon Request |
+| Paycom | `paycom` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> |
 | Paycor | `paycor` |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> | Upon Request |
 | Paylocity | `paylocity` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> |
 | Personio | `personio` |  <span style="color:darkgreen">Automated</span> | N/A | N/A |
@@ -175,7 +175,7 @@ greytHR | `greyt_hr` | <span style="color:goldenrod">Assisted</span> | Upon Requ
 | Paragon Payroll iSolved | `paragon_payroll_isolved` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Patriot | `patriot` | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span> | <span style="color:goldenrod">Assisted</span> |
 | Paychex Flex | `paychex_flex` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> |
-| Paycom | `paycom` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | Upon Request |
+| Paycom | `paycom` |  <span style="color:darkgreen">Automated</span> |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> |
 | Paycor | `paycor` |  <span style="color:darkgreen">Automated</span> | <span style="color:goldenrod">Assisted</span> | Upon Request |
 | Payday Workforce Solutions | `payday_workforce_solutions` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
 | Payentry | `payentry` | <span style="color:goldenrod">Assisted</span> | Upon Request | Upon Request
