@@ -1,5 +1,5 @@
 openapi: 3.0.0
-info: 
+info:
   title: Management API Reference
   version: '2020-09-17'
   contact: {}
@@ -67,8 +67,8 @@ paths:
                       products:
                         - company
                         - directory
-                      icon: 'https://finch-logos.s3.us-west-2.amazonaws.com/gustoIcon.png'
-                      logo: 'https://finch-logos.s3.us-west-2.amazonaws.com/gustoLogo.png'
+                      icon: 'https://finch-assets.s3.us-west-2.amazonaws.com/provider-logos/gustoIcon.png'
+                      logo: 'https://finch-assets.s3.us-west-2.amazonaws.com/provider-logos/gustoLogo.png'
                       mfa_required: true
                       primary_color: '#f45d47'
                       authentication_methods:
