@@ -157,7 +157,7 @@
     },
     {
       "type": "item",
-      "title": "Webhooks (beta)",
+      "title": "Webhooks",
       "uri": "docs/Development-Guides/Webhooks.md"
     },
     {
