@@ -56,7 +56,9 @@ API documentation for the systems that are currently supported by Request Forwar
 
 ### Example Usage
 
-A simple example use case for using Request Forwarding is to access the termination details for an inactive individual in an HRIS system. Finch's [/employment](https://developer.tryfinch.com/docs/reference/1ba5cdec4c979-employment) data model includes information related to an individual's employment, such as their name, title, department, start and end date, and employment status, but does not include information specific to their termination, such as the reason for their termination.
+Let's walk through a simple example use case for Request Forwarding.
+
+Let's say you want to access the termination details for an inactive individual in an HRIS system. Finch's [/employment](https://developer.tryfinch.com/docs/reference/1ba5cdec4c979-employment) data model includes information related to an individual's employment, such as their name, title, department, start and end date, and employment status, but does not include information specific to their termination, such as the reason for their termination.
 
 In this example, we illustrate how to use Request Forwarding with an active **Personio** connection to access the **termination reason** for an inactive individual by the name of **Myriam Smith**.
 
