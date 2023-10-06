@@ -62,7 +62,7 @@ Let's say you want to access the termination details for an inactive individual 
 
 In this example, we illustrate how to use Request Forwarding with an active **Personio** connection to access the **termination reason** for an inactive individual by the name of **Myriam Smith**.
 
-**Step 1:** Make a request to Finch's /directory endpoint to gather details of this company's employee directory.
+**Step 1:** Make a request to Finch's **/directory** endpoint to gather details of this company's employee directory.
 
 Request:
 ```bash
@@ -111,7 +111,7 @@ Response:
 }
 ```
 
-**Step 2:** Given the individual's unique ID, make a request to Finch's /employment endpoint to gather holistic details of their employment.
+**Step 2:** Given the individual's unique ID, make a request to Finch's **/employment** endpoint to gather holistic details of their employment.
 
 Request:
 
@@ -185,7 +185,7 @@ Response:
 }
 ```
 
-**Step 3:** Given the `source_id` field in Finch's /employment response, use Request Forwarding ([/forward](https://developer.tryfinch.com/docs/reference/dwnn4o21afzyr-request-forwarding)) to access additional details directly from Personio's API, including this individual's `termination_reason`.
+**Step 3:** Given the `source_id` field in Finch's /employment response, use the **/forward** endpoint to access additional details directly from Personio's API, including this individual's `termination_reason`.
 
 Request:
 
