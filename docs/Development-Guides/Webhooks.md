@@ -23,11 +23,11 @@ Webhook endpoints should use HTTPS and expect to receive POST requests with the 
 
 You can register webhooks via the [developer dashboard](https://dashboard.tryfinch.com/).
 
-![Screen Shot 2023-07-26 at 2.37.15 PM.png](<../../assets/images/createWebhook.png>)
+![Screen Shot 2023-07-26 at 2.37.15 PM.png](<../../assets/images/webhooksCreate.png>)
 
 After registering a webhook, you will be provided with a webhook secret. This secret can be used to validate that the webhooks you receive were sent by Finch.
 
-![Screen Shot 2023-07-26 at 2.40.47 PM.png](<../../assets/images/webhookSecret.png>)
+![Screen Shot 2023-07-26 at 2.40.47 PM.png](<../../assets/images/webhooksSecret.png>)
 
 This secret will only be displayed once, so we recommend you store it as soon as you receive it. See the Webhook Verification section for more details.
 
@@ -403,7 +403,7 @@ public class FinchWebhookVerifier {
 
 You can send a test request to any webhook through the developer dashboard.
 
-![Screen Shot 2022-08-31 at 4.18.15 PM.png](../../assets/images/testWebhook.png)
+![Screen Shot 2022-08-31 at 4.18.15 PM.png](../../assets/images/webhooksTest.png)
 
 
 The test webhook will include the same structure as data update webhooks, with the `event_type` set to `test`
