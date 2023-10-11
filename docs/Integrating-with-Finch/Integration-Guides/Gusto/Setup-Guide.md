@@ -28,7 +28,14 @@ The remainder of this page outlines these steps in greater detail.
 
 **[5 minutes]**
 
-Gusto requires that all developers be set up in their Developer Portal. Finch offers a managed service by default where we will create and manage your DevPortal "organization" - all you need to do is [sign up for a DevPortal account](https://dev.gusto.com/accounts/sign_up) and we’ll take it from there. Please reach out to your Success manager or developers@tryfinch.com if you have any questions.
+Gusto requires that all developers be set up in their Developer Portal. Finch offers a managed service by default where we will create and manage your DevPortal "organization" - all you need to do is [sign up for a DevPortal account](https://dev.gusto.com/accounts/sign_up) and we’ll take it from there.
+
+If you are prompted to create an organization, select "I am joining an existing developer organization".
+![gusto-create-org-prompt.png](<../../../../assets/images/gusto-create-org-prompt.png>)
+
+
+
+Please reach out to your Success manager or developers@tryfinch.com if you have any questions.
 
 <!--
 focus: false
