@@ -1,7 +1,5 @@
 # Rate Limits
 
-Finch will return a rate limit error with the HTTP status code 429 when the request rate limit for an application, access token, or an individual IP address has been exceeded.
-
 Finch's rate limits work on a per-endpoint basis for applications, and we refer to each distinct endpoint as a unique `product`. Rate limits are summed on a rolling 60-second basis for each unique `product`. This is commonly referred to as a Sliding or Rolling Window rate limit.
 
 <!-- theme: info -->
