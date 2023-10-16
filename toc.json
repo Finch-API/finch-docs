@@ -1,5 +1,20 @@
 {
+  "collapseTableOfContents": true,
   "items": [
+    {
+      "type": "divider",
+      "title": "APIs"
+    },
+    {
+      "type": "item",
+      "title": "HRIS",
+      "uri": "reference/employer/openapi.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Management",
+      "uri": "reference/management/openapi.yaml"
+    },
     {
       "type": "divider",
       "title": "Development Guides"
@@ -44,20 +59,6 @@
           "uri": "docs/Development-Guides/Errors/Error-Handling.md"
         }
       ]
-    },
-    {
-      "type": "divider",
-      "title": "APIs"
-    },
-    {
-      "type": "item",
-      "title": "HRIS",
-      "uri": "reference/employer/openapi.yaml"
-    },
-    {
-      "type": "item",
-      "title": "Management",
-      "uri": "reference/management/openapi.yaml"
     }
   ]
 }

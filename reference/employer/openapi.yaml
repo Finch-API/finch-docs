@@ -3,7 +3,7 @@ info:
   title: HRIS API Reference
   version: '2020-09-17'
   contact: {}
-  description: |-
+  description: |
     The Finch HRIS API provides a unified way to connect to a multitide of HRIS systems. The API requires an access token issued by Finch.
 
     By default, Organization and Payroll requests use Finch's [Data Syncs](docs/Development-Guides/Data-Syncs.md). If a request is made before the initial sync has completed, Finch will request data live from the provider. The latency on live requests may range from seconds to minutes depending on the provider and batch size.
