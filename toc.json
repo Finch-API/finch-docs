@@ -6,11 +6,6 @@
     },
     {
       "type": "item",
-      "title": "Redirect URIs",
-      "uri": "docs/Development-Guides/Redirect-URIs.md"
-    },
-    {
-      "type": "item",
       "title": "Permissions",
       "uri": "docs/Development-Guides/Permissions.md"
     },
