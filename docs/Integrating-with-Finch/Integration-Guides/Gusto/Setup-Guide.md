@@ -4,4 +4,4 @@ stoplight-id: laumymk97efgi
 
 This page has moved!
 
-Please visit https://developer.tryfinch.com/docs/documentation/f64jid5ncbsn5-gusto instead.
+Please visit https://developer.tryfinch.com/docs/documentation/mjhvwfixk48yq-gusto-onboarding-and-migration-guide instead.
