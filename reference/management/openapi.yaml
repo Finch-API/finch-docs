@@ -1108,7 +1108,6 @@ components:
               type: boolean
             department:
               type: boolean
-              nullable: true
             manager:
               type: object
               properties:
