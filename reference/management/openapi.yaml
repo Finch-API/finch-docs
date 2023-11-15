@@ -1226,9 +1226,9 @@ components:
               type: boolean
         manager:
           type: object
-              properties:
-                id:
-                  type: boolean
+          properties:
+            id:
+              type: boolean
     SupportedPaymentFields:
       type: object
       properties:
