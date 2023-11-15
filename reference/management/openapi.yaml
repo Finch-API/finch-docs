@@ -1225,8 +1225,10 @@ components:
             country:
               type: boolean
         manager:
-          type: boolean
-          nullable: true
+          type: object
+              properties:
+                id:
+                  type: boolean
     SupportedPaymentFields:
       type: object
       properties:
