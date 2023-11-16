@@ -373,6 +373,9 @@ paths:
                             ssn:
                               type: string
                               description: 'Social Security number of the individual. This field is only available with the `ssn` scope enabled and the `options: { include: [''ssn''] }` param set in the body.'
+                            encrypted_ssn:
+                              type: string
+                              description: 'Social Security number of the individual in **encrypted** format. This field is only available with the `ssn` scope enabled and the `options: { include: [''ssn''] }` param set in the body.'
                             residence:
                               $ref: '#/components/schemas/Location'
               examples:
