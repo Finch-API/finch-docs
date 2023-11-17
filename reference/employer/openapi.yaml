@@ -1186,7 +1186,7 @@ paths:
         <!-- theme: warning -->
         > This endpoint is now deprecated. The existing fields on this endpoint will continue to be updated, but no new fields will be added. Please use `authentication_methods[].benefits_support` on `/providers` instead.
 
-        **Availability: Automated and Assisted Benefits providers**
+        **Availability: Automated and Assisted providers**
 
         Lists available types and configurations for the provider associated with the access token.
       parameters:
@@ -1223,9 +1223,9 @@ paths:
           $ref: '#/components/responses/NotImplemented'
       operationId: get-company-benefit
       description: |-
-        **Availability: Automated Benefits providers only**
+        **Availability: Automated providers only**
 
-        Lists benefit information for a given benefit
+        Lists deductions and contributions information for a given item
 
         This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider.
       parameters:
@@ -1258,9 +1258,9 @@ paths:
         '501':
           $ref: '#/components/responses/NotImplemented'
       description: |-
-        **Availability: Automated and Assisted Benefits providers**
+        **Availability: Automated and Assisted providers**
 
-        Updates an existing company-wide benefit
+        Updates an existing company-wide deduction or contribution
 
         This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider.
       requestBody:
@@ -1320,9 +1320,9 @@ paths:
           $ref: '#/components/responses/NotImplemented'
       operationId: get-company-benefits-enrolled
       description: |-
-        **Availability: Automated Benefits providers only**
+        **Availability: Automated providers only**
 
-        Lists individuals currently enrolled in a given benefit.
+        Lists individuals currently enrolled in a given deduction.
 
         This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
       parameters:
@@ -1372,9 +1372,9 @@ paths:
           $ref: '#/components/responses/NotImplemented'
       operationId: get-individual-benefits
       description: |-
-        **Availability: Automated Benefits providers only**
+        **Availability: Automated providers only**
 
-        Get enrolled benefit information for the given individuals.
+        Get enrollment information for the given individuals.
 
         This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
       parameters:
@@ -1495,14 +1495,14 @@ paths:
         '501':
           $ref: '#/components/responses/NotImplemented'
       description: |
-        **Availability: Automated and Assisted Benefits providers**
+        **Availability: Automated and Assisted providers**
 
-        Enroll an individual into a benefit. This is an overwrite operation. If the employee is already enrolled, the enrollment amounts will be adjusted. Making the same request multiple times will not enroll new benefits, but will continue to set the state of the existing enrollment.
+        Enroll an individual into a deduction or contribution. This is an overwrite operation. If the employee is already enrolled, the enrollment amounts will be adjusted. Making the same request multiple times will not create new enrollments, but will continue to set the state of the existing enrollment.
 
         This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
 
         <!-- theme: warning -->
-        > Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
+        > Making changes to an individual's deductions may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
       tags:
         - 3. Benefits
       requestBody:
@@ -1656,9 +1656,9 @@ paths:
         '501':
           $ref: '#/components/responses/NotImplemented'
       description: |-
-        **Availability: Automated and Assisted Benefits providers**
+        **Availability: Automated and Assisted providers**
 
-        Unenroll individuals from a benefit
+        Unenroll individuals from a deduction or contribution
 
         This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider.
       requestBody:
