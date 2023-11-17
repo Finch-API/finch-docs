@@ -1026,11 +1026,11 @@ paths:
           $ref: '#/components/responses/NotImplemented'
       operationId: get-company-benefits
       description: |-
-        **Availability: Automated Benefits providers only**
+        **Availability: Automated providers only**
 
-        List all company-wide benefits.
+        List all company-wide deductions and contributions.
 
-        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of items.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     post:
@@ -1081,11 +1081,11 @@ paths:
         '501':
           $ref: '#/components/responses/NotImplemented'
       description: |-
-        **Availability: Automated and Assisted Benefits providers**
+        **Availability: Automated and Assisted providers**
 
-        Creates a new company-wide benefit. Please use the `/meta` endpoint to view available types for each provider.
+        Creates a new company-wide deduction or contribution. Please use the `/meta` endpoint to view available types for each provider.
 
-        If the same request is made more than once with the same `benefit_type` and `description`, a new benefit will not be created. Finch will instead return the benefit id of the existing benefit.
+        If the same request is made more than once with the same `benefit_type` and `description`, a new item will not be created. Finch will instead return the `benefit_id` of the existing item.
 
         This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
       requestBody:
