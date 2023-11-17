@@ -373,6 +373,7 @@ paths:
                             ssn:
                               type: string
                               description: 'Social Security Number of the individual. This field is only available with the `ssn` scope enabled and the `options: { include: [''ssn''] }` param set in the body.'
+                              nullable: true
                             encrypted_ssn:
                               type: string
                               description: 'Social Security Number of the individual in **encrypted** format. This field is only available with the `ssn` scope enabled and the `options: { include: [''ssn''] }` param set in the body.'
