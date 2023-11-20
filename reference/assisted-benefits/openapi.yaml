@@ -1,4 +1,5 @@
 openapi: 3.0.0
+x-internal: true
 x-stoplight:
   id: qfaj92h0w3cut
 info:
