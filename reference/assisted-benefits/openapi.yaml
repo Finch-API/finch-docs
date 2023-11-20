@@ -1,9 +1,8 @@
 openapi: 3.0.0
 x-stoplight:
-  id: 6ab4c7a339d29
-x-internal: true
+  id: qfaj92h0w3cut
 info:
-  title: Assisted Benefits
+  title: HRIS API Reference
   version: '2020-09-17'
   contact: {}
   description: |
@@ -38,8 +37,6 @@ tags:
   - name: 3. Benefits
 paths:
   /employer/company:
-    x-stoplight:
-      id: 3c4nrzk6kia81
     get:
       description: Read basic company data
       responses:
@@ -187,7 +184,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/API-Version'
       x-stoplight:
-        id: q67q4hvnh3hv3
+        id: 1njnq6z3zj3eu
   /employer/directory:
     get:
       description: Read company directory and organization structure
@@ -279,7 +276,7 @@ paths:
       tags:
         - 1. Organization
       x-stoplight:
-        id: f4kxf0k5d1efp
+        id: 3gp3ofwdmdyhv
   /employer/individual:
     post:
       description: 'Read individual data, excluding income and employment data'
@@ -465,7 +462,7 @@ paths:
                       - ssn
         description: ''
       x-stoplight:
-        id: sywo9rfdbwusc
+        id: loa5zkdj62x2m
   /employer/employment:
     post:
       description: |-
@@ -652,7 +649,7 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/Individual-Ids'
       x-stoplight:
-        id: 7oz4ayydklusg
+        id: p3itu81dpmkve
   /employer/payment:
     get:
       description: Read payroll and contractor related payments by the company.
@@ -752,7 +749,7 @@ paths:
       tags:
         - 2. Payroll
       x-stoplight:
-        id: 81jwr3dg2s9h5
+        id: 2mlctlk5vkceo
   /employer/pay-statement:
     post:
       description: |-
@@ -1018,7 +1015,7 @@ paths:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
       x-stoplight:
-        id: 1casvr1th6b8r
+        id: 6803myvdiecao
   /employer/benefits:
     get:
       summary: Get All Benefits
@@ -1056,7 +1053,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/API-Version'
       x-stoplight:
-        id: 48jhdviam9imj
+        id: 3m14oa6lxq584
     post:
       summary: Create Benefit
       operationId: post-company-benefits
@@ -1130,7 +1127,7 @@ paths:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
       x-stoplight:
-        id: 10vxvmvm1i3tj
+        id: 07gjv57sxbqh7
     parameters: []
   /employer/benefits/meta:
     get:
@@ -1218,7 +1215,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/API-Version'
       x-stoplight:
-        id: 8xli3bwv6415q
+        id: acrlhnm5sw2mx
     parameters: []
   '/employer/benefits/{benefit_id}':
     get:
@@ -1259,7 +1256,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/API-Version'
       x-stoplight:
-        id: rm5kjezbmyxo7
+        id: 7cpkd6rbon5qu
     post:
       summary: Update Benefit
       operationId: update-company-benefits
@@ -1308,7 +1305,7 @@ paths:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
       x-stoplight:
-        id: 2xo3ju6bv7ios
+        id: qdj0wg4qm7tgh
     parameters:
       - schema:
           type: string
@@ -1360,7 +1357,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/API-Version'
       x-stoplight:
-        id: k040edwvoawq3
+        id: 5cq979pdk2vwu
     parameters:
       - schema:
           type: string
@@ -1421,7 +1418,7 @@ paths:
           name: individual_ids
           description: 'comma-delimited list of stable Finch uuids for each individual. If empty, defaults to all individuals'
       x-stoplight:
-        id: 6b48tfymyht8t
+        id: hv1tgn06t2rum
     post:
       summary: Enroll Individuals in Benefits
       operationId: post-employer-individual-benefits-benefit_id
@@ -1636,7 +1633,7 @@ paths:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
       x-stoplight:
-        id: 4rwax3cwvuybz
+        id: s8q3gsrobqklj
     delete:
       summary: Unenroll Individuals from Benefits
       operationId: delete-individual-benefits
@@ -1717,7 +1714,7 @@ paths:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
       x-stoplight:
-        id: j9blphtnhjqyq
+        id: 2bw7fbt8fztyx
     parameters:
       - schema:
           type: string
@@ -1825,7 +1822,7 @@ components:
           description: The 2-letter ISO 3166 country code.
           nullable: true
       x-stoplight:
-        id: e7msbuztmpr6y
+        id: oi7azlqu4nll6
     Income:
       title: Income
       type: object
@@ -1860,8 +1857,6 @@ components:
           type: string
           description: The date the income amount went into effect.
           nullable: true
-      x-stoplight:
-        id: zk7jju59s87be
     Money:
       title: Money
       type: object
@@ -1876,8 +1871,6 @@ components:
         currency:
           type: string
           nullable: true
-      x-stoplight:
-        id: ljelnrfc36l2f
     Paging:
       title: Paging
       type: object
@@ -1891,14 +1884,12 @@ components:
       x-tags:
         - Models
       x-stoplight:
-        id: ht6cv5hw7uuic
+        id: j411gpc7inn52
     Date:
       type: string
       title: Date
       pattern: '([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))'
       nullable: true
-      x-stoplight:
-        id: 7n6g7wfkrscpv
     BenefitType:
       type: string
       title: BenefitType
@@ -1928,7 +1919,7 @@ components:
         - Models
       nullable: true
       x-stoplight:
-        id: r59xuyipc1loi
+        id: vc89u827hy7qq
     BenefitFrequency:
       type: string
       title: BenefitFrequency
@@ -1939,7 +1930,7 @@ components:
         - Models
       nullable: true
       x-stoplight:
-        id: fct5s1ks1soyj
+        id: j5rl0l976sked
     BenefitContribution:
       title: BenefitContribution
       type: object
@@ -1960,7 +1951,7 @@ components:
           description: Contribution amount in cents (if `fixed`) or basis points (if `percent`).
           nullable: true
       x-stoplight:
-        id: d2zmnvchnyecy
+        id: 98k23kbgr2lov
     BenefitFeature:
       title: BenefitFeature
       type: object
@@ -2009,7 +2000,7 @@ components:
               - individual
               - family
       x-stoplight:
-        id: qhlw9kt02n12p
+        id: u195vgcmzs3xi
     CompanyBenefit:
       title: CompanyBenefit
       type: object
@@ -2024,7 +2015,7 @@ components:
         frequency:
           $ref: '#/components/schemas/BenefitFrequency'
       x-stoplight:
-        id: 0d9hyujf8nzyg
+        id: s04jx55nern6s
     IndividualBenefits:
       title: IndividualBenefits
       type: array
@@ -2059,7 +2050,7 @@ components:
                 description: Type for HSA contribution limit if the benefit is a HSA.
                 nullable: true
       x-stoplight:
-        id: xf143bfhzinaz
+        id: bcgzdoh1kv0gk
     Error:
       title: Error
       type: object
@@ -2084,11 +2075,11 @@ components:
           finch_code: individual_not_found
           message: Individual not found for benefit
       x-stoplight:
-        id: ja2ja22tat39u
+        id: 87gfiqq5395zx
     ManualAsyncJob:
       title: ManualAsyncJob
       x-stoplight:
-        id: 5csvifn3ays1g
+        id: pespa7nx6nktg
       type: object
       x-examples:
         Example 1:
