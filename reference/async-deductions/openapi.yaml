@@ -7,7 +7,7 @@ info:
   version: '2020-09-17'
   contact: {}
   description: |
-    This document outlines the API reference for Finch's asynchronous Benefits API endpoints. Intentionally, this document does not include detail for any GET endpoints,
+    This document outlines the API reference for Finch's asynchronous Benefits API, which is used for managing payroll deductions. All mutative operations, such as creating deduction and managing enrollments, are supported on this asynchronous API. For details on facilitating read operations, please refer to the [HRIS API Reference](https://developer.tryfinch.com/docs/reference/0c7c919255262-hris-api-reference) documentation.
     ***
 
     The Benefits APIs provide a unified way to connect with payroll systems to create and manage payroll deductions.
@@ -26,8 +26,6 @@ info:
     - `pay_statement`: Read detailed pay statements for each individual
 
     - `benefits`: Create and manage benefits and benefit enrollment within a company
-
-    [![Open in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/21027137-08db0929-883d-4094-a9ce-dbf5a9bee4a4?action=collection%2Ffork&collection-url=entityId%3D21027137-08db0929-883d-4094-a9ce-dbf5a9bee4a4%26entityType%3Dcollection%26workspaceId%3D1edf19bc-e0a8-41e9-ac55-481a4b50790b)
 servers:
   - url: 'https://api.tryfinch.com'
     description: ''
