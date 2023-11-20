@@ -38,6 +38,8 @@ tags:
   - name: 3. Benefits
 paths:
   /employer/company:
+    x-stoplight:
+      id: 3c4nrzk6kia81
     get:
       description: Read basic company data
       responses:
