@@ -7,6 +7,9 @@ info:
   version: '2020-09-17'
   contact: {}
   description: |
+    This document outlines the API reference for Finch's asynchronous Benefits API endpoints. Intentionally, this document does not include detail for any GET endpoints,
+    ***
+
     The Benefits APIs provide a unified way to connect with payroll systems to create and manage payroll deductions.
 
     Usage of the Benefits APIs requires an access token issued by Finch that has been granted the `benefits` product scope. Employer products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. Valid product names are—
