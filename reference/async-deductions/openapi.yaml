@@ -1,19 +1,15 @@
 openapi: 3.0.0
-x-internal: true
 x-stoplight:
   id: qfaj92h0w3cut
+x-internal: true
 info:
-  title: HRIS API Reference
+  title: Async Benefits API Reference
   version: '2020-09-17'
   contact: {}
   description: |
-    The Finch HRIS API provides a unified way to connect to a multitide of HRIS systems. The API requires an access token issued by Finch.
+    The Benefits APIs provide a unified way to connect with payroll systems to create and manage payroll deductions.
 
-    By default, Organization and Payroll requests use Finch's [Data Syncs](docs/Development-Guides/Data-Syncs.md). If a request is made before the initial sync has completed, Finch will request data live from the provider. The latency on live requests may range from seconds to minutes depending on the provider and batch size.
-    Benefits requests (both read and write) are always made live to the provider. Latencies may range from seconds to minutes depending on the provider and batch size.
-
-
-    Employer products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. Valid product names are—
+    Usage of the Benefits APIs requires an access token issued by Finch that has been granted the `benefits` product scope. Employer products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. Valid product names are—
     - `company`: Read basic company data
 
     - `directory`: Read company directory and organization structure
@@ -33,9 +29,7 @@ servers:
   - url: 'https://api.tryfinch.com'
     description: ''
 tags:
-  - name: 1. Organization
-  - name: 2. Payroll
-  - name: 3. Benefits
+  - name: 1. Benefits
 paths:
   /employer/company:
     get:
@@ -1858,6 +1852,8 @@ components:
           type: string
           description: The date the income amount went into effect.
           nullable: true
+      x-stoplight:
+        id: e72ft928cw9dv
     Money:
       title: Money
       type: object
@@ -1872,6 +1868,8 @@ components:
         currency:
           type: string
           nullable: true
+      x-stoplight:
+        id: ln4pogr9b2f55
     Paging:
       title: Paging
       type: object
@@ -1891,6 +1889,8 @@ components:
       title: Date
       pattern: '([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))'
       nullable: true
+      x-stoplight:
+        id: b8vjf32wqm53r
     BenefitType:
       type: string
       title: BenefitType
