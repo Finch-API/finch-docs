@@ -45,10 +45,13 @@ paths:
                 properties:
                   benefit_id:
                     type: string
+                  job_id:
+                    type: string
               examples:
                 Success:
                   value:
                     benefit_id: e8b90071-0c11-471c-86e8-e303ef2f6782
+                    job_id: da52c777-234f-454c-9fc0-340dff2289b7
         '400':
           description: Malformed Request
           content:
@@ -121,10 +124,13 @@ paths:
                 properties:
                   benefit_id:
                     type: string
+                  job_id:
+                    type: string
               examples:
                 Success:
                   value:
                     benefit_id: 6547e3aa-d887-4a77-bd41-17221e17cce3
+                    job_id: f6fcd209-8d65-48cd-a44d-a314b6ef94a1
         '400':
           $ref: '#/components/responses/BadRequest'
         '404':
