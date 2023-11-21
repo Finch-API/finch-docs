@@ -327,27 +327,6 @@ paths:
                 Success:
                   value:
                     job_id: b5b6ac2c-0260-4ce5-8961-c2ece6de2653
-        '207':
-          description: Multi-Status. Some individuals may not have succeeded. See body for details.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnenrollIndividuals'
-              examples:
-                Multi Status:
-                  value:
-                    - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
-                      code: 200
-                      body:
-                        name: success
-                        finch_code: unenrolled_individual_benefit
-                        message: Unenrolled individual from benefit
-                    - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
-                      code: 404
-                      body:
-                        name: not_found_error
-                        finch_code: individual_not_found
-                        message: Individual not found
         '400':
           $ref: '#/components/responses/BadRequest'
         '404':
