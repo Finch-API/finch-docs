@@ -91,7 +91,7 @@ paths:
 
         If the same request is made more than once with the same `benefit_type` and `description`, a new benefit will not be created. Finch will instead return the benefit id of the existing benefit.
 
-        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
+        This request enqueues an asynchronous task that can be referenced using the returned `job_id` against the `/jobs/manual/{job_id}` endpoint. Processing time may vary from seconds to hours depending on the provider and system load.
       requestBody:
         content:
           application/json:
@@ -150,7 +150,7 @@ paths:
 
         Updates an existing company-wide benefit
 
-        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider.
+        This request enqueues an asynchronous task that can be referenced using the returned `job_id` against the `/jobs/manual/{job_id}` endpoint. Processing time may vary from seconds to hours depending on the provider and system load.
       requestBody:
         content:
           application/json:
@@ -207,7 +207,7 @@ paths:
 
         Enroll an individual into a benefit. This is an overwrite operation. If the employee is already enrolled, the enrollment amounts will be adjusted. Making the same request multiple times will not enroll new benefits, but will continue to set the state of the existing enrollment.
 
-        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
+        This request enqueues an asynchronous task that can be referenced using the returned `job_id` against the `/jobs/manual/{job_id}` endpoint. Processing time may vary from seconds to hours depending on the provider and system load.
 
         <!-- theme: warning -->
         > Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
@@ -342,7 +342,10 @@ paths:
 
         Unenroll individuals from a benefit
 
-        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider.
+        This request enqueues an asynchronous task that can be referenced using the returned `job_id` against the `/jobs/manual/{job_id}` endpoint. Processing time may vary from seconds to hours depending on the provider and system load.
+
+        <!-- theme: warning -->
+        > Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
       requestBody:
         content:
           application/json:
