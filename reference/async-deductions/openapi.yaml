@@ -45,8 +45,10 @@ paths:
                 properties:
                   benefit_id:
                     type: string
+                    description: A stable Finch `id` (UUID v4) representing the benefit.
                   job_id:
                     type: string
+                    description: A stable Finch `id` (UUID v4) representing the background job for asynchronously processing the requested operation.
               examples:
                 Success:
                   value:
@@ -124,8 +126,10 @@ paths:
                 properties:
                   benefit_id:
                     type: string
+                    description: A stable Finch `id` (UUID v4) representing the benefit.
                   job_id:
                     type: string
+                    description: A stable Finch `id` (UUID v4) representing the background job for asynchronously processing the requested operation.
               examples:
                 Success:
                   value:
