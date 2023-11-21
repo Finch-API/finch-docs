@@ -37,7 +37,7 @@ paths:
       operationId: post-company-benefits
       responses:
         '201':
-          description: Successfully Created
+          description: Successfully initiated request to create benefit.
           content:
             application/json:
               schema:
@@ -118,7 +118,7 @@ paths:
       operationId: update-company-benefits
       responses:
         '200':
-          description: OK
+          description: Successfully initiated request to update benefit.
           content:
             application/json:
               schema:
@@ -179,99 +179,19 @@ paths:
       operationId: post-employer-individual-benefits-benefit_id
       responses:
         '200':
-          description: Success for all individuals. Enrolled new individuals in the benefit and upserted information for individuals already enrolled.
+          description: Successfully initiated request to process individual enrollments.
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    individual_id:
-                      type: string
-                    code:
-                      type: integer
-                      description: HTTP status code. Either 201 or 200
-                      enum:
-                        - 200
-                        - 201
-                    body:
-                      type: object
-                      properties:
-                        name:
-                          type: string
-                          description: Identifier indicating whether the benefit was newly enrolled or updated.
-                          nullable: true
-                        finch_code:
-                          type: string
-                          description: A descriptive identifier for the response
-                          nullable: true
-                        message:
-                          type: string
-                          description: Short description in English that provides more information about the response.
-                          nullable: true
+                type: object
+                properties:
+                  job_id:
+                    type: string
+                    description: A stable Finch `id` (UUID v4) representing the background job for asynchronously processing the requested operation.
               examples:
                 Success:
                   value:
-                    - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
-                      code: 201
-                      body:
-                        name: created
-                        finch_code: enrolled_new_benefit
-                        message: Successfully enrolled new benefit for individual
-                    - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
-                      code: 200
-                      body:
-                        name: success
-                        finch_code: updated_existing_enrollment
-                        message: Benefit information updated for individual
-        '207':
-          description: Multi-Status. Some individuals may not have succeeded. See body for details.
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    individual_id:
-                      type: string
-                    code:
-                      type: integer
-                      description: HTTP status code
-                    body:
-                      type: object
-                      properties:
-                        name:
-                          type: string
-                          description: Identifier indicating whether the benefit was newly enrolled or updated.
-                        finch_code:
-                          type: string
-                          description: A descriptive identifier for the response.
-                        message:
-                          type: string
-                          description: Short description in English that provides more information about the response.
-              examples:
-                Multi Status:
-                  value:
-                    - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
-                      code: 201
-                      body:
-                        name: created
-                        finch_code: enrolled_new_benefit
-                        message: Successfully enrolled new benefit for individual
-                    - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
-                      code: 200
-                      body:
-                        name: success
-                        finch_code: updated_existing_enrollment
-                        message: Benefit information updated for individual
-                    - individual_id: 0c89294b-b7f1-4999-9b7a-bb8a87326717
-                      code: 404
-                      body:
-                        name: not_found_error
-                        finch_code: individual_not_found
-                        message: Individual not found
+                    job_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
         '400':
           $ref: '#/components/responses/BadRequest'
         '404':
