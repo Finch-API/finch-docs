@@ -179,7 +179,7 @@ paths:
       operationId: post-employer-individual-benefits-benefit_id
       responses:
         '200':
-          description: Successfully initiated request to process individual enrollments.
+          description: Successfully initiated request to enroll individuals.
           content:
             application/json:
               schema:
@@ -191,7 +191,7 @@ paths:
               examples:
                 Success:
                   value:
-                    job_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
+                    job_id: 1fdce1bc-c4b6-4622-9b02-214da61ce2cb
         '400':
           $ref: '#/components/responses/BadRequest'
         '404':
@@ -314,26 +314,19 @@ paths:
       operationId: delete-individual-benefits
       responses:
         '200':
-          description: Success for all individuals. Unenrolled all individuals from the benefit.
+          description: Successfully initiated request to process unenroll individuals.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnenrollIndividuals'
+                type: object
+                properties:
+                  job_id:
+                    type: string
+                    description: A stable Finch `id` (UUID v4) representing the background job for asynchronously processing the requested operation.
               examples:
                 Success:
                   value:
-                    - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
-                      code: 200
-                      body:
-                        name: success
-                        finch_code: unenrolled_individual_benefit
-                        message: Unenrolled individual from benefit
-                    - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
-                      code: 200
-                      body:
-                        name: success
-                        finch_code: unenrolled_individual_benefit
-                        message: Unenrolled individual from benefit
+                    job_id: b5b6ac2c-0260-4ce5-8961-c2ece6de2653
         '207':
           description: Multi-Status. Some individuals may not have succeeded. See body for details.
           content:
