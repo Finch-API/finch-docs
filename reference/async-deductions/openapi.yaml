@@ -126,7 +126,7 @@ paths:
                 properties:
                   benefit_id:
                     type: string
-                    description: A stable Finch `id` (UUID v4) representing the benefit.
+                    description: A stable Finch `id` (UUID v4) representing the benefit. This will match the `benefit_id` provided in the request.
                   job_id:
                     type: string
                     description: A stable Finch `id` (UUID v4) representing the background job for asynchronously processing the requested operation.
