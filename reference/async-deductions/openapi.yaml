@@ -1,0 +1,809 @@
+openapi: 3.0.0
+x-stoplight:
+  id: qfaj92h0w3cut
+x-internal: true
+info:
+  title: Async Benefits API Reference
+  version: '2020-09-17'
+  contact: {}
+  description: |
+    > This document outlines the API reference for Finch's asynchronous Benefits API, which is used for managing payroll deductions. All mutative operations, such as creating deductions and managing enrollments, are supported on this asynchronous API. For details on facilitating read operations, please refer to the [HRIS API Reference](https://developer.tryfinch.com/docs/reference/0c7c919255262-hris-api-reference) documentation.
+
+    The Benefits APIs provide a unified way to connect with payroll systems to create and manage payroll deductions.
+
+    Usage of the Benefits APIs requires an access token issued by Finch that has been granted the `benefits` product scope. Employer products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. The full list of valid product names are—
+    - `company`: Read basic company data
+
+    - `directory`: Read company directory and organization structure
+
+    - `individual`: Read individual data, excluding income and employment data
+
+    - `employment`: Read individual employment and income data
+
+    - `payment`: Read payroll and contractor related payments by the company
+
+    - `pay_statement`: Read detailed pay statements for each individual
+
+    - `benefits`: Create and manage benefits and benefit enrollment within a company
+servers:
+  - url: 'https://api.tryfinch.com'
+    description: ''
+tags:
+  - name: 1. Benefits
+paths:
+  /employer/benefits:
+    post:
+      summary: Create Benefit
+      operationId: post-company-benefits
+      responses:
+        '201':
+          description: Successfully initiated request to create benefit.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  benefit_id:
+                    type: string
+                    description: A stable Finch `id` (UUID v4) representing the benefit.
+                  job_id:
+                    type: string
+                    description: A stable Finch `id` (UUID v4) representing the background job for asynchronously processing the requested operation.
+              examples:
+                Success:
+                  value:
+                    benefit_id: e8b90071-0c11-471c-86e8-e303ef2f6782
+                    job_id: da52c777-234f-454c-9fc0-340dff2289b7
+        '400':
+          description: Malformed Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                Bad Request:
+                  value:
+                    code: 400
+                    name: invalid_request_error
+                    finch_code: invalid_request
+                    message: '[body:description]: Not a valid string'
+        '422':
+          description: Request provided with unsupported parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                Invalid Benefit:
+                  value:
+                    code: 422
+                    name: unprocessable_request_error
+                    finch_code: unsupported_paramters
+                    message: Provider does not support benefit type '401k'
+        '500':
+          $ref: '#/components/responses/ServerError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
+      description: |-
+        **Availability: Automated and Assisted Benefits providers**
+
+        Creates a new company-wide benefit. Please use the `/meta` endpoint to view available types for each provider.
+
+        If the same request is made more than once with the same `benefit_type` and `description`, a new benefit will not be created. Finch will instead return the benefit id of the existing benefit.
+
+        This request enqueues an asynchronous task that can be referenced using the returned `job_id` against the `/jobs/manual/{job_id}` endpoint. Processing time may vary from seconds to hours depending on the provider and system load.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  $ref: '#/components/schemas/BenefitType'
+                description:
+                  type: string
+                frequency:
+                  $ref: '#/components/schemas/BenefitFrequency'
+      tags:
+        - 1. Benefits
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+      x-stoplight:
+        id: 07gjv57sxbqh7
+    parameters: []
+  '/employer/benefits/{benefit_id}':
+    post:
+      summary: Update Benefit
+      operationId: update-company-benefits
+      responses:
+        '200':
+          description: Successfully initiated request to update benefit.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  benefit_id:
+                    type: string
+                    description: A stable Finch `id` (UUID v4) representing the benefit. This will match the `benefit_id` provided in the request.
+                  job_id:
+                    type: string
+                    description: A stable Finch `id` (UUID v4) representing the background job for asynchronously processing the requested operation.
+              examples:
+                Success:
+                  value:
+                    benefit_id: 6547e3aa-d887-4a77-bd41-17221e17cce3
+                    job_id: f6fcd209-8d65-48cd-a44d-a314b6ef94a1
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+        '500':
+          $ref: '#/components/responses/ServerError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
+      description: |-
+        **Availability: Automated and Assisted Benefits providers**
+
+        Updates an existing company-wide benefit
+
+        This request enqueues an asynchronous task that can be referenced using the returned `job_id` against the `/jobs/manual/{job_id}` endpoint. Processing time may vary from seconds to hours depending on the provider and system load.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: Updated name or description.
+      tags:
+        - 1. Benefits
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+      x-stoplight:
+        id: qdj0wg4qm7tgh
+    parameters:
+      - schema:
+          type: string
+        name: benefit_id
+        in: path
+        required: true
+  '/employer/benefits/{benefit_id}/individuals':
+    post:
+      summary: Enroll Individuals in Benefits
+      operationId: post-employer-individual-benefits-benefit_id
+      responses:
+        '200':
+          description: Successfully initiated request to enroll individuals.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  job_id:
+                    type: string
+                    description: A stable Finch `id` (UUID v4) representing the background job for asynchronously processing the requested operation.
+              examples:
+                Success:
+                  value:
+                    job_id: 1fdce1bc-c4b6-4622-9b02-214da61ce2cb
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+        '500':
+          $ref: '#/components/responses/ServerError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
+      description: |
+        **Availability: Automated and Assisted Benefits providers**
+
+        Enroll an individual into a benefit. This is an overwrite operation. If the employee is already enrolled, the enrollment amounts will be adjusted. Making the same request multiple times will not enroll new benefits, but will continue to set the state of the existing enrollment.
+
+        This request enqueues an asynchronous task that can be referenced using the returned `job_id` against the `/jobs/manual/{job_id}` endpoint. Processing time may vary from seconds to hours depending on the provider and system load.
+
+        <!-- theme: warning -->
+        > Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
+      tags:
+        - 1. Benefits
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  individual_id:
+                    type: string
+                    description: Finch id (uuidv4) for the individual to enroll
+                  configuration:
+                    type: object
+            examples:
+              Retirement:
+                value:
+                  - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
+                    configuration:
+                      employee_deduction:
+                        type: percent
+                        amount: 1000
+                      company_contribution:
+                        type: percent
+                        amount: 400
+                      catch_up: false
+                      annual_maximum: 500000
+              HSA:
+                value:
+                  - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
+                    configuration:
+                      employee_deduction:
+                        type: fixed
+                        amount: 10000
+                      company_contribution:
+                        type: fixed
+                        amount: 0
+                      annual_maximum: null
+                      annual_contribution_limit: individual
+              Custom:
+                value:
+                  - individual_id: string
+                    configuration:
+                      employee_deduction:
+                        type: fixed
+                        amount: 10000
+                      company_contribution:
+                        type: fixed
+                        amount: 0
+        description: |
+          Enrollment bodies have a common format for each benefit type, with a different `configuration` schema based on the benefit type. The configurations for each type are outlined below. These are general configurations and may vary per provider. Please use the `/meta` endpoint to view provider specific supported configurations.
+
+          **Retirement Benefits**
+
+          Includes 401(k), Roth 401(k), 403(b), Roth 403(b), 457, Roth 457, and Simple IRA
+
+          Field | Type | Description
+          ------|------ | ----------
+          `employee_deduction.type` | `string` | Deduction Type (`fixed` or `percent`)
+          `employee_deduction.amount`| `integer` | Deduction amount in cents (if `fixed`) or basis points (if `percent`)
+          `company_contribution.type` | `string` | Contribution Type (`fixed` or `percent`)
+          `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points
+          `catch_up`| `boolean` | Whether to enable catch up for this individual
+          `annual_maximum`| `integer` (`nullable`)| The annual maximum in cents for this individual
+          `effective_date` | `string` (`nullable`) | The date which the benefit should take effect by (`mm/dd/yyyy`) **This field is currently only available for assisted benefits.**
+
+          ***
+
+          **HSA**
+
+          Field | Type | Description
+          ------|------ | ----------
+          `employee_deduction.type` | `string` | Deduction Type (`fixed` or `percent`)
+          `employee_deduction.amount`| `integer` | Deduction amount in cents (if `fixed`) or basis points (if `percent`)
+          `company_contribution.type` | `string` | Contribution Type (`fixed` or `percent`)
+          `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points
+          `catch_up`| `boolean` | Whether to enable catch up for this individual
+          `annual_maximum`| `integer` (`nullable`) | The annual maximum in cents for this individual
+          `annual_contribution_limit` | `string` (`nullable`) | Whether HSA is applied towards `individual` or `family`
+          `effective_date` | `string` (`nullable`) | The date which the benefit should take effect by (`mm/dd/yyyy`) **This field is currently only available for assisted benefits.**
+
+          ***
+
+          **Section 125 Benefits, FSA, Custom Benefits**
+
+          Field | Type | Description
+          ------|------ | ----------
+          `employee_deduction.type` | `string` | Deduction Type (`fixed` or `percent`)
+          `employee_deduction.amount`| `integer` | Deduction amount in cents (if `fixed`) or basis points (if `percent`)
+          `company_contribution.type` | `string` | Contribution Type (`fixed` or `percent`)
+          `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points
+          `effective_date` | `string` (`nullable`) | The date which the benefit should take effect by (`mm/dd/yyyy`) **This field is currently only available for assisted benefits.**
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+      x-stoplight:
+        id: s8q3gsrobqklj
+    delete:
+      summary: Unenroll Individuals from Benefits
+      operationId: delete-individual-benefits
+      responses:
+        '200':
+          description: Successfully initiated request to process unenroll individuals.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  job_id:
+                    type: string
+                    description: A stable Finch `id` (UUID v4) representing the background job for asynchronously processing the requested operation.
+              examples:
+                Success:
+                  value:
+                    job_id: b5b6ac2c-0260-4ce5-8961-c2ece6de2653
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/Unprocessable'
+        '500':
+          $ref: '#/components/responses/ServerError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
+      description: |-
+        **Availability: Automated and Assisted Benefits providers**
+
+        Unenroll individuals from a benefit
+
+        This request enqueues an asynchronous task that can be referenced using the returned `job_id` against the `/jobs/manual/{job_id}` endpoint. Processing time may vary from seconds to hours depending on the provider and system load.
+
+        <!-- theme: warning -->
+        > Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: ''
+              properties:
+                individual_ids:
+                  type: array
+                  description: Array of individual_ids to unenroll.
+                  items:
+                    type: string
+      tags:
+        - 1. Benefits
+      parameters:
+        - $ref: '#/components/parameters/API-Version'
+        - $ref: '#/components/parameters/Content-Type'
+      x-stoplight:
+        id: 2bw7fbt8fztyx
+    parameters:
+      - schema:
+          type: string
+        name: benefit_id
+        in: path
+        required: true
+components:
+  responses:
+    BadRequest:
+      description: Malformed Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Bad Request:
+              value:
+                code: 400
+                name: invalid_request_error
+                finch_code: invalid_request
+                message: '[path_params:benefit_id]: Not a valid uuid'
+    NotFound:
+      description: Benefit Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Not Found:
+              value:
+                code: 404
+                name: not_found_error
+                finch_code: benefit_not_found
+                message: Benefit not found
+    Unprocessable:
+      description: Unprocessable Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Cannot Enroll:
+              value:
+                code: 422
+                name: unprocessable_request_error
+                finch_code: not_supported_by_provider
+                message: Provider does not support benefits
+    ServerError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Cannot Enroll:
+              value:
+                code: 500
+                name: server_error
+                finch_code: internal_server_error
+                message: Internal Server Error
+    NotImplemented:
+      description: Not Implemented
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            Cannot Enroll:
+              value:
+                code: 501
+                name: not_implemented_error
+                finch_code: internal_server_error
+                message: Not Implemented
+  schemas:
+    Location:
+      title: Location
+      type: object
+      x-tags:
+        - Models
+      description: ''
+      nullable: true
+      properties:
+        line1:
+          type: string
+          description: Street address or PO box.
+          nullable: true
+        line2:
+          type: string
+          description: 'Apartment, suite, unit, or building.'
+          nullable: true
+        city:
+          type: string
+          description: 'City, district, suburb, town, or village.'
+          nullable: true
+        state:
+          type: string
+          description: The state code.
+          nullable: true
+        postal_code:
+          type: string
+          description: The postal code or zip code.
+          nullable: true
+        country:
+          type: string
+          description: The 2-letter ISO 3166 country code.
+          nullable: true
+      x-stoplight:
+        id: oi7azlqu4nll6
+    Income:
+      title: Income
+      type: object
+      x-tags:
+        - Models
+      description: 'The employee''s income as reported by the provider. This may not always be annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc, depending on what information the provider returns.'
+      nullable: true
+      properties:
+        unit:
+          type: string
+          description: 'The income unit of payment. Options: `yearly`, `quarterly`, `monthly`, `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`.'
+          enum:
+            - yearly
+            - quarterly
+            - monthly
+            - semi_monthly
+            - bi_weekly
+            - weekly
+            - daily
+            - hourly
+            - fixed
+          nullable: true
+        amount:
+          description: The income amount in cents.
+          type: integer
+          nullable: true
+        currency:
+          type: string
+          description: The currency code.
+          nullable: true
+        effective_date:
+          type: string
+          description: The date the income amount went into effect.
+          nullable: true
+      x-stoplight:
+        id: e72ft928cw9dv
+    Money:
+      title: Money
+      type: object
+      x-tags:
+        - Models
+      nullable: true
+      properties:
+        amount:
+          type: integer
+          description: Amount for money object (in cents)
+          nullable: true
+        currency:
+          type: string
+          nullable: true
+      x-stoplight:
+        id: ln4pogr9b2f55
+    Paging:
+      title: Paging
+      type: object
+      properties:
+        count:
+          type: integer
+          description: The total number of elements for the entire query (not just the given page)
+        offset:
+          type: integer
+          description: The current start index of the returned list of elements
+      x-tags:
+        - Models
+      x-stoplight:
+        id: j411gpc7inn52
+    Date:
+      type: string
+      title: Date
+      pattern: '([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))'
+      nullable: true
+      x-stoplight:
+        id: b8vjf32wqm53r
+    BenefitType:
+      type: string
+      title: BenefitType
+      enum:
+        - 401k
+        - 401k_roth
+        - 401k_loan
+        - 403b
+        - 403b_roth
+        - '457'
+        - 457_roth
+        - s125_medical
+        - s125_dental
+        - s125_vision
+        - hsa_pre
+        - hsa_post
+        - fsa_medical
+        - fsa_dependent_care
+        - simple_ira
+        - simple
+        - commuter
+        - custom_post_tax
+        - custom_pre_tax
+        - null
+      description: Type of benefit.
+      x-tags:
+        - Models
+      nullable: true
+      x-stoplight:
+        id: vc89u827hy7qq
+    BenefitFrequency:
+      type: string
+      title: BenefitFrequency
+      enum:
+        - one_time
+        - every_paycheck
+      x-tags:
+        - Models
+      nullable: true
+      x-stoplight:
+        id: j5rl0l976sked
+    BenefitContribution:
+      title: BenefitContribution
+      type: object
+      x-tags:
+        - Models
+      x-examples: {}
+      nullable: true
+      properties:
+        type:
+          type: string
+          enum:
+            - fixed
+            - percent
+          description: Contribution type.
+          nullable: true
+        amount:
+          type: integer
+          description: Contribution amount in cents (if `fixed`) or basis points (if `percent`).
+          nullable: true
+      x-stoplight:
+        id: 98k23kbgr2lov
+    BenefitFeature:
+      title: BenefitFeature
+      type: object
+      properties:
+        description:
+          type: string
+          nullable: true
+        frequencies:
+          type: array
+          description: The list of frequencies supported by the provider for this benefit
+          items:
+            $ref: '#/components/schemas/BenefitFrequency'
+        employee_deduction:
+          type: array
+          description: Supported deduction types. An empty array indicates deductions are not supported.
+          nullable: true
+          items:
+            type: string
+            enum:
+              - fixed
+              - percent
+        company_contribution:
+          type: array
+          description: Supported contribution types. An empty array indicates contributions are not supported.
+          nullable: true
+          items:
+            type: string
+            enum:
+              - fixed
+              - percent
+        annual_maximum:
+          type: boolean
+          description: Whether the provider supports an annual maximum for this benefit.
+          nullable: true
+        catch_up:
+          type: boolean
+          description: Whether the provider supports catch up for this benefit. This field will only be true for retirement benefits.
+          nullable: true
+        hsa_contribution_limit:
+          description: Whether the provider supports HSA contribution limits. Empty if this feature is not supported for the benefit. This array only has values for HSA benefits.
+          type: array
+          nullable: true
+          items:
+            type: string
+            enum:
+              - individual
+              - family
+      x-stoplight:
+        id: u195vgcmzs3xi
+    CompanyBenefit:
+      title: CompanyBenefit
+      type: object
+      properties:
+        benefit_id:
+          type: string
+        type:
+          $ref: '#/components/schemas/BenefitType'
+        description:
+          type: string
+          nullable: true
+        frequency:
+          $ref: '#/components/schemas/BenefitFrequency'
+      x-stoplight:
+        id: s04jx55nern6s
+    IndividualBenefits:
+      title: IndividualBenefits
+      type: array
+      x-examples: {}
+      items:
+        type: object
+        properties:
+          individual_id:
+            type: string
+          code:
+            type: integer
+          body:
+            type: object
+            properties:
+              employee_deduction:
+                $ref: '#/components/schemas/BenefitContribution'
+              company_contribution:
+                $ref: '#/components/schemas/BenefitContribution'
+              annual_maximum:
+                type: integer
+                description: 'If the benefit supports annual maximum, the amount in cents for this individual.'
+                nullable: true
+              catch_up:
+                type: boolean
+                description: 'If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled for this individual.'
+                nullable: true
+              hsa_contribution_limit:
+                type: string
+                enum:
+                  - individual
+                  - family
+                description: Type for HSA contribution limit if the benefit is a HSA.
+                nullable: true
+      x-stoplight:
+        id: bcgzdoh1kv0gk
+    Error:
+      title: Error
+      type: object
+      description: Generic error response structure
+      properties:
+        code:
+          type: integer
+          description: The status code of the request.
+        name:
+          type: string
+          description: Identifier describing the error.
+        finch_code:
+          type: string
+          description: A descriptive identifier for the error.
+        message:
+          type: string
+          description: A short English description that provides more information about the error.
+      x-examples:
+        not-found-error:
+          code: 404
+          name: not_found_error
+          finch_code: individual_not_found
+          message: Individual not found for benefit
+      x-stoplight:
+        id: 87gfiqq5395zx
+    ManualAsyncJob:
+      title: ManualAsyncJob
+      x-stoplight:
+        id: pespa7nx6nktg
+      type: object
+      x-examples:
+        Example 1:
+          job_id: 453bd7d7-5355-4d6d-a38e-d9e7eb218c3f
+          status: complete
+          body:
+            - individual_id: 46decc95-451e-44ef-baac-b228d778267f
+              message: Successfully updated benefit for individual
+      properties:
+        job_id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+            - pending
+            - in_progress
+            - error
+            - complete
+        body:
+          type: array
+          description: 'Specific information about the job, such as individual statuses for batch jobs.'
+          nullable: true
+          items: {}
+  requestBodies:
+    Individual-Ids:
+      content:
+        application/json:
+          schema:
+            type: object
+            description: Individual Ids Request Body
+            properties:
+              requests:
+                type: array
+                description: The array of batch requests.
+                items:
+                  type: object
+                  properties:
+                    individual_id:
+                      type: string
+                      description: A stable Finch `id` (UUID v4) for an individual in the company. There is no limit to the number of `individual_id` to send per request. It is preferential to send all ids in a single request for Finch to optimize provider rate-limits.
+                  required:
+                    - individual_id
+            required:
+              - requests
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Please use your Access Token
+  parameters:
+    API-Version:
+      name: Finch-API-Version
+      in: header
+      required: true
+      schema:
+        type: string
+        default: '2020-09-17'
+        format: date
+        pattern: YYYY-MM-DD
+      description: Header used to specify the version for a given API request. Current version is 2020-09-17.
+    Content-Type:
+      name: Content-Type
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+      description: 'Used to indicate the original media type of the resource '
+security:
+  - bearerAuth: []
