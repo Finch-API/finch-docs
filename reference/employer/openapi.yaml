@@ -1356,9 +1356,14 @@ paths:
                     - individual_id: d02a6346-1f08-4312-a064-49ff3cafaa7a
                       code: 200
                       body:
-                        name: success
-                        finch_code: unenrolled_individual_benefit
-                        message: Unenrolled individual from benefit
+                        employee_deduction:
+                          amount: 4,
+                          type: percent
+                        company_contribution:
+                          amount: 1,
+                          type: percent
+                        annual_maximum: 30000,
+                        catch_up: true
                     - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
                       code: 404
                       body:
