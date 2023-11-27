@@ -1,7 +1,7 @@
 openapi: 3.0.0
 x-stoplight:
   id: qfaj92h0w3cut
-x-internal: true
+x-internal: false
 info:
   title: Async Benefits API Reference
   version: '2020-09-17'
