@@ -7,7 +7,7 @@ info:
     The Finch HRIS API provides a unified way to connect to a multitide of HRIS systems. The API requires an access token issued by Finch.
 
     By default, Organization and Payroll requests use Finch's [Data Syncs](docs/Development-Guides/Data-Syncs.md). If a request is made before the initial sync has completed, Finch will request data live from the provider. The latency on live requests may range from seconds to minutes depending on the provider and batch size.
-    Benefits requests (both read and write) are always made live to the provider. Latencies may range from seconds to minutes depending on the provider and batch size.
+    For automated integrations, Deductions requests (both read and write) are always made live to the provider. Latencies may range from seconds to minutes depending on the provider and batch size.
 
 
     Employer products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. Valid product names are—
@@ -23,7 +23,7 @@ info:
 
     - `pay_statement`: Read detailed pay statements for each individual
 
-    - `benefits`: Create and manage benefits and benefit enrollment within a company
+    - `benefits`: Create and manage deductions and contributions and enrollment for an employer
 
     [![Open in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/21027137-08db0929-883d-4094-a9ce-dbf5a9bee4a4?action=collection%2Ffork&collection-url=entityId%3D21027137-08db0929-883d-4094-a9ce-dbf5a9bee4a4%26entityType%3Dcollection%26workspaceId%3D1edf19bc-e0a8-41e9-ac55-481a4b50790b)
 servers:
@@ -1031,11 +1031,11 @@ paths:
           $ref: '#/components/responses/NotImplemented'
       operationId: get-company-benefits
       description: |-
-        **Availability: Automated Benefits providers only**
+        **Availability: Automated providers only**
 
-        List all company-wide benefits.
+        List all company-wide deductions and contributions.
 
-        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
+        This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of items.
       parameters:
         - $ref: '#/components/parameters/API-Version'
     post:
@@ -1086,11 +1086,11 @@ paths:
         '501':
           $ref: '#/components/responses/NotImplemented'
       description: |-
-        **Availability: Automated and Assisted Benefits providers**
+        **Availability: Automated and Assisted providers**
 
-        Creates a new company-wide benefit. Please use the `/meta` endpoint to view available types for each provider.
+        Creates a new company-wide deduction or contribution. Please use the `/meta` endpoint to view available types for each provider.
 
-        If the same request is made more than once with the same `benefit_type` and `description`, a new benefit will not be created. Finch will instead return the benefit id of the existing benefit.
+        If the same request is made more than once with the same `benefit_type` and `description`, a new item will not be created. Finch will instead return the `benefit_id` of the existing item.
 
         This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
       requestBody:
@@ -1191,7 +1191,7 @@ paths:
         <!-- theme: warning -->
         > This endpoint is now deprecated. The existing fields on this endpoint will continue to be updated, but no new fields will be added. Please use `authentication_methods[].benefits_support` on `/providers` instead.
 
-        **Availability: Automated and Assisted Benefits providers**
+        **Availability: Automated and Assisted providers**
 
         Lists available types and configurations for the provider associated with the access token.
       parameters:
@@ -1228,9 +1228,9 @@ paths:
           $ref: '#/components/responses/NotImplemented'
       operationId: get-company-benefit
       description: |-
-        **Availability: Automated Benefits providers only**
+        **Availability: Automated providers only**
 
-        Lists benefit information for a given benefit
+        Lists deductions and contributions information for a given item
 
         This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider.
       parameters:
@@ -1263,9 +1263,9 @@ paths:
         '501':
           $ref: '#/components/responses/NotImplemented'
       description: |-
-        **Availability: Automated and Assisted Benefits providers**
+        **Availability: Automated and Assisted providers**
 
-        Updates an existing company-wide benefit
+        Updates an existing company-wide deduction or contribution
 
         This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider.
       requestBody:
@@ -1325,9 +1325,9 @@ paths:
           $ref: '#/components/responses/NotImplemented'
       operationId: get-company-benefits-enrolled
       description: |-
-        **Availability: Automated Benefits providers only**
+        **Availability: Automated providers only**
 
-        Lists individuals currently enrolled in a given benefit.
+        Lists individuals currently enrolled in a given deduction.
 
         This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
       parameters:
@@ -1382,9 +1382,9 @@ paths:
           $ref: '#/components/responses/NotImplemented'
       operationId: get-individual-benefits
       description: |-
-        **Availability: Automated Benefits providers only**
+        **Availability: Automated providers only**
 
-        Get enrolled benefit information for the given individuals.
+        Get enrollment information for the given individuals.
 
         This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
       parameters:
@@ -1505,14 +1505,14 @@ paths:
         '501':
           $ref: '#/components/responses/NotImplemented'
       description: |
-        **Availability: Automated and Assisted Benefits providers**
+        **Availability: Automated and Assisted providers**
 
-        Enroll an individual into a benefit. This is an overwrite operation. If the employee is already enrolled, the enrollment amounts will be adjusted. Making the same request multiple times will not enroll new benefits, but will continue to set the state of the existing enrollment.
+        Enroll an individual into a deduction or contribution. This is an overwrite operation. If the employee is already enrolled, the enrollment amounts will be adjusted. Making the same request multiple times will not create new enrollments, but will continue to set the state of the existing enrollment.
 
         This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider and number of benefits.
 
         <!-- theme: warning -->
-        > Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
+        > Making changes to an individual's deductions may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
       tags:
         - 3. Benefits
       requestBody:
@@ -1666,9 +1666,9 @@ paths:
         '501':
           $ref: '#/components/responses/NotImplemented'
       description: |-
-        **Availability: Automated and Assisted Benefits providers**
+        **Availability: Automated and Assisted providers**
 
-        Unenroll individuals from a benefit
+        Unenroll individuals from a deduction or contribution
 
         This is a live request to the provider. Latencies may vary from seconds to minutes depending on the provider.
       requestBody:
