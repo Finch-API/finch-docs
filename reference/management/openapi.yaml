@@ -955,7 +955,7 @@ components:
         - production
         - development
         - sandbox
-      description: the type of application associated with a token
+      description: The type of application associated with a token.
       x-tags:
         - Models
     ConnectionType:
