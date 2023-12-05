@@ -2008,6 +2008,31 @@ components:
                   - family
                 description: Type for HSA contribution limit if the benefit is a HSA.
                 nullable: true
+    UnenrollIndividuals:
+      type: array
+      items:
+        type: object
+        properties:
+          individual_id:
+            type: string
+          code:
+            type: integer
+            description: HTTP status code.
+          body:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Identifier indicating whether the individual was successfully unenrolled.
+                nullable: true
+              finch_code:
+                type: string
+                description: A descriptive identifier for the response
+                nullable: true
+              message:
+                type: string
+                description: Short description in English that provides more information about the response.
+                nullable: true
     Error:
       title: Error
       type: object
