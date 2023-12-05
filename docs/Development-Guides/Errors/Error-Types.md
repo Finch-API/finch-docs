@@ -22,6 +22,7 @@ Name | Type | Description
 Name | Finch Code | Code | Description
 -----|------------|------|------------
 `invalid_grant_error` | | 400 | The authorization code is invalid.
+`bad_request` | `invalid_request` | 400 | Failed to validate request.
 `invalid_token_error` | | 401 | The `access_token` is incorrect.
 `invalid_request_error` | | 401 | The request does not match the docs. Example: the request is missing a query parameter.
 `authentication_error` | `reauthenticate_user` | 401 | The user will need to reconnect their employment system. See more here.
