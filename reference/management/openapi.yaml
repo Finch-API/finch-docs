@@ -964,7 +964,10 @@ components:
       enum:
         - provider
         - finch
-      description: the type of connection associated with a token. provider = connection to an external provider, finch = finch generated data
+      description: |-
+        The type of the connection associated with the token.<br>
+        `provider` - connection to an external provider<br>
+        `finch` - finch-generated data.
       x-tags:
         - Models
     BenefitFeaturesAndOperations:
