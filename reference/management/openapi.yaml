@@ -257,6 +257,10 @@ paths:
                   client_id:
                     type: string
                     description: The client id of the application associated with the `access_token`.
+                  client_type:
+                    $ref: '#/components/schemas/ClientType'
+                  connection_type:
+                    $ref: '#/components/schemas/ConnectionType'
                   company_id:
                     type: string
                     description: The Finch uuid of the company associated with the `access_token`.
@@ -329,7 +333,9 @@ paths:
                   value:
                     account_id: d8ef1814-5913-492f-b5c0-a16e2d6432c9
                     client_id: 25ea8bd8-f76b-41f9-96e3-1e6162021c50
+                    client_type: production
                     company_id: 87eb4bc3-f76b-35e7-78d2-8f7822021d73
+                    connection_type: provider
                     products:
                       - company
                       - directory
@@ -942,6 +948,28 @@ components:
             enum:
               - individual
               - family
+    ClientType:
+      type: string
+      title: ClientType
+      enum:
+        - production
+        - development
+        - sandbox
+      description: The type of application associated with a token.
+      x-tags:
+        - Models
+    ConnectionType:
+      type: string
+      title: ConnectionType
+      enum:
+        - provider
+        - finch
+      description: |-
+        The type of the connection associated with the token.<br>
+        `provider` - connection to an external provider<br>
+        `finch` - finch-generated data.
+      x-tags:
+        - Models
     BenefitFeaturesAndOperations:
       type: object
       nullable: true
