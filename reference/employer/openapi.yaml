@@ -1004,7 +1004,7 @@ paths:
         - $ref: '#/components/parameters/Content-Type'
   /employer/benefits:
     get:
-      summary: Get All Benefits
+      summary: Get All Deductions
       tags:
         - 3. Deductions
       responses:
@@ -1039,7 +1039,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/API-Version'
     post:
-      summary: Create Benefit
+      summary: Create Deduction
       operationId: post-company-benefits
       responses:
         '201':
@@ -1113,7 +1113,7 @@ paths:
     parameters: []
   /employer/benefits/meta:
     get:
-      summary: '[Deprecated] Get Benefits Metadata'
+      summary: '[Deprecated] Get Deductions Metadata'
       tags:
         - 3. Deductions
       responses:
@@ -1199,7 +1199,7 @@ paths:
     parameters: []
   '/employer/benefits/{benefit_id}':
     get:
-      summary: Get Benefit
+      summary: Get Deduction
       tags:
         - 3. Deductions
       responses:
@@ -1236,7 +1236,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/API-Version'
     post:
-      summary: Update Benefit
+      summary: Update Deduction
       operationId: update-company-benefits
       responses:
         '200':
@@ -1340,7 +1340,7 @@ paths:
         required: true
   '/employer/benefits/{benefit_id}/individuals':
     get:
-      summary: Get Benefits for Individuals
+      summary: Get Deductions for Individuals
       tags:
         - 3. Deductions
       responses:
@@ -1357,12 +1357,12 @@ paths:
                       code: 200
                       body:
                         employee_deduction:
-                          amount: 4,
+                          amount: '4,'
                           type: percent
                         company_contribution:
-                          amount: 1,
+                          amount: '1,'
                           type: percent
-                        annual_maximum: 30000,
+                        annual_maximum: '30000,'
                         catch_up: true
                     - individual_id: e63c21ab-7cde-49d8-b6d6-ce208e84bf09
                       code: 404
@@ -1397,7 +1397,7 @@ paths:
           name: individual_ids
           description: 'comma-delimited list of stable Finch uuids for each individual. If empty, defaults to all individuals'
     post:
-      summary: Enroll Individuals in Benefits
+      summary: Enroll Individuals in Deductions
       operationId: post-employer-individual-benefits-benefit_id
       responses:
         '200':
@@ -1610,7 +1610,7 @@ paths:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
     delete:
-      summary: Unenroll Individuals from Benefits
+      summary: Unenroll Individuals from Deductions
       operationId: delete-individual-benefits
       responses:
         '200':
