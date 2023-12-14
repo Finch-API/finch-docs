@@ -32,7 +32,7 @@ servers:
 tags:
   - name: 1. Organization
   - name: 2. Payroll
-  - name: 3. Benefits
+  - name: 3. Deductions
 paths:
   /employer/company:
     get:
@@ -1006,7 +1006,7 @@ paths:
     get:
       summary: Get All Benefits
       tags:
-        - 3. Benefits
+        - 3. Deductions
       responses:
         '200':
           description: OK
@@ -1106,7 +1106,7 @@ paths:
                 frequency:
                   $ref: '#/components/schemas/BenefitFrequency'
       tags:
-        - 3. Benefits
+        - 3. Deductions
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -1115,7 +1115,7 @@ paths:
     get:
       summary: '[Deprecated] Get Benefits Metadata'
       tags:
-        - 3. Benefits
+        - 3. Deductions
       responses:
         '200':
           description: OK
@@ -1201,7 +1201,7 @@ paths:
     get:
       summary: Get Benefit
       tags:
-        - 3. Benefits
+        - 3. Deductions
       responses:
         '200':
           description: OK
@@ -1278,7 +1278,7 @@ paths:
                   type: string
                   description: Updated name or description.
       tags:
-        - 3. Benefits
+        - 3. Deductions
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -1292,7 +1292,7 @@ paths:
     get:
       summary: Get Enrolled Individuals
       tags:
-        - 3. Benefits
+        - 3. Deductions
       responses:
         '200':
           description: OK
@@ -1342,7 +1342,7 @@ paths:
     get:
       summary: Get Benefits for Individuals
       tags:
-        - 3. Benefits
+        - 3. Deductions
       responses:
         '207':
           description: Multi-Status. Some individuals may not have succeeded. See body for details.
@@ -1514,7 +1514,7 @@ paths:
         <!-- theme: warning -->
         > Making changes to an individual's deductions may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
       tags:
-        - 3. Benefits
+        - 3. Deductions
       requestBody:
         content:
           application/json:
@@ -1684,7 +1684,7 @@ paths:
                   items:
                     type: string
       tags:
-        - 3. Benefits
+        - 3. Deductions
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
