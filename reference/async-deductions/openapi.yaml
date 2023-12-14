@@ -29,7 +29,7 @@ servers:
   - url: 'https://api.tryfinch.com'
     description: ''
 tags:
-  - name: 1. Benefits
+  - name: 1. Deductions
 paths:
   /employer/benefits:
     post:
@@ -105,7 +105,7 @@ paths:
                 frequency:
                   $ref: '#/components/schemas/BenefitFrequency'
       tags:
-        - 1. Benefits
+        - 1. Deductions
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -161,7 +161,7 @@ paths:
                   type: string
                   description: Updated name or description.
       tags:
-        - 1. Benefits
+        - 1. Deductions
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
@@ -212,7 +212,7 @@ paths:
         <!-- theme: warning -->
         > Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
       tags:
-        - 1. Benefits
+        - 1. Deductions
       requestBody:
         content:
           application/json:
@@ -359,7 +359,7 @@ paths:
                   items:
                     type: string
       tags:
-        - 1. Benefits
+        - 1. Deductions
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
