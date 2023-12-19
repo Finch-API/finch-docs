@@ -92,6 +92,7 @@ paths:
                         description: The tax payer type of the company.
                         enum:
                           - llc
+                          - lp
                           - corporation
                           - sole_proprietor
                           - non_profit
