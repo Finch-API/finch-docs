@@ -69,8 +69,8 @@ paths:
                       products:
                         - company
                         - directory
-                      icon: 'https://finch-logos.s3.us-west-2.amazonaws.com/gustoIcon.png'
-                      logo: 'https://finch-logos.s3.us-west-2.amazonaws.com/gustoLogo.png'
+                      icon: 'https://finch-assets.s3.us-west-2.amazonaws.com/provider-logos/gustoIcon.png'
+                      logo: 'https://finch-assets.s3.us-west-2.amazonaws.com/provider-logos/gustoLogo.png'
                       mfa_required: true
                       primary_color: '#f45d47'
                       authentication_methods:
@@ -259,6 +259,10 @@ paths:
                   client_id:
                     type: string
                     description: The client id of the application associated with the `access_token`.
+                  client_type:
+                    $ref: '#/components/schemas/ClientType'
+                  connection_type:
+                    $ref: '#/components/schemas/ConnectionType'
                   company_id:
                     type: string
                     description: The Finch uuid of the company associated with the `access_token`.
@@ -331,7 +335,9 @@ paths:
                   value:
                     account_id: d8ef1814-5913-492f-b5c0-a16e2d6432c9
                     client_id: 25ea8bd8-f76b-41f9-96e3-1e6162021c50
+                    client_type: production
                     company_id: 87eb4bc3-f76b-35e7-78d2-8f7822021d73
+                    connection_type: provider
                     products:
                       - company
                       - directory
@@ -741,7 +747,7 @@ paths:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
       description: |-
-        Enqueue an automated job. Currently, only the `data-sync-all` job type is supported, which will enqueue a job to re-sync all data for a connection. `data-sync-all` has a concurrency limit of 1 job at a time per connection. This means that if this endpoint is called while a job is already in progress for this connection, Finch will return the `job_id` of the job that is currently in progress. Finch allows a fixed window rate limit of 1 forced refresh per hour per connection.
+        Enqueue an automated job. Currently, only the `data_sync_all` job type is supported, which will enqueue a job to re-sync all data for a connection. `data_sync_all` has a concurrency limit of 1 job at a time per connection. This means that if this endpoint is called while a job is already in progress for this connection, Finch will return the `job_id` of the job that is currently in progress. Finch allows a fixed window rate limit of 1 forced refresh per hour per connection.
 
         This endpoint is available for *Scale* tier customers as an add-on. To request access to this endpoint, please contact your Finch account manager.
       requestBody:
@@ -754,7 +760,7 @@ paths:
                   type: string
                   description: The type of job to start. Currently the only supported type is `data_sync_all`
                   enum:
-                    - data-sync-all
+                    - data_sync_all
               required:
                 - type
           application/xml:
@@ -1247,6 +1253,28 @@ components:
             enum:
               - individual
               - family
+    ClientType:
+      type: string
+      title: ClientType
+      enum:
+        - production
+        - development
+        - sandbox
+      description: The type of application associated with a token.
+      x-tags:
+        - Models
+    ConnectionType:
+      type: string
+      title: ConnectionType
+      enum:
+        - provider
+        - finch
+      description: |-
+        The type of the connection associated with the token.<br>
+        `provider` - connection to an external provider<br>
+        `finch` - finch-generated data.
+      x-tags:
+        - Models
     BenefitFeaturesAndOperations:
       type: object
       nullable: true
@@ -1413,7 +1441,6 @@ components:
               type: boolean
             department:
               type: boolean
-              nullable: true
             manager:
               type: object
               properties:
@@ -1531,8 +1558,10 @@ components:
             country:
               type: boolean
         manager:
-          type: boolean
-          nullable: true
+          type: object
+          properties:
+            id:
+              type: boolean
     SupportedPaymentFields:
       type: object
       properties:
