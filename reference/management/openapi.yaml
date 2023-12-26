@@ -999,6 +999,13 @@ paths:
                     x-stoplight:
                       id: kqh1a21inu49j
                     format: uuid
+                required:
+                  - company_id
+                  - provider_id
+                  - account_id
+                  - authentication_type
+                  - products
+                  - access_token
               examples:
                 Example 1:
                   value:
@@ -1080,6 +1087,12 @@ paths:
                       x-stoplight:
                         id: m8u40xcnl3wlk
                       type: string
+                required:
+                  - account_id
+                  - authentication_type
+                  - company_id
+                  - provider_id
+                  - products
               examples:
                 success:
                   value:
@@ -1996,6 +2009,9 @@ components:
             - reauth_error
             - permissions_error
             - error
+      required:
+        - type
+        - completion_status
   requestBodies:
     Forward:
       content:
