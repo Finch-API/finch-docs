@@ -1101,10 +1101,10 @@ paths:
                     company_id: b2e6a1c3-1a5e-44ae-a8fd-81f76fd715cf
                     provider_id: string
                     products:
-                      - string
+                      - directory
       x-stoplight:
         id: 0mynrrdwnfb72
-      description: Update an existing sandbox account
+      description: Update an existing sandbox account. Change the connection status to understand how the Finch API responds.
       requestBody:
         content:
           application/json:
@@ -1136,6 +1136,11 @@ paths:
             schema:
               type: object
               description: The company fields to set. Takes all fields from the `/company` endpoint. All fields are optional.
+            examples:
+              Example 1:
+                value:
+                  legal_name: Profound Platform Inc
+                  ein: '123456789'
   /sandbox/directory:
     post:
       summary: Add new individuals to a sandbox company
@@ -1166,6 +1171,12 @@ paths:
                 x-stoplight:
                   id: hndy1lcdt3itt
                 type: object
+            examples:
+              Example 1:
+                value:
+                  - first_name: John
+                    last_name: Smith
+                    dob: 01/01/2000
     delete:
       summary: Remove individuals from a company
       operationId: delete-sandbox-directory
@@ -1185,6 +1196,10 @@ paths:
                   id: 51u3ixg5n133e
                 type: string
                 format: uuid
+            examples:
+              Example 1:
+                value:
+                  - 497f6eca-6276-4993-bfeb-53cbbbba6f08
       tags:
         - Sandbox
   '/sandbox/individual/{individual_id}':
@@ -1210,6 +1225,10 @@ paths:
             schema:
               type: object
               description: Fields to update. Takes all fields from the `/individual` endpoint. All fields are optional.
+            examples:
+              Example 1:
+                value:
+                  dob: 12/20/1989
   '/sandbox/employment/{individual_id}':
     parameters:
       - schema:
@@ -1233,6 +1252,10 @@ paths:
             schema:
               type: object
               description: Fields to update. Takes all fields from the `/employment` endpoint. All fields are optional.
+            examples:
+              Example 1:
+                value:
+                  start_date: 3/4/2020
   /sandbox/payment:
     post:
       summary: Add a new sandbox payment
@@ -1321,6 +1344,16 @@ paths:
                           x-stoplight:
                             id: 406ifctcz7rh9
                           type: object
+            examples:
+              Example 1:
+                value:
+                  pay_statements:
+                    - individual_id: b2338cfb-472f-4f72-9faa-e028c083144a
+                      employee_deductions:
+                        - name: 401k test
+                          type: 401k
+                          amount: 2000
+                          currency: usd
   /sandbox/jobs/configuration:
     get:
       summary: Get configurations for sandbox jobs
@@ -1353,6 +1386,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SandboxJobConfiguration'
+              examples:
+                Example 1:
+                  value:
+                    type: data_sync_all
+                    completion_status: success
       x-stoplight:
         id: mhl41onpvfwyt
       tags:
