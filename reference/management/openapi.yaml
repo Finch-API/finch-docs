@@ -291,15 +291,7 @@ paths:
                       type: object
                       properties:
                         type:
-                          type: string
-                          x-stoplight:
-                            id: lqscbpmokf77w
-                          description: The type of authentication method.
-                          enum:
-                            - credential
-                            - assisted
-                            - oauth
-                            - api_token
+                          $ref: '#/components/schemas/AuthenticationType'
                         connection_status:
                           type: object
                           x-stoplight:
@@ -315,17 +307,7 @@ paths:
                             `error_permissions` - [`assisted` only] This employer has added Finch successfully, but with improper permissions. Please instruct the employer to re-add Finch following the instructions in Finch Connect <br>
                           properties:
                             status:
-                              type: string
-                              x-stoplight:
-                                id: fpwf81zm4vufx
-                              enum:
-                                - pending
-                                - processing
-                                - connected
-                                - error_no_account_setup
-                                - error_permissions
-                                - reauth
-                                - unknown
+                              $ref: '#/components/schemas/ConnectionStatus'
                             message:
                               type: string
                               x-stoplight:
@@ -902,42 +884,45 @@ paths:
                     x-stoplight:
                       id: ojfhoewcu8cfi
                     format: uuid
-                  account:
-                    type: object
+                  account_id:
+                    type: string
                     x-stoplight:
-                      id: feqdw8zn2h8v5
-                    required:
-                      - account_id
-                      - authentication_type
-                      - products
-                      - access_token
-                    properties:
-                      account_id:
-                        type: string
-                        x-stoplight:
-                          id: tp65hkvb7kuyk
-                        format: uuid
-                      authentication_type:
-                        type: string
-                        x-stoplight:
-                          id: ui03urttdudm3
-                      products:
-                        type: array
-                        x-stoplight:
-                          id: kq4cjkrezzk1w
-                        items:
-                          x-stoplight:
-                            id: e78ioolzop4re
-                          type: string
-                      access_token:
-                        type: string
-                        x-stoplight:
-                          id: 7i8dxjftj0fd3
-                        format: uuid
+                      id: 9s6g9y13ugn6u
+                    format: uuid
+                  authentication_type:
+                    $ref: '#/components/schemas/AuthenticationType'
+                  products:
+                    type: array
+                    x-stoplight:
+                      id: 1slb646akbkew
+                    items:
+                      x-stoplight:
+                        id: 6y5gie5ir3y62
+                      type: string
+                  access_token:
+                    type: string
+                    x-stoplight:
+                      id: nrmhqhlpkuw22
+                    format: uuid
                 required:
                   - company_id
                   - provider_id
-                  - account
+                  - account_id
+                  - authentication_type
+                  - products
+                  - access_token
+              examples:
+                success:
+                  value:
+                    company_id: b2e6a1c3-1a5e-44ae-a8fd-81f76fd715cf
+                    provider_id: fe3d49af-4061-436b-ae60-f7044f252a44
+                    account_id: 449e7a5c-69d3-4b8a-aaaf-5c9b713ebc65
+                    authentication_type: api_token
+                    products:
+                      - 'employer:company'
+                      - 'employer:directory'
+                      - 'employer:individual'
+                    access_token: 7eb55bcf-6593-4040-afac-252ee1f78e20
       x-stoplight:
         id: prx8dxxl61uzs
       description: Create a new connection (new company/provider pair) with a new account
@@ -951,24 +936,16 @@ paths:
                   type: string
                   x-stoplight:
                     id: uun3x0odjceio
-                account:
-                  type: object
+                authentication_type:
+                  $ref: '#/components/schemas/AuthenticationType'
+                products:
+                  type: array
                   x-stoplight:
-                    id: 0ztvp3xl2n5z7
-                  description: 'Optional. If not provided, a default Oauth account with Organization scopes will be created'
-                  properties:
-                    authentication_type:
-                      type: string
-                      x-stoplight:
-                        id: iewin6olagru6
-                    products:
-                      type: array
-                      x-stoplight:
-                        id: f7i64upr7we78
-                      items:
-                        x-stoplight:
-                          id: uwskmkcmv8set
-                        type: string
+                    id: avt2ebodunkly
+                  items:
+                    x-stoplight:
+                      id: 3aqf1rqbk9lnu
+                    type: string
                 employer_size:
                   type: integer
                   x-stoplight:
@@ -993,15 +970,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  account_id:
-                    type: string
-                    x-stoplight:
-                      id: mcvmwla5cba05
-                    format: uuid
-                  authentication_type:
-                    type: string
-                    x-stoplight:
-                      id: y426otluxa4od
                   company_id:
                     type: string
                     x-stoplight:
@@ -1011,6 +979,13 @@ paths:
                     type: string
                     x-stoplight:
                       id: y0ypgpa5dueh3
+                  account_id:
+                    type: string
+                    x-stoplight:
+                      id: mcvmwla5cba05
+                    format: uuid
+                  authentication_type:
+                    $ref: '#/components/schemas/AuthenticationType'
                   products:
                     type: array
                     x-stoplight:
@@ -1024,6 +999,16 @@ paths:
                     x-stoplight:
                       id: kqh1a21inu49j
                     format: uuid
+              examples:
+                Example 1:
+                  value:
+                    company_id: b2e6a1c3-1a5e-44ae-a8fd-81f76fd715cf
+                    provider_id: string
+                    account_id: 449e7a5c-69d3-4b8a-aaaf-5c9b713ebc65
+                    authentication_type: credentials
+                    products:
+                      - company
+                    access_token: 7eb55bcf-6593-4040-afac-252ee1f78e20
       x-stoplight:
         id: oa8w9ocdh7gxy
       description: Create a new account for an existing connection (company/provider pair)
@@ -1042,12 +1027,8 @@ paths:
                   type: string
                   x-stoplight:
                     id: 8xrj1z96wb9o5
-                  format: uuid
                 authentication_type:
-                  type: string
-                  x-stoplight:
-                    id: 68yx6pv2yab8f
-                  description: 'Optional, defaults to `oauth`'
+                  $ref: '#/components/schemas/AuthenticationType'
                 products:
                   type: array
                   x-stoplight:
@@ -1065,21 +1046,51 @@ paths:
       security:
         - basicAuth: []
     parameters: []
-  '/sandbox/connections/accounts/{account_id}':
-    parameters:
-      - schema:
-          type: string
-        name: account_id
-        in: path
-        required: true
     put:
-      summary: Update an existing sandbox account
-      operationId: put-sandbox-connections-accounts-account_id
+      summary: Update a sandbox account
+      operationId: put-sandbox-connections-accounts
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account_id:
+                    type: string
+                    x-stoplight:
+                      id: 4ch2hzvpttece
+                  authentication_type:
+                    $ref: '#/components/schemas/AuthenticationType'
+                  company_id:
+                    type: string
+                    x-stoplight:
+                      id: xfsthrlkcp8s7
+                    format: uuid
+                  provider_id:
+                    type: string
+                    x-stoplight:
+                      id: ynm6785wgoflk
+                  products:
+                    type: array
+                    x-stoplight:
+                      id: p30ckl1xm5ei2
+                    items:
+                      x-stoplight:
+                        id: m8u40xcnl3wlk
+                      type: string
+              examples:
+                success:
+                  value:
+                    account_id: string
+                    authentication_type: credentials
+                    company_id: b2e6a1c3-1a5e-44ae-a8fd-81f76fd715cf
+                    provider_id: string
+                    products:
+                      - string
       x-stoplight:
-        id: o0gf0fenusl4j
+        id: 0mynrrdwnfb72
       description: Update an existing sandbox account
       requestBody:
         content:
@@ -1088,22 +1099,13 @@ paths:
               type: object
               properties:
                 connection_status:
-                  type: string
-                  x-stoplight:
-                    id: 882d594gc3feg
+                  $ref: '#/components/schemas/ConnectionStatus'
+            examples:
+              Example 1:
+                value:
+                  connection_status: reauth
       tags:
         - Sandbox
-    delete:
-      summary: Delete a sandbox account
-      operationId: delete-sandbox-connections-accounts-account_id
-      responses:
-        '200':
-          description: OK
-      x-stoplight:
-        id: 7b1tm4cft9hgk
-      tags:
-        - Sandbox
-      description: Delete a sandbox account
   /sandbox/company:
     put:
       summary: Update a sandbox company's data
@@ -1120,19 +1122,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties:
-                legal_name:
-                  type: string
-                  x-stoplight:
-                    id: 4k9zj2m8dl27r
-                ein:
-                  type: string
-                  x-stoplight:
-                    id: 254aetxb5l0ff
-                location:
-                  type: string
-                  x-stoplight:
-                    id: xdrd18b0ndxjz
+              description: The company fields to set. Takes all fields from the `/company` endpoint. All fields are optional.
   /sandbox/directory:
     post:
       summary: Add new individuals to a sandbox company
@@ -1144,23 +1134,11 @@ paths:
             application/json:
               schema:
                 type: array
+                description: The individuals which were created
                 items:
                   x-stoplight:
                     id: bzhypb0nsnbj4
                   type: object
-                  properties:
-                    individual_id:
-                      type: string
-                      x-stoplight:
-                        id: rmuy3y0n925zq
-                    first_name:
-                      type: string
-                      x-stoplight:
-                        id: x095pbtaoac53
-                    last_name:
-                      type: string
-                      x-stoplight:
-                        id: mg6d8cazl52uf
       x-stoplight:
         id: rxsjtho6i7tys
       tags:
@@ -1170,19 +1148,198 @@ paths:
           application/json:
             schema:
               type: array
+              description: Array of individuals to create. Takes all combined fields from `/individual` and `/employment` endpoints. All fields are optional.
               items:
                 x-stoplight:
                   id: hndy1lcdt3itt
                 type: object
-                properties:
-                  first_name:
-                    type: string
+    delete:
+      summary: Remove individuals from a company
+      operationId: delete-sandbox-directory
+      responses:
+        '200':
+          description: OK
+      x-stoplight:
+        id: x05esgm0ogshc
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              description: Array of individual ids to remove
+              items:
+                x-stoplight:
+                  id: 51u3ixg5n133e
+                type: string
+                format: uuid
+      tags:
+        - Sandbox
+  '/sandbox/individual/{individual_id}':
+    parameters:
+      - schema:
+          type: string
+        name: individual_id
+        in: path
+        required: true
+    put:
+      summary: Update sandbox individual
+      operationId: put-sandbox-individual-individual_id
+      responses:
+        '200':
+          description: OK
+      x-stoplight:
+        id: 4unl71g0bxryw
+      tags:
+        - Sandbox
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Fields to update. Takes all fields from the `/individual` endpoint. All fields are optional.
+  '/sandbox/employment/{individual_id}':
+    parameters:
+      - schema:
+          type: string
+        name: individual_id
+        in: path
+        required: true
+    put:
+      summary: Update sandbox employment
+      operationId: put-sandbox-employment-individual_id
+      responses:
+        '200':
+          description: OK
+      x-stoplight:
+        id: lepanl6p1tn04
+      tags:
+        - Sandbox
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Fields to update. Takes all fields from the `/employment` endpoint. All fields are optional.
+  /sandbox/payment:
+    post:
+      summary: Add a new sandbox payment
+      operationId: post-sandbox-payment
+      responses:
+        '200':
+          description: OK
+      x-stoplight:
+        id: udmtqvvm890sr
+      tags:
+        - Sandbox
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Fields to configure the payment. Takes all fields from the `/payment` endpoint. All fields are optional.
+              properties:
+                start_date:
+                  type: string
+                  x-stoplight:
+                    id: 32frda3g06vcd
+                end_date:
+                  type: string
+                  x-stoplight:
+                    id: zkhm9we7yzeyo
+                pay_statements:
+                  type: array
+                  x-stoplight:
+                    id: md80xr8erc6mz
+                  items:
                     x-stoplight:
-                      id: qig29vw5dftjh
-                  last_name:
-                    type: string
-                    x-stoplight:
-                      id: x81lmqazui6oh
+                      id: jt58461ni2ye6
+                    type: object
+                    properties:
+                      individual_id:
+                        type: string
+                        x-stoplight:
+                          id: y4dpayz91m43h
+                        format: uuid
+                      type:
+                        type: string
+                        x-stoplight:
+                          id: 4gfrdbgtpd9f9
+                      payment_method:
+                        type: string
+                        x-stoplight:
+                          id: 7vl3slmfr5mr0
+                      total_hours:
+                        type: number
+                        x-stoplight:
+                          id: o5xvrhiunfewv
+                      gross_pay:
+                        $ref: ../employer/openapi.yaml#/components/schemas/Money
+                      net_pay:
+                        $ref: ../employer/openapi.yaml#/components/schemas/Money
+                      earnings:
+                        type: array
+                        x-stoplight:
+                          id: 3k6facnymtklm
+                        items:
+                          x-stoplight:
+                            id: mp0rsbo2dvsvo
+                          type: object
+                      taxes:
+                        type: array
+                        x-stoplight:
+                          id: 9w8f9cp75i57d
+                        items:
+                          x-stoplight:
+                            id: nak9tuva5cggj
+                          type: object
+                      employee_deductions:
+                        type: array
+                        x-stoplight:
+                          id: vfn0d7eciuqmt
+                        items:
+                          x-stoplight:
+                            id: smbwygehmfl9u
+                          type: object
+                      employer_contributions:
+                        type: array
+                        x-stoplight:
+                          id: d8xcd9v69x4vf
+                        items:
+                          x-stoplight:
+                            id: 406ifctcz7rh9
+                          type: object
+  /sandbox/jobs/configuration:
+    get:
+      summary: Get configurations for sandbox jobs
+      tags:
+        - Sandbox
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SandboxJobConfiguration'
+      operationId: get-sandbox-jobs-configuration
+      x-stoplight:
+        id: 7a9g061y4frbl
+    put:
+      summary: Update configurations for sandbox jobs
+      operationId: put-sandbox-jobs-configuration
+      responses:
+        '200':
+          description: OK
+      x-stoplight:
+        id: mhl41onpvfwyt
+      tags:
+        - Sandbox
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxJobConfiguration'
 components:
   schemas:
     Paging:
@@ -1331,13 +1488,7 @@ components:
       type: object
       properties:
         type:
-          type: string
-          description: The type of authentication method.
-          enum:
-            - assisted
-            - credential
-            - api_token
-            - oauth
+          $ref: '#/components/schemas/AuthenticationType'
         benefits_support:
           $ref: '#/components/schemas/BenefitsSupport'
         supported_fields:
@@ -1806,6 +1957,45 @@ components:
           description: 'Specific information about the job, such as individual statuses for batch jobs.'
           nullable: true
           items: {}
+    AuthenticationType:
+      title: AuthenticationType
+      x-stoplight:
+        id: atlupll0dlij5
+      enum:
+        - credentials
+        - api_token
+        - oauth
+        - assisted
+    ConnectionStatus:
+      title: ConnectionStatus
+      x-stoplight:
+        id: eukf3vzdyxpnd
+      enum:
+        - pending
+        - processing
+        - connected
+        - error_no_account_setup
+        - error_permissions
+        - reauth
+    SandboxJobConfiguration:
+      title: SandboxJobConfiguration
+      x-stoplight:
+        id: rntyxu7e15yse
+      type: object
+      properties:
+        type:
+          x-stoplight:
+            id: 4ou204ev6gh5e
+          enum:
+            - data_sync_all
+        completion_status:
+          x-stoplight:
+            id: u5xc77mkjkila
+          enum:
+            - success
+            - reauth_error
+            - permissions_error
+            - error
   requestBodies:
     Forward:
       content:
