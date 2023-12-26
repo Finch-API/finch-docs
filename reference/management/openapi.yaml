@@ -1335,6 +1335,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SandboxJobConfiguration'
+              examples:
+                success:
+                  value:
+                    - type: data_sync_all
+                      completion_status: success
       operationId: get-sandbox-jobs-configuration
       x-stoplight:
         id: 7a9g061y4frbl
@@ -1344,6 +1349,10 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxJobConfiguration'
       x-stoplight:
         id: mhl41onpvfwyt
       tags:
@@ -1353,6 +1362,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SandboxJobConfiguration'
+            examples:
+              Example 1:
+                value:
+                  type: data_sync_all
+                  completion_status: success
 components:
   schemas:
     Paging:
