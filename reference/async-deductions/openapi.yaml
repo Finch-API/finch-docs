@@ -3,15 +3,15 @@ x-stoplight:
   id: qfaj92h0w3cut
 x-internal: false
 info:
-  title: Async Benefits API Reference
+  title: Async Deductions API Reference
   version: '2020-09-17'
   contact: {}
   description: |
-    > This document outlines the API reference for Finch's asynchronous Benefits API, which is used for managing payroll deductions. All mutative operations, such as creating deductions and managing enrollments, are supported on this asynchronous API. For details on facilitating read operations, please refer to the [HRIS API Reference](https://developer.tryfinch.com/docs/reference/0c7c919255262-hris-api-reference) documentation.
+    > This document outlines the API reference for Finch's asynchronous Deductions API, which is used for managing payroll deductions. All mutative operations, such as creating deductions and managing enrollments, are supported on this asynchronous API. For details on facilitating read operations, please refer to the [HRIS API Reference](https://developer.tryfinch.com/docs/reference/0c7c919255262-hris-api-reference) documentation.
 
-    The Benefits APIs provide a unified way to connect with payroll systems to create and manage payroll deductions.
+    The Deductions APIs provide a unified way to connect with payroll systems to create and manage payroll deductions.
 
-    Usage of the Benefits APIs requires an access token issued by Finch that has been granted the `benefits` product scope. Employer products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. The full list of valid product names are—
+    Usage of the Deductions APIs requires an access token issued by Finch that has been granted the `benefits` product scope. Employer products are specified by the product parameter, a space-separated list of products that your application requests from an employer authenticating through Finch Connect. The full list of valid product names are—
     - `company`: Read basic company data
 
     - `directory`: Read company directory and organization structure
@@ -24,7 +24,7 @@ info:
 
     - `pay_statement`: Read detailed pay statements for each individual
 
-    - `benefits`: Create and manage benefits and benefit enrollment within a company
+    - `benefits`: Create and manage deductions and deduction enrollments within a company
 servers:
   - url: 'https://api.tryfinch.com'
     description: ''
@@ -33,11 +33,11 @@ tags:
 paths:
   /employer/benefits:
     post:
-      summary: Create Benefit
+      summary: Create Deduction
       operationId: post-company-benefits
       responses:
         '201':
-          description: Successfully initiated request to create benefit.
+          description: Successfully initiated request to create deduction.
           content:
             application/json:
               schema:
@@ -45,7 +45,7 @@ paths:
                 properties:
                   benefit_id:
                     type: string
-                    description: A stable Finch `id` (UUID v4) representing the benefit.
+                    description: A stable Finch `id` (UUID v4) representing the deduction.
                   job_id:
                     type: string
                     description: A stable Finch `id` (UUID v4) representing the background job for asynchronously processing the requested operation.
@@ -79,17 +79,17 @@ paths:
                     code: 422
                     name: unprocessable_request_error
                     finch_code: unsupported_paramters
-                    message: Provider does not support benefit type '401k'
+                    message: Provider does not support deduction type '401k'
         '500':
           $ref: '#/components/responses/ServerError'
         '501':
           $ref: '#/components/responses/NotImplemented'
       description: |-
-        **Availability: Automated and Assisted Benefits providers**
+        **Availability: Automated and Assisted Deductions providers**
 
-        Creates a new company-wide benefit. Please use the `/meta` endpoint to view available types for each provider.
+        Creates a new company-wide deduction. Please use the `/meta` endpoint to view available types for each provider.
 
-        If the same request is made more than once with the same `benefit_type` and `description`, a new benefit will not be created. Finch will instead return the benefit id of the existing benefit.
+        If the same request is made more than once with the same `benefit_type` and `description`, a new deduction will not be created. Finch will instead return the benefit_id of the existing deduction.
 
         This request enqueues an asynchronous task that can be referenced using the returned `job_id` against the `/jobs/manual/{job_id}` endpoint. Processing time may vary from seconds to hours depending on the provider and system load.
       requestBody:
@@ -114,11 +114,11 @@ paths:
     parameters: []
   '/employer/benefits/{benefit_id}':
     post:
-      summary: Update Benefit
+      summary: Update Deduction
       operationId: update-company-benefits
       responses:
         '200':
-          description: Successfully initiated request to update benefit.
+          description: Successfully initiated request to update deduction.
           content:
             application/json:
               schema:
@@ -126,7 +126,7 @@ paths:
                 properties:
                   benefit_id:
                     type: string
-                    description: A stable Finch `id` (UUID v4) representing the benefit. This will match the `benefit_id` provided in the request.
+                    description: A stable Finch `id` (UUID v4) representing the deduction. This will match the `benefit_id` provided in the request.
                   job_id:
                     type: string
                     description: A stable Finch `id` (UUID v4) representing the background job for asynchronously processing the requested operation.
@@ -146,9 +146,9 @@ paths:
         '501':
           $ref: '#/components/responses/NotImplemented'
       description: |-
-        **Availability: Automated and Assisted Benefits providers**
+        **Availability: Automated and Assisted Deductions providers**
 
-        Updates an existing company-wide benefit
+        Updates an existing company-wide deduction
 
         This request enqueues an asynchronous task that can be referenced using the returned `job_id` against the `/jobs/manual/{job_id}` endpoint. Processing time may vary from seconds to hours depending on the provider and system load.
       requestBody:
@@ -175,7 +175,7 @@ paths:
         required: true
   '/employer/benefits/{benefit_id}/individuals':
     post:
-      summary: Enroll Individuals in Benefits
+      summary: Enroll Individuals in Deductions
       operationId: post-employer-individual-benefits-benefit_id
       responses:
         '200':
@@ -203,14 +203,14 @@ paths:
         '501':
           $ref: '#/components/responses/NotImplemented'
       description: |
-        **Availability: Automated and Assisted Benefits providers**
+        **Availability: Automated and Assisted Deductions providers**
 
-        Enroll an individual into a benefit. This is an overwrite operation. If the employee is already enrolled, the enrollment amounts will be adjusted. Making the same request multiple times will not enroll new benefits, but will continue to set the state of the existing enrollment.
+        Enroll an individual into a deduction. This is an overwrite operation. If the employee is already enrolled, the enrollment amounts will be adjusted. Making the same request multiple times will not enroll new deductions, but will continue to set the state of the existing enrollment.
 
         This request enqueues an asynchronous task that can be referenced using the returned `job_id` against the `/jobs/manual/{job_id}` endpoint. Processing time may vary from seconds to hours depending on the provider and system load.
 
         <!-- theme: warning -->
-        > Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
+        > Making changes to an individual's deductions may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
       tags:
         - 1. Deductions
       requestBody:
@@ -262,9 +262,9 @@ paths:
                         type: fixed
                         amount: 0
         description: |
-          Enrollment bodies have a common format for each benefit type, with a different `configuration` schema based on the benefit type. The configurations for each type are outlined below. These are general configurations and may vary per provider. Please use the `/meta` endpoint to view provider specific supported configurations.
+          Enrollment bodies have a common format for each deduction type, with a different `configuration` schema based on the deduction type. The configurations for each type are outlined below. These are general configurations and may vary per provider. Please use the `/meta` endpoint to view provider specific supported configurations.
 
-          **Retirement Benefits**
+          **Retirement Deductions**
 
           Includes 401(k), Roth 401(k), 403(b), Roth 403(b), 457, Roth 457, and Simple IRA
 
@@ -276,7 +276,7 @@ paths:
           `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points
           `catch_up`| `boolean` | Whether to enable catch up for this individual
           `annual_maximum`| `integer` (`nullable`)| The annual maximum in cents for this individual
-          `effective_date` | `string` (`nullable`) | The date which the benefit should take effect by (`mm/dd/yyyy`) **This field is currently only available for assisted benefits.**
+          `effective_date` | `string` (`nullable`) | The date which the deduction should take effect by (`mm/dd/yyyy`) **This field is currently only available for assisted deductions.**
 
           ***
 
@@ -291,11 +291,11 @@ paths:
           `catch_up`| `boolean` | Whether to enable catch up for this individual
           `annual_maximum`| `integer` (`nullable`) | The annual maximum in cents for this individual
           `annual_contribution_limit` | `string` (`nullable`) | Whether HSA is applied towards `individual` or `family`
-          `effective_date` | `string` (`nullable`) | The date which the benefit should take effect by (`mm/dd/yyyy`) **This field is currently only available for assisted benefits.**
+          `effective_date` | `string` (`nullable`) | The date which the deduction should take effect by (`mm/dd/yyyy`) **This field is currently only available for assisted deductions.**
 
           ***
 
-          **Section 125 Benefits, FSA, Custom Benefits**
+          **Section 125 Deductions, FSA, Custom Deductions**
 
           Field | Type | Description
           ------|------ | ----------
@@ -303,14 +303,14 @@ paths:
           `employee_deduction.amount`| `integer` | Deduction amount in cents (if `fixed`) or basis points (if `percent`)
           `company_contribution.type` | `string` | Contribution Type (`fixed` or `percent`)
           `company_contribution.amount`| `integer` | Contribution amount in cents (if `fixed`) or basis points
-          `effective_date` | `string` (`nullable`) | The date which the benefit should take effect by (`mm/dd/yyyy`) **This field is currently only available for assisted benefits.**
+          `effective_date` | `string` (`nullable`) | The date which the deduction should take effect by (`mm/dd/yyyy`) **This field is currently only available for assisted deductions.**
       parameters:
         - $ref: '#/components/parameters/API-Version'
         - $ref: '#/components/parameters/Content-Type'
       x-stoplight:
         id: s8q3gsrobqklj
     delete:
-      summary: Unenroll Individuals from Benefits
+      summary: Unenroll Individuals from Deductions
       operationId: delete-individual-benefits
       responses:
         '200':
@@ -338,14 +338,14 @@ paths:
         '501':
           $ref: '#/components/responses/NotImplemented'
       description: |-
-        **Availability: Automated and Assisted Benefits providers**
+        **Availability: Automated and Assisted Deductions providers**
 
-        Unenroll individuals from a benefit
+        Unenroll individuals from a deduction
 
         This request enqueues an asynchronous task that can be referenced using the returned `job_id` against the `/jobs/manual/{job_id}` endpoint. Processing time may vary from seconds to hours depending on the provider and system load.
 
         <!-- theme: warning -->
-        > Making changes to an individual's benefits may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
+        > Making changes to an individual's deductions may have tax consequences based on IRS regulations. Please consult a tax expert to ensure all changes being made to the system are compliant with local, state, and federal law.
       requestBody:
         content:
           application/json:
@@ -387,7 +387,7 @@ components:
                 finch_code: invalid_request
                 message: '[path_params:benefit_id]: Not a valid uuid'
     NotFound:
-      description: Benefit Not Found
+      description: Deduction Not Found
       content:
         application/json:
           schema:
@@ -411,7 +411,7 @@ components:
                 code: 422
                 name: unprocessable_request_error
                 finch_code: not_supported_by_provider
-                message: Provider does not support benefits
+                message: Provider does not support deductions
     ServerError:
       description: Internal Server Error
       content:
@@ -570,7 +570,7 @@ components:
         - custom_post_tax
         - custom_pre_tax
         - null
-      description: Type of benefit.
+      description: Type of deduction.
       x-tags:
         - Models
       nullable: true
@@ -617,7 +617,7 @@ components:
           nullable: true
         frequencies:
           type: array
-          description: The list of frequencies supported by the provider for this benefit
+          description: The list of frequencies supported by the provider for this deduction
           items:
             $ref: '#/components/schemas/BenefitFrequency'
         employee_deduction:
@@ -640,14 +640,14 @@ components:
               - percent
         annual_maximum:
           type: boolean
-          description: Whether the provider supports an annual maximum for this benefit.
+          description: Whether the provider supports an annual maximum for this deduction.
           nullable: true
         catch_up:
           type: boolean
-          description: Whether the provider supports catch up for this benefit. This field will only be true for retirement benefits.
+          description: Whether the provider supports catch up for this deduction. This field will only be true for retirement deductions.
           nullable: true
         hsa_contribution_limit:
-          description: Whether the provider supports HSA contribution limits. Empty if this feature is not supported for the benefit. This array only has values for HSA benefits.
+          description: Whether the provider supports HSA contribution limits. Empty if this feature is not supported for the deduction. This array only has values for HSA deductions.
           type: array
           nullable: true
           items:
@@ -692,18 +692,18 @@ components:
                 $ref: '#/components/schemas/BenefitContribution'
               annual_maximum:
                 type: integer
-                description: 'If the benefit supports annual maximum, the amount in cents for this individual.'
+                description: 'If the deduction supports annual maximum, the amount in cents for this individual.'
                 nullable: true
               catch_up:
                 type: boolean
-                description: 'If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled for this individual.'
+                description: 'If the deduction supports catch up (401k, 403b, etc.), whether catch up is enabled for this individual.'
                 nullable: true
               hsa_contribution_limit:
                 type: string
                 enum:
                   - individual
                   - family
-                description: Type for HSA contribution limit if the benefit is a HSA.
+                description: Type for HSA contribution limit if the deduction is a HSA.
                 nullable: true
       x-stoplight:
         id: bcgzdoh1kv0gk
@@ -729,7 +729,7 @@ components:
           code: 404
           name: not_found_error
           finch_code: individual_not_found
-          message: Individual not found for benefit
+          message: Individual not found for deduction
       x-stoplight:
         id: 87gfiqq5395zx
     ManualAsyncJob:
@@ -743,7 +743,7 @@ components:
           status: complete
           body:
             - individual_id: 46decc95-451e-44ef-baac-b228d778267f
-              message: Successfully updated benefit for individual
+              message: Successfully updated deduction for individual
       properties:
         job_id:
           type: string
