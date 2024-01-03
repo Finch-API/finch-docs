@@ -1126,6 +1126,11 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
       x-stoplight:
         id: gyzgeqxw1nu2n
       tags:
@@ -1183,6 +1188,20 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                description: The ids of the deleted individuals.
+                items:
+                  x-stoplight:
+                    id: xrjkvnf0y4uf6
+                  type: string
+                  format: uuid
+              examples:
+                Example 1:
+                  value:
+                    - 497f6eca-6276-4993-bfeb-53cbbbba6f08
       x-stoplight:
         id: x05esgm0ogshc
       requestBody:
