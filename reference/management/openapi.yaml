@@ -1407,6 +1407,18 @@ paths:
                   completion_status: success
 components:
   schemas:
+    SandboxPaymentResponse:
+      title: SandboxPaymentResponse
+      type: object
+      x-tags:
+        - Models
+      properties:
+        payment_id:
+          type: string
+          description: A stable Finch `id` (UUID v4) for the payment that was created.
+        pay_date:
+          type: string
+          description: The date the payment was made. Used for querying for the payment from the `/payment` endpoint.
     Paging:
       title: Paging
       type: object
