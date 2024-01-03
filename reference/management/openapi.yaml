@@ -2085,7 +2085,7 @@ components:
           x-stoplight:
             id: u5xc77mkjkila
           enum:
-            - success
+            - complete
             - reauth_error
             - permissions_error
             - error
