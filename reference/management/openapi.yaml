@@ -1126,6 +1126,10 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../employer/openapi.yaml#/components/schemas/Company
       x-stoplight:
         id: gyzgeqxw1nu2n
       tags:
@@ -1215,6 +1219,10 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../employer/openapi.yaml#/components/schemas/Individual
       x-stoplight:
         id: 4unl71g0bxryw
       tags:
@@ -1242,6 +1250,10 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../employer/openapi.yaml#/components/schemas/Employment
       x-stoplight:
         id: lepanl6p1tn04
       tags:
@@ -1263,6 +1275,10 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxPaymentResponse'
       x-stoplight:
         id: udmtqvvm890sr
       tags:

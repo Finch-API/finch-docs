@@ -73,7 +73,7 @@ paths:
                         account_type: checking
                         account_number: '98765432'
               schema:
-                - $ref: '#/components/schemas/Company'
+                $ref: '#/components/schemas/Company'
       summary: Company
       operationId: get-company
       tags:
@@ -182,7 +182,7 @@ paths:
           content:
             application/json:
               schema:
-                - $ref: '#/components/schemas/Individual'
+                $ref: '#/components/schemas/Individual'
               examples:
                 Success:
                   value:
@@ -321,7 +321,7 @@ paths:
                               value: L
                           source_id: '000001'
               schema:
-                - $ref: '#/components/schemas/Employment'
+                $ref: '#/components/schemas/Employment'
       summary: Employment
       operationId: get-employment
       tags:
