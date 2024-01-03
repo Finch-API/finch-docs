@@ -182,7 +182,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Individual'
+                responses:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      individual_id:
+                        type: string
+                      code:
+                        type: integer
+                      body:
+                        $ref: '#/components/schemas/Individual'
               examples:
                 Success:
                   value:
@@ -321,7 +331,17 @@ paths:
                               value: L
                           source_id: '000001'
               schema:
-                $ref: '#/components/schemas/Employment'
+                responses:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      individual_id:
+                        type: string
+                      code:
+                        type: integer
+                      body:
+                        $ref: '#/components/schemas/Employment'
       summary: Employment
       operationId: get-employment
       tags:
@@ -1451,7 +1471,7 @@ components:
                 message: Not Implemented
   schemas:
     Company:
-      title: CompanyResponse
+      title: Company
       x-tags:
         - Models 
       type: object
@@ -1558,220 +1578,201 @@ components:
                 description: 10-12 digit number to specify the bank account
                 nullable: true
     Individual:
+      title: Individual
       type: object
       properties:
-        responses:
-          type: array
-          items:
-            type: object
-            properties:
-              individual_id:
-                type: string
-              code:
-                type: integer
-              body:
+          type: object
+          properties:
+            id:
+              type: string
+              description: A stable Finch `id` (UUID v4) for an individual in the company.
+            first_name:
+              type: string
+              description: The legal first name of the individual.
+              nullable: true
+            middle_name:
+              type: string
+              description: The legal middle name of the individual.
+              nullable: true
+            last_name:
+              type: string
+              description: The legal last name of the individual.
+              nullable: true
+            preferred_name:
+              type: string
+              description: The preferred name of the individual.
+              nullable: true
+            emails:
+              type: array
+              nullable: true
+              items:
                 type: object
                 properties:
-                  id:
+                  data:
                     type: string
-                    description: A stable Finch `id` (UUID v4) for an individual in the company.
-                  first_name:
-                    type: string
-                    description: The legal first name of the individual.
-                    nullable: true
-                  middle_name:
-                    type: string
-                    description: The legal middle name of the individual.
-                    nullable: true
-                  last_name:
-                    type: string
-                    description: The legal last name of the individual.
-                    nullable: true
-                  preferred_name:
-                    type: string
-                    description: The preferred name of the individual.
-                    nullable: true
-                  emails:
-                    type: array
-                    nullable: true
-                    items:
-                      type: object
-                      properties:
-                        data:
-                          type: string
-                        type:
-                          type: string
-                          enum:
-                            - work
-                            - personal
-                  phone_numbers:
-                    type: array
-                    nullable: true
-                    items:
-                      type: object
-                      nullable: true
-                      properties:
-                        data:
-                          type: string
-                          nullable: false
-                        type:
-                          type: string
-                          enum:
-                            - work
-                            - personal
-                          nullable: false
-                  gender:
-                    type: string
-                    description: The gender of the individual.
-                    enum:
-                      - female
-                      - male
-                      - other
-                      - decline_to_specify
-                    nullable: true
-                  ethnicity:
+                  type:
                     type: string
                     enum:
-                      - asian
-                      - white
-                      - black_or_african_american
-                      - native_hawaiian_or_pacific_islander
-                      - american_indian_or_alaska_native
-                      - hispanic_or_latino
-                      - two_or_more_races
-                      - decline_to_specify
-                    description: The EEOC-defined ethnicity of the individual.
-                    nullable: true
-                  dob:
-                    $ref: '#/components/schemas/Date'
-                    nullable: true
-                  ssn:
+                      - work
+                      - personal
+            phone_numbers:
+              type: array
+              nullable: true
+              items:
+                type: object
+                nullable: true
+                properties:
+                  data:
                     type: string
-                    description: 'Social Security Number of the individual. This field is only available with the `ssn` scope enabled and the `options: { include: [''ssn''] }` param set in the body.'
-                    nullable: true
-                  encrypted_ssn:
+                    nullable: false
+                  type:
                     type: string
-                    description: 'Social Security Number of the individual in **encrypted** format. This field is only available with the `ssn` scope enabled and the `options: { include: [''ssn''] }` param set in the body.'
-                    nullable: true
-                  residence:
-                    $ref: '#/components/schemas/Location'
+                    enum:
+                      - work
+                      - personal
+                    nullable: false
+            gender:
+              type: string
+              description: The gender of the individual.
+              enum:
+                - female
+                - male
+                - other
+                - decline_to_specify
+              nullable: true
+            ethnicity:
+              type: string
+              enum:
+                - asian
+                - white
+                - black_or_african_american
+                - native_hawaiian_or_pacific_islander
+                - american_indian_or_alaska_native
+                - hispanic_or_latino
+                - two_or_more_races
+                - decline_to_specify
+              description: The EEOC-defined ethnicity of the individual.
+              nullable: true
+            dob:
+              $ref: '#/components/schemas/Date'
+              nullable: true
+            ssn:
+              type: string
+              description: 'Social Security Number of the individual. This field is only available with the `ssn` scope enabled and the `options: { include: [''ssn''] }` param set in the body.'
+              nullable: true
+            encrypted_ssn:
+              type: string
+              description: 'Social Security Number of the individual in **encrypted** format. This field is only available with the `ssn` scope enabled and the `options: { include: [''ssn''] }` param set in the body.'
+              nullable: true
+            residence:
+              $ref: '#/components/schemas/Location'
     Employment:
       type: object
       properties:
-        responses:
-          type: array
-          items:
-            type: object
-            properties:
-              individual_id:
-                type: string
-              code:
-                type: integer
-              body:
+          type: object
+          properties:
+            id:
+              type: string
+              description: "string\tA stable Finch `id` (UUID v4) for an individual in the company."
+            first_name:
+              type: string
+              description: The legal first name of the individual.
+              nullable: true
+            middle_name:
+              type: string
+              description: The legal middle name of the individual.
+              nullable: true
+            last_name:
+              type: string
+              description: The legal last name of the individual.
+              nullable: true
+            title:
+              type: string
+              description: The current title of the individual.
+              nullable: true
+            manager:
+              type: object
+              description: The manager object representing the manager of the individual within the org.
+              nullable: true
+              properties:
+                id:
+                  type: string
+                  description: A stable Finch `id` (UUID v4) for an individual in the company.
+                  pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
+            department:
+              type: object
+              description: The department object.
+              nullable: true
+              properties:
+                name:
+                  type: string
+                  description: The name of the department associated with the individual.
+                  nullable: true
+            employment:
+              type: object
+              description: The employment object.
+              nullable: true
+              properties:
+                type:
+                  type: string
+                  description: The main employment type of the individual.
+                  enum:
+                    - employee
+                    - contractor
+                  nullable: true
+                subtype:
+                  type: string
+                  description: "\tThe secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`."
+                  enum:
+                    - full_time
+                    - intern
+                    - part_time
+                    - temp
+                    - seasonal
+                    - individual_contractor
+                  nullable: true
+            start_date:
+              $ref: '#/components/schemas/Date'
+            end_date:
+              $ref: '#/components/schemas/Date'
+            is_active:
+              type: boolean
+              description: '`true` if the individual an an active employee or contractor at the company.'
+              nullable: true
+            class_code:
+              type: string
+              description: Worker's compensation classification code for this employee
+              nullable: true
+            location:
+              $ref: '#/components/schemas/Location'
+            income:
+              $ref: '#/components/schemas/Income'
+            income_history:
+              type: array
+              description: The array of income history.
+              nullable: true
+              items:
+                $ref: '#/components/schemas/Income'
+            custom_fields:
+              type: array
+              description: Custom fields for the individual. These are fields which are defined by the employer in the system. Custom fields are not currently supported for assisted connections.
+              items:
                 type: object
                 properties:
-                  id:
+                  name:
                     type: string
-                    description: "string\tA stable Finch `id` (UUID v4) for an individual in the company."
-                  first_name:
-                    type: string
-                    description: The legal first name of the individual.
                     nullable: true
-                  middle_name:
-                    type: string
-                    description: The legal middle name of the individual.
+                  value:
+                    type:
+                      - number
+                      - string
+                      - array
+                      - object
+                      - boolean
                     nullable: true
-                  last_name:
-                    type: string
-                    description: The legal last name of the individual.
-                    nullable: true
-                  title:
-                    type: string
-                    description: The current title of the individual.
-                    nullable: true
-                  manager:
-                    type: object
-                    description: The manager object representing the manager of the individual within the org.
-                    nullable: true
-                    properties:
-                      id:
-                        type: string
-                        description: A stable Finch `id` (UUID v4) for an individual in the company.
-                        pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
-                  department:
-                    type: object
-                    description: The department object.
-                    nullable: true
-                    properties:
-                      name:
-                        type: string
-                        description: The name of the department associated with the individual.
-                        nullable: true
-                  employment:
-                    type: object
-                    description: The employment object.
-                    nullable: true
-                    properties:
-                      type:
-                        type: string
-                        description: The main employment type of the individual.
-                        enum:
-                          - employee
-                          - contractor
-                        nullable: true
-                      subtype:
-                        type: string
-                        description: "\tThe secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`."
-                        enum:
-                          - full_time
-                          - intern
-                          - part_time
-                          - temp
-                          - seasonal
-                          - individual_contractor
-                        nullable: true
-                  start_date:
-                    $ref: '#/components/schemas/Date'
-                  end_date:
-                    $ref: '#/components/schemas/Date'
-                  is_active:
-                    type: boolean
-                    description: '`true` if the individual an an active employee or contractor at the company.'
-                    nullable: true
-                  class_code:
-                    type: string
-                    description: Worker's compensation classification code for this employee
-                    nullable: true
-                  location:
-                    $ref: '#/components/schemas/Location'
-                  income:
-                    $ref: '#/components/schemas/Income'
-                  income_history:
-                    type: array
-                    description: The array of income history.
-                    nullable: true
-                    items:
-                      $ref: '#/components/schemas/Income'
-                  custom_fields:
-                    type: array
-                    description: Custom fields for the individual. These are fields which are defined by the employer in the system. Custom fields are not currently supported for assisted connections.
-                    items:
-                      type: object
-                      properties:
-                        name:
-                          type: string
-                          nullable: true
-                        value:
-                          type:
-                            - number
-                            - string
-                            - array
-                            - object
-                            - boolean
-                          nullable: true
-                  source_id:
-                    type: string
-                    description: The source system's unique employment identifier for this individual
+            source_id:
+              type: string
+              description: The source system's unique employment identifier for this individual
     Location:
       title: Location
       type: object
