@@ -540,24 +540,24 @@ paths:
                 type: object
                 properties:
                     responses:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        payment_id:
-                          type: string
-                        code:
-                          type: integer
-                        body:
-                          type: object
-                          properties:
-                            paging:
-                              $ref: '#/components/schemas/Paging'
-                            pay_statements:
-                              type: array
-                              description: The array of pay statements for the current payment.
-                              items:
-                                $ref: '#/components/schemas/PayStatement'
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          payment_id:
+                            type: string
+                          code:
+                            type: integer
+                          body:
+                            type: object
+                            properties:
+                              paging:
+                                $ref: '#/components/schemas/Paging'
+                              pay_statements:
+                                type: array
+                                description: The array of pay statements for the current payment.
+                                items:
+                                  $ref: '#/components/schemas/PayStatement'
       summary: Pay Statement
       operationId: get-pay-statement
       tags:
