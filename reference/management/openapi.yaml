@@ -1129,7 +1129,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../employer/openapi.yaml#/components/schemas/Company
+                $ref: ../employer/openapi.yaml#/components/schemas/CompanyWithoutId
       x-stoplight:
         id: gyzgeqxw1nu2n
       tags:
@@ -1138,16 +1138,12 @@ paths:
         content:
           application/json:
             schema:
-              requestBody:
-                  content:
-                    application/json:
-                      schema:
-                        $ref: ../employer/openapi.yaml#/components/schemas/CompanyWithoutId
-                      examples:
-                        Example 1:
-                          value:
-                            legal_name: Profound Platform Inc
-                            ein: '123456789' 
+              $ref: ../employer/openapi.yaml#/components/schemas/CompanyWithoutId
+        examples:
+          Example 1:
+            value:
+              legal_name: Profound Platform Inc
+              ein: '123456789' 
   /sandbox/directory:
     post:
       summary: Add new individuals to a sandbox company
