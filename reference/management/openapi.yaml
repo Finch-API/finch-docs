@@ -1139,11 +1139,17 @@ paths:
           application/json:
             schema:
               $ref: ../employer/openapi.yaml#/components/schemas/CompanyWithoutId
+            examples:
+              Example 1:
+                value:
+                  legal_name: Acme Corporation
         examples:
           Example 1:
             value:
               legal_name: Profound Platform Inc
-              ein: '123456789' 
+              ein: '123456789'
+        description: Fields to configure company. Takes all fields from `/company`. All fields are optional.
+      description: ''
   /sandbox/directory:
     post:
       summary: Add new individuals to a sandbox company
@@ -1181,6 +1187,7 @@ paths:
                   - first_name: John
                     last_name: Smith
                     dob: 01/01/2000
+        description: 'Takes all fields from `/individual` and `/employment`. All fields are optional. If not provided, relevant fields will be populated with mock data.'
   '/sandbox/individual/{individual_id}':
     parameters:
       - schema:
@@ -1211,6 +1218,8 @@ paths:
               Example 1:
                 value:
                   dob: 12/20/1989
+        description: Fields to configure individual. Takes all fields from `/individual`. All fields are optional.
+      description: ''
   '/sandbox/employment/{individual_id}':
     parameters:
       - schema:
@@ -1240,7 +1249,10 @@ paths:
             examples:
               Example 1:
                 value:
-                  start_date: 3/4/2020
+                  end_date: 3/4/2020
+                  is_active: 'false'
+        description: Fields to configure employment. Takes all fields from `/employmen`. All fields are optional.
+      description: ''
   /sandbox/payment:
     post:
       summary: Add a new sandbox payment
@@ -1288,6 +1300,8 @@ paths:
                           type: 401k
                           amount: 2000
                           currency: usd
+        description: Fields to configure payment. All fields are optional.
+      description: ''
   /sandbox/jobs/configuration:
     get:
       summary: Get configurations for sandbox jobs
