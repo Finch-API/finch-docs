@@ -1138,6 +1138,7 @@ paths:
         content:
           application/json:
             schema:
+              description: Fields to configure the company. Takes all fields from the `/company` endpoint. All fields are optional.
               $ref: ../employer/openapi.yaml#/components/schemas/CompanyWithoutId
         examples:
           Example 1:
@@ -1207,6 +1208,7 @@ paths:
         content:
           application/json:
             schema:
+              description: Fields to configure the individual. Takes all fields from the `/individual` endpoint. All fields are optional.
               $ref: ../employer/openapi.yaml#/components/schemas/IndividualWithoutId
             examples:
               Example 1:
@@ -1237,6 +1239,7 @@ paths:
         content:
           application/json:
             schema:
+              description: Fields to configure the employment. Takes all fields from the `/employment` endpoint. All fields are optional.
               $ref: ../employer/openapi.yaml#/components/schemas/EmploymentWithoutId
             examples:
               Example 1:
