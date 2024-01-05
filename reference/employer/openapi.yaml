@@ -182,16 +182,19 @@ paths:
           content:
             application/json:
               schema:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      individual_id:
-                        type: string
-                      code:
-                        type: integer
-                      body:
-                        $ref: '#/components/schemas/Individual'
+                  type: object
+                  properties:
+                    responses:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          individual_id:
+                            type: string
+                          code:
+                            type: integer
+                          body:
+                            $ref: '#/components/schemas/Individual'
               examples:
                 Success:
                   value:
@@ -330,16 +333,19 @@ paths:
                               value: L
                           source_id: '000001'
               schema:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      individual_id:
-                        type: string
-                      code:
-                        type: integer
-                      body:
-                        $ref: '#/components/schemas/Employment'
+                  type: object
+                  properties:
+                    responses:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          individual_id:
+                            type: string
+                          code:
+                            type: integer
+                          body:
+                            $ref: '#/components/schemas/Employment'
       summary: Employment
       operationId: get-employment
       tags:
@@ -533,6 +539,7 @@ paths:
               schema:
                 type: object
                 properties:
+                    responses:
                     type: array
                     items:
                       type: object
