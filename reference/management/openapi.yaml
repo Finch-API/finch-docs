@@ -1181,31 +1181,6 @@ paths:
                   - first_name: John
                     last_name: Smith
                     dob: 01/01/2000
-    delete:
-      summary: Remove individuals from a company
-      operationId: delete-sandbox-directory
-      responses:
-        '200':
-          description: OK
-      x-stoplight:
-        id: x05esgm0ogshc
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              description: Array of individual ids to remove
-              items:
-                x-stoplight:
-                  id: 51u3ixg5n133e
-                type: string
-                format: uuid
-            examples:
-              Example 1:
-                value:
-                  - 497f6eca-6276-4993-bfeb-53cbbbba6f08
-      tags:
-        - Sandbox
   '/sandbox/individual/{individual_id}':
     parameters:
       - schema:
