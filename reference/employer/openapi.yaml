@@ -1327,12 +1327,12 @@ components:
         - Models 
       type: object
       allOf:
-      - $ref: '#/components/schemas/CompanyWithoutId'
       - type: object
         properties:
           id:
             type: string
             description: A stable Finch `id` (UUID v4) for the company.
+      - $ref: '#/components/schemas/CompanyWithoutId'
     CompanyWithoutId:
       properties:
         legal_name:
@@ -1520,13 +1520,13 @@ components:
     Individual:
       title: Individual
       allOf:
-        - $ref: '#/components/schemas/IndividualWithoutId'
         - type: object
           properties:
             id:
               type: string
               description: A stable Finch `id` (UUID v4) for an individual in the company.
               pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
+        - $ref: '#/components/schemas/IndividualWithoutId'
     EmploymentWithoutId:
       type: object
       properties:
@@ -1632,13 +1632,13 @@ components:
     Employment:
       title: Employment
       allOf:
-        - $ref: '#/components/schemas/EmploymentWithoutId'
         - type: object
           properties:
             id:
               type: string
               description: A stable Finch `id` (UUID v4) for an individual in the company.
               pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
+        - $ref: '#/components/schemas/EmploymentWithoutId'
     PayStatement:
       title: Pay Statement
       type: object
