@@ -1138,7 +1138,6 @@ paths:
         content:
           application/json:
             schema:
-              description: Fields to configure the company. Takes all fields from the `/company` endpoint. All fields are optional.
               $ref: ../employer/openapi.yaml#/components/schemas/CompanyWithoutId
         examples:
           Example 1:
@@ -1170,7 +1169,6 @@ paths:
           application/json:
             schema:
               type: array
-              description: Array of individuals to create. Takes all combined fields from `/individual` and `/employment` endpoints. All fields are optional.
               items:
                 x-stoplight:
                   id: hndy1lcdt3itt
@@ -1208,7 +1206,6 @@ paths:
         content:
           application/json:
             schema:
-              description: Fields to configure the individual. Takes all fields from the `/individual` endpoint. All fields are optional.
               $ref: ../employer/openapi.yaml#/components/schemas/IndividualWithoutId
             examples:
               Example 1:
@@ -1239,7 +1236,6 @@ paths:
         content:
           application/json:
             schema:
-              description: Fields to configure the employment. Takes all fields from the `/employment` endpoint. All fields are optional.
               $ref: ../employer/openapi.yaml#/components/schemas/EmploymentWithoutId
             examples:
               Example 1:
@@ -1265,7 +1261,6 @@ paths:
           application/json:
             schema:
               type: object
-              description: Fields to configure the payment. Takes all fields from the `/payment` endpoint. All fields are optional.
               properties:
                 start_date:
                   type: string
