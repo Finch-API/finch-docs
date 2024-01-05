@@ -1138,13 +1138,16 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              description: The company fields to set. Takes all fields from the `/company` endpoint. All fields are optional.
-            examples:
-              Example 1:
-                value:
-                  legal_name: Profound Platform Inc
-                  ein: '123456789'
+              requestBody:
+                  content:
+                    application/json:
+                      schema:
+                        $ref: ../employer/openapi.yaml#/components/schemas/CompanyWithoutId
+                      examples:
+                        Example 1:
+                          value:
+                            legal_name: Profound Platform Inc
+                            ein: '123456789' 
   /sandbox/directory:
     post:
       summary: Add new individuals to a sandbox company
@@ -1174,7 +1177,9 @@ paths:
               items:
                 x-stoplight:
                   id: hndy1lcdt3itt
-                type: object
+                allOf:
+                  - $ref: ../employer/openapi.yaml#/components/schemas/IndividualWithoutId
+                  - $ref: ../employer/openapi.yaml#/components/schemas/EmploymentWithoutId
             examples:
               Example 1:
                 value:
@@ -1206,8 +1211,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              description: Fields to update. Takes all fields from the `/individual` endpoint. All fields are optional.
+              $ref: ../employer/openapi.yaml#/components/schemas/IndividualWithoutId
             examples:
               Example 1:
                 value:
@@ -1237,8 +1241,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              description: Fields to update. Takes all fields from the `/employment` endpoint. All fields are optional.
+              $ref: ../employer/openapi.yaml#/components/schemas/EmploymentWithoutId
             examples:
               Example 1:
                 value:
@@ -1253,7 +1256,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SandboxPaymentResponse'
+                $ref: '#/components/schemas/PaymentIdentifiers'
       x-stoplight:
         id: udmtqvvm890sr
       tags:
@@ -1280,61 +1283,7 @@ paths:
                   items:
                     x-stoplight:
                       id: jt58461ni2ye6
-                    type: object
-                    properties:
-                      individual_id:
-                        type: string
-                        x-stoplight:
-                          id: y4dpayz91m43h
-                        format: uuid
-                      type:
-                        type: string
-                        x-stoplight:
-                          id: 4gfrdbgtpd9f9
-                      payment_method:
-                        type: string
-                        x-stoplight:
-                          id: 7vl3slmfr5mr0
-                      total_hours:
-                        type: number
-                        x-stoplight:
-                          id: o5xvrhiunfewv
-                      gross_pay:
-                        $ref: ../employer/openapi.yaml#/components/schemas/Money
-                      net_pay:
-                        $ref: ../employer/openapi.yaml#/components/schemas/Money
-                      earnings:
-                        type: array
-                        x-stoplight:
-                          id: 3k6facnymtklm
-                        items:
-                          x-stoplight:
-                            id: mp0rsbo2dvsvo
-                          type: object
-                      taxes:
-                        type: array
-                        x-stoplight:
-                          id: 9w8f9cp75i57d
-                        items:
-                          x-stoplight:
-                            id: nak9tuva5cggj
-                          type: object
-                      employee_deductions:
-                        type: array
-                        x-stoplight:
-                          id: vfn0d7eciuqmt
-                        items:
-                          x-stoplight:
-                            id: smbwygehmfl9u
-                          type: object
-                      employer_contributions:
-                        type: array
-                        x-stoplight:
-                          id: d8xcd9v69x4vf
-                        items:
-                          x-stoplight:
-                            id: 406ifctcz7rh9
-                          type: object
+                    $ref: ../employer/openapi.yaml#/components/schemas/PayStatement
             examples:
               Example 1:
                 value:
@@ -1398,8 +1347,8 @@ paths:
                   completion_status: success
 components:
   schemas:
-    SandboxPaymentResponse:
-      title: SandboxPaymentResponse
+    PaymentIdentifiers:
+      title: Payment Identifiers
       type: object
       x-tags:
         - Models

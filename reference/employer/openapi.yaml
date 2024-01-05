@@ -553,156 +553,7 @@ paths:
                               type: array
                               description: The array of pay statements for the current payment.
                               items:
-                                type: object
-                                properties:
-                                  individual_id:
-                                    type: string
-                                    description: A stable Finch `id` (UUID v4) for an individual in the company
-                                  type:
-                                    type: string
-                                    description: The type of the payment associated with the pay statement.
-                                    enum:
-                                      - regular_payroll
-                                      - off_cycle_payroll
-                                      - one_time_payment
-                                    nullable: true
-                                  payment_method:
-                                    type: string
-                                    description: The payment method.
-                                    enum:
-                                      - check
-                                      - direct_deposit
-                                    nullable: true
-                                  total_hours:
-                                    type: number
-                                    description: The number of hours worked for this pay period
-                                    nullable: true
-                                  gross_pay:
-                                    $ref: '#/components/schemas/Money'
-                                  net_pay:
-                                    $ref: '#/components/schemas/Money'
-                                  earnings:
-                                    type: array
-                                    description: The array of earnings objects associated with this pay statement
-                                    nullable: true
-                                    items:
-                                      type: object
-                                      nullable: true
-                                      properties:
-                                        type:
-                                          type: string
-                                          description: The type of earning.
-                                          enum:
-                                            - salary
-                                            - wage
-                                            - reimbursement
-                                            - overtime
-                                            - severance
-                                            - double_overtime
-                                            - pto
-                                            - sick
-                                            - bonus
-                                            - commission
-                                            - tips
-                                            - '1099'
-                                            - other
-                                          nullable: true
-                                        name:
-                                          type: string
-                                          description: The exact name of the earning from the pay statement.
-                                          nullable: true
-                                        amount:
-                                          type: integer
-                                          description: The earnings amount in cents.
-                                          nullable: true
-                                        currency:
-                                          type: string
-                                          description: The earnings currency code.
-                                          nullable: true
-                                        hours:
-                                          type: number
-                                          description: 'The number of hours associated with this earning. (For salaried employees, this could be hours per pay period, `0` or `null`, depending on the provider).'
-                                          nullable: true
-                                  taxes:
-                                    type: array
-                                    description: The array of taxes objects associated with this pay statement.
-                                    nullable: true
-                                    items:
-                                      type: object
-                                      nullable: true
-                                      properties:
-                                        type:
-                                          type: string
-                                          description: The type of taxes.
-                                          enum:
-                                            - state
-                                            - federal
-                                            - local
-                                            - fica
-                                          nullable: true
-                                        name:
-                                          type: string
-                                          description: The exact name of tax from the pay statement.
-                                          nullable: true
-                                        employer:
-                                          type: boolean
-                                          description: '`true` if the amount is paid by the employers.'
-                                          nullable: true
-                                        amount:
-                                          type: integer
-                                          description: The tax amount in cents.
-                                          nullable: true
-                                        currency:
-                                          type: string
-                                          description: The currency code.
-                                          nullable: true
-                                  employee_deductions:
-                                    type: array
-                                    description: The array of deductions objects associated with this pay statement.
-                                    nullable: true
-                                    items:
-                                      type: object
-                                      nullable: true
-                                      properties:
-                                        name:
-                                          type: string
-                                          description: The deduction name from the pay statement.
-                                          nullable: true
-                                        amount:
-                                          type: integer
-                                          description: The deduction amount in cents.
-                                          nullable: true
-                                        currency:
-                                          type: string
-                                          description: The deduction currency.
-                                          nullable: true
-                                        pre_tax:
-                                          type: boolean
-                                          description: Boolean indicating if the deduction is pre-tax.
-                                          nullable: true
-                                        type:
-                                          $ref: '#/components/schemas/BenefitType'
-                                  employer_contributions:
-                                    type: array
-                                    nullable: true
-                                    items:
-                                      type: object
-                                      nullable: true
-                                      properties:
-                                        name:
-                                          type: string
-                                          description: The contribution name from the pay statement.
-                                          nullable: true
-                                        amount:
-                                          type: integer
-                                          description: The contribution amount in cents.
-                                          nullable: true
-                                        currency:
-                                          type: string
-                                          description: The contribution currency.
-                                          nullable: true
-                                        type:
-                                          $ref: '#/components/schemas/BenefitType'
+                                $ref: '#/components/schemas/PayStatement'
       summary: Pay Statement
       operationId: get-pay-statement
       tags:
@@ -1475,10 +1326,15 @@ components:
       x-tags:
         - Models 
       type: object
+      allOf:
+      - $ref: '#/components/schemas/CompanyWithoutId'
+      - type: object
+        properties:
+          id:
+            type: string
+            description: A stable Finch `id` (UUID v4) for the company.
+    CompanyWithoutId:
       properties:
-        id:
-          type: string
-          description: A stable Finch `id` (UUID v4) for the company.
         legal_name:
           type: string
           description: The legal name of the company.
@@ -1577,13 +1433,10 @@ components:
                 type: string
                 description: 10-12 digit number to specify the bank account
                 nullable: true
-    Individual:
+    IndividualWithoutId:
       title: Individual
       type: object
       properties:
-        id:
-          type: string
-          description: A stable Finch `id` (UUID v4) for an individual in the company.
         first_name:
           type: string
           description: The legal first name of the individual.
@@ -1664,13 +1517,19 @@ components:
           nullable: true
         residence:
           $ref: '#/components/schemas/Location'
-    Employment:
-      title: Employment
+    Individual:
+      title: Individual
+      allOf:
+        - $ref: '#/components/schemas/IndividualWithoutId'
+        - type: object
+          properties:
+            id:
+              type: string
+              description: A stable Finch `id` (UUID v4) for an individual in the company.
+              pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
+    EmploymentWithoutId:
       type: object
       properties:
-        id:
-          type: string
-          description: "string\tA stable Finch `id` (UUID v4) for an individual in the company."
         first_name:
           type: string
           description: The legal first name of the individual.
@@ -1770,6 +1629,172 @@ components:
         source_id:
           type: string
           description: The source system's unique employment identifier for this individual
+    Employment:
+      title: Employment
+      allOf:
+        - $ref: '#/components/schemas/EmploymentWithoutId'
+        - type: object
+          properties:
+            id:
+              type: string
+              description: A stable Finch `id` (UUID v4) for an individual in the company.
+              pattern: '[0-9a-f]{8}[-]?(?:[0-9a-f]{4}[-]?){3}[0-9a-f]{12}'
+    PayStatement:
+      title: Pay Statement
+      type: object
+      properties:
+        individual_id:
+          type: string
+          description: A stable Finch `id` (UUID v4) for an individual in the company
+        type:
+          type: string
+          description: The type of the payment associated with the pay statement.
+          enum:
+            - regular_payroll
+            - off_cycle_payroll
+            - one_time_payment
+            - null
+          nullable: true
+        payment_method:
+          type: string
+          description: The payment method.
+          enum:
+            - check
+            - direct_deposit
+            - null
+          nullable: true
+        total_hours:
+          type: number
+          description: The number of hours worked for this pay period
+          nullable: true
+        gross_pay:
+          $ref: '#/components/schemas/Money'
+        net_pay:
+          $ref: '#/components/schemas/Money'
+        earnings:
+          type: array
+          description: The array of earnings objects associated with this pay statement
+          nullable: true
+          items:
+            type: object
+            nullable: true
+            properties:
+              type:
+                type: string
+                description: The type of earning.
+                enum:
+                  - salary
+                  - wage
+                  - reimbursement
+                  - overtime
+                  - severance
+                  - double_overtime
+                  - pto
+                  - sick
+                  - bonus
+                  - commission
+                  - tips
+                  - '1099'
+                  - other
+                  - null
+                nullable: true
+              name:
+                type: string
+                description: The exact name of the deduction from the pay statement.
+                nullable: true
+              amount:
+                type: integer
+                description: The earnings amount in cents.
+                nullable: true
+              currency:
+                type: string
+                description: The earnings currency code.
+                nullable: true
+              hours:
+                type: number
+                description: 'The number of hours associated with this earning. (For salaried employees, this could be hours per pay period, `0` or `null`, depending on the provider).'
+                nullable: true
+        taxes:
+          type: array
+          description: The array of taxes objects associated with this pay statement.
+          nullable: true
+          items:
+            type: object
+            nullable: true
+            properties:
+              type:
+                type: string
+                description: The type of taxes.
+                enum:
+                  - state
+                  - federal
+                  - local
+                  - fica
+                  - null
+                nullable: true
+              name:
+                type: string
+                description: The exact name of tax from the pay statement.
+                nullable: true
+              employer:
+                type: boolean
+                description: '`true` if the amount is paid by the employers.'
+                nullable: true
+              amount:
+                type: integer
+                description: The tax amount in cents.
+                nullable: true
+              currency:
+                type: string
+                description: The currency code.
+                nullable: true
+        employee_deductions:
+          type: array
+          description: The array of deductions objects associated with this pay statement.
+          nullable: true
+          items:
+            type: object
+            nullable: true
+            properties:
+              name:
+                type: string
+                description: The deduction name from the pay statement.
+                nullable: true
+              amount:
+                type: integer
+                description: The deduction amount in cents.
+                nullable: true
+              currency:
+                type: string
+                description: The deduction currency.
+                nullable: true
+              pre_tax:
+                type: boolean
+                description: Boolean indicating if the deduction is pre-tax.
+                nullable: true
+              type:
+                $ref: '#/components/schemas/BenefitType'
+        employer_contributions:
+          type: array
+          nullable: true
+          items:
+            type: object
+            nullable: true
+            properties:
+              name:
+                type: string
+                description: The contribution name from the pay statement.
+                nullable: true
+              amount:
+                type: integer
+                description: The contribution amount in cents.
+                nullable: true
+              currency:
+                type: string
+                description: The contribution currency.
+                nullable: true
+              type:
+                $ref: '#/components/schemas/BenefitType'
     Location:
       title: Location
       type: object
