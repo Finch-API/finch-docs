@@ -182,7 +182,6 @@ paths:
           content:
             application/json:
               schema:
-                responses:
                   type: array
                   items:
                     type: object
@@ -331,7 +330,6 @@ paths:
                               value: L
                           source_id: '000001'
               schema:
-                responses:
                   type: array
                   items:
                     type: object
@@ -535,7 +533,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  responses:
                     type: array
                     items:
                       type: object
