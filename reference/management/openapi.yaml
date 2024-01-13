@@ -226,7 +226,7 @@ paths:
                               type: true
                               pre_tax: true
                               currency: true
-                            employer_deductions:
+                            employer_contributions:
                               name: true
                               amount: true
                               currency: true
@@ -1818,7 +1818,7 @@ components:
                   type: boolean
                 currency:
                   type: boolean
-            employer_deductions:
+            employer_contributions:
               type: object
               properties:
                 name:
