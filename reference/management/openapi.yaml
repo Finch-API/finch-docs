@@ -226,6 +226,10 @@ paths:
                               type: true
                               pre_tax: true
                               currency: true
+                            employer_contributions:
+                              name: true
+                              amount: true
+                              currency: true
                             employer_deductions:
                               name: true
                               amount: true
@@ -1818,8 +1822,19 @@ components:
                   type: boolean
                 currency:
                   type: boolean
+            employer_contributions:
+              type: object
+              properties:
+                name:
+                  type: boolean
+                amount:
+                  type: boolean
+                currency:
+                  type: boolean
             employer_deductions:
               type: object
+              deprecated: true
+              description: '[DEPRECATED] Use `employer_contributions` instead'
               properties:
                 name:
                   type: boolean
