@@ -1834,7 +1834,7 @@ components:
             employer_deductions:
               type: object
               deprecated: true
-              description: Deprecated. Use `employer_contributions` instead.
+              description: '[DEPRECATED] Use `employer_contributions` instead'
               properties:
                 name:
                   type: boolean
