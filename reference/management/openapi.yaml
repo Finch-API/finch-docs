@@ -230,6 +230,10 @@ paths:
                               name: true
                               amount: true
                               currency: true
+                            employer_deductions:
+                              name: true
+                              amount: true
+                              currency: true
                             taxes:
                               type: true
                               name: true
@@ -1820,6 +1824,17 @@ components:
                   type: boolean
             employer_contributions:
               type: object
+              properties:
+                name:
+                  type: boolean
+                amount:
+                  type: boolean
+                currency:
+                  type: boolean
+            employer_deductions:
+              type: object
+              deprecated: true
+              description: Deprecated. Use `employer_contributions` instead.
               properties:
                 name:
                   type: boolean
