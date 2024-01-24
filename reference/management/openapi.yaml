@@ -1016,7 +1016,7 @@ paths:
                     company_id: b2e6a1c3-1a5e-44ae-a8fd-81f76fd715cf
                     provider_id: string
                     account_id: 449e7a5c-69d3-4b8a-aaaf-5c9b713ebc65
-                    authentication_type: credentials
+                    authentication_type: credential
                     products:
                       - company
                     access_token: 7eb55bcf-6593-4040-afac-252ee1f78e20
@@ -1101,7 +1101,7 @@ paths:
                 success:
                   value:
                     account_id: string
-                    authentication_type: credentials
+                    authentication_type: credential
                     company_id: b2e6a1c3-1a5e-44ae-a8fd-81f76fd715cf
                     provider_id: string
                     products:
@@ -2002,7 +2002,7 @@ components:
       x-stoplight:
         id: atlupll0dlij5
       enum:
-        - credentials
+        - credential
         - api_token
         - oauth
         - assisted
