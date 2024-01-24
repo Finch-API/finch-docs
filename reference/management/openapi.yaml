@@ -950,7 +950,7 @@ paths:
                     x-stoplight:
                       id: 3aqf1rqbk9lnu
                     type: string
-                employer_size:
+                employee_size:
                   type: integer
                   x-stoplight:
                     id: 3rhgbz7ot0lxv
